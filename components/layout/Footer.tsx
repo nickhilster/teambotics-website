@@ -1,0 +1,22 @@
+import Link from "next/link";
+import { Container } from "./Container";
+import { footerLinks, siteConfig } from "@/lib/config";
+
+export function Footer() {
+  return (
+    <footer className="site-footer">
+      <Container className="site-footer__inner">
+        <p>© 2025 Teambotics — Applied AI Systems</p>
+        <nav aria-label="Footer">
+          {footerLinks.map((link) => (
+            <Link key={link.label} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
+          <Link href={siteConfig.socials.github}>GitHub</Link>
+          <Link href={siteConfig.socials.linkedin}>LinkedIn</Link>
+        </nav>
+      </Container>
+    </footer>
+  );
+}
