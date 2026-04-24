@@ -4,6 +4,7 @@ import { HeroNeuralNetwork } from "@/components/animation/HeroNeuralNetwork";
 import { HeroSpotlight } from "@/components/animation/HeroSpotlight";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
+import { HeroLabButton } from "./HeroLabButton";
 
 export function HeroSection() {
   return (
@@ -13,12 +14,7 @@ export function HeroSection() {
       <div className="hero__glow" aria-hidden="true" />
       <div className="hero__glow hero__glow--secondary" aria-hidden="true" />
       <Container className="hero__inner">
-        <div className="hero-pill">
-          <span className="hero-pill__dot">
-            <span />
-          </span>
-          APPLIED AI SYSTEMS LAB
-        </div>
+        <HeroLabButton />
         <TextReveal
           as="h1"
           className="hero__title"
@@ -38,8 +34,14 @@ export function HeroSection() {
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
-          <Button href="#live-systems">View Live Systems</Button>
-          <Button href="#capabilities" variant="ghost">
+          <Button className="hero__action-button hero__action-button--primary" href="#live-systems">
+            View Live Systems
+          </Button>
+          <Button
+            className="hero__action-button hero__action-button--ghost"
+            href="#capabilities"
+            variant="ghost"
+          >
             Capabilities
           </Button>
         </SectionReveal>

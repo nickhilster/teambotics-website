@@ -1,4 +1,52 @@
 export function HeroNeuralNetwork() {
+  const strands = [
+    "hero-network__strand--blue hero-network__strand--w6 hero-network__strand--speed-2",
+    "hero-network__strand--violet hero-network__strand--w5 hero-network__strand--speed-1",
+    "hero-network__strand--ice hero-network__strand--w4 hero-network__strand--speed-3",
+    "hero-network__strand--blue hero-network__strand--w5 hero-network__strand--speed-4",
+    "hero-network__strand--blue hero-network__strand--w5 hero-network__strand--speed-2",
+    "hero-network__strand--violet hero-network__strand--w6 hero-network__strand--speed-1",
+    "hero-network__strand--ice hero-network__strand--w4 hero-network__strand--speed-3",
+    "hero-network__strand--ice hero-network__strand--w5 hero-network__strand--speed-2",
+    "hero-network__strand--blue hero-network__strand--w6 hero-network__strand--speed-4",
+    "hero-network__strand--blue hero-network__strand--w7 hero-network__strand--speed-1",
+    "hero-network__strand--violet hero-network__strand--w4 hero-network__strand--speed-3",
+    "hero-network__strand--violet hero-network__strand--w5 hero-network__strand--speed-2",
+    "hero-network__strand--ice hero-network__strand--w4 hero-network__strand--speed-4",
+    "hero-network__strand--ice hero-network__strand--w6 hero-network__strand--speed-1",
+    "hero-network__strand--blue hero-network__strand--w5 hero-network__strand--speed-2",
+    "hero-network__strand--blue hero-network__strand--w5 hero-network__strand--speed-4",
+    "hero-network__strand--violet hero-network__strand--w4 hero-network__strand--speed-1",
+    "hero-network__strand--violet hero-network__strand--w4 hero-network__strand--speed-3",
+    "hero-network__strand--ice hero-network__strand--w4 hero-network__strand--speed-2",
+    "hero-network__strand--ice hero-network__strand--w5 hero-network__strand--speed-4",
+    "hero-network__strand--blue hero-network__strand--w4 hero-network__strand--speed-1",
+  ];
+
+  const strandPaths = [
+    "M -164 56 C 74 100, 310 194, 600 380",
+    "M 154 -102 C 314 26, 444 184, 600 380",
+    "M 626 -168 C 630 48, 620 212, 600 380",
+    "M 878 -128 C 778 46, 694 200, 600 380",
+    "M 1096 -78 C 914 84, 760 222, 600 380",
+    "M 1386 36 C 1088 164, 838 262, 600 380",
+    "M 1438 212 C 1112 266, 862 314, 600 380",
+    "M 1460 382 C 1120 372, 860 372, 600 380",
+    "M 1424 560 C 1080 510, 844 454, 600 380",
+    "M 1332 786 C 1038 640, 810 518, 600 380",
+    "M 948 918 C 810 704, 708 556, 600 380",
+    "M 714 970 C 672 754, 638 592, 600 380",
+    "M 520 952 C 552 734, 578 584, 600 380",
+    "M 302 936 C 420 730, 506 578, 600 380",
+    "M 86 942 C 246 740, 412 566, 600 380",
+    "M -128 822 C 192 660, 386 534, 600 380",
+    "M -190 620 C 124 548, 352 474, 600 380",
+    "M -230 414 C 88 430, 344 420, 600 380",
+    "M -198 238 C 116 286, 352 332, 600 380",
+    "M -154 74 C 104 144, 336 234, 600 380",
+    "M 354 -166 C 438 -4, 516 176, 600 380",
+  ];
+
   return (
     <div aria-hidden="true" className="hero-network">
       <svg
@@ -8,111 +56,52 @@ export function HeroNeuralNetwork() {
       >
         <defs>
           <linearGradient id="strand-blue" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stopColor="rgba(69, 148, 255, 0.08)" />
-            <stop offset="38%" stopColor="rgba(111, 196, 255, 0.78)" />
-            <stop offset="72%" stopColor="rgba(132, 120, 255, 0.78)" />
-            <stop offset="100%" stopColor="rgba(91, 157, 255, 0.08)" />
+            <stop offset="0%" stopColor="var(--hero-strand-blue-start)" />
+            <stop offset="38%" stopColor="var(--hero-strand-blue-mid)" />
+            <stop offset="72%" stopColor="var(--hero-strand-blue-accent)" />
+            <stop offset="100%" stopColor="var(--hero-strand-blue-end)" />
           </linearGradient>
           <linearGradient id="strand-violet" x1="100%" x2="0%" y1="0%" y2="100%">
-            <stop offset="0%" stopColor="rgba(119, 106, 255, 0.1)" />
-            <stop offset="48%" stopColor="rgba(120, 181, 255, 0.78)" />
-            <stop offset="100%" stopColor="rgba(143, 124, 255, 0.1)" />
+            <stop offset="0%" stopColor="var(--hero-strand-violet-start)" />
+            <stop offset="48%" stopColor="var(--hero-strand-violet-mid)" />
+            <stop offset="100%" stopColor="var(--hero-strand-violet-end)" />
           </linearGradient>
           <radialGradient id="node-blue" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(217, 241, 255, 0.95)" />
-            <stop offset="55%" stopColor="rgba(113, 192, 255, 0.72)" />
-            <stop offset="100%" stopColor="rgba(113, 192, 255, 0)" />
+            <stop offset="0%" stopColor="var(--hero-node-blue-core)" />
+            <stop offset="55%" stopColor="var(--hero-node-blue-mid)" />
+            <stop offset="100%" stopColor="var(--hero-node-blue-edge)" />
           </radialGradient>
           <radialGradient id="node-violet" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="rgba(232, 221, 255, 0.92)" />
-            <stop offset="55%" stopColor="rgba(148, 128, 255, 0.66)" />
-            <stop offset="100%" stopColor="rgba(148, 128, 255, 0)" />
+            <stop offset="0%" stopColor="var(--hero-node-violet-core)" />
+            <stop offset="55%" stopColor="var(--hero-node-violet-mid)" />
+            <stop offset="100%" stopColor="var(--hero-node-violet-edge)" />
           </radialGradient>
         </defs>
 
-        <g className="hero-network__group hero-network__group--slow">
+        {strandPaths.map((path, index) => (
           <path
-            className="hero-network__strand hero-network__strand--blue hero-network__strand--w6"
-            d="M 72 124 C 232 68, 364 194, 514 282 S 848 468, 1132 176"
+            className={`hero-network__strand ${strands[index]}`}
+            d={path}
+            key={path}
             pathLength="100"
           />
-          <path
-            className="hero-network__strand hero-network__strand--blue hero-network__strand--w5"
-            d="M 48 304 C 202 208, 354 226, 528 360 S 838 624, 1160 464"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--violet hero-network__strand--w7"
-            d="M 122 666 C 294 526, 426 522, 598 414 S 868 204, 1104 84"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--blue hero-network__strand--w4"
-            d="M 184 46 C 334 176, 444 286, 642 326 S 952 282, 1140 352"
-            pathLength="100"
-          />
-        </g>
-
-        <g className="hero-network__group hero-network__group--medium">
-          <path
-            className="hero-network__strand hero-network__strand--blue hero-network__strand--w7"
-            d="M 84 520 C 264 418, 430 404, 610 296 S 934 108, 1094 224"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--violet hero-network__strand--w5"
-            d="M 168 736 C 348 592, 460 542, 632 510 S 914 472, 1060 622"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--ice hero-network__strand--w4"
-            d="M 8 212 C 196 248, 386 344, 572 306 S 868 148, 1190 250"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--violet hero-network__strand--w6"
-            d="M 210 104 C 384 232, 488 374, 646 450 S 914 598, 1184 548"
-            pathLength="100"
-          />
-        </g>
-
-        <g className="hero-network__group hero-network__group--fast">
-          <path
-            className="hero-network__strand hero-network__strand--ice hero-network__strand--w5"
-            d="M 40 606 C 244 498, 402 464, 560 398 S 846 260, 1182 326"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--blue hero-network__strand--w4"
-            d="M 116 136 C 292 236, 426 332, 604 324 S 874 170, 1048 118"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--violet hero-network__strand--w5"
-            d="M 182 690 C 356 564, 454 430, 644 342 S 914 232, 1052 54"
-            pathLength="100"
-          />
-          <path
-            className="hero-network__strand hero-network__strand--ice hero-network__strand--w6"
-            d="M 24 408 C 224 354, 382 350, 562 430 S 864 626, 1188 556"
-            pathLength="100"
-          />
-        </g>
+        ))}
 
         <g className="hero-network__nodes hero-network__nodes--blue">
-          <circle className="hero-network__node hero-network__node--lg" cx="290" cy="214" r="24" />
-          <circle className="hero-network__node hero-network__node--md" cx="544" cy="314" r="18" />
-          <circle className="hero-network__node hero-network__node--sm" cx="852" cy="248" r="14" />
-          <circle className="hero-network__node hero-network__node--sm" cx="714" cy="512" r="14" />
-          <circle className="hero-network__node hero-network__node--md" cx="954" cy="418" r="18" />
+          <circle className="hero-network__node hero-network__node--lg" cx="286" cy="220" r="22" />
+          <circle className="hero-network__node hero-network__node--md" cx="518" cy="286" r="16" />
+          <circle className="hero-network__node hero-network__node--sm" cx="762" cy="246" r="12" />
+          <circle className="hero-network__node hero-network__node--sm" cx="710" cy="502" r="12" />
+          <circle className="hero-network__node hero-network__node--md" cx="930" cy="464" r="16" />
         </g>
 
         <g className="hero-network__nodes hero-network__nodes--violet">
-          <circle className="hero-network__node hero-network__node--lg" cx="438" cy="534" r="24" />
-          <circle className="hero-network__node hero-network__node--md" cx="652" cy="204" r="18" />
-          <circle className="hero-network__node hero-network__node--sm" cx="202" cy="576" r="14" />
-          <circle className="hero-network__node hero-network__node--sm" cx="1032" cy="158" r="14" />
-          <circle className="hero-network__node hero-network__node--md" cx="1096" cy="516" r="18" />
+          <circle className="hero-network__node hero-network__node--lg" cx="446" cy="556" r="22" />
+          <circle className="hero-network__node hero-network__node--md" cx="648" cy="216" r="16" />
+          <circle className="hero-network__node hero-network__node--sm" cx="188" cy="564" r="12" />
+          <circle className="hero-network__node hero-network__node--sm" cx="1016" cy="168" r="12" />
+          <circle className="hero-network__node hero-network__node--md" cx="1064" cy="604" r="16" />
+          <circle className="hero-network__node hero-network__node--sm" cx="600" cy="380" r="10" />
         </g>
       </svg>
     </div>
