@@ -1,4 +1,3 @@
-import { InteractionLayer } from "@/components/animation/InteractionLayer";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MotionProvider } from "@/components/animation/MotionProvider";
@@ -14,7 +13,6 @@ export default function SiteLayout({
   return (
     <ThemeProvider>
       <MotionProvider>
-        <InteractionLayer />
         <PageTransition>
           <div className="site-shell">
             <Header />

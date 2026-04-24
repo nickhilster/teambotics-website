@@ -89,20 +89,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Hide the OS cursor on fine-pointer devices — the diver takes over */
-@media (hover: hover) and (pointer: fine) {
-  body,
-  body a,
-  body button,
-  body input,
-  body textarea,
-  body select,
-  body [role="button"],
-  body label {
-    cursor: none;
-  }
-}
-
 a {
   color: inherit;
   text-decoration: none;

@@ -9,8 +9,8 @@ import type { ThemeAdminConfigResponse, ThemeDashboardSettings } from '@/types/c
 
 const DEFAULT_THEME_SETTINGS: ThemeDashboardSettings = {
   defaultTheme: 'light',
-  cursorScubaDiverEnabled: true,
-  bubbleOverlayEnabled: true,
+  cursorScubaDiverEnabled: false,
+  bubbleOverlayEnabled: false,
   heroMotionIntensity: 0.6,
   bubbleIntensity: 0.8,
   cursorReactionStrength: 0.9,
