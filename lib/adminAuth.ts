@@ -1,21 +1,25 @@
 import { createHmac, randomUUID, timingSafeEqual } from 'crypto';
 
 const COOKIE_NAME = 'teambotics-admin-session';
-const SECRET = process.env.ADMIN_SESSION_SECRET;
-const PASSWORD = process.env.ADMIN_PASSWORD;
-
-if (!SECRET) {
-  throw new Error('ADMIN_SESSION_SECRET must be set in environment variables.');
-}
-
-const SECRET_KEY = SECRET;
 
 export function getAdminPassword() {
-  return PASSWORD ?? null;
+  return process.env.ADMIN_PASSWORD ?? null;
+}
+
+function getAdminSessionSecret() {
+  return process.env.ADMIN_SESSION_SECRET ?? null;
+}
+
+function getRequiredAdminSessionSecret() {
+  const secret = getAdminSessionSecret();
+  if (!secret) {
+    throw new Error('ADMIN_SESSION_SECRET must be set in environment variables.');
+  }
+  return secret;
 }
 
 function signPayload(payload: string) {
-  return createHmac('sha256', SECRET_KEY).update(payload).digest('hex');
+  return createHmac('sha256', getRequiredAdminSessionSecret()).update(payload).digest('hex');
 }
 
 export function createAdminSessionToken() {
@@ -30,6 +34,10 @@ export function getAdminSessionCookieName() {
 
 export function isAdminAuthenticated(cookieValue: string | undefined | null) {
   if (!cookieValue) {
+    return false;
+  }
+
+  if (!getAdminSessionSecret()) {
     return false;
   }
 

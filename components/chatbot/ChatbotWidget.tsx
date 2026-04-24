@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { MessageSquare, Send, X } from 'lucide-react';
 
 const STORAGE_KEY = 'teambotics-chat-session';
@@ -14,26 +14,37 @@ type ChatMessage = {
 export function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
-  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(() => {
+    if (typeof window === 'undefined') {
+      return null;
+    }
+
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      return stored;
+    }
+
+    const newId = crypto.randomUUID();
+    window.localStorage.setItem(STORAGE_KEY, newId);
+    return newId;
+  });
   const [history, setHistory] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      setSessionId(stored);
-    } else {
-      const newId = crypto.randomUUID();
-      window.localStorage.setItem(STORAGE_KEY, newId);
-      setSessionId(newId);
+  const pageContext = useMemo(() => {
+    if (typeof window === 'undefined') {
+      return {
+        pagePath: '',
+        pageTitle: '',
+      };
     }
-  }, []);
 
-  const pageContext = useMemo(() => ({
-    pagePath: window.location.pathname,
-    pageTitle: document.title,
-  }), []);
+    return {
+      pagePath: window.location.pathname,
+      pageTitle: document.title,
+    };
+  }, []);
 
   const openChat = () => setOpen(true);
 

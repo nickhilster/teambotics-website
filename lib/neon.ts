@@ -1,12 +1,15 @@
 import { Client } from '@neondatabase/serverless';
 import { ChatbotDashboardSettings, ThemeDashboardSettings } from '../types/chatbotAdmin';
 
-const url = process.env.NEON_DB_URL;
-if (!url) {
-  throw new Error('NEON_DB_URL environment variable is required for Neon access.');
+function getNeonConnectionString() {
+  const url = process.env.NEON_DB_URL;
+  if (!url) {
+    throw new Error('NEON_DB_URL environment variable is required for Neon access.');
+  }
+  return url;
 }
 
-const client = new Client({ connectionString: url });
+let client: Client | null = null;
 let schemaReady: Promise<void> | null = null;
 
 const DEFAULT_CHATBOT_SETTINGS: ChatbotDashboardSettings = {
@@ -65,7 +68,9 @@ const DEFAULT_THEME_SETTINGS: ThemeDashboardSettings = {
 };
 
 async function createSchema() {
-  await client.query(`
+  const neonClient = getOrCreateNeonClient();
+
+  await neonClient.query(`
     CREATE TABLE IF NOT EXISTS chatbot_config_versions (
       id text PRIMARY KEY,
       version_number integer NOT NULL,
@@ -122,10 +127,18 @@ async function createSchema() {
 }
 
 export async function getNeonClient() {
+  const neonClient = getOrCreateNeonClient();
   if (!schemaReady) {
     schemaReady = createSchema();
   }
   await schemaReady;
+  return neonClient;
+}
+
+function getOrCreateNeonClient() {
+  if (!client) {
+    client = new Client({ connectionString: getNeonConnectionString() });
+  }
   return client;
 }
 
