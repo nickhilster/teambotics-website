@@ -7,6 +7,7 @@ type ButtonProps = {
   className?: string;
   href?: string;
   icon?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   variant?: "primary" | "ghost";
 };
 
@@ -15,6 +16,7 @@ export function Button({
   className,
   href,
   icon = false,
+  onClick,
   variant = "primary",
 }: ButtonProps) {
   const classes = cn("button", `button--${variant}`, className);
@@ -28,11 +30,15 @@ export function Button({
 
   if (href) {
     return (
-      <Link className={classes} href={href}>
+      <Link className={classes} href={href} onClick={onClick}>
         {content}
       </Link>
     );
   }
 
-  return <button className={classes} type="button">{content}</button>;
+  return (
+    <button className={classes} type="button" onClick={onClick}>
+      {content}
+    </button>
+  );
 }

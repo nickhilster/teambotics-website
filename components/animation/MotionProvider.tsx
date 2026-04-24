@@ -15,7 +15,11 @@ const MotionContext = createContext<MotionContextValue>({
 
 export function MotionProvider({ children }: { children: React.ReactNode }) {
   const prefersReducedMotion = useReducedMotion() ?? false;
-  const [hasFinePointer, setHasFinePointer] = useState(false);
+  const [hasFinePointer, setHasFinePointer] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(hover: hover) and (pointer: fine)").matches
+      : false
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") {

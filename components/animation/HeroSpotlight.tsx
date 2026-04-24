@@ -9,7 +9,8 @@ export function HeroSpotlight() {
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || prefersReducedMotion) {
+    const hero = root?.closest<HTMLElement>(".hero");
+    if (!root || !hero || prefersReducedMotion) {
       return;
     }
 
@@ -18,8 +19,8 @@ export function HeroSpotlight() {
     let nextY = 38;
 
     const commit = () => {
-      root.style.setProperty("--spotlight-x", `${nextX}%`);
-      root.style.setProperty("--spotlight-y", `${nextY}%`);
+      hero.style.setProperty("--spotlight-x", `${nextX}%`);
+      hero.style.setProperty("--spotlight-y", `${nextY}%`);
       frame = 0;
     };
 
@@ -32,7 +33,7 @@ export function HeroSpotlight() {
     };
 
     const updatePoint = (clientX: number, clientY: number) => {
-      const bounds = root.getBoundingClientRect();
+      const bounds = hero.getBoundingClientRect();
       if (bounds.width === 0 || bounds.height === 0) {
         return;
       }
@@ -40,6 +41,17 @@ export function HeroSpotlight() {
       nextX = ((clientX - bounds.left) / bounds.width) * 100;
       nextY = ((clientY - bounds.top) / bounds.height) * 100;
       queueCommit();
+    };
+
+    const isInsideHero = (clientX: number, clientY: number) => {
+      const bounds = hero.getBoundingClientRect();
+
+      return (
+        clientX >= bounds.left &&
+        clientX <= bounds.right &&
+        clientY >= bounds.top &&
+        clientY <= bounds.bottom
+      );
     };
 
     const activate = () => {
@@ -54,6 +66,11 @@ export function HeroSpotlight() {
     };
 
     const handlePointerMove = (event: PointerEvent) => {
+      if (!isInsideHero(event.clientX, event.clientY)) {
+        reset();
+        return;
+      }
+
       activate();
       updatePoint(event.clientX, event.clientY);
     };
@@ -68,24 +85,20 @@ export function HeroSpotlight() {
       updatePoint(touch.clientX, touch.clientY);
     };
 
-    root.addEventListener("pointermove", handlePointerMove, { passive: true });
-    root.addEventListener("pointerenter", activate, { passive: true });
-    root.addEventListener("pointerleave", reset, { passive: true });
-    root.addEventListener("touchstart", handleTouch, { passive: true });
-    root.addEventListener("touchmove", handleTouch, { passive: true });
-    root.addEventListener("touchend", reset, { passive: true });
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    window.addEventListener("touchstart", handleTouch, { passive: true });
+    window.addEventListener("touchmove", handleTouch, { passive: true });
+    window.addEventListener("touchend", reset, { passive: true });
 
     return () => {
       if (frame !== 0) {
         window.cancelAnimationFrame(frame);
       }
 
-      root.removeEventListener("pointermove", handlePointerMove);
-      root.removeEventListener("pointerenter", activate);
-      root.removeEventListener("pointerleave", reset);
-      root.removeEventListener("touchstart", handleTouch);
-      root.removeEventListener("touchmove", handleTouch);
-      root.removeEventListener("touchend", reset);
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("touchstart", handleTouch);
+      window.removeEventListener("touchmove", handleTouch);
+      window.removeEventListener("touchend", reset);
     };
   }, [prefersReducedMotion]);
 
