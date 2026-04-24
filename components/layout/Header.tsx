@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
 
 const navItems = [
@@ -42,13 +43,10 @@ export function Header() {
           ))}
         </nav>
         <div className="site-header__meta">
-          <span className="header-status">
-            <span className="header-status__dot" />
-            2 systems live
-          </span>
-          <Button className="site-header__cta" href="#contact">
-            Start a conversation
-          </Button>
+          <Link aria-label="Contact Teambotics" className="header-icon-link" href="#contact">
+            <Mail aria-hidden="true" size={17} strokeWidth={1.8} />
+          </Link>
+          <ThemeToggle />
           <button
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
@@ -71,7 +69,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href="#contact">Start a conversation</Button>
+          <Button href="#contact">Contact</Button>
         </Container>
       </div>
     </header>

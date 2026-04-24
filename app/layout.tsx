@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
+import Script from "next/script";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
@@ -52,6 +53,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("teambotics-theme");
+        const theme = storedTheme === "light" || storedTheme === "dark"
+          ? storedTheme
+          : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.classList.toggle("dark", theme === "dark");
+        document.documentElement.style.colorScheme = theme;
+      } catch {}
+    })();
+  `;
+
   return (
     <html
       lang="en"
@@ -62,6 +76,11 @@ export default function RootLayout({
         {children}
         <Analytics />
         <SpeedInsights />
+        <Script
+          dangerouslySetInnerHTML={{ __html: themeScript }}
+          id="theme-init"
+          strategy="beforeInteractive"
+        />
       </body>
     </html>
   );
