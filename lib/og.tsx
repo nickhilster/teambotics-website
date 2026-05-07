@@ -16,7 +16,7 @@ export function buildOgImage() {
       <div
         style={{
           background:
-            "radial-gradient(circle at center, rgba(74,144,217,0.16), transparent 60%)",
+            "radial-gradient(circle at center, rgba(74,144,217,0.22), transparent 60%)",
           borderRadius: "999px",
           height: 420,
           position: "absolute",
@@ -36,16 +36,16 @@ export function buildOgImage() {
       >
         <div
           style={{
-            border: "1px solid rgba(74, 144, 217, 0.28)",
+            border: "1px solid rgba(121, 184, 255, 0.24)",
             borderRadius: 999,
-            color: "#4A90D9",
+            color: "#79b8ff",
             fontFamily: "monospace",
             fontSize: 20,
             letterSpacing: "0.18em",
             padding: "14px 24px",
           }}
         >
-          APPLIED AI SYSTEMS LAB
+          FLAGSHIP AI PRODUCT STUDIO
         </div>
         <div
           style={{
@@ -57,9 +57,10 @@ export function buildOgImage() {
             lineHeight: 1,
           }}
         >
-          <span>Built for the</span>
-          <span>environments that</span>
-          <span style={{ color: "#4A90D9" }}>can&apos;t afford to fail.</span>
+          <span>Building flagship</span>
+          <span>AI products for</span>
+          <span>operations, creativity,</span>
+          <span style={{ color: "#79b8ff" }}>and narrative.</span>
         </div>
       </div>
     </div>

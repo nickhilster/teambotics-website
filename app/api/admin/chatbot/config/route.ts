@@ -1,8 +1,9 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getNeonClient, getDefaultChatbotSettings } from '@/lib/neon';
+import { getNeonClient, getDefaultChatbotSettings, toRows } from '@/lib/neon';
 import { getAdminSessionCookieName, isAdminAuthenticated } from '@/lib/adminAuth';
-import type { ChatbotAdminConfigResponse, ChatbotDashboardSettings, ChatbotConfigVersion } from '@/types/chatbotAdmin';
+import { mapConfigVersion } from '@/lib/chatbotAdminMapping';
+import type { ChatbotAdminConfigResponse, ChatbotDashboardSettings } from '@/types/chatbotAdmin';
 
 async function getSessionCookie() {
   const cookieStore = await cookies();
@@ -11,17 +12,17 @@ async function getSessionCookie() {
 
 async function getMostRecentVersion(status: 'live' | 'draft') {
   const client = await getNeonClient();
-  const rows = await client.query(
+  const rows = toRows(await client.query(
     'SELECT * FROM chatbot_config_versions WHERE status = $1 ORDER BY version_number DESC LIMIT 1',
-    [status]
-  );
-  return (Array.isArray(rows) && rows.length > 0 ? rows[0] : null) as ChatbotConfigVersion | null;
+    [status],
+  ));
+  return mapConfigVersion(rows[0] ?? null);
 }
 
 async function ensureDefaultConfig() {
   const client = await getNeonClient();
-  const count = await client.query('SELECT COUNT(*)::integer AS count FROM chatbot_config_versions');
-  if (!Array.isArray(count) || count.length === 0 || Number(count[0].count) > 0) {
+  const countRows = toRows<{ count: number }>(await client.query('SELECT COUNT(*)::integer AS count FROM chatbot_config_versions'));
+  if (countRows.length === 0 || Number(countRows[0].count) > 0) {
     return;
   }
 
@@ -43,7 +44,7 @@ async function ensureDefaultConfig() {
   );
 }
 
-export async function GET(request: Request) {
+export async function GET() {
   await ensureDefaultConfig();
   const liveConfig = await getMostRecentVersion('live');
   const draftConfig = await getMostRecentVersion('draft');
@@ -79,8 +80,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, draftId: draft.id });
   }
 
-  const countResult = await client.query('SELECT MAX(version_number)::integer AS max_version FROM chatbot_config_versions');
-  const maxVersion = Array.isArray(countResult) && countResult.length > 0 ? Number(countResult[0].max_version ?? 0) : 0;
+  const countResult = toRows<{ max_version: number | null }>(
+    await client.query('SELECT MAX(version_number)::integer AS max_version FROM chatbot_config_versions'),
+  );
+  const maxVersion = countResult.length > 0 ? Number(countResult[0].max_version ?? 0) : 0;
   const newDraftId = crypto.randomUUID();
 
   await client.query(

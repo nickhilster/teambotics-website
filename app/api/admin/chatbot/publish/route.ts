@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getNeonClient } from '@/lib/neon';
+import { getNeonClient, toRows } from '@/lib/neon';
 import { getAdminSessionCookieName, isAdminAuthenticated } from '@/lib/adminAuth';
 
 async function getSessionCookie() {
@@ -9,13 +9,13 @@ async function getSessionCookie() {
 }
 
 async function getLatestDraft(client: Awaited<ReturnType<typeof getNeonClient>>) {
-  const rows = await client.query(
-    "SELECT * FROM chatbot_config_versions WHERE status = 'draft' ORDER BY version_number DESC LIMIT 1"
-  );
-  return (Array.isArray(rows) && rows.length > 0 ? rows[0] : null);
+  const rows = toRows<{ id: string }>(await client.query(
+    "SELECT id FROM chatbot_config_versions WHERE status = 'draft' ORDER BY version_number DESC LIMIT 1",
+  ));
+  return rows[0] ?? null;
 }
 
-export async function POST(request: Request) {
+export async function POST() {
   const cookieValue = await getSessionCookie();
   if (!isAdminAuthenticated(cookieValue)) {
     return NextResponse.json({ ok: false, error: 'Authentication required.' }, { status: 401 });

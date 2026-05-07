@@ -25,7 +25,6 @@ export default function ThemeAdminPage() {
   const [isAuthConfigured, setIsAuthConfigured] = useState<boolean | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
-  const [liveSettings, setLiveSettings] = useState<ThemeDashboardSettings | null>(null);
   const [draftSettings, setDraftSettings] = useState<ThemeDashboardSettings | null>(null);
   const [isDraftDirty, setIsDraftDirty] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
@@ -43,7 +42,7 @@ export default function ThemeAdminPage() {
     }
   }, [isAuthenticated]);
 
-  const checkSession = async () => {
+  async function checkSession() {
     try {
       const response = await fetch('/api/admin/session');
       const payload = await response.json();
@@ -52,7 +51,7 @@ export default function ThemeAdminPage() {
     } catch {
       setIsAuthenticated(false);
     }
-  };
+  }
 
   const login = async (password: string) => {
     setIsLoggingIn(true);
@@ -81,22 +80,20 @@ export default function ThemeAdminPage() {
   const logout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' });
     setIsAuthenticated(false);
-    setLiveSettings(null);
     setDraftSettings(null);
     setIsDraftDirty(false);
   };
 
-  const loadConfig = async () => {
+  async function loadConfig() {
     try {
       const response = await fetch('/api/admin/theme/config');
       const payload: ThemeAdminConfigResponse = await response.json();
-      setLiveSettings(payload.live ?? DEFAULT_THEME_SETTINGS);
       setDraftSettings(payload.draft ?? payload.live ?? DEFAULT_THEME_SETTINGS);
       setIsDraftDirty(Boolean(payload.draft));
     } catch {
       setSaveError('Unable to load theme config.');
     }
-  };
+  }
 
   const saveDraft = async () => {
     if (!draftSettings) return;

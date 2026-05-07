@@ -10,7 +10,7 @@ async function getSessionCookie() {
   return cookieStore.get(getAdminSessionCookieName())?.value ?? null;
 }
 
-export async function POST(request: Request) {
+export async function POST() {
   const cookieValue = await getSessionCookie();
   if (!isAdminAuthenticated(cookieValue)) {
     return NextResponse.json({ ok: false, error: 'Authentication required.' }, { status: 401 });

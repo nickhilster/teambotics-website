@@ -1,4 +1,4 @@
-import { ShieldCheck, Activity, Workflow } from "lucide-react";
+import { Blocks, ShieldCheck, Workflow } from "lucide-react";
 import { CursorReactiveCard } from "@/components/animation/CursorReactiveCard";
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
@@ -6,18 +6,18 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const capabilities = [
   {
-    title: "Regulated Environment AI",
-    body: "Compliance-first systems for HIPAA, FMLA, ADA, and sector-specific frameworks. Auditability and traceability are architecture, not afterthoughts.",
+    title: "Strategic MVP Architecture",
+    body: "We define precise product boundaries, focusing on high-value workflows and clear paths from initial prototype to enterprise release.",
+    icon: Blocks,
+  },
+  {
+    title: "Workflow Automation & Enablement",
+    body: "We engineer secure, compliant AI systems tailored for complex operational environments where accuracy, trust, and traceability are paramount.",
     icon: ShieldCheck,
   },
   {
-    title: "Operational Intelligence",
-    body: "AI that surfaces the right information at the right moment for frontline teams under pressure.",
-    icon: Activity,
-  },
-  {
-    title: "Workflow Automation",
-    body: "Eliminating the manual loops that slow operations, with human judgment preserved.",
+    title: "High-Adoption Interface Design",
+    body: "We craft intuitive, accessible interfaces that minimize cognitive load, ensuring immediate usability and rapid organizational adoption.",
     icon: Workflow,
   },
 ];
@@ -28,9 +28,9 @@ export function CapabilitiesSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="Three core disciplines across every system we ship."
-          eyebrow="CAPABILITIES"
-          title="What we're built to do."
+          description="Strategic architecture, secure workflow automation, and interface discipline across every engagement."
+          eyebrow="CORE COMPETENCIES"
+          title="Engineered for impact and adoption."
         />
         <div className="capabilities-grid">
           {capabilities.map((capability, index) => {

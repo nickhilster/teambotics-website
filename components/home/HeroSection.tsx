@@ -1,60 +1,65 @@
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { TextReveal } from "@/components/animation/TextReveal";
-import { HeroNeuralNetwork } from "@/components/animation/HeroNeuralNetwork";
-import { HeroSpotlight } from "@/components/animation/HeroSpotlight";
+import { HeroFlameParticles } from "@/components/animation/HeroFlameParticles";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
-import { HeroLabButton } from "./HeroLabButton";
+import { products } from "@/lib/config";
 
 export function HeroSection() {
   return (
     <section className="hero" id="top">
-      <HeroNeuralNetwork />
-      <HeroSpotlight />
+      <HeroFlameParticles />
       <div className="hero__glow" aria-hidden="true" />
       <div className="hero__glow hero__glow--secondary" aria-hidden="true" />
       <Container className="hero__inner">
-        <HeroLabButton />
+        <SectionReveal delay={0.05}>
+          <div className="hero-pill">
+            <span className="hero-pill__dot">
+              <span className="hero-pill__dot-core" />
+            </span>
+            Enterprise AI & Workflow Systems
+          </div>
+        </SectionReveal>
         <TextReveal
           as="h1"
           className="hero__title"
           lines={[
-            "Built for the",
-            "environments that",
+            "Building intelligent",
+            "workflow systems and",
             <span className="hero__title-accent" key="accent">
-              can&apos;t afford to fail.
+              interactive platforms.
             </span>,
           ]}
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            Teambotics designs and deploys AI systems for regulated, operational,
-            and frontline environments. Not demos, deployed software that holds
-            under real operational pressure.
+            Teambotics develops intelligent, adoption-ready platforms across operational workflows
+            and interactive digital experiences. We design systems engineered for clarity,
+            compliance, and immediate impact.
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
-          <Button className="hero__action-button hero__action-button--primary" href="#live-systems">
-            View Live Systems
+          <Button className="hero__action-button hero__action-button--primary" href="#flagships">
+            Review Flagships
           </Button>
           <Button
             className="hero__action-button hero__action-button--ghost"
-            href="#capabilities"
+            href="#engagement"
             variant="ghost"
           >
-            Capabilities
+            Engagement Model
           </Button>
         </SectionReveal>
         <SectionReveal className="hero__status-row" delay={0.5}>
-          <span className="hero__status-item hero__status-item--live">
-            <span className="hero__status-dot" />
-            LTB Buddy — Live
-          </span>
-          <span className="hero__status-separator">·</span>
-          <span className="hero__status-item">
-            <span className="hero__status-dot hero__status-dot--pilot" />
-            EasyBuddy — Enterprise Pilot
-          </span>
+          {products.map((product) => (
+            <span
+              className={`hero__status-item${product.status === "live" ? " hero__status-item--live" : " hero__status-item--build"}`}
+              key={product.name}
+            >
+              <span className={`hero__status-dot${product.status === "live" ? "" : " hero__status-dot--build"}`} />
+              {product.name} — {product.statusLabel}
+            </span>
+          ))}
         </SectionReveal>
       </Container>
     </section>

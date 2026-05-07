@@ -1,10 +1,16 @@
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { getNeonClient, getDefaultThemeSettings } from '@/lib/neon';
+import { getNeonClient, getDefaultThemeSettings, toRows } from '@/lib/neon';
 import { getAdminSessionCookieName, isAdminAuthenticated } from '@/lib/adminAuth';
 import type { ThemeAdminConfigResponse, ThemeDashboardSettings } from '@/types/chatbotAdmin';
 
 const THEME_KEY = 'theme-default';
+
+type ThemeSettingsRecord = {
+  id: string;
+  draft_settings: ThemeDashboardSettings;
+  live_settings: ThemeDashboardSettings;
+};
 
 async function getSessionCookie() {
   const cookieStore = await cookies();
@@ -12,8 +18,8 @@ async function getSessionCookie() {
 }
 
 async function ensureThemeRecord(client: Awaited<ReturnType<typeof getNeonClient>>) {
-  const rows = await client.query('SELECT * FROM theme_settings WHERE id = $1', [THEME_KEY]);
-  if (Array.isArray(rows) && rows.length > 0) {
+  const rows = toRows<ThemeSettingsRecord>(await client.query('SELECT * FROM theme_settings WHERE id = $1', [THEME_KEY]));
+  if (rows.length > 0) {
     return rows[0];
   }
 

@@ -17,11 +17,12 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   keywords: [
     "Teambotics",
-    "applied AI systems lab",
-    "regulated AI",
-    "operational intelligence",
+    "AI product studio",
+    "regulated operations AI",
+    "workforce coordination",
+    "interactive motion platform",
+    "narrative intelligence",
     "workflow automation",
-    "frontline systems",
   ],
   openGraph: {
     title: siteConfig.name,

@@ -9,6 +9,14 @@ const MAX_MESSAGES = 30;
 type ChatMessage = {
   role: 'user' | 'assistant';
   content: string;
+  sources?: Array<{
+    id: string;
+    title: string;
+    route?: string;
+    similarity?: number;
+  }>;
+  suggestions?: string[];
+  mode?: 'live' | 'fallback' | 'grounded-refusal';
 };
 
 export function ChatbotWidget() {
@@ -69,6 +77,8 @@ export function ChatbotWidget() {
         body: JSON.stringify({
           message: userMessage,
           sessionId,
+          conversationId: sessionId,
+          history,
           pageContext,
         }),
       });
@@ -79,12 +89,19 @@ export function ChatbotWidget() {
       }
 
       const payload = await response.json();
-      const assistantReply = payload.response || 'I could not generate a response right now.';
-      const assistantEntry: ChatMessage = { role: 'assistant', content: assistantReply };
+      const assistantReply = payload.message || payload.response || 'I could not generate a response right now.';
+      const assistantEntry: ChatMessage = {
+        role: 'assistant',
+        content: assistantReply,
+        sources: Array.isArray(payload.sources) ? payload.sources : [],
+        suggestions: Array.isArray(payload.suggestions) ? payload.suggestions : [],
+        mode: payload.mode,
+      };
       setHistory((current) => [...current, assistantEntry].slice(-MAX_MESSAGES));
-      if (payload.sessionId) {
-        window.localStorage.setItem(STORAGE_KEY, payload.sessionId);
-        setSessionId(payload.sessionId);
+      const nextSessionId = payload.sessionId || payload.conversationId;
+      if (nextSessionId) {
+        window.localStorage.setItem(STORAGE_KEY, nextSessionId);
+        setSessionId(nextSessionId);
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error sending message');
@@ -130,6 +147,36 @@ export function ChatbotWidget() {
             ) : history.map((item, index) => (
               <div key={`${item.role}-${index}`} className={`chatbot-bubble chatbot-bubble--${item.role}`}>
                 <span>{item.content}</span>
+                {item.role === 'assistant' && item.sources && item.sources.length > 0 ? (
+                  <div className="chatbot-sources">
+                    <span className="chatbot-sources__label">Sources</span>
+                    {item.sources.slice(0, 3).map((source) => (
+                      source.route ? (
+                        <a href={source.route} key={source.id}>{source.title}</a>
+                      ) : (
+                        <span key={source.id}>{source.title}</span>
+                      )
+                    ))}
+                  </div>
+                ) : null}
+                {item.role === 'assistant' && item.mode && item.mode !== 'live' ? (
+                  <span className="chatbot-runtime-note">
+                    {item.mode === 'grounded-refusal' ? 'Grounded safety response' : 'Site-context fallback'}
+                  </span>
+                ) : null}
+                {item.role === 'assistant' && item.suggestions && item.suggestions.length > 0 ? (
+                  <div className="chatbot-suggestions">
+                    {item.suggestions.slice(0, 3).map((suggestion) => (
+                      <button
+                        key={suggestion}
+                        type="button"
+                        onClick={() => setMessage(suggestion)}
+                      >
+                        {suggestion}
+                      </button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>
@@ -150,6 +197,7 @@ export function ChatbotWidget() {
               className="chatbot-send"
               onClick={() => void sendMessage()}
               disabled={sending || !message.trim()}
+              aria-label="Send message"
             >
               {sending ? 'Sending…' : <Send size={16} />}
             </button>

@@ -6,25 +6,24 @@ export function PositioningSection() {
     <section className="section section--border" id="positioning">
       <Container className="positioning">
         <SectionReveal>
-          <p className="section-eyebrow">WHAT WE DO</p>
+          <p className="section-eyebrow">POSITIONING</p>
           <h2 className="positioning__title">
-            Operational AI for environments most vendors avoid.
+            One studio. Unified operating standards.
           </h2>
         </SectionReveal>
         <SectionReveal className="positioning__copy" delay={0.08}>
           <p>
-            Most AI tools assume a controlled environment. Teambotics builds for
-            the opposite, the regulated, the operational, the frontline.
-            Environments where failure has a real cost.
+            Teambotics builds a focused portfolio of AI solutions spanning legal compliance, workforce
+            enablement, and interactive experiences. While our markets vary, our commitment to
+            intuitive design and robust architecture remains constant.
           </p>
           <p>
-            We don&apos;t hand off prototypes. We maintain operational software that
-            teams rely on daily, in compliance-bound environments where the cost of
-            failure is real.
+            We architect systems to reduce operational friction and drive confident decision-making.
+            By prioritizing strict scoping and interface discipline, we ensure our AI deployments
+            accelerate adoption without compromising security.
           </p>
           <blockquote className="positioning__quote">
-            &quot;Disciplined intelligence expressed through restraint&quot; — the principle
-            behind everything we build.
+            Engineered for enterprise scale. Designed for frontline adoption.
           </blockquote>
         </SectionReveal>
       </Container>

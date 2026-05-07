@@ -9,19 +9,19 @@ export function HomeCTASection() {
       <div className="cta-section__glow" aria-hidden="true" />
       <Container className="cta-section__inner">
         <SectionReveal>
-          <p className="section-eyebrow">GET IN TOUCH</p>
+          <p className="section-eyebrow">START THE CONVERSATION</p>
           <h2 className="cta-section__title">
-            If your environment is where others stop, we start.
+            Build reliable, intelligent systems from day one.
           </h2>
           <p className="cta-section__copy">
-            We take on a focused number of engagements at a time. Reach out to
-            explore whether your operational context is a fit.
+            Teambotics partners with organizations to modernize workflows and deploy intelligent
+            systems. Start a conversation to explore how we can accelerate your automation initiatives.
           </p>
         </SectionReveal>
         <SectionReveal className="cta-section__actions" delay={0.12}>
-          <Button href={`mailto:${siteConfig.contactEmail}`}>Start a Conversation</Button>
-          <Button href="#live-systems" variant="ghost">
-            See the work
+          <Button href={`mailto:${siteConfig.contactEmail}`}>Start a conversation</Button>
+          <Button href="#flagships" variant="ghost">
+            Review flagships
           </Button>
         </SectionReveal>
       </Container>

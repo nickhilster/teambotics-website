@@ -9,24 +9,35 @@ import { products } from "@/lib/config";
 
 export function LiveSystemsSection() {
   return (
-    <section className="section section--border" id="live-systems">
+    <section className="section section--border" id="flagships">
       <Container>
         <SectionHeader
-          description="These aren't demos. Each product runs in live operational environments, serving real teams under real conditions."
-          eyebrow="LIVE SYSTEMS"
-          title="Software in active deployment."
+          description="Four products, distinct audiences, one disciplined standard for clarity, usability, and release readiness."
+          eyebrow="FLAGSHIP PORTFOLIO"
+          title="A focused AI product portfolio."
         />
         <div className="systems-grid">
           {products.map((product, index) => (
             <SectionReveal delay={index * 0.08} key={product.name}>
               <CursorReactiveCard className="card system-card">
-                <StatusBadge label={product.statusLabel} variant={product.status} />
-                <Tag>{product.name}</Tag>
-                <h3>{product.title}</h3>
-                <p>{product.description}</p>
+                <div className="system-card__header">
+                  <div>
+                    <Tag>{product.name}</Tag>
+                    <h3>{product.title}</h3>
+                  </div>
+                  <StatusBadge label={product.statusLabel} variant={product.status} />
+                </div>
+                <p className="system-card__copy">{product.description}</p>
+                <div className="system-card__meta">
+                  {product.tags.map((tag) => (
+                    <span className="system-card__meta-tag" key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
                 <div className="system-card__footer">
-                  <Link href={product.href}>View System →</Link>
-                  <span>{product.domain}</span>
+                  <span>{product.market}</span>
+                  <Link href={product.href}>{product.ctaLabel} →</Link>
                 </div>
               </CursorReactiveCard>
             </SectionReveal>

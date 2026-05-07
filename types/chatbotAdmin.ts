@@ -133,3 +133,75 @@ export type AdminPublishResponse = {
   ok: boolean
   liveVersionId?: string
 }
+
+export type ChatbotSource = {
+  id: string
+  sourceKey: string
+  label: string
+  sourceType: string
+  enabled: boolean
+  routeScope: string | null
+  documentCount: number | null
+  lastIngestedAt: string | null
+  lastError: string | null
+}
+
+export type ChatbotLogEntry = {
+  id: string
+  conversationId: string
+  role: 'user' | 'assistant' | 'system'
+  content: string
+  mode: string
+  model: string | null
+  retrievalEnabled: boolean
+  matchedSources: unknown[]
+  latencyMs: number | null
+  errorCode: string | null
+  errorMessage: string | null
+  createdAt: string
+}
+
+export type ChatbotAnalyticsSummary = {
+  totalMessages: number
+  userMessages: number
+  assistantMessages: number
+  conversations: number
+  errorCount: number
+  averageLatencyMs: number | null
+  fallbackCount: number
+  liveCount: number
+}
+
+export type ChatbotIngestionRun = {
+  id: string
+  startedAt: string
+  completedAt: string | null
+  status: string
+  triggerType: string
+  sourceCount: number | null
+  documentCount: number | null
+  embeddedCount: number | null
+  unchangedCount: number | null
+  removedCount: number | null
+  errorSummary: string | null
+}
+
+export type ChatbotConfigSummary = Pick<
+  ChatbotConfigVersion,
+  'id' | 'versionNumber' | 'status' | 'label' | 'createdAt' | 'publishedAt' | 'notes' | 'publishNote'
+>
+
+export type AdminTestResponse = {
+  ok: boolean
+  prompt: string
+  response: string
+  mode: 'draft' | 'live'
+  sources: unknown[]
+  latencyMs: number
+}
+
+export type AdminCompareResponse = {
+  prompt: string
+  live: AdminTestResponse
+  draft: AdminTestResponse
+}

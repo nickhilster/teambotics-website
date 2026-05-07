@@ -1,11 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AlertCircle, Loader2, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import LoginGate from '@/components/admin/common/LoginGate';
-import type { ChatbotAdminConfigResponse, ChatbotConfigVersion, ChatbotDashboardSettings } from '@/types/chatbotAdmin';
+import type {
+  AdminCompareResponse,
+  AdminTestResponse,
+  ChatbotAdminConfigResponse,
+  ChatbotAnalyticsSummary,
+  ChatbotConfigSummary,
+  ChatbotConfigVersion,
+  ChatbotDashboardSettings,
+  ChatbotIngestionRun,
+  ChatbotLogEntry,
+  ChatbotSource,
+} from '@/types/chatbotAdmin';
 
 const ADMIN_TABS = [
   { id: 'behavior', label: 'Behavior' },
@@ -48,7 +59,7 @@ const DEFAULT_SETTINGS: ChatbotDashboardSettings = {
     topK: 4,
     similarityThreshold: 0.72,
     useConversationHistory: true,
-    allowedSourceTypes: ['handbook', 'product', 'faq'],
+    allowedSourceTypes: ['company', 'product', 'case-study', 'capability'],
     allowedRoutes: [],
   },
   prompt: {
@@ -71,17 +82,39 @@ const DEFAULT_SETTINGS: ChatbotDashboardSettings = {
   },
 };
 
-function createInputLabel(label: string, description?: string) {
-  return (
-    <div className="settings-field">
-      <label className="settings-label">{label}</label>
-      {description ? <p className="settings-description">{description}</p> : null}
-    </div>
-  );
+function formatDate(value: string | null | undefined) {
+  if (!value) {
+    return '—';
+  }
+
+  return new Intl.DateTimeFormat('en', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(new Date(value));
+}
+
+function formatMs(value: number | null | undefined) {
+  return typeof value === 'number' ? `${value} ms` : '—';
+}
+
+function truncate(value: string, maxLength = 180) {
+  return value.length > maxLength ? `${value.slice(0, maxLength).trim()}…` : value;
+}
+
+function getSourceCount(sources: unknown[]) {
+  return Array.isArray(sources) ? sources.length : 0;
 }
 
 export default function ChatbotAdminPage() {
-  const [activeTab, setActiveTab] = useState<AdminTab>('behavior');
+  const [activeTab, setActiveTab] = useState<AdminTab>(() => {
+    if (typeof window === 'undefined') {
+      return 'behavior';
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get('tab') as AdminTab | null;
+    return tab && ADMIN_TABS.some((entry) => entry.id === tab) ? tab : 'behavior';
+  });
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [isAuthConfigured, setIsAuthConfigured] = useState<boolean | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -95,14 +128,17 @@ export default function ChatbotAdminPage() {
   const [saveError, setSaveError] = useState<string | null>(null);
   const [publishError, setPublishError] = useState<string | null>(null);
   const [panelError, setPanelError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const tab = params.get('tab') as AdminTab | null;
-    if (tab && ADMIN_TABS.some((entry) => entry.id === tab)) {
-      setActiveTab(tab);
-    }
-  }, []);
+  const [analytics, setAnalytics] = useState<ChatbotAnalyticsSummary | null>(null);
+  const [logs, setLogs] = useState<ChatbotLogEntry[]>([]);
+  const [versions, setVersions] = useState<ChatbotConfigSummary[]>([]);
+  const [sources, setSources] = useState<ChatbotSource[]>([]);
+  const [ingestionRuns, setIngestionRuns] = useState<ChatbotIngestionRun[]>([]);
+  const [isPanelLoading, setIsPanelLoading] = useState(false);
+  const [testPrompt, setTestPrompt] = useState('What should I know about LTB Buddy?');
+  const [testResult, setTestResult] = useState<AdminTestResponse | null>(null);
+  const [comparePromptValue, setComparePromptValue] = useState('Compare LTB Buddy and EasyBuddy.');
+  const [compareResult, setCompareResult] = useState<AdminCompareResponse | null>(null);
+  const [actionMessage, setActionMessage] = useState<string | null>(null);
 
   useEffect(() => {
     void checkSession();
@@ -114,7 +150,19 @@ export default function ChatbotAdminPage() {
     }
   }, [isAuthenticated]);
 
-  const checkSession = async () => {
+  useEffect(() => {
+    if (!isAuthenticated) {
+      return;
+    }
+
+    if (activeTab === 'analytics') void loadAnalytics();
+    if (activeTab === 'logs') void loadLogs();
+    if (activeTab === 'versions') void loadVersions();
+    if (activeTab === 'sources') void loadSources();
+    if (activeTab === 'ingestion') void loadIngestion();
+  }, [activeTab, isAuthenticated]);
+
+  async function checkSession() {
     try {
       const response = await fetch('/api/admin/session');
       const payload = await response.json();
@@ -123,7 +171,7 @@ export default function ChatbotAdminPage() {
     } catch {
       setIsAuthenticated(false);
     }
-  };
+  }
 
   const login = async (password: string) => {
     setIsLoggingIn(true);
@@ -159,7 +207,7 @@ export default function ChatbotAdminPage() {
     setIsDraftDirty(false);
   };
 
-  const loadConfig = async () => {
+  async function loadConfig() {
     setPanelError(null);
     try {
       const response = await fetch('/api/admin/chatbot/config');
@@ -174,7 +222,7 @@ export default function ChatbotAdminPage() {
     } catch (err) {
       setPanelError(err instanceof Error ? err.message : 'Unable to load config');
     }
-  };
+  }
 
   const saveDraft = async () => {
     if (!draftSettings) {
@@ -225,6 +273,195 @@ export default function ChatbotAdminPage() {
     const next = updater(draftSettings);
     setDraftSettings(next);
     setIsDraftDirty(true);
+  };
+
+  const selectTab = (tab: AdminTab) => {
+    setActiveTab(tab);
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', tab);
+    window.history.replaceState(null, '', url);
+  };
+
+  async function loadAnalytics() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/analytics');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load analytics');
+      }
+      setAnalytics(payload.summary as ChatbotAnalyticsSummary);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load analytics');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function loadLogs() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/logs?limit=25');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load logs');
+      }
+      setLogs(Array.isArray(payload.logs) ? payload.logs : []);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load logs');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function loadVersions() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/versions');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load versions');
+      }
+      setVersions(Array.isArray(payload.versions) ? payload.versions : []);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load versions');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function loadSources() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/sources');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load sources');
+      }
+      setSources(Array.isArray(payload.sources) ? payload.sources : []);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load sources');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function loadIngestion() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/ingestion');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load ingestion runs');
+      }
+      setIngestionRuns(Array.isArray(payload.runs) ? payload.runs : []);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load ingestion runs');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  const toggleSource = async (source: ChatbotSource) => {
+    setPanelError(null);
+    setActionMessage(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/sources', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sourceKey: source.sourceKey, enabled: !source.enabled }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to update source');
+      }
+      setSources((current) => current.map((entry) => (
+        entry.sourceKey === source.sourceKey ? payload.source as ChatbotSource : entry
+      )));
+      setActionMessage(`${payload.source.label} ${payload.source.enabled ? 'enabled' : 'disabled'}.`);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to update source');
+    }
+  };
+
+  const requestReseed = async () => {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    setActionMessage(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/ingestion', { method: 'POST' });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to request reseed');
+      }
+      setActionMessage(payload.message ?? 'Reseed requested.');
+      await loadIngestion();
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to request reseed');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  };
+
+  const runTest = async () => {
+    const prompt = testPrompt.trim();
+    if (!prompt) {
+      setPanelError('Enter a prompt before running a test.');
+      return;
+    }
+
+    setIsPanelLoading(true);
+    setPanelError(null);
+    setTestResult(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/test', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to run prompt test');
+      }
+      setTestResult(payload as AdminTestResponse);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to run prompt test');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  };
+
+  const runCompare = async () => {
+    const prompt = comparePromptValue.trim();
+    if (!prompt) {
+      setPanelError('Enter a prompt before comparing responses.');
+      return;
+    }
+
+    setIsPanelLoading(true);
+    setPanelError(null);
+    setCompareResult(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/compare', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
+      });
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to compare prompts');
+      }
+      setCompareResult(payload as AdminCompareResponse);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to compare prompts');
+    } finally {
+      setIsPanelLoading(false);
+    }
   };
 
   const renderBehaviorPanel = () => {
@@ -631,11 +868,265 @@ export default function ChatbotAdminPage() {
     );
   };
 
-  const renderPlaceholderPanel = (title: string, description: string) => (
+  const renderResponseCard = (title: string, result: AdminTestResponse | null) => (
+    <div className="admin-result-card">
+      <div className="admin-result-card__header">
+        <h3>{title}</h3>
+        {result ? <span className="admin-pill">{result.mode}</span> : null}
+      </div>
+      {result ? (
+        <>
+          <p className="admin-result-card__meta">
+            {formatMs(result.latencyMs)} · {getSourceCount(result.sources)} sources
+          </p>
+          <p className="admin-result-card__body">{result.response}</p>
+        </>
+      ) : (
+        <p className="panel-description">Run a prompt to see the response, latency, and retrieval footprint.</p>
+      )}
+    </div>
+  );
+
+  const renderAnalyticsPanel = () => (
     <section className="panel-card">
-      <h2 className="panel-title">{title}</h2>
-      <p className="panel-description">{description}</p>
-      <div className="panel-placeholder">This section will be connected to Neon-backed analytics, logs, testing, and version history.</div>
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">Analytics</h2>
+          <p className="panel-description">Usage, reliability, and retrieval health from chatbot logs.</p>
+        </div>
+        <button type="button" className="admin-link-button" onClick={loadAnalytics}>
+          Refresh
+        </button>
+      </div>
+      {isPanelLoading && activeTab === 'analytics' ? <div className="panel-placeholder">Loading analytics…</div> : null}
+      {analytics ? (
+        <div className="admin-stat-grid">
+          <div className="admin-stat-card">
+            <span>Total messages</span>
+            <strong>{analytics.totalMessages}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Conversations</span>
+            <strong>{analytics.conversations}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Avg latency</span>
+            <strong>{formatMs(analytics.averageLatencyMs)}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Live replies</span>
+            <strong>{analytics.liveCount}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Fallback replies</span>
+            <strong>{analytics.fallbackCount}</strong>
+          </div>
+          <div className="admin-stat-card">
+            <span>Errors</span>
+            <strong>{analytics.errorCount}</strong>
+          </div>
+        </div>
+      ) : (
+        <div className="panel-placeholder">No analytics available yet. Send a chat message to create telemetry.</div>
+      )}
+    </section>
+  );
+
+  const renderLogsPanel = () => (
+    <section className="panel-card">
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">Logs</h2>
+          <p className="panel-description">Recent conversation events with retrieval, mode, latency, and errors.</p>
+        </div>
+        <button type="button" className="admin-link-button" onClick={loadLogs}>
+          Refresh
+        </button>
+      </div>
+      {isPanelLoading && activeTab === 'logs' ? <div className="panel-placeholder">Loading logs…</div> : null}
+      <div className="admin-table-list">
+        {logs.length > 0 ? logs.map((entry) => (
+          <article className="admin-log-row" key={entry.id}>
+            <div>
+              <div className="admin-row-title">
+                <span className="admin-pill">{entry.role}</span>
+                <span className="admin-pill admin-pill--muted">{entry.mode}</span>
+                <span>{formatDate(entry.createdAt)}</span>
+              </div>
+              <p>{truncate(entry.content)}</p>
+              {entry.errorMessage ? <p className="admin-row-error">{entry.errorMessage}</p> : null}
+            </div>
+            <div className="admin-row-meta">
+              <span>{formatMs(entry.latencyMs)}</span>
+              <span>{entry.model ?? 'no model'}</span>
+              <span>{getSourceCount(entry.matchedSources)} sources</span>
+            </div>
+          </article>
+        )) : (
+          <div className="panel-placeholder">No logs yet.</div>
+        )}
+      </div>
+    </section>
+  );
+
+  const renderTestingPanel = () => (
+    <section className="panel-card">
+      <h2 className="panel-title">Testing</h2>
+      <p className="panel-description">Run a production runtime prompt without using the public widget.</p>
+      <div className="admin-tool-grid">
+        <label className="field-row">
+          <span>Test prompt</span>
+          <textarea
+            value={testPrompt}
+            onChange={(event) => setTestPrompt(event.target.value)}
+          />
+        </label>
+        <Button className="publish-button" onClick={runTest} variant="primary">
+          {isPanelLoading && activeTab === 'testing' ? 'Running…' : 'Run test'}
+        </Button>
+      </div>
+      {renderResponseCard('Live runtime response', testResult)}
+    </section>
+  );
+
+  const renderComparePanel = () => (
+    <section className="panel-card">
+      <h2 className="panel-title">Compare</h2>
+      <p className="panel-description">Compare two runtime passes side by side for prompt QA.</p>
+      <div className="admin-tool-grid">
+        <label className="field-row">
+          <span>Compare prompt</span>
+          <textarea
+            value={comparePromptValue}
+            onChange={(event) => setComparePromptValue(event.target.value)}
+          />
+        </label>
+        <Button className="publish-button" onClick={runCompare} variant="primary">
+          {isPanelLoading && activeTab === 'compare' ? 'Comparing…' : 'Compare responses'}
+        </Button>
+      </div>
+      <div className="admin-compare-grid">
+        {renderResponseCard('Live', compareResult?.live ?? null)}
+        {renderResponseCard('Draft', compareResult?.draft ?? null)}
+      </div>
+    </section>
+  );
+
+  const renderVersionsPanel = () => (
+    <section className="panel-card">
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">Versions</h2>
+          <p className="panel-description">Published, draft, and archived chatbot configurations.</p>
+        </div>
+        <button type="button" className="admin-link-button" onClick={loadVersions}>
+          Refresh
+        </button>
+      </div>
+      {isPanelLoading && activeTab === 'versions' ? <div className="panel-placeholder">Loading versions…</div> : null}
+      <div className="admin-table-list">
+        {versions.length > 0 ? versions.map((version) => (
+          <article className="admin-log-row" key={version.id}>
+            <div>
+              <div className="admin-row-title">
+                <span className="admin-pill">v{version.versionNumber}</span>
+                <span className="admin-pill admin-pill--muted">{version.status}</span>
+                <strong>{version.label}</strong>
+              </div>
+              <p>{version.notes ?? version.publishNote ?? 'No notes provided.'}</p>
+            </div>
+            <div className="admin-row-meta">
+              <span>Created {formatDate(version.createdAt)}</span>
+              <span>Published {formatDate(version.publishedAt)}</span>
+            </div>
+          </article>
+        )) : (
+          <div className="panel-placeholder">No versions available yet.</div>
+        )}
+      </div>
+    </section>
+  );
+
+  const renderSourcesPanel = () => (
+    <section className="panel-card">
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">Sources</h2>
+          <p className="panel-description">Govern which knowledge groups can be retrieved by the assistant.</p>
+        </div>
+        <button type="button" className="admin-link-button" onClick={loadSources}>
+          Refresh
+        </button>
+      </div>
+      {isPanelLoading && activeTab === 'sources' ? <div className="panel-placeholder">Loading sources…</div> : null}
+      <div className="admin-source-grid">
+        {sources.length > 0 ? sources.map((source) => (
+          <article className="admin-source-card" key={source.sourceKey}>
+            <div>
+              <div className="admin-row-title">
+                <strong>{source.label}</strong>
+                <span className={`admin-pill ${source.enabled ? '' : 'admin-pill--muted'}`}>
+                  {source.enabled ? 'enabled' : 'disabled'}
+                </span>
+              </div>
+              <p>{source.sourceType} · {source.routeScope ?? 'all routes'}</p>
+              <p>{source.documentCount ?? 0} documents · last ingested {formatDate(source.lastIngestedAt)}</p>
+              {source.lastError ? <p className="admin-row-error">{source.lastError}</p> : null}
+            </div>
+            <button type="button" className="admin-link-button" onClick={() => toggleSource(source)}>
+              {source.enabled ? 'Disable' : 'Enable'}
+            </button>
+          </article>
+        )) : (
+          <div className="panel-placeholder">No sources are registered yet.</div>
+        )}
+      </div>
+    </section>
+  );
+
+  const renderIngestionPanel = () => (
+    <section className="panel-card">
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">Ingestion</h2>
+          <p className="panel-description">Monitor knowledge refreshes and queue a manual reseed.</p>
+        </div>
+        <div className="admin-actions">
+          <button type="button" className="admin-link-button" onClick={loadIngestion}>
+            Refresh
+          </button>
+          <button type="button" className="admin-link-button" onClick={requestReseed}>
+            Request reseed
+          </button>
+        </div>
+      </div>
+      <div className="panel-placeholder">
+        Embedding refreshes run from the CLI with <code>pnpm chat:seed</code> after a request is recorded.
+      </div>
+      {isPanelLoading && activeTab === 'ingestion' ? <div className="panel-placeholder">Loading ingestion runs…</div> : null}
+      <div className="admin-table-list">
+        {ingestionRuns.length > 0 ? ingestionRuns.map((run) => (
+          <article className="admin-log-row" key={run.id}>
+            <div>
+              <div className="admin-row-title">
+                <span className="admin-pill">{run.status}</span>
+                <span className="admin-pill admin-pill--muted">{run.triggerType}</span>
+                <strong>{run.id.slice(0, 8)}</strong>
+              </div>
+              <p>
+                {run.documentCount ?? 0} documents · {run.embeddedCount ?? 0} embedded · {run.unchangedCount ?? 0} unchanged
+              </p>
+              {run.errorSummary ? <p className="admin-row-error">{run.errorSummary}</p> : null}
+            </div>
+            <div className="admin-row-meta">
+              <span>Started {formatDate(run.startedAt)}</span>
+              <span>Completed {formatDate(run.completedAt)}</span>
+            </div>
+          </article>
+        )) : (
+          <div className="panel-placeholder">No ingestion runs yet.</div>
+        )}
+      </div>
     </section>
   );
 
@@ -656,19 +1147,19 @@ export default function ChatbotAdminPage() {
       case 'focus':
         return renderFocusPanel();
       case 'analytics':
-        return renderPlaceholderPanel('Analytics', 'View chat usage, latency, and fallback metrics.');
+        return renderAnalyticsPanel();
       case 'logs':
-        return renderPlaceholderPanel('Logs', 'Search conversation logs and filter by error status.');
+        return renderLogsPanel();
       case 'testing':
-        return renderPlaceholderPanel('Testing', 'Run prompt tests against draft and live settings.');
+        return renderTestingPanel();
       case 'compare':
-        return renderPlaceholderPanel('Compare', 'Compare draft and live responses side by side.');
+        return renderComparePanel();
       case 'versions':
-        return renderPlaceholderPanel('Versions', 'Review versions and rollback to past live configs.');
+        return renderVersionsPanel();
       case 'sources':
-        return renderPlaceholderPanel('Sources', 'Toggle source categories and control retrieval feeds.');
+        return renderSourcesPanel();
       case 'ingestion':
-        return renderPlaceholderPanel('Ingestion', 'Reseed knowledge and monitor ingestion progress.');
+        return renderIngestionPanel();
       default:
         return null;
     }
@@ -730,6 +1221,12 @@ export default function ChatbotAdminPage() {
         </div>
       ) : null}
 
+      {actionMessage ? (
+        <div className="admin-notice admin-notice--success">
+          <span>{actionMessage}</span>
+        </div>
+      ) : null}
+
       <div className="admin-layout">
         <aside className="admin-nav">
           <div className="admin-card admin-card--accent">
@@ -738,7 +1235,7 @@ export default function ChatbotAdminPage() {
               {ADMIN_TABS.map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => selectTab(tab.id)}
                   className={`admin-tab ${activeTab === tab.id ? 'admin-tab--active' : ''}`}
                   type="button"
                 >

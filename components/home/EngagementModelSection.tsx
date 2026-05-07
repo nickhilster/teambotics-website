@@ -6,23 +6,23 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 const steps = [
   {
     number: "01",
-    title: "Discover",
-    body: "Embed in the operational context first. Understand constraints before writing a line of code.",
+    title: "Discovery & Scoping",
+    body: "Align on business objectives, user requirements, and security constraints to define a high-impact MVP.",
   },
   {
     number: "02",
-    title: "Design",
-    body: "Architecture that respects regulatory constraints and how people actually work.",
+    title: "System Architecture",
+    body: "Design scalable data models, compliant workflows, and user-centric interfaces for a robust initial release.",
   },
   {
     number: "03",
-    title: "Deploy",
-    body: "Phased rollout with real monitoring. Production systems, not soft launches.",
+    title: "Controlled Pilot",
+    body: "Deploy a contained build to gather actionable telemetry, refining the solution based on empirical user data.",
   },
   {
     number: "04",
-    title: "Evolve",
-    body: "Operational AI isn't one-time. We maintain and evolve systems as environments change.",
+    title: "Enterprise Scaling",
+    body: "Transition from pilot to production, implementing stable operational rhythms and compounding platform capabilities.",
   },
 ];
 
@@ -32,9 +32,9 @@ export function EngagementModelSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="Four phases. One continuous partnership."
-          eyebrow="HOW WE WORK"
-          title="The engagement model."
+          description="A structured methodology from initial opportunity framing to a scalable, market-ready release."
+          eyebrow="ENGAGEMENT METHODOLOGY"
+          title="A precise path to production."
         />
         <div className="engagement-grid">
           {steps.map((step, index) => (

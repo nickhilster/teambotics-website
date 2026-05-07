@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
 
 const navItems = [
-  { href: "#live-systems", label: "Work" },
+  { href: "#flagships", label: "Flagships" },
   { href: "#capabilities", label: "Capabilities" },
-  { href: "#positioning", label: "About" },
+  { href: "#engagement", label: "Approach" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -43,12 +43,12 @@ export function Header() {
           ))}
         </nav>
         <div className="site-header__meta">
-          <Link aria-label="Contact Teambotics" className="header-icon-link" href="#contact">
-            <Mail aria-hidden="true" size={17} strokeWidth={1.8} />
-          </Link>
+          <Button className="site-header__cta" href="#contact">
+            Start a conversation
+          </Button>
           <ThemeToggle />
           <button
-            aria-expanded={isOpen}
+            aria-controls="mobile-drawer"
             aria-label={isOpen ? "Close navigation" : "Open navigation"}
             className="site-nav-toggle"
             onClick={() => setIsOpen((value) => !value)}
@@ -58,7 +58,7 @@ export function Header() {
           </button>
         </div>
       </Container>
-      <div className={`mobile-drawer${isOpen ? " mobile-drawer--open" : ""}`}>
+      <div className={`mobile-drawer${isOpen ? " mobile-drawer--open" : ""}`} id="mobile-drawer">
         <Container className="mobile-drawer__inner">
           {navItems.map((item) => (
             <Link
@@ -69,7 +69,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href="#contact">Contact</Button>
+          <Button href="#contact">Start a conversation</Button>
         </Container>
       </div>
     </header>

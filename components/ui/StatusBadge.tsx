@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 type StatusBadgeProps = {
   className?: string;
   label: string;
-  variant: "live" | "pilot";
+  variant: "live" | "build" | "pilot";
 };
 
 export function StatusBadge({ className, label, variant }: StatusBadgeProps) {
