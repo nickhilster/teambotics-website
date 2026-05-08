@@ -54,14 +54,16 @@ function fingerprint(value: unknown) {
   return createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
-async function runSeedQuery<T>(
+type NeonQueryResult = Awaited<ReturnType<ReturnType<typeof neon>["query"]>>;
+
+async function runSeedQuery(
   databaseUrl: string,
   query: string,
   params: unknown[],
   label: string,
-) {
+): Promise<NeonQueryResult> {
   return withNeonQueryRetry(
-    () => neon(databaseUrl).query(query, params) as Promise<T>,
+    () => neon(databaseUrl).query(query, params),
     {
       onRetry: (attempt, error) => {
         console.warn(`RETRY ${label} (${attempt}): ${error.message}`);

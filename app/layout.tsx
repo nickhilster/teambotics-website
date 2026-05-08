@@ -7,6 +7,7 @@ import Script from "next/script";
 import { siteConfig } from "@/lib/config";
 import "../styles/globals.css";
 import "../styles/typography.css";
+import CommitTracker from "@/components/ui/CommitTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -83,6 +84,7 @@ export default function RootLayout({
           id="theme-init"
           strategy="beforeInteractive"
         />
+        <CommitTracker />
       </body>
     </html>
   );

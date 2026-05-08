@@ -18,11 +18,11 @@ test("homepage exposes flagship product case studies", async ({ page }) => {
 test("privacy and terms pages render real content", async ({ page }) => {
   await page.goto("/privacy");
   await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
-  await expect(page.getByText(/How Teambotics uses information/i)).toBeVisible();
+  await expect(page.getByText(/Information We Collect/i)).toBeVisible();
 
   await page.goto("/terms");
   await expect(page.getByRole("heading", { name: "Terms of Use" })).toBeVisible();
-  await expect(page.getByText(/Chat assistant boundaries/i)).toBeVisible();
+  await expect(page.getByText(/Chatbot Limitations/i)).toBeVisible();
 });
 
 test("legacy placeholder redirect routes are retired", async ({ page }) => {

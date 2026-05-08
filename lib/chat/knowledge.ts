@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/config";
 import { productCaseStudies } from "@/lib/products";
+import { getPublicSiteDocuments } from "@/lib/siteDocuments";
 
 export type TeamboticsKnowledgeDocument = {
   id: string;
@@ -67,6 +68,18 @@ const companyDocuments: TeamboticsKnowledgeDocument[] = [
       "What private clients has Teambotics worked with? The public Teambotics site does not publish a list of private clients. The assistant should not name private clients, confidential deployments, or unpublished case studies unless that information appears in approved public source material.",
   },
 ];
+
+const policyDocuments = getPublicSiteDocuments().map<TeamboticsKnowledgeDocument>((document) => ({
+  id: `policy-${document.id}`,
+  title: document.title,
+  sourceType: "company",
+  sourceKey: "company",
+  route: document.route,
+  metadata: {
+    category: "policy",
+  },
+  content: document.plainText,
+}));
 
 export function buildTeamboticsKnowledgeDocuments(): TeamboticsKnowledgeDocument[] {
   const productDocuments = productCaseStudies.flatMap<TeamboticsKnowledgeDocument>((product) => {
@@ -142,5 +155,5 @@ export function buildTeamboticsKnowledgeDocuments(): TeamboticsKnowledgeDocument
     ];
   });
 
-  return [...companyDocuments, ...productDocuments];
+  return [...companyDocuments, ...policyDocuments, ...productDocuments];
 }

@@ -1,0 +1,12 @@
+{
+    "workbench.colorTheme": "HighCoCo RonTron: Pink",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#000000",
+        "statusBar.foreground": "#FF2DF7",
+        "statusBar.border": "#FF2DF744",
+        "statusBarItem.hoverBackground": "#FF2DF733",
+        "statusBarItem.activeBackground": "#FF2DF755"
+    },
+    "editor.fontSize": 14,
+    "editor.fontWeight": "normal"
+}

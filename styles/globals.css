@@ -1878,6 +1878,120 @@ html.dark .engagement-step {
   font-size: 1.35rem;
 }
 
+.legal-document__hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.legal-document__updated {
+  margin: 0;
+  color: var(--color-text-tertiary);
+  font-size: 0.875rem;
+}
+
+.legal-markdown {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 58rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background:
+    radial-gradient(circle at 84% 14%, color-mix(in srgb, var(--color-accent) 9%, transparent), transparent 28%),
+    color-mix(in srgb, var(--color-bg-surface) 90%, transparent);
+  box-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--color-card-glow) 50%, transparent);
+}
+
+.legal-markdown > :first-child {
+  margin-top: 0;
+}
+
+.legal-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.legal-markdown h2,
+.legal-markdown h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  letter-spacing: -0.04em;
+}
+
+.legal-markdown h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.legal-markdown h3 {
+  font-size: 1.125rem;
+}
+
+.legal-markdown p,
+.legal-markdown li,
+.legal-markdown td,
+.legal-markdown th {
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+.legal-markdown ul,
+.legal-markdown ol {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.legal-markdown li > p {
+  margin: 0;
+}
+
+.legal-markdown a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.legal-markdown strong {
+  color: var(--color-text-primary);
+}
+
+.legal-markdown hr {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.legal-markdown table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.legal-markdown thead th {
+  color: var(--color-text-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.legal-markdown th,
+.legal-markdown td {
+  min-width: 10rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-markdown tbody tr:nth-child(2n) {
+  background: color-mix(in srgb, var(--color-bg-elevated) 68%, transparent);
+}
+
 .product-evidence,
 .product-stack {
   display: grid;
