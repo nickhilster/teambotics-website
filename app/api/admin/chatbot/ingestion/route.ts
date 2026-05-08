@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/adminRoute";
 import { mapIngestionRun } from "@/lib/chatbotAdminMapping";
+import { runGitHubIngestion } from "@/lib/chat/githubIngestion";
 import { getNeonClient } from "@/lib/neon";
 
 export async function GET() {
@@ -23,20 +24,21 @@ export async function POST() {
   const unauthorized = await requireAdmin();
   if (unauthorized) return unauthorized;
 
-  const client = await getNeonClient();
-  await client.query(
-    `INSERT INTO chatbot_ingestion_runs (
-      id,
-      status,
-      trigger_type,
-      started_at
-    ) VALUES ($1, 'requested', 'manual', now())`,
-    [crypto.randomUUID()],
-  );
+  try {
+    const result = await runGitHubIngestion({ triggerType: "manual" });
 
-  return NextResponse.json({
-    ok: true,
-    message: "Reseed requested. Run pnpm chat:seed to refresh embeddings from the current product content.",
-  });
+    return NextResponse.json({
+      ok: result.status !== "failed",
+      message: result.status === "failed"
+        ? "GitHub ingestion failed."
+        : "GitHub ingestion completed.",
+      result,
+    }, { status: result.status === "failed" ? 500 : 200 });
+  } catch (error) {
+    return NextResponse.json({
+      ok: false,
+      error: error instanceof Error ? error.message : "Unknown ingestion error.",
+    }, { status: 500 });
+  }
 }
 

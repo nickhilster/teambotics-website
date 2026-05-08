@@ -403,7 +403,7 @@
   margin-bottom: 0.35rem;
 }
 
-.panel-placeholder {
+.panel-empty-state {
   padding: 1rem;
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--color-bg-page) 95%, transparent);

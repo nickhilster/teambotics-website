@@ -57,15 +57,15 @@ const DEFAULT_SETTINGS: ChatbotDashboardSettings = {
   retrieval: {
     enabled: true,
     topK: 4,
-    similarityThreshold: 0.72,
+    similarityThreshold: 0.22,
     useConversationHistory: true,
     allowedSourceTypes: ['company', 'product', 'case-study', 'capability'],
     allowedRoutes: [],
   },
   prompt: {
-    systemPromptTemplate: 'You are Teambotics Assistant. Help visitors with information about Teambotics, our products, and design systems.',
-    brandFraming: 'Answer with operational confidence, compliance awareness, and engineering clarity.',
-    disallowedClaims: ['I am a lawyer', 'I am a doctor', 'I have access to private data'],
+    systemPromptTemplate: 'You are Teambotics Assistant. Answer only from approved Teambotics public source material and clearly say when the retrieved context is insufficient.',
+    brandFraming: 'Answer with operational confidence, compliance awareness, engineering clarity, and explicit grounding in published Teambotics sources.',
+    disallowedClaims: ['I am a lawyer', 'I am a doctor', 'I have access to private data', 'I can confirm private client relationships'],
   },
   operations: {
     chatEnabled: true,
@@ -73,8 +73,8 @@ const DEFAULT_SETTINGS: ChatbotDashboardSettings = {
     rateLimitWindowMs: 60000,
   },
   safety: {
-    strictGrounding: false,
-    minContextSimilarity: 0.72,
+    strictGrounding: true,
+    minContextSimilarity: 0.28,
   },
   focus: {
     priorityTopics: ['about', 'projects', 'technology'],
@@ -898,7 +898,7 @@ export default function ChatbotAdminPage() {
           Refresh
         </button>
       </div>
-      {isPanelLoading && activeTab === 'analytics' ? <div className="panel-placeholder">Loading analytics…</div> : null}
+      {isPanelLoading && activeTab === 'analytics' ? <div className="panel-empty-state">Loading analytics…</div> : null}
       {analytics ? (
         <div className="admin-stat-grid">
           <div className="admin-stat-card">
@@ -927,7 +927,7 @@ export default function ChatbotAdminPage() {
           </div>
         </div>
       ) : (
-        <div className="panel-placeholder">No analytics available yet. Send a chat message to create telemetry.</div>
+        <div className="panel-empty-state">No analytics available yet. Send a chat message to create telemetry.</div>
       )}
     </section>
   );
@@ -943,7 +943,7 @@ export default function ChatbotAdminPage() {
           Refresh
         </button>
       </div>
-      {isPanelLoading && activeTab === 'logs' ? <div className="panel-placeholder">Loading logs…</div> : null}
+      {isPanelLoading && activeTab === 'logs' ? <div className="panel-empty-state">Loading logs…</div> : null}
       <div className="admin-table-list">
         {logs.length > 0 ? logs.map((entry) => (
           <article className="admin-log-row" key={entry.id}>
@@ -963,7 +963,7 @@ export default function ChatbotAdminPage() {
             </div>
           </article>
         )) : (
-          <div className="panel-placeholder">No logs yet.</div>
+          <div className="panel-empty-state">No logs yet.</div>
         )}
       </div>
     </section>
@@ -1023,7 +1023,7 @@ export default function ChatbotAdminPage() {
           Refresh
         </button>
       </div>
-      {isPanelLoading && activeTab === 'versions' ? <div className="panel-placeholder">Loading versions…</div> : null}
+      {isPanelLoading && activeTab === 'versions' ? <div className="panel-empty-state">Loading versions…</div> : null}
       <div className="admin-table-list">
         {versions.length > 0 ? versions.map((version) => (
           <article className="admin-log-row" key={version.id}>
@@ -1041,7 +1041,7 @@ export default function ChatbotAdminPage() {
             </div>
           </article>
         )) : (
-          <div className="panel-placeholder">No versions available yet.</div>
+          <div className="panel-empty-state">No versions available yet.</div>
         )}
       </div>
     </section>
@@ -1058,7 +1058,7 @@ export default function ChatbotAdminPage() {
           Refresh
         </button>
       </div>
-      {isPanelLoading && activeTab === 'sources' ? <div className="panel-placeholder">Loading sources…</div> : null}
+      {isPanelLoading && activeTab === 'sources' ? <div className="panel-empty-state">Loading sources…</div> : null}
       <div className="admin-source-grid">
         {sources.length > 0 ? sources.map((source) => (
           <article className="admin-source-card" key={source.sourceKey}>
@@ -1078,7 +1078,7 @@ export default function ChatbotAdminPage() {
             </button>
           </article>
         )) : (
-          <div className="panel-placeholder">No sources are registered yet.</div>
+          <div className="panel-empty-state">No sources are registered yet.</div>
         )}
       </div>
     </section>
@@ -1100,10 +1100,10 @@ export default function ChatbotAdminPage() {
           </button>
         </div>
       </div>
-      <div className="panel-placeholder">
+      <div className="panel-empty-state">
         Embedding refreshes run from the CLI with <code>pnpm chat:seed</code> after a request is recorded.
       </div>
-      {isPanelLoading && activeTab === 'ingestion' ? <div className="panel-placeholder">Loading ingestion runs…</div> : null}
+      {isPanelLoading && activeTab === 'ingestion' ? <div className="panel-empty-state">Loading ingestion runs…</div> : null}
       <div className="admin-table-list">
         {ingestionRuns.length > 0 ? ingestionRuns.map((run) => (
           <article className="admin-log-row" key={run.id}>
@@ -1124,7 +1124,7 @@ export default function ChatbotAdminPage() {
             </div>
           </article>
         )) : (
-          <div className="panel-placeholder">No ingestion runs yet.</div>
+          <div className="panel-empty-state">No ingestion runs yet.</div>
         )}
       </div>
     </section>

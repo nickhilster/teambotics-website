@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export default function EasyBuddyPlaceholderPage() {
+export default function Page() {
   redirect("/products/easybuddy");
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   buildRetrievalQuery,
+  filterRetrievedSources,
   normalizeHistory,
   retrieveLocalContext,
   shouldUseConversationHistoryForRetrieval,
@@ -43,5 +44,35 @@ describe("chat retrieval helpers", () => {
 
     expect(sources.every((source) => source.sourceType !== "company")).toBe(true);
     expect(sources.every((source) => source.sourceType !== "capability")).toBe(true);
+  });
+
+  it("respects disabled source keys without disabling sibling sources of the same type", () => {
+    const sources = filterRetrievedSources(
+      [
+        {
+          id: "products",
+          title: "Product summaries",
+          excerpt: "",
+          similarity: 0.52,
+          sourceType: "product",
+          sourceKey: "products",
+          route: "/products/ltb-buddy",
+        },
+        {
+          id: "github-easybuddy",
+          title: "EasyBuddy GitHub knowledge",
+          excerpt: "",
+          similarity: 0.49,
+          sourceType: "product",
+          sourceKey: "github:owner/easybuddy",
+          route: "/products/easybuddy",
+        },
+      ],
+      {
+        disabledSourceKeys: ["github:owner/easybuddy"],
+      },
+    );
+
+    expect(sources.map((source) => source.id)).toEqual(["products"]);
   });
 });

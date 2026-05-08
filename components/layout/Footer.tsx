@@ -13,8 +13,9 @@ export function Footer() {
               {link.label}
             </Link>
           ))}
-          <Link href={siteConfig.socials.github}>GitHub</Link>
-          <Link href={siteConfig.socials.linkedin}>LinkedIn</Link>
+          <Link href={siteConfig.socials.linkedin} rel="noopener noreferrer" target="_blank">
+            LinkedIn
+          </Link>
         </nav>
       </Container>
     </footer>

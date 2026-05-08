@@ -7,8 +7,7 @@ export const siteConfig = {
   url: "https://teambotics.app",
   socials: {
     x: "@teambotics",
-    github: "/github-placeholder",
-    linkedin: "/linkedin-placeholder",
+    linkedin: "https://www.linkedin.com/company/teambotics-inc",
   },
   contactEmail: "hello@teambotics.app",
 };
@@ -16,6 +15,6 @@ export const siteConfig = {
 export { products };
 
 export const footerLinks = [
-  { label: "Privacy", href: "/privacy-placeholder" },
-  { label: "Terms", href: "/terms-placeholder" },
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
 ];

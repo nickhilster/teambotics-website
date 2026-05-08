@@ -10,6 +10,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       lastModified: new Date(),
     },
+    {
+      url: `${siteConfig.url}/privacy`,
+      changeFrequency: "monthly",
+      priority: 0.4,
+      lastModified: new Date(),
+    },
+    {
+      url: `${siteConfig.url}/terms`,
+      changeFrequency: "monthly",
+      priority: 0.4,
+      lastModified: new Date(),
+    },
     ...productCaseStudies.map((product) => ({
       url: `${siteConfig.url}/products/${product.slug}`,
       changeFrequency: "monthly" as const,

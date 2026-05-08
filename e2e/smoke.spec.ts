@@ -2,10 +2,27 @@ import { expect, test } from "@playwright/test";
 
 test("homepage exposes flagship product case studies", async ({ page }) => {
   await page.goto("/");
+  const footer = page.locator("footer");
 
   await expect(page.getByText("Building intelligent")).toBeVisible();
   await expect(page.getByText("LTB Buddy").first()).toBeVisible();
   await expect(page.getByRole("link", { name: /Read case study/i }).first()).toBeVisible();
+  await expect(footer.getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute("href", "/privacy");
+  await expect(footer.getByRole("link", { name: "Terms", exact: true })).toHaveAttribute("href", "/terms");
+  await expect(footer.getByRole("link", { name: "LinkedIn", exact: true })).toHaveAttribute(
+    "href",
+    "https://www.linkedin.com/company/teambotics-inc",
+  );
+});
+
+test("privacy and terms pages render real content", async ({ page }) => {
+  await page.goto("/privacy");
+  await expect(page.getByRole("heading", { name: "Privacy Policy" })).toBeVisible();
+  await expect(page.getByText(/How Teambotics uses information/i)).toBeVisible();
+
+  await page.goto("/terms");
+  await expect(page.getByRole("heading", { name: "Terms of Use" })).toBeVisible();
+  await expect(page.getByText(/Chat assistant boundaries/i)).toBeVisible();
 });
 
 test("product detail pages render the ported case-study model", async ({ page }) => {
@@ -45,6 +62,60 @@ test("chat widget opens and sends a site-context message", async ({ page }) => {
   await expect(
     page.getByText(/LTB Buddy|Teambotics|published site context|not have enough Teambotics context/i).last(),
   ).toBeVisible({ timeout: 15_000 });
+});
+
+test("lead form shows inline validation for invalid submissions", async ({ page }) => {
+  await page.goto("/#contact");
+
+  await page.getByRole("button", { name: "Start a conversation" }).click();
+
+  await expect(page.getByText("Please add your name.")).toBeVisible();
+  await expect(page.getByText("Please add your email address.")).toBeVisible();
+  await expect(page.getByText("Please add a short message about what you need.")).toBeVisible();
+});
+
+test("lead form submits successfully with a mocked API response", async ({ page }) => {
+  let leadRequestCount = 0;
+  let leadRequestPayload: Record<string, unknown> | null = null;
+
+  await page.route("**/api/leads", async (route) => {
+    leadRequestCount += 1;
+    leadRequestPayload = route.request().postDataJSON() as Record<string, unknown> | null;
+
+    await route.fulfill({
+      status: 201,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        message: "Thanks. Teambotics will follow up shortly.",
+      }),
+    });
+  });
+
+  const formCard = page.locator(".lead-form-card");
+
+  await page.goto("/#contact");
+  await page.getByLabel("Name").fill("Nikhil Khedkar");
+  await page.getByLabel("Email").fill("nikhil@example.com");
+  await page.getByLabel("Organization").fill("Teambotics");
+  await page.getByLabel("Interest area").selectOption("AI chatbot or assistant");
+  await page.getByLabel("Message").fill("We want a grounded assistant for regulated workflow questions.");
+  await page.getByRole("button", { name: "Start a conversation" }).click();
+
+  await expect.poll(() => leadRequestCount).toBe(1);
+  expect(leadRequestPayload).toMatchObject({
+    name: "Nikhil Khedkar",
+    email: "nikhil@example.com",
+    organization: "Teambotics",
+    interestArea: "AI chatbot or assistant",
+    message: "We want a grounded assistant for regulated workflow questions.",
+    pagePath: "/",
+  });
+  await expect(formCard.getByRole("status")).toHaveText("Thanks. Teambotics will follow up shortly.");
+  await expect(page.getByLabel("Name")).toHaveValue("");
+  await expect(page.getByLabel("Email")).toHaveValue("");
+  await expect(page.getByLabel("Message")).toHaveValue("");
+  await expect(page.getByRole("button", { name: "Start a conversation" })).toBeEnabled();
 });
 
 test("homepage keeps below-the-fold sections visible before scroll", async ({ page }) => {

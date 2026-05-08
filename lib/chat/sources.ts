@@ -29,3 +29,11 @@ export const KNOWN_SOURCE_GROUPS = [
   },
 ] as const;
 
+const KNOWN_SOURCE_KEYS_BY_TYPE = new Map<string, string>(
+  KNOWN_SOURCE_GROUPS.map((source) => [source.sourceType, source.sourceKey]),
+);
+
+export function getKnownSourceKeyForType(sourceType: string) {
+  return KNOWN_SOURCE_KEYS_BY_TYPE.get(sourceType);
+}
+

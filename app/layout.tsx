@@ -5,7 +5,8 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import Script from "next/script";
 import { siteConfig } from "@/lib/config";
-import "./globals.css";
+import "../styles/globals.css";
+import "../styles/typography.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

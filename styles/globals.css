@@ -1493,6 +1493,11 @@ html.dark .engagement-step {
   overflow: hidden;
 }
 
+.cta-section__form-shell {
+  width: min(42rem, 100%);
+  margin-top: 2rem;
+}
+
 .cta-section__title {
   margin: 0;
   max-width: 48rem;
@@ -1517,7 +1522,169 @@ html.dark .engagement-step {
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
+}
+
+.lead-form-card {
+  display: grid;
+  gap: 1.35rem;
+  padding: clamp(1.2rem, 2.5vw, 1.6rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 38%),
+    radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--color-pilot) 12%, transparent), transparent 34%),
+    color-mix(in srgb, var(--color-bg-surface) 92%, transparent);
+  box-shadow: 0 1.2rem 3rem color-mix(in srgb, var(--color-card-glow) 65%, transparent);
+}
+
+.lead-form-card__header {
+  display: grid;
+  gap: 0.55rem;
+  text-align: left;
+}
+
+.lead-form-card__eyebrow {
+  margin: 0;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.lead-form-card__title {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.1;
+}
+
+.lead-form-card__copy,
+.lead-form__privacy,
+.lead-form__hint {
+  color: var(--color-text-secondary);
+}
+
+.lead-form-card__copy,
+.lead-form__privacy,
+.lead-form__status,
+.lead-form__hint,
+.lead-form__error {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.lead-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.lead-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.lead-form__field {
+  display: grid;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.lead-form__field--full {
+  grid-column: 1 / -1;
+}
+
+.lead-form__field span {
+  color: var(--color-text-secondary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lead-form__field input,
+.lead-form__field select,
+.lead-form__field textarea {
+  width: 100%;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-bg-page) 88%, transparent);
+  color: var(--color-text-primary);
+  padding: 0.85rem 0.95rem;
+  transition:
+    border-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease,
+    background-color var(--transition-fast) ease;
+}
+
+.lead-form__field textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.lead-form__field input:focus-visible,
+.lead-form__field select:focus-visible,
+.lead-form__field textarea:focus-visible {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-glow) 90%, transparent);
+}
+
+.lead-form__field--invalid input,
+.lead-form__field--invalid select,
+.lead-form__field--invalid textarea {
+  border-color: var(--color-accent);
+}
+
+.lead-form__field-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.lead-form__hint,
+.lead-form__error,
+.lead-form__status,
+.lead-form__privacy {
+  font-size: 0.82rem;
+}
+
+.lead-form__error,
+.lead-form__status--error {
+  color: var(--color-accent);
+}
+
+.lead-form__status--success {
+  color: var(--color-live);
+}
+
+.lead-form__footer {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.lead-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.lead-form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.lead-form__privacy a {
+  color: var(--color-accent);
 }
 
 .site-footer {
@@ -2047,7 +2214,8 @@ html.dark .engagement-step {
 
   .hero__actions,
   .product-hero__actions,
-  .cta-section__actions {
+  .cta-section__actions,
+  .lead-form__actions {
     width: 100%;
     justify-content: stretch;
     flex-direction: column;
@@ -2055,8 +2223,17 @@ html.dark .engagement-step {
 
   .hero__actions .button,
   .product-hero__actions .button,
-  .cta-section__actions .button {
+  .cta-section__actions .button,
+  .lead-form__actions .button {
     width: 100%;
+  }
+
+  .lead-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lead-form__field-meta {
+    flex-direction: column;
   }
 
   .hero__status-row {

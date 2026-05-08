@@ -1,7 +1,7 @@
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { siteConfig } from "@/lib/config";
+import { LeadCaptureForm } from "@/components/home/LeadCaptureForm";
 
 export function HomeCTASection() {
   return (
@@ -20,8 +20,10 @@ export function HomeCTASection() {
             leverage.
           </p>
         </SectionReveal>
-        <SectionReveal className="cta-section__actions" delay={0.12}>
-          <Button href={`mailto:${siteConfig.contactEmail}`}>Start a conversation</Button>
+        <SectionReveal className="cta-section__form-shell" delay={0.12}>
+          <LeadCaptureForm />
+        </SectionReveal>
+        <SectionReveal className="cta-section__actions" delay={0.2}>
           <Button href="#flagships" variant="ghost">
             Review flagships
           </Button>

@@ -12,6 +12,7 @@ export type ChatSource = {
   route?: string;
   similarity: number;
   sourceType: string;
+  sourceKey?: string;
 };
 
 export type RetrievalOptions = {
@@ -19,9 +20,16 @@ export type RetrievalOptions = {
   similarityThreshold?: number;
   allowedSourceTypes?: string[];
   allowedRoutes?: string[];
+  disabledSourceKeys?: string[];
   disabledSourceTypes?: string[];
   preferredRoute?: string;
   contextTerms?: string[];
+};
+
+type SourceFilterInput = {
+  sourceType: string;
+  sourceKey?: string;
+  route?: string;
 };
 
 const RECENT_HISTORY_LIMIT = 8;
@@ -63,6 +71,29 @@ const HISTORY_FOLLOW_UP_PATTERNS = [
   /^anything else\b/i,
 ];
 
+const OVERVIEW_QUERY_PATTERNS = [
+  /^what is\b/i,
+  /^what does\b/i,
+  /^tell me about\b/i,
+  /^who is\b/i,
+];
+
+const BOUNDARY_QUERY_PATTERNS = [
+  /\blegal advice\b/i,
+  /\blawyer\b/i,
+  /\bprofessional advice\b/i,
+  /\bprivate clients?\b/i,
+  /\bconfidential\b/i,
+];
+
+const CONTACT_QUERY_PATTERNS = [
+  /\bcontact\b/i,
+  /\bemail\b/i,
+  /\breach\b/i,
+  /\breach out\b/i,
+  /\bhello@/i,
+];
+
 function tokenize(value: string) {
   return value
     .toLowerCase()
@@ -82,12 +113,12 @@ function getDocumentText(document: TeamboticsKnowledgeDocument) {
   ].join(" ");
 }
 
-function normalizeAllowedSourceTypes(allowedSourceTypes?: string[]) {
-  if (!allowedSourceTypes || allowedSourceTypes.length === 0) {
+function normalizeFilterValues(values?: string[]) {
+  if (!values || values.length === 0) {
     return null;
   }
 
-  return new Set(allowedSourceTypes.map((sourceType) => sourceType.trim()).filter(Boolean));
+  return new Set(values.map((value) => value.trim()).filter(Boolean));
 }
 
 function matchesAllowedRoute(route: string | undefined, allowedRoutes?: string[]) {
@@ -98,24 +129,32 @@ function matchesAllowedRoute(route: string | undefined, allowedRoutes?: string[]
   return Boolean(route && allowedRoutes.includes(route));
 }
 
-function filterDocuments<T extends { sourceType: string; route?: string }>(
-  documents: T[],
-  options: RetrievalOptions,
-) {
-  const disabledSourceTypes = new Set(options.disabledSourceTypes ?? []);
-  const allowedSourceTypes = normalizeAllowedSourceTypes(options.allowedSourceTypes);
+function matchesSourceFilters(source: SourceFilterInput, options: RetrievalOptions) {
+  const disabledSourceKeys = normalizeFilterValues(options.disabledSourceKeys);
+  const disabledSourceTypes = normalizeFilterValues(options.disabledSourceTypes);
+  const allowedSourceTypes = normalizeFilterValues(options.allowedSourceTypes);
 
-  return documents.filter((document) => {
-    if (disabledSourceTypes.has(document.sourceType)) {
-      return false;
-    }
+  if (source.sourceKey && disabledSourceKeys?.has(source.sourceKey)) {
+    return false;
+  }
 
-    if (allowedSourceTypes && !allowedSourceTypes.has(document.sourceType)) {
-      return false;
-    }
+  if (disabledSourceTypes?.has(source.sourceType)) {
+    return false;
+  }
 
-    return matchesAllowedRoute(document.route, options.allowedRoutes);
-  });
+  if (allowedSourceTypes && !allowedSourceTypes.has(source.sourceType)) {
+    return false;
+  }
+
+  return matchesAllowedRoute(source.route, options.allowedRoutes);
+}
+
+export function filterRetrievedSources<T extends SourceFilterInput>(sources: T[], options: RetrievalOptions) {
+  return sources.filter((source) => matchesSourceFilters(source, options));
+}
+
+function filterDocuments<T extends SourceFilterInput>(documents: T[], options: RetrievalOptions) {
+  return filterRetrievedSources(documents, options);
 }
 
 export function extractRelevantExcerpt(query: string, content: string, maxLength = 420) {
@@ -146,19 +185,29 @@ export function rankKnowledgeDocuments(
   const queryTokens = tokenize([query, ...(options.contextTerms ?? [])].join(" "));
   const queryTokenSet = new Set(queryTokens);
   const preferredRoute = options.preferredRoute;
+  const isOverviewQuery = OVERVIEW_QUERY_PATTERNS.some((pattern) => pattern.test(query));
+  const isBoundaryQuery = BOUNDARY_QUERY_PATTERNS.some((pattern) => pattern.test(query));
+  const isContactQuery = CONTACT_QUERY_PATTERNS.some((pattern) => pattern.test(query));
 
   return filterDocuments(documents, options)
     .map((document) => {
       const documentText = getDocumentText(document).toLowerCase();
       const documentTokens = tokenize(documentText);
       const documentTokenSet = new Set(documentTokens);
+      const normalizedTitle = document.title.toLowerCase();
       const overlap = queryTokens.filter((token) => documentTokenSet.has(token)).length;
       const routeBoost = preferredRoute && document.route === preferredRoute ? 0.18 : 0;
       const titleBoost = tokenize(document.title).some((token) => queryTokenSet.has(token)) ? 0.12 : 0;
       const sourceBoost = document.sourceType === "product" ? 0.06 : 0;
+      const overviewBoost = isOverviewQuery && (normalizedTitle.includes("summary") || normalizedTitle.startsWith("what ")) ? 0.1 : 0;
+      const boundaryBoost = isBoundaryQuery && (normalizedTitle.includes("boundar") || normalizedTitle.includes("disclosure")) ? 0.12 : 0;
+      const contactBoost = isContactQuery && normalizedTitle.includes("contact") ? 0.12 : 0;
       const density = overlap / Math.max(6, queryTokens.length);
       const breadth = overlap / Math.max(12, documentTokenSet.size);
-      const similarity = Math.min(0.99, density * 0.72 + breadth * 0.28 + routeBoost + titleBoost + sourceBoost);
+      const similarity = Math.min(
+        0.99,
+        density * 0.72 + breadth * 0.28 + routeBoost + titleBoost + sourceBoost + overviewBoost + boundaryBoost + contactBoost,
+      );
 
       return {
         id: document.id,
@@ -167,6 +216,7 @@ export function rankKnowledgeDocuments(
         route: document.route,
         similarity: Number(similarity.toFixed(4)),
         sourceType: document.sourceType,
+        sourceKey: document.sourceKey,
       };
     })
     .filter((source) => source.similarity >= (options.similarityThreshold ?? 0.05))

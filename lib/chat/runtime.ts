@@ -1,11 +1,13 @@
 import { getDefaultChatbotSettings, getNeonClient, toRows } from "@/lib/neon";
 import {
   buildRetrievalQuery,
+  filterRetrievedSources,
   normalizeHistory,
   retrieveLocalContext,
   type ChatSource,
   type ConversationTurn,
 } from "@/lib/chat/retrieval";
+import { filterGroundedSources, getGroundingThreshold } from "@/lib/chat/grounding";
 import {
   createChatCompletion,
   createEmbedding,
@@ -14,6 +16,7 @@ import {
   type OpenAiRuntimeConfig,
 } from "@/lib/chat/openai";
 import { takeRateLimitToken } from "@/lib/chat/rateLimit";
+import { getKnownSourceKeyForType } from "@/lib/chat/sources";
 import type { ChatbotDashboardSettings } from "@/types/chatbotAdmin";
 
 export type ChatPageContext = {
@@ -104,26 +107,30 @@ export async function fetchChatConfig() {
   }
 }
 
-async function fetchDisabledSourceTypes() {
+async function fetchDisabledSourceKeys() {
   try {
     const client = await getNeonClient();
-    const rows = toRows<{ source_type?: unknown }>(await client.query(
-      "SELECT DISTINCT source_type FROM chatbot_sources WHERE enabled = false",
+    const rows = toRows<{ source_key?: unknown }>(await client.query(
+      "SELECT DISTINCT source_key FROM chatbot_sources WHERE enabled = false",
     ));
     return rows.length > 0
-      ? rows.map((row) => String(row.source_type ?? "")).filter(Boolean)
+      ? rows.map((row) => String(row.source_key ?? "").trim()).filter(Boolean)
       : [];
   } catch {
     return [];
   }
 }
 
-function mapDatabaseSource(row: Record<string, unknown>): ChatSource {
+export function mapDatabaseSource(row: Record<string, unknown>): ChatSource {
   const metadata =
     row.metadata && typeof row.metadata === "object"
       ? row.metadata as Record<string, unknown>
       : {};
   const content = String(row.content ?? "");
+  const sourceType = typeof metadata.sourceType === "string" ? metadata.sourceType : String(row.source ?? "database");
+  const sourceKey = typeof metadata.sourceKey === "string" && metadata.sourceKey.trim().length > 0
+    ? metadata.sourceKey.trim()
+    : getKnownSourceKeyForType(sourceType);
 
   return {
     id: String(row.document_key ?? row.id ?? crypto.randomUUID()),
@@ -131,29 +138,16 @@ function mapDatabaseSource(row: Record<string, unknown>): ChatSource {
     excerpt: content.length > 460 ? `${content.slice(0, 460).trim()} ...` : content,
     route: typeof metadata.route === "string" ? metadata.route : undefined,
     similarity: Number(row.similarity ?? 0),
-    sourceType: typeof metadata.sourceType === "string" ? metadata.sourceType : String(row.source ?? "database"),
+    sourceType,
+    sourceKey,
   };
 }
 
-function filterSources(sources: ChatSource[], settings: ChatbotDashboardSettings, disabledSourceTypes: string[]) {
-  const disabled = new Set(disabledSourceTypes);
-  const allowedSourceTypes = new Set(settings.retrieval.allowedSourceTypes ?? []);
-  const allowedRoutes = new Set(settings.retrieval.allowedRoutes ?? []);
-
-  return sources.filter((source) => {
-    if (disabled.has(source.sourceType)) {
-      return false;
-    }
-
-    if (allowedSourceTypes.size > 0 && !allowedSourceTypes.has(source.sourceType)) {
-      return false;
-    }
-
-    if (allowedRoutes.size > 0 && (!source.route || !allowedRoutes.has(source.route))) {
-      return false;
-    }
-
-    return true;
+function filterSources(sources: ChatSource[], settings: ChatbotDashboardSettings, disabledSourceKeys: string[]) {
+  return filterRetrievedSources(sources, {
+    allowedRoutes: settings.retrieval.allowedRoutes,
+    allowedSourceTypes: settings.retrieval.allowedSourceTypes,
+    disabledSourceKeys,
   });
 }
 
@@ -161,7 +155,7 @@ async function retrieveDatabaseContext(
   query: string,
   settings: ChatbotDashboardSettings,
   openAiConfig: OpenAiRuntimeConfig,
-  disabledSourceTypes: string[],
+  disabledSourceKeys: string[],
 ) {
   if (!settings.retrieval.enabled || !openAiConfig.apiKey) {
     return [];
@@ -174,12 +168,13 @@ async function retrieveDatabaseContext(
     }
 
     const client = await getNeonClient();
+    const threshold = Math.max(0, Math.min(1, getGroundingThreshold(settings)));
     const rows = toRows(await client.query(
       `SELECT id, document_key, content, metadata, source, similarity
        FROM match_documents($1::vector(1536), $2, $3)`,
       [
         toVectorLiteral(embedding),
-        Math.max(0, Math.min(1, settings.retrieval.similarityThreshold)),
+        threshold,
         Math.max(settings.retrieval.topK * 3, settings.retrieval.topK),
       ],
     ));
@@ -187,7 +182,7 @@ async function retrieveDatabaseContext(
     return filterSources(
       rows.map((row) => mapDatabaseSource(row as Record<string, unknown>)),
       settings,
-      disabledSourceTypes,
+      disabledSourceKeys,
     ).slice(0, settings.retrieval.topK);
   } catch {
     return [];
@@ -230,8 +225,10 @@ function buildSystemPrompt(
   return [
     settings.prompt.systemPromptTemplate,
     settings.prompt.brandFraming,
-    "You are the Teambotics site assistant. Answer only from the provided Teambotics context, product pages, and site positioning. Be clear, concise, and practical.",
-    "If the user asks for legal, medical, financial, or private operational advice, explain that you cannot provide professional advice and suggest contacting Teambotics or a qualified professional.",
+    "You are the Teambotics site assistant. Answer only from the provided Teambotics context, product pages, and approved public materials. Do not infer beyond the retrieved sources.",
+    "If the retrieved context does not support a claim, say that you do not have enough public Teambotics context to answer confidently.",
+    "If the user asks for legal, medical, financial, or private operational advice, explain that you cannot provide professional advice. For legal topics, be explicit that Teambotics products do not replace a qualified legal professional.",
+    "Never invent private clients, confidential deployments, unpublished repositories, or internal metrics.",
     `Disallowed claims: ${settings.prompt.disallowedClaims.join("; ")}`,
     `Current page context:\n${pageContextBlock}`,
     `Retrieved context:\n${sourceBlock}`,
@@ -386,7 +383,7 @@ export async function runChatRuntime(request: Request, body: ChatRuntimeRequest)
   }
 
   const start = Date.now();
-  const disabledSourceTypes = await fetchDisabledSourceTypes();
+  const disabledSourceKeys = await fetchDisabledSourceKeys();
   const pageContextTerms = buildPageContextSnippet(pageContext);
   const retrievalQuery = [
     pageContextTerms.join("\n"),
@@ -395,19 +392,22 @@ export async function runChatRuntime(request: Request, body: ChatRuntimeRequest)
     .filter(Boolean)
     .join("\n\n");
 
-  const databaseSources = await retrieveDatabaseContext(retrievalQuery, settings, openAiConfig, disabledSourceTypes);
+  const databaseSources = await retrieveDatabaseContext(retrievalQuery, settings, openAiConfig, disabledSourceKeys);
+  const localSimilarityThreshold = settings.safety.strictGrounding
+    ? getGroundingThreshold(settings)
+    : Math.min(settings.retrieval.similarityThreshold, 0.1);
   const localSources = databaseSources.length > 0
     ? []
     : retrieveLocalContext(retrievalQuery, {
         topK: settings.retrieval.topK,
-        similarityThreshold: Math.min(settings.retrieval.similarityThreshold, 0.1),
+        similarityThreshold: localSimilarityThreshold,
         allowedSourceTypes: settings.retrieval.allowedSourceTypes,
         allowedRoutes: settings.retrieval.allowedRoutes,
-        disabledSourceTypes,
+        disabledSourceKeys,
         preferredRoute: pageContext?.pagePath ?? pageContext?.route,
         contextTerms: pageContextTerms,
       });
-  const sources = databaseSources.length > 0 ? databaseSources : localSources;
+  const sources = filterGroundedSources(databaseSources.length > 0 ? databaseSources : localSources, settings);
 
   await logChatMessage({
     conversationId,

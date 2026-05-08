@@ -47,15 +47,15 @@ const DEFAULT_CHATBOT_SETTINGS: ChatbotDashboardSettings = {
   retrieval: {
     enabled: true,
     topK: 4,
-    similarityThreshold: 0.72,
+    similarityThreshold: 0.22,
     useConversationHistory: true,
     allowedSourceTypes: ['company', 'product', 'case-study', 'capability'],
     allowedRoutes: [],
   },
   prompt: {
-    systemPromptTemplate: 'You are Teambotics Assistant. Help visitors with information about the company, products, and technology.',
-    brandFraming: 'Focus on workflow strategy, compliance, enablement, and frontline operations.',
-    disallowedClaims: ['I am a lawyer', 'I am a doctor', 'I can access private systems'],
+    systemPromptTemplate: 'You are Teambotics Assistant. Answer only from approved Teambotics public source material and clearly say when the retrieved context is insufficient.',
+    brandFraming: 'Focus on workflow strategy, compliance awareness, enablement, and frontline operations. Keep answers concise, sourced, and operationally clear.',
+    disallowedClaims: ['I am a lawyer', 'I am a doctor', 'I can access private systems', 'I can confirm private client relationships'],
   },
   operations: {
     chatEnabled: true,
@@ -63,8 +63,8 @@ const DEFAULT_CHATBOT_SETTINGS: ChatbotDashboardSettings = {
     rateLimitWindowMs: 60_000,
   },
   safety: {
-    strictGrounding: false,
-    minContextSimilarity: 0.72,
+    strictGrounding: true,
+    minContextSimilarity: 0.28,
   },
   focus: {
     priorityTopics: ['about', 'projects', 'technology'],
@@ -215,6 +215,19 @@ async function createSchema() {
     )
     `,
     `
+    CREATE TABLE IF NOT EXISTS leads (
+      id text PRIMARY KEY,
+      name text NOT NULL,
+      email text NOT NULL,
+      organization text,
+      interest_area text,
+      message text NOT NULL,
+      page_path text,
+      user_agent text,
+      created_at timestamptz NOT NULL DEFAULT now()
+    )
+    `,
+    `
     CREATE TABLE IF NOT EXISTS theme_settings (
       id text PRIMARY KEY,
       draft_settings jsonb NOT NULL,
@@ -233,6 +246,10 @@ async function createSchema() {
     `
     CREATE INDEX IF NOT EXISTS idx_chatbot_ingestion_started_at
       ON chatbot_ingestion_runs (started_at DESC)
+    `,
+    `
+    CREATE INDEX IF NOT EXISTS idx_leads_created_at
+      ON leads (created_at DESC)
     `,
   ];
 

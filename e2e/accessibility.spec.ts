@@ -18,3 +18,11 @@ test("homepage has no axe violations", async ({ page }) => {
 test("product detail page has no axe violations", async ({ page }) => {
   await expectNoAccessibilityViolations(page, "/products/ltb-buddy");
 });
+
+test("privacy page has no axe violations", async ({ page }) => {
+  await expectNoAccessibilityViolations(page, "/privacy");
+});
+
+test("terms page has no axe violations", async ({ page }) => {
+  await expectNoAccessibilityViolations(page, "/terms");
+});

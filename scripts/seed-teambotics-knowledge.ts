@@ -129,6 +129,7 @@ async function main() {
             ...document.metadata,
             title: document.title,
             route: document.route ?? null,
+            sourceKey: document.sourceKey,
             sourceType: document.sourceType,
           }),
           `[${embedding.map((value) => Number(value).toFixed(8)).join(",")}]`,
