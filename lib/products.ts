@@ -199,7 +199,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     heroSummary:
       "Motion, code, and generative atmosphere packaged into a live creative platform.",
     impact:
-      "Demonstrates Teambotics' ability to ship expressive, browser-native interactive systems beyond conventional enterprise dashboards.",
+      "Demonstrates Teambotics' ability to ship expressive, browser-native interactive systems beyond conventional internal tools and dashboards.",
     tags: ["Generative Art", "PWA", "Interactive Motion"],
     techStack: ["React", "Canvas", "PWA", "Generative Motion"],
     aiCapabilities: [
@@ -260,7 +260,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     stage: "In Public Launch Preparation",
     status: "live",
     statusLabel: "LIVE",
-    market: "Enterprise Automation / Systems Design",
+    market: "Workflow Strategy / Systems Design / Enablement",
     tagline:
       "A narrative systems layer for turning projects, decisions, collaborators, and outcomes into a clearer story surface.",
     description:
@@ -341,4 +341,3 @@ export const products = productCaseStudies.map((product) => ({
 export function getProductBySlug(slug: string) {
   return productCaseStudies.find((product) => product.slug === slug) ?? null;
 }
-

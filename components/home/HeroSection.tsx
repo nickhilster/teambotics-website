@@ -17,7 +17,7 @@ export function HeroSection() {
             <span className="hero-pill__dot">
               <span className="hero-pill__dot-core" />
             </span>
-            Enterprise AI & Workflow Systems
+            Workflow Strategy, Enablement & AI Systems
           </div>
         </SectionReveal>
         <TextReveal
@@ -33,9 +33,9 @@ export function HeroSection() {
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            Teambotics develops intelligent, adoption-ready platforms across operational workflows
-            and interactive digital experiences. We design systems engineered for clarity,
-            compliance, and immediate impact.
+            Teambotics designs intelligent, adoption-ready systems for operational workflows,
+            team enablement, and interactive digital experiences. We shape each product around
+            clarity, compliance, and rollout strategy so teams can use it with confidence.
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>

@@ -7,22 +7,22 @@ const steps = [
   {
     number: "01",
     title: "Discovery & Scoping",
-    body: "Align on business objectives, user requirements, and security constraints to define a high-impact MVP.",
+    body: "Align on business goals, workflow realities, user requirements, and security constraints to define the right first release.",
   },
   {
     number: "02",
     title: "System Architecture",
-    body: "Design scalable data models, compliant workflows, and user-centric interfaces for a robust initial release.",
+    body: "Translate the opportunity into data models, enablement flows, compliant automation, and user-facing interfaces that can hold up in practice.",
   },
   {
     number: "03",
     title: "Controlled Pilot",
-    body: "Deploy a contained build to gather actionable telemetry, refining the solution based on empirical user data.",
+    body: "Deploy a contained build to gather team feedback and operational signals, then refine the workflow before broader rollout.",
   },
   {
     number: "04",
-    title: "Enterprise Scaling",
-    body: "Transition from pilot to production, implementing stable operational rhythms and compounding platform capabilities.",
+    title: "Operational Rollout",
+    body: "Move from pilot to production with stable routines, team enablement, and a roadmap for the next layer of workflow capability.",
   },
 ];
 
@@ -32,9 +32,9 @@ export function EngagementModelSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="A structured methodology from initial opportunity framing to a scalable, market-ready release."
+          description="A structured methodology from early opportunity framing to a production-ready workflow system."
           eyebrow="ENGAGEMENT METHODOLOGY"
-          title="A precise path to production."
+          title="A deliberate path to production."
         />
         <div className="engagement-grid">
           {steps.map((step, index) => (

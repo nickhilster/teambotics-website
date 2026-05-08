@@ -14,16 +14,17 @@ export function PositioningSection() {
         <SectionReveal className="positioning__copy" delay={0.08}>
           <p>
             Teambotics builds a focused portfolio of AI solutions spanning legal compliance, workforce
-            enablement, and interactive experiences. While our markets vary, our commitment to
-            intuitive design and robust architecture remains constant.
+            enablement, and interactive experiences. Across each engagement, we use strategy,
+            workflow mapping, and interface discipline to turn complex operations into systems
+            people can actually use.
           </p>
           <p>
-            We architect systems to reduce operational friction and drive confident decision-making.
-            By prioritizing strict scoping and interface discipline, we ensure our AI deployments
-            accelerate adoption without compromising security.
+            We help teams decide what should be automated, what should stay guided, and how new
+            capability fits existing work. By grounding architecture in real operating conditions,
+            we make adoption, enablement, and long-term usability part of the product strategy.
           </p>
           <blockquote className="positioning__quote">
-            Engineered for enterprise scale. Designed for frontline adoption.
+            Strategy first. Workflow-ready by design.
           </blockquote>
         </SectionReveal>
       </Container>

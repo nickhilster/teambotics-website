@@ -14,8 +14,10 @@ export function HomeCTASection() {
             Build reliable, intelligent systems from day one.
           </h2>
           <p className="cta-section__copy">
-            Teambotics partners with organizations to modernize workflows and deploy intelligent
-            systems. Start a conversation to explore how we can accelerate your automation initiatives.
+            Teambotics partners with organizations to clarify workflow strategy, strengthen
+            enablement, and ship intelligent systems people can actually use. Start a conversation
+            to explore where automation, guidance, and operational design can create the most
+            leverage.
           </p>
         </SectionReveal>
         <SectionReveal className="cta-section__actions" delay={0.12}>

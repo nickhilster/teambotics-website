@@ -54,7 +54,7 @@ const DEFAULT_CHATBOT_SETTINGS: ChatbotDashboardSettings = {
   },
   prompt: {
     systemPromptTemplate: 'You are Teambotics Assistant. Help visitors with information about the company, products, and technology.',
-    brandFraming: 'Focus on enterprise readiness, compliance, and frontline operations.',
+    brandFraming: 'Focus on workflow strategy, compliance, enablement, and frontline operations.',
     disallowedClaims: ['I am a lawyer', 'I am a doctor', 'I can access private systems'],
   },
   operations: {

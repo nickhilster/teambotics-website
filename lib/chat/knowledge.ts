@@ -32,7 +32,7 @@ const companyDocuments: TeamboticsKnowledgeDocument[] = [
     sourceType: "capability",
     route: "/#engagement",
     content:
-      "The Teambotics engagement model moves through discovery and scoping, system architecture, controlled pilot, and enterprise scaling. The process is designed to align business objectives, user needs, security constraints, and release readiness.",
+      "The Teambotics engagement model moves through discovery and scoping, system architecture, controlled pilot, and operational rollout. The process is designed to align business objectives, workflow realities, user needs, security constraints, and release readiness.",
   },
 ];
 
@@ -94,4 +94,3 @@ export function buildTeamboticsKnowledgeDocuments(): TeamboticsKnowledgeDocument
 
   return [...companyDocuments, ...productDocuments];
 }
-

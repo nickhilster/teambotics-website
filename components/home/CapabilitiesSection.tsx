@@ -7,17 +7,17 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 const capabilities = [
   {
     title: "Strategic MVP Architecture",
-    body: "We define precise product boundaries, focusing on high-value workflows and clear paths from initial prototype to enterprise release.",
+    body: "We define precise product boundaries, focusing on high-value workflows and a clear path from early prototype to production rollout.",
     icon: Blocks,
   },
   {
     title: "Workflow Automation & Enablement",
-    body: "We engineer secure, compliant AI systems tailored for complex operational environments where accuracy, trust, and traceability are paramount.",
+    body: "We design secure, compliant AI systems around real handoffs, decision points, and training needs so new workflows can stick in practice.",
     icon: ShieldCheck,
   },
   {
     title: "High-Adoption Interface Design",
-    body: "We craft intuitive, accessible interfaces that minimize cognitive load, ensuring immediate usability and rapid organizational adoption.",
+    body: "We craft intuitive, accessible interfaces that reduce cognitive load, support enablement, and help teams build confidence quickly.",
     icon: Workflow,
   },
 ];
