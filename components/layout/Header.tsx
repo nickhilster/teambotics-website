@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { TeamboticsSVGLogo } from "@/components/layout/TeamboticsSVGLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { Container } from "./Container";
 
 const navItems = [
-  { href: "#flagships", label: "Flagships" },
+  { href: "#systems", label: "Systems" },
   { href: "#capabilities", label: "Capabilities" },
   { href: "#engagement", label: "Approach" },
   { href: "#contact", label: "Contact" },
@@ -33,7 +34,8 @@ export function Header() {
     <header className={`site-header${isScrolled ? " site-header--scrolled" : ""}`}>
       <Container className="site-header__inner">
         <Link className="site-logo" href="/">
-          [ teambotics ]
+          <TeamboticsSVGLogo />
+          <span className="site-logo__text">Teambotics</span>
         </Link>
         <nav className="site-nav" aria-label="Primary">
           {navItems.map((item) => (

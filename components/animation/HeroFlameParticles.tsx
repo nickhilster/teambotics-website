@@ -8,6 +8,9 @@ const particleModifiers = [
   "hero-flame__particle--7",
   "hero-flame__particle--8",
   "hero-flame__particle--9",
+  "hero-flame__particle--10",
+  "hero-flame__particle--11",
+  "hero-flame__particle--12",
 ];
 
 export function HeroFlameParticles() {

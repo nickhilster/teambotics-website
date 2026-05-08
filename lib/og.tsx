@@ -45,7 +45,7 @@ export function buildOgImage() {
             padding: "14px 24px",
           }}
         >
-          FLAGSHIP AI PRODUCT STUDIO
+          APPLIED AI PRODUCT STUDIO
         </div>
         <div
           style={{
@@ -57,7 +57,7 @@ export function buildOgImage() {
             lineHeight: 1,
           }}
         >
-          <span>Building flagship</span>
+          <span>Building applied</span>
           <span>AI products for</span>
           <span>operations, creativity,</span>
           <span style={{ color: "#79b8ff" }}>and narrative.</span>

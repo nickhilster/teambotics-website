@@ -41,7 +41,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     slug: "ltb-buddy",
     name: "LTB Buddy",
     title: "Guided Legal Intake Assistant",
-    label: "Flagship Product",
+    label: "Live Product",
     stage: "Live Legal Tech System",
     status: "live",
     statusLabel: "LIVE",
@@ -104,7 +104,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
           "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty.",
       },
     ],
-    externalUrl: "https://ltbbuddy.teambotics.app/",
+    externalUrl: "https://ltbbuddy.ca/",
     externalLabel: "Open Live Product",
     supportUrl: "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
     supportLabel: "Discuss LTB Buddy",
@@ -335,6 +335,8 @@ export const products = productCaseStudies.map((product) => ({
   statusLabel: product.statusLabel,
   href: `/products/${product.slug}`,
   ctaLabel: "Read case study",
+  externalUrl: product.externalUrl,
+  externalLabel: product.externalLabel,
   tags: product.tags,
 }));
 

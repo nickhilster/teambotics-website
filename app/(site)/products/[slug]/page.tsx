@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/layout/Container";
@@ -77,6 +78,9 @@ export default async function ProductCaseStudyPage({ params }: ProductPageProps)
             <a className="button button--ghost" href={product.supportUrl}>
               <span>{product.supportLabel}</span>
             </a>
+            <Link className="button button--ghost product-hero__back-link" href="/#systems">
+              <span>{"\u2190 All products"}</span>
+            </Link>
           </SectionReveal>
         </Container>
       </section>

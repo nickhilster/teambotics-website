@@ -1,4 +1,3 @@
-import { CursorReactiveCard } from "@/components/animation/CursorReactiveCard";
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -32,18 +31,23 @@ export function EngagementModelSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="Four phases, one consistent standard: understand the context before writing code, then build something the team will actually rely on."
+          description="A structured methodology from early opportunity framing to a production-ready workflow system."
           eyebrow="ENGAGEMENT METHODOLOGY"
-          title="A deliberate path from idea to production."
+          title="A deliberate path to production."
         />
-        <div className="engagement-grid">
+        <div className="engagement-rail">
+          <div aria-hidden="true" className="engagement-rail__track" />
           {steps.map((step, index) => (
             <SectionReveal delay={index * 0.06} key={step.number}>
-              <CursorReactiveCard className="engagement-step">
-                <div className="engagement-step__number">{step.number}</div>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </CursorReactiveCard>
+              <div className="engagement-step">
+                <div className="engagement-step__node">
+                  <span className="engagement-step__number">{step.number}</span>
+                </div>
+                <div className="engagement-step__content">
+                  <h3>{step.title}</h3>
+                  <p>{step.body}</p>
+                </div>
+              </div>
             </SectionReveal>
           ))}
         </div>
