@@ -1,3 +1,4 @@
+import { neon } from "@neondatabase/serverless";
 import fs from "node:fs";
 import path from "node:path";
 import { createHash, randomUUID } from "node:crypto";
@@ -5,6 +6,7 @@ import { buildTeamboticsKnowledgeDocuments } from "../lib/chat/knowledge";
 import { createEmbedding, getOpenAiRuntimeConfig } from "../lib/chat/openai";
 import { KNOWN_SOURCE_GROUPS } from "../lib/chat/sources";
 import { getNeonClient, toRows } from "../lib/neon";
+import { withNeonQueryRetry } from "../lib/neonRetry";
 
 const repoRoot = process.cwd();
 const isDryRun = process.argv.includes("--dry-run");
@@ -52,6 +54,22 @@ function fingerprint(value: unknown) {
   return createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
+async function runSeedQuery<T>(
+  databaseUrl: string,
+  query: string,
+  params: unknown[],
+  label: string,
+) {
+  return withNeonQueryRetry(
+    () => neon(databaseUrl).query(query, params) as Promise<T>,
+    {
+      onRetry: (attempt, error) => {
+        console.warn(`RETRY ${label} (${attempt}): ${error.message}`);
+      },
+    },
+  );
+}
+
 async function main() {
   const documents = buildTeamboticsKnowledgeDocuments();
 
@@ -61,7 +79,7 @@ async function main() {
     return;
   }
 
-  readRequiredEnvAny("NEON_DB_URL", "NEON_DATABASE_URL", "DATABASE_URL", "POSTGRES_URL");
+  const databaseUrl = readRequiredEnvAny("NEON_DB_URL", "NEON_DATABASE_URL", "DATABASE_URL", "POSTGRES_URL");
   const openAiConfig = getOpenAiRuntimeConfig({
     chatModel: process.env.OPENAI_CHAT_MODEL,
     embeddingModel: process.env.OPENAI_EMBEDDING_MODEL,
@@ -71,12 +89,14 @@ async function main() {
     throw new Error("OPENAI_API_KEY is required before seeding embeddings.");
   }
 
-  const sql = await getNeonClient();
+  await getNeonClient();
   const runId = randomUUID();
-  await sql.query(
+  await runSeedQuery(
+    databaseUrl,
     `INSERT INTO chatbot_ingestion_runs (id, status, trigger_type, started_at)
      VALUES ($1, 'running', 'seed', now())`,
     [runId],
+    "insert ingestion run",
   );
 
   let embeddedCount = 0;
@@ -85,9 +105,11 @@ async function main() {
   try {
     for (const document of documents) {
       const contentHash = fingerprint(document);
-      const existing = toRows<{ content_hash?: string }>(await sql.query(
+      const existing = toRows<{ content_hash?: string }>(await runSeedQuery(
+        databaseUrl,
         "SELECT content_hash FROM documents WHERE document_key = $1 LIMIT 1",
         [document.id],
+        `select document ${document.id}`,
       ));
 
       if (existing[0]?.content_hash === contentHash) {
@@ -102,7 +124,8 @@ async function main() {
         throw new Error(`Embedding failed for ${document.id}`);
       }
 
-      await sql.query(
+      await runSeedQuery(
+        databaseUrl,
         `INSERT INTO documents (
           id,
           document_key,
@@ -135,13 +158,15 @@ async function main() {
           `[${embedding.map((value) => Number(value).toFixed(8)).join(",")}]`,
           document.sourceType,
         ],
+        `upsert document ${document.id}`,
       );
       embeddedCount += 1;
     }
 
     for (const source of KNOWN_SOURCE_GROUPS) {
       const documentCount = documents.filter((document) => document.sourceType === source.sourceType).length;
-      await sql.query(
+      await runSeedQuery(
+        databaseUrl,
         `INSERT INTO chatbot_sources (
           id,
           source_key,
@@ -175,10 +200,12 @@ async function main() {
           documentCount,
           source.staleAfterDays,
         ],
+        `upsert source ${source.sourceKey}`,
       );
     }
 
-    await sql.query(
+    await runSeedQuery(
+      databaseUrl,
       `UPDATE chatbot_ingestion_runs
        SET status = 'succeeded',
            completed_at = now(),
@@ -189,18 +216,29 @@ async function main() {
            removed_count = 0
        WHERE id = $1`,
       [runId, KNOWN_SOURCE_GROUPS.length, documents.length, embeddedCount, unchangedCount],
+      "mark ingestion run succeeded",
     );
 
     console.log(`Seeded ${documents.length} Teambotics documents. ${embeddedCount} embedded, ${unchangedCount} unchanged.`);
   } catch (error) {
-    await sql.query(
-      `UPDATE chatbot_ingestion_runs
-       SET status = 'failed',
-           completed_at = now(),
-           error_summary = $2
-       WHERE id = $1`,
-      [runId, error instanceof Error ? error.message : String(error)],
-    );
+    try {
+      await runSeedQuery(
+        databaseUrl,
+        `UPDATE chatbot_ingestion_runs
+         SET status = 'failed',
+             completed_at = now(),
+             error_summary = $2
+         WHERE id = $1`,
+        [runId, error instanceof Error ? error.message : String(error)],
+        "mark ingestion run failed",
+      );
+    } catch (updateError) {
+      console.error(
+        updateError instanceof Error
+          ? `Failed to update ingestion run ${runId}: ${updateError.message}`
+          : `Failed to update ingestion run ${runId}`,
+      );
+    }
     throw error;
   }
 }

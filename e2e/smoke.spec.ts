@@ -25,6 +25,24 @@ test("privacy and terms pages render real content", async ({ page }) => {
   await expect(page.getByText(/Chat assistant boundaries/i)).toBeVisible();
 });
 
+test("legacy placeholder redirect routes are retired", async ({ page }) => {
+  const retiredRoutes = [
+    "/github-placeholder",
+    "/linkedin-placeholder",
+    "/privacy-placeholder",
+    "/terms-placeholder",
+    "/products/easybuddy-placeholder",
+    "/products/ltb-buddy-placeholder",
+  ];
+
+  for (const route of retiredRoutes) {
+    const response = await page.goto(route);
+
+    expect(response?.status()).toBe(404);
+    await expect(page.getByRole("heading", { name: "Could not find the requested resource." })).toBeVisible();
+  }
+});
+
 test("product detail pages render the ported case-study model", async ({ page }) => {
   const products = [
     ["ltb-buddy", "LTB Buddy"],
