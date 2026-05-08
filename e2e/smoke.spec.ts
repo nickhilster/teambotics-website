@@ -73,12 +73,14 @@ test("chat widget opens and sends a site-context message", async ({ page }) => {
   await page.goto("/");
 
   await page.getByRole("button", { name: /Open chat/i }).click();
-  await expect(page.getByRole("dialog")).toBeVisible();
+  const dialog = page.getByRole("dialog");
+
+  await expect(dialog).toBeVisible();
   await page.getByPlaceholder("Ask something...").fill("What is LTB Buddy?");
   await page.getByRole("button", { name: /Send message/i }).click();
 
   await expect(
-    page.getByText(/LTB Buddy|Teambotics|published site context|not have enough Teambotics context/i).last(),
+    dialog.getByText(/LTB Buddy|Teambotics|published site context|not have enough Teambotics context/i).last(),
   ).toBeVisible({ timeout: 15_000 });
 });
 
