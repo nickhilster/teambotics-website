@@ -9,11 +9,11 @@ import { products } from "@/lib/config";
 
 export function LiveSystemsSection() {
   return (
-    <section className="section section--border" id="flagships">
+    <section className="section section--border" id="systems">
       <Container>
         <SectionHeader
           description="Four products, distinct audiences, one disciplined standard for clarity, usability, enablement, and release readiness."
-          eyebrow="FLAGSHIP PORTFOLIO"
+          eyebrow="AI SYSTEMS PORTFOLIO"
           title="A focused AI systems portfolio."
         />
         <div className="systems-grid">
@@ -36,8 +36,17 @@ export function LiveSystemsSection() {
                   ))}
                 </div>
                 <div className="system-card__footer">
-                  <span>{product.market}</span>
-                  <Link href={product.href}>{product.ctaLabel} →</Link>
+                  <Link className="system-card__case-link" href={product.href}>
+                    {product.ctaLabel} →
+                  </Link>
+                  <a
+                    className="button button--ghost system-card__product-btn"
+                    href={product.externalUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <span>{product.externalLabel}</span>
+                  </a>
                 </div>
               </CursorReactiveCard>
             </SectionReveal>

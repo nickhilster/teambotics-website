@@ -22,8 +22,8 @@ export function HomeCTASection() {
           <LeadCaptureForm />
         </SectionReveal>
         <SectionReveal className="cta-section__actions" delay={0.2}>
-          <Button href="#flagships" variant="ghost">
-            See our work
+          <Button href="#systems" variant="ghost">
+            Review our systems
           </Button>
         </SectionReveal>
       </Container>

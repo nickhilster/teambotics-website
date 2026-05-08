@@ -38,8 +38,8 @@ export function HeroSection() {
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
-          <Button className="hero__action-button hero__action-button--primary" href="#flagships">
-            {"See what we've shipped"}
+          <Button className="hero__action-button hero__action-button--primary" href="#systems">
+            Review Systems
           </Button>
           <Button
             className="hero__action-button hero__action-button--ghost"

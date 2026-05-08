@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-test("homepage exposes flagship product case studies", async ({ page }) => {
+test("homepage exposes product case studies", async ({ page }) => {
   await page.goto("/");
   const footer = page.locator("footer");
 
-  await expect(page.getByText("Building intelligent")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Built for the/i })).toBeVisible();
   await expect(page.getByText("LTB Buddy").first()).toBeVisible();
   await expect(page.getByRole("link", { name: /Read case study/i }).first()).toBeVisible();
   await expect(footer.getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute("href", "/privacy");
@@ -144,7 +144,7 @@ test("homepage keeps below-the-fold sections visible before scroll", async ({ pa
     "#positioning .positioning__copy",
     ".systems-grid > div:first-child",
     ".capabilities-grid > div:first-child",
-    ".engagement-grid > div:first-child",
+    ".engagement-rail > :nth-child(2)",
   ];
 
   for (const selector of selectors) {
