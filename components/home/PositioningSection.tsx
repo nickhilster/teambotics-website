@@ -6,25 +6,26 @@ export function PositioningSection() {
     <section className="section section--border" id="positioning">
       <Container className="positioning">
         <SectionReveal>
-          <p className="section-eyebrow">POSITIONING</p>
+          <p className="section-eyebrow">WHAT WE DO</p>
           <h2 className="positioning__title">
-            One studio. Unified operating standards.
+            We start from the constraints. Not the capability.
           </h2>
         </SectionReveal>
         <SectionReveal className="positioning__copy" delay={0.08}>
           <p>
-            Teambotics builds a focused portfolio of AI solutions spanning legal compliance, workforce
-            enablement, and interactive experiences. Across each engagement, we use strategy,
-            workflow mapping, and interface discipline to turn complex operations into systems
-            people can actually use.
+            We don&apos;t arrive with a pre-built solution. We spend time inside the operational
+            context first — understanding workflows, edge cases, and why things break — then build
+            something that fits. Across compliance, workforce operations, and digital experiences,
+            the approach stays the same.
           </p>
           <p>
             We help teams decide what should be automated, what should stay guided, and how new
-            capability fits existing work. By grounding architecture in real operating conditions,
-            we make adoption, enablement, and long-term usability part of the product strategy.
+            capability fits the work people already do. Architecture grounded in real operating
+            conditions means adoption and long-term usability are part of the product — not an
+            afterthought.
           </p>
           <blockquote className="positioning__quote">
-            Strategy first. Workflow-ready by design.
+            Disciplined process. Systems that last.
           </blockquote>
         </SectionReveal>
       </Container>

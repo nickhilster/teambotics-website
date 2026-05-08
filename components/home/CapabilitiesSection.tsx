@@ -7,17 +7,17 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 const capabilities = [
   {
     title: "Strategic MVP Architecture",
-    body: "We define precise product boundaries, focusing on high-value workflows and a clear path from early prototype to production rollout.",
+    body: "We define precise product boundaries early — identifying the highest-value workflows and the clearest path from first build to production without scope drift.",
     icon: Blocks,
   },
   {
-    title: "Workflow Automation & Enablement",
-    body: "We design secure, compliant AI systems around real handoffs, decision points, and training needs so new workflows can stick in practice.",
+    title: "Compliant Workflow Automation",
+    body: "We build AI systems around real handoffs, regulatory constraints, and training needs — so new workflows hold up in practice, not just in demos.",
     icon: ShieldCheck,
   },
   {
     title: "High-Adoption Interface Design",
-    body: "We craft intuitive, accessible interfaces that reduce cognitive load, support enablement, and help teams build confidence quickly.",
+    body: "We design interfaces around the people doing the work: reducing cognitive load, supporting gradual onboarding, and building confidence over time.",
     icon: Workflow,
   },
 ];
@@ -28,9 +28,9 @@ export function CapabilitiesSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="Strategic architecture, secure workflow automation, and interface discipline across every engagement."
+          description="How we approach architecture, automation, and interface design across every engagement — consistently and without shortcuts."
           eyebrow="CORE COMPETENCIES"
-          title="Engineered for impact and adoption."
+          title="Built to hold up in practice."
         />
         <div className="capabilities-grid">
           {capabilities.map((capability, index) => {

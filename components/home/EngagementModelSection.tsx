@@ -7,22 +7,22 @@ const steps = [
   {
     number: "01",
     title: "Discovery & Scoping",
-    body: "Align on business goals, workflow realities, user requirements, and security constraints to define the right first release.",
+    body: "We start by listening. Every engagement begins with time in the operational context — understanding constraints, failure modes, and what has already been tried.",
   },
   {
     number: "02",
     title: "System Architecture",
-    body: "Translate the opportunity into data models, enablement flows, compliant automation, and user-facing interfaces that can hold up in practice.",
+    body: "We translate what we learned into data models, enablement flows, compliant automation, and interfaces designed around how people actually work — not how they're supposed to.",
   },
   {
     number: "03",
     title: "Controlled Pilot",
-    body: "Deploy a contained build to gather team feedback and operational signals, then refine the workflow before broader rollout.",
+    body: "We deploy a contained build, gather real feedback from the team using it, and refine the workflow before any broader rollout. No soft launches that quietly go unmaintained.",
   },
   {
     number: "04",
     title: "Operational Rollout",
-    body: "Move from pilot to production with stable routines, team enablement, and a roadmap for the next layer of workflow capability.",
+    body: "We move from pilot to production with stable routines, structured enablement, and a clear roadmap — so the system grows with the team instead of aging out of it.",
   },
 ];
 
@@ -32,9 +32,9 @@ export function EngagementModelSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="A structured methodology from early opportunity framing to a production-ready workflow system."
+          description="Four phases, one consistent standard: understand the context before writing code, then build something the team will actually rely on."
           eyebrow="ENGAGEMENT METHODOLOGY"
-          title="A deliberate path to production."
+          title="A deliberate path from idea to production."
         />
         <div className="engagement-grid">
           {steps.map((step, index) => (

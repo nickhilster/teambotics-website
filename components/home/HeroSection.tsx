@@ -17,37 +17,36 @@ export function HeroSection() {
             <span className="hero-pill__dot">
               <span className="hero-pill__dot-core" />
             </span>
-            Workflow Strategy, Enablement & AI Systems
+            Applied AI &middot; Operational environments
           </div>
         </SectionReveal>
         <TextReveal
           as="h1"
           className="hero__title"
           lines={[
-            "Building intelligent",
-            "workflow systems and",
+            "Built for the",
+            "environments that",
             <span className="hero__title-accent" key="accent">
-              interactive platforms.
+              {"don't forgive mistakes."}
             </span>,
           ]}
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            Teambotics designs intelligent, adoption-ready systems for operational workflows,
-            team enablement, and interactive digital experiences. We shape each product around
-            clarity, compliance, and rollout strategy so teams can use it with confidence.
+            We design and deploy AI systems for regulated, operational, and frontline
+            teams &mdash; where reliability isn&apos;t a feature, it&apos;s a baseline.
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
           <Button className="hero__action-button hero__action-button--primary" href="#flagships">
-            Review Flagships
+            {"See what we've shipped"}
           </Button>
           <Button
             className="hero__action-button hero__action-button--ghost"
             href="#engagement"
             variant="ghost"
           >
-            Engagement Model
+            How we work
           </Button>
         </SectionReveal>
         <SectionReveal className="hero__status-row" delay={0.5}>
@@ -57,7 +56,7 @@ export function HeroSection() {
               key={product.name}
             >
               <span className={`hero__status-dot${product.status === "live" ? "" : " hero__status-dot--build"}`} />
-              {product.name} — {product.statusLabel}
+              {product.name} &mdash; {product.statusLabel}
             </span>
           ))}
         </SectionReveal>

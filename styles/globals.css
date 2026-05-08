@@ -370,7 +370,27 @@ html.dark .theme-toggle__icon--sun {
   color: var(--color-live);
 }
 
-.status-badge--live .status-badge__dot,
+/* Ripple rings on live status dot — replaces the old scale pulse */
+.status-badge--live .status-badge__dot {
+  position: relative;
+}
+
+.status-badge--live .status-badge__dot::before,
+.status-badge--live .status-badge__dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: currentColor;
+  animation: ripple-ring 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.status-badge--live .status-badge__dot::after {
+  animation-delay: 0.85s;
+}
+
+/* Keep subtle header dot pulse (not a live badge, smaller context) */
 .header-status__dot {
   animation: pulse-live 2s ease-in-out infinite;
 }
@@ -627,6 +647,31 @@ html.dark .hero-network__strand--ice {
   animation-duration: 8.5s;
   animation-delay: -5.1s;
 }
+
+/* ── Spark layer: bright short pulse that travels faster along each strand ── */
+.hero-network__spark {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 3 500;
+  stroke-dashoffset: 0;
+  stroke: rgb(160 200 255 / 0.9);
+  filter: drop-shadow(0 0 0.4rem rgb(100 170 255 / 0.7));
+  animation: hero-strand-spark 7s linear infinite;
+}
+
+html.dark .hero-network__spark {
+  stroke: rgb(180 220 255 / 0.85);
+  filter: drop-shadow(0 0 0.5rem rgb(130 190 255 / 0.6));
+}
+
+.hero-network__spark--delay-0 { animation-delay: -0.8s; animation-duration: 6.2s; }
+.hero-network__spark--delay-1 { animation-delay: -2.4s; animation-duration: 8.1s; }
+.hero-network__spark--delay-2 { animation-delay: -4.1s; animation-duration: 5.8s; }
+.hero-network__spark--delay-3 { animation-delay: -1.3s; animation-duration: 9.4s; }
+.hero-network__spark--delay-4 { animation-delay: -5.6s; animation-duration: 7.0s; }
+.hero-network__spark--delay-5 { animation-delay: -3.0s; animation-duration: 6.6s; }
+.hero-network__spark--delay-6 { animation-delay: -7.2s; animation-duration: 8.8s; }
 
 .hero-network__nodes--blue .hero-network__node {
   fill: url(#node-blue);
@@ -2072,6 +2117,17 @@ html.dark .engagement-step {
   }
 }
 
+@keyframes ripple-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4);
+  }
+}
+
 @keyframes cursor-bubble-rise {
   0% {
     opacity: 0;
@@ -2182,6 +2238,26 @@ html.dark .engagement-step {
   }
   100% {
     stroke-dashoffset: -132;
+    opacity: 0;
+  }
+}
+
+@keyframes hero-strand-spark {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  55% {
+    opacity: 0.6;
+  }
+  88% {
+    opacity: 0.15;
+  }
+  100% {
+    stroke-dashoffset: -510;
     opacity: 0;
   }
 }

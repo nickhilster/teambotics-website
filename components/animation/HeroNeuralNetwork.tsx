@@ -87,6 +87,16 @@ export function HeroNeuralNetwork() {
           />
         ))}
 
+        {/* Spark layer — bright short pulses traveling along a subset of strands */}
+        {[0, 3, 6, 9, 13, 17, 20].map((i, sparkIndex) => (
+          <path
+            className={`hero-network__spark hero-network__spark--delay-${sparkIndex}`}
+            d={strandPaths[i]}
+            key={`spark-${i}`}
+            pathLength="100"
+          />
+        ))}
+
         <g className="hero-network__nodes hero-network__nodes--blue">
           <circle className="hero-network__node hero-network__node--lg" cx="286" cy="220" r="22" />
           <circle className="hero-network__node hero-network__node--md" cx="518" cy="286" r="16" />
