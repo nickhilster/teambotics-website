@@ -24,14 +24,13 @@ export function SectionReveal({
   return (
     <motion.div
       className={className}
+      animate={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 24 }}
       transition={{
         delay,
         duration: motionTokens.duration.reveal,
         ease: motionTokens.ease.standard,
       }}
-      viewport={{ amount: 0.3, once: true }}
-      whileInView={{ opacity: 1, y: 0 }}
     >
       {children}
     </motion.div>

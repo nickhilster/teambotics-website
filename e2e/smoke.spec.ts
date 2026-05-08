@@ -47,6 +47,24 @@ test("chat widget opens and sends a site-context message", async ({ page }) => {
   ).toBeVisible({ timeout: 15_000 });
 });
 
+test("homepage keeps below-the-fold sections visible before scroll", async ({ page }) => {
+  await page.goto("/");
+  await page.waitForTimeout(1000);
+
+  const selectors = [
+    "#positioning .positioning__copy",
+    ".systems-grid > div:first-child",
+    ".capabilities-grid > div:first-child",
+    ".engagement-grid > div:first-child",
+  ];
+
+  for (const selector of selectors) {
+    await expect
+      .poll(async () => page.locator(selector).evaluate((node) => getComputedStyle(node).opacity))
+      .toBe("1");
+  }
+});
+
 test("admin auth page is protected by the login gate", async ({ page }) => {
   await page.goto("/admin/chatbot");
 

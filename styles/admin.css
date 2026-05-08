@@ -13,11 +13,11 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.85rem 1rem;
-  background: var(--color-accent);
+  background: linear-gradient(180deg, #c92f93 0%, #b41f80 100%);
   color: white;
   border: none;
   border-radius: 999px;
-  box-shadow: 0 0.75rem 2rem rgba(74, 144, 217, 0.2);
+  box-shadow: 0 0.75rem 2rem rgba(180, 31, 128, 0.24);
   cursor: pointer;
 }
 
@@ -179,7 +179,7 @@
   min-height: 3rem;
   border: none;
   border-radius: var(--radius-xl);
-  background: var(--color-accent);
+  background: linear-gradient(180deg, #c92f93 0%, #b41f80 100%);
   color: white;
   cursor: pointer;
 }
