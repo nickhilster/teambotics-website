@@ -6,7 +6,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const capabilities = [
   {
-    title: "Strategic MVP Architecture",
+    title: "Scoped MVPs that ship",
     body: "We define precise product boundaries early — identifying the highest-value workflows and the clearest path from first build to production without scope drift.",
     icon: Blocks,
   },
@@ -16,7 +16,7 @@ const capabilities = [
     icon: ShieldCheck,
   },
   {
-    title: "High-Adoption Interface Design",
+    title: "Interfaces people want to use",
     body: "We design interfaces around the people doing the work: reducing cognitive load, supporting gradual onboarding, and building confidence over time.",
     icon: Workflow,
   },

@@ -3,7 +3,7 @@ import { products } from "@/lib/products";
 export const siteConfig = {
   name: "Teambotics",
   description:
-    "Intelligent workflow systems and interactive platforms shaped for operational clarity, enablement, and practical impact.",
+    "An independent AI lab shipping proprietary products and bespoke systems for a small number of partners — designed for clarity, adoption, and continuous operation.",
   url: "https://teambotics.app",
   socials: {
     x: "@teambotics",

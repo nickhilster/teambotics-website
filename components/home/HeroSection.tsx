@@ -17,7 +17,7 @@ export function HeroSection() {
             <span className="hero-pill__dot">
               <span className="hero-pill__dot-core" />
             </span>
-            Applied AI &middot; Operational environments
+            Independent AI lab &middot; Products &amp; bespoke systems
           </div>
         </SectionReveal>
         <TextReveal
@@ -33,8 +33,8 @@ export function HeroSection() {
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            We design and deploy AI systems for regulated, operational, and frontline
-            teams &mdash; where reliability isn&apos;t a feature, it&apos;s a baseline.
+            An independent AI lab shipping proprietary products and bespoke systems for
+            a small number of partners &mdash; operated by agents that run without a clock.
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
@@ -52,10 +52,10 @@ export function HeroSection() {
         <SectionReveal className="hero__status-row" delay={0.5}>
           {products.map((product) => (
             <span
-              className={`hero__status-item${product.status === "live" ? " hero__status-item--live" : " hero__status-item--build"}`}
+              className={`hero__status-item hero__status-item--${product.status}`}
               key={product.name}
             >
-              <span className={`hero__status-dot${product.status === "live" ? "" : " hero__status-dot--build"}`} />
+              <span className={`hero__status-dot hero__status-dot--${product.status}`} />
               {product.name} &mdash; {product.statusLabel}
             </span>
           ))}
