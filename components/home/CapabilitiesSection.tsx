@@ -1,4 +1,4 @@
-import { Blocks, ShieldCheck, Workflow } from "lucide-react";
+import { Blocks, Compass, Users } from "lucide-react";
 import { CursorReactiveCard } from "@/components/animation/CursorReactiveCard";
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
@@ -6,19 +6,19 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const capabilities = [
   {
-    title: "Scoped MVPs that ship",
-    body: "We define precise product boundaries early — identifying the highest-value workflows and the clearest path from first build to production without scope drift.",
+    title: "Clarity under complexity",
+    body: "We take domains that intimidate the user — legal forms, customer escalations, scattered project history — and shape them into guided conversations and structured flows. The complexity does not disappear. It stops being the user's problem.",
+    icon: Compass,
+  },
+  {
+    title: "Adoption by design",
+    body: "Every interface is built around the person executing the work, not the team specifying it. Plain language, gradual onboarding, and confidence-building feedback are part of the product — not features bolted on after launch.",
+    icon: Users,
+  },
+  {
+    title: "Production-grade delivery",
+    body: "Each product ships with stable routines, defined operational handoffs, and a roadmap. Teambotics builds systems that hold up after the first week — and after the first team rotation.",
     icon: Blocks,
-  },
-  {
-    title: "Compliant Workflow Automation",
-    body: "We build AI systems around real handoffs, regulatory constraints, and training needs — so new workflows hold up in practice, not just in demos.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Interfaces people want to use",
-    body: "We design interfaces around the people doing the work: reducing cognitive load, supporting gradual onboarding, and building confidence over time.",
-    icon: Workflow,
   },
 ];
 
@@ -28,9 +28,9 @@ export function CapabilitiesSection() {
       <Container>
         <SectionHeader
           align="center"
-          description="How we approach architecture, automation, and interface design across every engagement — consistently and without shortcuts."
-          eyebrow="CORE COMPETENCIES"
-          title="Built to hold up in practice."
+          description="Three things every Teambotics product earns before it ships."
+          eyebrow="WHAT WE BUILD FOR"
+          title="The product standard."
         />
         <div className="capabilities-grid">
           {capabilities.map((capability, index) => {

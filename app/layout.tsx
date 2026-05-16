@@ -19,9 +19,10 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   keywords: [
     "Teambotics",
-    "AI product studio",
-    "regulated operations AI",
-    "workforce coordination",
+    "independent AI lab",
+    "conversational AI products",
+    "interactive AI products",
+    "workforce enablement",
     "interactive motion platform",
     "narrative intelligence",
     "workflow automation",

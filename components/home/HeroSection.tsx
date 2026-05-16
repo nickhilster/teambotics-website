@@ -17,29 +17,30 @@ export function HeroSection() {
             <span className="hero-pill__dot">
               <span className="hero-pill__dot-core" />
             </span>
-            Independent AI lab &middot; Products &amp; bespoke systems
+            Independent AI lab &middot; Proprietary products and bespoke systems
           </div>
         </SectionReveal>
         <TextReveal
           as="h1"
           className="hero__title"
           lines={[
-            "Built for the",
-            "environments that",
+            "AI products that",
+            "make complex work",
             <span className="hero__title-accent" key="accent">
-              {"don't forgive mistakes."}
+              feel approachable.
             </span>,
           ]}
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            An independent AI lab shipping proprietary products and bespoke systems for
-            a small number of partners &mdash; operated by agents that run without a clock.
+            Teambotics is an independent AI lab. We build conversational and interactive products
+            that turn complex domains &mdash; legal, operational, narrative, creative &mdash; into
+            experiences people can actually use.
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
           <Button className="hero__action-button hero__action-button--primary" href="#systems">
-            Review Systems
+            See the products
           </Button>
           <Button
             className="hero__action-button hero__action-button--ghost"

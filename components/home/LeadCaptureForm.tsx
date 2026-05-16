@@ -96,9 +96,9 @@ export function LeadCaptureForm() {
     <div className="lead-form-card">
       <div className="lead-form-card__header">
         <p className="lead-form-card__eyebrow">Lead intake</p>
-        <h3 className="lead-form-card__title">Tell Teambotics what you are trying to improve.</h3>
+        <h3 className="lead-form-card__title">Tell us what you&apos;re working on.</h3>
         <p className="lead-form-card__copy">
-          Keep it short. We use this to understand the workflow, team, or product problem you want to discuss.
+          A short note is fine. We use it to understand the workflow, team, or product problem you want to talk about.
         </p>
       </div>
 

@@ -11,11 +11,11 @@ export function HomeCTASection() {
         <SectionReveal>
           <p className="section-eyebrow">GET IN TOUCH</p>
           <h2 className="cta-section__title">
-            Most of our best work started with a direct conversation.
+            Working on something complex? Let&apos;s talk about it.
           </h2>
           <p className="cta-section__copy">
-            Tell us what you&apos;re working on. We&apos;ll be direct about what&apos;s possible
-            and whether we&apos;re the right team for it.
+            Tell us about the problem — the workflow, the user, what makes it hard. We&apos;ll
+            respond with a candid read on fit and what we&apos;d build.
           </p>
         </SectionReveal>
         <SectionReveal className="cta-section__form-shell" delay={0.12}>
@@ -23,7 +23,7 @@ export function HomeCTASection() {
         </SectionReveal>
         <SectionReveal className="cta-section__actions" delay={0.2}>
           <Button href="#systems" variant="ghost">
-            Review our systems
+            See the products
           </Button>
         </SectionReveal>
       </Container>

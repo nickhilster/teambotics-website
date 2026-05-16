@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <Container className="site-footer__inner">
-        <p>© 2026 Teambotics. An independent AI lab — proprietary products and bespoke systems for selected partners.</p>
+        <p>© 2026 Teambotics. An independent AI lab building products that make complex work feel approachable.</p>
         <nav aria-label="Footer">
           {footerLinks.map((link) => (
             <Link key={link.label} href={link.href}>

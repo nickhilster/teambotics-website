@@ -8,24 +8,23 @@ export function PositioningSection() {
         <SectionReveal>
           <p className="section-eyebrow">WHAT WE DO</p>
           <h2 className="positioning__title">
-            We start from the constraints. Not the capability.
+            We design for the person at the other end.
           </h2>
         </SectionReveal>
         <SectionReveal className="positioning__copy" delay={0.08}>
           <p>
-            We don&apos;t arrive with a pre-built solution. We spend time inside the operational
-            context first — understanding workflows, edge cases, and why things break — then build
-            something that fits. Across compliance, workforce operations, and digital experiences,
-            the approach stays the same.
+            Every Teambotics product starts with the person doing the hard thing — the tenant
+            filing a complaint, the service rep starting a shift, the founder explaining months
+            of work, the visitor exploring something new. Architecture, automation, and interface
+            are designed backward from that moment.
           </p>
           <p>
-            We help teams decide what should be automated, what should stay guided, and how new
-            capability fits the work people already do. Architecture grounded in real operating
-            conditions means adoption and long-term usability are part of the product — not an
-            afterthought.
+            That focus shapes what we build and what we leave out. Capability is only useful if
+            the person on the other end can actually use it. Adoption is not a final-mile concern.
+            It is the design brief.
           </p>
           <blockquote className="positioning__quote">
-            Disciplined process. Systems that last.
+            Built for the people doing the work.
           </blockquote>
         </SectionReveal>
       </Container>

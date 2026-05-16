@@ -12,9 +12,9 @@ export function LiveSystemsSection() {
     <section className="section section--border" id="systems">
       <Container>
         <SectionHeader
-          description="Some are ours, some are bespoke, all are built to the same bar — clarity, adoption, and systems that hold up after launch."
+          description="Each product translates a complex domain — legal, operational, narrative, creative — into something a person can actually use. All are live or in active production."
           eyebrow="AI SYSTEMS PORTFOLIO"
-          title="Four products. Different stages. One standard."
+          title="Four shipped products. One design philosophy."
         />
         <div className="systems-grid">
           {products.map((product, index) => (
