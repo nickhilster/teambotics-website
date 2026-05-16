@@ -38,157 +38,13 @@ export type ProductCaseStudy = {
 
 export const productCaseStudies: ProductCaseStudy[] = [
   {
-    slug: "ltb-buddy",
-    name: "LTB Buddy",
-    title: "Guided Legal Intake Assistant",
-    label: "Live Product",
-    stage: "Live Legal Tech System",
-    status: "live",
-    statusLabel: "LIVE",
-    market: "Legal Tech / Compliance / Operations",
-    tagline:
-      "A conversational filing assistant that helps Ontario tenants move from plain-language issue description to a cleaner, more complete LTB application.",
-    description:
-      "A voice-first conversational interface streamlining Ontario Landlord and Tenant Board applications. Reduces complexity and structures sensitive data with robust security.",
-    summary:
-      "LTB Buddy turns a stressful legal workflow into a guided intake experience. It captures tenant issues in plain language, organizes the required details, and supports a more confident path toward filing without asking users to understand legal forms first.",
-    heroSummary:
-      "From complaint to structured filing support, designed for clarity under pressure.",
-    impact:
-      "Designed to reduce filing friction, improve application completeness, and make legal intake easier to complete for non-expert users.",
-    tags: ["Legal Tech", "Guided Intake", "Compliance"],
-    techStack: ["OpenAI", "Vercel", "Structured Intake", "Secure Workflow Design"],
-    aiCapabilities: [
-      "Plain-language issue capture",
-      "Conversational intake flow",
-      "Structured application data extraction",
-      "Workflow guidance for complex forms",
-    ],
-    focusPoints: [
-      {
-        label: "The Challenge",
-        value:
-          "Ontario tenants often abandon legitimate filings because the process is technical, stressful, and difficult to complete without legal context.",
-      },
-      {
-        label: "The System",
-        value:
-          "The product narrows the workflow into guided questions, structured answers, and practical next steps that preserve the user's intent.",
-      },
-      {
-        label: "The Standard",
-        value:
-          "The experience is framed around clarity, careful boundaries, and operational trust rather than generic chatbot answers.",
-      },
-    ],
-    proofPoints: [
-      "Voice-first intake reduces the blank-page problem for users describing difficult tenant issues.",
-      "Structured data capture creates a clearer bridge between conversation and form completion.",
-      "Compliance-aware copy keeps the product helpful without over-claiming legal authority.",
-      "The workflow is designed around sensitive, high-stakes user context where trust matters.",
-    ],
-    detailSections: [
-      {
-        title: "Product Framing",
-        body:
-          "LTB Buddy is not just a chat surface. It is a workflow product for turning messy user narratives into cleaner intake data while keeping the experience approachable.",
-      },
-      {
-        title: "Experience Design",
-        body:
-          "The interface prioritizes guided progression, plain language, and confidence-building feedback so users understand what is being captured and why.",
-      },
-      {
-        title: "Operational Fit",
-        body:
-          "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty.",
-      },
-    ],
-    externalUrl: "https://ltbbuddy.ca/",
-    externalLabel: "Open Live Product",
-    supportUrl: "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
-    supportLabel: "Discuss LTB Buddy",
-  },
-  {
-    slug: "easybuddy",
-    name: "EasyBuddy",
-    title: "Conversational Enablement & Onboarding",
-    label: "AI Training Product",
-    stage: "Live Enablement Prototype",
-    status: "live",
-    statusLabel: "LIVE",
-    market: "Auto Service / Workflow Enablement",
-    tagline:
-      "An AI-powered practice environment for service teams that need faster onboarding, realistic customer scenarios, and confident workflow recall.",
-    description:
-      "Purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions to guide staff through real-world scenarios and repair order workflows.",
-    summary:
-      "EasyBuddy helps frontline teams prepare before live customer interactions. It combines simulations, policy-style knowledge support, and tone-aware coaching so staff can rehearse hard moments before they happen.",
-    heroSummary:
-      "AI-powered readiness for service teams before the customer is in front of them.",
-    impact:
-      "Built to reduce onboarding friction across customer conversation, policy recall, and repair-order workflow readiness.",
-    tags: ["Onboarding", "AI Simulation", "Operations"],
-    techStack: ["OpenAI", "Scenario Design", "RAG", "Vercel"],
-    aiCapabilities: [
-      "Customer service simulations",
-      "Role-play coaching",
-      "Policy and process lookup",
-      "Shift-readiness prompts",
-    ],
-    focusPoints: [
-      {
-        label: "Simulation",
-        value:
-          "Staff can practice real customer situations, from routine service explanations to tense or ambiguous conversations.",
-      },
-      {
-        label: "Enablement",
-        value:
-          "The assistant surfaces operational knowledge at the moment of need instead of burying it in static onboarding material.",
-      },
-      {
-        label: "Adoption",
-        value:
-          "The product is shaped around confidence and repetition, making AI a practical coach rather than a replacement for frontline judgment.",
-      },
-    ],
-    proofPoints: [
-      "Scenario-based practice supports readiness before staff enter live service environments.",
-      "Tone-aware feedback helps standardize customer experience without flattening human communication.",
-      "Knowledge retrieval can keep policies, procedures, and service details close to the conversation.",
-      "The product targets high-turnover environments where onboarding speed and consistency matter.",
-    ],
-    detailSections: [
-      {
-        title: "Product Framing",
-        body:
-          "EasyBuddy treats onboarding as an active practice loop. The core value is helping teams rehearse decisions, language, and workflows before the stakes are real.",
-      },
-      {
-        title: "Interface Approach",
-        body:
-          "The experience is conversational, but the underlying design is operational: scenarios, policies, coaching, and follow-up prompts are structured around job readiness.",
-      },
-      {
-        title: "Business Fit",
-        body:
-          "The system is well suited to distributed service organizations where managers need consistent training quality across many locations and shifting teams.",
-      },
-    ],
-    externalUrl: "https://easybuddy.teambotics.app/",
-    externalLabel: "Open Prototype",
-    supportUrl: "mailto:hello@teambotics.app?subject=EasyBuddy%20case%20study",
-    supportLabel: "Discuss EasyBuddy",
-  },
-  {
     slug: "code2motion",
     name: "Code2Motion",
     title: "Interactive Generative Art Platform",
-    label: "Creative Technology Platform",
-    stage: "Live Interactive Platform",
-    status: "live",
-    statusLabel: "LIVE",
+    label: "Early Access",
+    stage: "In Early Access",
+    status: "pilot",
+    statusLabel: "EARLY ACCESS",
     market: "Creative Tech / Experience Brands",
     tagline:
       "A browser-native creative ecosystem that turns code, motion, and generative interaction into playable digital experiences.",
@@ -253,13 +109,157 @@ export const productCaseStudies: ProductCaseStudy[] = [
     supportLabel: "Discuss Code2Motion",
   },
   {
+    slug: "ltb-buddy",
+    name: "LTB Buddy",
+    title: "Guided Legal Intake Assistant",
+    label: "Public Beta",
+    stage: "Public Beta",
+    status: "pilot",
+    statusLabel: "IN BETA",
+    market: "Legal Tech / Compliance / Operations",
+    tagline:
+      "A conversational filing assistant that helps Ontario tenants move from plain-language issue description to a cleaner, more complete LTB application.",
+    description:
+      "A voice-first conversational interface streamlining Ontario Landlord and Tenant Board applications. Reduces complexity and structures sensitive data with robust security.",
+    summary:
+      "LTB Buddy turns a stressful legal workflow into a guided intake experience. It captures tenant issues in plain language, organizes the required details, and supports a more confident path toward filing without asking users to understand legal forms first.",
+    heroSummary:
+      "From complaint to structured filing support, designed for clarity under pressure.",
+    impact:
+      "Designed to reduce filing friction, improve application completeness, and make legal intake easier to complete for non-expert users.",
+    tags: ["Legal Tech", "Guided Intake", "Compliance"],
+    techStack: ["OpenAI", "Vercel", "Structured Intake", "Secure Workflow Design"],
+    aiCapabilities: [
+      "Plain-language issue capture",
+      "Conversational intake flow",
+      "Structured application data extraction",
+      "Workflow guidance for complex forms",
+    ],
+    focusPoints: [
+      {
+        label: "The Challenge",
+        value:
+          "Ontario tenants often abandon legitimate filings because the process is technical, stressful, and difficult to complete without legal context.",
+      },
+      {
+        label: "The System",
+        value:
+          "The product narrows the workflow into guided questions, structured answers, and practical next steps that preserve the user's intent.",
+      },
+      {
+        label: "The Standard",
+        value:
+          "The experience is framed around clarity, careful boundaries, and operational trust rather than generic chatbot answers.",
+      },
+    ],
+    proofPoints: [
+      "Voice-first intake reduces the blank-page problem for users describing difficult tenant issues.",
+      "Structured data capture creates a clearer bridge between conversation and form completion.",
+      "Compliance-aware copy keeps the product helpful without over-claiming legal authority.",
+      "The workflow is designed around sensitive, high-stakes user context where trust matters.",
+    ],
+    detailSections: [
+      {
+        title: "Product Framing",
+        body:
+          "LTB Buddy is not just a chat surface. It is a workflow product for turning messy user narratives into cleaner intake data while keeping the experience approachable.",
+      },
+      {
+        title: "Experience Design",
+        body:
+          "The interface prioritizes guided progression, plain language, and confidence-building feedback so users understand what is being captured and why.",
+      },
+      {
+        title: "Operational Fit",
+        body:
+          "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty.",
+      },
+    ],
+    externalUrl: "https://ltbbuddy.ca/",
+    externalLabel: "Open Beta",
+    supportUrl: "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
+    supportLabel: "Discuss LTB Buddy",
+  },
+  {
+    slug: "easybuddy",
+    name: "EasyBuddy",
+    title: "Conversational Enablement & Onboarding",
+    label: "Bespoke MVP",
+    stage: "Bespoke MVP, In Production",
+    status: "live",
+    statusLabel: "BESPOKE MVP",
+    market: "Auto Service / Workflow Enablement",
+    tagline:
+      "An AI-powered practice environment for service teams that need faster onboarding, realistic customer scenarios, and confident workflow recall.",
+    description:
+      "Purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions to guide staff through real-world scenarios and repair order workflows.",
+    summary:
+      "EasyBuddy helps frontline teams prepare before live customer interactions. It combines simulations, policy-style knowledge support, and tone-aware coaching so staff can rehearse hard moments before they happen.",
+    heroSummary:
+      "AI-powered readiness for service teams before the customer is in front of them.",
+    impact:
+      "Built to reduce onboarding friction across customer conversation, policy recall, and repair-order workflow readiness.",
+    tags: ["Onboarding", "AI Simulation", "Operations"],
+    techStack: ["OpenAI", "Scenario Design", "RAG", "Vercel"],
+    aiCapabilities: [
+      "Customer service simulations",
+      "Role-play coaching",
+      "Policy and process lookup",
+      "Shift-readiness prompts",
+    ],
+    focusPoints: [
+      {
+        label: "Simulation",
+        value:
+          "Staff can practice real customer situations, from routine service explanations to tense or ambiguous conversations.",
+      },
+      {
+        label: "Enablement",
+        value:
+          "The assistant surfaces operational knowledge at the moment of need instead of burying it in static onboarding material.",
+      },
+      {
+        label: "Adoption",
+        value:
+          "The product is shaped around confidence and repetition, making AI a practical coach rather than a replacement for frontline judgment.",
+      },
+    ],
+    proofPoints: [
+      "Scenario-based practice supports readiness before staff enter live service environments.",
+      "Tone-aware feedback helps standardize customer experience without flattening human communication.",
+      "Knowledge retrieval can keep policies, procedures, and service details close to the conversation.",
+      "The product targets high-turnover environments where onboarding speed and consistency matter.",
+    ],
+    detailSections: [
+      {
+        title: "Product Framing",
+        body:
+          "EasyBuddy treats onboarding as an active practice loop. The core value is helping teams rehearse decisions, language, and workflows before the stakes are real.",
+      },
+      {
+        title: "Interface Approach",
+        body:
+          "The experience is conversational, but the underlying design is operational: scenarios, policies, coaching, and follow-up prompts are structured around job readiness.",
+      },
+      {
+        title: "Business Fit",
+        body:
+          "The system is well suited to distributed service organizations where managers need consistent training quality across many locations and shifting teams.",
+      },
+    ],
+    externalUrl: "https://easybuddy.teambotics.app/",
+    externalLabel: "Open Product",
+    supportUrl: "mailto:hello@teambotics.app?subject=EasyBuddy%20case%20study",
+    supportLabel: "Discuss EasyBuddy",
+  },
+  {
     slug: "storytellr",
     name: "Storytellr",
     title: "Workflow & AI Enablement Systems",
-    label: "Narrative Intelligence System",
-    stage: "In Public Launch Preparation",
-    status: "live",
-    statusLabel: "LIVE",
+    label: "In Build",
+    stage: "Prototype, Heading to MVP",
+    status: "build",
+    statusLabel: "IN BUILD",
     market: "Workflow Strategy / Systems Design / Enablement",
     tagline:
       "A narrative systems layer for turning projects, decisions, collaborators, and outcomes into a clearer story surface.",
