@@ -110,31 +110,34 @@ LTB Buddy is a compliance-aware interface built for a regulated, high-stakes ope
 
 **One-sentence summary**
 
-*TODO(owner): Provide one confirmed sentence describing what Storytellr does.*
+Storytellr is a client-facing narrative graph experience in progress that helps people show who they are, what they have built, and why it matters.
 
 **Longer summary**
 
-*TODO(owner): Provide 2–4 sentences describing Storytellr's purpose and what workflow problem it addresses.*
+Storytellr is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
 
 **Audience**
 
-*TODO(owner): Who is Storytellr built for?*
+Personal brands, founders, and teams that need a stronger public narrative surface than a resume, portfolio grid, or linear profile page.
 
 **Workflow problem**
 
-*TODO(owner): What operational or process problem does Storytellr address?*
+Traditional profile pages show roles and projects in sequence, but they hide how real work connects across themes, milestones, collaborators, and outcomes. That makes capability harder to explain quickly in client, collaborator, and hiring conversations.
 
 **How Teambotics frames this product**
 
-*TODO(owner): How should Storytellr be described in terms of Teambotics' positioning?*
+Teambotics frames Storytellr as a narrative enablement system: a structured public surface that makes complex work legible, easier to walk through, and easier to trust.
 
 **What the product should not be claimed to do**
 
-*TODO(owner): List any claims that should not be made for Storytellr.*
+- Do not claim Storytellr is fully launched; the public messaging says it is coming soon and private previews are in progress.
+- Do not claim customer counts, conversion lifts, hiring outcomes, or other performance metrics.
+- Do not claim Storytellr replaces professional judgment, hiring decisions, or relationship-building.
+- Do not describe unfinished features as generally available.
 
 **Chatbot-safe answer**
 
-*TODO(owner): Provide an approved answer the chatbot can give when asked about Storytellr. Until confirmed, the assistant should say: "Storytellr is a Teambotics product. For more details, please visit teambotics.app or contact us at hello@teambotics.app."*
+Storytellr is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
 
 ---
 
@@ -150,4 +153,4 @@ These constraints apply to all product descriptions and chatbot responses:
 
 ---
 
-*Last reviewed: 2026-05-07. EasyBuddy, Code2Motion, and Storytellr summaries are blocked on owner input. Do not use placeholder sections for chatbot grounding until TODO items are resolved.*
+*Last reviewed: 2026-05-16. EasyBuddy and Code2Motion summaries still require owner input. Storytellr was updated from the public preview page and should be rechecked when the product launches.*

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AlertCircle, Loader2, LogOut } from 'lucide-react';
+import { TeamboticsSVGLogo } from '@/components/layout/TeamboticsSVGLogo';
 import { Button } from '@/components/ui/Button';
 import LoginGate from '@/components/admin/common/LoginGate';
 import type {
@@ -1189,6 +1190,13 @@ export default function ChatbotAdminPage() {
       <header className="admin-header">
         <div>
           <Link href="/" className="admin-back-link">← Back to site</Link>
+          <div className="admin-brand admin-brand--header">
+            <TeamboticsSVGLogo />
+            <div>
+              <p className="admin-brand__label">Teambotics</p>
+              <p className="admin-brand__context">Admin</p>
+            </div>
+          </div>
           <h1>Chatbot Admin</h1>
           <p className="admin-subtitle">Configure Teambotics chat behavior, retrieval, safety, and publishing.</p>
         </div>

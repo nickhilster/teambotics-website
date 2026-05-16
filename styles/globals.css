@@ -286,9 +286,22 @@ html.dark .site-header--scrolled {
 }
 
 .teambotics-logo-icon {
-  color: var(--color-flame-a);
   display: block;
   flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.teambotics-logo-icon picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.teambotics-logo-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .site-nav,
