@@ -39,7 +39,7 @@ test("legacy placeholder redirect routes are retired", async ({ page }) => {
     const response = await page.goto(route);
 
     expect(response?.status()).toBe(404);
-    await expect(page.getByRole("heading", { name: "Could not find the requested resource." })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "This route got tetrominoed." })).toBeVisible();
   }
 });
 
