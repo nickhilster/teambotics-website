@@ -1,5 +1,5 @@
 import { Container } from "@/components/layout/Container";
-import { NotFoundTetris } from "@/components/content/NotFoundTetris";
+import { NotFoundTetrisSlot } from "@/components/content/NotFoundTetrisSlot";
 import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
@@ -25,7 +25,7 @@ export default function NotFound() {
             then jump back to a live system when you are ready.
           </p>
         </section>
-        <NotFoundTetris />
+        <NotFoundTetrisSlot />
         <div className="not-found-support-panel">
           <div className="not-found-badges" aria-label="Recovery console details">
             <span className="not-found-badge">Lab-issued FC-404</span>
