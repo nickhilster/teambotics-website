@@ -162,7 +162,7 @@ export default async function ProductCaseStudyPage({ params }: ProductPageProps)
                 </div>
               </div>
               <div>
-                <p className="product-stack__label">AI capabilities</p>
+                <p className="product-stack__label">System capabilities</p>
                 <div className="product-chip-list">
                   {product.aiCapabilities.map((item) => (
                     <span key={item}>{item}</span>

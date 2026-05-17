@@ -58,7 +58,7 @@ A: Code2Motion is a Teambotics product. *TODO(owner): Provide a confirmed one-to
 
 **Q: What is Storytellr?**
 
-A: Storytellr is a Teambotics product. *TODO(owner): Provide a confirmed one-to-two sentence description of Storytellr's purpose, audience, and workflow problem it addresses, for inclusion here.*
+A: Storytellr is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so founders, teams, and personal brands can present complex work more clearly than they could through a static profile alone.
 
 ---
 
@@ -84,4 +84,4 @@ A: When the assistant cannot find a grounded answer in its approved sources, it 
 
 ---
 
-*Last reviewed: 2026-05-07. This file requires owner review before chatbot deployment. Flagged TODOs must be resolved before the assistant goes live.*
+*Last reviewed: 2026-05-16. This file requires owner review before chatbot deployment. EasyBuddy and Code2Motion TODOs must still be resolved before the assistant goes live.*

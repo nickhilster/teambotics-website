@@ -2,6 +2,7 @@
 
 import { AlertCircle } from 'lucide-react';
 import { useState } from 'react';
+import { TeamboticsSVGLogo } from '@/components/layout/TeamboticsSVGLogo';
 import { Button } from '@/components/ui/Button';
 
 type LoginGateProps = {
@@ -27,6 +28,13 @@ export default function LoginGate({
     <div className="admin-login-shell">
       <div className="admin-login-card">
         <div>
+          <div className="admin-brand admin-brand--login">
+            <TeamboticsSVGLogo />
+            <div>
+              <p className="admin-brand__label">Teambotics</p>
+              <p className="admin-brand__context">Admin</p>
+            </div>
+          </div>
           <p className="admin-login-label">{title}</p>
           <p className="admin-login-description">{description}</p>
         </div>

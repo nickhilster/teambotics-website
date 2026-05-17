@@ -1,4 +1,4 @@
-export function buildOgImage() {
+export function buildOgImage(logoSrc: string) {
   return (
     <div
       style={{
@@ -46,6 +46,22 @@ export function buildOgImage() {
           }}
         >
           APPLIED AI PRODUCT STUDIO
+        </div>
+        <div
+          style={{
+            alignItems: "center",
+            background: "rgba(255,255,255,0.78)",
+            border: "1px solid rgba(121, 184, 255, 0.18)",
+            borderRadius: 40,
+            boxShadow: "0 24px 60px rgba(15, 17, 23, 0.08)",
+            display: "flex",
+            height: 220,
+            justifyContent: "center",
+            padding: 28,
+            width: 220,
+          }}
+        >
+          <img alt="" height="164" src={logoSrc} width="164" />
         </div>
         <div
           style={{

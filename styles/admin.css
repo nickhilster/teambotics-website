@@ -191,6 +191,43 @@
   padding: 2rem 1.25rem 4rem;
 }
 
+.admin-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-brand--header {
+  margin: 1rem 0 0.85rem;
+}
+
+.admin-brand--login {
+  margin-bottom: 1rem;
+}
+
+.admin-brand .teambotics-logo-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.admin-brand__label,
+.admin-brand__context {
+  margin: 0;
+}
+
+.admin-brand__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.admin-brand__context {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
 .admin-center {
   display: grid;
   place-items: center;
@@ -683,6 +720,11 @@
   .admin-stat-grid,
   .admin-compare-grid {
     grid-template-columns: 1fr;
+  }
+
+  .admin-brand .teambotics-logo-icon {
+    width: 28px;
+    height: 28px;
   }
 
   .admin-log-row,

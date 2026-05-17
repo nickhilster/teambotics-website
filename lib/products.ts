@@ -255,90 +255,95 @@ export const productCaseStudies: ProductCaseStudy[] = [
   {
     slug: "storytellr",
     name: "Storytellr",
-    title: "Workflow & AI Enablement Systems",
-    label: "In Build",
-    stage: "Prototype, Heading to MVP",
+    title: "Client-Facing Narrative Graph",
+    label: "Coming Soon",
+    stage: "Private previews in progress",
     status: "build",
-    statusLabel: "IN BUILD",
-    market: "Workflow Strategy / Systems Design / Enablement",
+    statusLabel: "COMING SOON",
+    market: "Personal Brands / Founder Positioning / Team Storytelling",
     tagline:
-      "A narrative systems layer for turning projects, decisions, collaborators, and outcomes into a clearer story surface.",
+      "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
     description:
-      "Workflow systems, automation, and enablement programs designed for multi-stakeholder environments where adoption, trust, and operational fit determine outcomes.",
+      "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
     summary:
-      "Storytellr focuses on the gap between what teams build and what stakeholders can understand. It frames work as a connected narrative system so capability, proof, and context become easier to navigate.",
+      "Storytellr is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
     heroSummary:
-      "A clearer way to show how work, decisions, systems, and outcomes connect.",
+      "Interactive graph storytelling for complex professional narratives.",
     impact:
-      "Designed for founders, teams, and operators who need a stronger narrative surface around complex work.",
-    tags: ["Workflow Systems", "Automation", "Enablement"],
-    techStack: ["Narrative Systems", "Graph Thinking", "AI-Assisted Content", "Interactive UI"],
+      "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
+    tags: ["Narrative Graph", "Positioning", "Client Enablement"],
+    techStack: ["Interactive Graph UI", "Story Curation", "Publishing Controls", "Onboarding Flow"],
     aiCapabilities: [
-      "Narrative synthesis",
-      "Content structuring",
-      "Stakeholder-facing explanation",
-      "Context-aware storytelling",
+      "Narrative structuring",
+      "Relationship mapping",
+      "Guided story curation",
+      "Stakeholder-facing summaries",
     ],
     focusPoints: [
       {
         label: "Context",
         value:
-          "Traditional profile and project pages flatten the relationships between decisions, constraints, collaborators, and outcomes.",
+          "Most profile pages show a sequence of roles, but they miss how decisions, projects, collaborators, and outcomes actually connect.",
       },
       {
         label: "Narrative Graph",
         value:
-          "Storytellr is shaped around showing those relationships as a readable system rather than a disconnected list of artifacts.",
+          "Storytellr turns that missing context into a readable graph experience organized around themes, milestones, and relationships instead of a flat timeline.",
       },
       {
-        label: "Enablement",
+        label: "Launch Focus",
         value:
-          "The product direction helps teams explain complex work faster to buyers, partners, hiring teams, and internal stakeholders.",
+          "The current build is focused on client-facing positioning with cleaner onboarding, lightweight curation controls, and polished public publishing.",
       },
     ],
     proofPoints: [
-      "Creates a structured narrative surface for complex work that does not fit neatly into a static case-study format.",
-      "Connects projects, proof, outcomes, and stakeholder needs into one clearer explanation layer.",
-      "Supports Teambotics' larger focus on adoption: people need to understand a system before they can trust it.",
-      "Can become a reusable enablement layer for founders, product teams, and service organizations.",
+      "Public graph walkthroughs are designed to make complex work easier to explain to clients and stakeholders.",
+      "The story structure is organized around themes, milestones, and relationships rather than a single linear profile.",
+      "Launch work is centered on smoother onboarding and easier content setup for first-time users.",
+      "Publishing controls are being shaped to keep the public view polished and intentional.",
     ],
     detailSections: [
       {
         title: "Product Framing",
         body:
-          "Storytellr is about making capability legible. It gives complex work a shape that stakeholders can scan, understand, and remember.",
+          "Storytellr is a client-facing narrative surface for people who need more than a static profile. The value is faster understanding: who someone is, what they have built, and why it matters.",
       },
       {
-        title: "System Design",
+        title: "Launch Direction",
         body:
-          "The concept uses graph-like relationships, curated narrative layers, and AI-assisted synthesis to connect proof points without overwhelming the reader.",
+          "The upcoming release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction.",
       },
       {
         title: "Why It Matters",
         body:
-          "For teams selling complex services or products, the story around the work is part of the product. Storytellr makes that story operational.",
+          "Complex work loses meaning when it is flattened into disconnected roles or project cards. Storytellr keeps related work connected so clients, collaborators, and hiring teams can follow the story with context intact.",
       },
     ],
     externalUrl: "https://www.nikdesign.ca/storytellr",
-    externalLabel: "Open Current Preview",
+    externalLabel: "Open Preview",
     supportUrl: "mailto:hello@teambotics.app?subject=Storytellr%20case%20study",
     supportLabel: "Discuss Storytellr",
   },
 ];
 
-export const products = productCaseStudies.map((product) => ({
-  name: product.name,
-  title: product.title,
-  description: product.description,
-  market: product.market,
-  status: product.status,
-  statusLabel: product.statusLabel,
-  href: `/products/${product.slug}`,
-  ctaLabel: "Read case study",
-  externalUrl: product.externalUrl,
-  externalLabel: product.externalLabel,
-  tags: product.tags,
-}));
+const productDisplayOrder = ["ltb-buddy", "easybuddy", "code2motion", "storytellr"] as const;
+
+export const products = productDisplayOrder
+  .map((slug) => getProductBySlug(slug))
+  .filter((product): product is ProductCaseStudy => product !== null)
+  .map((product) => ({
+    name: product.name,
+    title: product.title,
+    description: product.description,
+    market: product.market,
+    status: product.status,
+    statusLabel: product.statusLabel,
+    href: `/products/${product.slug}`,
+    ctaLabel: "Read case study",
+    externalUrl: product.externalUrl,
+    externalLabel: product.externalLabel,
+    tags: product.tags,
+  }));
 
 export function getProductBySlug(slug: string) {
   return productCaseStudies.find((product) => product.slug === slug) ?? null;
