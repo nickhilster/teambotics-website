@@ -7,6 +7,8 @@ const BOARD_HEIGHT = 18;
 const PREVIEW_SIZE = 4;
 const LINE_SCORES = [0, 120, 320, 560, 900] as const;
 const WALL_KICKS = [0, -1, 1, -2, 2] as const;
+const INITIAL_ACTIVE_PIECE: PieceId = 6;
+const INITIAL_NEXT_PIECE: PieceId = 5;
 
 type PieceId = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 type CellValue = 0 | PieceId;
@@ -277,13 +279,11 @@ function createPiece(id: PieceId): FallingPiece {
   };
 }
 
-function createGameState(): GameState {
-  const activeId = randomPieceId();
-
+function createGameState(activeId = randomPieceId(), nextId = randomPieceId()): GameState {
   return {
     board: createEmptyBoard(),
     active: createPiece(activeId),
-    next: randomPieceId(),
+    next: nextId,
     score: 0,
     lines: 0,
     level: 1,
@@ -476,7 +476,9 @@ function applyAction(state: GameState, action: ControlAction): GameState {
 }
 
 export function NotFoundTetris() {
-  const [game, setGame] = useState<GameState>(() => createGameState());
+  const [game, setGame] = useState<GameState>(() =>
+    createGameState(INITIAL_ACTIVE_PIECE, INITIAL_NEXT_PIECE),
+  );
 
   useEffect(() => {
     if (game.status !== "running") {
@@ -550,26 +552,39 @@ export function NotFoundTetris() {
   return (
     <section className="not-found-console" aria-labelledby="not-found-console-title">
       <div className="not-found-console__shell">
-        <div className="not-found-console__topbar">
-          <span className="not-found-console__power">
-            <span className="not-found-console__power-light" aria-hidden="true" />
-            power
+        <div className="not-found-console__header">
+          <div className="not-found-console__header-copy">
+            <p className="not-found-console__eyebrow">Recovery display</p>
+            <p className="not-found-console__model" id="not-found-console-title">
+              FC-404 signal board
+            </p>
+          </div>
+          <span
+            className={`not-found-console__live${
+              game.status === "over" ? " not-found-console__live--offline" : ""
+            }`}
+          >
+            {game.status === "running" ? "active" : "offline"}
           </span>
-          <p className="not-found-console__model" id="not-found-console-title">
-            teambotics fc-404
-          </p>
-          <span className="not-found-console__mode">line recovery</span>
         </div>
 
         <div className="not-found-console__screen-wrap">
-          <div className="not-found-console__screen-chrome">dot-matrix display</div>
+          <div className="not-found-console__hud">
+            <div className="not-found-console__metric">
+              <span>score</span>
+              <strong>{game.score}</strong>
+            </div>
+            <div className="not-found-console__metric">
+              <span>lines</span>
+              <strong>{game.lines}</strong>
+            </div>
+            <div className="not-found-console__metric">
+              <span>level</span>
+              <strong>{game.level}</strong>
+            </div>
+          </div>
           <div className="not-found-console__screen">
             <div className="not-found-console__screen-noise" aria-hidden="true" />
-            <div className="not-found-console__hud">
-              <span>score {game.score}</span>
-              <span>lines {game.lines}</span>
-              <span>lvl {game.level}</span>
-            </div>
             <div className="not-found-console__playfield">
               <div
                 className="not-found-console__board"
@@ -614,14 +629,14 @@ export function NotFoundTetris() {
                   <span className="not-found-console__panel-label">status</span>
                   <p className="not-found-console__status" aria-live="polite">
                     {game.status === "running"
-                      ? "Stack clean. Keep the lane open."
-                      : "Signal lost. Hit restart and re-enter the grid."}
+                      ? "Route recovery stable. Keep the lane open."
+                      : "Signal lost. Reset and bring the route back."}
                   </p>
                 </div>
 
                 <div className="not-found-console__panel">
-                  <span className="not-found-console__panel-label">keys</span>
-                  <p className="not-found-console__status">move, rotate, drop, restart</p>
+                  <span className="not-found-console__panel-label">controls</span>
+                  <p className="not-found-console__status">arrows, z/x, space, r</p>
                 </div>
               </div>
 
@@ -645,32 +660,30 @@ export function NotFoundTetris() {
         </div>
 
         <div className="not-found-console__controls" aria-label="Tetris controls">
-          <div className="not-found-console__dpad" role="group" aria-label="Directional pad">
-            <span className="not-found-console__dpad-spacer" aria-hidden="true" />
+          <div className="not-found-console__cluster" role="group" aria-label="Movement controls">
             <button
-              className="not-found-console__control-button not-found-console__control-button--dpad"
+              className="not-found-console__control-button not-found-console__control-button--secondary"
               onClick={() => setGame((current) => applyAction(current, "rotate-left"))}
               type="button"
             >
-              Z
+              ⟲
             </button>
-            <span className="not-found-console__dpad-spacer" aria-hidden="true" />
             <button
-              className="not-found-console__control-button not-found-console__control-button--dpad"
+              className="not-found-console__control-button not-found-console__control-button--secondary"
               onClick={() => setGame((current) => applyAction(current, "left"))}
               type="button"
             >
               ◀
             </button>
             <button
-              className="not-found-console__control-button not-found-console__control-button--dpad"
+              className="not-found-console__control-button not-found-console__control-button--secondary"
               onClick={() => setGame((current) => applyAction(current, "down"))}
               type="button"
             >
               ▼
             </button>
             <button
-              className="not-found-console__control-button not-found-console__control-button--dpad"
+              className="not-found-console__control-button not-found-console__control-button--secondary"
               onClick={() => setGame((current) => applyAction(current, "right"))}
               type="button"
             >
@@ -680,25 +693,25 @@ export function NotFoundTetris() {
 
           <div className="not-found-console__action-cluster" role="group" aria-label="Action buttons">
             <button
-              className="not-found-console__control-button not-found-console__control-button--action"
+              className="not-found-console__control-button not-found-console__control-button--primary"
               onClick={() => setGame((current) => applyAction(current, "rotate-right"))}
               type="button"
             >
-              A
+              ⟳
             </button>
             <button
-              className="not-found-console__control-button not-found-console__control-button--action"
+              className="not-found-console__control-button not-found-console__control-button--primary not-found-console__control-button--wide"
               onClick={() => setGame((current) => applyAction(current, "hard-drop"))}
               type="button"
             >
-              B
+              Drop
             </button>
             <button
               className="not-found-console__control-pill"
               onClick={() => setGame((current) => applyAction(current, "restart"))}
               type="button"
             >
-              reset
+              Reset
             </button>
           </div>
         </div>
