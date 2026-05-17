@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/test-results/
 
 # next.js
 /.next/
@@ -26,6 +27,8 @@
 .codebuddy/
 .codeconductor/
 .preview/
+/.claude/worktrees/
+/.claude/settings.local.json
 
 # debug
 npm-debug.log*
