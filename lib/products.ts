@@ -120,7 +120,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     tagline:
       "A conversational filing assistant that helps Ontario tenants move from plain-language issue description to a cleaner, more complete LTB application.",
     description:
-      "A voice-first conversational interface streamlining Ontario Landlord and Tenant Board applications. Reduces complexity and structures sensitive data with robust security.",
+      "A voice-first conversational interface that streamlines Ontario Landlord and Tenant Board applications. Reduces filing complexity and structures sensitive data within a secure workflow.",
     summary:
       "LTB Buddy turns a stressful legal workflow into a guided intake experience. It captures tenant issues in plain language, organizes the required details, and supports a more confident path toward filing without asking users to understand legal forms first.",
     heroSummary:
@@ -192,7 +192,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     tagline:
       "An AI-powered practice environment for service teams that need faster onboarding, realistic customer scenarios, and confident workflow recall.",
     description:
-      "Purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions to guide staff through real-world scenarios and repair order workflows.",
+      "A purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions and guides staff through operational scenarios and repair order workflows.",
     summary:
       "EasyBuddy helps frontline teams prepare before live customer interactions. It combines simulations, policy-style knowledge support, and tone-aware coaching so staff can rehearse hard moments before they happen.",
     heroSummary:

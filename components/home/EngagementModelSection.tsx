@@ -4,7 +4,6 @@ import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-
 export function EngagementModelSection() {
   const { messages } = useSiteLocale();
 
