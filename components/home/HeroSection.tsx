@@ -1,11 +1,17 @@
+"use client";
+
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { TextReveal } from "@/components/animation/TextReveal";
 import { HeroFlameParticles } from "@/components/animation/HeroFlameParticles";
+import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/layout/Container";
-import { products } from "@/lib/config";
+import { getLocalizedProducts } from "@/lib/localizedProducts";
 
 export function HeroSection() {
+  const { locale, messages } = useSiteLocale();
+  const products = getLocalizedProducts(locale);
+
   return (
     <section className="hero" id="top">
       <HeroFlameParticles />
@@ -17,36 +23,35 @@ export function HeroSection() {
             <span className="hero-pill__dot">
               <span className="hero-pill__dot-core" />
             </span>
-            Independent AI lab &middot; Products &amp; bespoke systems
+            {messages.hero.pill}
           </div>
         </SectionReveal>
         <TextReveal
           as="h1"
           className="hero__title"
           lines={[
-            "Built for the",
-            "environments that",
+            messages.hero.titleLines[0],
+            messages.hero.titleLines[1],
             <span className="hero__title-accent" key="accent">
-              {"don't forgive mistakes."}
+              {messages.hero.titleLines[2]}
             </span>,
           ]}
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">
-            An independent AI lab shipping proprietary products and bespoke systems for
-            a small number of partners &mdash; operated by agents that run without a clock.
+            {messages.hero.copy}
           </p>
         </SectionReveal>
         <SectionReveal className="hero__actions" delay={0.42}>
           <Button className="hero__action-button hero__action-button--primary" href="#systems">
-            Review Systems
+            {messages.hero.primaryCta}
           </Button>
           <Button
             className="hero__action-button hero__action-button--ghost"
             href="#engagement"
             variant="ghost"
           >
-            How we work
+            {messages.hero.secondaryCta}
           </Button>
         </SectionReveal>
         <SectionReveal className="hero__status-row" delay={0.5}>

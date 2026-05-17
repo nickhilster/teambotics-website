@@ -1,21 +1,25 @@
+"use client";
+
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
+import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { Button } from "@/components/ui/Button";
 import { LeadCaptureForm } from "@/components/home/LeadCaptureForm";
 
 export function HomeCTASection() {
+  const { messages } = useSiteLocale();
+
   return (
     <section className="section section--border cta-section" id="contact">
       <div className="cta-section__glow" aria-hidden="true" />
       <Container className="cta-section__inner">
         <SectionReveal>
-          <p className="section-eyebrow">GET IN TOUCH</p>
+          <p className="section-eyebrow">{messages.cta.eyebrow}</p>
           <h2 className="cta-section__title">
-            Most of our best work started with a direct conversation.
+            {messages.cta.title}
           </h2>
           <p className="cta-section__copy">
-            Tell us what you&apos;re working on. We&apos;ll be direct about what&apos;s possible
-            and whether we&apos;re the right team for it.
+            {messages.cta.copy}
           </p>
         </SectionReveal>
         <SectionReveal className="cta-section__form-shell" delay={0.12}>
@@ -23,7 +27,7 @@ export function HomeCTASection() {
         </SectionReveal>
         <SectionReveal className="cta-section__actions" delay={0.2}>
           <Button href="#systems" variant="ghost">
-            Review our systems
+            {messages.cta.reviewSystemsLabel}
           </Button>
         </SectionReveal>
       </Container>

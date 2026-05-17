@@ -1,23 +1,26 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { Button } from "@/components/ui/Button";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { TeamboticsSVGLogo } from "@/components/layout/TeamboticsSVGLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { withLocalePath } from "@/lib/siteLocale";
 import { Container } from "./Container";
-
-const navItems = [
-  { href: "#systems", label: "Systems" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#engagement", label: "Approach" },
-  { href: "#contact", label: "Contact" },
-];
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const { locale, messages } = useSiteLocale();
+  const navItems = messages.header.navItems;
+  const showLanguageSwitcher = pathname !== "/privacy" && pathname !== "/terms";
+  const homeHref = withLocalePath(locale, "/");
+  const contactHref = withLocalePath(locale, "/#contact");
 
   useEffect(() => {
     const onScroll = () => {
@@ -33,25 +36,26 @@ export function Header() {
   return (
     <header className={`site-header${isScrolled ? " site-header--scrolled" : ""}`}>
       <Container className="site-header__inner">
-        <Link className="site-logo" href="/">
+        <Link className="site-logo" href={homeHref}>
           <TeamboticsSVGLogo />
           <span className="site-logo__text">Teambotics</span>
         </Link>
-        <nav className="site-nav" aria-label="Primary">
+        <nav className="site-nav" aria-label={messages.header.navLabel}>
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
+            <Link key={item.href} href={`${homeHref}${item.href}`}>
               {item.label}
             </Link>
           ))}
         </nav>
         <div className="site-header__meta">
-          <Button className="site-header__cta" href="#contact">
-            Start a conversation
+          <Button className="site-header__cta" href={contactHref}>
+            {messages.header.ctaLabel}
           </Button>
+          {showLanguageSwitcher ? <LanguageSwitcher /> : null}
           <ThemeToggle />
           <button
             aria-controls="mobile-drawer"
-            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            aria-label={isOpen ? messages.header.closeNavigationLabel : messages.header.openNavigationLabel}
             className="site-nav-toggle"
             onClick={() => setIsOpen((value) => !value)}
             type="button"
@@ -65,13 +69,13 @@ export function Header() {
           {navItems.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={`${homeHref}${item.href}`}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <Button href="#contact">Start a conversation</Button>
+          <Button href={contactHref}>{messages.header.ctaLabel}</Button>
         </Container>
       </div>
     </header>

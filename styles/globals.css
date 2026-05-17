@@ -337,6 +337,52 @@ html.dark .site-header--scrolled {
   white-space: nowrap;
 }
 
+.language-switcher {
+  position: relative;
+}
+
+.language-switcher__select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8rem;
+  height: 2.5rem;
+  padding: 0 2.25rem 0 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(45deg, transparent 50%, var(--color-text-secondary) 50%),
+    linear-gradient(135deg, var(--color-text-secondary) 50%, transparent 50%),
+    color-mix(in srgb, var(--color-bg-page) 88%, transparent);
+  background-position:
+    calc(100% - 1rem) calc(50% - 0.125rem),
+    calc(100% - 0.75rem) calc(50% - 0.125rem),
+    0 0;
+  background-size: 0.375rem 0.375rem, 0.375rem 0.375rem, 100% 100%;
+  background-repeat: no-repeat;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition:
+    transform var(--transition-fast) ease,
+    border-color var(--transition-fast) ease,
+    background-color var(--transition-fast) ease,
+    color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease;
+  appearance: none;
+}
+
+.language-switcher__select:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--color-accent) 36%, var(--color-border));
+  box-shadow: 0 0.6rem 1.35rem color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+.language-switcher__select:focus-visible {
+  outline: none;
+}
+
 .theme-toggle,
 .header-icon-link {
   display: inline-flex;
@@ -3383,9 +3429,15 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   }
 
   .theme-toggle,
+  .language-switcher__select,
   .site-nav-toggle {
-    width: 2.25rem;
+    width: auto;
     height: 2.25rem;
+  }
+
+  .language-switcher__select {
+    min-width: 6.75rem;
+    padding-inline: 0.625rem 2rem;
   }
 
   .hero__title,

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import {
   getInitialLeadFormValues,
   LEAD_INTEREST_AREAS,
@@ -17,6 +18,7 @@ type FormStatus = {
 };
 
 export function LeadCaptureForm() {
+  const { messages } = useSiteLocale();
   const [values, setValues] = useState<LeadFormPayload>(() => getInitialLeadFormValues());
   const [errors, setErrors] = useState<LeadValidationErrors>({});
   const [status, setStatus] = useState<FormStatus>({ tone: "idle", message: "" });
@@ -41,14 +43,14 @@ export function LeadCaptureForm() {
 
     if (!validation.success) {
       if (validation.spam) {
-        setStatus({ tone: "success", message: "Thanks. Your note has been received." });
+        setStatus({ tone: "success", message: messages.leadForm.spamSuccessLabel });
         setValues(getInitialLeadFormValues());
         setErrors({});
         return;
       }
 
       setErrors(validation.errors);
-      setStatus({ tone: "error", message: "Please fix the highlighted fields and try again." });
+      setStatus({ tone: "error", message: messages.leadForm.validationErrorLabel });
       return;
     }
 
@@ -67,11 +69,11 @@ export function LeadCaptureForm() {
       if (!response.ok) {
         const nextErrors = result?.errors && typeof result.errors === "object"
           ? result.errors as LeadValidationErrors
-          : { form: "Unable to send your message right now." };
+          : { form: messages.leadForm.requestErrorLabel };
         setErrors(nextErrors);
         setStatus({
           tone: "error",
-          message: nextErrors.form ?? "Unable to send your message right now.",
+          message: nextErrors.form ?? messages.leadForm.requestErrorLabel,
         });
         return;
       }
@@ -79,13 +81,13 @@ export function LeadCaptureForm() {
       setValues(getInitialLeadFormValues());
       setStatus({
         tone: "success",
-        message: result?.message ?? "Thanks. Teambotics will follow up shortly.",
+        message: result?.message ?? messages.leadForm.successLabel,
       });
     } catch {
-      setErrors({ form: "Unable to send your message right now. Please try email instead." });
+      setErrors({ form: messages.leadForm.requestEmailFallbackLabel });
       setStatus({
         tone: "error",
-        message: "Unable to send your message right now. Please try email instead.",
+        message: messages.leadForm.requestEmailFallbackLabel,
       });
     } finally {
       setSubmitting(false);
@@ -95,16 +97,16 @@ export function LeadCaptureForm() {
   return (
     <div className="lead-form-card">
       <div className="lead-form-card__header">
-        <p className="lead-form-card__eyebrow">Lead intake</p>
-        <h3 className="lead-form-card__title">Tell Teambotics what you are trying to improve.</h3>
+        <p className="lead-form-card__eyebrow">{messages.leadForm.eyebrow}</p>
+        <h3 className="lead-form-card__title">{messages.leadForm.title}</h3>
         <p className="lead-form-card__copy">
-          Keep it short. We use this to understand the workflow, team, or product problem you want to discuss.
+          {messages.leadForm.copy}
         </p>
       </div>
 
       <form className="lead-form" noValidate onSubmit={handleSubmit}>
         <div className="lead-form__honeypot" aria-hidden="true">
-          <label htmlFor="lead-website">Website</label>
+          <label htmlFor="lead-website">{messages.leadForm.honeypotLabel}</label>
           <input
             autoComplete="off"
             id="lead-website"
@@ -118,7 +120,7 @@ export function LeadCaptureForm() {
 
         <div className="lead-form__grid">
           <label className={`lead-form__field ${errors.name ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-name">
-            <span>Name</span>
+            <span>{messages.leadForm.fields.name}</span>
             <input
               autoComplete="name"
               id="lead-name"
@@ -133,7 +135,7 @@ export function LeadCaptureForm() {
           </label>
 
           <label className={`lead-form__field ${errors.email ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-email">
-            <span>Email</span>
+            <span>{messages.leadForm.fields.email}</span>
             <input
               autoComplete="email"
               id="lead-email"
@@ -148,7 +150,7 @@ export function LeadCaptureForm() {
           </label>
 
           <label className={`lead-form__field ${errors.organization ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-organization">
-            <span>Organization</span>
+            <span>{messages.leadForm.fields.organization}</span>
             <input
               autoComplete="organization"
               id="lead-organization"
@@ -162,23 +164,23 @@ export function LeadCaptureForm() {
           </label>
 
           <label className={`lead-form__field ${errors.interestArea ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-interest-area">
-            <span>Interest area</span>
+            <span>{messages.leadForm.fields.interestArea}</span>
             <select
               id="lead-interest-area"
               name="interestArea"
               onChange={(event) => updateField("interestArea", event.target.value)}
               value={values.interestArea}
             >
-              <option value="">Choose a focus</option>
+              <option value="">{messages.leadForm.chooseFocusLabel}</option>
               {LEAD_INTEREST_AREAS.map((option) => (
-                <option key={option} value={option}>{option}</option>
+                <option key={option} value={option}>{messages.leadForm.interestAreaLabels[option]}</option>
               ))}
             </select>
             {errors.interestArea ? <span className="lead-form__error" role="alert">{errors.interestArea}</span> : null}
           </label>
 
           <label className={`lead-form__field lead-form__field--full ${errors.message ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-message">
-            <span>Message</span>
+            <span>{messages.leadForm.fields.message}</span>
             <textarea
               id="lead-message"
               maxLength={MAX_LEAD_MESSAGE_LENGTH}
@@ -189,7 +191,7 @@ export function LeadCaptureForm() {
               value={values.message}
             />
             <div className="lead-form__field-meta">
-              {errors.message ? <span className="lead-form__error" role="alert">{errors.message}</span> : <span className="lead-form__hint">Outline the problem, timeline, or team context.</span>}
+              {errors.message ? <span className="lead-form__error" role="alert">{errors.message}</span> : <span className="lead-form__hint">{messages.leadForm.messageHint}</span>}
               <span className="lead-form__hint">{values.message.length}/{MAX_LEAD_MESSAGE_LENGTH}</span>
             </div>
           </label>
@@ -197,14 +199,16 @@ export function LeadCaptureForm() {
 
         <div className="lead-form__footer">
           <p className="lead-form__privacy">
-            By sending this form, you agree that Teambotics may use your information to respond to your inquiry. See our <Link href="/privacy">Privacy Policy</Link>.
+            {messages.leadForm.privacyPrefix}
+            <Link href="/privacy">{messages.leadForm.privacyLinkLabel}</Link>
+            {messages.leadForm.privacySuffix}
           </p>
           <div className="lead-form__actions">
             <button className="button button--primary" disabled={submitting} type="submit">
-              <span>{submitting ? "Sending…" : "Start a conversation"}</span>
+              <span>{submitting ? messages.leadForm.submittingLabel : messages.leadForm.submitLabel}</span>
             </button>
             <a className="button button--ghost" href="mailto:hello@teambotics.app">
-              <span>Prefer email?</span>
+              <span>{messages.leadForm.emailLabel}</span>
             </a>
           </div>
         </div>
