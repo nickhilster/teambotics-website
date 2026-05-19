@@ -1,0 +1,64 @@
+---
+import '../styles/tokens.css';
+import '../styles/blog.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = 'Insights on industrial automation and robotics from the Teambotics team.', ogImage } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="blog-header">
+      <div class="blog-header__inner">
+        <a href="/" class="blog-header__brand">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="14" stroke="var(--color-accent)" stroke-width="2.5"/>
+            <circle cx="16" cy="16" r="5" fill="var(--color-accent)"/>
+            <line x1="16" y1="2" x2="16" y2="10" stroke="var(--color-accent)" stroke-width="2"/>
+            <line x1="16" y1="22" x2="16" y2="30" stroke="var(--color-accent)" stroke-width="2"/>
+            <line x1="2" y1="16" x2="10" y2="16" stroke="var(--color-accent)" stroke-width="2"/>
+            <line x1="22" y1="16" x2="30" y2="16" stroke="var(--color-accent)" stroke-width="2"/>
+          </svg>
+          <span class="blog-header__site-name">Teambotics Blog</span>
+        </a>
+        <nav class="blog-header__nav">
+          <a href="https://www.teambotics.com" class="blog-header__nav-link" target="_blank" rel="noopener noreferrer">
+            Main site ↗
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="blog-main">
+      <slot />
+    </main>
+
+    <footer class="blog-footer">
+      <div class="blog-footer__inner">
+        <p>© {new Date().getFullYear()} Teambotics. All rights reserved.</p>
+        <a href="https://www.teambotics.com" class="blog-footer__link" target="_blank" rel="noopener noreferrer">teambotics.com</a>
+      </div>
+    </footer>
+  </body>
+</html>

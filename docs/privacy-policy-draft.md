@@ -100,4 +100,28 @@ Teambotics Inc. is incorporated in Ontario, Canada. This policy is written in co
 
 ## Children
 
-The Site is not directed at children under 13. We do not knowingly collect information from children. If you believe a child has submitted information through the Site, contact us at hello@teamboti
+The Site is not directed at children under 13. We do not knowingly collect information from children. If you believe a child has submitted information through the Site, contact us at hello@teambotics.app.
+
+---
+
+## Changes to This Policy
+
+We may update this policy from time to time. When we do, we will update the "last updated" date at the top. Material changes will be noted here.
+
+---
+
+## Contact
+
+For privacy questions or requests:
+
+Email: hello@teambotics.app
+Website: teambotics.app
+
+---
+
+> **Legal review questions:**
+> 1. Are there applicable regional privacy laws (GDPR, CCPA, PIPEDA) that require specific disclosures or consent mechanisms?
+> 2. Is a cookie consent banner required given current analytics configuration?
+> 3. What is the intended data retention period for lead form submissions and chatbot logs?
+> 4. Is a Data Processing Agreement in place with OpenAI?
+> 5. Does any product (e.g., LTB Buddy) involve processing regulated personal data beyond what the website privacy policy covers?

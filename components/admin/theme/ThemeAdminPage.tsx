@@ -179,7 +179,8 @@ export default function ThemeAdminPage() {
           <p className="admin-subtitle">Control cursor behavior, bubbles, motion intensity, and theme preview.</p>
         </div>
         <div className="admin-actions">
-          <Link href="/admin/chatbot" className="admin-link-button">Open chatbot admin</Link>
+          <Link href="/admin/chatbot" className="admin-link-button">Chatbot admin</Link>
+          <Link href="/admin/blog" className="admin-link-button">Blog admin</Link>
           <button type="button" className="admin-logout" onClick={logout}>
             <LogOut size={16} /> Sign out
           </button>

@@ -1,0 +1,101 @@
+---
+import { marked } from 'marked';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+
+const { slug } = Astro.params as { slug: string };
+const apiBase = import.meta.env.SITE_API_BASE ?? 'http://localhost:3000';
+
+type Post = {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  tags: string[];
+  cover_image_url: string | null;
+  published_at: string | null;
+};
+
+let post: Post | null = null;
+let fetchError: string | null = null;
+
+try {
+  const res = await fetch(`${apiBase}/api/blog/posts/${encodeURIComponent(slug)}`);
+  if (res.status === 404) {
+    return Astro.redirect('/404', 404);
+  }
+  if (!res.ok) throw new Error(`API responded ${res.status}`);
+  const data = (await res.json()) as { post: Post };
+  post = data.post ?? null;
+} catch (err) {
+  fetchError = err instanceof Error ? err.message : 'Failed to load post.';
+}
+
+if (!post && !fetchError) {
+  return Astro.redirect('/404', 404);
+}
+
+const renderedContent = post ? await marked.parse(post.content) : '';
+
+function formatDate(iso: string | null) {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+{fetchError ? (
+  <BlogLayout title="Error — Teambotics Blog">
+    <div class="blog-post">
+      <p style="color: var(--color-text-secondary);">Could not load this post. Please try again shortly.</p>
+      <a href="/" class="blog-post__back">← Back to all posts</a>
+    </div>
+  </BlogLayout>
+) : post ? (
+  <BlogLayout
+    title={`${post.title} — Teambotics Blog`}
+    description={post.excerpt}
+    ogImage={post.cover_image_url ?? undefined}
+  >
+    <article class="blog-post">
+      <a href="/" class="blog-post__back">← All posts</a>
+
+      {post.cover_image_url && (
+        <img
+          src={post.cover_image_url}
+          alt={post.title}
+          class="blog-post__cover"
+          loading="eager"
+        />
+      )}
+
+      <header class="blog-post__header">
+        {post.tags.length > 0 && (
+          <div class="blog-post__tags">
+            {post.tags.map((tag) => (
+              <span class="blog-post__tag">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <h1 class="blog-post__title">{post.title}</h1>
+
+        <div class="blog-post__meta">
+          <span>{post.author}</span>
+          {post.published_at && (
+            <>
+              <span class="blog-post__meta-sep">·</span>
+              <time datetime={post.published_at}>{formatDate(post.published_at)}</time>
+            </>
+          )}
+        </div>
+      </header>
+
+      <div class="blog-post__body" set:html={renderedContent} />
+    </article>
+  </BlogLayout>
+) : null}

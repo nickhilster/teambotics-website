@@ -1201,6 +1201,8 @@ export default function ChatbotAdminPage() {
           <p className="admin-subtitle">Configure Teambotics chat behavior, retrieval, safety, and publishing.</p>
         </div>
         <div className="admin-actions">
+          <Link href="/admin/theme" className="admin-link-button">Theme admin</Link>
+          <Link href="/admin/blog" className="admin-link-button">Blog admin</Link>
           <button type="button" className="admin-logout" onClick={logout}>
             <LogOut size={16} /> Sign out
           </button>

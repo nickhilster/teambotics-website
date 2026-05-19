@@ -3517,4 +3517,161 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   }
 
   .system-card__header {
-  
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header--center {
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 48rem) {
+  .container {
+    width: min(calc(100% - 1.5rem), var(--content-max));
+  }
+
+  .site-header__inner {
+    gap: 0.5rem;
+  }
+
+  .site-header__meta {
+    gap: 0.5rem;
+  }
+
+  .site-logo {
+    gap: 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .site-logo__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .teambotics-logo-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .site-header__meta .header-status,
+  .site-header__cta {
+    display: none;
+  }
+
+  .theme-toggle,
+  .language-switcher__select,
+  .site-nav-toggle {
+    width: auto;
+    height: 2.25rem;
+  }
+
+  .language-switcher__select {
+    min-width: 6.75rem;
+    padding-inline: 0.625rem 2rem;
+  }
+
+  .hero__title,
+  .cta-section__title {
+    text-align: left;
+  }
+
+  .hero__title {
+    font-size: clamp(2.45rem, 12vw, 3.9rem);
+  }
+
+  .hero__inner,
+  .cta-section__inner {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .hero__copy,
+  .cta-section__copy {
+    width: 100%;
+  }
+
+  .hero__actions,
+  .product-hero__actions,
+  .cta-section__actions,
+  .lead-form__actions {
+    width: 100%;
+    justify-content: stretch;
+    flex-direction: column;
+  }
+
+  .hero__actions .button,
+  .product-hero__actions .button,
+  .cta-section__actions .button,
+  .lead-form__actions .button {
+    width: 100%;
+  }
+
+  .lead-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .engagement-rail {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-top: 0;
+  }
+
+  .engagement-rail__track {
+    display: none;
+  }
+
+  .engagement-step {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: 0;
+    text-align: left;
+  }
+
+  .engagement-step__node::after {
+    display: none;
+  }
+
+  .lead-form__field-meta {
+    flex-direction: column;
+  }
+
+  .hero__status-row {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hero__status-separator {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 3.4rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-lab,
+  .hero-lab--quote-visible {
+    justify-items: start;
+  }
+
+  .hero-easter-quote {
+    padding-inline: 0;
+    text-align: left;
+  }
+
+  .hero-easter-quote__text {
+    --hero-quote-size: clamp(5px, calc((100vw - 4rem) / 68), 0.94rem);
+  }
+
+  .hero-spotlight::before {
+    filter: blur(0.3rem);
+  }
+
+  .hero-spotlight::after {
+    filter: blur(0.7rem);
+  }
+}

@@ -1,0 +1,58 @@
+/* Design tokens mirrored from the Teambotics main site */
+
+:root {
+  color-scheme: light;
+
+  --color-bg-page: #f7f8ff;
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #eef0ff;
+  --color-text-primary: #151935;
+  --color-text-secondary: #596188;
+  --color-text-tertiary: #838bb1;
+  --color-border: rgba(86, 96, 164, 0.16);
+  --color-border-strong: rgba(86, 96, 164, 0.28);
+  --color-accent: #cf3aa9;
+  --color-accent-bright: #f062c0;
+  --color-accent-muted: #5f56e8;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-pill: 2.5rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  --transition-fast: 180ms;
+  --transition-base: 350ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --color-bg-page: #070b1a;
+    --color-bg-surface: #0d1330;
+    --color-bg-elevated: #151d45;
+    --color-text-primary: #f5f7ff;
+    --color-text-secondary: #a8afd6;
+    --color-text-tertiary: #7079a6;
+    --color-border: rgba(101, 117, 204, 0.24);
+    --color-border-strong: rgba(121, 141, 239, 0.38);
+    --color-accent: #ff4db8;
+    --color-accent-bright: #ff7ad9;
+    --color-accent-muted: #6d5cff;
+  }
+}

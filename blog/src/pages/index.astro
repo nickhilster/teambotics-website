@@ -1,0 +1,50 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const apiBase = import.meta.env.SITE_API_BASE ?? 'http://localhost:3000';
+
+let posts: Array<{
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  tags: string[];
+  cover_image_url: string | null;
+  published_at: string | null;
+}> = [];
+
+let fetchError: string | null = null;
+
+try {
+  const res = await fetch(`${apiBase}/api/blog/posts`);
+  if (!res.ok) throw new Error(`API responded ${res.status}`);
+  const data = await res.json() as { posts: typeof posts };
+  posts = data.posts ?? [];
+} catch (err) {
+  fetchError = err instanceof Error ? err.message : 'Failed to load posts.';
+}
+---
+
+<BlogLayout title="Teambotics Blog — Industrial Automation Insights">
+  <div class="blog-index__hero">
+    <span class="blog-index__eyebrow">Teambotics Blog</span>
+    <h1 class="blog-index__title">Insights on automation<br />and robotics</h1>
+    <p class="blog-index__subtitle">
+      Practical guides, industry trends, and product updates from the Teambotics team.
+    </p>
+  </div>
+
+  {fetchError ? (
+    <p style="color: var(--color-text-secondary);">Could not load posts right now. Please try again shortly.</p>
+  ) : posts.length === 0 ? (
+    <p class="blog-empty">No posts yet — check back soon.</p>
+  ) : (
+    <div class="blog-post-grid">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  )}
+</BlogLayout>

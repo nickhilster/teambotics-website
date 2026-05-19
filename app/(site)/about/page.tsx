@@ -27,7 +27,7 @@ export default function AboutPage() {
           <SectionReveal className="about__lead" delay={0.08}>
             <p>
               Teambotics builds conversational and interactive AI products for environments
-              where the work is complex, the stakes are real, and generic tooling doesn't hold up.
+              where the work is complex, the stakes are real, and generic tooling doesn&apos;t hold up.
               We ship proprietary products and build bespoke systems for a small number of partners —
               and we keep it that way deliberately.
             </p>

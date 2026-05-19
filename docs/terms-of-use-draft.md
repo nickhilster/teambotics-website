@@ -122,4 +122,7 @@ Website: teambotics.app
 
 > **Legal review questions:**
 > 1. What jurisdiction governs these Terms?
-> 2. Is an arbitration clause
+> 2. Is an arbitration clause or class-action waiver appropriate?
+> 3. Are there specific liability concerns related to LTB Buddy or other compliance-adjacent products that require additional disclaimers?
+> 4. Does the limitation of liability clause need to be adjusted for applicable consumer protection laws?
+> 5. Are there any regulatory requirements for the specific product verticals (e.g., landlord-tenant, legal-adjacent tools) that should be reflected in the Terms?

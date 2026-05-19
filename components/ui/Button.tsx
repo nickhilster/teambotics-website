@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 type ButtonProps = {
   children: React.ReactNode;
   className?: string;
+  disabled?: boolean;
   href?: string;
   icon?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
@@ -14,6 +15,7 @@ type ButtonProps = {
 export function Button({
   children,
   className,
+  disabled,
   href,
   icon = false,
   onClick,
@@ -37,7 +39,7 @@ export function Button({
   }
 
   return (
-    <button className={classes} type="button" onClick={onClick}>
+    <button className={classes} type="button" onClick={onClick} disabled={disabled}>
       {content}
     </button>
   );

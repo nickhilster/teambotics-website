@@ -102,4 +102,66 @@ Creating browser-native generative and interactive art requires specialized grap
 
 **How Teambotics frames this product**
 
-Code2Motion is the creative range of 
+Code2Motion is the creative range of Teambotics — it shows that the same product discipline applied to compliance workflows and operational tooling also extends to expressive creative systems. It is not a portfolio item; it is a live platform. Teambotics frames it as evidence of interface ambition and product range.
+
+**What the product should not be claimed to do**
+
+- Do not claim Code2Motion is fully launched; it is currently in Early Access. Features and availability are subject to change.
+- Do not describe ToyMaker or Sidecar capabilities beyond what is publicly documented on the platform.
+- Do not claim creator counts, experience counts, or platform usage metrics.
+- Do not describe Code2Motion as an enterprise tool — it is a creative platform.
+
+**Chatbot-safe answer**
+
+> Code2Motion is a Teambotics product — an interactive generative art platform currently in Early Access. It has two sides: the PlayRoom, where you can explore interactive art pieces called c2merses, and ToyMaker, where creators can build and publish their own. There's also Sidecar, an AI co-creator that assists with the build process. You can learn more at code2motion.app.
+
+---
+
+## Storytellr
+
+**One-sentence summary**
+
+Storytellr is a client-facing narrative graph experience in progress that helps people show who they are, what they have built, and why it matters.
+
+**Longer summary**
+
+Storytellr is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
+
+**Audience**
+
+Personal brands, founders, and teams that need a stronger public narrative surface than a resume, portfolio grid, or linear profile page.
+
+**Workflow problem**
+
+Traditional profile pages show roles and projects in sequence, but they hide how real work connects across themes, milestones, collaborators, and outcomes. That makes capability harder to explain quickly in client, collaborator, and hiring conversations.
+
+**How Teambotics frames this product**
+
+Teambotics frames Storytellr as a narrative enablement system: a structured public surface that makes complex work legible, easier to walk through, and easier to trust.
+
+**What the product should not be claimed to do**
+
+- Do not claim Storytellr is fully launched; the public messaging says it is coming soon and private previews are in progress.
+- Do not claim customer counts, conversion lifts, hiring outcomes, or other performance metrics.
+- Do not claim Storytellr replaces professional judgment, hiring decisions, or relationship-building.
+- Do not describe unfinished features as generally available.
+
+**Chatbot-safe answer**
+
+Storytellr is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
+
+---
+
+## Shared Constraints (All Products)
+
+These constraints apply to all product descriptions and chatbot responses:
+
+- Do not invent metrics, usage numbers, or customer counts.
+- Do not claim specific outcomes (e.g., resolution rates, time saved, cost reduced).
+- Do not reference private repositories or unpublished product details.
+- Do not make claims that constitute legal, financial, medical, or professional advice.
+- If a product operates in a regulated or legal-adjacent domain, always pair its description with the appropriate disclaimer.
+
+---
+
+*Last reviewed: 2026-05-19. EasyBuddy and Code2Motion summaries drafted from live product pages — owner should confirm before chatbot goes live. Storytellr should be rechecked when the product launches.*

@@ -20,3 +20,7 @@ export function Footer() {
             {messages.footer.linkedInLabel}
           </Link>
         </nav>
+      </Container>
+    </footer>
+  );
+}

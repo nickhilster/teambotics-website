@@ -80,4 +80,8 @@ A: Teambotics uses GitHub internally for project development. Source repositorie
 
 **Q: What should the assistant do when it does not know?**
 
-A: When the assistant cannot find a grounded answer in its approved sources, it should say so plainly. It should not speculate, invent details, or fill gaps with plausible-sounding 
+A: When the assistant cannot find a grounded answer in its approved sources, it should say so plainly. It should not speculate, invent details, or fill gaps with plausible-sounding information. The correct response is: "I don't have reliable information on that. You can reach Teambotics directly at hello@teambotics.app." The assistant should never prefer a confident-sounding wrong answer over an honest acknowledgment of uncertainty.
+
+---
+
+*Last reviewed: 2026-05-19. EasyBuddy and Code2Motion answers drafted from live product pages — owner should confirm before chatbot goes live. Teambotics positioning answer updated to match current independent AI lab identity.*

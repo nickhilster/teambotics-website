@@ -1,0 +1,71 @@
+---
+interface Props {
+  post: {
+    slug: string;
+    title: string;
+    excerpt: string;
+    author: string;
+    tags: string[];
+    cover_image_url: string | null;
+    published_at: string | null;
+  };
+}
+
+const { post } = Astro.props;
+
+function formatDate(iso: string | null) {
+  if (!iso) return null;
+  return new Date(iso).toLocaleDateString('en-AU', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+const date = formatDate(post.published_at);
+---
+
+<article class="post-card">
+  {post.cover_image_url ? (
+    <img
+      src={post.cover_image_url}
+      alt={post.title}
+      class="post-card__cover"
+      loading="lazy"
+    />
+  ) : (
+    <div class="post-card__cover-placeholder">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <path d="M21 15l-5-5L5 21"/>
+      </svg>
+    </div>
+  )}
+
+  <div class="post-card__body">
+    {post.tags.length > 0 && (
+      <div class="post-card__tags">
+        {post.tags.slice(0, 3).map((tag) => (
+          <span class="post-card__tag">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <a href={`/${post.slug}`} class="post-card__title">{post.title}</a>
+
+    {post.excerpt && (
+      <p class="post-card__excerpt">{post.excerpt}</p>
+    )}
+
+    <div class="post-card__meta">
+      <span>{post.author}</span>
+      {date && (
+        <>
+          <span class="post-card__meta-sep">·</span>
+          <time datetime={post.published_at!}>{date}</time>
+        </>
+      )}
+    </div>
+  </div>
+</article>
