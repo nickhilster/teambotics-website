@@ -46,31 +46,37 @@ LTB Buddy is a compliance-aware interface built for a regulated, high-stakes ope
 
 **One-sentence summary**
 
-*TODO(owner): Provide one confirmed sentence describing what EasyBuddy does.*
+EasyBuddy is a bespoke AI-powered training and onboarding assistant for frontline enterprise teams — built to simulate real work scenarios, surface policy in context, and coach employees on the job.
 
 **Longer summary**
 
-*TODO(owner): Provide 2–4 sentences describing EasyBuddy's purpose and what workflow problem it addresses.*
+EasyBuddy replaces rigid e-learning and static SOPs with a conversational, scenario-based training system that adapts to each employee's role, team, and day. It supports customer service simulations, instant policy and procedure lookups, personalized shift prep, and tone-aware coaching. EasyBuddy integrates with existing enterprise systems — LMS, CRM, DMS, and PRM platforms — through an API-driven, read-only architecture that observes and coaches without writing to or disrupting core systems.
+
+EasyBuddy is a bespoke product. Each deployment is built to a specific partner's environment, systems, and training goals. It is not a generic off-the-shelf tool.
 
 **Audience**
 
-*TODO(owner): Who is EasyBuddy built for?*
+Enterprise partners in retail, automotive service, logistics, hospitality, or similar frontline environments with training, onboarding, or knowledge-access needs at scale. Designed for the employee doing the work, not only the operator who commissioned it.
 
 **Workflow problem**
 
-*TODO(owner): What operational or process problem does EasyBuddy address?*
+Frontline enterprise training relies on e-learning modules and SOPs that do not adapt to real situations, individual learning pace, or the day's actual work. Employees struggle to access relevant information quickly in context. Onboarding is slow, retention is low, and coaching is inconsistent. EasyBuddy addresses this by delivering structured, scenario-aware support at the point of work.
 
 **How Teambotics frames this product**
 
-*TODO(owner): How should EasyBuddy be described in terms of Teambotics' positioning (guided systems, enablement, compliance-aware, etc.)?*
+EasyBuddy is a bespoke AI enablement system — built per partner specification, integrated with existing operational infrastructure, and designed with read-only safety defaults and human-in-the-loop safeguards. It represents Teambotics' capability to build workflow systems that are adopted because they fit the environment rather than requiring the environment to adapt to them.
 
 **What the product should not be claimed to do**
 
-*TODO(owner): List any claims that should not be made for EasyBuddy.*
+- EasyBuddy does not make HR or employment decisions.
+- EasyBuddy does not write to, modify, or override any connected enterprise system. It is a read-first coaching tool.
+- Do not claim specific training completion rates, onboarding time reductions, or performance outcome metrics.
+- Do not describe EasyBuddy as a generally available SaaS product — it is built bespoke per partner engagement.
+- Do not describe deployments or client partners without explicit approval.
 
 **Chatbot-safe answer**
 
-*TODO(owner): Provide an approved answer the chatbot can give when asked about EasyBuddy. Until confirmed, the assistant should say: "EasyBuddy is a Teambotics product. For more details, please visit teambotics.app or contact us at hello@teambotics.app."*
+> EasyBuddy is a Teambotics product — a bespoke AI training and onboarding assistant built for frontline enterprise teams. It delivers scenario-based coaching, policy lookups, and shift preparation through a conversational interface, integrated with a partner's existing systems. It is built per engagement and is not available as a generic off-the-shelf tool. For more information, visit teambotics.app or contact hello@teambotics.app.
 
 ---
 
@@ -78,79 +84,22 @@ LTB Buddy is a compliance-aware interface built for a regulated, high-stakes ope
 
 **One-sentence summary**
 
-*TODO(owner): Provide one confirmed sentence describing what Code2Motion does.*
+Code2Motion is an interactive generative art platform that turns code, motion, and generative interaction into browser-native playable experiences — for both creators and audiences.
 
 **Longer summary**
 
-*TODO(owner): Provide 2–4 sentences describing Code2Motion's purpose and what workflow problem it addresses.*
+Code2Motion is a dual-sided creative platform. The PlayRoom is a discovery layer where audiences explore c2merses — interactive art pieces that respond to touch, voice, and movement. ToyMaker is the creation surface where artists and developers build and publish those experiences using generative motion and progressive web app tooling without requiring deep graphics expertise. Sidecar, the platform's AI co-creator, assists with ideation, refinement, and creative iteration throughout the build process.
+
+Code2Motion is Teambotics' creative technology product — demonstrating that the same engineering discipline behind operational systems can power expressive, high-atmosphere browser experiences. It is currently in Early Access at code2motion.app.
 
 **Audience**
 
-*TODO(owner): Who is Code2Motion built for?*
+Creative technologists, generative artists, interactive designers, and experience brands who want to build or explore browser-native, motion-rich interactive work without the overhead of custom WebGL pipelines. Also relevant to digital agencies and brands looking for distinctive interactive formats.
 
 **Workflow problem**
 
-*TODO(owner): What operational or process problem does Code2Motion address?*
+Creating browser-native generative and interactive art requires specialized graphics knowledge that most designers and experience builders don't have. Static digital art formats don't capture motion, interaction, or generative behaviour. Code2Motion addresses this by making interactive generative work buildable, publishable, and explorable without requiring low-level graphics engineering.
 
 **How Teambotics frames this product**
 
-*TODO(owner): How should Code2Motion be described in terms of Teambotics' positioning?*
-
-**What the product should not be claimed to do**
-
-*TODO(owner): List any claims that should not be made for Code2Motion.*
-
-**Chatbot-safe answer**
-
-*TODO(owner): Provide an approved answer the chatbot can give when asked about Code2Motion. Until confirmed, the assistant should say: "Code2Motion is a Teambotics product. For more details, please visit teambotics.app or contact us at hello@teambotics.app."*
-
----
-
-## Storytellr
-
-**One-sentence summary**
-
-Storytellr is a client-facing narrative graph experience in progress that helps people show who they are, what they have built, and why it matters.
-
-**Longer summary**
-
-Storytellr is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
-
-**Audience**
-
-Personal brands, founders, and teams that need a stronger public narrative surface than a resume, portfolio grid, or linear profile page.
-
-**Workflow problem**
-
-Traditional profile pages show roles and projects in sequence, but they hide how real work connects across themes, milestones, collaborators, and outcomes. That makes capability harder to explain quickly in client, collaborator, and hiring conversations.
-
-**How Teambotics frames this product**
-
-Teambotics frames Storytellr as a narrative enablement system: a structured public surface that makes complex work legible, easier to walk through, and easier to trust.
-
-**What the product should not be claimed to do**
-
-- Do not claim Storytellr is fully launched; the public messaging says it is coming soon and private previews are in progress.
-- Do not claim customer counts, conversion lifts, hiring outcomes, or other performance metrics.
-- Do not claim Storytellr replaces professional judgment, hiring decisions, or relationship-building.
-- Do not describe unfinished features as generally available.
-
-**Chatbot-safe answer**
-
-Storytellr is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
-
----
-
-## Shared Constraints (All Products)
-
-These constraints apply to all product descriptions and chatbot responses:
-
-- Do not invent metrics, usage numbers, or customer counts.
-- Do not claim specific outcomes (e.g., resolution rates, time saved, cost reduced).
-- Do not reference private repositories or unpublished product details.
-- Do not make claims that constitute legal, financial, medical, or professional advice.
-- If a product operates in a regulated or legal-adjacent domain, always pair its description with the appropriate disclaimer.
-
----
-
-*Last reviewed: 2026-05-16. EasyBuddy and Code2Motion summaries still require owner input. Storytellr was updated from the public preview page and should be rechecked when the product launches.*
+Code2Motion is the creative range of 

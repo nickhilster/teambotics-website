@@ -2,7 +2,7 @@
 
 > **Draft for review. Not legal advice. Requires review by qualified legal counsel before publication.**
 
-*Last updated: [DATE — insert before publishing]*
+*Last updated: May 19, 2026*
 
 ---
 
@@ -85,25 +85,23 @@ The Site may link to third-party websites or services. Those sites are not under
 
 THE SITE AND ITS CONTENT ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SITE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS.
 
-*TODO(legal): Confirm warranty disclaimer language and scope for applicable jurisdictions.*
+*Note for counsel: Confirm this disclaimer is sufficient under Ontario consumer protection legislation (Consumer Protection Act, 2002) and that no statutory implied warranties apply to this use case.*
 
 ---
 
 ## 9. Limitation of Liability
 
-*TODO(legal): Insert appropriate limitation of liability clause. Suggested starting point:*
+TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, TEAMBOTICS INC. AND ITS OWNERS, DIRECTORS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES — INCLUDING BUT NOT LIMITED TO LOSS OF DATA, REVENUE, PROFITS, OR BUSINESS OPPORTUNITY — ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE OR ITS CONTENT, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
-TO THE FULLEST EXTENT PERMITTED BY LAW, TEAMBOTICS AND ITS OWNERS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF, OR INABILITY TO USE, THE SITE OR ITS CONTENT.
+IN NO EVENT SHALL TEAMBOTICS'S TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SITE EXCEED ONE HUNDRED CANADIAN DOLLARS (CAD $100).
 
-*TODO(legal): Confirm whether liability cap, indemnification language, or additional carve-outs are appropriate.*
+*Note for counsel: Confirm liability cap amount and whether any carve-outs are required for intentional misconduct, gross negligence, or claims related to the legal-adjacent nature of LTB Buddy descriptions on the Site.*
 
 ---
 
 ## 10. Governing Law
 
-*TODO(legal): Insert governing law and jurisdiction. Suggested starting point:*
-
-These Terms are governed by the laws of [JURISDICTION — confirm with counsel]. Any disputes arising from these Terms or your use of the Site will be subject to the exclusive jurisdiction of the courts of [JURISDICTION].
+These Terms are governed by the laws of the Province of Ontario and the laws of Canada applicable therein, without regard to conflict of law principles. Any disputes arising from these Terms or your use of the Site will be subject to the exclusive jurisdiction of the courts of the Province of Ontario, Canada.
 
 ---
 
@@ -124,7 +122,4 @@ Website: teambotics.app
 
 > **Legal review questions:**
 > 1. What jurisdiction governs these Terms?
-> 2. Is an arbitration clause or class-action waiver appropriate?
-> 3. Are there specific liability concerns related to LTB Buddy or other compliance-adjacent products that require additional disclaimers?
-> 4. Does the limitation of liability clause need to be adjusted for applicable consumer protection laws?
-> 5. Are there any regulatory requirements for the specific product verticals (e.g., landlord-tenant, legal-adjacent tools) that should be reflected in the Terms?
+> 2. Is an arbitration clause

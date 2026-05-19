@@ -8,7 +8,7 @@
 
 **Q: What does Teambotics do?**
 
-A: Teambotics designs intelligent workflow systems and interactive platforms for operational clarity, enablement, and practical impact. We build guided systems and compliance-aware interfaces for regulated, operational, and frontline environments.
+A: Teambotics is an independent AI lab that builds conversational and interactive products for complex domains — legal, operational, narrative, and creative. We ship proprietary products and build bespoke systems for a small number of partners. Our work starts from operational constraints, not generic capability.
 
 ---
 
@@ -46,13 +46,13 @@ A: No. LTB Buddy is a workflow and information tool, not a legal advisor. It doe
 
 **Q: What is EasyBuddy?**
 
-A: EasyBuddy is a Teambotics product. *TODO(owner): Provide a confirmed one-to-two sentence description of EasyBuddy's purpose, audience, and workflow problem it addresses, for inclusion here.*
+A: EasyBuddy is a bespoke AI training and onboarding assistant Teambotics builds for frontline enterprise teams. It delivers scenario-based coaching, instant policy lookups, shift prep, and tone-aware guidance — integrated with a partner's existing LMS, CRM, or operational systems. It is built per engagement and is not a generic off-the-shelf product. For more information, contact hello@teambotics.app.
 
 ---
 
 **Q: What is Code2Motion?**
 
-A: Code2Motion is a Teambotics product. *TODO(owner): Provide a confirmed one-to-two sentence description of Code2Motion's purpose, audience, and workflow problem it addresses, for inclusion here.*
+A: Code2Motion is a Teambotics product — an interactive generative art platform currently in Early Access. It includes the PlayRoom, where visitors explore interactive art pieces called c2merses, and ToyMaker, a creation surface for building and publishing those experiences. There's also Sidecar, an AI co-creator. You can explore it at code2motion.app.
 
 ---
 
@@ -80,8 +80,4 @@ A: Teambotics uses GitHub internally for project development. Source repositorie
 
 **Q: What should the assistant do when it does not know?**
 
-A: When the assistant cannot find a grounded answer in its approved sources, it should say so plainly. It should not speculate, invent details, or fill gaps with plausible-sounding information. The correct response is: "I don't have reliable information on that. You can reach Teambotics directly at hello@teambotics.app." The assistant should never prefer a confident-sounding wrong answer over an honest acknowledgment of uncertainty.
-
----
-
-*Last reviewed: 2026-05-16. This file requires owner review before chatbot deployment. EasyBuddy and Code2Motion TODOs must still be resolved before the assistant goes live.*
+A: When the assistant cannot find a grounded answer in its approved sources, it should say so plainly. It should not speculate, invent details, or fill gaps with plausible-sounding 

@@ -2,7 +2,7 @@
 
 > **Draft for review. Not legal advice. Requires review by qualified legal counsel before publication.**
 
-*Last updated: [DATE — insert before publishing]*
+*Last updated: May 19, 2026*
 
 ---
 
@@ -28,7 +28,7 @@ We keep this policy as plain as possible. If you have questions, contact us at h
 
 **Cookies and local storage.** The Site may use cookies or browser storage for functional purposes, such as remembering your theme preference. We do not use third-party advertising cookies. If we add analytics or marketing cookies in the future, this policy will be updated before they are deployed.
 
-*TODO(legal): Confirm cookie behavior after analytics and consent layer decisions are finalized (see decision D3, D10).*
+*Note: Vercel Analytics operates without cookies and does not collect personally identifiable data. No cookie consent banner is required for analytics under current configuration. If a consent layer or additional tracking is added in future, this section must be updated before deployment.*
 
 ### 3. Information We Do Not Collect
 
@@ -57,7 +57,7 @@ We do not use your information to make automated decisions that have legal or si
 
 **Chatbot processing.** When the chatbot feature is active, your messages may be sent to OpenAI's API for processing. OpenAI processes inputs under their own terms of service and privacy policy. We do not use chatbot interactions to train OpenAI's models under our current agreement.
 
-*TODO(legal): Confirm OpenAI API data processing terms and whether a Data Processing Agreement is in place.*
+*Note: OpenAI's API terms (as of 2024) state that data submitted via the API is not used to train models by default. Verify this remains current before publishing. A formal Data Processing Agreement with OpenAI is recommended if the chatbot handles any personal data from users — confirm with counsel whether the current use case requires one under PIPEDA.*
 
 ---
 
@@ -79,9 +79,7 @@ We are not responsible for the privacy practices of third-party services. We rec
 
 ## Data Retention
 
-*TODO(legal/owner): Define retention periods for lead form submissions and chatbot logs. Suggested starting point: lead data retained for 24 months from submission; chatbot logs retained for 90 days from interaction.*
-
-We retain data only as long as reasonably necessary for the purposes described in this policy or as required by law.
+We retain lead form submissions for up to 24 months from the date of submission, unless you request deletion earlier. Chatbot interaction logs, where retained, are kept for up to 90 days. We retain data only as long as reasonably necessary for the purposes described in this policy or as required by law.
 
 ---
 
@@ -96,34 +94,10 @@ Depending on where you are located, you may have rights regarding your personal 
 
 To make a request, contact us at hello@teambotics.app. We will respond within a reasonable timeframe.
 
-*TODO(legal): Confirm whether GDPR, CCPA, PIPEDA, or other regional frameworks apply and add jurisdiction-specific language.*
+Teambotics Inc. is incorporated in Ontario, Canada. This policy is written in compliance with Canada's Personal Information Protection and Electronic Documents Act (PIPEDA) and applicable provincial privacy law. If you are located outside Canada, please be aware that your information may be processed in Canada. We do not currently direct our services at residents of the EU/EEA or California, and do not make representations under GDPR or CCPA. If this changes, this policy will be updated accordingly. *Confirm with counsel before publishing if the user base includes EU or California residents.*
 
 ---
 
 ## Children
 
-The Site is not directed at children under 13. We do not knowingly collect information from children. If you believe a child has submitted information through the Site, contact us at hello@teambotics.app.
-
----
-
-## Changes to This Policy
-
-We may update this policy from time to time. When we do, we will update the "last updated" date at the top. Material changes will be noted here.
-
----
-
-## Contact
-
-For privacy questions or requests:
-
-Email: hello@teambotics.app
-Website: teambotics.app
-
----
-
-> **Legal review questions:**
-> 1. Are there applicable regional privacy laws (GDPR, CCPA, PIPEDA) that require specific disclosures or consent mechanisms?
-> 2. Is a cookie consent banner required given current analytics configuration?
-> 3. What is the intended data retention period for lead form submissions and chatbot logs?
-> 4. Is a Data Processing Agreement in place with OpenAI?
-> 5. Does any product (e.g., LTB Buddy) involve processing regulated personal data beyond what the website privacy policy covers?
+The Site is not directed at children under 13. We do not knowingly collect information from children. If you believe a child has submitted information through the Site, contact us at hello@teamboti
