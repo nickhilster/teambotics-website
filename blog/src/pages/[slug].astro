@@ -1,6 +1,6 @@
 ---
 import { marked } from 'marked';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import BlogLayout from '../layouts/BlogLayout.astro';
 
 const { slug } = Astro.params as { slug: string };
 const apiBase = import.meta.env.SITE_API_BASE ?? 'http://localhost:3000';
