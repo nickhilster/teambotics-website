@@ -2,7 +2,9 @@
 import BlogLayout from '../layouts/BlogLayout.astro';
 import PostCard from '../components/PostCard.astro';
 
-const apiBase = import.meta.env.SITE_API_BASE ?? 'http://localhost:3000';
+const apiBase =
+  import.meta.env.SITE_API_BASE ??
+  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://teambotics.app');
 
 let posts: Array<{
   id: string;

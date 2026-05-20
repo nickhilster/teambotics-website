@@ -5,5 +5,5 @@ import vercel from '@astrojs/vercel/serverless';
 export default defineConfig({
   output: 'server',
   adapter: vercel(),
-  site: 'https://blog.teambotics.com',
+  site: 'https://blog.teambotics.app',
 });
