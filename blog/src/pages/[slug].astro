@@ -1,6 +1,7 @@
 ---
 import { marked } from 'marked';
 import BlogLayout from '../layouts/BlogLayout.astro';
+import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
 
 const { slug } = Astro.params as { slug: string };
 const apiBase =
@@ -66,14 +67,12 @@ function formatDate(iso: string | null) {
     <article class="blog-post">
       <a href="/" class="blog-post__back">← All posts</a>
 
-      {post.cover_image_url && (
-        <img
-          src={post.cover_image_url}
-          alt={post.title}
-          class="blog-post__cover"
-          loading="eager"
-        />
-      )}
+      <img
+        src={post.cover_image_url ?? getGeometricThumbnailUrl(post.slug)}
+        alt={post.title}
+        class="blog-post__cover"
+        loading="eager"
+      />
 
       <header class="blog-post__header">
         {post.tags.length > 0 && (

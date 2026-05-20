@@ -1,4 +1,6 @@
 ---
+import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
+
 interface Props {
   post: {
     slug: string;
@@ -12,6 +14,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const coverImage = post.cover_image_url ?? getGeometricThumbnailUrl(post.slug);
 
 function formatDate(iso: string | null) {
   if (!iso) return null;
@@ -26,22 +29,12 @@ const date = formatDate(post.published_at);
 ---
 
 <article class="post-card">
-  {post.cover_image_url ? (
-    <img
-      src={post.cover_image_url}
-      alt={post.title}
-      class="post-card__cover"
-      loading="lazy"
-    />
-  ) : (
-    <div class="post-card__cover-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <circle cx="8.5" cy="8.5" r="1.5"/>
-        <path d="M21 15l-5-5L5 21"/>
-      </svg>
-    </div>
-  )}
+  <img
+    src={coverImage}
+    alt={post.title}
+    class="post-card__cover"
+    loading="lazy"
+  />
 
   <div class="post-card__body">
     {post.tags.length > 0 && (

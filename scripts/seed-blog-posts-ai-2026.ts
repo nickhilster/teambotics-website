@@ -233,7 +233,7 @@ The core concept is straightforward: instead of one AI agent handling an entire 
 
 Three frameworks dominate this space in 2026:
 
-**[Microsoft AutoGen](https://github.com/microsoft/autogen)** is the most mature enterprise-grade option. It supports programmable agent conversations with role definitions, tool access, and human-in-the-loop review gates. AutoGen's `agentchat` module provides high-level primitives that make multi-agent orchestration accessible without requiring deep ML expertise.
+**[Microsoft AutoGen](https://github.com/microsoft/autogen)** is the most mature enterprise-grade option. It supports programmable agent conversations with role definitions, tool access, and human-in-the-loop review gates. AutoGen's \`agentchat\` module provides high-level primitives that make multi-agent orchestration accessible without requiring deep ML expertise.
 
 **[LangGraph](https://github.com/langchain-ai/langgraph)** takes a graph-based approach, modelling the workflow as a directed graph where nodes are agents or functions and edges are data flows. This gives precise control over state transitions and makes it easier to build workflows with conditional branching — for example, routing high-risk decisions to human review while low-risk decisions complete automatically.
 
