@@ -6,7 +6,11 @@ const apiBase =
   import.meta.env.SITE_API_BASE ??
   (import.meta.env.DEV ? 'http://localhost:3000' : 'https://teambotics.app');
 
-let posts: Array<{
+const postsPerPage = 9;
+const currentPage = parseInt(Astro.url.searchParams.get('page') ?? '1', 10);
+const selectedTag = Astro.url.searchParams.get('tag') ?? null;
+
+let allPosts: Array<{
   id: string;
   slug: string;
   title: string;
@@ -22,14 +26,30 @@ let fetchError: string | null = null;
 try {
   const res = await fetch(`${apiBase}/api/blog/posts`);
   if (!res.ok) throw new Error(`API responded ${res.status}`);
-  const data = await res.json() as { posts: typeof posts };
-  posts = data.posts ?? [];
+  const data = await res.json() as { posts: typeof allPosts };
+  allPosts = (data.posts ?? []).sort((a, b) =>
+    new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime()
+  );
 } catch (err) {
   fetchError = err instanceof Error ? err.message : 'Failed to load posts.';
 }
+
+// Filter posts by tag if selected
+const filteredPosts = selectedTag
+  ? allPosts.filter(post => post.tags.includes(selectedTag))
+  : allPosts;
+
+// Get all unique tags
+const allTags = Array.from(new Set(allPosts.flatMap(post => post.tags))).sort();
+
+// Paginate
+const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+const validPage = Math.max(1, Math.min(currentPage, totalPages || 1));
+const startIdx = (validPage - 1) * postsPerPage;
+const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
 ---
 
-<BlogLayout title="Teambotics Blog — Industrial Automation Insights">
+<BlogLayout title={selectedTag ? `${selectedTag} — Teambotics Blog` : 'Teambotics Blog — Industrial Automation Insights'}>
   <div class="blog-index__hero">
     <span class="blog-index__eyebrow">Teambotics Blog</span>
     <h1 class="blog-index__title">Pragmatic perspective on automation and adoption</h1>
@@ -38,15 +58,68 @@ try {
     </p>
   </div>
 
+  {allTags.length > 0 && (
+    <div class="blog-index__filters">
+      <div class="blog-index__filter-label">Filter by topic:</div>
+      <div class="blog-index__filter-tags">
+        <a
+          href="/"
+          class={`blog-index__filter-tag ${!selectedTag ? 'blog-index__filter-tag--active' : ''}`}
+        >
+          All topics
+        </a>
+        {allTags.map((tag) => (
+          <a
+            href={`/?tag=${encodeURIComponent(tag)}`}
+            class={`blog-index__filter-tag ${selectedTag === tag ? 'blog-index__filter-tag--active' : ''}`}
+          >
+            {tag}
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+
   {fetchError ? (
     <p style="color: var(--color-text-secondary);">Could not load posts right now. Please try again shortly.</p>
-  ) : posts.length === 0 ? (
-    <p class="blog-empty">No posts yet — check back soon.</p>
+  ) : filteredPosts.length === 0 ? (
+    <p class="blog-empty">
+      {selectedTag ? `No posts found for "${selectedTag}". ` : 'No posts yet — '}
+      <a href="/">Browse all topics</a>
+    </p>
   ) : (
-    <div class="blog-post-grid">
-      {posts.map((post) => (
-        <PostCard post={post} />
-      ))}
-    </div>
+    <>
+      <div class="blog-post-grid">
+        {posts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+
+      {totalPages > 1 && (
+        <div class="blog-index__pagination">
+          {validPage > 1 && (
+            <a
+              href={`/?page=${validPage - 1}${selectedTag ? `&tag=${encodeURIComponent(selectedTag)}` : ''}`}
+              class="blog-index__pagination-link blog-index__pagination-link--prev"
+            >
+              ← Previous
+            </a>
+          )}
+
+          <div class="blog-index__pagination-info">
+            Page {validPage} of {totalPages}
+          </div>
+
+          {validPage < totalPages && (
+            <a
+              href={`/?page=${validPage + 1}${selectedTag ? `&tag=${encodeURIComponent(selectedTag)}` : ''}`}
+              class="blog-index__pagination-link blog-index__pagination-link--next"
+            >
+              Next →
+            </a>
+          )}
+        </div>
+      )}
+    </>
   )}
 </BlogLayout>

@@ -64,6 +64,16 @@ a:hover {
   color: var(--color-text-primary);
 }
 
+.blog-header__logo {
+  display: contents;
+}
+
+.blog-header__logo img {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
 .blog-header__site-name {
   font-weight: 700;
   font-size: 1rem;
