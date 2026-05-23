@@ -1,0 +1,272 @@
+---
+// 80/20 rule visualization with three data value extraction methods
+---
+
+<div class="data-value-breakdown">
+  <style>
+    .data-value-breakdown {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .dvb-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    /* The 80/20 visual */
+    .dvb-rule {
+      display: flex;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      height: 80px;
+      margin-bottom: 0.5rem;
+    }
+
+    .dvb-rule-existing {
+      background: linear-gradient(135deg, rgba(99, 179, 237, 0.2), rgba(99, 179, 237, 0.1));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      border-right: 1px solid rgba(99, 179, 237, 0.3);
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .dvb-rule-new {
+      background: rgba(150, 150, 150, 0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      padding: 0.5rem;
+    }
+
+    .dvb-rule-pct {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .dvb-rule-existing .dvb-rule-pct { color: #63b3ed; }
+    .dvb-rule-new .dvb-rule-pct { color: var(--color-text-tertiary); }
+
+    .dvb-rule-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-top: 0.15rem;
+    }
+
+    .dvb-rule-existing .dvb-rule-label { color: #63b3ed; }
+    .dvb-rule-new .dvb-rule-label { color: var(--color-text-tertiary); }
+
+    .dvb-caption {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    /* Three methods */
+    .dvb-methods-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .dvb-methods {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .dvb-method {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-elevated);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    .dvb-method:hover,
+    .dvb-method.active {
+      transform: translateY(-3px);
+    }
+
+    .dvb-method:nth-child(1):hover,
+    .dvb-method:nth-child(1).active {
+      border-color: rgba(99, 179, 237, 0.4);
+      background: rgba(99, 179, 237, 0.06);
+    }
+
+    .dvb-method:nth-child(2):hover,
+    .dvb-method:nth-child(2).active {
+      border-color: rgba(167, 139, 250, 0.4);
+      background: rgba(167, 139, 250, 0.06);
+    }
+
+    .dvb-method:nth-child(3):hover,
+    .dvb-method:nth-child(3).active {
+      border-color: rgba(74, 222, 128, 0.4);
+      background: rgba(74, 222, 128, 0.06);
+    }
+
+    .dvb-method-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+    }
+
+    .dvb-method-icon { font-size: 1.75rem; }
+
+    .dvb-method-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+
+    .dvb-method-tag {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .dvb-method:nth-child(1) .dvb-method-tag { background: rgba(99, 179, 237, 0.15); color: #63b3ed; }
+    .dvb-method:nth-child(2) .dvb-method-tag { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+    .dvb-method:nth-child(3) .dvb-method-tag { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+
+    .dvb-detail {
+      margin-top: 1rem;
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      animation: slideUp 0.25s ease;
+    }
+
+    .dvb-detail-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dvb-detail-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .dvb-methods {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="dvb-title">The 80% Rule: Where AI Value Actually Lives</div>
+
+  <div class="dvb-rule">
+    <div class="dvb-rule-existing">
+      <div class="dvb-rule-pct">~80%</div>
+      <div class="dvb-rule-label">Value from existing data</div>
+    </div>
+    <div class="dvb-rule-new">
+      <div class="dvb-rule-pct">20%</div>
+      <div class="dvb-rule-label">New collection</div>
+    </div>
+  </div>
+  <div class="dvb-caption">In most operational contexts, ~80% of first-year AI value is derivable from data you already have. Start there.</div>
+
+  <div class="dvb-methods-title">Three Ways to Extract Value From Existing Data</div>
+
+  <div class="dvb-methods">
+    <div class="dvb-method active" data-method="retrieval">
+      <div class="dvb-method-num">Method 1</div>
+      <div class="dvb-method-icon">🔍</div>
+      <div class="dvb-method-name">Retrieval-Augmented Search</div>
+      <div class="dvb-method-tag">Immediate</div>
+    </div>
+    <div class="dvb-method" data-method="patterns">
+      <div class="dvb-method-num">Method 2</div>
+      <div class="dvb-method-icon">📈</div>
+      <div class="dvb-method-name">Pattern Mining at Scale</div>
+      <div class="dvb-method-tag">Weeks</div>
+    </div>
+    <div class="dvb-method" data-method="predictive">
+      <div class="dvb-method-num">Method 3</div>
+      <div class="dvb-method-icon">🎯</div>
+      <div class="dvb-method-name">Predictive Synthesis</div>
+      <div class="dvb-method-tag">Months</div>
+    </div>
+  </div>
+
+  <div class="dvb-detail" id="dvb-detail">
+    <div class="dvb-detail-title">Method 1: Retrieval-Augmented Search</div>
+    <div class="dvb-detail-desc">The most immediate application: make existing documents searchable in natural language. A maintenance technician asks "what were the symptoms and resolution for the last three occurrences of fault code E-447 on press line 2?" — and gets a specific, sourced answer in seconds, not a list of documents to manually scan. Time to answer common knowledge queries drops from minutes or hours to seconds. Value is immediate and measurable.</div>
+  </div>
+
+  <script>
+    const methodData = {
+      retrieval: {
+        title: 'Method 1: Retrieval-Augmented Search',
+        desc: 'The most immediate application: make existing documents searchable in natural language. A maintenance technician asks "what were the symptoms and resolution for the last three occurrences of fault code E-447 on press line 2?" — and gets a specific, sourced answer in seconds, not a list of documents to manually scan. Time to answer common knowledge queries drops from minutes or hours to seconds. Value is immediate and measurable.'
+      },
+      patterns: {
+        title: 'Method 2: Pattern Mining at Scale',
+        desc: 'Humans are good at recognising patterns they have seen before. They are poor at systematically identifying patterns across thousands of records over multiple years. Language models with structured prompting are surprisingly capable at this. Take your last three years of maintenance logs for a specific asset class and ask a language model to identify the ten most common fault sequences — patterns that tend to precede a specific failure mode. Systematic pattern matching at a scale that manual review cannot achieve.'
+      },
+      predictive: {
+        title: 'Method 3: Predictive Synthesis',
+        desc: 'The most sophisticated application: combining multiple existing data streams to generate predictions or risk assessments. A quality prediction model that takes maintenance history, environmental readings, operator shift data, and production parameters, then outputs a probability of quality failure — achievable with existing data if that data has been systematically captured. This is where the 80% rule meets data quality: predictions are only as good as the consistency of the underlying records.'
+      }
+    };
+
+    const methods = document.querySelectorAll('.dvb-method');
+    const detail = document.getElementById('dvb-detail');
+
+    function activate(method) {
+      methods.forEach(m => m.classList.remove('active'));
+      method.classList.add('active');
+      const d = methodData[method.dataset.method];
+      if (!d) return;
+      detail.innerHTML = `<div class="dvb-detail-title">${d.title}</div><div class="dvb-detail-desc">${d.desc}</div>`;
+    }
+
+    methods.forEach(m => {
+      m.addEventListener('click', () => activate(m));
+    });
+  </script>
+</div>

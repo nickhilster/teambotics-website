@@ -1,0 +1,253 @@
+---
+// Five non-negotiable compliance requirements for AI in regulated environments
+---
+
+<div class="compliance-req">
+  <style>
+    .compliance-req {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .cr-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .cr-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cr-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-elevated);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cr-item:hover,
+    .cr-item.active {
+      border-color: rgba(167, 139, 250, 0.4);
+      background: rgba(167, 139, 250, 0.05);
+    }
+
+    .cr-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .cr-item:nth-child(1) .cr-check { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+    .cr-item:nth-child(2) .cr-check { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
+    .cr-item:nth-child(3) .cr-check { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
+    .cr-item:nth-child(4) .cr-check { background: rgba(99, 179, 237, 0.15); color: #63b3ed; }
+    .cr-item:nth-child(5) .cr-check { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+
+    .cr-item.active:nth-child(1) .cr-check { background: rgba(255, 107, 107, 0.3); box-shadow: 0 0 12px rgba(255, 107, 107, 0.4); }
+    .cr-item.active:nth-child(2) .cr-check { background: rgba(167, 139, 250, 0.3); box-shadow: 0 0 12px rgba(167, 139, 250, 0.4); }
+    .cr-item.active:nth-child(3) .cr-check { background: rgba(251, 191, 36, 0.3); box-shadow: 0 0 12px rgba(251, 191, 36, 0.4); }
+    .cr-item.active:nth-child(4) .cr-check { background: rgba(99, 179, 237, 0.3); box-shadow: 0 0 12px rgba(99, 179, 237, 0.4); }
+    .cr-item.active:nth-child(5) .cr-check { background: rgba(74, 222, 128, 0.3); box-shadow: 0 0 12px rgba(74, 222, 128, 0.4); }
+
+    .cr-item-content { flex: 1; }
+
+    .cr-item-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.15rem;
+    }
+
+    .cr-item-summary {
+      font-size: 0.8rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .cr-chevron {
+      color: var(--color-text-tertiary);
+      font-size: 0.8rem;
+      transition: transform 0.2s ease;
+    }
+
+    .cr-item.active .cr-chevron {
+      transform: rotate(90deg);
+    }
+
+    .cr-detail {
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      animation: slideUp 0.25s ease;
+    }
+
+    .cr-detail-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #a78bfa;
+      margin-bottom: 0.4rem;
+    }
+
+    .cr-detail-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .cr-detail-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    .cr-detail-arch {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(167, 139, 250, 0.06);
+      border-left: 3px solid rgba(167, 139, 250, 0.4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+    }
+
+    .cr-detail-arch strong { color: var(--color-text-primary); }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <div class="cr-title">The Five Non-Negotiables for AI in Regulated Environments</div>
+
+  <div class="cr-list">
+    <div class="cr-item active" data-req="auditability">
+      <div class="cr-check">📋</div>
+      <div class="cr-item-content">
+        <div class="cr-item-name">Auditability</div>
+        <div class="cr-item-summary">Complete record of every decision and the process that generated it</div>
+      </div>
+      <div class="cr-chevron">›</div>
+    </div>
+
+    <div class="cr-item" data-req="hitl">
+      <div class="cr-check">👤</div>
+      <div class="cr-item-content">
+        <div class="cr-item-name">Human-in-the-Loop Gates</div>
+        <div class="cr-item-summary">Mandatory human review before high-stakes AI outputs take effect</div>
+      </div>
+      <div class="cr-chevron">›</div>
+    </div>
+
+    <div class="cr-item" data-req="versioning">
+      <div class="cr-check">🏷️</div>
+      <div class="cr-item-content">
+        <div class="cr-item-name">Model Version Control</div>
+        <div class="cr-item-summary">AI models treated as versioned, documented software artefacts</div>
+      </div>
+      <div class="cr-chevron">›</div>
+    </div>
+
+    <div class="cr-item" data-req="governance">
+      <div class="cr-check">🔒</div>
+      <div class="cr-item-content">
+        <div class="cr-item-name">Data Governance</div>
+        <div class="cr-item-summary">Access controls, retention policies, and data residency requirements</div>
+      </div>
+      <div class="cr-chevron">›</div>
+    </div>
+
+    <div class="cr-item" data-req="explainability">
+      <div class="cr-check">💡</div>
+      <div class="cr-item-content">
+        <div class="cr-item-name">Explainability</div>
+        <div class="cr-item-summary">Ability to explain why the AI produced a particular output</div>
+      </div>
+      <div class="cr-chevron">›</div>
+    </div>
+  </div>
+
+  <div class="cr-detail" id="cr-detail">
+    <div class="cr-detail-label">Requirement 1 of 5</div>
+    <div class="cr-detail-title">Auditability</div>
+    <div class="cr-detail-desc">The system must produce a complete record of what decision was made, what inputs were considered, and what process generated the output. This is not optional for any AI system that contributes to a regulated decision.</div>
+    <div class="cr-detail-arch"><strong>Architecture implication:</strong> Structured logging at every agent step, every tool call, every model invocation — with sufficient metadata to reconstruct the full decision process. Frameworks like Microsoft PromptFlow provide execution traces that meet enterprise audit requirements.</div>
+  </div>
+
+  <script>
+    const reqData = {
+      auditability: {
+        label: 'Requirement 1 of 5',
+        title: 'Auditability',
+        desc: 'The system must produce a complete record of what decision was made, what inputs were considered, and what process generated the output. This is not optional for any AI system that contributes to a regulated decision.',
+        arch: 'Structured logging at every agent step, every tool call, every model invocation — with sufficient metadata to reconstruct the full decision process. Frameworks like Microsoft PromptFlow provide execution traces that meet enterprise audit requirements.'
+      },
+      hitl: {
+        label: 'Requirement 2 of 5',
+        title: 'Human-in-the-Loop Gates',
+        desc: 'High-stakes decisions — those with direct regulatory consequence — must have a mandatory human review step before they take effect. AI can prepare, recommend, and draft. It cannot, in most regulated contexts, act autonomously on consequential decisions.',
+        arch: 'Human review gates should produce a documented record: who reviewed, when, and what decision was made. The AI produces a draft; the human review produces a signed-off record. Do not blur this boundary. Microsoft AutoGen supports human proxy agents that pause execution at specified steps.'
+      },
+      versioning: {
+        label: 'Requirement 3 of 5',
+        title: 'Model Version Control',
+        desc: 'If you use an AI model to assist with a regulated process in January and a regulator asks in October what system was used, you need to be able to answer precisely. This requires treating AI models as software artefacts: versioned, documented, and controlled.',
+        arch: 'Pin to specific model versions and verify that your provider guarantees those versions will not change silently. Many providers offer version-pinned API access; this should be standard practice, not an afterthought. Document model versions as part of the system change record.'
+      },
+      governance: {
+        label: 'Requirement 4 of 5',
+        title: 'Data Governance',
+        desc: 'AI systems processing regulated data must comply with the applicable data governance framework — which typically includes access controls, retention policies, and data residency requirements. Passing production data to a cloud API without understanding the data processing agreement is not acceptable.',
+        arch: 'Review the data processing agreement before sending any regulated data to an external API. For the most sensitive environments, open-weight models deployed on your own infrastructure may be the only viable path. The capability gap between frontier API and deployable open-weight models has narrowed significantly.'
+      },
+      explainability: {
+        label: 'Requirement 5 of 5',
+        title: 'Explainability',
+        desc: 'For decisions that are challenged, reviewed, or appealed, you need to be able to explain — at a level appropriate to the regulatory context — why the AI system produced a particular output. "The model said so" is not an explanation.',
+        arch: 'Prefer retrieval over generation for factual claims: "the last inspection was performed on [date] by [person]" should be retrieved from a verified source, not generated by a language model. Architect systems so that factual claims are traceable to a source document or database record.'
+      }
+    };
+
+    const items = document.querySelectorAll('.cr-item');
+    const detail = document.getElementById('cr-detail');
+
+    function activate(item) {
+      items.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      const d = reqData[item.dataset.req];
+      if (!d) return;
+      detail.innerHTML = `
+        <div class="cr-detail-label">${d.label}</div>
+        <div class="cr-detail-title">${d.title}</div>
+        <div class="cr-detail-desc">${d.desc}</div>
+        <div class="cr-detail-arch"><strong>Architecture implication:</strong> ${d.arch}</div>
+      `;
+    }
+
+    items.forEach(item => {
+      item.addEventListener('click', () => activate(item));
+    });
+  </script>
+</div>

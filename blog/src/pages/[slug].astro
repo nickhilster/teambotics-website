@@ -3,6 +3,15 @@ import { marked } from '../lib/marked-config.ts';
 import { processCallouts } from '../lib/callouts.ts';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
+import AgentEvolution from '../components/AgentEvolution.astro';
+import DataValuePyramid from '../components/DataValuePyramid.astro';
+import MultiAgentFlow from '../components/MultiAgentFlow.astro';
+import AugmentationPatterns from '../components/AugmentationPatterns.astro';
+import ComplianceRequirements from '../components/ComplianceRequirements.astro';
+import DataValueBreakdown from '../components/DataValueBreakdown.astro';
+import SOPToAgent from '../components/SOPToAgent.astro';
+import PromptQuality from '../components/PromptQuality.astro';
+import WorkflowDiagram from '../components/WorkflowDiagram.astro';
 import CollaborationGradient from '../components/CollaborationGradient.astro';
 
 const { slug } = Astro.params as { slug: string };
@@ -101,6 +110,15 @@ function formatDate(iso: string | null) {
 
       <div class="blog-post__body" set:html={renderedContent} />
 
+      {slug === 'agentic-ai-beyond-chatbots' && <AgentEvolution />}
+      {slug === 'operational-data-ai-value' && <DataValuePyramid />}
+      {slug === 'multi-agent-systems-workflow' && <MultiAgentFlow />}
+      {slug === 'ai-augmentation-frontline-operations' && <AugmentationPatterns />}
+      {slug === 'applied-ai-regulated-environments' && <ComplianceRequirements />}
+      {slug === 'ai-value-existing-data' && <DataValueBreakdown />}
+      {slug === 'sops-to-ai-agents' && <SOPToAgent />}
+      {slug === 'prompt-engineering-operational-skill' && <PromptQuality />}
+      {slug === 'llms-structured-automation-workflows' && <WorkflowDiagram />}
       {slug === 'designing-human-ai-teams' && <CollaborationGradient />}
     </article>
   </BlogLayout>

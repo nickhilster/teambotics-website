@@ -1,0 +1,293 @@
+---
+// Chatbot vs Agent comparison with the 4 agent capabilities
+---
+
+<div class="agent-evolution">
+  <style>
+    .agent-evolution {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .ae-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .ae-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .ae-column {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    .ae-column-header {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ae-column--chatbot .ae-column-header {
+      background: rgba(150, 150, 150, 0.08);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .ae-column--agent .ae-column-header {
+      background: rgba(99, 179, 237, 0.08);
+      border-bottom: 1px solid rgba(99, 179, 237, 0.2);
+    }
+
+    .ae-column-icon {
+      font-size: 1.5rem;
+    }
+
+    .ae-column-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-text-primary);
+    }
+
+    .ae-column-sub {
+      font-size: 0.75rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .ae-column-body {
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .ae-trait {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      padding: 0.35rem 0;
+    }
+
+    .ae-trait-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .ae-column--chatbot .ae-trait-dot {
+      background: #888;
+    }
+
+    .ae-column--agent .ae-trait-dot {
+      background: #63b3ed;
+      box-shadow: 0 0 8px rgba(99, 179, 237, 0.5);
+    }
+
+    .ae-capabilities {
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      padding: 1.25rem;
+    }
+
+    .ae-cap-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .ae-cap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .ae-cap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 0.5rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-align: center;
+    }
+
+    .ae-cap:hover,
+    .ae-cap.active {
+      border-color: rgba(99, 179, 237, 0.4);
+      background: rgba(99, 179, 237, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .ae-cap-icon {
+      font-size: 1.5rem;
+    }
+
+    .ae-cap-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+
+    .ae-detail {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(99, 179, 237, 0.06);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(99, 179, 237, 0.2);
+      animation: fadeSlideUp 0.25s ease;
+    }
+
+    .ae-detail-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #63b3ed;
+      margin-bottom: 0.4rem;
+    }
+
+    .ae-detail-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .ae-grid {
+        grid-template-columns: 1fr;
+      }
+      .ae-cap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+
+  <div class="ae-title">The Evolution: Chatbot → Agent</div>
+
+  <div class="ae-grid">
+    <div class="ae-column ae-column--chatbot">
+      <div class="ae-column-header">
+        <div class="ae-column-icon">💬</div>
+        <div>
+          <div class="ae-column-label">Chatbot</div>
+          <div class="ae-column-sub">Prompt → Response</div>
+        </div>
+      </div>
+      <div class="ae-column-body">
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Responds to one message at a time</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>No access to external tools</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>No persistent memory across sessions</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Cannot take actions in the world</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Human drives every step</div>
+      </div>
+    </div>
+
+    <div class="ae-column ae-column--agent">
+      <div class="ae-column-header">
+        <div class="ae-column-icon">🤖</div>
+        <div>
+          <div class="ae-column-label">AI Agent</div>
+          <div class="ae-column-sub">Goal → Plan → Execute → Review</div>
+        </div>
+      </div>
+      <div class="ae-column-body">
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Decomposes goals into subtasks</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Calls APIs, databases, and tools</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Retains context across many steps</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Evaluates and corrects its own output</div>
+        <div class="ae-trait"><div class="ae-trait-dot"></div>Human sets goal; agent navigates</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ae-capabilities">
+    <div class="ae-cap-title">The Four Agent Properties — click to explore</div>
+    <div class="ae-cap-grid">
+      <div class="ae-cap" data-cap="tool-use">
+        <div class="ae-cap-icon">🔧</div>
+        <div class="ae-cap-name">Tool Use</div>
+      </div>
+      <div class="ae-cap" data-cap="memory">
+        <div class="ae-cap-icon">🧠</div>
+        <div class="ae-cap-name">Memory</div>
+      </div>
+      <div class="ae-cap" data-cap="planning">
+        <div class="ae-cap-icon">🗺️</div>
+        <div class="ae-cap-name">Planning</div>
+      </div>
+      <div class="ae-cap" data-cap="self-correction">
+        <div class="ae-cap-icon">🔁</div>
+        <div class="ae-cap-name">Self-Correction</div>
+      </div>
+    </div>
+    <div class="ae-detail" id="ae-detail">
+      <div class="ae-detail-title">Tool Use</div>
+      <div class="ae-detail-desc">The ability to call external functions — run a database query, read a file, submit a form, call an API. This is what lets an agent interact with the world beyond text generation.</div>
+    </div>
+  </div>
+
+  <script>
+    const capDetails = {
+      'tool-use': {
+        title: 'Tool Use',
+        desc: 'The ability to call external functions — run a database query, read a file, submit a form, call an API. This is what lets an agent interact with the world beyond text generation.'
+      },
+      'memory': {
+        title: 'Memory',
+        desc: 'The ability to retain context across steps, not just within a single conversation window. Long-running tasks require the agent to remember what it learned in step 2 when it reaches step 8.'
+      },
+      'planning': {
+        title: 'Planning',
+        desc: 'Breaking a high-level goal into an ordered sequence of actions. A planning agent given "produce a compliance report" will identify what data to pull, in what order, before executing a single step.'
+      },
+      'self-correction': {
+        title: 'Self-Correction',
+        desc: 'Evaluating its own output, identifying errors, and adjusting its approach. A self-correcting agent that produces a malformed JSON output will notice, diagnose, and retry — without human intervention.'
+      }
+    };
+
+    const caps = document.querySelectorAll('.ae-cap');
+    const detail = document.getElementById('ae-detail');
+
+    function activate(cap) {
+      caps.forEach(c => c.classList.remove('active'));
+      cap.classList.add('active');
+      const key = cap.dataset.cap;
+      const d = capDetails[key];
+      detail.innerHTML = `<div class="ae-detail-title">${d.title}</div><div class="ae-detail-desc">${d.desc}</div>`;
+    }
+
+    caps.forEach(cap => {
+      cap.addEventListener('click', () => activate(cap));
+      cap.addEventListener('mouseenter', () => activate(cap));
+    });
+
+    // Activate first by default
+    if (caps.length) caps[0].classList.add('active');
+  </script>
+</div>
