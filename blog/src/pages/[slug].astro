@@ -1,5 +1,6 @@
 ---
-import { marked } from 'marked';
+import { marked } from '../lib/marked-config.ts';
+import { processCallouts } from '../lib/callouts.ts';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
 import CollaborationGradient from '../components/CollaborationGradient.astro';
@@ -40,7 +41,8 @@ if (!post && !fetchError) {
   return Astro.redirect('/404', 404);
 }
 
-const renderedContent = post ? await marked.parse(post.content) : '';
+const rawHtml = post ? await marked.parse(post.content) : '';
+const renderedContent = processCallouts(rawHtml);
 
 function formatDate(iso: string | null) {
   if (!iso) return null;
