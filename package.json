@@ -24,6 +24,7 @@
     "blog:seed:ai-2026": "tsx scripts/seed-blog-posts-ai-2026.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
     "@neondatabase/serverless": "^1.1.0",
     "@octokit/rest": "^20.1.2",
     "@vercel/analytics": "^2.0.1",
