@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Beyond Chat: How LLMs Power Structured Automation Workflows">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#020e18"/>
+      <stop offset="100%" stop-color="#051624"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="30%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#centerGlow)"/>
+
+  <!-- Subtle scan lines -->
+  <pattern id="scanlines" x="0" y="0" width="640" height="4" patternUnits="userSpaceOnUse">
+    <rect width="640" height="1" fill="#06b6d4" fill-opacity="0.02"/>
+  </pattern>
+  <rect width="640" height="360" fill="url(#scanlines)"/>
+
+  <!-- Spoke lines from center LLM to all tool nodes -->
+  <!-- To Input (left) -->
+  <line x1="258" y1="180" x2="110" y2="180" stroke="#06b6d4" stroke-width="1.8" stroke-opacity="0.4"/>
+  <!-- To Output (right) -->
+  <line x1="382" y1="180" x2="530" y2="180" stroke="#06b6d4" stroke-width="1.8" stroke-opacity="0.4"/>
+  <!-- To top-left -->
+  <line x1="270" y1="156" x2="148" y2="90" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- To top-right -->
+  <line x1="370" y1="156" x2="492" y2="90" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- To bottom-left -->
+  <line x1="270" y1="204" x2="148" y2="270" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- To bottom-right -->
+  <line x1="370" y1="204" x2="492" y2="270" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- Flow arrows along spokes -->
+  <!-- Right arrow -->
+  <path d="M440 176 l14 4 -14 4" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
+  <!-- Left arrow -->
+  <path d="M200 184 l-14-4 14-4" stroke="#06b6d4" stroke-width="1.5" fill="none" stroke-opacity="0.7" stroke-linecap="round"/>
+
+  <!-- Data flow dots -->
+  <circle cx="320" cy="140" r="3" fill="#06b6d4" fill-opacity="0.6"/>
+  <circle cx="340" cy="168" r="2.5" fill="#06b6d4" fill-opacity="0.5"/>
+  <circle cx="300" cy="168" r="2.5" fill="#06b6d4" fill-opacity="0.5"/>
+  <circle cx="450" cy="180" r="3" fill="#06b6d4" fill-opacity="0.6"/>
+  <circle cx="190" cy="180" r="3" fill="#06b6d4" fill-opacity="0.5"/>
+
+  <!-- Central LLM node (hexagonal, large) -->
+  <circle cx="320" cy="180" r="68" fill="#06b6d4" fill-opacity="0.05" filter="url(#glow)"/>
+  <polygon points="320,118 374,149 374,211 320,242 266,211 266,149" fill="#050f1c" stroke="#06b6d4" stroke-width="2.5"/>
+  <!-- Inner ring -->
+  <polygon points="320,130 362,153 362,199 320,222 278,199 278,153" fill="none" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+  <!-- LLM label -->
+  <text x="320" y="175" text-anchor="middle" font-family="ui-monospace,monospace" font-size="16" font-weight="700" fill="#06b6d4" fill-opacity="0.9" letter-spacing="1">LLM</text>
+  <text x="320" y="195" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="9" fill="#06b6d4" fill-opacity="0.5" letter-spacing="1.5">REASONING ENGINE</text>
+  <!-- Center dot -->
+  <circle cx="320" cy="180" r="4" fill="#06b6d4" fill-opacity="0.4"/>
+
+  <!-- Peripheral tool nodes -->
+  <!-- Input node (left) -->
+  <circle cx="90" cy="180" r="32" fill="#030c16" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="90" y="176" text-anchor="middle" font-size="18">📥</text>
+  <text x="90" y="198" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="9" fill="#06b6d4" fill-opacity="0.5" letter-spacing="0.5">INPUT</text>
+
+  <!-- Output node (right) -->
+  <circle cx="550" cy="180" r="32" fill="#030c16" stroke="#06b6d4" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="550" y="176" text-anchor="middle" font-size="18">📤</text>
+  <text x="550" y="198" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="9" fill="#06b6d4" fill-opacity="0.5" letter-spacing="0.5">OUTPUT</text>
+
+  <!-- Database node (top-left) -->
+  <circle cx="128" cy="78" r="28" fill="#030c16" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.45"/>
+  <text x="128" y="74" text-anchor="middle" font-size="16">🗄️</text>
+  <text x="128" y="92" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="8" fill="#06b6d4" fill-opacity="0.45" letter-spacing="0.5">DATABASE</text>
+
+  <!-- API node (top-right) -->
+  <circle cx="512" cy="78" r="28" fill="#030c16" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.45"/>
+  <text x="512" y="74" text-anchor="middle" font-size="16">⚡</text>
+  <text x="512" y="92" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="8" fill="#06b6d4" fill-opacity="0.45" letter-spacing="0.5">API CALL</text>
+
+  <!-- Human review node (bottom-left) -->
+  <circle cx="128" cy="282" r="28" fill="#030c16" stroke="#22c55e" stroke-width="1.5" stroke-opacity="0.5"/>
+  <text x="128" y="278" text-anchor="middle" font-size="16">👤</text>
+  <text x="128" y="296" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="8" fill="#22c55e" fill-opacity="0.5" letter-spacing="0.5">HUMAN</text>
+
+  <!-- Document node (bottom-right) -->
+  <circle cx="512" cy="282" r="28" fill="#030c16" stroke="#06b6d4" stroke-width="1.2" stroke-opacity="0.45"/>
+  <text x="512" y="278" text-anchor="middle" font-size="16">📋</text>
+  <text x="512" y="296" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="8" fill="#06b6d4" fill-opacity="0.45" letter-spacing="0.5">DOCUMENT</text>
+
+  <!-- Function calling label -->
+  <rect x="238" y="328" width="164" height="22" rx="11" fill="#030c16" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="320" y="343" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="10" fill="#06b6d4" fill-opacity="0.6" letter-spacing="1.5">FUNCTION CALLING</text>
+</svg>

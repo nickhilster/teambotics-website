@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="From SOPs to Smart Agents: Turning Procedures into AI-Powered Workflows">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0900"/>
+      <stop offset="100%" stop-color="#1a1000"/>
+    </linearGradient>
+    <radialGradient id="glowDoc" cx="28%" cy="50%" r="30%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowAgent" cx="75%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="arrowG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glowDoc)"/>
+  <rect width="640" height="360" fill="url(#glowAgent)"/>
+
+  <!-- Left: SOP Document -->
+  <!-- Document shadow -->
+  <rect x="68" y="78" width="176" height="224" rx="10" fill="#1a0e00" stroke="#f59e0b" stroke-width="0.5" stroke-opacity="0.15"/>
+  <!-- Document body -->
+  <rect x="60" y="70" width="176" height="224" rx="10" fill="#120d00" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
+  <!-- Document header -->
+  <rect x="60" y="70" width="176" height="40" rx="10" fill="#1e1200" stroke="none"/>
+  <rect x="60" y="96" width="176" height="14" fill="#1e1200" stroke="none"/>
+  <!-- Header label -->
+  <text x="148" y="96" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="10" letter-spacing="1.5" fill="#f59e0b" fill-opacity="0.7" font-weight="600">SOP</text>
+  <!-- Dog-ear corner -->
+  <path d="M220 70 l16 0 l0 16 Z" fill="#f59e0b" fill-opacity="0.2"/>
+
+  <!-- Step 1 -->
+  <circle cx="86" cy="140" r="9" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="86" y="145" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#f59e0b" fill-opacity="0.7">1</text>
+  <rect x="104" y="132" width="100" height="8" rx="4" fill="#f59e0b" fill-opacity="0.2"/>
+  <rect x="104" y="145" width="72" height="6" rx="3" fill="#f59e0b" fill-opacity="0.12"/>
+
+  <!-- Decision diamond -->
+  <polygon points="86,178 98,190 86,202 74,190" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.5"/>
+  <rect x="104" y="183" width="84" height="8" rx="4" fill="#f59e0b" fill-opacity="0.18"/>
+  <rect x="104" y="196" width="60" height="6" rx="3" fill="#f59e0b" fill-opacity="0.1"/>
+
+  <!-- Step 2 -->
+  <circle cx="86" cy="228" r="9" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.6"/>
+  <text x="86" y="233" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" fill="#f59e0b" fill-opacity="0.7">2</text>
+  <rect x="104" y="220" width="88" height="8" rx="4" fill="#f59e0b" fill-opacity="0.2"/>
+  <rect x="104" y="233" width="64" height="6" rx="3" fill="#f59e0b" fill-opacity="0.12"/>
+
+  <!-- Connector lines between steps -->
+  <line x1="86" y1="149" x2="86" y2="169" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.4" stroke-dasharray="3 3"/>
+  <line x1="86" y1="202" x2="86" y2="219" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.4" stroke-dasharray="3 3"/>
+
+  <!-- Step 3 partial (fading) -->
+  <circle cx="86" cy="260" r="9" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.25"/>
+  <rect x="104" y="252" width="76" height="7" rx="3.5" fill="#f59e0b" fill-opacity="0.1"/>
+
+  <!-- Transformation arrow (center) -->
+  <path d="M260 172 h104" stroke="url(#arrowG)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M350 163 l14 9 -14 9" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.9"/>
+  <!-- 5 dots below arrow -->
+  <text x="320" y="200" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="9" fill="#f59e0b" fill-opacity="0.5" letter-spacing="1">5 STEPS</text>
+
+  <!-- Right: AI Agent (circuit/brain) -->
+  <!-- Outer hexagonal ring -->
+  <polygon points="490,72 556,110 556,186 490,224 424,186 424,110" fill="#1a0d00" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.6"/>
+  <!-- Inner hex -->
+  <polygon points="490,92 538,119 538,174 490,201 442,174 442,119" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.25"/>
+
+  <!-- Circuit lines radiating from center -->
+  <line x1="490" y1="148" x2="490" y2="92" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="490" y1="148" x2="538" y2="119" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="490" y1="148" x2="538" y2="174" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="490" y1="148" x2="490" y2="201" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="490" y1="148" x2="442" y2="174" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+  <line x1="490" y1="148" x2="442" y2="119" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.3"/>
+
+  <!-- Vertex nodes -->
+  <circle cx="490" cy="92" r="6" fill="#f59e0b" fill-opacity="0.6"/>
+  <circle cx="538" cy="119" r="6" fill="#f59e0b" fill-opacity="0.5"/>
+  <circle cx="538" cy="174" r="6" fill="#f59e0b" fill-opacity="0.5"/>
+  <circle cx="490" cy="201" r="6" fill="#f59e0b" fill-opacity="0.6"/>
+  <circle cx="442" cy="174" r="6" fill="#f59e0b" fill-opacity="0.5"/>
+  <circle cx="442" cy="119" r="6" fill="#f59e0b" fill-opacity="0.5"/>
+
+  <!-- Central node (the agent brain) -->
+  <circle cx="490" cy="148" r="28" fill="#1a0d00" stroke="#f59e0b" stroke-width="2.5"/>
+  <circle cx="490" cy="148" r="28" fill="#f59e0b" fill-opacity="0.08" filter="url(#glow)"/>
+  <circle cx="490" cy="148" r="12" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.8"/>
+  <circle cx="490" cy="148" r="5" fill="#f59e0b" fill-opacity="0.8"/>
+
+  <!-- Tool spokes (external) -->
+  <line x1="490" y1="224" x2="490" y2="252" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="472" y="252" width="36" height="24" rx="6" fill="#120c00" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="490" y="269" text-anchor="middle" font-size="12">🔧</text>
+
+  <line x1="556" y1="148" x2="586" y2="148" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="586" y="132" width="32" height="32" rx="6" fill="#120c00" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="602" y="152" text-anchor="middle" font-size="12">📊</text>
+
+  <line x1="424" y1="148" x2="394" y2="148" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="362" y="132" width="32" height="32" rx="6" fill="#120c00" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="378" y="152" text-anchor="middle" font-size="12">📝</text>
+
+  <!-- Bottom labels -->
+  <text x="148" y="324" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="10" fill="#f59e0b" fill-opacity="0.4" letter-spacing="2">SOP DOCUMENT</text>
+  <text x="490" y="324" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="10" fill="#f59e0b" fill-opacity="0.55" letter-spacing="2">AI AGENT</text>
+</svg>

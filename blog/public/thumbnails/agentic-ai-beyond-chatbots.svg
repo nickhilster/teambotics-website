@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Agentic AI: The Next Evolution Beyond Chatbots">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050d20"/>
+      <stop offset="100%" stop-color="#0a1a34"/>
+    </linearGradient>
+    <radialGradient id="glowR" cx="72%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dividerG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#3b82f6" stop-opacity="0.5"/>
+      <stop offset="60%" stop-color="#3b82f6" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glowR)"/>
+
+  <!-- Left side: chatbot era — stacked chat bubbles -->
+  <!-- User bubble 1 -->
+  <rect x="32" y="88" width="188" height="50" rx="25" fill="#141f38" stroke="#1e2f50" stroke-width="1.5"/>
+  <rect x="52" y="104" width="110" height="9" rx="4.5" fill="#253550"/>
+  <rect x="52" y="118" width="76" height="7" rx="3.5" fill="#1e2c46"/>
+  <!-- Bot bubble 1 -->
+  <rect x="44" y="152" width="200" height="58" rx="29" fill="#101c32" stroke="#182840" stroke-width="1.5"/>
+  <rect x="64" y="168" width="140" height="9" rx="4.5" fill="#1e2e48"/>
+  <rect x="64" y="182" width="104" height="7" rx="3.5" fill="#192840"/>
+  <rect x="64" y="194" width="72" height="7" rx="3.5" fill="#192840"/>
+  <!-- User bubble 2 -->
+  <rect x="32" y="224" width="164" height="44" rx="22" fill="#141f38" stroke="#1e2f50" stroke-width="1.5"/>
+  <rect x="52" y="240" width="96" height="9" rx="4.5" fill="#253550"/>
+  <rect x="52" y="254" width="64" height="7" rx="3.5" fill="#1e2c46"/>
+  <!-- Repeat indicator -->
+  <circle cx="52" cy="292" r="4" fill="#1e2c46"/>
+  <circle cx="68" cy="292" r="4" fill="#1e2c46"/>
+  <circle cx="84" cy="292" r="4" fill="#1e2c46"/>
+
+  <!-- Divider -->
+  <rect x="282" y="20" width="1.5" height="320" fill="url(#dividerG)"/>
+
+  <!-- Arrow -->
+  <path d="M294 175 h40" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/>
+  <path d="M326 167 l10 8 -10 8" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+
+  <!-- Right side: agent era — orchestrator + worker network -->
+  <!-- Connection lines (behind nodes) -->
+  <line x1="456" y1="163" x2="404" y2="124" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <line x1="524" y1="163" x2="576" y2="124" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <line x1="456" y1="197" x2="404" y2="236" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <line x1="524" y1="197" x2="576" y2="236" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Cross connections -->
+  <line x1="404" y1="112" x2="576" y2="112" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.15"/>
+  <line x1="404" y1="248" x2="576" y2="248" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.15"/>
+
+  <!-- Central orchestrator -->
+  <circle cx="490" cy="180" r="44" fill="#3b82f6" fill-opacity="0.07" filter="url(#nodeGlow)"/>
+  <circle cx="490" cy="180" r="36" fill="#0c1c34" stroke="#3b82f6" stroke-width="2.5"/>
+  <!-- Inner gear-like marks -->
+  <circle cx="490" cy="180" r="14" fill="none" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.9"/>
+  <circle cx="490" cy="180" r="7" fill="#3b82f6" fill-opacity="0.7"/>
+  <line x1="490" y1="162" x2="490" y2="158" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+  <line x1="490" y1="202" x2="490" y2="198" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+  <line x1="472" y1="180" x2="468" y2="180" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+  <line x1="512" y1="180" x2="508" y2="180" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+
+  <!-- Worker node: top-left (Memory) -->
+  <circle cx="390" cy="112" r="24" fill="#0c1c34" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="380" y="104" width="20" height="16" rx="3" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.7"/>
+  <line x1="380" y1="110" x2="400" y2="110" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.5"/>
+  <line x1="380" y1="114" x2="400" y2="114" stroke="#3b82f6" stroke-width="1.2" stroke-opacity="0.5"/>
+
+  <!-- Worker node: top-right (Planning) -->
+  <circle cx="590" cy="112" r="24" fill="#0c1c34" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M579 106 h22 v16 h-22 z M579 112 h22 M583 106 v16" stroke="#3b82f6" stroke-width="1.5" fill="none" stroke-opacity="0.7" stroke-linejoin="round"/>
+
+  <!-- Worker node: bottom-left (Tool use) -->
+  <circle cx="390" cy="248" r="24" fill="#0c1c34" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M381 244 l4-4 3 3 8-8 3 3" stroke="#3b82f6" stroke-width="1.8" fill="none" stroke-opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M385 254 h10" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.5"/>
+  <path d="M383 258 h14" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.35"/>
+
+  <!-- Worker node: bottom-right (Self-correction) -->
+  <circle cx="590" cy="248" r="24" fill="#0c1c34" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6"/>
+  <path d="M599 244 a11 11 0 1 0 0 8" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-opacity="0.8"/>
+  <path d="M599 252 l-4-4 h4" stroke="#3b82f6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
+
+  <!-- Subtle ring on central node -->
+  <circle cx="490" cy="180" r="60" fill="none" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.06" stroke-dasharray="4 6"/>
+</svg>
