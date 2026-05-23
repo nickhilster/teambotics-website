@@ -447,6 +447,122 @@ a:hover {
   font-weight: 700;
 }
 
+/* ── Callout blocks ──────────────────────────────────────────────────── */
+
+.callout {
+  --callout-color: var(--color-accent-muted);
+  --callout-bg: color-mix(in srgb, var(--callout-color) 8%, transparent);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+  border-left: 3px solid var(--callout-color);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: var(--callout-bg);
+  padding: 1rem 1.25rem;
+  margin: 1.75em 0;
+}
+
+.callout__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--callout-color);
+}
+
+.callout__body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-primary);
+}
+
+.callout__body p:last-child {
+  margin-bottom: 0;
+}
+
+.callout--note {
+  --callout-color: var(--color-accent-muted);
+}
+
+.callout--warning {
+  --callout-color: #d97706;
+}
+
+@media (prefers-color-scheme: dark) {
+  .callout--warning {
+    --callout-color: #f59e0b;
+  }
+}
+
+.callout--key {
+  --callout-color: var(--color-accent);
+}
+
+.callout--tip {
+  --callout-color: #059669;
+}
+
+@media (prefers-color-scheme: dark) {
+  .callout--tip {
+    --callout-color: #34d399;
+  }
+}
+
+/* ── Stat highlight cards ────────────────────────────────────────────── */
+
+.callout--stat {
+  --callout-color: var(--color-accent);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-left: none;
+  border-radius: var(--radius-2xl);
+  padding: 2rem 1.5rem 1.75rem;
+  gap: 0.5rem;
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+}
+
+.callout__stat-number {
+  font-size: clamp(2.75rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-accent);
+}
+
+.callout__stat-label {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  max-width: 28ch;
+  line-height: 1.5;
+}
+
+/* ── Mermaid diagrams ────────────────────────────────────────────────── */
+
+.mermaid-wrap {
+  margin: 1.75em 0;
+  overflow-x: auto;
+  border-radius: var(--radius-xl);
+  background: var(--color-bg-elevated);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mermaid-wrap .mermaid {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mermaid-wrap .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
 /* 404 */
 .blog-404 {
   text-align: center;
