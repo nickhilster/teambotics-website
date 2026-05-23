@@ -2,6 +2,7 @@
 import { marked } from 'marked';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
+import CollaborationGradient from '../components/CollaborationGradient.astro';
 
 const { slug } = Astro.params as { slug: string };
 const apiBase =
@@ -97,6 +98,8 @@ function formatDate(iso: string | null) {
       </header>
 
       <div class="blog-post__body" set:html={renderedContent} />
+
+      {slug === 'designing-human-ai-teams' && <CollaborationGradient />}
     </article>
   </BlogLayout>
 ) : null}

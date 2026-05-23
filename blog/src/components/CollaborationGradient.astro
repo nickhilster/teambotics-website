@@ -1,0 +1,312 @@
+---
+// Interactive spectrum diagram showing the human-AI collaboration gradient
+---
+
+<div class="collaboration-gradient">
+  <style>
+    .collaboration-gradient {
+      width: 100%;
+      max-width: 100%;
+      margin: 2rem 0;
+      padding: 0;
+    }
+
+    .gradient-container {
+      position: relative;
+      height: 280px;
+      background: linear-gradient(90deg,
+        rgba(255, 107, 107, 0.08) 0%,
+        rgba(147, 112, 219, 0.08) 25%,
+        rgba(100, 200, 255, 0.08) 50%,
+        rgba(113, 226, 255, 0.08) 75%,
+        rgba(74, 144, 226, 0.08) 100%
+      );
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      gap: 0;
+    }
+
+    .level {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 0.75rem;
+    }
+
+    .level:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.05);
+    }
+
+    .level-number {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .level-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      animation: fadeIn 0.6s ease forwards;
+      opacity: 0;
+    }
+
+    .level:nth-child(1) .level-icon { animation-delay: 0s; }
+    .level:nth-child(2) .level-icon { animation-delay: 0.1s; }
+    .level:nth-child(3) .level-icon { animation-delay: 0.2s; }
+    .level:nth-child(4) .level-icon { animation-delay: 0.3s; }
+    .level:nth-child(5) .level-icon { animation-delay: 0.4s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .level-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .level-indicator {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-top: auto;
+    }
+
+    .level:nth-child(1) .level-indicator {
+      background: #ff6b6b;
+      box-shadow: 0 0 12px rgba(255, 107, 107, 0.6);
+    }
+
+    .level:nth-child(2) .level-indicator {
+      background: #9370db;
+      box-shadow: 0 0 12px rgba(147, 112, 219, 0.6);
+    }
+
+    .level:nth-child(3) .level-indicator {
+      background: #64c8ff;
+      box-shadow: 0 0 12px rgba(100, 200, 255, 0.6);
+    }
+
+    .level:nth-child(4) .level-indicator {
+      background: #71e2ff;
+      box-shadow: 0 0 12px rgba(113, 226, 255, 0.6);
+    }
+
+    .level:nth-child(5) .level-indicator {
+      background: #4a90e2;
+      box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
+    }
+
+    .details {
+      margin-top: 1.5rem;
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .detail-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-description {
+      font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .spectrum-label {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-tertiary);
+    }
+
+    @media (max-width: 640px) {
+      .gradient-container {
+        height: auto;
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .level {
+        padding: 1rem 0.75rem;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .level:last-child {
+        border-bottom: none;
+      }
+
+      .level-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+      }
+
+      .level-title {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+
+  <div class="gradient-container">
+    <div class="level" data-level="1">
+      <div class="level-number">Level 1</div>
+      <div class="level-icon">📊</div>
+      <div class="level-title">AI Informs</div>
+      <div class="level-indicator"></div>
+    </div>
+
+    <div class="level" data-level="2">
+      <div class="level-number">Level 2</div>
+      <div class="level-icon">💡</div>
+      <div class="level-title">AI Recommends</div>
+      <div class="level-indicator"></div>
+    </div>
+
+    <div class="level" data-level="3">
+      <div class="level-number">Level 3</div>
+      <div class="level-icon">✏️</div>
+      <div class="level-title">AI Drafts,<br/>Human Reviews</div>
+      <div class="level-indicator"></div>
+    </div>
+
+    <div class="level" data-level="4">
+      <div class="level-number">Level 4</div>
+      <div class="level-icon">⚙️</div>
+      <div class="level-title">AI Acts,<br/>Human Monitors</div>
+      <div class="level-indicator"></div>
+    </div>
+
+    <div class="level" data-level="5">
+      <div class="level-number">Level 5</div>
+      <div class="level-icon">🤖</div>
+      <div class="level-title">Fully Automated</div>
+      <div class="level-indicator"></div>
+    </div>
+  </div>
+
+  <div class="details" id="details">
+    <div class="detail-title">Level 1: AI Informs</div>
+    <div class="detail-description">
+      AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control.
+    </div>
+  </div>
+
+  <div class="spectrum-label">
+    <span>← Human Control</span>
+    <span>AI Autonomy →</span>
+  </div>
+
+  <script>
+    const details = {
+      1: {
+        title: "Level 1: AI Informs",
+        description: "AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control."
+      },
+      2: {
+        title: "Level 2: AI Recommends",
+        description: "AI provides explicit recommendations with reasoning. Humans evaluate and decide whether to follow, but AI is now guiding the decision process."
+      },
+      3: {
+        title: "Level 3: AI Drafts, Human Reviews",
+        description: "AI produces complete drafts of work. Humans review, edit, and approve before execution. Reduces human effort while maintaining oversight."
+      },
+      4: {
+        title: "Level 4: AI Acts, Human Monitors",
+        description: "AI executes actions autonomously. Humans monitor for issues, intervene if needed. Suitable for low-risk, well-defined tasks."
+      },
+      5: {
+        title: "Level 5: Fully Automated",
+        description: "AI operates completely independently with no human review. Only appropriate for genuinely low-stakes, well-specified tasks with strong safety constraints."
+      }
+    };
+
+    const levels = document.querySelectorAll('.level');
+    const detailsContainer = document.getElementById('details');
+
+    levels.forEach(level => {
+      level.addEventListener('click', () => {
+        const levelNum = parseInt(level.dataset.level);
+        const detail = details[levelNum];
+        detailsContainer.innerHTML = `
+          <div class="detail-title">${detail.title}</div>
+          <div class="detail-description">${detail.description}</div>
+        `;
+      });
+
+      level.addEventListener('mouseenter', () => {
+        const levelNum = parseInt(level.dataset.level);
+        const detail = details[levelNum];
+        detailsContainer.innerHTML = `
+          <div class="detail-title">${detail.title}</div>
+          <div class="detail-description">${detail.description}</div>
+        `;
+      });
+    });
+
+    // Auto-cycle through levels on initial load
+    let currentLevel = 1;
+    const autoCycle = setInterval(() => {
+      currentLevel = currentLevel === 5 ? 1 : currentLevel + 1;
+      const levelElement = document.querySelector(`[data-level="${currentLevel}"]`);
+      if (levelElement) {
+        levelElement.click();
+      }
+    }, 5000);
+
+    // Stop auto-cycle when user interacts
+    document.querySelector('.gradient-container').addEventListener('mouseenter', () => {
+      clearInterval(autoCycle);
+    });
+  </script>
+</div>
