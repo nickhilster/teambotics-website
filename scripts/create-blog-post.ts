@@ -15,7 +15,7 @@
  *   pnpm tsx scripts/create-blog-post.ts "how to evaluate an LLM vendor for operational use"
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 import { neon } from '@neondatabase/serverless';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,10 +45,10 @@ function getDbUrl(): string {
   throw new Error('No Neon DB connection string. Set NEON_DB_URL in .env.local');
 }
 
-function getAnthropicKey(): string {
-  const k = process.env.ANTHROPIC_API_KEY?.trim();
+function getOpenAiKey(): string {
+  const k = process.env.OPENAI_API_KEY?.trim();
   if (k) return k;
-  throw new Error('ANTHROPIC_API_KEY not set. Add it to .env.local');
+  throw new Error('OPENAI_API_KEY not set. Add it to .env.local');
 }
 
 // ── generation prompt ──────────────────────────────────────────────────────────
@@ -176,19 +176,18 @@ async function run() {
 
   console.log(`\nGenerating post on: "${topic}"…`);
 
-  const anthropic = new Anthropic({ apiKey: getAnthropicKey() });
+  const openai = new OpenAI({ apiKey: getOpenAiKey() });
 
-  const response = await anthropic.messages.create({
-    model: 'claude-opus-4-7',
+  const response = await openai.chat.completions.create({
+    model: 'gpt-4o',
     max_tokens: 8192,
-    system: SYSTEM_PROMPT,
-    messages: [{ role: 'user', content: topic }],
+    messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'user', content: topic },
+    ],
   });
 
-  const raw = response.content
-    .filter((b) => b.type === 'text')
-    .map((b) => (b as { type: 'text'; text: string }).text)
-    .join('');
+  const raw = response.choices[0]?.message?.content ?? '';
 
   const { content, title, slug, excerpt, tags } = parseOutput(raw);
 

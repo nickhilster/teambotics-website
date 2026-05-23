@@ -1,7 +1,7 @@
 /**
  * Retroactively enriches existing blog posts with visual storytelling elements.
  *
- * Uses Claude to inject Mermaid diagrams, callout blocks, and stat cards into
+ * Uses OpenAI to inject Mermaid diagrams, callout blocks, and stat cards into
  * the post markdown without rewriting the author's prose. The goal is for the
  * visuals to feel like they were authored alongside the copy, not bolted on.
  *
@@ -11,7 +11,7 @@
  *   pnpm tsx scripts/enrich-posts-visually.ts --dry-run  # preview only, no DB writes
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+import OpenAI from 'openai';
 import { neon } from '@neondatabase/serverless';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,10 +41,10 @@ function getDbUrl(): string {
   throw new Error('No Neon DB connection string found. Set NEON_DB_URL in .env.local');
 }
 
-function getAnthropicKey(): string {
-  const k = process.env.ANTHROPIC_API_KEY?.trim();
+function getOpenAiKey(): string {
+  const k = process.env.OPENAI_API_KEY?.trim();
   if (k) return k;
-  throw new Error('ANTHROPIC_API_KEY not set. Add it to .env.local');
+  throw new Error('OPENAI_API_KEY not set. Add it to .env.local');
 }
 
 // ── system prompt ──────────────────────────────────────────────────────────────
@@ -112,18 +112,18 @@ The first character of your response must be the first character of the original
 // ── enrichment ─────────────────────────────────────────────────────────────────
 
 async function enrichPost(
-  client: Anthropic,
+  client: OpenAI,
   post: { id: string; title: string; slug: string; content: string },
   dryRun: boolean,
   sql: ReturnType<typeof neon>,
 ) {
   console.log(`\n  Processing: "${post.title}" (${post.slug})`);
 
-  const response = await client.messages.create({
-    model: 'claude-opus-4-7',
+  const response = await client.chat.completions.create({
+    model: 'gpt-4o',
     max_tokens: 8192,
-    system: SYSTEM_PROMPT,
     messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
       {
         role: 'user',
         content: `Enrich this blog post with visual elements. Remember: preserve every word of the original prose exactly.\n\n---\n\n${post.content}`,
@@ -131,10 +131,7 @@ async function enrichPost(
     ],
   });
 
-  const enriched = response.content
-    .filter((b) => b.type === 'text')
-    .map((b) => (b as { type: 'text'; text: string }).text)
-    .join('');
+  const enriched = response.choices[0]?.message?.content ?? '';
 
   // Count injected elements for transparency
   const counts = {
@@ -175,7 +172,7 @@ async function run() {
   const slugArg = args.find((_, i) => args[i - 1] === '--slug') ?? args.find((a) => !a.startsWith('--'));
 
   const sql = neon(getDbUrl());
-  const anthropic = new Anthropic({ apiKey: getAnthropicKey() });
+  const anthropic = new OpenAI({ apiKey: getOpenAiKey() });
 
   let posts: Array<{ id: string; title: string; slug: string; content: string }>;
 
