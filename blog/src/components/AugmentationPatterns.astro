@@ -128,10 +128,14 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .ap-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 639px) {
+      .ap-grid { grid-template-columns: 1fr; }
+      .ap-card { padding: 1rem; min-height: 80px; }
+      .ap-card-icon { font-size: 1.75rem; }
+      .ap-card-name { font-size: 1rem; }
+      .ap-detail { padding: 1rem; }
+      .ap-detail-title { font-size: 1rem; }
+      .ap-detail-desc { font-size: 0.9rem; }
     }
   </style>
 
@@ -233,6 +237,10 @@
 
     cards.forEach(card => {
       card.addEventListener('click', () => activate(card));
+      card.addEventListener('mouseenter', () => activate(card));
     });
+
+    // Activate first by default
+    if (cards.length) activate(cards[0]);
   </script>
 </div>

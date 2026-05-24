@@ -189,10 +189,16 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .dvb-methods {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 639px) {
+      .dvb-methods { grid-template-columns: 1fr; gap: 0.5rem; }
+      .dvb-method { flex-direction: row; padding: 1rem; min-height: 72px; text-align: left; }
+      .dvb-method-icon { font-size: 1.5rem; flex-shrink: 0; }
+      .dvb-method-num { font-size: 0.65rem; }
+      .dvb-method-name { font-size: 0.9rem; }
+      .dvb-detail { padding: 1rem; }
+      .dvb-detail-title { font-size: 1rem; }
+      .dvb-detail-desc { font-size: 0.9rem; }
+      .dvb-rule { height: auto; min-height: 80px; }
     }
   </style>
 
@@ -267,6 +273,10 @@
 
     methods.forEach(m => {
       m.addEventListener('click', () => activate(m));
+      m.addEventListener('mouseenter', () => activate(m));
     });
+
+    // Activate first by default
+    if (methods.length) activate(methods[0]);
   </script>
 </div>

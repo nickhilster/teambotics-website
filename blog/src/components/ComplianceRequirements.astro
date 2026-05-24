@@ -138,6 +138,15 @@
       from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    @media (max-width: 639px) {
+      .cr-item { padding: 1rem; min-height: 64px; gap: 0.75rem; }
+      .cr-item-name { font-size: 0.95rem; }
+      .cr-item-summary { font-size: 0.82rem; }
+      .cr-detail { padding: 1rem; }
+      .cr-detail-desc { font-size: 0.9rem; }
+      .cr-detail-arch { font-size: 0.85rem; }
+    }
   </style>
 
   <div class="cr-title">The Five Non-Negotiables for AI in Regulated Environments</div>
@@ -248,6 +257,10 @@
 
     items.forEach(item => {
       item.addEventListener('click', () => activate(item));
+      item.addEventListener('mouseenter', () => activate(item));
     });
+
+    // Activate first by default
+    if (items.length) activate(items[0]);
   </script>
 </div>

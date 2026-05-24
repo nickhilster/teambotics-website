@@ -182,10 +182,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .pq-comparison {
-        grid-template-columns: 1fr;
+    @media (max-width: 639px) {
+      .pq-comparison { grid-template-columns: 1fr; }
+      .pq-technique {
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
       }
+      .pq-techniques { gap: 0.5rem; }
+      .pq-prompt { font-size: 0.85rem; min-height: 90px; }
+      .pq-insight { font-size: 0.9rem; }
     }
   </style>
 
@@ -287,6 +295,11 @@
 
     techniques.forEach(t => {
       t.addEventListener('click', () => {
+        techniques.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        setTech(t.dataset.tech);
+      });
+      t.addEventListener('mouseenter', () => {
         techniques.forEach(x => x.classList.remove('active'));
         t.classList.add('active');
         setTech(t.dataset.tech);

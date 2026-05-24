@@ -226,8 +226,16 @@
       color: var(--color-text-tertiary);
     }
 
-    @media (max-width: 640px) {
-      .wd-step-body { padding: 0.5rem 0.75rem; }
+    @media (max-width: 639px) {
+      .wd-step-body { padding: 0.75rem 1rem; }
+      .wd-step-name { font-size: 0.9rem; }
+      .wd-step-dot { width: 36px; height: 36px; font-size: 0.85rem; }
+      .wd-step-connector { width: 36px; }
+      .wd-step-detail { font-size: 0.85rem; line-height: 1.5; }
+      /* Bigger tap target — ensure at least 48px row height */
+      .wd-step-body { min-height: 52px; display: flex; flex-direction: column; justify-content: center; }
+      .wd-time-saving { gap: 0.75rem; }
+      .wd-time-val { font-size: 1.25rem; }
     }
   </style>
 
@@ -362,6 +370,10 @@
         const wasActive = step.classList.contains('active');
         wdSteps.forEach(s => s.classList.remove('active'));
         if (!wasActive) step.classList.add('active');
+      });
+      step.addEventListener('mouseenter', () => {
+        wdSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
       });
     });
   </script>

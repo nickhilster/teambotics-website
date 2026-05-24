@@ -179,21 +179,24 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .sta-stepper {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
+    @media (max-width: 639px) {
+      .sta-stepper { flex-direction: column; gap: 0.5rem; }
       .sta-step {
         flex-direction: row;
         justify-content: flex-start;
-        padding: 0.75rem;
+        padding: 1rem;
+        min-height: 64px;
         border: 1px solid var(--color-border);
         border-radius: var(--radius-lg);
       }
       .sta-step::after { display: none; }
-      .sta-step-label { text-align: left; }
+      .sta-step-label { text-align: left; font-size: 0.82rem; }
+      .sta-num { width: 40px; height: 40px; font-size: 0.95rem; flex-shrink: 0; }
+      .sta-step-icon { font-size: 1.25rem; }
       .sta-quality-grid { grid-template-columns: 1fr; }
+      .sta-detail { padding: 1rem; }
+      .sta-detail-title { font-size: 1rem; }
+      .sta-detail-desc { font-size: 0.9rem; }
     }
   </style>
 
@@ -296,6 +299,10 @@
 
     steps.forEach(step => {
       step.addEventListener('click', () => activate(step));
+      step.addEventListener('mouseenter', () => activate(step));
     });
+
+    // Activate first by default
+    if (steps.length) activate(steps[0]);
   </script>
 </div>

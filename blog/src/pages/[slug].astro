@@ -118,8 +118,7 @@ function formatDate(iso: string | null) {
         height="720"
       />
 
-      <div class="blog-post__body" set:html={renderedContent} />
-
+      {/* Interactive component BEFORE prose body — mobile-first: visual hook first, reading second */}
       {slug === 'agentic-ai-beyond-chatbots' && <AgentEvolution />}
       {slug === 'operational-data-ai-value' && <DataValuePyramid />}
       {slug === 'multi-agent-systems-workflow' && <MultiAgentFlow />}
@@ -130,6 +129,8 @@ function formatDate(iso: string | null) {
       {slug === 'prompt-engineering-operational-skill' && <PromptQuality />}
       {slug === 'llms-structured-automation-workflows' && <WorkflowDiagram />}
       {slug === 'designing-human-ai-teams' && <CollaborationGradient />}
+
+      <div class="blog-post__body" set:html={renderedContent} />
     </article>
   </BlogLayout>
 ) : null}

@@ -212,11 +212,28 @@
       font-style: italic;
     }
 
-    @media (max-width: 640px) {
-      .maf-parallel-agents { flex-wrap: wrap; }
-      .maf-sequential { gap: 0.2rem; }
-      .maf-agent { min-width: 60px; padding: 0.5rem 0.6rem; }
-      .maf-agent-label { font-size: 0.62rem; }
+    @media (max-width: 639px) {
+      /* Full-width scrollable tabs on mobile */
+      .maf-tabs {
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .maf-tabs::-webkit-scrollbar { display: none; }
+      .maf-tab {
+        flex: 1;
+        min-height: 48px;
+        font-size: 0.9rem;
+        padding: 0.75rem 0.75rem;
+        text-align: center;
+      }
+      .maf-parallel-agents { flex-wrap: wrap; gap: 0.5rem; }
+      .maf-sequential { gap: 0.2rem; flex-wrap: wrap; justify-content: center; }
+      .maf-agent { min-width: 64px; padding: 0.6rem 0.5rem; }
+      .maf-agent-icon { font-size: 1.1rem; }
+      .maf-agent-label { font-size: 0.65rem; }
+      .maf-diagram { padding: 1rem 0.75rem; }
+      .maf-desc, .maf-use-case { font-size: 0.9rem; }
     }
   </style>
 
