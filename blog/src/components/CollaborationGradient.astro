@@ -1,312 +1,527 @@
 ---
-// Interactive spectrum diagram showing the human-AI collaboration gradient
+// Interactive Human-AI collaboration spectrum
+// Mobile: vertical tap-to-expand accordion
+// Desktop: horizontal spectrum with hover/click
 ---
 
-<div class="collaboration-gradient">
+<div class="collab-gradient">
   <style>
-    .collaboration-gradient {
+    /* ── Shared ──────────────────────────────────────────────── */
+    .collab-gradient {
       width: 100%;
-      max-width: 100%;
-      margin: 2rem 0;
-      padding: 0;
+      margin: 2.5rem 0;
     }
 
-    .gradient-container {
-      position: relative;
-      height: 280px;
-      background: linear-gradient(90deg,
-        rgba(255, 107, 107, 0.08) 0%,
-        rgba(147, 112, 219, 0.08) 25%,
-        rgba(100, 200, 255, 0.08) 50%,
-        rgba(113, 226, 255, 0.08) 75%,
-        rgba(74, 144, 226, 0.08) 100%
-      );
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--color-border);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem;
-      gap: 0;
+    .cg-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
     }
 
-    .level {
-      flex: 1;
-      height: 100%;
+    /* ── Mobile-first: vertical accordion ───────────────────── */
+    .cg-accordion {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      gap: 0;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .cg-item {
+      border-bottom: 1px solid var(--color-border);
       position: relative;
-      padding: 1rem 0.5rem;
+    }
+
+    .cg-item:last-child {
+      border-bottom: none;
+    }
+
+    /* The tap target — always visible row */
+    .cg-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: none;
+      border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 0.75rem;
+      text-align: left;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 64px; /* accessible tap target */
+      transition: background 0.18s ease;
     }
 
-    .level:hover {
-      background: rgba(255, 255, 255, 0.05);
-      transform: scale(1.05);
+    .cg-trigger:active {
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .level-number {
-      font-size: 0.75rem;
+    /* Color strip on left */
+    .cg-swatch {
+      width: 4px;
+      height: 36px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .cg-item[data-level="1"] .cg-swatch { background: #ff6b6b; }
+    .cg-item[data-level="2"] .cg-swatch { background: #9370db; }
+    .cg-item[data-level="3"] .cg-swatch { background: #64c8ff; }
+    .cg-item[data-level="4"] .cg-swatch { background: #34d399; }
+    .cg-item[data-level="5"] .cg-swatch { background: #4a90e2; }
+
+    .cg-trigger-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cg-trigger-eyebrow {
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--color-text-tertiary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
     }
 
-    .level-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      animation: fadeIn 0.6s ease forwards;
-      opacity: 0;
-    }
-
-    .level:nth-child(1) .level-icon { animation-delay: 0s; }
-    .level:nth-child(2) .level-icon { animation-delay: 0.1s; }
-    .level:nth-child(3) .level-icon { animation-delay: 0.2s; }
-    .level:nth-child(4) .level-icon { animation-delay: 0.3s; }
-    .level:nth-child(5) .level-icon { animation-delay: 0.4s; }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    .level-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-align: center;
-      color: var(--color-text-primary);
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-
-    .level-indicator {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      margin-top: auto;
-    }
-
-    .level:nth-child(1) .level-indicator {
-      background: #ff6b6b;
-      box-shadow: 0 0 12px rgba(255, 107, 107, 0.6);
-    }
-
-    .level:nth-child(2) .level-indicator {
-      background: #9370db;
-      box-shadow: 0 0 12px rgba(147, 112, 219, 0.6);
-    }
-
-    .level:nth-child(3) .level-indicator {
-      background: #64c8ff;
-      box-shadow: 0 0 12px rgba(100, 200, 255, 0.6);
-    }
-
-    .level:nth-child(4) .level-indicator {
-      background: #71e2ff;
-      box-shadow: 0 0 12px rgba(113, 226, 255, 0.6);
-    }
-
-    .level:nth-child(5) .level-indicator {
-      background: #4a90e2;
-      box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
-    }
-
-    .details {
-      margin-top: 1.5rem;
-      padding: 1.25rem;
-      background: var(--color-bg-elevated);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-border);
-      min-height: 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      animation: slideUp 0.3s ease;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .detail-title {
+    .cg-trigger-title {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--color-text-primary);
-      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
-    .detail-description {
+    .cg-trigger-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cg-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--color-text-tertiary);
+      transition: transform 0.25s ease;
+    }
+
+    .cg-item.open .cg-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Expanded panel */
+    .cg-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.25rem;
+    }
+
+    .cg-item.open .cg-panel {
+      max-height: 400px; /* generous ceiling */
+      padding: 0 1.25rem 1.25rem;
+    }
+
+    .cg-panel-desc {
       font-size: 0.9rem;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      padding-top: 0.25rem;
+    }
+
+    .cg-panel-example {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-lg);
+      border-left: 3px solid;
+      font-size: 0.83rem;
       color: var(--color-text-secondary);
       line-height: 1.5;
     }
 
-    .spectrum-label {
+    .cg-item[data-level="1"] .cg-panel-example { border-color: #ff6b6b; background: rgba(255, 107, 107, 0.05); }
+    .cg-item[data-level="2"] .cg-panel-example { border-color: #9370db; background: rgba(147, 112, 219, 0.05); }
+    .cg-item[data-level="3"] .cg-panel-example { border-color: #64c8ff; background: rgba(100, 200, 255, 0.05); }
+    .cg-item[data-level="4"] .cg-panel-example { border-color: #34d399; background: rgba(52, 211, 153, 0.05); }
+    .cg-item[data-level="5"] .cg-panel-example { border-color: #4a90e2; background: rgba(74, 144, 226, 0.05); }
+
+    /* Highlighted level 3 item */
+    .cg-item[data-level="3"] .cg-trigger {
+      background: rgba(100, 200, 255, 0.04);
+    }
+
+    .cg-item[data-level="3"] .cg-trigger-eyebrow {
+      color: #64c8ff;
+    }
+
+    /* Spectrum footer labels */
+    .cg-footer {
       display: flex;
       justify-content: space-between;
       margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--color-text-tertiary);
+      padding: 0 0.25rem;
     }
 
-    @media (max-width: 640px) {
-      .gradient-container {
-        height: auto;
+    /* ── Desktop: horizontal spectrum (≥ 640px) ─────────────── */
+    @media (min-width: 640px) {
+      /* Hide mobile accordion, show desktop spectrum */
+      .cg-accordion { display: none; }
+      .cg-desktop { display: block; }
+
+      .cg-spectrum {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        background: linear-gradient(90deg,
+          rgba(255, 107, 107, 0.06) 0%,
+          rgba(147, 112, 219, 0.06) 25%,
+          rgba(100, 200, 255, 0.06) 50%,
+          rgba(52, 211, 153, 0.06) 75%,
+          rgba(74, 144, 226, 0.06) 100%
+        );
+      }
+
+      .cg-col {
+        flex: 1;
+        display: flex;
         flex-direction: column;
-        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem 0.75rem;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.2s ease;
+        border-right: 1px solid var(--color-border);
+        position: relative;
+        min-height: 220px;
+        gap: 0.6rem;
+        -webkit-tap-highlight-color: transparent;
       }
 
-      .level {
-        padding: 1rem 0.75rem;
-        border-bottom: 1px solid var(--color-border);
+      .cg-col:last-child { border-right: none; }
+
+      .cg-col:hover,
+      .cg-col.active {
+        background: rgba(255, 255, 255, 0.05);
       }
 
-      .level:last-child {
-        border-bottom: none;
+      .cg-col.active {
+        z-index: 1;
       }
 
-      .level-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
+      /* Top color bar */
+      .cg-col::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
       }
 
-      .level-title {
+      .cg-col.active::before,
+      .cg-col:hover::before {
+        opacity: 1;
+      }
+
+      .cg-col[data-level="1"]::before { background: #ff6b6b; }
+      .cg-col[data-level="2"]::before { background: #9370db; }
+      .cg-col[data-level="3"]::before { background: #64c8ff; }
+      .cg-col[data-level="4"]::before { background: #34d399; }
+      .cg-col[data-level="5"]::before { background: #4a90e2; }
+
+      .cg-col-num {
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--color-text-tertiary);
+      }
+
+      .cg-col-icon {
+        font-size: 1.75rem;
+      }
+
+      .cg-col-title {
         font-size: 0.8rem;
+        font-weight: 600;
+        text-align: center;
+        color: var(--color-text-primary);
+        line-height: 1.3;
+      }
+
+      .cg-col-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin-top: auto;
+        opacity: 0.6;
+      }
+
+      .cg-col[data-level="1"] .cg-col-dot { background: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.6); }
+      .cg-col[data-level="2"] .cg-col-dot { background: #9370db; box-shadow: 0 0 8px rgba(147,112,219,0.6); }
+      .cg-col[data-level="3"] .cg-col-dot { background: #64c8ff; box-shadow: 0 0 8px rgba(100,200,255,0.6); }
+      .cg-col[data-level="4"] .cg-col-dot { background: #34d399; box-shadow: 0 0 8px rgba(52,211,153,0.6); }
+      .cg-col[data-level="5"] .cg-col-dot { background: #4a90e2; box-shadow: 0 0 8px rgba(74,144,226,0.6); }
+
+      .cg-detail-box {
+        margin-top: 1rem;
+        padding: 1.25rem;
+        background: var(--color-bg-elevated);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--color-border);
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .cg-detail-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--color-text-primary);
+        margin-bottom: 0.4rem;
+      }
+
+      .cg-detail-desc {
+        font-size: 0.88rem;
+        color: var(--color-text-secondary);
+        line-height: 1.55;
       }
     }
   </style>
 
-  <div class="gradient-container">
-    <div class="level" data-level="1">
-      <div class="level-number">Level 1</div>
-      <div class="level-icon">📊</div>
-      <div class="level-title">AI Informs</div>
-      <div class="level-indicator"></div>
+  <div class="cg-label">The Collaboration Spectrum — tap to explore</div>
+
+  <!-- ── MOBILE: accordion ───────────────────────────────────── -->
+  <div class="cg-accordion">
+
+    <div class="cg-item" data-level="1">
+      <button class="cg-trigger" aria-expanded="false">
+        <div class="cg-swatch"></div>
+        <div class="cg-trigger-icon">📊</div>
+        <div class="cg-trigger-main">
+          <div class="cg-trigger-eyebrow">Level 1</div>
+          <div class="cg-trigger-title">AI Informs</div>
+        </div>
+        <svg class="cg-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 7.5l5 5 5-5"/>
+        </svg>
+      </button>
+      <div class="cg-panel" aria-hidden="true">
+        <div class="cg-panel-desc">AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control — AI is a data source, not a decision-maker.</div>
+        <div class="cg-panel-example">Example: AI pulls maintenance history and highlights anomalies. The engineer reviews and decides what action to take.</div>
+      </div>
     </div>
 
-    <div class="level" data-level="2">
-      <div class="level-number">Level 2</div>
-      <div class="level-icon">💡</div>
-      <div class="level-title">AI Recommends</div>
-      <div class="level-indicator"></div>
+    <div class="cg-item" data-level="2">
+      <button class="cg-trigger" aria-expanded="false">
+        <div class="cg-swatch"></div>
+        <div class="cg-trigger-icon">💡</div>
+        <div class="cg-trigger-main">
+          <div class="cg-trigger-eyebrow">Level 2</div>
+          <div class="cg-trigger-title">AI Recommends</div>
+        </div>
+        <svg class="cg-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 7.5l5 5 5-5"/>
+        </svg>
+      </button>
+      <div class="cg-panel" aria-hidden="true">
+        <div class="cg-panel-desc">AI provides explicit recommendations with reasoning. Humans evaluate and decide whether to follow. AI is now guiding the decision process, not just providing data.</div>
+        <div class="cg-panel-example">Example: AI recommends replacing a bearing based on vibration trends, with a confidence score and reasoning. The engineer approves or overrides.</div>
+      </div>
     </div>
 
-    <div class="level" data-level="3">
-      <div class="level-number">Level 3</div>
-      <div class="level-icon">✏️</div>
-      <div class="level-title">AI Drafts,<br/>Human Reviews</div>
-      <div class="level-indicator"></div>
+    <div class="cg-item" data-level="3">
+      <button class="cg-trigger" aria-expanded="false">
+        <div class="cg-swatch"></div>
+        <div class="cg-trigger-icon">✏️</div>
+        <div class="cg-trigger-main">
+          <div class="cg-trigger-eyebrow">Level 3 · Sweet spot</div>
+          <div class="cg-trigger-title">AI Drafts, Human Reviews</div>
+        </div>
+        <svg class="cg-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 7.5l5 5 5-5"/>
+        </svg>
+      </button>
+      <div class="cg-panel" aria-hidden="true">
+        <div class="cg-panel-desc">AI produces complete drafts of work. Humans review, edit, and approve before execution. Reduces human effort while maintaining oversight. This is the sweet spot for most operational teams.</div>
+        <div class="cg-panel-example">Example: AI drafts the full work order, parts list, and safety checklist. The supervisor reviews, makes edits, and approves before dispatch.</div>
+      </div>
     </div>
 
-    <div class="level" data-level="4">
-      <div class="level-number">Level 4</div>
-      <div class="level-icon">⚙️</div>
-      <div class="level-title">AI Acts,<br/>Human Monitors</div>
-      <div class="level-indicator"></div>
+    <div class="cg-item" data-level="4">
+      <button class="cg-trigger" aria-expanded="false">
+        <div class="cg-swatch"></div>
+        <div class="cg-trigger-icon">⚙️</div>
+        <div class="cg-trigger-main">
+          <div class="cg-trigger-eyebrow">Level 4</div>
+          <div class="cg-trigger-title">AI Acts, Human Monitors</div>
+        </div>
+        <svg class="cg-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 7.5l5 5 5-5"/>
+        </svg>
+      </button>
+      <div class="cg-panel" aria-hidden="true">
+        <div class="cg-panel-desc">AI executes actions autonomously. Humans monitor for issues and intervene if needed. Suitable for low-risk, well-defined, high-repetition tasks where failure is reversible.</div>
+        <div class="cg-panel-example">Example: AI automatically routes and assigns incoming work orders to the right technician based on skill, location, and workload — humans are alerted only on exceptions.</div>
+      </div>
     </div>
 
-    <div class="level" data-level="5">
-      <div class="level-number">Level 5</div>
-      <div class="level-icon">🤖</div>
-      <div class="level-title">Fully Automated</div>
-      <div class="level-indicator"></div>
+    <div class="cg-item" data-level="5">
+      <button class="cg-trigger" aria-expanded="false">
+        <div class="cg-swatch"></div>
+        <div class="cg-trigger-icon">🤖</div>
+        <div class="cg-trigger-main">
+          <div class="cg-trigger-eyebrow">Level 5</div>
+          <div class="cg-trigger-title">Fully Automated</div>
+        </div>
+        <svg class="cg-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 7.5l5 5 5-5"/>
+        </svg>
+      </button>
+      <div class="cg-panel" aria-hidden="true">
+        <div class="cg-panel-desc">AI operates completely independently with no human review cycle. Only appropriate for genuinely low-stakes, highly specified tasks with strong safety constraints and validated track record.</div>
+        <div class="cg-panel-example">Example: Automated sensor calibration scheduling — AI detects drift, schedules calibration, updates the asset record. No human step required.</div>
+      </div>
     </div>
+
   </div>
 
-  <div class="details" id="details">
-    <div class="detail-title">Level 1: AI Informs</div>
-    <div class="detail-description">
-      AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control.
-    </div>
-  </div>
-
-  <div class="spectrum-label">
+  <div class="cg-footer">
     <span>← Human Control</span>
     <span>AI Autonomy →</span>
   </div>
 
+  <!-- ── DESKTOP: horizontal spectrum ───────────────────────── -->
+  <div class="cg-desktop" style="display:none">
+    <div class="cg-spectrum">
+      <div class="cg-col active" data-level="1">
+        <div class="cg-col-num">Level 1</div>
+        <div class="cg-col-icon">📊</div>
+        <div class="cg-col-title">AI Informs</div>
+        <div class="cg-col-dot"></div>
+      </div>
+      <div class="cg-col" data-level="2">
+        <div class="cg-col-num">Level 2</div>
+        <div class="cg-col-icon">💡</div>
+        <div class="cg-col-title">AI Recommends</div>
+        <div class="cg-col-dot"></div>
+      </div>
+      <div class="cg-col" data-level="3">
+        <div class="cg-col-num">Level 3</div>
+        <div class="cg-col-icon">✏️</div>
+        <div class="cg-col-title">AI Drafts,<br/>Human Reviews</div>
+        <div class="cg-col-dot"></div>
+      </div>
+      <div class="cg-col" data-level="4">
+        <div class="cg-col-num">Level 4</div>
+        <div class="cg-col-icon">⚙️</div>
+        <div class="cg-col-title">AI Acts,<br/>Human Monitors</div>
+        <div class="cg-col-dot"></div>
+      </div>
+      <div class="cg-col" data-level="5">
+        <div class="cg-col-num">Level 5</div>
+        <div class="cg-col-icon">🤖</div>
+        <div class="cg-col-title">Fully Automated</div>
+        <div class="cg-col-dot"></div>
+      </div>
+    </div>
+
+    <div class="cg-detail-box" id="cg-detail">
+      <div class="cg-detail-title">Level 1: AI Informs</div>
+      <div class="cg-detail-desc">AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control.</div>
+    </div>
+
+    <div class="cg-footer">
+      <span>← Human Control</span>
+      <span>AI Autonomy →</span>
+    </div>
+  </div>
+
   <script>
-    const details = {
-      1: {
-        title: "Level 1: AI Informs",
-        description: "AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control."
-      },
-      2: {
-        title: "Level 2: AI Recommends",
-        description: "AI provides explicit recommendations with reasoning. Humans evaluate and decide whether to follow, but AI is now guiding the decision process."
-      },
-      3: {
-        title: "Level 3: AI Drafts, Human Reviews",
-        description: "AI produces complete drafts of work. Humans review, edit, and approve before execution. Reduces human effort while maintaining oversight."
-      },
-      4: {
-        title: "Level 4: AI Acts, Human Monitors",
-        description: "AI executes actions autonomously. Humans monitor for issues, intervene if needed. Suitable for low-risk, well-defined tasks."
-      },
-      5: {
-        title: "Level 5: Fully Automated",
-        description: "AI operates completely independently with no human review. Only appropriate for genuinely low-stakes, well-specified tasks with strong safety constraints."
-      }
+    // ── Mobile accordion ────────────────────────────────────────
+    document.querySelectorAll('.cg-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.cg-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.cg-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.cg-trigger').setAttribute('aria-expanded', 'false');
+          i.querySelector('.cg-panel').setAttribute('aria-hidden', 'true');
+        });
+        // Toggle clicked (open if was closed)
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          item.querySelector('.cg-panel').setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+
+    // Open level 3 by default on mobile
+    const defaultItem = document.querySelector('.cg-item[data-level="3"]');
+    if (defaultItem) {
+      defaultItem.classList.add('open');
+      defaultItem.querySelector('.cg-trigger').setAttribute('aria-expanded', 'true');
+      defaultItem.querySelector('.cg-panel').setAttribute('aria-hidden', 'false');
+    }
+
+    // ── Desktop spectrum ────────────────────────────────────────
+    const desktopData = {
+      1: { title: 'Level 1: AI Informs', desc: 'AI generates information and insights. Humans make all decisions based on AI-provided context. Maximum human judgment and control.' },
+      2: { title: 'Level 2: AI Recommends', desc: 'AI provides explicit recommendations with reasoning. Humans evaluate and decide whether to follow, but AI is now guiding the decision process.' },
+      3: { title: 'Level 3: AI Drafts, Human Reviews', desc: 'AI produces complete drafts of work. Humans review, edit, and approve before execution. Reduces human effort while maintaining oversight — the sweet spot for most teams.' },
+      4: { title: 'Level 4: AI Acts, Human Monitors', desc: 'AI executes actions autonomously. Humans monitor for issues, intervene if needed. Suitable for low-risk, well-defined tasks where failure is easily reversible.' },
+      5: { title: 'Level 5: Fully Automated', desc: 'AI operates completely independently. Only appropriate for genuinely low-stakes, well-specified tasks with strong safety constraints and a validated track record.' }
     };
 
-    const levels = document.querySelectorAll('.level');
-    const detailsContainer = document.getElementById('details');
+    const cols = document.querySelectorAll('.cg-col');
+    const detailBox = document.getElementById('cg-detail');
 
-    levels.forEach(level => {
-      level.addEventListener('click', () => {
-        const levelNum = parseInt(level.dataset.level);
-        const detail = details[levelNum];
-        detailsContainer.innerHTML = `
-          <div class="detail-title">${detail.title}</div>
-          <div class="detail-description">${detail.description}</div>
-        `;
-      });
-
-      level.addEventListener('mouseenter', () => {
-        const levelNum = parseInt(level.dataset.level);
-        const detail = details[levelNum];
-        detailsContainer.innerHTML = `
-          <div class="detail-title">${detail.title}</div>
-          <div class="detail-description">${detail.description}</div>
-        `;
-      });
-    });
-
-    // Auto-cycle through levels on initial load
-    let currentLevel = 1;
-    const autoCycle = setInterval(() => {
-      currentLevel = currentLevel === 5 ? 1 : currentLevel + 1;
-      const levelElement = document.querySelector(`[data-level="${currentLevel}"]`);
-      if (levelElement) {
-        levelElement.click();
+    function activateCol(col) {
+      cols.forEach(c => c.classList.remove('active'));
+      col.classList.add('active');
+      const d = desktopData[col.dataset.level];
+      if (d && detailBox) {
+        detailBox.innerHTML = `<div class="cg-detail-title">${d.title}</div><div class="cg-detail-desc">${d.desc}</div>`;
       }
-    }, 5000);
+    }
 
-    // Stop auto-cycle when user interacts
-    document.querySelector('.gradient-container').addEventListener('mouseenter', () => {
-      clearInterval(autoCycle);
+    cols.forEach(col => {
+      col.addEventListener('click', () => activateCol(col));
+      col.addEventListener('mouseenter', () => activateCol(col));
     });
+
+    // Show desktop version at the right breakpoint
+    function syncLayout() {
+      const desktop = document.querySelector('.cg-desktop');
+      const accordion = document.querySelector('.cg-accordion');
+      if (!desktop || !accordion) return;
+      if (window.innerWidth >= 640) {
+        desktop.style.display = 'block';
+        accordion.style.display = 'none';
+      } else {
+        desktop.style.display = 'none';
+        accordion.style.display = 'flex';
+      }
+    }
+
+    syncLayout();
+    window.addEventListener('resize', syncLayout);
   </script>
 </div>

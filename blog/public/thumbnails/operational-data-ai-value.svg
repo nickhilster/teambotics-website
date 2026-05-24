@@ -1,102 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="How to Mine Your Operational Data for AI Gold">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Operational Data: Unlocking AI Value from What You Already Have">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#030f09"/>
-      <stop offset="100%" stop-color="#061a10"/>
+      <stop offset="0%" stop-color="#060d06"/>
+      <stop offset="100%" stop-color="#080f08"/>
     </linearGradient>
-    <radialGradient id="glowTop" cx="75%" cy="25%" r="35%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#84cc16"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#d1fae5"/>
+      <stop offset="100%" stop-color="#6ee7b7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15"/>
       <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowGold" cx="75%" cy="22%" r="20%">
-      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="8" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28"/>
     </filter>
-    <linearGradient id="streamG" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-    </linearGradient>
+    <clipPath id="clip"><rect width="640" height="360"/></clipPath>
   </defs>
-
   <rect width="640" height="360" fill="url(#bg)"/>
-  <rect width="640" height="360" fill="url(#glowTop)"/>
-  <rect width="640" height="360" fill="url(#glowGold)"/>
-
-  <!-- Grid lines (faint, representing structured data) -->
-  <line x1="0" y1="120" x2="640" y2="120" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-  <line x1="0" y1="180" x2="640" y2="180" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-  <line x1="0" y1="240" x2="640" y2="240" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-  <line x1="160" y1="0" x2="160" y2="360" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-  <line x1="320" y1="0" x2="320" y2="360" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-  <line x1="480" y1="0" x2="480" y2="360" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.06"/>
-
-  <!-- Data cylinders — stacked on left side -->
-  <!-- Cylinder 1 (bottom, darkest) -->
-  <ellipse cx="160" cy="292" rx="72" ry="18" fill="#0a2016" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <rect x="88" y="252" width="144" height="40" fill="#0a2016"/>
-  <rect x="88" y="252" width="144" height="40" fill="none" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <ellipse cx="160" cy="252" rx="72" ry="18" fill="#0d2a1c" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
-
-  <!-- Cylinder 2 -->
-  <ellipse cx="160" cy="228" rx="72" ry="18" fill="#0a2016" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <rect x="88" y="188" width="144" height="40" fill="#0a2016"/>
-  <rect x="88" y="188" width="144" height="40" fill="none" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <ellipse cx="160" cy="188" rx="72" ry="18" fill="#0d2a1c" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.55"/>
-
-  <!-- Cylinder 3 -->
-  <ellipse cx="160" cy="164" rx="72" ry="18" fill="#0a2016" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <rect x="88" y="124" width="144" height="40" fill="#0a2016"/>
-  <rect x="88" y="124" width="144" height="40" fill="none" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
-  <ellipse cx="160" cy="124" rx="72" ry="18" fill="#0f2e20" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.6"/>
-
-  <!-- Small labels on cylinders (dots pattern) -->
-  <rect x="102" y="198" width="60" height="7" rx="3" fill="#10b981" fill-opacity="0.2"/>
-  <rect x="102" y="208" width="40" height="5" rx="2.5" fill="#10b981" fill-opacity="0.15"/>
-  <rect x="102" y="262" width="55" height="7" rx="3" fill="#10b981" fill-opacity="0.15"/>
-  <rect x="102" y="134" width="70" height="7" rx="3" fill="#10b981" fill-opacity="0.25"/>
-
-  <!-- Streams rising from cylinders toward the diamond -->
-  <!-- Stream 1 -->
-  <path d="M145 106 C145 80 175 60 195 40" stroke="url(#streamG)" stroke-width="2" fill="none" stroke-opacity="0.5" stroke-dasharray="4 4"/>
-  <!-- Stream 2 -->
-  <path d="M175 106 C185 78 215 55 250 35" stroke="url(#streamG)" stroke-width="1.5" fill="none" stroke-opacity="0.35" stroke-dasharray="3 5"/>
-  <!-- Stream 3 -->
-  <path d="M160 106 C180 70 300 45 430 30" stroke="url(#streamG)" stroke-width="1" fill="none" stroke-opacity="0.2" stroke-dasharray="3 6"/>
-
-  <!-- Data particles (dots) floating up along streams -->
-  <circle cx="165" cy="88" r="3" fill="#10b981" fill-opacity="0.7"/>
-  <circle cx="183" cy="72" r="2.5" fill="#10b981" fill-opacity="0.6"/>
-  <circle cx="205" cy="55" r="2" fill="#10b981" fill-opacity="0.5"/>
-  <circle cx="240" cy="42" r="2.5" fill="#10b981" fill-opacity="0.6"/>
-  <circle cx="300" cy="34" r="2" fill="#10b981" fill-opacity="0.4"/>
-  <circle cx="370" cy="30" r="1.5" fill="#10b981" fill-opacity="0.3"/>
-
-  <!-- "AI Gold" diamond on the right, top area -->
-  <polygon points="490,52 535,100 490,148 445,100" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
-  <polygon points="490,52 535,100 490,148 445,100" fill="#fbbf24" fill-opacity="0.06" filter="url(#glow)"/>
-  <!-- Inner diamond facets -->
-  <line x1="490" y1="52" x2="490" y2="148" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.3"/>
-  <line x1="445" y1="100" x2="535" y2="100" stroke="#fbbf24" stroke-width="1" stroke-opacity="0.3"/>
-  <line x1="490" y1="52" x2="535" y2="100" stroke="#fbbf24" stroke-width="0.8" stroke-opacity="0.2"/>
-  <line x1="490" y1="52" x2="445" y2="100" stroke="#fbbf24" stroke-width="0.8" stroke-opacity="0.2"/>
-  <!-- Diamond glow -->
-  <polygon points="490,60 527,100 490,140 453,100" fill="#fbbf24" fill-opacity="0.08"/>
-  <!-- Center sparkle -->
-  <circle cx="490" cy="100" r="8" fill="#fbbf24" fill-opacity="0.6" filter="url(#glow)"/>
-  <circle cx="490" cy="100" r="4" fill="#fbbf24"/>
-
-  <!-- Converging streams to diamond -->
-  <path d="M260 40 C340 30 400 60 446 96" stroke="#10b981" stroke-width="1.5" fill="none" stroke-opacity="0.4" stroke-dasharray="4 4"/>
-  <path d="M210 42 C300 28 390 55 446 96" stroke="#10b981" stroke-width="1.5" fill="none" stroke-opacity="0.3" stroke-dasharray="3 5"/>
-
-  <!-- RAG label -->
-  <rect x="410" y="165" width="160" height="36" rx="18" fill="#061a10" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
-  <text x="490" y="188" text-anchor="middle" font-family="ui-monospace,monospace" font-size="13" fill="#10b981" fill-opacity="0.75" letter-spacing="1.5">RAG PIPELINE</text>
-
-  <!-- Small data source labels -->
-  <text x="160" y="348" text-anchor="middle" font-family="ui-sans-serif,sans-serif" font-size="10" fill="#10b981" fill-opacity="0.4" letter-spacing="2">OPERATIONAL ARCHIVES</text>
+  <rect width="640" height="360" fill="url(#glow)"/>
+  <ellipse cx="570" cy="90" rx="160" ry="120" fill="#10b981" fill-opacity="0.08" filter="url(#blur)" clip-path="url(#clip)"/>
+  <rect x="488" y="140" width="18" height="80" rx="4" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="514" y="110" width="18" height="110" rx="4" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="1" stroke-opacity="0.45"/>
+  <rect x="540" y="80" width="18" height="140" rx="4" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1" stroke-opacity="0.5"/>
+  <rect x="566" y="56" width="18" height="164" rx="4" fill="url(#accent)" fill-opacity="0.45" stroke="#84cc16" stroke-width="1" stroke-opacity="0.6"/>
+  <circle cx="497" cy="138" r="4" fill="#10b981" fill-opacity="0.7"/>
+  <circle cx="523" cy="108" r="4" fill="#10b981" fill-opacity="0.75"/>
+  <circle cx="549" cy="78" r="4" fill="#84cc16" fill-opacity="0.8"/>
+  <circle cx="575" cy="54" r="5" fill="#84cc16" fill-opacity="0.9"/>
+  <polyline points="497,138 523,108 549,78 575,54" fill="none" stroke="url(#accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.6" stroke-dasharray="5 3"/>
+  <rect x="48" y="60" width="4" height="240" rx="2" fill="url(#accent)" fill-opacity="0.35"/>
+  <rect x="62" y="68" width="130" height="22" rx="11" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-width="0.75" stroke-opacity="0.4"/>
+  <text x="127" y="83" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#6ee7b7" fill-opacity="0.9">OPERATIONAL DATA</text>
+  <text x="62" y="148" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Unlock AI</text>
+  <text x="62" y="206" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Value</text>
+  <rect x="62" y="214" width="140" height="4" rx="2" fill="url(#accent)" fill-opacity="0.7"/>
+  <text x="62" y="250" font-family="ui-sans-serif,system-ui,sans-serif" font-size="20" font-weight="400" fill="#94a3b8">from what you already have</text>
+  <text x="62" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#10b981" fill-opacity="0.55">TEAMBOTICS</text>
+  <rect x="48" y="335" width="544" height="1" rx="0.5" fill="url(#accent)" fill-opacity="0.12"/>
 </svg>

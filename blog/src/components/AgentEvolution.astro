@@ -177,13 +177,20 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 639px) {
       .ae-grid {
         grid-template-columns: 1fr;
       }
       .ae-cap-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      /* Bigger tap targets on mobile */
+      .ae-cap {
+        padding: 1rem 0.5rem;
+        min-height: 80px;
+      }
+      .ae-cap-icon { font-size: 1.75rem; }
+      .ae-cap-name { font-size: 0.8rem; }
     }
   </style>
 
@@ -283,11 +290,13 @@
     }
 
     caps.forEach(cap => {
+      // click covers both mouse and touch (via tap)
       cap.addEventListener('click', () => activate(cap));
+      // mouseenter for desktop hover — only when a real pointer is available
       cap.addEventListener('mouseenter', () => activate(cap));
     });
 
     // Activate first by default
-    if (caps.length) caps[0].classList.add('active');
+    if (caps.length) activate(caps[0]);
   </script>
 </div>
