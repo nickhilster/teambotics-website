@@ -1,0 +1,312 @@
+---
+// Side-by-side prompt comparison showing weak vs strong prompting techniques
+---
+
+<div class="prompt-quality">
+  <style>
+    .prompt-quality {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .pq-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .pq-techniques {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .pq-technique {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: var(--color-bg-elevated);
+    }
+
+    .pq-technique:hover,
+    .pq-technique.active {
+      border-color: rgba(167, 139, 250, 0.5);
+      color: #a78bfa;
+      background: rgba(167, 139, 250, 0.08);
+    }
+
+    .pq-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .pq-side {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    .pq-side--weak {
+      border-color: rgba(255, 107, 107, 0.25);
+    }
+
+    .pq-side--strong {
+      border-color: rgba(74, 222, 128, 0.25);
+    }
+
+    .pq-side-header {
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .pq-side--weak .pq-side-header {
+      background: rgba(255, 107, 107, 0.08);
+      border-bottom-color: rgba(255, 107, 107, 0.2);
+    }
+
+    .pq-side--strong .pq-side-header {
+      background: rgba(74, 222, 128, 0.08);
+      border-bottom-color: rgba(74, 222, 128, 0.2);
+    }
+
+    .pq-side-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pq-side--weak .pq-side-label { color: #ff6b6b; }
+    .pq-side--strong .pq-side-label { color: #4ade80; }
+
+    .pq-prompt {
+      padding: 1rem;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--color-text-secondary);
+      font-family: inherit;
+      min-height: 120px;
+      white-space: pre-wrap;
+    }
+
+    .pq-prompt mark {
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .pq-side--weak .pq-prompt mark {
+      background: rgba(255, 107, 107, 0.2);
+      color: #ff6b6b;
+    }
+
+    .pq-side--strong .pq-prompt mark {
+      background: rgba(74, 222, 128, 0.2);
+      color: #4ade80;
+    }
+
+    .pq-score-bar {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .pq-score-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-tertiary);
+      flex-shrink: 0;
+    }
+
+    .pq-bar {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .pq-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.6s ease;
+    }
+
+    .pq-side--weak .pq-bar-fill { background: #ff6b6b; }
+    .pq-side--strong .pq-bar-fill { background: #4ade80; }
+
+    .pq-score-val {
+      font-size: 0.78rem;
+      font-weight: 700;
+      min-width: 2.5rem;
+      text-align: right;
+    }
+
+    .pq-side--weak .pq-score-val { color: #ff6b6b; }
+    .pq-side--strong .pq-score-val { color: #4ade80; }
+
+    .pq-insight {
+      padding: 1rem 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      animation: slideUp 0.25s ease;
+    }
+
+    .pq-insight strong { color: var(--color-text-primary); }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 639px) {
+      .pq-comparison { grid-template-columns: 1fr; }
+      .pq-technique {
+        padding: 0.65rem 1rem;
+        font-size: 0.85rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .pq-techniques { gap: 0.5rem; }
+      .pq-prompt { font-size: 0.85rem; min-height: 90px; }
+      .pq-insight { font-size: 0.9rem; }
+    }
+  </style>
+
+  <div class="pq-title">Prompt Engineering Techniques — compare weak vs strong</div>
+
+  <div class="pq-techniques">
+    <div class="pq-technique active" data-tech="clarity">Clarity of instruction</div>
+    <div class="pq-technique" data-tech="role">Role & context</div>
+    <div class="pq-technique" data-tech="format">Format specification</div>
+    <div class="pq-technique" data-tech="cot">Chain-of-thought</div>
+    <div class="pq-technique" data-tech="constraints">Constraint setting</div>
+  </div>
+
+  <div class="pq-comparison">
+    <div class="pq-side pq-side--weak">
+      <div class="pq-side-header">
+        <div class="pq-side-label">✗ Weak prompt</div>
+      </div>
+      <div class="pq-prompt" id="pq-weak"></div>
+      <div class="pq-score-bar">
+        <div class="pq-score-label">Quality</div>
+        <div class="pq-bar"><div class="pq-bar-fill" id="pq-weak-bar" style="width:0%"></div></div>
+        <div class="pq-score-val" id="pq-weak-score">—</div>
+      </div>
+    </div>
+
+    <div class="pq-side pq-side--strong">
+      <div class="pq-side-header">
+        <div class="pq-side-label">✓ Strong prompt</div>
+      </div>
+      <div class="pq-prompt" id="pq-strong"></div>
+      <div class="pq-score-bar">
+        <div class="pq-score-label">Quality</div>
+        <div class="pq-bar"><div class="pq-bar-fill" id="pq-strong-bar" style="width:0%"></div></div>
+        <div class="pq-score-val" id="pq-strong-score">—</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pq-insight" id="pq-insight"></div>
+
+  <script>
+    const techData = {
+      clarity: {
+        weak: 'Summarise this maintenance report.',
+        weakScore: 22,
+        strong: 'You are reviewing a maintenance work order. Extract the following from the report:\n1. Fault type (electrical / mechanical / pneumatic / software)\n2. Asset affected (asset ID and description)\n3. Root cause identified by the technician\n4. Resolution taken\n5. Any follow-up actions required\n\nIf any field is not mentioned in the report, write "Not specified."',
+        strongScore: 91,
+        insight: '<strong>Clarity of instruction:</strong> AI models are not mind readers. A vague prompt forces the model to guess your intent and fill in gaps with its own assumptions. Explicit instructions remove ambiguity and produce outputs you can rely on — especially critical for operational reports that feed into regulated processes.'
+      },
+      role: {
+        weak: 'Check if this document meets compliance requirements.',
+        weakScore: 28,
+        strong: 'You are a regulatory affairs specialist evaluating compliance with FDA 21 CFR Part 11 requirements for electronic records. Review the provided System Validation Plan and identify:\n- Requirements explicitly addressed\n- Requirements partially addressed (with the gap)\n- Requirements not addressed at all\n\nFocus only on requirements stated in the provided document, not general regulatory knowledge.',
+        strongScore: 89,
+        insight: '<strong>Role & context setting:</strong> Providing the AI with a clear frame of reference dramatically improves the relevance and depth of its outputs. The model now knows the domain, the applicable standard, and the exact scope — producing output that a regulatory affairs specialist would recognise as useful, not generic.'
+      },
+      format: {
+        weak: 'List the main risks from this incident report.',
+        weakScore: 31,
+        strong: 'Review this incident report and identify the top risks. Produce your output as a numbered list of exactly 5 items. Each item must follow this format:\n\nRisk: [one sentence describing the risk]\nLikelihood: Low / Medium / High\nPotential impact: [one sentence]\n\nOrder by potential impact, highest first.',
+        strongScore: 94,
+        insight: '<strong>Format specification:</strong> Specifying the desired output format prevents the verbose, inconsistently structured responses that make AI outputs hard to use downstream. A structured format also makes it easier to validate outputs, detect anomalies, and feed results into the next step of a workflow.'
+      },
+      cot: {
+        weak: 'Is this maintenance schedule sufficient for regulatory compliance?',
+        weakScore: 19,
+        strong: 'Is this maintenance schedule sufficient for regulatory compliance with ISO 55001? Think through this step by step:\n\n1. First, identify what ISO 55001 requires for preventive maintenance documentation.\n2. Then, check which of those requirements are addressed in the provided schedule.\n3. Then, identify which requirements are missing or insufficiently addressed.\n4. Finally, give an overall assessment: Sufficient / Partially sufficient / Insufficient.\n\nShow your reasoning for each step before giving the final assessment.',
+        strongScore: 87,
+        insight: '<strong>Chain-of-thought prompting:</strong> Asking the AI to "think step by step" before producing an answer substantially improves accuracy on complex reasoning tasks. This reflects how the underlying models are trained. For compliance assessments, structured reasoning also produces outputs that are easier for a human to audit and challenge.'
+      },
+      constraints: {
+        weak: 'What are the regulatory requirements for our product approval process?',
+        weakScore: 15,
+        strong: 'Based only on the regulatory guidance documents provided, what are the documentation requirements for the product approval process?\n\nDo not make assumptions about regulatory requirements not stated in the provided documents. If a requirement is not mentioned in the provided documents, say "Not specified in the provided guidance." Do not draw on general regulatory knowledge.',
+        strongScore: 92,
+        insight: '<strong>Constraint setting:</strong> Defining what the AI should not do is as important as defining what it should. Without explicit constraints, models will fill gaps with plausible-sounding content from their training data — which may be outdated, jurisdiction-specific, or simply wrong. In regulated environments, a hallucinated regulatory citation is worse than no answer at all.'
+      }
+    };
+
+    const techniques = document.querySelectorAll('.pq-technique');
+
+    function setTech(key) {
+      const d = techData[key];
+      if (!d) return;
+
+      document.getElementById('pq-weak').textContent = d.weak;
+      document.getElementById('pq-strong').textContent = d.strong;
+      document.getElementById('pq-insight').innerHTML = d.insight;
+
+      // Animate bars
+      setTimeout(() => {
+        document.getElementById('pq-weak-bar').style.width = d.weakScore + '%';
+        document.getElementById('pq-strong-bar').style.width = d.strongScore + '%';
+        document.getElementById('pq-weak-score').textContent = d.weakScore + '/100';
+        document.getElementById('pq-strong-score').textContent = d.strongScore + '/100';
+      }, 50);
+    }
+
+    techniques.forEach(t => {
+      t.addEventListener('click', () => {
+        techniques.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        setTech(t.dataset.tech);
+      });
+      t.addEventListener('mouseenter', () => {
+        techniques.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        setTech(t.dataset.tech);
+      });
+    });
+
+    // Init
+    setTech('clarity');
+  </script>
+</div>

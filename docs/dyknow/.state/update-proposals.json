@@ -1,0 +1,205 @@
+{
+  "draftedAt": "2026-05-24T20:15:45.935Z",
+  "rootPath": "C:\\DEV\\teambotics-website",
+  "configPath": "dyknow.config.json",
+  "repoDiffPath": "docs/dyknow/.state/repo-diff.json",
+  "outputPath": "docs/dyknow/.state/update-proposals.json",
+  "providerId": "local",
+  "drafts": [
+    {
+      "affectedPage": {
+        "pageId": "agent-context",
+        "outputPath": "AGENTS.md",
+        "matchedSourcePaths": [
+          "README.md"
+        ],
+        "reasons": [
+          "added-file"
+        ]
+      },
+      "proposal": {
+        "pageId": "agent-context",
+        "summary": "Review AI Agent Context for 1 changed source path(s).",
+        "why": "AI Agent Context is affected because DyKnow detected added file across 1 configured source path(s).",
+        "sources": [
+          "README.md"
+        ],
+        "proposedText": "# AGENTS.md Review Draft\n\n## Review focus\nRefresh the compact repo context, implemented command list, and guardrails based on the changed sources below.\n\n## Affected sources\n- README.md\n\n## Notes\nKeep the file factual, compact, and aligned with the current command surface.\n\n<!-- dyknow:update local-stub -->",
+        "confidence": "medium",
+        "risk": "low",
+        "reviewState": "Published",
+        "requiresHumanReview": true
+      },
+      "providerTelemetry": {
+        "attempts": 1,
+        "durationMs": 0,
+        "timedOut": false,
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null
+        }
+      }
+    },
+    {
+      "affectedPage": {
+        "pageId": "architecture",
+        "outputPath": "docs/architecture.md",
+        "matchedSourcePaths": [
+          "README.md"
+        ],
+        "reasons": [
+          "added-file"
+        ]
+      },
+      "proposal": {
+        "pageId": "architecture",
+        "summary": "Review Architecture for 1 changed source path(s).",
+        "why": "Architecture is affected because DyKnow detected added file across 1 configured source path(s).",
+        "sources": [
+          "README.md"
+        ],
+        "proposedText": "# Architecture\n\n## Review focus\nUpdate shared-engine responsibilities, CLI ownership boundaries, and trust-boundary behavior affected by these source changes.\n\n## Affected sources\n- README.md\n\n## Notes\nPreserve the distinction between DyKnow Local, DyKnow Cloud, and shared engine behavior.\n\n<!-- dyknow:update local-stub -->",
+        "confidence": "low",
+        "risk": "low",
+        "reviewState": "Published",
+        "requiresHumanReview": true
+      },
+      "providerTelemetry": {
+        "attempts": 1,
+        "durationMs": 0,
+        "timedOut": false,
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null
+        }
+      }
+    },
+    {
+      "affectedPage": {
+        "pageId": "feature-map",
+        "outputPath": "docs/feature-map.md",
+        "matchedSourcePaths": [
+          "README.md"
+        ],
+        "reasons": [
+          "added-file"
+        ]
+      },
+      "proposal": {
+        "pageId": "feature-map",
+        "summary": "Review Feature Map for 1 changed source path(s).",
+        "why": "Feature Map is affected because DyKnow detected added file across 1 configured source path(s).",
+        "sources": [
+          "README.md"
+        ],
+        "proposedText": "# Feature Map\n\n## Review focus\nUpdate implemented versus planned command status and any changed workflow descriptions.\n\n## Affected sources\n- README.md\n\n## Notes\nKeep command names and status labels aligned with the codebase.\n\n<!-- dyknow:update local-stub -->",
+        "confidence": "low",
+        "risk": "low",
+        "reviewState": "Published",
+        "requiresHumanReview": true
+      },
+      "providerTelemetry": {
+        "attempts": 1,
+        "durationMs": 0,
+        "timedOut": false,
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null
+        }
+      }
+    },
+    {
+      "affectedPage": {
+        "pageId": "product-overview",
+        "outputPath": "docs/product-overview.md",
+        "matchedSourcePaths": [
+          "README.md"
+        ],
+        "reasons": [
+          "added-file"
+        ]
+      },
+      "proposal": {
+        "pageId": "product-overview",
+        "summary": "Review Product Overview for 1 changed source path(s).",
+        "why": "Product Overview is affected because DyKnow detected added file across 1 configured source path(s).",
+        "sources": [
+          "README.md"
+        ],
+        "proposedText": "# Product Overview\n\n## What changed\nDyKnow detected added file for this page.\n\n## Affected sources\n- README.md\n\n## Review notes\nConfirm the product truth, audience fit, and Cloud versus Local positioning still match the updated sources.\n\n<!-- dyknow:update local-stub -->",
+        "confidence": "low",
+        "risk": "low",
+        "reviewState": "Published",
+        "requiresHumanReview": true
+      },
+      "providerTelemetry": {
+        "attempts": 1,
+        "durationMs": 0,
+        "timedOut": false,
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null
+        }
+      }
+    },
+    {
+      "affectedPage": {
+        "pageId": "setup-guide",
+        "outputPath": "docs/setup-guide.md",
+        "matchedSourcePaths": [
+          "README.md"
+        ],
+        "reasons": [
+          "added-file"
+        ]
+      },
+      "proposal": {
+        "pageId": "setup-guide",
+        "summary": "Review Setup Guide for 1 changed source path(s).",
+        "why": "Setup Guide is affected because DyKnow detected added file across 1 configured source path(s).",
+        "sources": [
+          "README.md"
+        ],
+        "proposedText": "# Setup Guide\n\n## Review focus\nUpdate command order, prerequisite artifacts, and operator-facing safety notes affected by these changes.\n\n## Affected sources\n- README.md\n\n## Notes\nKeep the guide chronological and explicit about required flags and outputs.\n\n<!-- dyknow:update local-stub -->",
+        "confidence": "low",
+        "risk": "low",
+        "reviewState": "Published",
+        "requiresHumanReview": true
+      },
+      "providerTelemetry": {
+        "attempts": 1,
+        "durationMs": 0,
+        "timedOut": false,
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0,
+          "totalTokens": 0,
+          "estimatedCostUsd": null
+        }
+      }
+    }
+  ],
+  "summary": {
+    "affectedPages": 5,
+    "draftedProposals": 5
+  },
+  "providerTelemetry": {
+    "totalAttempts": 5,
+    "totalDurationMs": 0,
+    "timedOutDrafts": 0,
+    "usage": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "totalTokens": 0,
+      "estimatedCostUsd": null
+    }
+  }
+}

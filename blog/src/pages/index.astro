@@ -41,6 +41,7 @@ const filteredPosts = selectedTag
 
 // Get all unique tags
 const allTags = Array.from(new Set(allPosts.flatMap(post => post.tags))).sort();
+const activePostCount = filteredPosts.length;
 
 // Paginate
 const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -51,34 +52,120 @@ const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
 
 <BlogLayout title={selectedTag ? `${selectedTag} — Teambotics Blog` : 'Teambotics Blog — Industrial Automation Insights'}>
   <div class="blog-index__hero">
-    <span class="blog-index__eyebrow">Teambotics Blog</span>
-    <h1 class="blog-index__title">Pragmatic perspective on automation and adoption</h1>
-    <p class="blog-index__subtitle">
-      Practical guides for teams building and adopting automation with real-world discipline.
-    </p>
+    <div class="blog-index__hero-copy">
+      <span class="blog-index__eyebrow">Teambotics Blog</span>
+      <div class="blog-index__hero-kicker" aria-label="Editorial focus">
+        <span>Industrial AI</span>
+        <span>Operational systems</span>
+        <span>Adoption discipline</span>
+      </div>
+      <h1 class="blog-index__title">Operational insight for teams turning AI into dependable work</h1>
+      <p class="blog-index__subtitle">
+        Field notes, implementation patterns, and pragmatic guidance for automation programs that
+        need to survive contact with real operations.
+      </p>
+      <div class="blog-index__hero-actions">
+        <a href="#posts" class="blog-index__hero-button blog-index__hero-button--primary">
+          Explore articles
+        </a>
+        {allTags.length > 0 && (
+          <button
+            type="button"
+            class="blog-index__hero-button blog-index__hero-button--secondary"
+            data-topic-toggle
+          >
+            Browse topics
+          </button>
+        )}
+      </div>
+      <div class="blog-index__hero-metrics">
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">Published posts</span>
+          <strong class="blog-index__hero-metric-value">{allPosts.length}</strong>
+        </div>
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">Topic library</span>
+          <strong class="blog-index__hero-metric-value">{allTags.length}</strong>
+        </div>
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">{selectedTag ? 'Active topic' : 'Current view'}</span>
+          <strong class="blog-index__hero-metric-value">
+            {selectedTag ? selectedTag : `${activePostCount} latest posts`}
+          </strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-index__hero-visual" aria-hidden="true">
+      <div class="blog-index__hero-visual-shell">
+        <div class="blog-index__hero-visual-grid"></div>
+        <div class="blog-index__hero-visual-beam"></div>
+        <div class="blog-index__hero-lanes">
+          <span class="blog-index__hero-lane blog-index__hero-lane--wide"></span>
+          <span class="blog-index__hero-lane blog-index__hero-lane--mid"></span>
+          <span class="blog-index__hero-lane blog-index__hero-lane--narrow"></span>
+          <span class="blog-index__hero-lane blog-index__hero-lane--wide"></span>
+        </div>
+        <span class="blog-index__hero-node blog-index__hero-node--one"></span>
+        <span class="blog-index__hero-node blog-index__hero-node--two"></span>
+        <span class="blog-index__hero-node blog-index__hero-node--three"></span>
+        <div class="blog-index__hero-visual-caption">
+          <span class="blog-index__hero-visual-label">Signal scan</span>
+          <strong>{selectedTag ? selectedTag : 'All topics'}</strong>
+          <span>{activePostCount} articles in scope</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   {allTags.length > 0 && (
-    <div class="blog-index__filters">
-      <div class="blog-index__filter-label">Filter by topic:</div>
-      <div class="blog-index__filter-tags">
-        <a
-          href="/"
-          class={`blog-index__filter-tag ${!selectedTag ? 'blog-index__filter-tag--active' : ''}`}
-        >
-          All topics
-        </a>
-        {allTags.map((tag) => (
+    <details class="blog-index__filters" id="topics" open={Boolean(selectedTag)}>
+      <summary class="blog-index__filters-fab">
+        <span class="blog-index__filters-fab-label">Topics</span>
+        <strong class="blog-index__filters-fab-value">{selectedTag ?? 'All topics'}</strong>
+        <span class="blog-index__filters-fab-count">{allTags.length}</span>
+      </summary>
+      <div class="blog-index__filters-panel">
+        <div class="blog-index__filters-panel-header">
+          <div>
+            <div class="blog-index__filter-label">Browse by topic</div>
+            <p class="blog-index__filters-panel-copy">
+              Narrow the feed without giving the filter bar the whole stage.
+            </p>
+          </div>
+          {selectedTag && <a href="/" class="blog-index__filters-reset">Clear</a>}
+        </div>
+        <div class="blog-index__filter-tags">
           <a
-            href={`/?tag=${encodeURIComponent(tag)}`}
-            class={`blog-index__filter-tag ${selectedTag === tag ? 'blog-index__filter-tag--active' : ''}`}
+            href="/"
+            class={`blog-index__filter-tag ${!selectedTag ? 'blog-index__filter-tag--active' : ''}`}
           >
-            {tag}
+            All topics
           </a>
-        ))}
+          {allTags.map((tag) => (
+            <a
+              href={`/?tag=${encodeURIComponent(tag)}`}
+              class={`blog-index__filter-tag ${selectedTag === tag ? 'blog-index__filter-tag--active' : ''}`}
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
+    </details>
   )}
+
+  <script>
+    const topicToggle = document.querySelector('[data-topic-toggle]');
+    const topicDetails = document.querySelector('.blog-index__filters');
+
+    if (topicToggle instanceof HTMLButtonElement && topicDetails instanceof HTMLDetailsElement) {
+      topicToggle.addEventListener('click', () => {
+        topicDetails.open = !topicDetails.open;
+        topicDetails.querySelector('summary')?.focus();
+      });
+    }
+  </script>
 
   {fetchError ? (
     <p style="color: var(--color-text-secondary);">Could not load posts right now. Please try again shortly.</p>
@@ -89,7 +176,7 @@ const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
     </p>
   ) : (
     <>
-      <div class="blog-post-grid">
+      <div class="blog-post-grid" id="posts">
         {posts.map((post) => (
           <PostCard post={post} />
         ))}

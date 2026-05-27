@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Agentic AI: The Next Evolution Beyond Chatbots">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#05101f"/>
+      <stop offset="100%" stop-color="#080c18"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="85%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="clip"><rect width="640" height="360"/></clipPath>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glow)"/>
+
+  <!-- Accent blob top-right -->
+  <ellipse cx="580" cy="80" rx="140" ry="100" fill="#3b82f6" fill-opacity="0.10" filter="url(#blur)" clip-path="url(#clip)"/>
+  <ellipse cx="560" cy="100" rx="80" ry="60" fill="#06b6d4" fill-opacity="0.08" filter="url(#blur)" clip-path="url(#clip)"/>
+
+  <!-- Geometric accent shape: circuit nodes top-right -->
+  <circle cx="546" cy="68" r="36" fill="none" stroke="url(#accent)" stroke-width="1.5" stroke-opacity="0.25"/>
+  <circle cx="546" cy="68" r="22" fill="none" stroke="url(#accent)" stroke-width="1" stroke-opacity="0.15"/>
+  <circle cx="580" cy="48" r="16" fill="none" stroke="#06b6d4" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="510" cy="96" r="12" fill="none" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.18"/>
+  <line x1="546" y1="68" x2="580" y2="48" stroke="url(#accent)" stroke-width="1" stroke-opacity="0.2"/>
+  <line x1="546" y1="68" x2="510" y2="96" stroke="url(#accent)" stroke-width="1" stroke-opacity="0.2"/>
+  <circle cx="546" cy="68" r="5" fill="#3b82f6" fill-opacity="0.5"/>
+  <circle cx="580" cy="48" r="3" fill="#06b6d4" fill-opacity="0.4"/>
+  <circle cx="510" cy="96" r="3" fill="#3b82f6" fill-opacity="0.35"/>
+
+  <!-- Larger orbit rings -->
+  <circle cx="560" cy="80" rx="110" ry="80" fill="none" stroke="#3b82f6" stroke-width="0.5" stroke-opacity="0.08"/>
+
+  <!-- Left accent bar -->
+  <rect x="48" y="60" width="4" height="240" rx="2" fill="url(#accent)" fill-opacity="0.35"/>
+
+  <!-- Eyebrow / tag -->
+  <rect x="62" y="68" width="110" height="22" rx="11" fill="#3b82f6" fill-opacity="0.12" stroke="#3b82f6" stroke-width="0.75" stroke-opacity="0.4"/>
+  <text x="117" y="83" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#7dd3fc" fill-opacity="0.9">AGENTIC AI</text>
+
+  <!-- Main title -->
+  <text x="62" y="148" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">The Next</text>
+  <text x="62" y="206" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Evolution</text>
+  <!-- Accent underline on second word -->
+  <rect x="62" y="214" width="230" height="4" rx="2" fill="url(#accent)" fill-opacity="0.7"/>
+
+  <!-- Subtitle line -->
+  <text x="62" y="250" font-family="ui-sans-serif,system-ui,sans-serif" font-size="20" font-weight="400" fill="#94a3b8" letter-spacing="0">Beyond Chatbots</text>
+
+  <!-- Teambotics branding -->
+  <text x="62" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#3b82f6" fill-opacity="0.55">TEAMBOTICS</text>
+
+  <!-- Bottom rule -->
+  <rect x="48" y="335" width="544" height="1" rx="0.5" fill="url(#accent)" fill-opacity="0.12"/>
+</svg>

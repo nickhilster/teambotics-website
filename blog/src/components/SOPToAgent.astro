@@ -1,0 +1,308 @@
+---
+// Five-step process for translating an SOP into an AI agent workflow
+---
+
+<div class="sop-to-agent">
+  <style>
+    .sop-to-agent {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .sta-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .sta-stepper {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .sta-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+      border-radius: var(--radius-lg);
+    }
+
+    .sta-step::after {
+      content: '→';
+      position: absolute;
+      right: -0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-tertiary);
+      font-size: 0.9rem;
+      z-index: 1;
+    }
+
+    .sta-step:last-child::after { display: none; }
+
+    .sta-step:hover .sta-num,
+    .sta-step.active .sta-num {
+      transform: scale(1.1);
+    }
+
+    .sta-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      transition: all 0.25s ease;
+      border: 2px solid var(--color-border);
+      color: var(--color-text-tertiary);
+      background: var(--color-bg-elevated);
+    }
+
+    .sta-step.active .sta-num {
+      border-color: #f6ad55;
+      color: #f6ad55;
+      background: rgba(246, 173, 85, 0.1);
+      box-shadow: 0 0 12px rgba(246, 173, 85, 0.3);
+    }
+
+    .sta-step-icon {
+      font-size: 1.1rem;
+    }
+
+    .sta-step-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--color-text-tertiary);
+      line-height: 1.3;
+      transition: color 0.2s ease;
+    }
+
+    .sta-step.active .sta-step-label,
+    .sta-step:hover .sta-step-label {
+      color: var(--color-text-primary);
+    }
+
+    .sta-detail {
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(246, 173, 85, 0.25);
+      animation: slideUp 0.25s ease;
+    }
+
+    .sta-detail-step {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #f6ad55;
+      margin-bottom: 0.3rem;
+    }
+
+    .sta-detail-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .sta-detail-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    .sta-example {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(246, 173, 85, 0.06);
+      border-left: 3px solid rgba(246, 173, 85, 0.4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+    }
+
+    .sta-example strong { color: var(--color-text-primary); }
+
+    .sta-qualities {
+      margin-top: 1.25rem;
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+    }
+
+    .sta-qualities-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-tertiary);
+      margin-bottom: 0.75rem;
+    }
+
+    .sta-quality-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+
+    .sta-quality {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--color-text-secondary);
+      padding: 0.4rem;
+    }
+
+    .sta-quality-icon { font-size: 0.9rem; }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 639px) {
+      .sta-stepper { flex-direction: column; gap: 0.5rem; }
+      .sta-step {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1rem;
+        min-height: 64px;
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+      }
+      .sta-step::after { display: none; }
+      .sta-step-label { text-align: left; font-size: 0.82rem; }
+      .sta-num { width: 40px; height: 40px; font-size: 0.95rem; flex-shrink: 0; }
+      .sta-step-icon { font-size: 1.25rem; }
+      .sta-quality-grid { grid-template-columns: 1fr; }
+      .sta-detail { padding: 1rem; }
+      .sta-detail-title { font-size: 1rem; }
+      .sta-detail-desc { font-size: 0.9rem; }
+    }
+  </style>
+
+  <div class="sta-title">From SOP to AI Agent — The Five-Step Translation</div>
+
+  <div class="sta-stepper">
+    <div class="sta-step active" data-step="graph">
+      <div class="sta-num">1</div>
+      <div class="sta-step-icon">🗺️</div>
+      <div class="sta-step-label">Extract Decision Graph</div>
+    </div>
+    <div class="sta-step" data-step="tools">
+      <div class="sta-num">2</div>
+      <div class="sta-step-icon">🔧</div>
+      <div class="sta-step-label">Identify Tools</div>
+    </div>
+    <div class="sta-step" data-step="prompt">
+      <div class="sta-num">3</div>
+      <div class="sta-step-icon">✍️</div>
+      <div class="sta-step-label">Write System Prompt</div>
+    </div>
+    <div class="sta-step" data-step="handoffs">
+      <div class="sta-num">4</div>
+      <div class="sta-step-icon">👤</div>
+      <div class="sta-step-label">Define Human Handoffs</div>
+    </div>
+    <div class="sta-step" data-step="test">
+      <div class="sta-num">5</div>
+      <div class="sta-step-icon">🧪</div>
+      <div class="sta-step-label">Test on Historical Cases</div>
+    </div>
+  </div>
+
+  <div class="sta-detail" id="sta-detail">
+    <div class="sta-detail-step">Step 1 of 5</div>
+    <div class="sta-detail-title">Extract the Decision Graph</div>
+    <div class="sta-detail-desc">Read the SOP and map it as a flowchart. Each step becomes a node; each decision point ("if the reading exceeds threshold X, proceed to step 7") becomes a branch. This graph is the skeleton of the agent workflow — the structure that determines what happens and in what order.</div>
+    <div class="sta-example"><strong>Tool:</strong> LangGraph represents agent workflows as exactly this kind of directed graph. Your SOP flowchart maps directly to LangGraph's node-and-edge model.</div>
+  </div>
+
+  <div class="sta-qualities">
+    <div class="sta-qualities-title">What makes an SOP AI-translatable?</div>
+    <div class="sta-quality-grid">
+      <div class="sta-quality"><div class="sta-quality-icon">✓</div> Clear decision points with defined branches</div>
+      <div class="sta-quality"><div class="sta-quality-icon">✓</div> Explicit inputs and expected outputs</div>
+      <div class="sta-quality"><div class="sta-quality-icon">✓</div> Measurable acceptance criteria</div>
+      <div class="sta-quality"><div class="sta-quality-icon">✓</div> Bounded scope — one workflow, not a domain</div>
+    </div>
+  </div>
+
+  <script>
+    const stepData = {
+      graph: {
+        step: 'Step 1 of 5',
+        title: 'Extract the Decision Graph',
+        desc: 'Read the SOP and map it as a flowchart. Each step becomes a node; each decision point ("if the reading exceeds threshold X, proceed to step 7") becomes a branch. This graph is the skeleton of the agent workflow — the structure that determines what happens and in what order.',
+        example: 'LangGraph represents agent workflows as exactly this kind of directed graph. Your SOP flowchart maps directly to LangGraph\'s node-and-edge model.'
+      },
+      tools: {
+        step: 'Step 2 of 5',
+        title: 'Identify the Tools the Agent Needs',
+        desc: 'For each step that requires external information or action, identify the tool: a database query, a form submission, an API call, a document retrieval. These become the agent\'s toolset — the functions it can call to interact with the world beyond its own reasoning.',
+        example: 'For a work order triage SOP: Tool 1 = asset history query. Tool 2 = parts inventory check. Tool 3 = asset criticality lookup. Tool 4 = work order routing submission.'
+      },
+      prompt: {
+        step: 'Step 3 of 5',
+        title: 'Write the System Prompt',
+        desc: 'Convert the SOP\'s stated purpose, scope, and key decision logic into a system prompt for the AI agent. The SOP provides the content — the domain knowledge, the decision criteria, the constraints. The Prompt Engineering Guide provides the technique for translating it into precise AI instructions.',
+        example: 'The system prompt should encode: the agent\'s role, its decision logic for key branches, the format of its output, and what it should do when it cannot complete a step (escalate, flag, or halt).'
+      },
+      handoffs: {
+        step: 'Step 4 of 5',
+        title: 'Define the Human Handoff Points',
+        desc: 'In regulated or high-stakes environments, certain steps in the SOP require human decision or sign-off. These become explicit human-in-the-loop gates in the agent workflow — points where the agent pauses and waits for human input before proceeding.',
+        example: 'Microsoft AutoGen supports human proxy agents that pause execution and request human input at specified steps. The agent presents its draft or recommendation; the human reviews, approves, or overrides before execution continues.'
+      },
+      test: {
+        step: 'Step 5 of 5',
+        title: 'Test Against Historical Cases',
+        desc: 'Before deploying, run the agent against historical cases where the correct outcome is known. Measure accuracy on each step and on the final output. Use failures to identify where the prompt needs refinement or where the decision logic needs to be more explicit.',
+        example: 'A well-tested agent should handle at least: the common case (80%+ of real cases), the edge cases (unusual inputs the SOP addresses), and the failure case (what happens when required information is missing or a tool call fails).'
+      }
+    };
+
+    const steps = document.querySelectorAll('.sta-step');
+    const detail = document.getElementById('sta-detail');
+
+    function activate(step) {
+      steps.forEach(s => s.classList.remove('active'));
+      step.classList.add('active');
+      const d = stepData[step.dataset.step];
+      if (!d) return;
+      detail.innerHTML = `
+        <div class="sta-detail-step">${d.step}</div>
+        <div class="sta-detail-title">${d.title}</div>
+        <div class="sta-detail-desc">${d.desc}</div>
+        <div class="sta-example"><strong>Example:</strong> ${d.example}</div>
+      `;
+    }
+
+    steps.forEach(step => {
+      step.addEventListener('click', () => activate(step));
+      step.addEventListener('mouseenter', () => activate(step));
+    });
+
+    // Activate first by default
+    if (steps.length) activate(steps[0]);
+  </script>
+</div>

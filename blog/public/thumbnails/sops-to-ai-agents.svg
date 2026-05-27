@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="From SOPs to Smart Agents: Turning Procedures into AI-Powered Workflows">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c0800"/>
+      <stop offset="100%" stop-color="#110d00"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="clip"><rect width="640" height="360"/></clipPath>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glow)"/>
+  <ellipse cx="560" cy="85" rx="150" ry="110" fill="#f59e0b" fill-opacity="0.08" filter="url(#blur)" clip-path="url(#clip)"/>
+  <!-- Mini document top-right -->
+  <rect x="476" y="52" width="52" height="64" rx="6" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+  <rect x="484" y="66" width="34" height="6" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="484" y="76" width="26" height="5" rx="2.5" fill="#f59e0b" fill-opacity="0.2"/>
+  <rect x="484" y="85" width="30" height="5" rx="2.5" fill="#f59e0b" fill-opacity="0.15"/>
+  <rect x="484" y="94" width="20" height="5" rx="2.5" fill="#f59e0b" fill-opacity="0.1"/>
+  <!-- Arrow -->
+  <path d="M534 84 l20 0" stroke="url(#accent)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M548 78 l8 6 -8 6" stroke="#fbbf24" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Agent hexagon -->
+  <polygon points="583,52 609,66 609,94 583,108 557,94 557,66" fill="#1a1000" stroke="url(#accent)" stroke-width="1.8" stroke-opacity="0.65"/>
+  <circle cx="583" cy="80" r="10" fill="none" stroke="#fbbf24" stroke-width="1.8" stroke-opacity="0.7"/>
+  <circle cx="583" cy="80" r="4" fill="#fbbf24" fill-opacity="0.7"/>
+  <!-- Left accent bar -->
+  <rect x="48" y="60" width="4" height="240" rx="2" fill="url(#accent)" fill-opacity="0.35"/>
+  <!-- Tag -->
+  <rect x="62" y="68" width="94" height="22" rx="11" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="0.75" stroke-opacity="0.4"/>
+  <text x="109" y="83" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#fcd34d" fill-opacity="0.9">AUTOMATION</text>
+  <!-- Title -->
+  <text x="62" y="148" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">SOPs to</text>
+  <text x="62" y="206" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Smart Agents</text>
+  <rect x="62" y="214" width="320" height="4" rx="2" fill="url(#accent)" fill-opacity="0.7"/>
+  <!-- Subtitle -->
+  <text x="62" y="250" font-family="ui-sans-serif,system-ui,sans-serif" font-size="20" font-weight="400" fill="#94a3b8">procedures become AI-powered workflows</text>
+  <!-- Branding -->
+  <text x="62" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#f59e0b" fill-opacity="0.55">TEAMBOTICS</text>
+  <rect x="48" y="335" width="544" height="1" rx="0.5" fill="url(#accent)" fill-opacity="0.12"/>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="AI Augmentation for Frontline Operations">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0a04"/>
+      <stop offset="100%" stop-color="#130c04"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="clip"><rect width="640" height="360"/></clipPath>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glow)"/>
+  <ellipse cx="565" cy="95" rx="155" ry="115" fill="#f59e0b" fill-opacity="0.08" filter="url(#blur)" clip-path="url(#clip)"/>
+  <!-- Geometric: gear/cog shape top-right -->
+  <circle cx="546" cy="90" r="48" fill="none" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.12"/>
+  <circle cx="546" cy="90" r="32" fill="#1a1000" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.35"/>
+  <circle cx="546" cy="90" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.5"/>
+  <circle cx="546" cy="90" r="6" fill="#f59e0b" fill-opacity="0.5"/>
+  <!-- Gear teeth -->
+  <rect x="540" y="55" width="12" height="10" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="540" y="115" width="12" height="10" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="511" y="84" width="10" height="12" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="571" y="84" width="10" height="12" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
+  <!-- Small satellite gear -->
+  <circle cx="598" cy="56" r="14" fill="#1a1000" stroke="#fb923c" stroke-width="1.2" stroke-opacity="0.4"/>
+  <circle cx="598" cy="56" r="5" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="546" y1="62" x2="589" y2="65" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.2"/>
+  <!-- Left bar -->
+  <rect x="48" y="60" width="4" height="240" rx="2" fill="url(#accent)" fill-opacity="0.35"/>
+  <!-- Tag -->
+  <rect x="62" y="68" width="144" height="22" rx="11" fill="#f59e0b" fill-opacity="0.1" stroke="#f59e0b" stroke-width="0.75" stroke-opacity="0.4"/>
+  <text x="134" y="83" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#fcd34d" fill-opacity="0.9">AI AUGMENTATION</text>
+  <!-- Title -->
+  <text x="62" y="148" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Frontline</text>
+  <text x="62" y="206" font-family="ui-sans-serif,system-ui,sans-serif" font-size="48" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Operations</text>
+  <rect x="62" y="214" width="264" height="4" rx="2" fill="url(#accent)" fill-opacity="0.7"/>
+  <!-- Subtitle -->
+  <text x="62" y="250" font-family="ui-sans-serif,system-ui,sans-serif" font-size="20" font-weight="400" fill="#94a3b8">augmented with AI, built for humans</text>
+  <!-- Branding -->
+  <text x="62" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#f59e0b" fill-opacity="0.55">TEAMBOTICS</text>
+  <rect x="48" y="335" width="544" height="1" rx="0.5" fill="url(#accent)" fill-opacity="0.12"/>
+</svg>

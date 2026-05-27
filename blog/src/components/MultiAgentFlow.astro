@@ -1,0 +1,351 @@
+---
+// Interactive diagram of the three multi-agent architecture patterns
+---
+
+<div class="multi-agent-flow">
+  <style>
+    .multi-agent-flow {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .maf-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .maf-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0;
+    }
+
+    .maf-tab {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      margin-bottom: -1px;
+    }
+
+    .maf-tab:hover { color: var(--color-text-primary); }
+    .maf-tab.active {
+      color: var(--color-text-primary);
+      border-bottom-color: #63b3ed;
+    }
+
+    .maf-panel {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .maf-panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .maf-diagram {
+      padding: 1.5rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+
+    /* Parallel layout */
+    .maf-parallel-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .maf-parallel-agents {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Sequential layout */
+    .maf-sequential {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* Hierarchical layout */
+    .maf-hierarchical {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .maf-hier-top {
+      display: flex;
+      justify-content: center;
+    }
+
+    .maf-hier-line {
+      width: 60%;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .maf-hier-line::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .maf-hier-line::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+      background: var(--color-border);
+    }
+
+    .maf-hier-workers {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    /* Agent box */
+    .maf-agent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .maf-agent--orchestrator {
+      border-color: rgba(167, 139, 250, 0.4);
+      background: rgba(167, 139, 250, 0.08);
+    }
+
+    .maf-agent--worker {
+      border-color: rgba(99, 179, 237, 0.4);
+      background: rgba(99, 179, 237, 0.08);
+    }
+
+    .maf-agent--human {
+      border-color: rgba(74, 222, 128, 0.4);
+      background: rgba(74, 222, 128, 0.08);
+    }
+
+    .maf-agent-icon { font-size: 1.25rem; }
+
+    .maf-agent-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      line-height: 1.2;
+    }
+
+    /* Arrow */
+    .maf-arrow {
+      font-size: 1.1rem;
+      color: var(--color-text-tertiary);
+      flex-shrink: 0;
+    }
+
+    /* Converge arrows */
+    .maf-converge {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      font-size: 0.9rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .maf-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+      padding: 0 0.25rem;
+    }
+
+    .maf-use-case {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: rgba(99, 179, 237, 0.05);
+      border-left: 3px solid rgba(99, 179, 237, 0.4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.83rem;
+      color: var(--color-text-secondary);
+      font-style: italic;
+    }
+
+    @media (max-width: 639px) {
+      /* Full-width scrollable tabs on mobile */
+      .maf-tabs {
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .maf-tabs::-webkit-scrollbar { display: none; }
+      .maf-tab {
+        flex: 1;
+        min-height: 48px;
+        font-size: 0.9rem;
+        padding: 0.75rem 0.75rem;
+        text-align: center;
+      }
+      .maf-parallel-agents { flex-wrap: wrap; gap: 0.5rem; }
+      .maf-sequential { gap: 0.2rem; flex-wrap: wrap; justify-content: center; }
+      .maf-agent { min-width: 64px; padding: 0.6rem 0.5rem; }
+      .maf-agent-icon { font-size: 1.1rem; }
+      .maf-agent-label { font-size: 0.65rem; }
+      .maf-diagram { padding: 1rem 0.75rem; }
+      .maf-desc, .maf-use-case { font-size: 0.9rem; }
+    }
+  </style>
+
+  <div class="maf-title">Multi-Agent Architecture Patterns</div>
+
+  <div class="maf-tabs">
+    <button class="maf-tab active" data-panel="parallel">Parallel</button>
+    <button class="maf-tab" data-panel="sequential">Sequential</button>
+    <button class="maf-tab" data-panel="hierarchical">Hierarchical</button>
+  </div>
+
+  <!-- PARALLEL -->
+  <div class="maf-panel active" id="maf-parallel">
+    <div class="maf-diagram">
+      <div class="maf-parallel-agents">
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">📊</div>
+          <div class="maf-agent-label">Data Agent</div>
+        </div>
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">⚖️</div>
+          <div class="maf-agent-label">Compliance Agent</div>
+        </div>
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">🔍</div>
+          <div class="maf-agent-label">Risk Agent</div>
+        </div>
+      </div>
+      <div class="maf-converge">↘ <span style="flex:1;text-align:center">converge</span> ↙</div>
+      <div style="display:flex;justify-content:center;margin-top:0.4rem">
+        <div class="maf-agent maf-agent--orchestrator">
+          <div class="maf-agent-icon">🧩</div>
+          <div class="maf-agent-label">Coordinator Agent</div>
+        </div>
+      </div>
+    </div>
+    <div class="maf-desc">Multiple agents work simultaneously on independent subtasks. Each completes its assignment autonomously; a coordinator agent synthesises the outputs into a final result. Best for tasks that decompose into non-dependent parallel workstreams.</div>
+    <div class="maf-use-case">Example: Compliance review agent checks requirements while data extraction agent pulls records — both run concurrently, saving the time of running them in sequence.</div>
+  </div>
+
+  <!-- SEQUENTIAL -->
+  <div class="maf-panel" id="maf-sequential">
+    <div class="maf-diagram">
+      <div class="maf-sequential">
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">📥</div>
+          <div class="maf-agent-label">Triage Agent</div>
+        </div>
+        <div class="maf-arrow">→</div>
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">🔬</div>
+          <div class="maf-agent-label">Specialist Agent</div>
+        </div>
+        <div class="maf-arrow">→</div>
+        <div class="maf-agent maf-agent--worker">
+          <div class="maf-agent-icon">📝</div>
+          <div class="maf-agent-label">Report Agent</div>
+        </div>
+        <div class="maf-arrow">→</div>
+        <div class="maf-agent maf-agent--human">
+          <div class="maf-agent-icon">👤</div>
+          <div class="maf-agent-label">Human Review</div>
+        </div>
+      </div>
+    </div>
+    <div class="maf-desc">Agents work in a chain where each agent's output becomes the next agent's input. A triage agent classifies an incoming request, passes it to the right specialist, whose output feeds into a report agent, before reaching human review.</div>
+    <div class="maf-use-case">Example: Maintenance work order triage — classify fault type → retrieve history → check inventory → generate structured brief for engineer.</div>
+  </div>
+
+  <!-- HIERARCHICAL -->
+  <div class="maf-panel" id="maf-hierarchical">
+    <div class="maf-diagram">
+      <div class="maf-hierarchical">
+        <div class="maf-hier-top">
+          <div class="maf-agent maf-agent--orchestrator">
+            <div class="maf-agent-icon">🎯</div>
+            <div class="maf-agent-label">Orchestrator / Planner</div>
+          </div>
+        </div>
+        <div class="maf-hier-line"></div>
+        <div class="maf-hier-workers">
+          <div class="maf-agent maf-agent--worker">
+            <div class="maf-agent-icon">🔧</div>
+            <div class="maf-agent-label">Worker A</div>
+          </div>
+          <div class="maf-agent maf-agent--worker">
+            <div class="maf-agent-icon">📊</div>
+            <div class="maf-agent-label">Worker B</div>
+          </div>
+          <div class="maf-agent maf-agent--worker">
+            <div class="maf-agent-icon">✅</div>
+            <div class="maf-agent-label">Worker C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="maf-desc">An orchestrator agent breaks down a high-level goal and assigns subtasks to specialised worker agents. The orchestrator directs and aggregates — it does not execute. Workers handle their assigned domains and return results upward.</div>
+    <div class="maf-use-case">Example: Regulatory submission pre-check — orchestrator assigns data gathering, checklist review, and gap analysis to three specialist workers, then synthesises their outputs into a final report.</div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.maf-tab');
+    const panels = document.querySelectorAll('.maf-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const panel = document.getElementById('maf-' + tab.dataset.panel);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  </script>
+</div>

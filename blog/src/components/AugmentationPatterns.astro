@@ -1,0 +1,246 @@
+---
+// Four frontline AI augmentation patterns with difficulty and time-to-value
+---
+
+<div class="aug-patterns">
+  <style>
+    .aug-patterns {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .ap-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .ap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .ap-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: var(--color-bg-elevated);
+    }
+
+    .ap-card:hover,
+    .ap-card.active {
+      border-color: rgba(99, 179, 237, 0.4);
+      background: rgba(99, 179, 237, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .ap-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .ap-card-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .ap-card-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+
+    .ap-card-pattern {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-tertiary);
+      margin-top: 0.2rem;
+    }
+
+    .ap-metrics {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .ap-metric {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .ap-metric--difficulty-low {
+      background: rgba(74, 222, 128, 0.12);
+      color: #4ade80;
+    }
+
+    .ap-metric--difficulty-medium {
+      background: rgba(251, 191, 36, 0.12);
+      color: #fbbf24;
+    }
+
+    .ap-metric--time {
+      background: rgba(99, 179, 237, 0.12);
+      color: #63b3ed;
+    }
+
+    .ap-detail {
+      padding: 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(99, 179, 237, 0.25);
+      animation: slideUp 0.25s ease;
+    }
+
+    .ap-detail-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .ap-detail-desc {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.55;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 639px) {
+      .ap-grid { grid-template-columns: 1fr; }
+      .ap-card { padding: 1rem; min-height: 80px; }
+      .ap-card-icon { font-size: 1.75rem; }
+      .ap-card-name { font-size: 1rem; }
+      .ap-detail { padding: 1rem; }
+      .ap-detail-title { font-size: 1rem; }
+      .ap-detail-desc { font-size: 0.9rem; }
+    }
+  </style>
+
+  <div class="ap-title">Four High-Value Augmentation Patterns — click to explore</div>
+
+  <div class="ap-grid">
+    <div class="ap-card active" data-pattern="oracle">
+      <div class="ap-card-header">
+        <div class="ap-card-icon">🔮</div>
+        <div>
+          <div class="ap-card-name">The Knowledge Oracle</div>
+          <div class="ap-card-pattern">Pattern 1</div>
+        </div>
+      </div>
+      <div class="ap-metrics">
+        <div class="ap-metric ap-metric--difficulty-low">✓ Low difficulty</div>
+        <div class="ap-metric ap-metric--time">⏱ Days to weeks</div>
+      </div>
+    </div>
+
+    <div class="ap-card" data-pattern="reporter">
+      <div class="ap-card-header">
+        <div class="ap-card-icon">📝</div>
+        <div>
+          <div class="ap-card-name">The Structured Reporter</div>
+          <div class="ap-card-pattern">Pattern 2</div>
+        </div>
+      </div>
+      <div class="ap-metrics">
+        <div class="ap-metric ap-metric--difficulty-low">✓ Low–Medium</div>
+        <div class="ap-metric ap-metric--time">⏱ 1–2 weeks</div>
+      </div>
+    </div>
+
+    <div class="ap-card" data-pattern="prescreener">
+      <div class="ap-card-header">
+        <div class="ap-card-icon">🔍</div>
+        <div>
+          <div class="ap-card-name">The Escalation Pre-Screener</div>
+          <div class="ap-card-pattern">Pattern 3</div>
+        </div>
+      </div>
+      <div class="ap-metrics">
+        <div class="ap-metric ap-metric--difficulty-medium">~ Medium</div>
+        <div class="ap-metric ap-metric--time">⏱ 2–4 weeks</div>
+      </div>
+    </div>
+
+    <div class="ap-card" data-pattern="handover">
+      <div class="ap-card-header">
+        <div class="ap-card-icon">🔄</div>
+        <div>
+          <div class="ap-card-name">The Shift Handover Generator</div>
+          <div class="ap-card-pattern">Pattern 4</div>
+        </div>
+      </div>
+      <div class="ap-metrics">
+        <div class="ap-metric ap-metric--difficulty-medium">~ Medium</div>
+        <div class="ap-metric ap-metric--time">⏱ 2–4 weeks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ap-detail" id="ap-detail">
+    <div class="ap-detail-title">Pattern 1: The Knowledge Oracle</div>
+    <div class="ap-detail-desc">Makes your technical documentation, SOPs, maintenance manuals, and historical logs queryable in natural language. The frontline worker asks a question; the system retrieves and synthesises the relevant answer — complete with source citations so workers can verify. This is the RAG pattern applied to operational documentation. Not a replacement for expertise — an amplifier of it.</div>
+  </div>
+
+  <script>
+    const patternData = {
+      oracle: {
+        title: 'Pattern 1: The Knowledge Oracle',
+        desc: 'Makes your technical documentation, SOPs, maintenance manuals, and historical logs queryable in natural language. The frontline worker asks a question; the system retrieves and synthesises the relevant answer — complete with source citations so workers can verify. This is the RAG pattern applied to operational documentation. Not a replacement for expertise — an amplifier of it.'
+      },
+      reporter: {
+        title: 'Pattern 2: The Structured Reporter',
+        desc: 'Takes raw inputs — sensor readings, inspection notes, operator observations — and produces a structured report in a standard format. The worker provides the raw information; the AI handles the structuring and formatting. Particularly high value for incident reports, quality inspection summaries, and regulatory documentation where format compliance is required but adds no value to produce manually.'
+      },
+      prescreener: {
+        title: 'Pattern 3: The Escalation Pre-Screener',
+        desc: 'Before an escalation reaches a specialist, an AI agent reviews the request, cross-references the historical record, and provides the specialist with a structured brief: "Here is the history of this issue, here are the three most similar past incidents, here is what resolved them." The specialist still decides — but in minutes rather than hours, with context they would otherwise have had to hunt for.'
+      },
+      handover: {
+        title: 'Pattern 4: The Shift Handover Generator',
+        desc: 'At the end of each shift, an AI agent pulls the relevant data from production systems — what ran, what stopped, what alarms fired, what maintenance was performed — and generates a structured handover brief. The outgoing operator reviews and annotates it; the incoming operator receives a complete picture rather than a rushed verbal summary. Directly reduces the most common cause of continuity errors in continuous operations.'
+      }
+    };
+
+    const cards = document.querySelectorAll('.ap-card');
+    const detail = document.getElementById('ap-detail');
+
+    function activate(card) {
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const d = patternData[card.dataset.pattern];
+      if (!d) return;
+      detail.innerHTML = `<div class="ap-detail-title">${d.title}</div><div class="ap-detail-desc">${d.desc}</div>`;
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => activate(card));
+      card.addEventListener('mouseenter', () => activate(card));
+    });
+
+    // Activate first by default
+    if (cards.length) activate(cards[0]);
+  </script>
+</div>

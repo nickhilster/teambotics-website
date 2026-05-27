@@ -15,17 +15,6 @@ interface Props {
 
 const { post } = Astro.props;
 const coverImage = post.cover_image_url ?? getGeometricThumbnailUrl(post.slug);
-
-function formatDate(iso: string | null) {
-  if (!iso) return null;
-  return new Date(iso).toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-}
-
-const date = formatDate(post.published_at);
 ---
 
 <article class="post-card">
@@ -51,14 +40,5 @@ const date = formatDate(post.published_at);
       <p class="post-card__excerpt">{post.excerpt}</p>
     )}
 
-    <div class="post-card__meta">
-      <span>{post.author}</span>
-      {date && (
-        <>
-          <span class="post-card__meta-sep">·</span>
-          <time datetime={post.published_at!}>{date}</time>
-        </>
-      )}
-    </div>
   </div>
 </article>

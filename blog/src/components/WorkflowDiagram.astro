@@ -1,0 +1,380 @@
+---
+// Interactive LLM-powered workflow diagram for quality non-conformance handling
+---
+
+<div class="workflow-diagram">
+  <style>
+    .workflow-diagram {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .wd-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .wd-subtitle {
+      font-size: 0.82rem;
+      color: var(--color-text-tertiary);
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .wd-legend {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .wd-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--color-text-tertiary);
+    }
+
+    .wd-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .wd-legend-dot--llm { background: #63b3ed; }
+    .wd-legend-dot--tool { background: #f6ad55; }
+    .wd-legend-dot--human { background: #4ade80; }
+
+    .wd-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .wd-step {
+      display: flex;
+      align-items: stretch;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .wd-step-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 32px;
+      flex-shrink: 0;
+    }
+
+    .wd-step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .wd-step-dot--llm { background: rgba(99, 179, 237, 0.15); color: #63b3ed; border-color: rgba(99, 179, 237, 0.3); }
+    .wd-step-dot--tool { background: rgba(246, 173, 85, 0.15); color: #f6ad55; border-color: rgba(246, 173, 85, 0.3); }
+    .wd-step-dot--human { background: rgba(74, 222, 128, 0.15); color: #4ade80; border-color: rgba(74, 222, 128, 0.3); }
+
+    .wd-step:hover .wd-step-dot,
+    .wd-step.active .wd-step-dot {
+      transform: scale(1.1);
+    }
+
+    .wd-step.active .wd-step-dot--llm { background: rgba(99, 179, 237, 0.25); box-shadow: 0 0 12px rgba(99, 179, 237, 0.4); }
+    .wd-step.active .wd-step-dot--tool { background: rgba(246, 173, 85, 0.25); box-shadow: 0 0 12px rgba(246, 173, 85, 0.4); }
+    .wd-step.active .wd-step-dot--human { background: rgba(74, 222, 128, 0.25); box-shadow: 0 0 12px rgba(74, 222, 128, 0.4); }
+
+    .wd-step-line {
+      width: 2px;
+      flex: 1;
+      background: var(--color-border);
+      margin: 2px 0;
+      min-height: 8px;
+    }
+
+    .wd-step-body {
+      flex: 1;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-elevated);
+      transition: all 0.25s ease;
+      margin-bottom: 0.375rem;
+    }
+
+    .wd-step:hover .wd-step-body,
+    .wd-step.active .wd-step-body {
+      background: var(--color-bg-elevated);
+    }
+
+    .wd-step[data-type="llm"]:hover .wd-step-body,
+    .wd-step[data-type="llm"].active .wd-step-body {
+      border-color: rgba(99, 179, 237, 0.4);
+      background: rgba(99, 179, 237, 0.05);
+    }
+
+    .wd-step[data-type="tool"]:hover .wd-step-body,
+    .wd-step[data-type="tool"].active .wd-step-body {
+      border-color: rgba(246, 173, 85, 0.4);
+      background: rgba(246, 173, 85, 0.05);
+    }
+
+    .wd-step[data-type="human"]:hover .wd-step-body,
+    .wd-step[data-type="human"].active .wd-step-body {
+      border-color: rgba(74, 222, 128, 0.4);
+      background: rgba(74, 222, 128, 0.05);
+    }
+
+    .wd-step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .wd-step-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      flex: 1;
+    }
+
+    .wd-step-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .wd-step[data-type="llm"] .wd-step-badge { background: rgba(99, 179, 237, 0.15); color: #63b3ed; }
+    .wd-step[data-type="tool"] .wd-step-badge { background: rgba(246, 173, 85, 0.15); color: #f6ad55; }
+    .wd-step[data-type="human"] .wd-step-badge { background: rgba(74, 222, 128, 0.15); color: #4ade80; }
+
+    .wd-step-detail {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      line-height: 1.45;
+      margin-top: 0.4rem;
+      display: none;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .wd-step.active .wd-step-detail {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .wd-time-saving {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: var(--color-bg-elevated);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .wd-time-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      min-width: 80px;
+    }
+
+    .wd-time-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .wd-time-item:nth-child(1) .wd-time-val { color: #ff6b6b; }
+    .wd-time-item:nth-child(3) .wd-time-val { color: #4ade80; }
+    .wd-time-item:nth-child(2) .wd-time-val { color: var(--color-text-tertiary); font-size: 1.8rem; }
+
+    .wd-time-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text-tertiary);
+    }
+
+    @media (max-width: 639px) {
+      .wd-step-body { padding: 0.75rem 1rem; }
+      .wd-step-name { font-size: 0.9rem; }
+      .wd-step-dot { width: 36px; height: 36px; font-size: 0.85rem; }
+      .wd-step-connector { width: 36px; }
+      .wd-step-detail { font-size: 0.85rem; line-height: 1.5; }
+      /* Bigger tap target — ensure at least 48px row height */
+      .wd-step-body { min-height: 52px; display: flex; flex-direction: column; justify-content: center; }
+      .wd-time-saving { gap: 0.75rem; }
+      .wd-time-val { font-size: 1.25rem; }
+    }
+  </style>
+
+  <div class="wd-title">LLM-Powered Workflow: Quality Non-Conformance Handling</div>
+  <div class="wd-subtitle">Click any step to see how the LLM integrates — and what the human retains</div>
+
+  <div class="wd-legend">
+    <div class="wd-legend-item"><div class="wd-legend-dot wd-legend-dot--llm"></div> LLM reasoning step</div>
+    <div class="wd-legend-item"><div class="wd-legend-dot wd-legend-dot--tool"></div> Tool / function call</div>
+    <div class="wd-legend-item"><div class="wd-legend-dot wd-legend-dot--human"></div> Human review gate</div>
+  </div>
+
+  <div class="wd-steps">
+    <div class="wd-step" data-type="llm" data-step="parse">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--llm">1</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Input Parsing</div>
+          <div class="wd-step-badge">LLM</div>
+        </div>
+        <div class="wd-step-detail">LLM extracts structured fields from the raw NC report text: defect description, product batch, inspection point, operator, and timestamp. Converts unstructured written input into a reliable machine-readable record for downstream steps.</div>
+      </div>
+    </div>
+
+    <div class="wd-step" data-type="llm" data-step="classify">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--llm">2</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Defect Classification</div>
+          <div class="wd-step-badge">LLM</div>
+        </div>
+        <div class="wd-step-detail">LLM classifies defect type (dimensional, cosmetic, functional, contamination) and severity (minor, major, critical) using a defined taxonomy. Output is a structured JSON object, not free text — making it machine-readable for the next step.</div>
+      </div>
+    </div>
+
+    <div class="wd-step" data-type="tool" data-step="history">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--tool">3</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Historical NC Query</div>
+          <div class="wd-step-badge">Tool call</div>
+        </div>
+        <div class="wd-step-detail">Function call to the quality database: retrieve all similar NCs in the last 90 days matching the defect type and production line. Returns structured records with resolution details. This is retrieval, not generation — the data is verified and traceable.</div>
+      </div>
+    </div>
+
+    <div class="wd-step" data-type="llm" data-step="rootcause">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--llm">4</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Root Cause Analysis</div>
+          <div class="wd-step-badge">LLM</div>
+        </div>
+        <div class="wd-step-detail">LLM synthesises the classification, historical data, and process map to identify the most likely root cause with a confidence rating. References specific historical NCs as evidence. Output is structured with confidence score and supporting rationale.</div>
+      </div>
+    </div>
+
+    <div class="wd-step" data-type="llm" data-step="car">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--llm">5</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">CAR Draft Generation</div>
+          <div class="wd-step-badge">LLM</div>
+        </div>
+        <div class="wd-step-detail">LLM drafts the Corrective Action Report in the organisation's standard format, populating all fields from prior steps. Proposed corrective actions are drawn from resolutions that worked for similar historical NCs. Human will review and amend before it becomes a formal record.</div>
+      </div>
+    </div>
+
+    <div class="wd-step active" data-type="human" data-step="review">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--human">6</div>
+        <div class="wd-step-line"></div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Quality Manager Review &amp; Approval</div>
+          <div class="wd-step-badge">Human gate</div>
+        </div>
+        <div class="wd-step-detail">The quality manager reviews the AI-drafted CAR, amends as needed, and approves it. This step produces a documented record: who reviewed, when, what changes were made, and the approval decision. The human remains responsible for the output — the AI handles the preparation work.</div>
+      </div>
+    </div>
+
+    <div class="wd-step" data-type="tool" data-step="route">
+      <div class="wd-step-connector">
+        <div class="wd-step-dot wd-step-dot--tool">7</div>
+      </div>
+      <div class="wd-step-body">
+        <div class="wd-step-header">
+          <div class="wd-step-name">Routing &amp; Submission</div>
+          <div class="wd-step-badge">Tool call</div>
+        </div>
+        <div class="wd-step-detail">Function call to the document management system: submit the approved CAR, assign follow-up actions to the relevant functions, and create audit trail entries. The workflow is complete and fully logged — every step traceable from initial NC report to approved CAR.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wd-time-saving">
+    <div class="wd-time-item">
+      <div class="wd-time-val">2–4 hrs</div>
+      <div class="wd-time-label">Manual process</div>
+    </div>
+    <div class="wd-time-item">
+      <div class="wd-time-val">→</div>
+      <div class="wd-time-label"></div>
+    </div>
+    <div class="wd-time-item">
+      <div class="wd-time-val">~15 min</div>
+      <div class="wd-time-label">LLM-assisted (incl. review)</div>
+    </div>
+  </div>
+
+  <script>
+    const wdSteps = document.querySelectorAll('.wd-step');
+
+    wdSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        const wasActive = step.classList.contains('active');
+        wdSteps.forEach(s => s.classList.remove('active'));
+        if (!wasActive) step.classList.add('active');
+      });
+      step.addEventListener('mouseenter', () => {
+        wdSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+      });
+    });
+  </script>
+</div>

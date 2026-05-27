@@ -10,6 +10,7 @@ interface Props {
 
 const { title, description = 'Insights on industrial automation and robotics from the Teambotics team.', ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const brandAssetBase = 'https://teambotics.app/brand';
 ---
 
 <!doctype html>
@@ -17,7 +18,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href={`${brandAssetBase}/teambotics-logo-32.png`} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
@@ -44,14 +45,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <picture class="blog-header__logo">
             <source
               media="(max-width: 719px)"
-              srcSet="/brand/teambotics-logo-24.png 1x, /brand/teambotics-logo-48.png 2x"
+              srcSet={`${brandAssetBase}/teambotics-logo-24.png 1x, ${brandAssetBase}/teambotics-logo-48.png 2x`}
             />
             <img
               alt=""
               decoding="async"
               height="28"
-              src="/brand/teambotics-logo-28.png"
-              srcSet="/brand/teambotics-logo-28.png 1x, /brand/teambotics-logo-56.png 2x"
+              src={`${brandAssetBase}/teambotics-logo-28.png`}
+              srcSet={`${brandAssetBase}/teambotics-logo-28.png 1x, ${brandAssetBase}/teambotics-logo-56.png 2x`}
               width="28"
             />
           </picture>

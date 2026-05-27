@@ -3,6 +3,16 @@ import { marked } from '../lib/marked-config.ts';
 import { processCallouts } from '../lib/callouts.ts';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
+import AgentEvolution from '../components/AgentEvolution.astro';
+import DataValuePyramid from '../components/DataValuePyramid.astro';
+import MultiAgentFlow from '../components/MultiAgentFlow.astro';
+import AugmentationPatterns from '../components/AugmentationPatterns.astro';
+import ComplianceRequirements from '../components/ComplianceRequirements.astro';
+import DataValueBreakdown from '../components/DataValueBreakdown.astro';
+import SOPToAgent from '../components/SOPToAgent.astro';
+import PromptQuality from '../components/PromptQuality.astro';
+import WorkflowDiagram from '../components/WorkflowDiagram.astro';
+import CollaborationGradient from '../components/CollaborationGradient.astro';
 
 const { slug } = Astro.params as { slug: string };
 const apiBase =
@@ -42,15 +52,6 @@ if (!post && !fetchError) {
 
 const rawHtml = post ? await marked.parse(post.content) : '';
 const renderedContent = processCallouts(rawHtml);
-
-function formatDate(iso: string | null) {
-  if (!iso) return null;
-  return new Date(iso).toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
 ---
 
 {fetchError ? (
@@ -69,13 +70,12 @@ function formatDate(iso: string | null) {
     <article class="blog-post">
       <a href="/" class="blog-post__back">← All posts</a>
 
-      <img
-        src={post.cover_image_url ?? getGeometricThumbnailUrl(post.slug)}
-        alt={post.title}
-        class="blog-post__cover"
-        loading="eager"
-      />
-
+      <!--
+        Mobile-first layout: title & meta FIRST, then cover image.
+        This means on phones, readers see the post title above the fold
+        instead of burning their screen on a thumbnail they just saw
+        on the index page.
+      -->
       <header class="blog-post__header">
         {post.tags.length > 0 && (
           <div class="blog-post__tags">
@@ -87,16 +87,28 @@ function formatDate(iso: string | null) {
 
         <h1 class="blog-post__title">{post.title}</h1>
 
-        <div class="blog-post__meta">
-          <span>{post.author}</span>
-          {post.published_at && (
-            <>
-              <span class="blog-post__meta-sep">·</span>
-              <time datetime={post.published_at}>{formatDate(post.published_at)}</time>
-            </>
-          )}
-        </div>
       </header>
+
+      <!-- Cover image comes AFTER the header (title-first on mobile) -->
+      <img
+        src={post.cover_image_url ?? getGeometricThumbnailUrl(post.slug)}
+        alt={post.title}
+        class="blog-post__cover"
+        loading="eager"
+        decoding="async"
+      />
+
+      {/* Interactive component BEFORE prose body — mobile-first: visual hook first, reading second */}
+      {slug === 'agentic-ai-beyond-chatbots' && <AgentEvolution />}
+      {slug === 'operational-data-ai-value' && <DataValuePyramid />}
+      {slug === 'multi-agent-systems-workflow' && <MultiAgentFlow />}
+      {slug === 'ai-augmentation-frontline-operations' && <AugmentationPatterns />}
+      {slug === 'applied-ai-regulated-environments' && <ComplianceRequirements />}
+      {slug === 'ai-value-existing-data' && <DataValueBreakdown />}
+      {slug === 'sops-to-ai-agents' && <SOPToAgent />}
+      {slug === 'prompt-engineering-operational-skill' && <PromptQuality />}
+      {slug === 'llms-structured-automation-workflows' && <WorkflowDiagram />}
+      {slug === 'designing-human-ai-teams' && <CollaborationGradient />}
 
       <div class="blog-post__body" set:html={renderedContent} />
     </article>
