@@ -21,99 +21,99 @@ export const siteMessagesEn: SiteMessages = {
         "label": "Contact"
       }
     ],
-    "ctaLabel": "Start a conversation",
+    "ctaLabel": "Contact Teambotics",
     "openNavigationLabel": "Open navigation",
     "closeNavigationLabel": "Close navigation",
     "languageLabel": "Language"
   },
   "footer": {
     "navLabel": "Footer",
-    "copyright": "© 2026 Teambotics. An independent AI lab - proprietary products and bespoke systems for selected partners.",
+    "copyright": "© 2026 Teambotics. Independent AI systems practice for applied products, workflow automation, and operational enablement.",
     "privacyLabel": "Privacy",
     "termsLabel": "Terms",
     "linkedInLabel": "LinkedIn"
   },
   "hero": {
-    "pill": "Independent AI lab · Products & bespoke systems",
+    "pill": "Applied AI systems · Product strategy · Workflow automation",
     "titleLines": [
-      "Built for the",
-      "environments that",
-      "don't forgive mistakes."
+      "AI systems for",
+      "operational teams,",
+      "built to deploy."
     ],
-    "copy": "An independent AI lab shipping proprietary products and bespoke systems for a small number of partners - operated by agents that run without a clock.",
-    "primaryCta": "Review systems",
-    "secondaryCta": "How we work"
+    "copy": "Teambotics designs and builds AI-enabled products, workflow systems, and internal tools for organizations that need practical deployment, clear governance, and measurable adoption.",
+    "primaryCta": "View systems",
+    "secondaryCta": "Review approach"
   },
   "positioning": {
     "eyebrow": "WHAT WE DO",
-    "title": "We start from the constraints. Not the capability.",
+    "title": "We convert operational problems into deployable AI systems.",
     "paragraphs": [
-      "We don't arrive with a pre-built solution. We spend time inside the operational context first - understanding workflows, edge cases, and why things break - then build something that fits. Across compliance, workforce operations, and digital experiences, the approach stays the same.",
-      "We help teams decide what should be automated, what should stay guided, and how new capability fits the work people already do. Architecture grounded in real operating conditions means adoption and long-term usability are part of the product - not an afterthought."
+      "Our work begins with the operating environment: process gaps, compliance needs, user behavior, handoffs, and measurable business constraints. We define the system around the work before selecting the technology.",
+      "We help organizations determine where AI should assist, automate, guide, or stay out of the way. The result is practical infrastructure: clear interfaces, controlled workflows, and systems designed for adoption beyond the prototype stage."
     ],
-    "quote": "Disciplined process. Systems that last."
+    "quote": "Operational clarity. Controlled execution. Sustainable adoption."
   },
   "liveSystems": {
     "eyebrow": "AI SYSTEMS PORTFOLIO",
-    "title": "Four products. Different stages. One standard.",
-    "description": "Some are ours, some are bespoke, all are built to the same bar - clarity, adoption, and systems that hold up after launch."
+    "title": "Products and prototypes under active development.",
+    "description": "A focused portfolio across legal intake, workforce enablement, interactive systems, and narrative infrastructure."
   },
   "capabilities": {
-    "eyebrow": "CORE COMPETENCIES",
-    "title": "Built to hold up in practice.",
-    "description": "How we approach architecture, automation, and interface design across every engagement - consistently and without shortcuts.",
+    "eyebrow": "CORE CAPABILITIES",
+    "title": "Built for execution, governance, and adoption.",
+    "description": "Teambotics combines product strategy, systems design, automation, and interface development to move AI initiatives from concept to working deployment.",
     "items": [
       {
-        "title": "Scoped MVPs that ship",
-        "body": "We define precise product boundaries early - identifying the highest-value workflows and the clearest path from first build to production without scope drift."
+        "title": "Scoped MVP delivery",
+        "body": "We define focused product boundaries, prioritize high-value workflows, and build toward a production path without unnecessary scope expansion."
       },
       {
-        "title": "Compliant workflow automation",
-        "body": "We build AI systems around real handoffs, regulatory constraints, and training needs - so new workflows hold up in practice, not just in demos."
+        "title": "Governed workflow automation",
+        "body": "We design AI workflows around operational handoffs, compliance requirements, documentation needs, and controlled user outcomes."
       },
       {
-        "title": "Interfaces people want to use",
-        "body": "We design interfaces around the people doing the work: reducing cognitive load, supporting gradual onboarding, and building confidence over time."
+        "title": "Adoption-focused interfaces",
+        "body": "We design interfaces that reduce cognitive load, support role-based use, and help teams build confidence through repeated, practical use."
       }
     ]
   },
   "engagement": {
-    "eyebrow": "ENGAGEMENT METHODOLOGY",
-    "title": "A deliberate path to production.",
-    "description": "A structured methodology from early opportunity framing to a production-ready workflow system.",
+    "eyebrow": "ENGAGEMENT MODEL",
+    "title": "A structured path from assessment to deployment.",
+    "description": "A concise operating model for scoping, building, piloting, and improving AI-enabled workflow systems.",
     "steps": [
       {
         "number": "01",
-        "title": "Discovery & Scoping",
-        "body": "We start by listening. Every engagement begins with time in the operational context - understanding constraints, failure modes, and what has already been tried."
+        "title": "Assessment & Scope",
+        "body": "We map the operating context, identify constraints, define success criteria, and isolate the workflow where AI can create practical value."
       },
       {
         "number": "02",
-        "title": "System Architecture",
-        "body": "We translate what we learned into data models, enablement flows, compliant automation, and interfaces designed around how people actually work - not how they're supposed to."
+        "title": "System Design",
+        "body": "We translate requirements into data models, automation boundaries, user flows, governance rules, and interface architecture."
       },
       {
         "number": "03",
-        "title": "Controlled Pilot",
-        "body": "We deploy a contained build, gather real feedback from the team using it, and refine the workflow before any broader rollout. No soft launches that quietly go unmaintained."
+        "title": "Pilot Deployment",
+        "body": "We release a contained build to validate behavior, gather user feedback, and confirm operational fit before broader rollout."
       },
       {
         "number": "04",
         "title": "Operational Rollout",
-        "body": "We move from pilot to production with stable routines, structured enablement, and a clear roadmap - so the system grows with the team instead of aging out of it."
+        "body": "We support production adoption with documentation, enablement routines, iteration cycles, and a roadmap for system maturity."
       }
     ]
   },
   "cta": {
-    "eyebrow": "GET IN TOUCH",
-    "title": "Most of our best work started with a direct conversation.",
-    "copy": "Tell us what you're working on. We'll be direct about what's possible and whether we're the right team for it.",
-    "reviewSystemsLabel": "Review our systems"
+    "eyebrow": "CONTACT",
+    "title": "Discuss an AI workflow, product, or internal system.",
+    "copy": "Share the operational problem, product opportunity, or deployment context. We will assess fit and recommend a practical next step.",
+    "reviewSystemsLabel": "View systems"
   },
   "leadForm": {
     "eyebrow": "Lead intake",
-    "title": "Tell Teambotics what you are trying to improve.",
-    "copy": "Keep it short. We use this to understand the workflow, team, or product problem you want to discuss.",
+    "title": "Contact Teambotics.",
+    "copy": "Provide a brief overview of the workflow, team, or product problem you want to discuss.",
     "honeypotLabel": "Website",
     "fields": {
       "name": "Name",
@@ -135,7 +135,7 @@ export const siteMessagesEn: SiteMessages = {
     "privacyPrefix": "By sending this form, you agree that Teambotics may use your information to respond to your inquiry. See our ",
     "privacyLinkLabel": "Privacy Policy",
     "privacySuffix": ".",
-    "submitLabel": "Start a conversation",
+    "submitLabel": "Send inquiry",
     "submittingLabel": "Sending...",
     "emailLabel": "Prefer email?",
     "validationErrorLabel": "Please fix the highlighted fields and try again.",
