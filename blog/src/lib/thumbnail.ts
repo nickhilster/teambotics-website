@@ -11,6 +11,11 @@ const CUSTOM_THUMBNAILS: Record<string, string> = {
   'prompt-engineering-operational-skill':'/thumbnails/prompt-engineering-operational-skill.svg',
   'llms-structured-automation-workflows':'/thumbnails/llms-structured-automation-workflows.svg',
   'designing-human-ai-teams':           '/thumbnails/designing-human-ai-teams.svg',
+  'workflows-are-becoming-products':     '/thumbnails/workflows-are-becoming-products.svg',
+  'static-documentation-living-knowledge-systems': '/thumbnails/static-documentation-living-knowledge-systems.svg',
+  'trust-architecture-enterprise-ai-adoption': '/thumbnails/trust-architecture-enterprise-ai-adoption.svg',
+  'context-recovery-agentic-work':       '/thumbnails/context-recovery-agentic-work.svg',
+  'chatbots-should-ask-better-questions': '/thumbnails/chatbots-should-ask-better-questions.svg',
 };
 
 // Fallback: procedurally generated geometric SVG for unknown slugs
