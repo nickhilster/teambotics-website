@@ -52,15 +52,6 @@ if (!post && !fetchError) {
 
 const rawHtml = post ? await marked.parse(post.content) : '';
 const renderedContent = processCallouts(rawHtml);
-
-function formatDate(iso: string | null) {
-  if (!iso) return null;
-  return new Date(iso).toLocaleDateString('en-AU', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
 ---
 
 {fetchError ? (
@@ -96,15 +87,6 @@ function formatDate(iso: string | null) {
 
         <h1 class="blog-post__title">{post.title}</h1>
 
-        <div class="blog-post__meta">
-          <span>{post.author}</span>
-          {post.published_at && (
-            <>
-              <span class="blog-post__meta-sep">·</span>
-              <time datetime={post.published_at}>{formatDate(post.published_at)}</time>
-            </>
-          )}
-        </div>
       </header>
 
       <!-- Cover image comes AFTER the header (title-first on mobile) -->

@@ -318,8 +318,7 @@ a:hover {
 .post-card__cover {
   width: 100%;
   aspect-ratio: 16 / 9;
-  /* contain so SVG thumbnails (640×360) show without cropping on small cards */
-  object-fit: contain;
+  object-fit: cover;
   background: #060510;
   display: block;
 }
@@ -505,21 +504,19 @@ a:hover {
 
 .blog-post__meta-sep { opacity: 0.4; }
 
-/* Cover image — mobile: contain so SVG thumbnails show fully, desktop: cover + rounded */
+/* Cover image */
 .blog-post__cover {
   width: 100%;
   display: block;
   margin-bottom: 1.75rem;
   border-radius: 0;
-  /* contain on mobile: SVG thumbnails are 640×360 — cover crops them too tightly */
   aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: #060510; /* match the dark SVG thumbnail backgrounds */
+  object-fit: cover;
+  background: #060510;
 }
 
 @media (min-width: 640px) {
   .blog-post__cover {
-    object-fit: cover;
     border-radius: var(--radius-2xl);
     margin-bottom: 2rem;
   }
