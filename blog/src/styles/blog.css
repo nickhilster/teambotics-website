@@ -318,7 +318,8 @@ a:hover {
 .post-card__cover {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  /* contain so SVG thumbnails (640×360) show without cropping on small cards */
+  object-fit: contain;
   background: #060510;
   display: block;
 }
@@ -504,9 +505,15 @@ a:hover {
 
 .blog-post__meta-sep { opacity: 0.4; }
 
-/* Cover image */
+/* Cover image
+   Mobile: break out of the narrow article column to fill the full viewport width.
+   A full-width container means the 16:9 SVG fills it exactly — no blank bars.
+   object-fit: contain is safe here because the container IS 16:9 at full viewport width.
+   Desktop (≥640px): stay inside the article column with rounded corners + cover. */
 .blog-post__cover {
-  width: 100%;
+  /* Full-bleed on mobile — escape the 48rem article column */
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   display: block;
   margin-bottom: 1.75rem;
   border-radius: 0;
@@ -517,6 +524,9 @@ a:hover {
 
 @media (min-width: 640px) {
   .blog-post__cover {
+    width: 100%;
+    margin-left: 0;
+    object-fit: cover;
     border-radius: var(--radius-2xl);
     margin-bottom: 2rem;
   }
