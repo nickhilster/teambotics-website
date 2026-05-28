@@ -1432,8 +1432,24 @@ html.dark .card {
   gap: 1rem;
 }
 
-.system-card__header .tag {
-  margin-top: 0;
+.system-card__titles {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.system-card__name {
+  margin: 0;
+  font-size: clamp(1.75rem, 2.8vw, 2.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.system-card__title {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.45;
 }
 
 .system-card::after {
@@ -1477,7 +1493,7 @@ html.dark .card {
 }
 
 .system-card__copy {
-  margin-top: 0.1rem;
+  margin-top: 0.95rem;
 }
 
 .system-card__meta {
@@ -1640,6 +1656,10 @@ html.dark .card {
   text-align: center;
 }
 
+.engagement-step:focus-visible {
+  outline: none;
+}
+
 .engagement-step__node {
   position: relative;
   z-index: 2;
@@ -1657,7 +1677,8 @@ html.dark .card {
     box-shadow var(--transition-fast) ease;
 }
 
-.engagement-step:hover .engagement-step__node {
+.engagement-step:hover .engagement-step__node,
+.engagement-step:focus-visible .engagement-step__node {
   border-color: var(--color-accent);
   box-shadow: 0 0 1.25rem var(--color-glow);
 }
@@ -1679,16 +1700,6 @@ html.dark .card {
   font-family: var(--font-mono);
   letter-spacing: 0.06em;
   color: var(--color-text-secondary);
-}
-
-.engagement-rail > *:nth-child(3) .engagement-step__node {
-  border-color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-surface));
-  box-shadow: 0 0 1rem var(--color-glow);
-}
-
-.engagement-rail > *:nth-child(3) .engagement-step__number {
-  color: var(--color-accent);
 }
 
 .engagement-step__content {
@@ -1716,13 +1727,19 @@ html.dark .engagement-step__content {
     0 1rem 3rem rgba(0, 0, 0, 0.18);
 }
 
-.engagement-step:hover .engagement-step__content {
+.engagement-step:hover .engagement-step__content,
+.engagement-step:focus-visible .engagement-step__content {
   border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--color-accent) 30%, transparent),
     0 1rem 2.75rem color-mix(in srgb, var(--color-accent) 16%, transparent),
     inset 0 0 2rem color-mix(in srgb, var(--color-accent) 7%, transparent);
   transform: translateY(-2px);
+}
+
+.engagement-step:hover .engagement-step__number,
+.engagement-step:focus-visible .engagement-step__number {
+  color: var(--color-accent);
 }
 
 .engagement-step__content h3 {
@@ -1753,6 +1770,81 @@ html.dark .engagement-step__content {
   font-size: clamp(2.8rem, 6vw, 5.4rem);
   font-weight: 700;
   line-height: 0.95;
+}
+
+.cta-thesis {
+  display: grid;
+  gap: clamp(0.85rem, 1.6vw, 1.25rem);
+  justify-items: center;
+}
+
+.cta-thesis__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.cta-thesis__headline {
+  display: block;
+}
+
+.cta-thesis__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-bg-surface) 78%, transparent);
+  box-shadow: 0 0.9rem 2rem color-mix(in srgb, var(--color-card-glow) 60%, transparent);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    transform var(--transition-fast) ease,
+    border-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease,
+    background-color var(--transition-fast) ease,
+    color var(--transition-fast) ease;
+}
+
+.cta-thesis__chip:hover,
+.cta-thesis__chip:focus-visible {
+  outline: none;
+  transform: translateY(-2px) scale(1.02);
+}
+
+.cta-thesis__chip--output {
+  border-color: rgba(255, 77, 184, 0.42);
+  color: var(--color-accent-bright);
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+.cta-thesis__chip--output:hover,
+.cta-thesis__chip--output:focus-visible {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-accent) 30%, transparent),
+    0 1rem 2.4rem color-mix(in srgb, var(--color-accent) 18%, transparent);
+}
+
+.cta-thesis__chip--input {
+  border-color: rgba(55, 214, 194, 0.4);
+  color: var(--color-live);
+  background: color-mix(in srgb, var(--color-live) 12%, transparent);
+}
+
+.cta-thesis__chip--input:hover,
+.cta-thesis__chip--input:focus-visible {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-live) 26%, transparent),
+    0 1rem 2.4rem color-mix(in srgb, var(--color-live) 16%, transparent);
 }
 
 .cta-section__title-accent {
@@ -3471,6 +3563,11 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
 }
 
 @media (max-width: 64rem) {
+  .system-card,
+  .capability-card {
+    padding: 1.25rem;
+  }
+
   .site-header__inner {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: var(--space-3);
@@ -3521,6 +3618,11 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
     align-items: flex-start;
   }
 
+  .system-card__footer {
+    gap: 0.85rem;
+    padding-top: var(--space-4);
+  }
+
   .section-header--center {
     justify-items: start;
     text-align: left;
@@ -3528,8 +3630,16 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
 }
 
 @media (max-width: 48rem) {
+  :root {
+    --section-gap: clamp(3.25rem, 12vw, 4.5rem);
+  }
+
   .container {
     width: min(calc(100% - 1.5rem), var(--content-max));
+  }
+
+  .section-header {
+    margin-bottom: clamp(1.75rem, 8vw, 2.5rem);
   }
 
   .site-header__inner {
@@ -3577,8 +3687,29 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
     text-align: left;
   }
 
+  .cta-thesis {
+    justify-items: start;
+    gap: 0.85rem;
+  }
+
+  .cta-thesis__meta {
+    justify-content: flex-start;
+    gap: 0.45rem 0.6rem;
+  }
+
+  .cta-thesis__chip {
+    min-height: 2.75rem;
+    padding-inline: 0.85rem;
+    font-size: 0.78rem;
+  }
+
   .hero__title {
     font-size: clamp(2.45rem, 12vw, 3.9rem);
+  }
+
+  .cta-section__title {
+    font-size: clamp(2.2rem, 10.5vw, 3.4rem);
+    line-height: 1;
   }
 
   .hero__inner,
@@ -3590,6 +3721,24 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   .hero__copy,
   .cta-section__copy {
     width: 100%;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .cta-section__form-shell {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .hero-pill,
+  .hero__status-item {
+    min-height: 2.75rem;
+  }
+
+  .hero-pill {
+    padding: 0.75rem 0.95rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.16em;
   }
 
   .hero__actions,
@@ -3606,10 +3755,53 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   .cta-section__actions .button,
   .lead-form__actions .button {
     width: 100%;
+    min-height: 3.25rem;
   }
 
   .lead-form__grid {
     grid-template-columns: 1fr;
+  }
+
+  .lead-form-card,
+  .system-card,
+  .capability-card {
+    padding: 1.1rem;
+  }
+
+  .lead-form {
+    gap: 1.1rem;
+  }
+
+  .lead-form__field input,
+  .lead-form__field select,
+  .lead-form__field textarea {
+    min-height: 3rem;
+    font-size: 1rem;
+  }
+
+  .lead-form__field textarea {
+    min-height: 9rem;
+  }
+
+  .system-card__meta {
+    margin-top: 1rem;
+    gap: 0.45rem;
+  }
+
+  .system-card__meta-tag {
+    min-height: 2rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  .system-card__product-btn,
+  .system-card__case-link {
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
+  .system-card__case-link {
+    display: inline-flex;
+    align-items: center;
   }
 
   .engagement-rail {
@@ -3673,5 +3865,28 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
 
   .hero-spotlight::after {
     filter: blur(0.7rem);
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero__title,
+  .cta-section__title {
+    font-size: clamp(2rem, 11.5vw, 3rem);
+  }
+
+  .hero__status-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .cta-thesis__meta {
+    gap: 0.4rem 0.5rem;
+  }
+
+  .lead-form__privacy,
+  .lead-form__status,
+  .lead-form__hint,
+  .lead-form__error {
+    font-size: 0.78rem;
   }
 }

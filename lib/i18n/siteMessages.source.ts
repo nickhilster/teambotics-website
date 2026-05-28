@@ -56,7 +56,7 @@ export const siteMessagesEn: SiteMessages = {
   "liveSystems": {
     "eyebrow": "AI SYSTEMS PORTFOLIO",
     "title": "Products and prototypes under active development.",
-    "description": "A focused portfolio across legal intake, workforce enablement, interactive systems, and narrative infrastructure."
+    "description": "A growing portfolio built to one operating standard."
   },
   "capabilities": {
     "eyebrow": "CORE CAPABILITIES",
@@ -106,7 +106,7 @@ export const siteMessagesEn: SiteMessages = {
   },
   "cta": {
     "eyebrow": "CONTACT",
-    "title": "Discuss an AI workflow, product, or internal system.",
+    "title": "Quality output (Product) begins with a quality input (discovery) process.",
     "copy": "Share the operational problem, product opportunity, or deployment context. We will assess fit and recommend a practical next step.",
     "reviewSystemsLabel": "View systems"
   },

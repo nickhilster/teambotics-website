@@ -7,7 +7,6 @@ import { Container } from "@/components/layout/Container";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { StatusBadge } from "@/components/ui/StatusBadge";
-import { Tag } from "@/components/ui/Tag";
 import { getLocalizedProducts } from "@/lib/localizedProducts";
 
 export function LiveSystemsSection() {
@@ -28,9 +27,9 @@ export function LiveSystemsSection() {
               <SectionReveal delay={index * 0.08} key={product.name}>
                 <CursorReactiveCard className="card system-card">
                   <div className="system-card__header">
-                    <div>
-                      <Tag>{product.name}</Tag>
-                      <h3>{product.title}</h3>
+                    <div className="system-card__titles">
+                      <h3 className="system-card__name">{product.name}</h3>
+                      <p className="system-card__title">{product.title}</p>
                     </div>
                     <StatusBadge label={product.statusLabel} variant={product.status} />
                   </div>

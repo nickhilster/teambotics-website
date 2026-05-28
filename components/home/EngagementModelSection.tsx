@@ -20,7 +20,7 @@ export function EngagementModelSection() {
           <div aria-hidden="true" className="engagement-rail__track" />
           {messages.engagement.steps.map((step, index) => (
             <SectionReveal delay={index * 0.06} key={step.number}>
-              <div className="engagement-step">
+              <div className="engagement-step" tabIndex={0}>
                 <div className="engagement-step__node">
                   <span className="engagement-step__number">{step.number}</span>
                 </div>

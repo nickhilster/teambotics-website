@@ -28,8 +28,7 @@ export default function AboutPage() {
             <p>
               Teambotics builds conversational and interactive AI products for environments
               where the work is complex, the stakes are real, and generic tooling doesn&apos;t hold up.
-              We ship proprietary products and build bespoke systems for a small number of partners —
-              and we keep it that way deliberately.
+              We ship proprietary products and build bespoke systems.
             </p>
             <p>
               Every engagement is led by{" "}
@@ -79,9 +78,9 @@ export default function AboutPage() {
           <SectionReveal className="about__section" delay={0.06}>
             <h2 className="about__section-title">What we build</h2>
             <p>
-              Our current portfolio spans four products across legal workflow, enterprise enablement,
-              narrative intelligence, and interactive creative technology. Some are proprietary
-              platforms; some are bespoke systems built for and with a specific partner.
+              Our portfolio spans legal workflow, enterprise enablement, narrative intelligence,
+              and interactive creative technology. Some are proprietary platforms; some are
+              bespoke systems built for and with a specific partner.
             </p>
             <ul className="about__product-list">
               <li>

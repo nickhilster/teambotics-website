@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { LeadCaptureForm } from "@/components/home/LeadCaptureForm";
 
 export function HomeCTASection() {
-  const { messages } = useSiteLocale();
+  const { locale, messages } = useSiteLocale();
 
   return (
     <section className="section section--border cta-section" id="contact">
@@ -16,7 +16,23 @@ export function HomeCTASection() {
         <SectionReveal>
           <p className="section-eyebrow">{messages.cta.eyebrow}</p>
           <h2 className="cta-section__title">
-            {messages.cta.title}
+            {locale === "en" ? (
+              <span className="cta-thesis">
+                <span className="cta-thesis__meta">
+                  <span className="cta-thesis__chip cta-thesis__chip--output">
+                    Product
+                  </span>
+                  <span className="cta-thesis__chip cta-thesis__chip--input">
+                    Discovery
+                  </span>
+                </span>
+                <span className="cta-thesis__headline">
+                  Quality output begins with a quality input process.
+                </span>
+              </span>
+            ) : (
+              messages.cta.title
+            )}
           </h2>
           <p className="cta-section__copy">
             {messages.cta.copy}
