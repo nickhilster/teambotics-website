@@ -8,10 +8,13 @@ function escapeHtml(str: string): string {
 
 marked.use({
   renderer: {
-    code({ text, lang }: { text: string; lang?: string }) {
+    code(code: string, infostring: string | undefined, escaped: boolean) {
+      const lang = infostring?.trim();
+
       if (lang === 'mermaid') {
-        return `<div class="mermaid-wrap"><pre class="mermaid">${escapeHtml(text)}</pre></div>`;
+        return `<div class="mermaid-wrap"><pre class="mermaid">${escapeHtml(code)}</pre></div>`;
       }
+
       return false;
     },
   },

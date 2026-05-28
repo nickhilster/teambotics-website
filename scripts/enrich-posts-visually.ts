@@ -171,7 +171,7 @@ async function run() {
   const dryRun = args.includes('--dry-run');
   const slugArg = args.find((_, i) => args[i - 1] === '--slug') ?? args.find((a) => !a.startsWith('--'));
 
-  const sql = neon(getDbUrl());
+  const sql: ReturnType<typeof neon> = neon(getDbUrl());
   const anthropic = new OpenAI({ apiKey: getOpenAiKey() });
 
   let posts: Array<{ id: string; title: string; slug: string; content: string }>;

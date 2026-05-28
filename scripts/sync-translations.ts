@@ -145,13 +145,8 @@ async function translateLeaves(
   scope: string,
   englishLeaves: TranslationLeafMap,
   existingLeaves: TranslationLeafMap,
+  openAiConfig: ReturnType<typeof getOpenAiRuntimeConfig>,
 ) {
-  const openAiConfig = getOpenAiRuntimeConfig({
-    chatModel: process.env.OPENAI_TRANSLATION_MODEL ?? process.env.OPENAI_CHAT_MODEL ?? "gpt-4o-mini",
-    maxTokens: 6000,
-    temperature: 0.2,
-  });
-
   if (!openAiConfig.apiKey) {
     throw new Error(`OPENAI_API_KEY is required to sync stale ${scope} translations.`);
   }
@@ -263,6 +258,19 @@ async function main() {
     return;
   }
 
+  const openAiConfig = getOpenAiRuntimeConfig({
+    chatModel: process.env.OPENAI_TRANSLATION_MODEL ?? process.env.OPENAI_CHAT_MODEL ?? "gpt-4o-mini",
+    maxTokens: 6000,
+    temperature: 0.2,
+  });
+
+  if ((siteMessagesStale || productTranslationsStale || isForceMode) && !openAiConfig.apiKey) {
+    console.warn(
+      "OPENAI_API_KEY is not configured. Skipping translation sync and using existing generated translation artifacts.",
+    );
+    return;
+  }
+
   for (const locale of localizedRouteLocales) {
     if (siteMessagesStale || isForceMode) {
       const translatedSiteLeaves = await translateLeaves(
@@ -270,6 +278,7 @@ async function main() {
         "site messages",
         collectStringLeaves(siteMessagesEn),
         collectStringLeaves(currentSiteMessagesByLocale[locale]),
+        openAiConfig,
       );
 
       await writeSiteMessages(locale, applyStringLeaves(siteMessagesEn, translatedSiteLeaves));
@@ -286,6 +295,7 @@ async function main() {
           `product translation for ${product.slug}`,
           collectStringLeaves(englishProductTranslation),
           collectStringLeaves(existingProductTranslation),
+          openAiConfig,
         );
 
         nextProductTranslations[product.slug] = applyStringLeaves(englishProductTranslation, translatedProductLeaves);
