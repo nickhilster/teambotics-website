@@ -3,6 +3,7 @@ import { marked } from '../lib/marked-config.ts';
 import { processCallouts } from '../lib/callouts.ts';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
+import { getStaticBlogPost } from '../data/static-posts.ts';
 import AgentEvolution from '../components/AgentEvolution.astro';
 import DataValuePyramid from '../components/DataValuePyramid.astro';
 import MultiAgentFlow from '../components/MultiAgentFlow.astro';
@@ -31,19 +32,21 @@ type Post = {
   published_at: string | null;
 };
 
-let post: Post | null = null;
+let post: Post | null = slug ? getStaticBlogPost(slug) : null;
 let fetchError: string | null = null;
 
-try {
-  const res = await fetch(`${apiBase}/api/blog/posts/${encodeURIComponent(slug)}`);
-  if (res.status === 404) {
-    return Astro.redirect('/404', 404);
+if (!post) {
+  try {
+    const res = await fetch(`${apiBase}/api/blog/posts/${encodeURIComponent(slug)}`);
+    if (res.status === 404) {
+      return Astro.redirect('/404', 404);
+    }
+    if (!res.ok) throw new Error(`API responded ${res.status}`);
+    const data = (await res.json()) as { post: Post };
+    post = data.post ?? null;
+  } catch (err) {
+    fetchError = err instanceof Error ? err.message : 'Failed to load post.';
   }
-  if (!res.ok) throw new Error(`API responded ${res.status}`);
-  const data = (await res.json()) as { post: Post };
-  post = data.post ?? null;
-} catch (err) {
-  fetchError = err instanceof Error ? err.message : 'Failed to load post.';
 }
 
 if (!post && !fetchError) {
