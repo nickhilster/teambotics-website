@@ -94,13 +94,13 @@ The website is one part of it. The form is one part of it. The database is one p
 
 The real opportunity is to connect those parts into something clearer, kinder, and more effective.
 
-\`\`\`mermaid
+~~~mermaid
 graph LR
   A[Need help] --> B[Find service]
   B --> C[Understand steps]
   C --> D[Complete intake]
   D --> E[Human support]
-\`\`\`
+~~~
 
 This does not mean replacing every tool an organization already uses. In most cases, that would be the wrong move. Real organizations operate inside real constraints: budgets, policies, reporting requirements, legacy systems, vendor platforms, staff habits, privacy obligations, and partner relationships.
 
