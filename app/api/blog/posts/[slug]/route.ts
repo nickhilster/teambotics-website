@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getStaticBlogPost } from '@/lib/blog/staticPosts';
 import { getNeonClient } from '@/lib/neon';
 import { withNeonQueryRetry } from '@/lib/neonRetry';
 
@@ -7,6 +8,11 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
+
+  const staticPost = getStaticBlogPost(slug);
+  if (staticPost) {
+    return NextResponse.json({ post: staticPost });
+  }
 
   try {
     const rows = await withNeonQueryRetry(async () => {
