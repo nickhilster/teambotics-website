@@ -1,6 +1,7 @@
 ---
 import BlogLayout from '../layouts/BlogLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import { getStaticBlogPostSummaries } from '../data/static-posts.ts';
 
 const apiBase =
   import.meta.env.SITE_API_BASE ??
@@ -27,11 +28,14 @@ try {
   const res = await fetch(`${apiBase}/api/blog/posts`);
   if (!res.ok) throw new Error(`API responded ${res.status}`);
   const data = await res.json() as { posts: typeof allPosts };
-  allPosts = (data.posts ?? []).sort((a, b) =>
+  const staticPosts = getStaticBlogPostSummaries();
+  const staticSlugs = new Set(staticPosts.map((post) => post.slug));
+  allPosts = [...staticPosts, ...(data.posts ?? []).filter((post) => !staticSlugs.has(post.slug))].sort((a, b) =>
     new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime()
   );
 } catch (err) {
   fetchError = err instanceof Error ? err.message : 'Failed to load posts.';
+  allPosts = getStaticBlogPostSummaries();
 }
 
 // Filter posts by tag if selected
@@ -167,7 +171,7 @@ const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
     }
   </script>
 
-  {fetchError ? (
+  {fetchError && allPosts.length === 0 ? (
     <p style="color: var(--color-text-secondary);">Could not load posts right now. Please try again shortly.</p>
   ) : filteredPosts.length === 0 ? (
     <p class="blog-empty">
