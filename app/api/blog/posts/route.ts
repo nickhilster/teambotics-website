@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getStaticBlogPostSummaries } from '@/lib/blog/staticPosts';
 import { getNeonClient } from '@/lib/neon';
 import { withNeonQueryRetry } from '@/lib/neonRetry';
 
@@ -14,9 +15,16 @@ export async function GET() {
       );
     });
 
-    const posts = Array.isArray(rows) ? rows : [];
+    const dbPosts = Array.isArray(rows) ? rows : [];
+    const posts = [...getStaticBlogPostSummaries(), ...dbPosts].sort((a, b) => {
+      const aDate = a.published_at ? Date.parse(a.published_at) : 0;
+      const bDate = b.published_at ? Date.parse(b.published_at) : 0;
+      return bDate - aDate;
+    });
+
     return NextResponse.json({ posts });
   } catch {
-    return NextResponse.json({ error: 'Failed to load posts.' }, { status: 500 });
+    const posts = getStaticBlogPostSummaries();
+    return NextResponse.json({ posts });
   }
 }
