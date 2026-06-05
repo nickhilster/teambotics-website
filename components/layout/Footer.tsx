@@ -14,6 +14,7 @@ export function Footer() {
         <p>{messages.footer.copyright}</p>
         <nav aria-label={messages.footer.navLabel}>
           <Link href="/about">About</Link>
+          <Link href="/land-acknowledgment">Land Acknowledgment</Link>
           <Link href="/privacy">{messages.footer.privacyLabel}</Link>
           <Link href="/terms">{messages.footer.termsLabel}</Link>
           <Link href={siteConfig.socials.linkedin} rel="noopener noreferrer" target="_blank">
