@@ -56,7 +56,7 @@ export const siteMessagesFrCA: SiteMessages = {
   "liveSystems": {
     "eyebrow": "PORTEFEUILLE DE SYSTEMES IA",
     "title": "Quatre produits. Des stades differents. Une seule exigence.",
-    "description": "Certains sont a nous, d'autres sont sur mesure, mais tous sont construits selon le meme standard - clarte, adoption et tenue dans le temps apres le lancement."
+    "description": "Un portefeuille en croissance, construit selon un seul standard operationnel."
   },
   "capabilities": {
     "eyebrow": "COMPETENCES CLES",
@@ -106,7 +106,7 @@ export const siteMessagesFrCA: SiteMessages = {
   },
   "cta": {
     "eyebrow": "PARLONS-EN",
-    "title": "Une grande partie de notre meilleur travail commence par une conversation directe.",
+    "title": "Un livrable de qualite (Produit) commence par un processus de decouverte de qualite.",
     "copy": "Expliquez-nous ce que vous construisez. Nous serons directs sur ce qui est possible et sur le fait de savoir si nous sommes la bonne equipe.",
     "reviewSystemsLabel": "Voir nos systemes"
   },

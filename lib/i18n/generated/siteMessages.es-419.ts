@@ -56,7 +56,7 @@ export const siteMessagesEs419: SiteMessages = {
   "liveSystems": {
     "eyebrow": "PORTAFOLIO DE SISTEMAS DE IA",
     "title": "Cuatro productos. Etapas distintas. Un mismo estandar.",
-    "description": "Algunos son propios, otros son a medida, pero todos se construyen con la misma vara - claridad, adopcion y sistemas que se sostienen despues del lanzamiento."
+    "description": "Un portafolio en crecimiento, construido bajo un unico estandar operacional."
   },
   "capabilities": {
     "eyebrow": "CAPACIDADES CLAVE",
@@ -106,7 +106,7 @@ export const siteMessagesEs419: SiteMessages = {
   },
   "cta": {
     "eyebrow": "HABLEMOS",
-    "title": "Gran parte de nuestro mejor trabajo empieza con una conversacion directa.",
+    "title": "Un resultado de calidad (Producto) comienza con un proceso de descubrimiento de calidad.",
     "copy": "Cuentanos en que estas trabajando. Vamos a ser directos sobre lo que es posible y sobre si somos el equipo adecuado para hacerlo.",
     "reviewSystemsLabel": "Ver nuestros sistemas"
   },
