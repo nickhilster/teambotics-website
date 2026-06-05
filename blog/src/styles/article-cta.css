@@ -1,0 +1,77 @@
+/* Article conversion block — quiet, readable, and brand-aligned. */
+.article-cta {
+  margin-top: 3rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-border-strong) 78%, transparent);
+  border-radius: var(--radius-2xl);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 42%),
+    linear-gradient(145deg, color-mix(in srgb, var(--color-bg-surface) 96%, #101730 4%), var(--color-bg-surface));
+}
+
+@media (min-width: 640px) {
+  .article-cta {
+    margin-top: 4rem;
+    padding: 1.65rem;
+  }
+}
+
+.article-cta__eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.article-cta__title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.article-cta__body {
+  margin: 0.75rem 0 0;
+  max-width: 62ch;
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.article-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.article-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.72rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.article-cta__button:hover {
+  text-decoration: none;
+}
+
+.article-cta__button--primary {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-bright));
+  color: #fff;
+}
+
+.article-cta__button--secondary {
+  color: var(--color-text-primary);
+  background: color-mix(in srgb, var(--color-bg-surface) 78%, transparent);
+}
