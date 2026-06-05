@@ -2184,6 +2184,39 @@ html.dark .engagement-step__content {
 }
 
 /* ============================================================
+   Land Acknowledgment Strip (home page)
+   ============================================================ */
+
+.land-strip {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-6) 0;
+  text-align: center;
+}
+
+.land-strip__text {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.land-strip__link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  white-space: nowrap;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.land-strip__link:hover {
+  color: var(--color-text-primary);
+  text-decoration-color: var(--color-accent);
+}
+
+/* ============================================================
    Land Acknowledgment
    ============================================================ */
 
