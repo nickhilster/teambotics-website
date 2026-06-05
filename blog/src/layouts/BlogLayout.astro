@@ -1,6 +1,7 @@
 ---
 import '../styles/tokens.css';
 import '../styles/blog.css';
+import '../styles/article-cta.css';
 
 interface Props {
   title: string;
@@ -74,9 +75,10 @@ const brandAssetBase = 'https://teambotics.app/brand';
         if (nodes.length === 0) return;
 
         const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const { default: mermaid } = await import('mermaid');
+        const mod = await import('mermaid');
+        const mermaid = mod.default;
         mermaid.initialize({ startOnLoad: false, theme: isDark ? 'dark' : 'neutral' });
-        await mermaid.run({ nodes: Array.from(nodes) as HTMLElement[] });
+        await mermaid.run({ nodes: Array.from(nodes) });
       };
 
       if (document.readyState === 'loading') {
