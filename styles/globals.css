@@ -1765,7 +1765,7 @@ html.dark .engagement-step__content {
 }
 
 .cta-section__title {
-  margin: 0;
+  margin: 0 auto;
   max-width: 48rem;
   font-size: clamp(2.8rem, 6vw, 5.4rem);
   font-weight: 700;
