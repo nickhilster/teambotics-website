@@ -1,7 +1,7 @@
 import type { TranslationMeta } from "@/lib/i18n/types";
 
 export const siteMessagesMeta: TranslationMeta = {
-  "sourceHash": "4e53e8a153923f5413374a9bfd7bafdfd1c35f1bc734ae5bfcb6a74b0e4349a4",
-  "generatedAt": "2026-05-17T12:51:54.466Z",
-  "generator": "bootstrap-translations"
+  "sourceHash": "8c65efb1d6f5e10cc5c3d261427447d8cc9e85c618109b31043430063d704a9d",
+  "generatedAt": "2026-06-08T22:40:10.485Z",
+  "generator": "sync-translations"
 } as const;
