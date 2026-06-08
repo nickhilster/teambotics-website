@@ -6,11 +6,11 @@ export const siteMessagesFrCA: SiteMessages = {
     "navItems": [
       {
         "href": "#systems",
-        "label": "Systemes"
+        "label": "Systèmes"
       },
       {
         "href": "#capabilities",
-        "label": "Capacites"
+        "label": "Capacités"
       },
       {
         "href": "#engagement",
@@ -21,138 +21,138 @@ export const siteMessagesFrCA: SiteMessages = {
         "label": "Contact"
       }
     ],
-    "ctaLabel": "Commencer une conversation",
+    "ctaLabel": "Contactez Teambotics",
     "openNavigationLabel": "Ouvrir la navigation",
     "closeNavigationLabel": "Fermer la navigation",
     "languageLabel": "Langue"
   },
   "footer": {
     "navLabel": "Pied de page",
-    "copyright": "© 2026 Teambotics. Un laboratoire IA independant - produits proprietaires et systemes sur mesure pour des partenaires selectionnes.",
-    "privacyLabel": "Confidentialite",
+    "copyright": "© 2026 Teambotics. Pratique indépendante des systèmes IA pour des produits appliqués, l'automatisation des workflows et l'habilitation opérationnelle.",
+    "privacyLabel": "Confidentialité",
     "termsLabel": "Conditions",
     "linkedInLabel": "LinkedIn"
   },
   "hero": {
-    "pill": "Laboratoire IA independant · Produits et systemes sur mesure",
+    "pill": "Systèmes IA appliqués · Stratégie produit · Automatisation des workflows",
     "titleLines": [
-      "Concu pour les",
-      "environnements ou",
-      "l'erreur ne pardonne pas."
+      "Systèmes IA pour",
+      "équipes opérationnelles,",
+      "conçus pour être déployés."
     ],
-    "copy": "Un laboratoire IA independant qui livre des produits proprietaires et des systemes sur mesure pour un petit nombre de partenaires - operes par des agents qui tournent sans horloge.",
-    "primaryCta": "Voir les systemes",
-    "secondaryCta": "Notre approche"
+    "copy": "Teambotics conçoit et construit des produits habilités par l'IA, des systèmes de workflow et des outils internes pour les organisations qui nécessitent un déploiement pratique, une gouvernance claire et une adoption mesurable.",
+    "primaryCta": "Voir les systèmes",
+    "secondaryCta": "Réviser l'approche"
   },
   "positioning": {
     "eyebrow": "CE QUE NOUS FAISONS",
-    "title": "Nous partons des contraintes. Pas de la capacite.",
+    "title": "Nous transformons les problèmes opérationnels en systèmes IA déployables.",
     "paragraphs": [
-      "Nous n'arrivons pas avec une solution prefabriquee. Nous passons d'abord du temps dans le contexte operationnel - pour comprendre les workflows, les cas limites et les points de rupture - puis nous concevons quelque chose qui s'y adapte. Qu'il s'agisse de conformite, d'operations d'equipe ou d'experiences numeriques, l'approche reste la meme.",
-      "Nous aidons les equipes a decider ce qui doit etre automatise, ce qui doit rester guide, et comment une nouvelle capacite s'integre au travail deja en place. Une architecture ancree dans les conditions reelles fait de l'adoption et de la durabilite une partie du produit - pas une reflexion tardive."
+      "Notre travail commence par l'environnement opérationnel : les lacunes de processus, les besoins de conformité, le comportement des utilisateurs, les transferts et les contraintes commerciales mesurables. Nous définissons le système autour du travail avant de sélectionner la technologie.",
+      "Nous aidons les organisations à déterminer où l'IA doit assister, automatiser, guider ou rester en retrait. Le résultat est une infrastructure pratique : des interfaces claires, des workflows contrôlés et des systèmes conçus pour l'adoption au-delà de la phase prototype."
     ],
-    "quote": "Processus rigoureux. Des systemes qui durent."
+    "quote": "Clarté opérationnelle. Exécution contrôlée. Adoption durable."
   },
   "liveSystems": {
-    "eyebrow": "PORTEFEUILLE DE SYSTEMES IA",
-    "title": "Quatre produits. Des stades differents. Une seule exigence.",
-    "description": "Certains sont a nous, d'autres sont sur mesure, mais tous sont construits selon le meme standard - clarte, adoption et tenue dans le temps apres le lancement."
+    "eyebrow": "PORTFOLIO DE SYSTÈMES IA",
+    "title": "Produits et prototypes en développement actif.",
+    "description": "Un portefeuille croissant construit selon un standard opérationnel."
   },
   "capabilities": {
-    "eyebrow": "COMPETENCES CLES",
-    "title": "Concu pour tenir dans la pratique.",
-    "description": "Notre approche de l'architecture, de l'automatisation et du design d'interface dans chaque mandat - avec constance et sans raccourci.",
+    "eyebrow": "CAPACITÉS CLÉS",
+    "title": "Conçu pour l'exécution, la gouvernance et l'adoption.",
+    "description": "Teambotics combine stratégie produit, conception de systèmes, automatisation et développement d'interfaces pour faire passer les initiatives IA du concept au déploiement opérationnel.",
     "items": [
       {
-        "title": "Des MVP cadres qui se rendent en production",
-        "body": "Nous definissons tot des frontieres produit precises - pour trouver les workflows les plus utiles et le chemin le plus clair entre premiere version et production, sans derive de perimetre."
+        "title": "Livraison de MVP ciblés",
+        "body": "Nous définissons des limites de produit précises, priorisons les workflows à forte valeur ajoutée et construisons vers un chemin de production sans expansion de périmètre inutile."
       },
       {
-        "title": "Une automatisation conforme au terrain",
-        "body": "Nous construisons des systemes IA autour de vrais transferts, des contraintes reglementaires et des besoins de formation - pour que les nouveaux workflows tiennent en pratique, pas seulement en demo."
+        "title": "Automatisation des workflows gouvernée",
+        "body": "Nous concevons des workflows IA autour des transferts opérationnels, des exigences de conformité, des besoins de documentation et des résultats utilisateurs contrôlés."
       },
       {
-        "title": "Des interfaces que les equipes ont envie d'utiliser",
-        "body": "Nous dessinons les interfaces autour des personnes qui font le travail: moins de charge cognitive, une montee en main progressive et une confiance qui se construit avec le temps."
+        "title": "Interfaces axées sur l'adoption",
+        "body": "Nous concevons des interfaces qui réduisent la charge cognitive, soutiennent l'utilisation basée sur les rôles et aident les équipes à construire leur confiance grâce à une utilisation répétée et pratique."
       }
     ]
   },
   "engagement": {
-    "eyebrow": "METHODOLOGIE D'ENGAGEMENT",
-    "title": "Un chemin deliberement construit vers la production.",
-    "description": "Une methode structuree, du cadrage initial de l'opportunite jusqu'au systeme de workflow pret pour la production.",
+    "eyebrow": "MODÈLE D'ENGAGEMENT",
+    "title": "Un chemin structuré de l'évaluation au déploiement.",
+    "description": "Un modèle opérationnel concis pour le cadrage, la construction, le pilotage et l'amélioration des systèmes de workflow habilités par l'IA.",
     "steps": [
       {
         "number": "01",
-        "title": "Decouverte et cadrage",
-        "body": "Nous commencons par ecouter. Chaque mandat debute dans le contexte operationnel - pour comprendre les contraintes, les modes d'echec et ce qui a deja ete tente."
+        "title": "Évaluation et cadrage",
+        "body": "Nous cartographions le contexte opérationnel, identifions les contraintes, définissons les critères de succès et isolons le workflow où l'IA peut créer une valeur pratique."
       },
       {
         "number": "02",
-        "title": "Architecture du systeme",
-        "body": "Nous transformons ces apprentissages en modeles de donnees, parcours d'habilitation, automatisation conforme et interfaces pensees autour du travail reel - pas du travail theorique."
+        "title": "Conception du système",
+        "body": "Nous traduisons les exigences en modèles de données, limites d'automatisation, flux utilisateurs, règles de gouvernance et architecture d'interface."
       },
       {
         "number": "03",
-        "title": "Pilote controle",
-        "body": "Nous deployons une version contenue, recueillons de vrais retours de l'equipe qui l'utilise, puis affinons le workflow avant tout deploiement plus large. Pas de faux lancements laisses sans suivi."
+        "title": "Déploiement pilote",
+        "body": "Nous publions une version contenue pour valider le comportement, recueillir les retours des utilisateurs et confirmer l'adéquation opérationnelle avant un déploiement plus large."
       },
       {
         "number": "04",
-        "title": "Passage operationnel",
-        "body": "Nous passons du pilote a la production avec des routines stables, une habilitation structuree et une feuille de route claire - pour que le systeme grandisse avec l'equipe au lieu de se perimer."
+        "title": "Déploiement opérationnel",
+        "body": "Nous soutenons l'adoption en production avec de la documentation, des routines d'habilitation, des cycles d'itération et une feuille de route pour la maturité du système."
       }
     ]
   },
   "cta": {
-    "eyebrow": "PARLONS-EN",
-    "title": "Une grande partie de notre meilleur travail commence par une conversation directe.",
-    "copy": "Expliquez-nous ce que vous construisez. Nous serons directs sur ce qui est possible et sur le fait de savoir si nous sommes la bonne equipe.",
-    "reviewSystemsLabel": "Voir nos systemes"
+    "eyebrow": "CONTACT",
+    "title": "Une sortie de qualité (Produit) commence par un processus d'entrée de qualité (découverte).",
+    "copy": "Partagez le problème opérationnel, l'opportunité produit ou le contexte de déploiement. Nous évaluerons l'adéquation et recommanderons une prochaine étape pratique.",
+    "reviewSystemsLabel": "Voir les systèmes"
   },
   "leadForm": {
     "eyebrow": "Prise de contact",
-    "title": "Dites a Teambotics ce que vous cherchez a ameliorer.",
-    "copy": "Restez bref. Nous utilisons ceci pour comprendre le probleme de workflow, d'equipe ou de produit que vous voulez discuter.",
+    "title": "Contactez Teambotics.",
+    "copy": "Fournissez un aperçu bref du workflow, de l'équipe ou du problème produit que vous souhaitez discuter.",
     "honeypotLabel": "Site web",
     "fields": {
       "name": "Nom",
       "email": "Courriel",
       "organization": "Organisation",
-      "interestArea": "Sujet d'interet",
+      "interestArea": "Domaine d'intérêt",
       "message": "Message"
     },
     "chooseFocusLabel": "Choisir un sujet",
     "interestAreaLabels": {
-      "Workflow strategy": "Strategie de workflow",
-      "Team enablement": "Habilitation des equipes",
+      "Workflow strategy": "Stratégie de workflow",
+      "Team enablement": "Habilitation des équipes",
       "AI chatbot or assistant": "Chatbot ou assistant IA",
-      "Legal/compliance workflow": "Workflow legal ou conformite",
-      "Creative or interactive platform": "Plateforme creative ou interactive",
+      "Legal/compliance workflow": "Workflow légal ou conformité",
+      "Creative or interactive platform": "Plateforme créative ou interactive",
       "Other": "Autre"
     },
-    "messageHint": "Decrivez le probleme, l'echeancier ou le contexte de l'equipe.",
-    "privacyPrefix": "En envoyant ce formulaire, vous acceptez que Teambotics utilise vos informations pour repondre a votre demande. Consultez notre ",
-    "privacyLinkLabel": "Politique de confidentialite",
+    "messageHint": "Décrivez le problème, l'échéancier ou le contexte de l'équipe.",
+    "privacyPrefix": "En envoyant ce formulaire, vous acceptez que Teambotics utilise vos informations pour répondre à votre demande. Consultez notre ",
+    "privacyLinkLabel": "Politique de confidentialité",
     "privacySuffix": ".",
-    "submitLabel": "Commencer une conversation",
+    "submitLabel": "Envoyer la demande",
     "submittingLabel": "Envoi...",
-    "emailLabel": "Preferer le courriel?",
-    "validationErrorLabel": "Veuillez corriger les champs en surbrillance puis reessayer.",
-    "spamSuccessLabel": "Merci. Votre message a bien ete recu.",
+    "emailLabel": "Préférer le courriel?",
+    "validationErrorLabel": "Veuillez corriger les champs en surbrillance et réessayer.",
+    "spamSuccessLabel": "Merci. Votre message a été reçu.",
     "requestErrorLabel": "Impossible d'envoyer votre message pour le moment.",
-    "requestEmailFallbackLabel": "Impossible d'envoyer votre message pour le moment. Essayez plutot par courriel.",
-    "successLabel": "Merci. Teambotics assurera un suivi sous peu."
+    "requestEmailFallbackLabel": "Impossible d'envoyer votre message pour le moment. Veuillez essayer par courriel à la place.",
+    "successLabel": "Merci. Teambotics fera un suivi sous peu."
   },
   "productPage": {
     "allProductsLabel": "Tous les produits",
-    "detailEyebrow": "Detail du systeme",
+    "detailEyebrow": "Détails du système",
     "detailTitle": "Comment le produit gagne la confiance.",
-    "detailDescription": "Chaque produit Teambotics est presente comme un systeme concret: une valeur claire pour l'utilisateur, un comportement IA maitrise et un chemin du prototype jusqu'a l'adoption operationnelle.",
+    "detailDescription": "Chaque produit Teambotics est présenté comme un système pratique : une valeur utilisateur claire, un comportement IA contrôlé et un chemin du prototype à l'adoption opérationnelle.",
     "evidenceEyebrow": "Preuves",
-    "evidenceTitle": "Ce que ce travail demontre.",
+    "evidenceTitle": "Ce que ce travail démontre.",
     "buildProfileEyebrow": "Profil de mise en production",
     "technologyLabel": "Technologie",
-    "systemCapabilitiesLabel": "Capacites du systeme"
+    "systemCapabilitiesLabel": "Capacités du système"
   }
 } as const;
