@@ -23,7 +23,7 @@ export default function EasyBuddyPage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image
-            src="https://cdn.gamma.app/sogu61n3buhmo0y/e446802448c34beaabf185566966b0fe/original/TeamBotics-Logo_tranparent_amber.png"
+            src="/brand/teambotics-logo-amber.png"
             alt="TeamBotics"
             width={32}
             height={32}
@@ -67,7 +67,7 @@ export default function EasyBuddyPage() {
         }}
       >
         <Image
-          src="https://cdn.gamma.app/sogu61n3buhmo0y/e446802448c34beaabf185566966b0fe/original/TeamBotics-Logo_tranparent_amber.png"
+          src="/brand/teambotics-logo-amber.png"
           alt="TeamBotics Logo"
           width={80}
           height={80}
@@ -710,7 +710,7 @@ export default function EasyBuddyPage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image
-            src="https://cdn.gamma.app/sogu61n3buhmo0y/e446802448c34beaabf185566966b0fe/original/TeamBotics-Logo_tranparent_amber.png"
+            src="/brand/teambotics-logo-amber.png"
             alt="TeamBotics"
             width={28}
             height={28}
