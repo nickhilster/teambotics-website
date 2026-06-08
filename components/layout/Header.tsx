@@ -48,9 +48,6 @@ export function Header() {
           ))}
         </nav>
         <div className="site-header__meta">
-          <Button className="site-header__cta" href={contactHref}>
-            {messages.header.ctaLabel}
-          </Button>
           {showLanguageSwitcher ? <LanguageSwitcher /> : null}
           <ThemeToggle />
           <button
