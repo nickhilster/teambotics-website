@@ -5,8 +5,13 @@ const AMBER = "#FF950D";
 export default function EasyBuddyPage() {
   return (
     <div style={{ fontFamily: "system-ui, -apple-system, sans-serif", background: "#000", color: "#fff" }}>
+    <style>{`.eb-skip-link { position: absolute; top: -100%; left: 1rem; z-index: 9999; padding: 0.5rem 1rem; background: ${AMBER}; color: #000; font-weight: 700; border-radius: 4px; text-decoration: none; } .eb-skip-link:focus { top: 0.5rem; }`}</style>
+    <a href="#eb-main" className="eb-skip-link">
+      Skip to main content
+    </a>
       {/* NAV */}
       <nav
+        aria-label="EasyBuddy site navigation"
         style={{
           position: "sticky",
           top: 0,
@@ -32,7 +37,7 @@ export default function EasyBuddyPage() {
           <span style={{ fontWeight: 700, fontSize: "1rem", color: AMBER, letterSpacing: "-0.02em" }}>
             EasyBuddy
           </span>
-          <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.4)", marginLeft: "0.25rem" }}>
+          <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.6)", marginLeft: "0.25rem" }}>
             by TeamBotics
           </span>
         </div>
@@ -52,6 +57,8 @@ export default function EasyBuddyPage() {
           Book a Call
         </a>
       </nav>
+
+      <main id="eb-main">
 
       {/* HERO */}
       <section
@@ -302,9 +309,9 @@ export default function EasyBuddyPage() {
                       padding: "1.25rem",
                     }}
                   >
-                    <h4 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.5rem", color: "#fff" }}>
+                    <h3 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.5rem", color: "#fff" }}>
                       {feat.title}
-                    </h4>
+                    </h3>
                     <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8rem", lineHeight: 1.55 }}>{feat.body}</p>
                   </div>
                 ))}
@@ -433,7 +440,7 @@ export default function EasyBuddyPage() {
                 }}
               >
                 <div style={{ fontSize: "1.4rem", marginBottom: "0.5rem" }}>{feat.icon}</div>
-                <h4 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{feat.title}</h4>
+                <h3 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{feat.title}</h3>
                 <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.55 }}>{feat.body}</p>
               </div>
             ))}
@@ -454,13 +461,19 @@ export default function EasyBuddyPage() {
             A conversational AI success story in retail workforce development — piloted at Best Buy
             Sherway Gardens, Toronto.
           </p>
-          <div style={{ overflowX: "auto", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "2.5rem" }}>
+          <div
+            style={{ overflowX: "auto", borderRadius: "10px", border: "1px solid rgba(255,255,255,0.1)", marginBottom: "2.5rem" }}
+            role="region"
+            aria-label="BlueBot performance metrics"
+            tabIndex={0}
+          >
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.88rem" }}>
               <thead>
                 <tr style={{ background: "rgba(255,149,13,0.12)" }}>
                   {["Metric", "Before BlueBot", "With BlueBot", "Improvement"].map((h) => (
                     <th
                       key={h}
+                      scope="col"
                       style={{
                         padding: "0.9rem 1.2rem",
                         textAlign: "left",
@@ -518,7 +531,7 @@ export default function EasyBuddyPage() {
                 }}
               >
                 <div style={{ fontSize: "1.4rem", marginBottom: "0.5rem" }}>{b.icon}</div>
-                <h4 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{b.title}</h4>
+                <h3 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{b.title}</h3>
                 <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.55 }}>{b.body}</p>
               </div>
             ))}
@@ -573,7 +586,7 @@ export default function EasyBuddyPage() {
               >
                 <span style={{ fontSize: "1.5rem" }}>{item.icon}</span>
                 <div>
-                  <h4 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: "0.4rem" }}>{item.title}</h4>
+                  <h3 style={{ fontWeight: 700, fontSize: "0.9rem", marginBottom: "0.4rem" }}>{item.title}</h3>
                   <p style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.55 }}>{item.body}</p>
                 </div>
               </div>
@@ -622,7 +635,7 @@ export default function EasyBuddyPage() {
                 }}
               >
                 <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>{item.icon}</div>
-                <h4 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{item.title}</h4>
+                <h3 style={{ fontWeight: 700, fontSize: "0.85rem", marginBottom: "0.4rem" }}>{item.title}</h3>
                 <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.55 }}>{item.body}</p>
               </div>
             ))}
@@ -653,7 +666,7 @@ export default function EasyBuddyPage() {
             We're actively onboarding pilot partners. The consultation is 100% free — you only pay
             if you choose to move forward.
           </p>
-          <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.88rem", marginBottom: "2rem" }}>
+          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.88rem", marginBottom: "2rem" }}>
             Discovery sprint typically completes in 1 business week.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
@@ -686,7 +699,7 @@ export default function EasyBuddyPage() {
               Email Us
             </a>
           </div>
-          <p style={{ marginTop: "1.5rem", color: "rgba(255,255,255,0.35)", fontSize: "0.82rem" }}>
+          <p style={{ marginTop: "1.5rem", color: "rgba(255,255,255,0.65)", fontSize: "0.82rem" }}>
             Or reach us directly at{" "}
             <a href="mailto:hello@teambotics.app" style={{ color: AMBER, textDecoration: "none" }}>
               hello@teambotics.app
@@ -694,6 +707,8 @@ export default function EasyBuddyPage() {
           </p>
         </div>
       </section>
+
+      </main>
 
       {/* FOOTER */}
       <footer
@@ -729,7 +744,7 @@ export default function EasyBuddyPage() {
             <a
               key={link.label}
               href={link.href}
-              style={{ color: "rgba(255,255,255,0.35)", fontSize: "0.8rem", textDecoration: "none" }}
+              style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.8rem", textDecoration: "none" }}
             >
               {link.label}
             </a>

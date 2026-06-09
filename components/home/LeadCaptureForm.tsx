@@ -122,6 +122,8 @@ export function LeadCaptureForm() {
           <label className={`lead-form__field ${errors.name ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-name">
             <span>{messages.leadForm.fields.name}</span>
             <input
+              aria-describedby={errors.name ? "lead-name-error" : undefined}
+              aria-invalid={errors.name ? true : undefined}
               autoComplete="name"
               id="lead-name"
               maxLength={80}
@@ -131,12 +133,14 @@ export function LeadCaptureForm() {
               type="text"
               value={values.name}
             />
-            {errors.name ? <span className="lead-form__error" role="alert">{errors.name}</span> : null}
+            {errors.name ? <span className="lead-form__error" id="lead-name-error" role="alert">{errors.name}</span> : null}
           </label>
 
           <label className={`lead-form__field ${errors.email ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-email">
             <span>{messages.leadForm.fields.email}</span>
             <input
+              aria-describedby={errors.email ? "lead-email-error" : undefined}
+              aria-invalid={errors.email ? true : undefined}
               autoComplete="email"
               id="lead-email"
               maxLength={160}
@@ -146,12 +150,14 @@ export function LeadCaptureForm() {
               type="email"
               value={values.email}
             />
-            {errors.email ? <span className="lead-form__error" role="alert">{errors.email}</span> : null}
+            {errors.email ? <span className="lead-form__error" id="lead-email-error" role="alert">{errors.email}</span> : null}
           </label>
 
           <label className={`lead-form__field ${errors.organization ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-organization">
             <span>{messages.leadForm.fields.organization}</span>
             <input
+              aria-describedby={errors.organization ? "lead-organization-error" : undefined}
+              aria-invalid={errors.organization ? true : undefined}
               autoComplete="organization"
               id="lead-organization"
               maxLength={120}
@@ -160,12 +166,14 @@ export function LeadCaptureForm() {
               type="text"
               value={values.organization}
             />
-            {errors.organization ? <span className="lead-form__error" role="alert">{errors.organization}</span> : null}
+            {errors.organization ? <span className="lead-form__error" id="lead-organization-error" role="alert">{errors.organization}</span> : null}
           </label>
 
           <label className={`lead-form__field ${errors.interestArea ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-interest-area">
             <span>{messages.leadForm.fields.interestArea}</span>
             <select
+              aria-describedby={errors.interestArea ? "lead-interest-area-error" : undefined}
+              aria-invalid={errors.interestArea ? true : undefined}
               id="lead-interest-area"
               name="interestArea"
               onChange={(event) => updateField("interestArea", event.target.value)}
@@ -176,12 +184,14 @@ export function LeadCaptureForm() {
                 <option key={option} value={option}>{messages.leadForm.interestAreaLabels[option]}</option>
               ))}
             </select>
-            {errors.interestArea ? <span className="lead-form__error" role="alert">{errors.interestArea}</span> : null}
+            {errors.interestArea ? <span className="lead-form__error" id="lead-interest-area-error" role="alert">{errors.interestArea}</span> : null}
           </label>
 
           <label className={`lead-form__field lead-form__field--full ${errors.message ? "lead-form__field--invalid" : ""}`.trim()} htmlFor="lead-message">
             <span>{messages.leadForm.fields.message}</span>
             <textarea
+              aria-describedby={errors.message ? "lead-message-error" : undefined}
+              aria-invalid={errors.message ? true : undefined}
               id="lead-message"
               maxLength={MAX_LEAD_MESSAGE_LENGTH}
               name="message"
@@ -191,7 +201,7 @@ export function LeadCaptureForm() {
               value={values.message}
             />
             <div className="lead-form__field-meta">
-              {errors.message ? <span className="lead-form__error" role="alert">{errors.message}</span> : <span className="lead-form__hint">{messages.leadForm.messageHint}</span>}
+              {errors.message ? <span className="lead-form__error" id="lead-message-error" role="alert">{errors.message}</span> : <span className="lead-form__hint">{messages.leadForm.messageHint}</span>}
               <span className="lead-form__hint">{values.message.length}/{MAX_LEAD_MESSAGE_LENGTH}</span>
             </div>
           </label>

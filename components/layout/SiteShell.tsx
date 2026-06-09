@@ -14,8 +14,11 @@ export function SiteShell({ children, locale }: { children: React.ReactNode; loc
         <MotionProvider>
           <PageTransition>
             <div className="site-shell">
+              <a className="skip-to-content" href="#main-content">
+                Skip to main content
+              </a>
               <Header />
-              <main>{children}</main>
+              <main id="main-content">{children}</main>
               <Footer />
               <ChatbotWidget />
             </div>

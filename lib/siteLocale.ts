@@ -14,8 +14,8 @@ export type { LocalizedRouteLocale, SiteLocale, SiteMessages };
 
 export const siteLocaleLabels: Record<SiteLocale, string> = {
   en: "English",
-  "fr-CA": "Francais",
-  "es-419": "Espanol",
+  "fr-CA": "Français",
+  "es-419": "Español",
 };
 
 export const siteLocaleHtmlLang: Record<SiteLocale, string> = {

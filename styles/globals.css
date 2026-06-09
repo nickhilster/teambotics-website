@@ -16,7 +16,7 @@
   --color-text-tertiary: #838bb1;
   --color-border: rgba(86, 96, 164, 0.16);
   --color-border-strong: rgba(86, 96, 164, 0.28);
-  --color-accent: #cf3aa9;
+  --color-accent: #b52d96;
   --color-accent-bright: #f062c0;
   --color-accent-muted: #5f56e8;
   --color-live: #118c7a;
@@ -88,6 +88,40 @@ html.dark {
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+/* ── Screen-reader-only utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Skip-to-content ── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid var(--color-accent);
+  text-decoration: none;
+  transition: top 160ms ease;
+}
+
+.skip-to-content:focus {
+  top: 0.75rem;
 }
 
 html {

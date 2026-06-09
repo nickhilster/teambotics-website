@@ -15,9 +15,12 @@ export function HomeCTASection() {
       <Container className="cta-section__inner">
         <SectionReveal>
           <p className="section-eyebrow">{messages.cta.eyebrow}</p>
-          <h2 className="cta-section__title">
+          <h2
+            className="cta-section__title"
+            aria-label={locale === "en" ? "Quality output begins with a quality input process." : undefined}
+          >
             {locale === "en" ? (
-              <span className="cta-thesis">
+              <span className="cta-thesis" aria-hidden="true">
                 <span className="cta-thesis__meta">
                   <span className="cta-thesis__chip cta-thesis__chip--output">
                     Product

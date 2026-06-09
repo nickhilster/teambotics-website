@@ -18,6 +18,7 @@ export function Footer() {
           <Link href="/terms">{messages.footer.termsLabel}</Link>
           <Link href={siteConfig.socials.linkedin} rel="noopener noreferrer" target="_blank">
             {messages.footer.linkedInLabel}
+            <span className="sr-only"> (opens in new tab)</span>
           </Link>
         </nav>
       </Container>

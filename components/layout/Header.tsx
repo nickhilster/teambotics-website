@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -21,6 +21,8 @@ export function Header() {
   const showLanguageSwitcher = pathname !== "/privacy" && pathname !== "/terms";
   const homeHref = withLocalePath(locale, "/");
   const contactHref = withLocalePath(locale, "/#contact");
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerFirstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,6 +34,30 @@ export function Header() {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Focus first drawer link when drawer opens; return focus to toggle when it closes
+  useEffect(() => {
+    if (isOpen) {
+      drawerFirstLinkRef.current?.focus();
+    } else {
+      // Only return focus if the drawer was previously open (not on initial render)
+      if (document.activeElement && (document.activeElement as HTMLElement).closest("#mobile-drawer")) {
+        toggleRef.current?.focus();
+      }
+    }
+  }, [isOpen]);
+
+  // Close drawer on Escape
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   return (
     <header className={`site-header${isScrolled ? " site-header--scrolled" : ""}`}>
@@ -51,7 +77,9 @@ export function Header() {
           {showLanguageSwitcher ? <LanguageSwitcher /> : null}
           <ThemeToggle />
           <button
+            ref={toggleRef}
             aria-controls="mobile-drawer"
+            aria-expanded={isOpen}
             aria-label={isOpen ? messages.header.closeNavigationLabel : messages.header.openNavigationLabel}
             className="site-nav-toggle"
             onClick={() => setIsOpen((value) => !value)}
@@ -61,11 +89,16 @@ export function Header() {
           </button>
         </div>
       </Container>
-      <div className={`mobile-drawer${isOpen ? " mobile-drawer--open" : ""}`} id="mobile-drawer">
+      <div
+        className={`mobile-drawer${isOpen ? " mobile-drawer--open" : ""}`}
+        id="mobile-drawer"
+        aria-hidden={!isOpen}
+      >
         <Container className="mobile-drawer__inner">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <Link
               key={item.href}
+              ref={index === 0 ? drawerFirstLinkRef : undefined}
               href={`${homeHref}${item.href}`}
               onClick={() => setIsOpen(false)}
             >

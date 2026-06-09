@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 import { MessageSquare, Send, X } from 'lucide-react';
 
 const STORAGE_KEY = 'teambotics-chat-session';
@@ -40,6 +40,10 @@ export function ChatbotWidget() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+
   const pageContext = useMemo(() => {
     if (typeof window === 'undefined') {
       return {
@@ -56,7 +60,29 @@ export function ChatbotWidget() {
 
   const openChat = () => setOpen(true);
 
-  const closeChat = () => setOpen(false);
+  const closeChat = () => {
+    setOpen(false);
+    // Return focus to the toggle button when the dialog closes
+    toggleRef.current?.focus();
+  };
+
+  // Focus the close button when the dialog opens
+  useEffect(() => {
+    if (open) {
+      closeButtonRef.current?.focus();
+    }
+  }, [open]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && open) {
+        closeChat();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [open]);
 
   const sendMessage = async () => {
     if (!message.trim() || sending || !sessionId) {
@@ -120,30 +146,44 @@ export function ChatbotWidget() {
   return (
     <div className="chatbot-widget">
       <button
+        ref={toggleRef}
         type="button"
         className="chatbot-toggle"
         onClick={openChat}
-        aria-label="Open chat"
+        aria-label="Open chat assistant"
+        aria-expanded={open}
+        aria-haspopup="dialog"
       >
-        <MessageSquare size={18} />
+        <MessageSquare size={18} aria-hidden="true" />
         <span>Chat</span>
       </button>
 
       {open ? (
-        <div className="chatbot-panel" role="dialog" aria-modal="true">
+        <div
+          className="chatbot-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="chatbot-title"
+        >
           <div className="chatbot-panel__header">
             <div>
-              <p className="chatbot-panel__title">Teambotics Assistant</p>
+              <p className="chatbot-panel__title" id="chatbot-title">Teambotics Assistant</p>
               <p className="chatbot-panel__subtitle">Ask about the site, products, and experience.</p>
             </div>
-            <button type="button" className="chatbot-close" onClick={closeChat} aria-label="Close chat">
-              <X size={18} />
+            <button
+              ref={closeButtonRef}
+              type="button"
+              className="chatbot-close"
+              onClick={closeChat}
+              aria-label="Close chat"
+            >
+              <X size={18} aria-hidden="true" />
             </button>
           </div>
 
-          <div className="chatbot-panel__history">
+          <div className="chatbot-panel__history" aria-live="polite" aria-atomic="false">
             {history.length === 0 ? (
-              <div className="chatbot-panel__empty">Say hello and mention the page you’re on.</div>
+              <div className="chatbot-panel__empty">Say hello and mention the page you're on.</div>
             ) : history.map((item, index) => (
               <div key={`${item.role}-${index}`} className={`chatbot-bubble chatbot-bubble--${item.role}`}>
                 <span>{item.content}</span>
@@ -181,16 +221,18 @@ export function ChatbotWidget() {
             ))}
           </div>
 
-          {error ? <div className="chatbot-error">{error}</div> : null}
+          {error ? <div className="chatbot-error" role="alert">{error}</div> : null}
 
           <div className="chatbot-panel__footer">
             <textarea
+              ref={inputRef}
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask something..."
+              placeholder="Ask something…"
               className="chatbot-input"
               rows={2}
+              aria-label="Chat message"
             />
             <button
               type="button"
@@ -199,7 +241,7 @@ export function ChatbotWidget() {
               disabled={sending || !message.trim()}
               aria-label="Send message"
             >
-              {sending ? 'Sending…' : <Send size={16} />}
+              {sending ? 'Sending…' : <Send size={16} aria-hidden="true" />}
             </button>
           </div>
         </div>
