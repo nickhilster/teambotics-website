@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">RyFine Feature Map banner</title>
+  <desc id="desc">A wide feature map of the RyFine interface highlighting the toolbar, prompt pane, refined output, and supporting panels.</desc>
+  <rect width="1200" height="630" rx="32" fill="#0b0c10" />
+  <text x="60" y="74" fill="#c8f750" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">RYFINE PRODUCT MAP</text>
+  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">RyFine Feature Map</text>
+  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">The core prompt workflow and its support rails, all in one view.</text>
+
+  <rect x="188" y="238" width="824" height="314" rx="28" fill="#14141a" stroke="#ffffff" stroke-opacity="0.08" />
+  <rect x="214" y="262" width="772" height="52" rx="16" fill="#1b1b23" />
+  <text x="244" y="295" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="26" font-weight="800">RyFine</text>
+  <text x="466" y="295" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="16">Rules   Skills   Context   Library   Project</text>
+
+  <rect x="222" y="338" width="330" height="182" rx="20" fill="#0d1117" stroke="#5cc8ff" stroke-opacity="0.22" />
+  <text x="248" y="372" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="18">INPUT PANE</text>
+  <text x="248" y="420" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="28" font-weight="700">Rough prompt + image</text>
+  <text x="248" y="458" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="22">Start with raw intent.</text>
+  <text x="248" y="488" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="22">Refine before execution.</text>
+
+  <rect x="648" y="338" width="330" height="182" rx="20" fill="#0d1117" stroke="#c8f750" stroke-opacity="0.22" />
+  <text x="674" y="372" fill="#c8f750" font-family="Geist Mono, monospace" font-size="18">OUTPUT PANE</text>
+  <text x="674" y="420" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="28" font-weight="700">Refined prompt + trace</text>
+  <text x="674" y="458" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="22">Inspect, compare, and copy.</text>
+
+  <g font-family="Geist Mono, monospace" font-size="16">
+    <path d="M188 286H128V214" stroke="#5cc8ff" stroke-width="4" fill="none" /><text x="74" y="210" fill="#5cc8ff">Settings</text>
+    <path d="M188 420H114" stroke="#5cc8ff" stroke-width="4" /><text x="50" y="414" fill="#5cc8ff">Context</text>
+    <path d="M1012 286H1074V214" stroke="#c8f750" stroke-width="4" fill="none" /><text x="1028" y="210" fill="#c8f750">Rules</text>
+    <path d="M1012 364H1112" stroke="#c8f750" stroke-width="4" /><text x="1044" y="356" fill="#c8f750">Skills</text>
+    <path d="M1012 430H1116" stroke="#5cc8ff" stroke-width="4" /><text x="1040" y="422" fill="#5cc8ff">Library</text>
+    <path d="M1012 496H1112" stroke="#5cc8ff" stroke-width="4" /><text x="1042" y="488" fill="#5cc8ff">Project</text>
+  </g>
+
+  <text x="60" y="584" fill="#c8f750" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Try RyFine now · ryfine.app</text>
+</svg>
