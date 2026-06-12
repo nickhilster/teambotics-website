@@ -1,47 +1,80 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="c2m-title c2m-desc">
-  <title id="c2m-title">Code2Motion dual platform map</title>
-  <desc id="c2m-desc">Code2Motion platform split: PlayRoom for discovering generative experiences, ToyMaker for building PWA-ready browser apps.</desc>
-  <rect width="1200" height="630" fill="#0b0c10"/>
+  <title id="c2m-title">Code2Motion ToyMaker studio interface</title>
+  <desc id="c2m-desc">ToyMaker studio showing a prompt-to-motion pipeline with Sidecar templates: General, Particles, Shader, and Audio.</desc>
+  <defs>
+    <radialGradient id="c2m-glow" cx="88%" cy="14%" r="52%">
+      <stop offset="0%" stop-color="#3d1660" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#0c0b14" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0c0b14"/>
+  <rect width="1200" height="630" fill="url(#c2m-glow)"/>
 
-  <text x="60" y="74" fill="#f472b6" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">CODE2MOTION · PLATFORM MAP</text>
-  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">Dual Platform</text>
-  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">Discover generative experiences. Build your own.</text>
+  <!-- Nav eyebrow -->
+  <text x="60" y="46" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">code2motion /toymaker</text>
 
-  <!-- Divider line between panels -->
-  <line x1="600" y1="228" x2="600" y2="512" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <!-- Left heading -->
+  <text x="60" y="118" fill="#6b6b78" font-family="Geist Mono, monospace" font-size="13" letter-spacing="3">TOYMAKER V1</text>
+  <text x="60" y="188" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">Make Something</text>
+  <text x="60" y="252" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">That Moves.</text>
+  <text x="60" y="300" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Prompt-to-motion. Live preview.</text>
+  <text x="60" y="324" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Direct publish to Playroom.</text>
 
-  <!-- Left panel: PlayRoom -->
-  <rect x="60" y="228" width="516" height="284" rx="20" fill="#14141a" stroke="#f472b6" stroke-opacity="0.28"/>
-  <text x="88" y="272" fill="#f472b6" font-family="Geist Mono, monospace" font-size="16" letter-spacing="2">PLAYROOM</text>
-  <text x="88" y="312" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="32" font-weight="800">Discover</text>
+  <!-- Studio Snapshot card -->
+  <rect x="512" y="24" width="648" height="402" rx="18" fill="#18161f" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="540" y="60" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="12" letter-spacing="2">STUDIO SNAPSHOT</text>
+  <text x="1132" y="60" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="12" letter-spacing="2" text-anchor="end">TEMPLATE DRIVEN</text>
 
-  <!-- Generative motion circles (decorative) -->
-  <circle cx="340" cy="390" r="52" fill="none" stroke="#f472b6" stroke-opacity="0.18" stroke-width="1.5"/>
-  <circle cx="340" cy="390" r="34" fill="none" stroke="#f472b6" stroke-opacity="0.25" stroke-width="1"/>
-  <circle cx="340" cy="390" r="18" fill="#f472b6" fill-opacity="0.12"/>
-  <circle cx="420" cy="360" r="30" fill="none" stroke="#c8f750" stroke-opacity="0.2" stroke-width="1.5"/>
-  <circle cx="420" cy="360" r="14" fill="#c8f750" fill-opacity="0.1"/>
-  <circle cx="270" cy="420" r="22" fill="none" stroke="#f472b6" stroke-opacity="0.15" stroke-width="1"/>
-  <circle cx="450" cy="430" r="18" fill="none" stroke="#c8f750" stroke-opacity="0.18" stroke-width="1"/>
+  <!-- Traffic lights -->
+  <circle cx="540" cy="86" r="7" fill="#ff5f57"/>
+  <circle cx="562" cy="86" r="7" fill="#ffbd2e"/>
+  <circle cx="584" cy="86" r="7" fill="#28c840"/>
 
-  <text x="88" y="350" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="19">Interactive c2merses and motion</text>
-  <text x="88" y="376" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="19">studies built for the browser.</text>
-  <text x="88" y="468" fill="#f472b6" font-family="Geist Mono, monospace" font-size="14">Generative motion · Canvas · PWA</text>
+  <!-- PROMPT field -->
+  <text x="540" y="120" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="12" letter-spacing="2">PROMPT</text>
+  <rect x="540" y="128" width="592" height="72" rx="10" fill="#0d0c17"/>
+  <text x="560" y="156" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="17">electric tide pools with drifting particles</text>
+  <text x="560" y="180" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="17">that flare when you tap</text>
 
-  <!-- Right panel: ToyMaker -->
-  <rect x="624" y="228" width="516" height="284" rx="20" fill="#14141a" stroke="#c8f750" stroke-opacity="0.28"/>
-  <text x="652" y="272" fill="#c8f750" font-family="Geist Mono, monospace" font-size="16" letter-spacing="2">TOYMAKER</text>
-  <text x="652" y="312" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="32" font-weight="800">Build</text>
+  <!-- SIDECAR + INTERACTSTYLE -->
+  <rect x="540" y="216" width="280" height="62" rx="10" fill="#0d0c17"/>
+  <text x="560" y="238" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">SIDECAR</text>
+  <text x="560" y="264" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="700">Particles</text>
 
-  <!-- Code editor mockup (decorative) -->
-  <rect x="652" y="332" width="460" height="120" rx="12" fill="#0d1117"/>
-  <text x="672" y="358" fill="#c8f750" font-family="Geist Mono, monospace" font-size="13">const scene = new C2M.Scene()</text>
-  <text x="672" y="378" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="13">scene.add( particles(800, palette.neon) )</text>
-  <text x="672" y="398" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">scene.loop( t =&gt; rotate(t * 0.4) )</text>
-  <text x="672" y="418" fill="#f4f4f6" font-family="Geist Mono, monospace" font-size="13">scene.publish( "my-experience" )</text>
-  <text x="672" y="438" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">// PWA-ready · no WebGL expertise needed</text>
+  <rect x="836" y="216" width="296" height="62" rx="10" fill="#0d0c17"/>
+  <text x="856" y="238" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">INTERACTSTYLE</text>
+  <text x="856" y="264" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="700">tap</text>
 
-  <text x="652" y="468" fill="#c8f750" font-family="Geist Mono, monospace" font-size="14">No-boilerplate creation · Publish direct</text>
+  <!-- Pipeline -->
+  <rect x="540" y="294" width="592" height="52" rx="10" fill="#0d0c17"/>
+  <text x="558" y="325" fill="#6b6b78" font-family="Geist Mono, monospace" font-size="13">generate(prompt)</text>
+  <text x="700" y="325" fill="#9966ff" font-family="Geist Mono, monospace" font-size="13"> →  </text>
+  <text x="730" y="325" fill="#6b6b78" font-family="Geist Mono, monospace" font-size="13">preview(data:url)</text>
+  <text x="876" y="325" fill="#9966ff" font-family="Geist Mono, monospace" font-size="13"> →  </text>
+  <text x="906" y="325" fill="#6b6b78" font-family="Geist Mono, monospace" font-size="13">publish(render/[id])</text>
 
-  <text x="60" y="580" fill="#f472b6" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Browser-native creative platform · code2motion.app</text>
+  <!-- Sub row -->
+  <rect x="540" y="362" width="592" height="42" rx="10" fill="#0d0c17"/>
+  <text x="558" y="388" fill="#404050" font-family="Geist Mono, monospace" font-size="13">No WebGL boilerplate · instant preview · PWA-ready</text>
+
+  <!-- Feature cards -->
+  <rect x="60" y="450" width="252" height="120" rx="14" fill="#15141c" stroke="#ffffff" stroke-opacity="0.06"/>
+  <text x="80" y="476" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">ADAPTIVE TEMPLATE</text>
+  <text x="80" y="506" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="28" font-weight="800">General</text>
+  <text x="80" y="532" fill="#5a5a68" font-family="Hanken Grotesk, sans-serif" font-size="14">Flexible motion systems</text>
+
+  <rect x="328" y="450" width="252" height="120" rx="14" fill="#15141c" stroke="#ffffff" stroke-opacity="0.06"/>
+  <text x="348" y="476" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">FORCE FIELDS</text>
+  <text x="348" y="506" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="28" font-weight="800">Particles</text>
+  <text x="348" y="532" fill="#5a5a68" font-family="Hanken Grotesk, sans-serif" font-size="14">Boids, swarms, mag fields</text>
+
+  <rect x="596" y="450" width="252" height="120" rx="14" fill="#15141c" stroke="#ffffff" stroke-opacity="0.06"/>
+  <text x="616" y="476" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">GLSL SURFACES</text>
+  <text x="616" y="506" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="28" font-weight="800">Shader</text>
+  <text x="616" y="532" fill="#5a5a68" font-family="Hanken Grotesk, sans-serif" font-size="14">Fragment shaders, plasma</text>
+
+  <rect x="864" y="450" width="276" height="120" rx="14" fill="#15141c" stroke="#ffffff" stroke-opacity="0.06"/>
+  <text x="884" y="476" fill="#5a5a68" font-family="Geist Mono, monospace" font-size="11" letter-spacing="2">FFT REACTIONS</text>
+  <text x="884" y="506" fill="#ffffff" font-family="Bricolage Grotesque, sans-serif" font-size="28" font-weight="800">Audio</text>
+  <text x="884" y="532" fill="#5a5a68" font-family="Hanken Grotesk, sans-serif" font-size="14">Mic-aware visualizers</text>
 </svg>

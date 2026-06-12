@@ -1,52 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="ltb-title ltb-desc">
-  <title id="ltb-title">LTB Buddy guided intake flow</title>
-  <desc id="ltb-desc">Three-stage guided intake: plain language issue capture, structured conversation, application-ready output.</desc>
-  <rect width="1200" height="630" fill="#0b0c10"/>
+  <title id="ltb-title">LTB Buddy — Ontario tenant rights app</title>
+  <desc id="ltb-desc">LTB Buddy light-theme interface: language selector, four guided steps from conversation to LTB application filing.</desc>
 
-  <text x="60" y="74" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">LTB BUDDY · INTAKE FLOW</text>
-  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">Guided Intake Flow</text>
-  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">Plain language in — application-ready output.</text>
+  <!-- Light background -->
+  <rect width="1200" height="630" fill="#eef1f7"/>
 
-  <!-- Card 1: Describe -->
-  <rect x="60" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#a78bfa" stroke-opacity="0.28"/>
-  <text x="86" y="270" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">01 · DESCRIBE</text>
-  <rect x="86" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
-  <text x="104" y="316" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="17">"My landlord hasn't fixed</text>
-  <text x="104" y="340" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="17">the heating in three weeks."</text>
-  <text x="104" y="362" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="12">▸ plain language · no form</text>
-  <text x="86" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Plain language</text>
-  <text x="86" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">issue capture</text>
-  <text x="86" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">No form knowledge needed.</text>
+  <!-- Nav bar -->
+  <rect width="1200" height="54" fill="#ffffff"/>
+  <text x="32" y="34" fill="#0d1b4d" font-family="Geist Mono, monospace" font-size="18" font-weight="700">⚖ LTBBuddy</text>
+  <text x="460" y="34" fill="#4a5a7d" font-family="Hanken Grotesk, sans-serif" font-size="14">My Applications</text>
+  <text x="610" y="34" fill="#4a5a7d" font-family="Hanken Grotesk, sans-serif" font-size="14">Evidence Vault</text>
+  <text x="740" y="34" fill="#4a5a7d" font-family="Hanken Grotesk, sans-serif" font-size="14">Resources</text>
+  <!-- Light/Dark toggles -->
+  <rect x="870" y="14" width="60" height="26" rx="13" fill="#0d1b4d"/>
+  <text x="900" y="31" fill="#ffffff" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">Light</text>
+  <rect x="938" y="14" width="56" height="26" rx="13" fill="none" stroke="#c8cee0"/>
+  <text x="966" y="31" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">Dark</text>
+  <!-- Sign In -->
+  <rect x="1112" y="14" width="72" height="26" rx="6" fill="#0d1b4d"/>
+  <text x="1148" y="31" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">Sign In</text>
 
-  <!-- Arrow 1 -->
-  <line x1="380" y1="370" x2="426" y2="370" stroke="#a78bfa" stroke-opacity="0.45" stroke-width="2.5"/>
-  <polygon points="426,364 442,370 426,376" fill="#a78bfa" fill-opacity="0.45"/>
+  <!-- Heading -->
+  <text x="600" y="118" fill="#0d1b4d" font-family="Bricolage Grotesque, sans-serif" font-size="50" font-weight="800" text-anchor="middle">Ontario Tenant Rights Help</text>
+  <text x="600" y="170" fill="#0d1b4d" font-family="Bricolage Grotesque, sans-serif" font-size="50" font-weight="800" text-anchor="middle">In Your Language</text>
+  <text x="600" y="204" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="17" text-anchor="middle">Navigate your LTB application with confidence</text>
 
-  <!-- Card 2: Structure -->
-  <rect x="442" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#5cc8ff" stroke-opacity="0.28"/>
-  <text x="468" y="270" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">02 · STRUCTURE</text>
-  <rect x="468" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
-  <text x="486" y="314" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="14">Type of issue?</text>
-  <text x="486" y="338" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Maintenance — no heat reported</text>
-  <text x="486" y="360" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="12">▸ Duration  ▸ Notice given  ▸ Evidence</text>
-  <text x="468" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Conversational</text>
-  <text x="468" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">guided intake</text>
-  <text x="468" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Step-by-step extraction.</text>
+  <!-- Language pills -->
+  <rect x="382" y="222" width="44" height="28" rx="14" fill="#0d1b4d"/>
+  <text x="404" y="240" fill="#ffffff" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">EN</text>
+  <rect x="432" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="452" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">FR</text>
+  <rect x="478" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="498" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">HI</text>
+  <rect x="524" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="544" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">ZH</text>
+  <rect x="570" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="590" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">ES</text>
+  <rect x="616" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="636" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">PA</text>
+  <rect x="662" y="222" width="40" height="28" rx="14" fill="#ffffff" stroke="#c8cee0" stroke-width="1"/>
+  <text x="682" y="240" fill="#4a5a7d" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">AR</text>
 
-  <!-- Arrow 2 -->
-  <line x1="762" y1="370" x2="808" y2="370" stroke="#5cc8ff" stroke-opacity="0.45" stroke-width="2.5"/>
-  <polygon points="808,364 824,370 808,376" fill="#5cc8ff" fill-opacity="0.45"/>
+  <!-- CTA buttons -->
+  <rect x="368" y="264" width="248" height="40" rx="20" fill="#0d1b4d"/>
+  <text x="492" y="289" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Start Your Application →</text>
+  <rect x="632" y="264" width="200" height="40" rx="20" fill="none" stroke="#0d1b4d" stroke-width="1.5"/>
+  <text x="732" y="289" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="16" text-anchor="middle">Learn Your Rights</text>
 
-  <!-- Card 3: File -->
-  <rect x="824" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#c8f750" stroke-opacity="0.28"/>
-  <text x="850" y="270" fill="#c8f750" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">03 · FILE</text>
-  <rect x="850" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
-  <text x="868" y="314" fill="#c8f750" font-family="Geist Mono, monospace" font-size="14">T6 — Maintenance issue</text>
-  <text x="868" y="336" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Unit 4B · 22 days · Evidence logged</text>
-  <text x="868" y="358" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Notice sent · Ready to submit</text>
-  <text x="850" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Application-</text>
-  <text x="850" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">ready output</text>
-  <text x="850" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Clean data for LTB submission.</text>
+  <!-- "How It Works" label -->
+  <text x="600" y="348" fill="#0d1b4d" font-family="Bricolage Grotesque, sans-serif" font-size="22" font-weight="700" text-anchor="middle">How It Works</text>
+  <text x="600" y="372" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="14" text-anchor="middle">Four steps to document your case and prepare your application</text>
 
-  <text x="60" y="580" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Guided filing support · ltbbuddy.ca</text>
+  <!-- Step cards (4 across) -->
+  <!-- Card 1 -->
+  <rect x="84" y="394" width="234" height="182" rx="16" fill="#ffffff" stroke="#dde4f0" stroke-width="1"/>
+  <circle cx="119" cy="414" r="18" fill="#0d1b4d"/>
+  <text x="119" y="420" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" text-anchor="middle">1</text>
+  <text x="167" y="444" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="26" text-anchor="middle">💬</text>
+  <text x="201" y="488" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Have a</text>
+  <text x="201" y="508" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Conversation</text>
+  <text x="201" y="534" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">AI listens with</text>
+  <text x="201" y="552" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">empathy first</text>
+
+  <!-- Card 2 -->
+  <rect x="334" y="394" width="234" height="182" rx="16" fill="#ffffff" stroke="#dde4f0" stroke-width="1"/>
+  <circle cx="369" cy="414" r="18" fill="#0d1b4d"/>
+  <text x="369" y="420" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" text-anchor="middle">2</text>
+  <text x="451" y="444" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="26" text-anchor="middle">📋</text>
+  <text x="451" y="488" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Document</text>
+  <text x="451" y="508" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">the Details</text>
+  <text x="451" y="534" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">Guided questions,</text>
+  <text x="451" y="552" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">plain language</text>
+
+  <!-- Card 3 -->
+  <rect x="584" y="394" width="234" height="182" rx="16" fill="#ffffff" stroke="#dde4f0" stroke-width="1"/>
+  <circle cx="619" cy="414" r="18" fill="#0d1b4d"/>
+  <text x="619" y="420" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" text-anchor="middle">3</text>
+  <text x="701" y="444" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="26" text-anchor="middle">📁</text>
+  <text x="701" y="488" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Build Your</text>
+  <text x="701" y="508" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Evidence</text>
+  <text x="701" y="534" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">Organize photos</text>
+  <text x="701" y="552" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">and documents</text>
+
+  <!-- Card 4 -->
+  <rect x="834" y="394" width="282" height="182" rx="16" fill="#ffffff" stroke="#dde4f0" stroke-width="1"/>
+  <circle cx="869" cy="414" r="18" fill="#0d1b4d"/>
+  <text x="869" y="420" fill="#ffffff" font-family="Hanken Grotesk, sans-serif" font-size="16" font-weight="700" text-anchor="middle">4</text>
+  <text x="975" y="444" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="26" text-anchor="middle">📖</text>
+  <text x="975" y="488" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">File Your</text>
+  <text x="975" y="508" fill="#0d1b4d" font-family="Hanken Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Application</text>
+  <text x="975" y="534" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">Step-by-step LTB</text>
+  <text x="975" y="552" fill="#6b7a99" font-family="Hanken Grotesk, sans-serif" font-size="13" text-anchor="middle">submission guide</text>
 </svg>
