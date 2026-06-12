@@ -4,12 +4,19 @@ import {
 } from "@/lib/products";
 import { productTranslationsEs419 } from "@/lib/i18n/generated/productTranslations.es-419";
 import { productTranslationsFrCA } from "@/lib/i18n/generated/productTranslations.fr-CA";
+import { supplementalProductTranslations } from "@/lib/i18n/productTranslations.supplemental";
 import { type GeneratedProductTranslation, type SiteLocale } from "@/lib/i18n/types";
 import { withLocalePath } from "@/lib/siteLocale";
 
 const localizedProductTranslations: Partial<Record<Exclude<SiteLocale, "en">, Record<string, GeneratedProductTranslation>>> = {
-  "fr-CA": productTranslationsFrCA,
-  "es-419": productTranslationsEs419,
+  "fr-CA": {
+    ...productTranslationsFrCA,
+    ...(supplementalProductTranslations["fr-CA"] ?? {}),
+  },
+  "es-419": {
+    ...productTranslationsEs419,
+    ...(supplementalProductTranslations["es-419"] ?? {}),
+  },
 };
 
 export function getLocalizedProductBySlug(slug: string, locale: SiteLocale) {
