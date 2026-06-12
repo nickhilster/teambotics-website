@@ -38,295 +38,357 @@ export type ProductCaseStudy = {
 
 export const productCaseStudies: ProductCaseStudy[] = [
   {
-    slug: "code2motion",
-    name: "Code2Motion",
-    title: "Interactive Generative Art Platform",
-    label: "Early Access",
-    stage: "In Early Access",
-    status: "pilot",
-    statusLabel: "EARLY ACCESS",
-    market: "Creative Tech / Experience Brands",
-    tagline:
-      "A browser-native creative ecosystem that turns code, motion, and generative interaction into playable digital experiences.",
-    description:
-      "A dual-sided ecosystem turning code into interactive experiences. Discover c2merses in the PlayRoom, and build progressive web apps without complex WebGL knowledge in ToyMaker.",
-    summary:
-      "Code2Motion is the creative technology edge of Teambotics. It packages generative motion, playful interaction, and PWA-ready delivery into a platform for expressive browser experiences.",
-    heroSummary:
-      "Motion, code, and generative atmosphere packaged into a live creative platform.",
-    impact:
-      "Demonstrates Teambotics' ability to ship expressive, browser-native interactive systems beyond conventional internal tools and dashboards.",
-    tags: ["Generative Art", "PWA", "Interactive Motion"],
-    techStack: ["React", "Canvas", "PWA", "Generative Motion"],
-    aiCapabilities: [
+    "slug": "ryfine",
+    "name": "RyFine",
+    "title": "Prompt Refinement Workflow",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "status": "live",
+    "statusLabel": "LIVE PRODUCT",
+    "market": "Prompt UX / Applied AI / Workflow Enablement",
+    "tagline": "A local-first prompt refinement layer that helps people turn rough instructions, project context, and operating rules into clearer AI-ready prompts.",
+    "description": "A prompt refinement product for users who need clearer instructions before they hand work to ChatGPT, Claude, Gemini, Copilot, Cursor, or other AI tools.",
+    "summary": "RyFine helps users move from rough intent to sharper execution. It combines prompt UX, reusable context, provider-aware workflows, and local-first control so people can improve instructions without becoming prompt engineers.",
+    "heroSummary": "Clearer prompts, stronger context, and safer execution before AI work begins.",
+    "impact": "Positions Teambotics as a builder of practical AI workflow products that improve the human side of model interaction.",
+    "tags": [
+      "Prompt UX",
+      "Context Engineering",
+      "Local-First AI"
+    ],
+    "techStack": [
+      "React",
+      "Provider-Aware AI Workflows",
+      "Prompt Libraries",
+      "Local-First Storage"
+    ],
+    "aiCapabilities": [
+      "Prompt refinement before execution",
+      "Reusable prompt and project context",
+      "Provider-aware workflow routing",
+      "Local-first privacy posture"
+    ],
+    "focusPoints": [
+      {
+        "label": "The Problem",
+        "value": "Most AI tools still start with a blank box. Users know what they want, but they often struggle to turn messy intent into instructions a model can execute reliably."
+      },
+      {
+        "label": "The Workflow",
+        "value": "RyFine sits before the model call. It helps users structure intent, context, rules, and output expectations so the next AI interaction starts from a stronger instruction layer."
+      },
+      {
+        "label": "The Standard",
+        "value": "The product treats prompt quality as interface design, not magic wording. The goal is repeatable clarity, user control, and better context before automation runs."
+      }
+    ],
+    "proofPoints": [
+      "Turns rough prompts into clearer instructions before users send work into AI systems.",
+      "Supports reusable prompt structures, project context, and provider-aware workflows.",
+      "Fits a local-first posture where user-controlled keys, local storage, and direct provider calls remain part of the trust model.",
+      "Demonstrates Teambotics' ability to ship focused applied-AI tools that improve adoption at the workflow layer."
+    ],
+    "detailSections": [
+      {
+        "title": "Product Framing",
+        "body": "RyFine is the prompt layer before execution. It gives users a clearer place to shape intent, context, constraints, and expectations before asking an AI system to act."
+      },
+      {
+        "title": "Interface Approach",
+        "body": "The experience is designed around refinement rather than replacement. Users stay in control while the product helps them structure better instructions, compare outputs, and reuse stronger patterns."
+      },
+      {
+        "title": "Business Fit",
+        "body": "For teams adopting AI, RyFine shows how practical enablement can start at the instruction layer: better prompts, clearer context, less guesswork, and a more teachable workflow."
+      }
+    ],
+    "externalUrl": "https://ryfine.app/",
+    "externalLabel": "Open Product",
+    "supportUrl": "mailto:hello@teambotics.app?subject=RyFine%20case%20study",
+    "supportLabel": "Discuss RyFine"
+  },
+  {
+    "slug": "code2motion",
+    "name": "Code2Motion",
+    "title": "Interactive Generative Art Platform",
+    "label": "Early Access",
+    "stage": "In Early Access",
+    "status": "pilot",
+    "statusLabel": "EARLY ACCESS",
+    "market": "Creative Tech / Experience Brands",
+    "tagline": "A browser-native creative ecosystem that turns code, motion, and generative interaction into playable digital experiences.",
+    "description": "A dual-sided ecosystem turning code into interactive experiences. Discover c2merses in the PlayRoom, and build progressive web apps without complex WebGL knowledge in ToyMaker.",
+    "summary": "Code2Motion is the creative technology edge of Teambotics. It packages generative motion, playful interaction, and PWA-ready delivery into a platform for expressive browser experiences.",
+    "heroSummary": "Motion, code, and generative atmosphere packaged into a live creative platform.",
+    "impact": "Demonstrates Teambotics' ability to ship expressive, browser-native interactive systems beyond conventional internal tools and dashboards.",
+    "tags": [
+      "Generative Art",
+      "PWA",
+      "Interactive Motion"
+    ],
+    "techStack": [
+      "React",
+      "Canvas",
+      "PWA",
+      "Generative Motion"
+    ],
+    "aiCapabilities": [
       "Creative prompt-to-experience workflows",
       "Generative interaction scaffolding",
-      "Motion system iteration",
+      "Motion system iteration"
     ],
-    focusPoints: [
+    "focusPoints": [
       {
-        label: "PlayRoom",
-        value:
-          "A discovery layer for interactive c2merses, motion studies, and browser-native creative tools.",
+        "label": "PlayRoom",
+        "value": "A discovery layer for interactive c2merses, motion studies, and browser-native creative tools."
       },
       {
-        label: "ToyMaker",
-        value:
-          "A creation surface for building progressive web experiences without forcing every creator into low-level graphics complexity.",
+        "label": "ToyMaker",
+        "value": "A creation surface for building progressive web experiences without forcing every creator into low-level graphics complexity."
       },
       {
-        label: "Platform Signal",
-        value:
-          "The project proves Teambotics can combine rigorous product thinking with expressive, high-atmosphere interaction design.",
-      },
+        "label": "Platform Signal",
+        "value": "The project proves Teambotics can combine rigorous product thinking with expressive, high-atmosphere interaction design."
+      }
     ],
-    proofPoints: [
+    "proofPoints": [
       "Built around browser-native interactive experiences rather than static gallery assets.",
       "Supports a productized creative workflow from discovery to creation.",
       "The platform direction creates reusable patterns for motion, generative visuals, and PWA delivery.",
-      "Its playful surface complements Teambotics' operational products by showing range and interface ambition.",
+      "Its playful surface complements Teambotics' operational products by showing range and interface ambition."
     ],
-    detailSections: [
+    "detailSections": [
       {
-        title: "Creative System",
-        body:
-          "Code2Motion frames generative art as a reusable product system. The goal is to make interactive motion explorable, remixable, and deployable.",
+        "title": "Creative System",
+        "body": "Code2Motion frames generative art as a reusable product system. The goal is to make interactive motion explorable, remixable, and deployable."
       },
       {
-        title: "Experience Design",
-        body:
-          "The platform balances atmosphere and usability by giving visitors immediate visual feedback while keeping the creation model approachable.",
+        "title": "Experience Design",
+        "body": "The platform balances atmosphere and usability by giving visitors immediate visual feedback while keeping the creation model approachable."
       },
       {
-        title: "Strategic Role",
-        body:
-          "For Teambotics, Code2Motion shows that the same engineering discipline used for workflow systems can also power memorable brand and creative experiences.",
-      },
+        "title": "Strategic Role",
+        "body": "For Teambotics, Code2Motion shows that the same engineering discipline used for workflow systems can also power memorable brand and creative experiences."
+      }
     ],
-    externalUrl: "https://code2motion.app/",
-    externalLabel: "Open Platform",
-    supportUrl: "mailto:hello@teambotics.app?subject=Code2Motion%20case%20study",
-    supportLabel: "Discuss Code2Motion",
+    "externalUrl": "https://code2motion.app/",
+    "externalLabel": "Open Platform",
+    "supportUrl": "mailto:hello@teambotics.app?subject=Code2Motion%20case%20study",
+    "supportLabel": "Discuss Code2Motion"
   },
   {
-    slug: "ltb-buddy",
-    name: "LTB Buddy",
-    title: "Guided Legal Intake Assistant",
-    label: "Public Beta",
-    stage: "Public Beta",
-    status: "pilot",
-    statusLabel: "IN BETA",
-    market: "Legal Tech / Compliance / Operations",
-    tagline:
-      "A conversational filing assistant that helps Ontario tenants move from plain-language issue description to a cleaner, more complete LTB application.",
-    description:
-      "A voice-first conversational interface that streamlines Ontario Landlord and Tenant Board applications. Reduces filing complexity and structures sensitive data within a secure workflow.",
-    summary:
-      "LTB Buddy turns a stressful legal workflow into a guided intake experience. It captures tenant issues in plain language, organizes the required details, and supports a more confident path toward filing without asking users to understand legal forms first.",
-    heroSummary:
-      "From complaint to structured filing support, designed for clarity under pressure.",
-    impact:
-      "Designed to reduce filing friction, improve application completeness, and make legal intake easier to complete for non-expert users.",
-    tags: ["Legal Tech", "Guided Intake", "Compliance"],
-    techStack: ["OpenAI", "Vercel", "Structured Intake", "Secure Workflow Design"],
-    aiCapabilities: [
+    "slug": "ltb-buddy",
+    "name": "LTB Buddy",
+    "title": "Guided Legal Intake Assistant",
+    "label": "Public Beta",
+    "stage": "Public Beta",
+    "status": "pilot",
+    "statusLabel": "IN BETA",
+    "market": "Legal Tech / Compliance / Operations",
+    "tagline": "A conversational filing assistant that helps Ontario tenants move from plain-language issue description to a cleaner, more complete LTB application.",
+    "description": "A voice-first conversational interface that streamlines Ontario Landlord and Tenant Board applications. Reduces filing complexity and structures sensitive data within a secure workflow.",
+    "summary": "LTB Buddy turns a stressful legal workflow into a guided intake experience. It captures tenant issues in plain language, organizes the required details, and supports a more confident path toward filing without asking users to understand legal forms first.",
+    "heroSummary": "From complaint to structured filing support, designed for clarity under pressure.",
+    "impact": "Designed to reduce filing friction, improve application completeness, and make legal intake easier to complete for non-expert users.",
+    "tags": [
+      "Legal Tech",
+      "Guided Intake",
+      "Compliance"
+    ],
+    "techStack": [
+      "OpenAI",
+      "Vercel",
+      "Structured Intake",
+      "Secure Workflow Design"
+    ],
+    "aiCapabilities": [
       "Plain-language issue capture",
       "Conversational intake flow",
       "Structured application data extraction",
-      "Workflow guidance for complex forms",
+      "Workflow guidance for complex forms"
     ],
-    focusPoints: [
+    "focusPoints": [
       {
-        label: "The Challenge",
-        value:
-          "Ontario tenants often abandon legitimate filings because the process is technical, stressful, and difficult to complete without legal context.",
+        "label": "The Challenge",
+        "value": "Ontario tenants often abandon legitimate filings because the process is technical, stressful, and difficult to complete without legal context."
       },
       {
-        label: "The System",
-        value:
-          "The product narrows the workflow into guided questions, structured answers, and practical next steps that preserve the user's intent.",
+        "label": "The System",
+        "value": "The product narrows the workflow into guided questions, structured answers, and practical next steps that preserve the user's intent."
       },
       {
-        label: "The Standard",
-        value:
-          "The experience is framed around clarity, careful boundaries, and operational trust rather than generic chatbot answers.",
-      },
+        "label": "The Standard",
+        "value": "The experience is framed around clarity, careful boundaries, and operational trust rather than generic chatbot answers."
+      }
     ],
-    proofPoints: [
+    "proofPoints": [
       "Voice-first intake reduces the blank-page problem for users describing difficult tenant issues.",
       "Structured data capture creates a clearer bridge between conversation and form completion.",
       "Compliance-aware copy keeps the product helpful without over-claiming legal authority.",
-      "The workflow is designed around sensitive, high-stakes user context where trust matters.",
+      "The workflow is designed around sensitive, high-stakes user context where trust matters."
     ],
-    detailSections: [
+    "detailSections": [
       {
-        title: "Product Framing",
-        body:
-          "LTB Buddy is not just a chat surface. It is a workflow product for turning messy user narratives into cleaner intake data while keeping the experience approachable.",
+        "title": "Product Framing",
+        "body": "LTB Buddy is not just a chat surface. It is a workflow product for turning messy user narratives into cleaner intake data while keeping the experience approachable."
       },
       {
-        title: "Experience Design",
-        body:
-          "The interface prioritizes guided progression, plain language, and confidence-building feedback so users understand what is being captured and why.",
+        "title": "Experience Design",
+        "body": "The interface prioritizes guided progression, plain language, and confidence-building feedback so users understand what is being captured and why."
       },
       {
-        title: "Operational Fit",
-        body:
-          "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty.",
-      },
+        "title": "Operational Fit",
+        "body": "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty."
+      }
     ],
-    externalUrl: "https://ltbbuddy.ca/",
-    externalLabel: "Open Beta",
-    supportUrl: "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
-    supportLabel: "Discuss LTB Buddy",
+    "externalUrl": "https://ltbbuddy.ca/",
+    "externalLabel": "Open Beta",
+    "supportUrl": "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
+    "supportLabel": "Discuss LTB Buddy"
   },
   {
-    slug: "easybuddy",
-    name: "EasyBuddy",
-    title: "Conversational Enablement & Onboarding",
-    label: "Bespoke MVP",
-    stage: "Bespoke MVP, In Production",
-    status: "live",
-    statusLabel: "BESPOKE MVP",
-    market: "Auto Service / Workflow Enablement",
-    tagline:
-      "An AI-powered practice environment for service teams that need faster onboarding, realistic customer scenarios, and confident workflow recall.",
-    description:
-      "A purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions and guides staff through operational scenarios and repair order workflows.",
-    summary:
-      "EasyBuddy helps frontline teams prepare before live customer interactions. It combines simulations, policy-style knowledge support, and tone-aware coaching so staff can rehearse hard moments before they happen.",
-    heroSummary:
-      "AI-powered readiness for service teams before the customer is in front of them.",
-    impact:
-      "Built to reduce onboarding friction across customer conversation, policy recall, and repair-order workflow readiness.",
-    tags: ["Onboarding", "AI Simulation", "Operations"],
-    techStack: ["OpenAI", "Scenario Design", "RAG", "Vercel"],
-    aiCapabilities: [
+    "slug": "easybuddy",
+    "name": "EasyBuddy",
+    "title": "Conversational Enablement & Onboarding",
+    "label": "Bespoke MVP",
+    "stage": "Bespoke MVP, In Production",
+    "status": "live",
+    "statusLabel": "BESPOKE MVP",
+    "market": "Auto Service / Workflow Enablement",
+    "tagline": "An AI-powered practice environment for service teams that need faster onboarding, realistic customer scenarios, and confident workflow recall.",
+    "description": "A purpose-built AI assistant for service centres and dealerships. Simulates live customer interactions and guides staff through operational scenarios and repair order workflows.",
+    "summary": "EasyBuddy helps frontline teams prepare before live customer interactions. It combines simulations, policy-style knowledge support, and tone-aware coaching so staff can rehearse hard moments before they happen.",
+    "heroSummary": "AI-powered readiness for service teams before the customer is in front of them.",
+    "impact": "Built to reduce onboarding friction across customer conversation, policy recall, and repair-order workflow readiness.",
+    "tags": [
+      "Onboarding",
+      "AI Simulation",
+      "Operations"
+    ],
+    "techStack": [
+      "OpenAI",
+      "Scenario Design",
+      "RAG",
+      "Vercel"
+    ],
+    "aiCapabilities": [
       "Customer service simulations",
       "Role-play coaching",
       "Policy and process lookup",
-      "Shift-readiness prompts",
+      "Shift-readiness prompts"
     ],
-    focusPoints: [
+    "focusPoints": [
       {
-        label: "Simulation",
-        value:
-          "Staff can practice real customer situations, from routine service explanations to tense or ambiguous conversations.",
+        "label": "Simulation",
+        "value": "Staff can practice real customer situations, from routine service explanations to tense or ambiguous conversations."
       },
       {
-        label: "Enablement",
-        value:
-          "The assistant surfaces operational knowledge at the moment of need instead of burying it in static onboarding material.",
+        "label": "Enablement",
+        "value": "The assistant surfaces operational knowledge at the moment of need instead of burying it in static onboarding material."
       },
       {
-        label: "Adoption",
-        value:
-          "The product is shaped around confidence and repetition, making AI a practical coach rather than a replacement for frontline judgment.",
-      },
+        "label": "Adoption",
+        "value": "The product is shaped around confidence and repetition, making AI a practical coach rather than a replacement for frontline judgment."
+      }
     ],
-    proofPoints: [
+    "proofPoints": [
       "Scenario-based practice supports readiness before staff enter live service environments.",
       "Tone-aware feedback helps standardize customer experience without flattening human communication.",
       "Knowledge retrieval can keep policies, procedures, and service details close to the conversation.",
-      "The product targets high-turnover environments where onboarding speed and consistency matter.",
+      "The product targets high-turnover environments where onboarding speed and consistency matter."
     ],
-    detailSections: [
+    "detailSections": [
       {
-        title: "Product Framing",
-        body:
-          "EasyBuddy treats onboarding as an active practice loop. The core value is helping teams rehearse decisions, language, and workflows before the stakes are real.",
+        "title": "Product Framing",
+        "body": "EasyBuddy treats onboarding as an active practice loop. The core value is helping teams rehearse decisions, language, and workflows before the stakes are real."
       },
       {
-        title: "Interface Approach",
-        body:
-          "The experience is conversational, but the underlying design is operational: scenarios, policies, coaching, and follow-up prompts are structured around job readiness.",
+        "title": "Interface Approach",
+        "body": "The experience is conversational, but the underlying design is operational: scenarios, policies, coaching, and follow-up prompts are structured around job readiness."
       },
       {
-        title: "Business Fit",
-        body:
-          "The system is well suited to distributed service organizations where managers need consistent training quality across many locations and shifting teams.",
-      },
+        "title": "Business Fit",
+        "body": "The system is well suited to distributed service organizations where managers need consistent training quality across many locations and shifting teams."
+      }
     ],
-    externalUrl: "https://easybuddy.teambotics.app/",
-    externalLabel: "Open Product",
-    supportUrl: "mailto:hello@teambotics.app?subject=EasyBuddy%20case%20study",
-    supportLabel: "Discuss EasyBuddy",
+    "externalUrl": "https://easybuddy.teambotics.app/",
+    "externalLabel": "Open Product",
+    "supportUrl": "mailto:hello@teambotics.app?subject=EasyBuddy%20case%20study",
+    "supportLabel": "Discuss EasyBuddy"
   },
   {
-    slug: "storytellr",
-    name: "Storytellr",
-    title: "Client-Facing Narrative Graph",
-    label: "Coming Soon",
-    stage: "Private previews in progress",
-    status: "build",
-    statusLabel: "COMING SOON",
-    market: "Personal Brands / Founder Positioning / Team Storytelling",
-    tagline:
-      "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
-    description:
-      "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
-    summary:
-      "Storytellr is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
-    heroSummary:
-      "Interactive graph storytelling for complex professional narratives.",
-    impact:
-      "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
-    tags: ["Narrative Graph", "Positioning", "Client Enablement"],
-    techStack: ["Interactive Graph UI", "Story Curation", "Publishing Controls", "Onboarding Flow"],
-    aiCapabilities: [
+    "slug": "storytellr",
+    "name": "Storytellr",
+    "title": "Client-Facing Narrative Graph",
+    "label": "Coming Soon",
+    "stage": "Private previews in progress",
+    "status": "build",
+    "statusLabel": "COMING SOON",
+    "market": "Personal Brands / Founder Positioning / Team Storytelling",
+    "tagline": "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
+    "description": "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
+    "summary": "Storytellr is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
+    "heroSummary": "Interactive graph storytelling for complex professional narratives.",
+    "impact": "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
+    "tags": [
+      "Narrative Graph",
+      "Positioning",
+      "Client Enablement"
+    ],
+    "techStack": [
+      "Interactive Graph UI",
+      "Story Curation",
+      "Publishing Controls",
+      "Onboarding Flow"
+    ],
+    "aiCapabilities": [
       "Narrative structuring",
       "Relationship mapping",
       "Guided story curation",
-      "Stakeholder-facing summaries",
+      "Stakeholder-facing summaries"
     ],
-    focusPoints: [
+    "focusPoints": [
       {
-        label: "Context",
-        value:
-          "Most profile pages show a sequence of roles, but they miss how decisions, projects, collaborators, and outcomes actually connect.",
+        "label": "Context",
+        "value": "Most profile pages show a sequence of roles, but they miss how decisions, projects, collaborators, and outcomes actually connect."
       },
       {
-        label: "Narrative Graph",
-        value:
-          "Storytellr turns that missing context into a readable graph experience organized around themes, milestones, and relationships instead of a flat timeline.",
+        "label": "Narrative Graph",
+        "value": "Storytellr turns that missing context into a readable graph experience organized around themes, milestones, and relationships instead of a flat timeline."
       },
       {
-        label: "Launch Focus",
-        value:
-          "The current build is focused on client-facing positioning with cleaner onboarding, lightweight curation controls, and polished public publishing.",
-      },
+        "label": "Launch Focus",
+        "value": "The current build is focused on client-facing positioning with cleaner onboarding, lightweight curation controls, and polished public publishing."
+      }
     ],
-    proofPoints: [
+    "proofPoints": [
       "Public graph walkthroughs are designed to make complex work easier to explain to clients and stakeholders.",
       "The story structure is organized around themes, milestones, and relationships rather than a single linear profile.",
       "Launch work is centered on smoother onboarding and easier content setup for first-time users.",
-      "Publishing controls are being shaped to keep the public view polished and intentional.",
+      "Publishing controls are being shaped to keep the public view polished and intentional."
     ],
-    detailSections: [
+    "detailSections": [
       {
-        title: "Product Framing",
-        body:
-          "Storytellr is a client-facing narrative surface for people who need more than a static profile. The value is faster understanding: who someone is, what they have built, and why it matters.",
+        "title": "Product Framing",
+        "body": "Storytellr is a client-facing narrative surface for people who need more than a static profile. The value is faster understanding: who someone is, what they have built, and why it matters."
       },
       {
-        title: "Launch Direction",
-        body:
-          "The upcoming release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction.",
+        "title": "Launch Direction",
+        "body": "The upcoming release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction."
       },
       {
-        title: "Why It Matters",
-        body:
-          "Complex work loses meaning when it is flattened into disconnected roles or project cards. Storytellr keeps related work connected so clients, collaborators, and hiring teams can follow the story with context intact.",
-      },
+        "title": "Why It Matters",
+        "body": "Complex work loses meaning when it is flattened into disconnected roles or project cards. Storytellr keeps related work connected so clients, collaborators, and hiring teams can follow the story with context intact."
+      }
     ],
-    externalUrl: "https://www.nikdesign.ca/storytellr",
-    externalLabel: "Open Preview",
-    supportUrl: "mailto:hello@teambotics.app?subject=Storytellr%20case%20study",
-    supportLabel: "Discuss Storytellr",
-  },
+    "externalUrl": "https://www.nikdesign.ca/storytellr",
+    "externalLabel": "Open Preview",
+    "supportUrl": "mailto:hello@teambotics.app?subject=Storytellr%20case%20study",
+    "supportLabel": "Discuss Storytellr"
+  }
 ];
 
-const productDisplayOrder = ["ltb-buddy", "easybuddy", "code2motion", "storytellr"] as const;
+const productDisplayOrder = ["ryfine", "ltb-buddy", "easybuddy", "code2motion", "storytellr"] as const;
 
 export const products = productDisplayOrder
   .map((slug) => getProductBySlug(slug))
