@@ -1,18 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const hostname = request.headers.get("host") ?? "";
+const subdomainRoutes: Record<string, string> = {
+  easybuddy: "/easybuddy",
+  feedbackfish: "/feedbackfish",
+};
 
-  if (hostname.startsWith("easybuddy.")) {
-    const pathname = request.nextUrl.pathname;
-    const url = request.nextUrl.clone();
-    url.pathname = `/easybuddy${pathname === "/" ? "" : pathname}`;
-    return NextResponse.rewrite(url);
+export function middleware(request: NextRequest) {
+  const hostname = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+  const subdomain = hostname.split(".")[0];
+  const targetRoute = subdomainRoutes[subdomain];
+
+  if (!targetRoute) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  const pathname = request.nextUrl.pathname;
+
+  if (pathname === targetRoute || pathname.startsWith(`${targetRoute}/`)) {
+    return NextResponse.next();
+  }
+
+  const url = request.nextUrl.clone();
+  url.pathname = pathname === "/" ? targetRoute : `${targetRoute}${pathname}`;
+
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|opengraph-image|robots.txt|sitemap.xml).*)",
+  ],
 };
