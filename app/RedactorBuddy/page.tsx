@@ -153,7 +153,6 @@ export default function RedactorBuddyPage() {
             width={28}
             height={28}
             style={{ borderRadius: "6px" }}
-            onError={() => {}}
           />
           <span style={{ fontWeight: 700, fontSize: "1rem", color: BLUE, letterSpacing: "-0.02em" }}>
             RedactorBuddy
