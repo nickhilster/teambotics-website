@@ -40,7 +40,7 @@ export const siteMessagesFrCA: SiteMessages = {
       "équipes opérationnelles,",
       "conçus pour être déployés."
     ],
-    "copy": "Teambotics conçoit et construit des produits habilités par l'IA, des systèmes de workflow et des outils internes pour les organisations qui nécessitent un déploiement pratique, une gouvernance claire et une adoption mesurable.",
+    "copy": "Teambotics conçoit des produits et systèmes de workflow habilités par l'IA pour les organisations qui ont besoin d'un déploiement pratique — pas seulement d'un prototype.",
     "primaryCta": "Voir les systèmes",
     "secondaryCta": "Réviser l'approche"
   },
@@ -106,7 +106,7 @@ export const siteMessagesFrCA: SiteMessages = {
   },
   "cta": {
     "eyebrow": "CONTACT",
-    "title": "Une sortie de qualité (Produit) commence par un processus d'entrée de qualité (découverte).",
+    "title": "Un problème bien défini est le premier livrable.",
     "copy": "Partagez le problème opérationnel, l'opportunité produit ou le contexte de déploiement. Nous évaluerons l'adéquation et recommanderons une prochaine étape pratique.",
     "reviewSystemsLabel": "Voir les systèmes"
   },

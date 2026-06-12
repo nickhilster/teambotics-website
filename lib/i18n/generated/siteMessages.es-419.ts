@@ -40,7 +40,7 @@ export const siteMessagesEs419: SiteMessages = {
       "equipos operativos,",
       "diseñados para desplegar."
     ],
-    "copy": "Teambotics diseña y construye productos habilitados por IA, sistemas de flujo de trabajo y herramientas internas para organizaciones que necesitan despliegue práctico, gobernanza clara y adopción medible.",
+    "copy": "Teambotics diseña y construye productos habilitados por IA y sistemas de flujo de trabajo para organizaciones que necesitan un despliegue práctico — no solo un prototipo.",
     "primaryCta": "Ver sistemas",
     "secondaryCta": "Revisar enfoque"
   },
@@ -106,7 +106,7 @@ export const siteMessagesEs419: SiteMessages = {
   },
   "cta": {
     "eyebrow": "CONTACTO",
-    "title": "La calidad del resultado (Producto) comienza con un proceso de calidad de entrada (descubrimiento).",
+    "title": "Un problema bien definido es el primer entregable.",
     "copy": "Comparte el problema operativo, la oportunidad de producto o el contexto de despliegue. Evaluaremos la adecuación y recomendaremos un próximo paso práctico.",
     "reviewSystemsLabel": "Ver sistemas"
   },

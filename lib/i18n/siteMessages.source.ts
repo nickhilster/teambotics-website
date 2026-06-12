@@ -40,7 +40,7 @@ export const siteMessagesEn: SiteMessages = {
       "operational teams,",
       "built to deploy."
     ],
-    "copy": "Teambotics designs and builds AI-enabled products, workflow systems, and internal tools for organizations that need practical deployment, clear governance, and measurable adoption.",
+    "copy": "Teambotics builds AI-enabled products and workflow systems for organizations that need practical deployment — not just a prototype.",
     "primaryCta": "View systems",
     "secondaryCta": "Review approach"
   },
@@ -106,7 +106,7 @@ export const siteMessagesEn: SiteMessages = {
   },
   "cta": {
     "eyebrow": "CONTACT",
-    "title": "Quality output (Product) begins with a quality input (discovery) process.",
+    "title": "A well-scoped problem is the first deliverable.",
     "copy": "Share the operational problem, product opportunity, or deployment context. We will assess fit and recommend a practical next step.",
     "reviewSystemsLabel": "View systems"
   },

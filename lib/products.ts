@@ -49,8 +49,8 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "tagline": "A local-first prompt refinement layer that helps people turn rough instructions, project context, and operating rules into clearer AI-ready prompts.",
     "description": "A prompt refinement product for users who need clearer instructions before they hand work to ChatGPT, Claude, Gemini, Copilot, Cursor, or other AI tools.",
     "summary": "RyFine helps users move from rough intent to sharper execution. It combines prompt UX, reusable context, provider-aware workflows, and local-first control so people can improve instructions without becoming prompt engineers.",
-    "heroSummary": "Clearer prompts, stronger context, and safer execution before AI work begins.",
-    "impact": "Positions Teambotics as a builder of practical AI workflow products that improve the human side of model interaction.",
+    "heroSummary": "Shape the instruction before the AI acts on it.",
+    "impact": "Fills the gap between human intent and what the model receives — making that layer structured, reusable, and team-accessible.",
     "tags": [
       "Prompt UX",
       "Context Engineering",
@@ -120,7 +120,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "description": "A dual-sided ecosystem turning code into interactive experiences. Discover c2merses in the PlayRoom, and build progressive web apps without complex WebGL knowledge in ToyMaker.",
     "summary": "Code2Motion is the creative technology edge of Teambotics. It packages generative motion, playful interaction, and PWA-ready delivery into a platform for expressive browser experiences.",
     "heroSummary": "Motion, code, and generative atmosphere packaged into a live creative platform.",
-    "impact": "Demonstrates Teambotics' ability to ship expressive, browser-native interactive systems beyond conventional internal tools and dashboards.",
+    "impact": "Turns generative motion and code into playable, publishable browser experiences without requiring low-level graphics expertise.",
     "tags": [
       "Generative Art",
       "PWA",
@@ -328,7 +328,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "tagline": "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
     "description": "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
     "summary": "Storytellr is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
-    "heroSummary": "Interactive graph storytelling for complex professional narratives.",
+    "heroSummary": "Everything you've built, connected and explained — not flattened into a timeline.",
     "impact": "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
     "tags": [
       "Narrative Graph",
