@@ -56,7 +56,7 @@ export const siteMessagesEn: SiteMessages = {
   },
   "liveSystems": {
     "eyebrow": "AI SYSTEMS PORTFOLIO",
-    "title": "Products and prototypes under active development.",
+    "title": "Deployed products and production-bound AI systems.",
     "description": "A growing portfolio built to one operating standard."
   },
   "capabilities": {
@@ -112,7 +112,7 @@ export const siteMessagesEn: SiteMessages = {
     "reviewSystemsLabel": "View systems"
   },
   "leadForm": {
-    "eyebrow": "Lead intake",
+    "eyebrow": "INQUIRE",
     "title": "Contact Teambotics.",
     "copy": "Provide a brief overview of the workflow, team, or product problem you want to discuss.",
     "honeypotLabel": "Website",
@@ -147,11 +147,11 @@ export const siteMessagesEn: SiteMessages = {
   },
   "productPage": {
     "allProductsLabel": "All products",
-    "detailEyebrow": "System Detail",
-    "detailTitle": "How the product earns trust.",
-    "detailDescription": "Each Teambotics product is framed as a practical system: clear user value, controlled AI behavior, and a path from prototype to operational adoption.",
-    "evidenceEyebrow": "Evidence",
-    "evidenceTitle": "What this work demonstrates.",
+    "detailEyebrow": "SYSTEM OVERVIEW",
+    "detailTitle": "System architecture, governance, and user value.",
+    "detailDescription": "Each Teambotics product is built as a governed system: defined user value, controlled AI behavior, and a measured path to production deployment.",
+    "evidenceEyebrow": "OUTCOMES",
+    "evidenceTitle": "Capability delivered. Outcomes on record.",
     "buildProfileEyebrow": "Build Profile",
     "technologyLabel": "Technology",
     "systemCapabilitiesLabel": "System capabilities"

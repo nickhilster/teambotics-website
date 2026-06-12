@@ -56,7 +56,7 @@ export const siteMessagesFrCA: SiteMessages = {
   },
   "liveSystems": {
     "eyebrow": "PORTFOLIO DE SYSTÈMES IA",
-    "title": "Produits et prototypes en développement actif.",
+    "title": "Produits déployés et systèmes d'IA orientés vers la production.",
     "description": "Un portefeuille croissant construit selon un standard opérationnel."
   },
   "capabilities": {
@@ -112,7 +112,7 @@ export const siteMessagesFrCA: SiteMessages = {
     "reviewSystemsLabel": "Voir les systèmes"
   },
   "leadForm": {
-    "eyebrow": "Prise de contact",
+    "eyebrow": "DEMANDE",
     "title": "Contactez Teambotics.",
     "copy": "Fournissez un aperçu bref du workflow, de l'équipe ou du problème produit que vous souhaitez discuter.",
     "honeypotLabel": "Site web",
@@ -147,11 +147,11 @@ export const siteMessagesFrCA: SiteMessages = {
   },
   "productPage": {
     "allProductsLabel": "Tous les produits",
-    "detailEyebrow": "Détails du système",
-    "detailTitle": "Comment le produit gagne la confiance.",
-    "detailDescription": "Chaque produit Teambotics est présenté comme un système pratique : une valeur utilisateur claire, un comportement IA contrôlé et un chemin du prototype à l'adoption opérationnelle.",
-    "evidenceEyebrow": "Preuves",
-    "evidenceTitle": "Ce que ce travail démontre.",
+    "detailEyebrow": "APERÇU DU SYSTÈME",
+    "detailTitle": "Architecture du système, gouvernance et valeur pour l'utilisateur.",
+    "detailDescription": "Chaque produit Teambotics est construit comme un système gouverné : une valeur utilisateur définie, un comportement IA contrôlé et un parcours mesuré vers le déploiement en production.",
+    "evidenceEyebrow": "RÉSULTATS",
+    "evidenceTitle": "Capacités démontrées. Résultats documentés.",
     "buildProfileEyebrow": "Profil de mise en production",
     "technologyLabel": "Technologie",
     "systemCapabilitiesLabel": "Capacités du système"

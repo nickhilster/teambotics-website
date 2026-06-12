@@ -148,7 +148,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
       },
       {
         "label": "Platform Signal",
-        "value": "The project proves Teambotics can combine rigorous product thinking with expressive, high-atmosphere interaction design."
+        "value": "The platform applies the same engineering discipline to expressive, high-atmosphere interaction design that Teambotics brings to operational systems."
       }
     ],
     "proofPoints": [
@@ -168,7 +168,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
       },
       {
         "title": "Strategic Role",
-        "body": "For Teambotics, Code2Motion shows that the same engineering discipline used for workflow systems can also power memorable brand and creative experiences."
+        "body": "Code2Motion demonstrates that the engineering discipline behind Teambotics' workflow systems extends equally to expressive brand and creative experiences."
       }
     ],
     "externalUrl": "https://code2motion.app/",
