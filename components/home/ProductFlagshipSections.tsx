@@ -10,6 +10,22 @@ const BANNER_IMAGES: Partial<Record<string, { src: string; alt: string }>> = {
     src: "/media/ryfine-feature-map-banner.svg",
     alt: "RyFine feature map showing input, refinement, skills, context, library, and output trace",
   },
+  "ltb-buddy": {
+    src: "/media/ltb-buddy-intake-banner.svg",
+    alt: "LTB Buddy three-stage intake flow: describe issue, structured conversation, application-ready output",
+  },
+  easybuddy: {
+    src: "/media/easybuddy-simulation-banner.svg",
+    alt: "EasyBuddy simulation loop: customer scenario, staff practice response, AI coaching feedback",
+  },
+  code2motion: {
+    src: "/media/code2motion-platform-banner.svg",
+    alt: "Code2Motion dual platform: PlayRoom for discovering generative experiences, ToyMaker for building browser apps",
+  },
+  storytellr: {
+    src: "/media/storytellr-graph-banner.svg",
+    alt: "Storytellr narrative graph showing career projects, decisions, collaborators, milestones, themes, and outcomes as connected nodes",
+  },
 };
 
 export function ProductFlagshipSections() {

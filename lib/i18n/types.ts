@@ -37,6 +37,7 @@ export type SiteMessages = {
     privacyLabel: string;
     termsLabel: string;
     linkedInLabel: string;
+    madeWith: string;
   };
   hero: {
     pill: string;

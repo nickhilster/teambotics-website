@@ -31,7 +31,8 @@ export const siteMessagesEs419: SiteMessages = {
     "copyright": "© 2026 Teambotics. Práctica independiente de sistemas de IA para productos aplicados, automatización de flujos de trabajo y habilitación operativa.",
     "privacyLabel": "Privacidad",
     "termsLabel": "Términos",
-    "linkedInLabel": "LinkedIn"
+    "linkedInLabel": "LinkedIn",
+    "madeWith": "Hecho con amor, empatía y cuidado. Nuestros agentes están alineados con los mismos valores."
   },
   "hero": {
     "pill": "Sistemas de IA aplicados · Estrategia de producto · Automatización de flujos de trabajo",

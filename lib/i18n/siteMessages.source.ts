@@ -31,7 +31,8 @@ export const siteMessagesEn: SiteMessages = {
     "copyright": "© 2026 Teambotics. Independent AI systems practice for applied products, workflow automation, and operational enablement.",
     "privacyLabel": "Privacy",
     "termsLabel": "Terms",
-    "linkedInLabel": "LinkedIn"
+    "linkedInLabel": "LinkedIn",
+    "madeWith": "Made with love, empathy, and care. Our agents are aligned with the same values."
   },
   "hero": {
     "pill": "Applied AI systems · Product strategy · Workflow automation",

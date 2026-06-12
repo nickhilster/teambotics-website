@@ -23,6 +23,9 @@ export function Footer() {
           </Link>
         </nav>
       </Container>
+      <Container>
+        <p className="site-footer__made">❤️ {messages.footer.madeWith}</p>
+      </Container>
     </footer>
   );
 }

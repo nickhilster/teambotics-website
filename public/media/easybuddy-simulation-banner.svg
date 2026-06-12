@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="easy-title easy-desc">
+  <title id="easy-title">EasyBuddy service simulation flow</title>
+  <desc id="easy-desc">Three-stage simulation loop: customer scenario, staff practice response, AI coaching feedback.</desc>
+  <rect width="1200" height="630" fill="#0b0c10"/>
+
+  <text x="60" y="74" fill="#fb923c" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">EASYBUDDY · SIMULATION LOOP</text>
+  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">Service Simulation</text>
+  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">Practice the moment before it's real.</text>
+
+  <!-- Card 1: Scenario -->
+  <rect x="60" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#fb923c" stroke-opacity="0.28"/>
+  <text x="86" y="270" fill="#fb923c" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">01 · SCENARIO</text>
+  <rect x="86" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="104" y="312" fill="#fb923c" font-family="Geist Mono, monospace" font-size="13">CUSTOMER</text>
+  <text x="104" y="334" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="16">"Why is this taking so</text>
+  <text x="104" y="356" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="16">long? I've been waiting."</text>
+  <text x="86" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Customer</text>
+  <text x="86" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">situation</text>
+  <text x="86" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Realistic, role-play ready.</text>
+
+  <!-- Arrow 1 -->
+  <line x1="380" y1="370" x2="426" y2="370" stroke="#fb923c" stroke-opacity="0.45" stroke-width="2.5"/>
+  <polygon points="426,364 442,370 426,376" fill="#fb923c" fill-opacity="0.45"/>
+
+  <!-- Card 2: Practice -->
+  <rect x="442" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#5cc8ff" stroke-opacity="0.28"/>
+  <text x="468" y="270" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">02 · PRACTICE</text>
+  <rect x="468" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="486" y="312" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="13">STAFF RESPONSE</text>
+  <text x="486" y="334" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="16">"I understand. Let me check</text>
+  <text x="486" y="356" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="16">your order right now."</text>
+  <text x="468" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Staff response</text>
+  <text x="468" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">simulation</text>
+  <text x="468" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Rehearse before it counts.</text>
+
+  <!-- Arrow 2 -->
+  <line x1="762" y1="370" x2="808" y2="370" stroke="#5cc8ff" stroke-opacity="0.45" stroke-width="2.5"/>
+  <polygon points="808,364 824,370 808,376" fill="#5cc8ff" fill-opacity="0.45"/>
+
+  <!-- Card 3: Coaching -->
+  <rect x="824" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#c8f750" stroke-opacity="0.28"/>
+  <text x="850" y="270" fill="#c8f750" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">03 · COACHING</text>
+  <rect x="850" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="868" y="312" fill="#c8f750" font-family="Geist Mono, monospace" font-size="13">FEEDBACK</text>
+  <text x="868" y="334" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">✓ Acknowledged concern</text>
+  <text x="868" y="356" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">▸ Try: offer a timeline next</text>
+  <text x="850" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">AI coaching</text>
+  <text x="850" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">&amp; recap</text>
+  <text x="850" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Tone-aware, repeatable.</text>
+
+  <text x="60" y="580" fill="#fb923c" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Readiness before the customer arrives · easybuddy.teambotics.app</text>
+</svg>

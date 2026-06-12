@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="ltb-title ltb-desc">
+  <title id="ltb-title">LTB Buddy guided intake flow</title>
+  <desc id="ltb-desc">Three-stage guided intake: plain language issue capture, structured conversation, application-ready output.</desc>
+  <rect width="1200" height="630" fill="#0b0c10"/>
+
+  <text x="60" y="74" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">LTB BUDDY · INTAKE FLOW</text>
+  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">Guided Intake Flow</text>
+  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">Plain language in — application-ready output.</text>
+
+  <!-- Card 1: Describe -->
+  <rect x="60" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#a78bfa" stroke-opacity="0.28"/>
+  <text x="86" y="270" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">01 · DESCRIBE</text>
+  <rect x="86" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="104" y="316" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="17">"My landlord hasn't fixed</text>
+  <text x="104" y="340" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="17">the heating in three weeks."</text>
+  <text x="104" y="362" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="12">▸ plain language · no form</text>
+  <text x="86" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Plain language</text>
+  <text x="86" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">issue capture</text>
+  <text x="86" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">No form knowledge needed.</text>
+
+  <!-- Arrow 1 -->
+  <line x1="380" y1="370" x2="426" y2="370" stroke="#a78bfa" stroke-opacity="0.45" stroke-width="2.5"/>
+  <polygon points="426,364 442,370 426,376" fill="#a78bfa" fill-opacity="0.45"/>
+
+  <!-- Card 2: Structure -->
+  <rect x="442" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#5cc8ff" stroke-opacity="0.28"/>
+  <text x="468" y="270" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">02 · STRUCTURE</text>
+  <rect x="468" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="486" y="314" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="14">Type of issue?</text>
+  <text x="486" y="338" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Maintenance — no heat reported</text>
+  <text x="486" y="360" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="12">▸ Duration  ▸ Notice given  ▸ Evidence</text>
+  <text x="468" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Conversational</text>
+  <text x="468" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">guided intake</text>
+  <text x="468" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Step-by-step extraction.</text>
+
+  <!-- Arrow 2 -->
+  <line x1="762" y1="370" x2="808" y2="370" stroke="#5cc8ff" stroke-opacity="0.45" stroke-width="2.5"/>
+  <polygon points="808,364 824,370 808,376" fill="#5cc8ff" fill-opacity="0.45"/>
+
+  <!-- Card 3: File -->
+  <rect x="824" y="228" width="316" height="284" rx="20" fill="#14141a" stroke="#c8f750" stroke-opacity="0.28"/>
+  <text x="850" y="270" fill="#c8f750" font-family="Geist Mono, monospace" font-size="15" letter-spacing="1">03 · FILE</text>
+  <rect x="850" y="286" width="264" height="84" rx="12" fill="#0d1117"/>
+  <text x="868" y="314" fill="#c8f750" font-family="Geist Mono, monospace" font-size="14">T6 — Maintenance issue</text>
+  <text x="868" y="336" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Unit 4B · 22 days · Evidence logged</text>
+  <text x="868" y="358" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="13">Notice sent · Ready to submit</text>
+  <text x="850" y="414" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">Application-</text>
+  <text x="850" y="442" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="24" font-weight="700">ready output</text>
+  <text x="850" y="478" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="18">Clean data for LTB submission.</text>
+
+  <text x="60" y="580" fill="#a78bfa" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Guided filing support · ltbbuddy.ca</text>
+</svg>

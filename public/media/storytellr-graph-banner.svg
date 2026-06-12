@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="stlr-title stlr-desc">
+  <title id="stlr-title">Storytellr narrative graph</title>
+  <desc id="stlr-desc">A narrative graph connecting career projects, decisions, collaborators, milestones, themes, and outcomes — showing complex professional work as a connected story, not a flat timeline.</desc>
+  <rect width="1200" height="630" fill="#0b0c10"/>
+
+  <text x="60" y="74" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">STORYTELLR · NARRATIVE GRAPH</text>
+  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="62" font-weight="800">The Full Picture</text>
+  <text x="60" y="196" fill="#b8b8c5" font-family="Hanken Grotesk, sans-serif" font-size="24">Work as a connected graph, not a flat timeline.</text>
+
+  <!-- Graph edges (drawn before nodes so nodes render on top) -->
+  <g stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5" fill="none">
+    <!-- Role → Project -->
+    <line x1="190" y1="330" x2="378" y2="290"/>
+    <!-- Role → Decision -->
+    <line x1="190" y1="342" x2="340" y2="460"/>
+    <!-- Project → Collaborator -->
+    <line x1="422" y1="278" x2="598" y2="318"/>
+    <!-- Project → Milestone -->
+    <line x1="408" y1="306" x2="480" y2="440"/>
+    <!-- Project → Theme -->
+    <line x1="432" y1="276" x2="720" y2="254"/>
+    <!-- Collaborator → Outcome -->
+    <line x1="638" y1="338" x2="830" y2="380"/>
+    <!-- Collaborator → Theme -->
+    <line x1="628" y1="310" x2="726" y2="262"/>
+    <!-- Decision → Milestone -->
+    <line x1="370" y1="462" x2="476" y2="454"/>
+    <!-- Milestone → Outcome -->
+    <line x1="524" y1="452" x2="822" y2="392"/>
+    <!-- Theme → Outcome -->
+    <line x1="764" y1="264" x2="852" y2="368"/>
+    <!-- Outcome → Present -->
+    <line x1="882" y1="392" x2="1020" y2="336"/>
+  </g>
+
+  <!-- Node: Role (left) -->
+  <circle cx="166" cy="336" r="52" fill="#14141a" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="166" y="330" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">ROLE</text>
+  <text x="166" y="348" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">Senior eng.</text>
+
+  <!-- Node: Project (center-left high) -->
+  <circle cx="400" cy="278" r="52" fill="#14141a" stroke="#fbbf24" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="400" y="272" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">PROJECT</text>
+  <text x="400" y="290" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">RyFine v1</text>
+
+  <!-- Node: Decision (center-left low) -->
+  <circle cx="346" cy="466" r="44" fill="#14141a" stroke="#5cc8ff" stroke-opacity="0.3" stroke-width="1.5"/>
+  <text x="346" y="460" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">DECISION</text>
+  <text x="346" y="476" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="11" text-anchor="middle">Pivot to B2C</text>
+
+  <!-- Node: Collaborator (center) -->
+  <circle cx="618" cy="320" r="52" fill="#14141a" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="618" y="314" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="11" text-anchor="middle">COLLABORATOR</text>
+  <text x="618" y="332" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">Design lead</text>
+
+  <!-- Node: Milestone (center low) -->
+  <circle cx="500" cy="456" r="44" fill="#14141a" stroke="#c8f750" stroke-opacity="0.3" stroke-width="1.5"/>
+  <text x="500" y="450" fill="#c8f750" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">MILESTONE</text>
+  <text x="500" y="466" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="11" text-anchor="middle">First launch</text>
+
+  <!-- Node: Theme (center-right high) -->
+  <circle cx="748" cy="254" r="48" fill="#14141a" stroke="#fbbf24" stroke-opacity="0.35" stroke-width="1.5"/>
+  <text x="748" y="248" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">THEME</text>
+  <text x="748" y="266" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">Applied AI</text>
+
+  <!-- Node: Outcome (right) -->
+  <circle cx="858" cy="390" r="52" fill="#14141a" stroke="#fbbf24" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="858" y="384" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">OUTCOME</text>
+  <text x="858" y="402" fill="#8b8b99" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">Teambotics</text>
+
+  <!-- Node: Present (far right) -->
+  <circle cx="1046" cy="330" r="48" fill="#1b1b23" stroke="#fbbf24" stroke-opacity="0.7" stroke-width="2"/>
+  <text x="1046" y="324" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">PRESENT</text>
+  <text x="1046" y="342" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="12" text-anchor="middle">You, now</text>
+
+  <text x="60" y="580" fill="#fbbf24" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Narrative graph for complex professional work · storytellr</text>
+</svg>
