@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "FeedbackFish – Frontline Feedback Case Study",
     description:
       "A TeamBotics case study and prototype for retail feedback capture, associate recognition, and service-design intelligence.",
-    url: "https://feedbackfish.teambotics.app",
+    url: "https://www.teambotics.app/feedbackfish",
     siteName: "FeedbackFish by TeamBotics",
     locale: "en_CA",
     type: "website",
