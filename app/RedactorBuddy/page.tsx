@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "RedactorBuddy by Teambotics",
     description:
       "Privacy-first PII redaction for financial documents. Runs locally, works offline, built for business.",
-    images: [{ url: "/brand/teambotics-logo-blue.png" }],
+    images: [{ url: "/brand/teambotics-logo-250.png" }],
   },
 };
 
@@ -148,7 +148,7 @@ export default function RedactorBuddyPage() {
       >
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image
-            src="/brand/teambotics-logo-blue.png"
+            src="/brand/teambotics-logo-250.png"
             alt="Teambotics"
             width={28}
             height={28}
@@ -204,7 +204,7 @@ export default function RedactorBuddyPage() {
                 @keyframes rb-pulse{0%,100%{r:10;opacity:.5}60%{r:19;opacity:0}}
               `}</style>
             </defs>
-            <circle cx="20" cy="26" r="10" fill="none" stroke="${BLUE}" strokeWidth="1">
+            <circle cx="20" cy="26" r="10" fill="none" stroke={BLUE} strokeWidth="1">
               <animate attributeName="r" values="10;19;10" dur="3.2s" repeatCount="indefinite"/>
               <animate attributeName="opacity" values=".5;0;.5" dur="3.2s" repeatCount="indefinite"/>
             </circle>
