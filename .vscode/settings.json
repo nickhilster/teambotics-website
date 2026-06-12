@@ -1,12 +1,25 @@
 {
-    "workbench.colorTheme": "HighCoCo RonTron: Pink",
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#000000",
-        "statusBar.foreground": "#FF2DF7",
-        "statusBar.border": "#FF2DF744",
-        "statusBarItem.hoverBackground": "#FF2DF733",
-        "statusBarItem.activeBackground": "#FF2DF755"
-    },
-    "editor.fontSize": 14,
-    "editor.fontWeight": "normal"
+  "search.exclude": {
+    "**/.next": true,
+    "**/public": true
+  },
+  "files.exclude": {
+    "**/.next": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "HighCoCo Neon: Pink",
+  "workbench.colorCustomizations": {},
+  "editor.tokenColorCustomizations": {},
+  "editor.semanticTokenColorCustomizations": {}
 }
