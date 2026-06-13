@@ -41,7 +41,7 @@ export type SiteMessages = {
   };
   hero: {
     pill: string;
-    titleLines: [string, string, string];
+    titleLines: [string, string];
     copy: string;
     primaryCta: string;
     secondaryCta: string;
