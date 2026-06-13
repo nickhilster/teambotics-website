@@ -8,46 +8,52 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "RecruiterBuddy",
   description:
-    "RecruiterBuddy is a Teambotics product in development for turning job applications, recruiter conversations, and interview prep into a structured AI-assisted workflow.",
+    "RecruiterBuddy is a Teambotics candidate research and briefing product that helps recruiters prepare faster before the first conversation.",
   openGraph: {
     title: `RecruiterBuddy | ${siteConfig.name}`,
     description:
-      "A candidate-side job application operating layer for sharper role analysis, tailored application packages, and recruiter-ready preparation.",
+      "A recruiter-side candidate intelligence brief for profile research, claim verification, dossier review, and role-fit analysis.",
     url: `${siteConfig.url}/recruiterbuddy`,
   },
 };
 
 const workflowSteps = [
   {
-    title: "Read the role properly",
-    body: "Turn a job description into a clear map of responsibilities, signals, gaps, language, and likely hiring priorities.",
+    title: "Add candidate context",
+    body: "Start with a LinkedIn URL, LinkedIn PDF export, or manual candidate details. Add a job description when role-fit analysis is needed.",
   },
   {
-    title: "Match proof to requirements",
-    body: "Connect portfolio work, shipped products, past roles, metrics, and stories to the role instead of guessing what matters.",
+    title: "Run structured research",
+    body: "The product moves through profile parsing, surface scan, claim verification, digital-depth review, consistency checks, absence analysis, and synthesis.",
   },
   {
-    title: "Build the application package",
-    body: "Generate focused resume positioning, cover-letter direction, outreach notes, and interview preparation from one structured source of truth.",
+    title: "Review the briefing",
+    body: "Recruiters get a two-minute briefing note with candidate summary, standout signal, probe areas, and suggested first-call questions.",
   },
   {
-    title: "Prepare the human conversation",
-    body: "Support recruiter screens, hiring-manager calls, and follow-ups with clear talking points while keeping final judgment with the applicant.",
+    title: "Align the hiring conversation",
+    body: "The dossier and fit analysis give teams a shared reference point before screens, hiring-manager calls, shortlist reviews, or final-round discussions.",
   },
+];
+
+const outputTabs = [
+  "Briefing Note — fast candidate summary and first-call prompts",
+  "Dossier — timeline, skills inventory, online presence, claim verification, and flags",
+  "Fit Analysis — role fit, candidate reality, AI-world fit, gaps, dealbreaker risk, and bottom line",
 ];
 
 const trustPoints = [
-  "Human approval before anything is sent",
-  "No auto-apply behaviour or hidden outbound actions",
-  "Assumptions are surfaced instead of buried in confident copy",
-  "Reusable context for role-specific positioning and interview prep",
+  "Designed for recruiter preparation, not automated hiring decisions",
+  "Surfaces verified, plausible, unverifiable, and contradictory signals separately",
+  "Makes uncertainty explicit so recruiters know what to ask rather than assuming fit",
+  "Supports faster team alignment before interviews without replacing human judgment",
 ];
 
 const useCases = [
-  "Senior candidates translating non-linear experience into role-fit evidence",
-  "Career operators managing multiple active applications without losing context",
-  "Founders and builders turning shipped products into credible hiring stories",
-  "Recruiter-facing preparation where clarity, relevance, and restraint matter",
+  "Recruiters preparing before an initial candidate screen",
+  "Agency teams moving across multiple roles and candidate profiles",
+  "Hiring managers who need a concise candidate brief before a call",
+  "Interview teams comparing candidates with more consistent notes and signals",
 ];
 
 export default function RecruiterBuddyPage() {
@@ -57,12 +63,12 @@ export default function RecruiterBuddyPage() {
         <Container>
           <div className="grid gap-12 py-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:py-16">
             <SectionReveal className="grid gap-6" delay={0.04}>
-              <p className="section-eyebrow">Private build / Applied AI workflow</p>
+              <p className="section-eyebrow">Candidate research / Recruiter briefing</p>
               <h1 className="m-0 max-w-[12ch] text-[clamp(3rem,8vw,6.8rem)] font-semibold leading-[0.88] tracking-[-0.075em] text-[var(--color-text-primary)]">
                 RecruiterBuddy
               </h1>
               <p className="m-0 max-w-2xl text-[clamp(1.1rem,2vw,1.35rem)] leading-8 text-[var(--color-text-secondary)]">
-                A job application operating layer for people who need sharper role analysis, better evidence matching, and recruiter-ready preparation without turning hiring into blind automation.
+                Know your candidate before the first call. RecruiterBuddy turns scattered candidate signals into a structured briefing so recruiters can move faster, ask sharper questions, and align teams with less manual research.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row" aria-label="RecruiterBuddy actions">
                 <a
@@ -83,17 +89,17 @@ export default function RecruiterBuddyPage() {
             >
               <p className="section-eyebrow">Product thesis</p>
               <h2 className="m-0 mb-4 text-[clamp(1.8rem,4vw,3.25rem)] leading-[1] tracking-[-0.05em] text-[var(--color-text-primary)]">
-                Most applications fail before the interview.
+                Screening is slower when the signal is scattered.
               </h2>
               <p className="m-0 mb-6 text-base leading-7 text-[var(--color-text-secondary)]">
-                Not because the candidate has no value, but because the fit story is scattered across resumes, portfolios, product links, old projects, and half-remembered career moments. RecruiterBuddy is designed to organize that material into a cleaner decision-support workflow.
+                Recruiters often have to jump between LinkedIn, resumes, portfolios, GitHub, articles, search results, and internal notes before a first conversation. RecruiterBuddy organizes that research into a clearer briefing layer for early-stage candidate review.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  "Role intelligence",
-                  "Resume positioning",
-                  "Cover-letter strategy",
-                  "Interview prep",
+                  "Candidate briefing",
+                  "Claim verification",
+                  "Digital footprint",
+                  "Role-fit analysis",
                 ].map((label) => (
                   <div
                     className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-page)] px-4 py-3 text-sm font-semibold text-[var(--color-text-primary)]"
@@ -113,9 +119,9 @@ export default function RecruiterBuddyPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <SectionReveal className="grid gap-4" delay={0.04}>
               <p className="section-eyebrow">Workflow</p>
-              <h2 className="section-title">From job post to application package.</h2>
+              <h2 className="section-title">From profile input to recruiter-ready brief.</h2>
               <p className="section-copy">
-                RecruiterBuddy is being shaped around a practical loop: understand the role, map evidence, generate materials, then prepare the human conversation.
+                The product is built around speed with organization: enter candidate context, let the system structure the research, then review the briefing before the conversation.
               </p>
             </SectionReveal>
 
@@ -140,9 +146,24 @@ export default function RecruiterBuddyPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <SectionReveal className="rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] p-6 lg:p-8" delay={0.04}>
+              <p className="section-eyebrow">Product outputs</p>
+              <h2 className="m-0 mb-5 text-[clamp(1.8rem,4vw,3rem)] leading-[1.04] tracking-[-0.05em] text-[var(--color-text-primary)]">
+                Three views for faster hiring preparation.
+              </h2>
+              <ul className="m-0 grid list-none gap-4 p-0">
+                {outputTabs.map((item) => (
+                  <li className="flex gap-3 text-sm leading-6 text-[var(--color-text-secondary)]" key={item}>
+                    <CheckCircle2 aria-hidden="true" className="mt-1 shrink-0 text-[var(--color-accent)]" size={18} strokeWidth={1.7} />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </SectionReveal>
+
+            <SectionReveal className="rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] p-6 lg:p-8" delay={0.12}>
               <p className="section-eyebrow">Use cases</p>
               <h2 className="m-0 mb-5 text-[clamp(1.8rem,4vw,3rem)] leading-[1.04] tracking-[-0.05em] text-[var(--color-text-primary)]">
-                Built for candidates with real complexity.
+                Built for busy hiring workflows.
               </h2>
               <ul className="m-0 grid list-none gap-4 p-0">
                 {useCases.map((item) => (
@@ -153,12 +174,22 @@ export default function RecruiterBuddyPage() {
                 ))}
               </ul>
             </SectionReveal>
+          </div>
+        </Container>
+      </section>
+
+      <section className="section section--border">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <SectionReveal className="grid gap-4" delay={0.04}>
+              <p className="section-eyebrow">Trust posture</p>
+              <h2 className="section-title">Sharper preparation, not automated judgment.</h2>
+              <p className="section-copy">
+                RecruiterBuddy is positioned as a preparation and alignment tool. It helps recruiters understand what is known, what is plausible, and what needs a direct question before the team makes a hiring judgment.
+              </p>
+            </SectionReveal>
 
             <SectionReveal className="rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] p-6 lg:p-8" delay={0.12}>
-              <p className="section-eyebrow">Trust posture</p>
-              <h2 className="m-0 mb-5 text-[clamp(1.8rem,4vw,3rem)] leading-[1.04] tracking-[-0.05em] text-[var(--color-text-primary)]">
-                AI should sharpen the applicant, not replace their judgment.
-              </h2>
               <ul className="m-0 grid list-none gap-4 p-0">
                 {trustPoints.map((item) => (
                   <li className="flex gap-3 text-sm leading-6 text-[var(--color-text-secondary)]" key={item}>
@@ -176,9 +207,9 @@ export default function RecruiterBuddyPage() {
         <Container>
           <SectionReveal className="mx-auto grid max-w-4xl gap-6 text-center" delay={0.04}>
             <p className="section-eyebrow">Why Teambotics</p>
-            <h2 className="section-title">A focused example of applied AI, not generic chatbot theatre.</h2>
+            <h2 className="section-title">A focused applied-AI product for decision support under time pressure.</h2>
             <p className="section-copy mx-auto">
-              RecruiterBuddy fits the Teambotics product line because it applies the same operating principle across a different workflow: structure messy human context, keep the user in control, and turn AI into a practical execution partner.
+              RecruiterBuddy fits the Teambotics product line because it applies our core operating model to talent work: organize messy public context, make signals easier to inspect, and keep the human responsible for the final call.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <a
