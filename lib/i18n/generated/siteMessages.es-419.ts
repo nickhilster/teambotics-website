@@ -38,7 +38,9 @@ export const siteMessagesEs419: SiteMessages = {
     "pill": "Productos a medida · Sistemas de flujo de trabajo · Entrega completa",
     "titleLines": [
       "Software diseñado para tu flujo de trabajo.",
-      "No al revés."
+      "No al revés.",
+      "Construido para durar, no solo entregado.",
+      "De tu equipo, para siempre."
     ],
     "copy": "Teambotics diseña y construye productos a medida para organizaciones que han superado las herramientas genéricas. Gestionamos el ciclo completo — descubrimiento, diseño, desarrollo, despliegue — y entregamos software que tu equipo realmente posee.",
     "primaryCta": "Ver sistemas",

@@ -38,7 +38,9 @@ export const siteMessagesEn: SiteMessages = {
     "pill": "Purpose-built products · Workflow systems · Full-cycle delivery",
     "titleLines": [
       "Software built for your workflow.",
-      "Not the other way around."
+      "Not the other way around.",
+      "Built to last, not handed off.",
+      "Owned by your team."
     ],
     "copy": "Teambotics designs and builds purpose-built products for organizations that have outgrown off-the-shelf tools. We run the full cycle — discovery, design, build, deployment — and deliver software your team actually owns.",
     "primaryCta": "View systems",
