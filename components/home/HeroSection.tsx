@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionReveal } from "@/components/animation/SectionReveal";
-import { TextReveal } from "@/components/animation/TextReveal";
+import { HeroCycleTitle } from "@/components/animation/HeroCycleTitle";
 import { HeroFlameParticles } from "@/components/animation/HeroFlameParticles";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { Button } from "@/components/ui/Button";
@@ -26,16 +26,9 @@ export function HeroSection() {
             {messages.hero.pill}
           </div>
         </SectionReveal>
-        <TextReveal
-          as="h1"
+        <HeroCycleTitle
           className="hero__title"
-          lines={[
-            messages.hero.titleLines[0],
-            messages.hero.titleLines[1],
-            <span className="hero__title-accent" key="accent">
-              {messages.hero.titleLines[2]}
-            </span>,
-          ]}
+          phrases={[messages.hero.titleLines[0], messages.hero.titleLines[1]]}
         />
         <SectionReveal delay={0.32}>
           <p className="hero__copy">

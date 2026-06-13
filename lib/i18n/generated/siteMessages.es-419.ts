@@ -28,49 +28,48 @@ export const siteMessagesEs419: SiteMessages = {
   },
   "footer": {
     "navLabel": "Pie de pagina",
-    "copyright": "© 2026 Teambotics. Práctica independiente de sistemas de IA para productos aplicados, automatización de flujos de trabajo y habilitación operativa.",
+    "copyright": "© 2026 Teambotics. Productos a medida, sistemas de flujo de trabajo y entrega completa para organizaciones que necesitan software hecho para ellas.",
     "privacyLabel": "Privacidad",
     "termsLabel": "Términos",
     "linkedInLabel": "LinkedIn",
     "madeWith": "Hecho con amor, empatía y cuidado. Nuestros agentes están alineados con los mismos valores."
   },
   "hero": {
-    "pill": "Sistemas de IA aplicados · Estrategia de producto · Automatización de flujos de trabajo",
+    "pill": "Productos a medida · Sistemas de flujo de trabajo · Entrega completa",
     "titleLines": [
-      "Sistemas de IA para",
-      "equipos operativos,",
-      "diseñados para desplegar."
+      "Software diseñado para tu flujo de trabajo.",
+      "No al revés."
     ],
-    "copy": "Teambotics diseña y construye productos habilitados por IA y sistemas de flujo de trabajo para organizaciones que necesitan un despliegue práctico — no solo un prototipo.",
+    "copy": "Teambotics diseña y construye productos a medida para organizaciones que han superado las herramientas genéricas. Gestionamos el ciclo completo — descubrimiento, diseño, desarrollo, despliegue — y entregamos software que tu equipo realmente posee.",
     "primaryCta": "Ver sistemas",
     "secondaryCta": "Revisar enfoque"
   },
   "positioning": {
     "eyebrow": "LO QUE HACEMOS",
-    "title": "Convertimos problemas operativos en sistemas de IA desplegables.",
+    "title": "Construimos el producto que tu negocio realmente necesita.",
     "paragraphs": [
-      "Nuestro trabajo comienza con el entorno operativo: brechas en los procesos, necesidades de cumplimiento, comportamiento del usuario, transferencias y restricciones comerciales medibles. Definimos el sistema en torno al trabajo antes de seleccionar la tecnología.",
-      "Ayudamos a las organizaciones a determinar dónde debe asistir, automatizar, guiar o mantenerse al margen la IA. El resultado es una infraestructura práctica: interfaces claras, flujos de trabajo controlados y sistemas diseñados para la adopción más allá de la etapa de prototipo."
+      "La mayoría de las organizaciones funcionan con un conjunto fragmentado de suscripciones SaaS, soluciones manuales y herramientas que no fueron diseñadas para su flujo de trabajo. La alternativa no es otra herramienta — es un producto construido para la forma en que realmente operas.",
+      "Trabajamos desde el descubrimiento hasta el despliegue y mantenimiento. Eso significa entender tus procesos, restricciones y equipo antes de escribir una línea de código — y entregar algo construido para durar, no abandonado tras la entrega."
     ],
-    "quote": "Claridad operativa. Ejecución controlada. Adopción sostenible."
+    "quote": "Construido para tu problema. Propiedad de tu equipo."
   },
   "liveSystems": {
-    "eyebrow": "PORTAFOLIO DE SISTEMAS DE IA",
-    "title": "Productos desplegados y sistemas de IA orientados a producción.",
-    "description": "Un portafolio en crecimiento construido para un estándar operativo."
+    "eyebrow": "NUESTRO TRABAJO",
+    "title": "Productos desplegados y sistemas a medida.",
+    "description": "Un portafolio en crecimiento construido bajo un único estándar de entrega."
   },
   "capabilities": {
     "eyebrow": "CAPACIDADES CLAVE",
-    "title": "Construido para ejecución, gobernanza y adopción.",
-    "description": "Teambotics combina estrategia de producto, diseño de sistemas, automatización y desarrollo de interfaces para llevar iniciativas de IA desde el concepto hasta el despliegue operativo.",
+    "title": "Entrega completa desde el descubrimiento hasta el despliegue.",
+    "description": "Teambotics combina estrategia de producto, diseño de flujos de trabajo y desarrollo de interfaces para llevar iniciativas del concepto al software operativo y propio.",
     "items": [
       {
-        "title": "Entrega de MVP acotados",
-        "body": "Definimos límites de producto enfocados, priorizamos flujos de trabajo de alto valor y construimos hacia un camino de producción sin expansión de alcance innecesaria."
+        "title": "Entrega de producto enfocada",
+        "body": "Definimos límites de producto precisos, priorizamos flujos de trabajo de alto valor y construimos hacia producción sin expansión de alcance innecesaria."
       },
       {
-        "title": "Automatización de flujos de trabajo gobernados",
-        "body": "Diseñamos flujos de trabajo de IA en torno a transferencias operativas, requisitos de cumplimiento, necesidades de documentación y resultados controlados para el usuario."
+        "title": "Diseño y automatización de flujos de trabajo",
+        "body": "Diseñamos sistemas en torno a transferencias operativas reales, requisitos de cumplimiento y restricciones del equipo — no plantillas de procesos genéricas."
       },
       {
         "title": "Interfaces enfocadas en la adopción",
@@ -79,28 +78,28 @@ export const siteMessagesEs419: SiteMessages = {
     ]
   },
   "engagement": {
-    "eyebrow": "MODELO DE COMPROMISO",
-    "title": "Un camino estructurado desde la evaluación hasta el despliegue.",
-    "description": "Un modelo operativo conciso para definir, construir, pilotar y mejorar sistemas de flujo de trabajo habilitados por IA.",
+    "eyebrow": "CÓMO TRABAJAMOS",
+    "title": "Un camino estructurado desde el descubrimiento hasta el producto desplegado.",
+    "description": "Desde definir el problema correcto hasta entregar algo que funcione en producción.",
     "steps": [
       {
         "number": "01",
-        "title": "Evaluación y Alcance",
-        "body": "Mapeamos el contexto operativo, identificamos restricciones, definimos criterios de éxito y aislamos el flujo de trabajo donde la IA puede crear valor práctico."
+        "title": "Descubrimiento y alcance",
+        "body": "Mapeamos tu contexto operativo, definimos cómo se ve el éxito e identificamos dónde un producto a medida crea valor real."
       },
       {
         "number": "02",
         "title": "Diseño del Sistema",
-        "body": "Traducimos requisitos en modelos de datos, límites de automatización, flujos de usuario, reglas de gobernanza y arquitectura de interfaces."
+        "body": "Traducimos requisitos en modelos de datos, límites de flujo de trabajo, flujos de usuario, reglas de gobernanza y arquitectura de interfaces."
       },
       {
         "number": "03",
         "title": "Despliegue Piloto",
-        "body": "Liberamos una versión contenida para validar el comportamiento, recopilar comentarios de los usuarios y confirmar la adecuación operativa antes de un despliegue más amplio."
+        "body": "Liberamos una versión contenida para validar el comportamiento con usuarios reales, recopilar comentarios y confirmar que el producto encaja antes del despliegue completo."
       },
       {
         "number": "04",
-        "title": "Despliegue Operativo",
+        "title": "Puesta en producción",
         "body": "Apoyamos la adopción en producción con documentación, rutinas de habilitación, ciclos de iteración y una hoja de ruta para la madurez del sistema."
       }
     ]
@@ -108,13 +107,13 @@ export const siteMessagesEs419: SiteMessages = {
   "cta": {
     "eyebrow": "CONTACTO",
     "title": "Un problema bien definido es el primer entregable.",
-    "copy": "Comparte el problema operativo, la oportunidad de producto o el contexto de despliegue. Evaluaremos la adecuación y recomendaremos un próximo paso práctico.",
+    "copy": "Cuéntanos sobre la brecha en tu flujo de trabajo, el problema del equipo o la oportunidad de producto. Evaluaremos si un producto a medida es la respuesta correcta y recomendaremos un primer paso práctico.",
     "reviewSystemsLabel": "Ver sistemas"
   },
   "leadForm": {
     "eyebrow": "CONSULTAR",
     "title": "Contactar a Teambotics.",
-    "copy": "Proporciona una breve descripción del flujo de trabajo, equipo o problema de producto que deseas discutir.",
+    "copy": "Describe el flujo de trabajo, la brecha de producto o el problema operativo que deseas resolver.",
     "honeypotLabel": "Sitio web",
     "fields": {
       "name": "Nombre",

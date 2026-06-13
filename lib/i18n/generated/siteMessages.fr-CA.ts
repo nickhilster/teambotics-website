@@ -28,49 +28,48 @@ export const siteMessagesFrCA: SiteMessages = {
   },
   "footer": {
     "navLabel": "Pied de page",
-    "copyright": "© 2026 Teambotics. Pratique indépendante des systèmes IA pour des produits appliqués, l'automatisation des workflows et l'habilitation opérationnelle.",
+    "copyright": "© 2026 Teambotics. Produits sur mesure, systèmes de flux de travail et livraison complète pour les organisations qui ont besoin d'un logiciel fait pour elles.",
     "privacyLabel": "Confidentialité",
     "termsLabel": "Conditions",
     "linkedInLabel": "LinkedIn",
     "madeWith": "Fait avec amour, empathie et soin. Nos agents sont alignés sur les mêmes valeurs."
   },
   "hero": {
-    "pill": "Systèmes IA appliqués · Stratégie produit · Automatisation des workflows",
+    "pill": "Produits sur mesure · Systèmes de flux de travail · Livraison complète",
     "titleLines": [
-      "Systèmes IA pour",
-      "équipes opérationnelles,",
-      "conçus pour être déployés."
+      "Logiciel conçu pour votre flux de travail.",
+      "Pas l'inverse."
     ],
-    "copy": "Teambotics conçoit des produits et systèmes de workflow habilités par l'IA pour les organisations qui ont besoin d'un déploiement pratique — pas seulement d'un prototype.",
+    "copy": "Teambotics conçoit et développe des produits sur mesure pour les organisations qui ont dépassé les outils génériques. Nous gérons le cycle complet — découverte, conception, développement, déploiement — et livrons un logiciel que votre équipe possède vraiment.",
     "primaryCta": "Voir les systèmes",
     "secondaryCta": "Réviser l'approche"
   },
   "positioning": {
     "eyebrow": "CE QUE NOUS FAISONS",
-    "title": "Nous transformons les problèmes opérationnels en systèmes IA déployables.",
+    "title": "Nous construisons le produit dont votre entreprise a vraiment besoin.",
     "paragraphs": [
-      "Notre travail commence par l'environnement opérationnel : les lacunes de processus, les besoins de conformité, le comportement des utilisateurs, les transferts et les contraintes commerciales mesurables. Nous définissons le système autour du travail avant de sélectionner la technologie.",
-      "Nous aidons les organisations à déterminer où l'IA doit assister, automatiser, guider ou rester en retrait. Le résultat est une infrastructure pratique : des interfaces claires, des workflows contrôlés et des systèmes conçus pour l'adoption au-delà de la phase prototype."
+      "La plupart des organisations fonctionnent avec un assemblage d'abonnements SaaS, de solutions manuelles et d'outils non conçus pour leur flux de travail. La solution n'est pas un autre outil — c'est un produit conçu pour la façon dont vous opérez réellement.",
+      "Nous travaillons de la découverte jusqu'au déploiement et à la maintenance. Cela signifie comprendre vos processus, vos contraintes et votre équipe avant d'écrire une seule ligne de code — et livrer quelque chose de durable, pas abandonné après la remise."
     ],
-    "quote": "Clarté opérationnelle. Exécution contrôlée. Adoption durable."
+    "quote": "Conçu pour votre problème. Appartenant à votre équipe."
   },
   "liveSystems": {
-    "eyebrow": "PORTFOLIO DE SYSTÈMES IA",
-    "title": "Produits déployés et systèmes d'IA orientés vers la production.",
-    "description": "Un portefeuille croissant construit selon un standard opérationnel."
+    "eyebrow": "NOS RÉALISATIONS",
+    "title": "Produits déployés et systèmes sur mesure.",
+    "description": "Un portefeuille croissant construit selon un standard de livraison."
   },
   "capabilities": {
     "eyebrow": "CAPACITÉS CLÉS",
-    "title": "Conçu pour l'exécution, la gouvernance et l'adoption.",
-    "description": "Teambotics combine stratégie produit, conception de systèmes, automatisation et développement d'interfaces pour faire passer les initiatives IA du concept au déploiement opérationnel.",
+    "title": "Livraison complète de la découverte au déploiement.",
+    "description": "Teambotics combine stratégie produit, conception de flux de travail et développement d'interfaces pour transformer les initiatives en logiciels opérationnels détenus par l'organisation.",
     "items": [
       {
-        "title": "Livraison de MVP ciblés",
-        "body": "Nous définissons des limites de produit précises, priorisons les workflows à forte valeur ajoutée et construisons vers un chemin de production sans expansion de périmètre inutile."
+        "title": "Livraison de produit ciblée",
+        "body": "Nous définissons des limites de produit précises, priorisons les flux de travail à forte valeur et construisons vers la production sans expansion de périmètre inutile."
       },
       {
-        "title": "Automatisation des workflows gouvernée",
-        "body": "Nous concevons des workflows IA autour des transferts opérationnels, des exigences de conformité, des besoins de documentation et des résultats utilisateurs contrôlés."
+        "title": "Conception et automatisation des flux de travail",
+        "body": "Nous concevons des systèmes autour des transferts opérationnels réels, des exigences de conformité et des contraintes d'équipe — pas des modèles de processus génériques."
       },
       {
         "title": "Interfaces axées sur l'adoption",
@@ -79,28 +78,28 @@ export const siteMessagesFrCA: SiteMessages = {
     ]
   },
   "engagement": {
-    "eyebrow": "MODÈLE D'ENGAGEMENT",
-    "title": "Un chemin structuré de l'évaluation au déploiement.",
-    "description": "Un modèle opérationnel concis pour le cadrage, la construction, le pilotage et l'amélioration des systèmes de workflow habilités par l'IA.",
+    "eyebrow": "COMMENT NOUS TRAVAILLONS",
+    "title": "Un parcours structuré de la découverte au produit déployé.",
+    "description": "De la définition du bon problème à la livraison de quelque chose qui tient en production.",
     "steps": [
       {
         "number": "01",
-        "title": "Évaluation et cadrage",
-        "body": "Nous cartographions le contexte opérationnel, identifions les contraintes, définissons les critères de succès et isolons le workflow où l'IA peut créer une valeur pratique."
+        "title": "Découverte et cadrage",
+        "body": "Nous cartographions votre contexte opérationnel, définissons ce à quoi ressemble le succès et identifions où un produit sur mesure crée une vraie valeur."
       },
       {
         "number": "02",
         "title": "Conception du système",
-        "body": "Nous traduisons les exigences en modèles de données, limites d'automatisation, flux utilisateurs, règles de gouvernance et architecture d'interface."
+        "body": "Nous traduisons les exigences en modèles de données, limites de flux de travail, parcours utilisateurs, règles de gouvernance et architecture d'interface."
       },
       {
         "number": "03",
         "title": "Déploiement pilote",
-        "body": "Nous publions une version contenue pour valider le comportement, recueillir les retours des utilisateurs et confirmer l'adéquation opérationnelle avant un déploiement plus large."
+        "body": "Nous publions une version contenue pour valider le comportement avec de vrais utilisateurs, recueillir leurs retours et confirmer que le produit convient avant le déploiement complet."
       },
       {
         "number": "04",
-        "title": "Déploiement opérationnel",
+        "title": "Mise en production",
         "body": "Nous soutenons l'adoption en production avec de la documentation, des routines d'habilitation, des cycles d'itération et une feuille de route pour la maturité du système."
       }
     ]
@@ -108,13 +107,13 @@ export const siteMessagesFrCA: SiteMessages = {
   "cta": {
     "eyebrow": "CONTACT",
     "title": "Un problème bien défini est le premier livrable.",
-    "copy": "Partagez le problème opérationnel, l'opportunité produit ou le contexte de déploiement. Nous évaluerons l'adéquation et recommanderons une prochaine étape pratique.",
+    "copy": "Parlez-nous de la lacune dans votre flux de travail, du problème d'équipe ou de l'opportunité produit. Nous évaluerons si un produit sur mesure est la bonne réponse et recommanderons une première étape pratique.",
     "reviewSystemsLabel": "Voir les systèmes"
   },
   "leadForm": {
     "eyebrow": "DEMANDE",
     "title": "Contactez Teambotics.",
-    "copy": "Fournissez un aperçu bref du workflow, de l'équipe ou du problème produit que vous souhaitez discuter.",
+    "copy": "Décrivez le flux de travail, la lacune produit ou le problème opérationnel que vous souhaitez résoudre.",
     "honeypotLabel": "Site web",
     "fields": {
       "name": "Nom",
