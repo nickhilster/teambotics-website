@@ -38,7 +38,9 @@ export const siteMessagesFrCA: SiteMessages = {
     "pill": "Produits sur mesure · Systèmes de flux de travail · Livraison complète",
     "titleLines": [
       "Logiciel conçu pour votre flux de travail.",
-      "Pas l'inverse."
+      "Pas l'inverse.",
+      "Conçu pour durer, pas seulement livré.",
+      "La propriété de votre équipe."
     ],
     "copy": "Teambotics conçoit et développe des produits sur mesure pour les organisations qui ont dépassé les outils génériques. Nous gérons le cycle complet — découverte, conception, développement, déploiement — et livrons un logiciel que votre équipe possède vraiment.",
     "primaryCta": "Voir les systèmes",
