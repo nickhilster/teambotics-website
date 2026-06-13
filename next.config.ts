@@ -8,18 +8,6 @@ const nextConfig: NextConfig = {
         destination: "/products/recruiterbuddy",
         permanent: true,
       },
-    ];
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.gamma.app",
-      },
-    ],
-  },
-  async redirects() {
-    return [
       // Product sites now live on their own domains
       {
         source: "/MdownManager",
@@ -82,6 +70,14 @@ const nextConfig: NextConfig = {
         permanent: false,
       },
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.gamma.app",
+      },
+    ],
   },
 };
 

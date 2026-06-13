@@ -595,7 +595,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "RecruiterBuddy is a preparation and alignment tool. It surfaces what is known, what is plausible, and what needs a direct question — keeping human judgment responsible for the final hiring decision."
       }
     ],
-    "externalUrl": "mailto:hello@teambotics.app?subject=RecruiterBuddy%20demo",
+    "externalUrl": "https://teambotics.app/#contact",
     "externalLabel": "Request demo",
     "supportUrl": "mailto:hello@teambotics.app?subject=RecruiterBuddy",
     "supportLabel": "Discuss RecruiterBuddy"
