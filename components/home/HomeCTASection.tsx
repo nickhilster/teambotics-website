@@ -14,7 +14,6 @@ export function HomeCTASection() {
       <div className="cta-section__glow" aria-hidden="true" />
       <Container className="cta-section__inner">
         <SectionReveal className="cta-section__intro">
-          <p className="section-eyebrow cta-section__eyebrow">{messages.cta.eyebrow}</p>
           {locale === "en" ? (
             <div className="cta-thesis">
               <nav className="cta-thesis__meta" aria-label="Landing page shortcuts">
