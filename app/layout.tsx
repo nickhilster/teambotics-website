@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import Script from "next/script";
+import { SiteInsights } from "@/components/visitor/SiteInsights";
 import { siteConfig } from "@/lib/config";
 import "../styles/globals.css";
 import "../styles/typography.css";
@@ -82,6 +83,7 @@ export default function RootLayout({
     >
       <body>
         {children}
+        <SiteInsights />
         <Analytics />
         <SpeedInsights />
         <Script
