@@ -32,7 +32,7 @@ export const siteMessagesEn: SiteMessages = {
     "privacyLabel": "Privacy",
     "termsLabel": "Terms",
     "linkedInLabel": "LinkedIn",
-    "madeWith": "Made with love, empathy, and care. Our agents are aligned with the same values."
+    "madeWith": "Made with love, empathy, and care."
   },
   "hero": {
     "pill": "Purpose-built products · Workflow systems · Full-cycle delivery",
@@ -91,70 +91,25 @@ export const siteMessagesEn: SiteMessages = {
       },
       {
         "number": "02",
-        "title": "System Design",
-        "body": "We translate requirements into data models, workflow boundaries, user flows, governance rules, and interface architecture."
+        "title": "Design & Workflow Modeling",
+        "body": "We translate real tasks, handoffs, constraints, and edge cases into interface and system architecture decisions."
       },
       {
         "number": "03",
-        "title": "Pilot Deployment",
-        "body": "We release a contained build to validate behavior with real users, gather feedback, and confirm the product fits before full rollout."
+        "title": "Build & Integrate",
+        "body": "We develop the product, connect the right services, and keep the system aligned with the operational need it was built to solve."
       },
       {
         "number": "04",
-        "title": "Production Rollout",
-        "body": "We support production adoption with documentation, enablement routines, iteration cycles, and a roadmap for system maturity."
+        "title": "Deploy & Improve",
+        "body": "We launch with your team, observe real usage, and refine the product so it keeps improving after deployment."
       }
     ]
   },
   "cta": {
     "eyebrow": "CONTACT",
-    "title": "A well-scoped problem is the first deliverable.",
-    "copy": "Tell us about the workflow gap, team problem, or product opportunity. We'll assess whether a purpose-built product is the right answer and recommend a practical first step.",
-    "reviewSystemsLabel": "View systems"
-  },
-  "leadForm": {
-    "eyebrow": "INQUIRE",
-    "title": "Contact Teambotics.",
-    "copy": "Tell us about the workflow, product gap, or operational problem you want to solve.",
-    "honeypotLabel": "Website",
-    "fields": {
-      "name": "Name",
-      "email": "Email",
-      "organization": "Organization",
-      "interestArea": "Interest area",
-      "message": "Message"
-    },
-    "chooseFocusLabel": "Choose a focus",
-    "interestAreaLabels": {
-      "Workflow strategy": "Workflow strategy",
-      "Team enablement": "Team enablement",
-      "AI chatbot or assistant": "AI chatbot or assistant",
-      "Legal/compliance workflow": "Legal/compliance workflow",
-      "Creative or interactive platform": "Creative or interactive platform",
-      "Other": "Other"
-    },
-    "messageHint": "Outline the problem, timeline, or team context.",
-    "privacyPrefix": "By sending this form, you agree that Teambotics may use your information to respond to your inquiry. See our ",
-    "privacyLinkLabel": "Privacy Policy",
-    "privacySuffix": ".",
-    "submitLabel": "Send inquiry",
-    "submittingLabel": "Sending...",
-    "emailLabel": "Prefer email?",
-    "validationErrorLabel": "Please fix the highlighted fields and try again.",
-    "spamSuccessLabel": "Thanks. Your note has been received.",
-    "requestErrorLabel": "Unable to send your message right now.",
-    "requestEmailFallbackLabel": "Unable to send your message right now. Please try email instead.",
-    "successLabel": "Thanks. Teambotics will follow up shortly."
-  },
-  "productPage": {
-    "allProductsLabel": "All products",
-    "detailEyebrow": "SYSTEM OVERVIEW",
-    "detailTitle": "System architecture, governance, and user value.",
-    "detailDescription": "Each Teambotics product is built as a governed system: defined user value, controlled AI behavior, and a measured path to production deployment.",
-    "evidenceEyebrow": "OUTCOMES",
-    "evidenceTitle": "Capability delivered. Outcomes on record.",
-    "buildProfileEyebrow": "Build Profile",
-    "technologyLabel": "Technology",
-    "systemCapabilitiesLabel": "System capabilities"
+    "title": "Bring us a workflow worth rebuilding.",
+    "copy": "Use the form below to start a scoped conversation about a product, workflow system, or custom build.",
+    "reviewSystemsLabel": "Review systems"
   }
-} as const;
+};
