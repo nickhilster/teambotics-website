@@ -13,30 +13,33 @@ export function HomeCTASection() {
     <section className="section section--border cta-section" id="contact">
       <div className="cta-section__glow" aria-hidden="true" />
       <Container className="cta-section__inner">
-        <SectionReveal>
-          <p className="section-eyebrow">{messages.cta.eyebrow}</p>
-          <h2
-            className="cta-section__title"
-            aria-label={locale === "en" ? "Quality output begins with a quality input process." : undefined}
-          >
-            {locale === "en" ? (
-              <span className="cta-thesis" aria-hidden="true">
-                <span className="cta-thesis__meta">
-                  <span className="cta-thesis__chip cta-thesis__chip--output">
-                    Product
-                  </span>
-                  <span className="cta-thesis__chip cta-thesis__chip--input">
-                    Discovery
-                  </span>
-                </span>
-                <span className="cta-thesis__headline">
-                  Quality output begins with a quality input process.
-                </span>
-              </span>
-            ) : (
-              messages.cta.title
-            )}
-          </h2>
+        <SectionReveal className="cta-section__intro">
+          <p className="section-eyebrow cta-section__eyebrow">{messages.cta.eyebrow}</p>
+          {locale === "en" ? (
+            <div className="cta-thesis">
+              <nav className="cta-thesis__meta" aria-label="Landing page shortcuts">
+                <a
+                  className="cta-thesis__chip cta-thesis__chip--output"
+                  href="#systems"
+                  aria-label="Jump to Teambotics product systems"
+                >
+                  Product
+                </a>
+                <a
+                  className="cta-thesis__chip cta-thesis__chip--input"
+                  href="#engagement"
+                  aria-label="Jump to Teambotics discovery approach"
+                >
+                  Discovery
+                </a>
+              </nav>
+              <h2 className="cta-section__title">
+                Quality output begins with a quality input process.
+              </h2>
+            </div>
+          ) : (
+            <h2 className="cta-section__title">{messages.cta.title}</h2>
+          )}
           <p className="cta-section__copy">
             {messages.cta.copy}
           </p>
