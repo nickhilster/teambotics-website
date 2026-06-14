@@ -147,7 +147,7 @@ export default function VisitorAnalyticsPage() {
               <option value="30">30 days</option>
               <option value="90">90 days</option>
             </select>
-            <Button onClick={loadAnalytics} variant="secondary">
+            <Button onClick={loadAnalytics} variant="ghost">
               {isLoading ? <Loader2 size={16} className="animate-spin" /> : <RefreshCw size={16} />} Refresh
             </Button>
           </div>
