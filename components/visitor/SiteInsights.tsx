@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const SESSION_KEY = 'teambotics.session.v1';
 
@@ -32,12 +32,10 @@ function isLocalHost() {
 
 export function SiteInsights() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (typeof window === 'undefined' || isLocalHost()) return;
-    const query = searchParams.toString();
-    const path = `${pathname}${query ? `?${query}` : ''}`;
+    const path = `${pathname}${window.location.search || ''}`;
     if (path.startsWith('/admin') || path.startsWith('/api')) return;
 
     fetch('/api/visitor/log', {
@@ -53,7 +51,7 @@ export function SiteInsights() {
         sessionId: getSessionId(),
       }),
     }).catch(() => {});
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
