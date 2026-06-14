@@ -111,5 +111,50 @@ export const siteMessagesEn: SiteMessages = {
     "title": "Bring us a workflow worth rebuilding.",
     "copy": "Use the form below to start a scoped conversation about a product, workflow system, or custom build.",
     "reviewSystemsLabel": "Review systems"
+  },
+  "leadForm": {
+    "eyebrow": "REQUEST",
+    "title": "Contact Teambotics.",
+    "copy": "Describe the workflow, product gap, or operational problem you want to solve.",
+    "honeypotLabel": "Website",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "organization": "Organization",
+      "interestArea": "Interest area",
+      "message": "Message"
+    },
+    "chooseFocusLabel": "Choose a focus",
+    "interestAreaLabels": {
+      "Workflow strategy": "Workflow strategy",
+      "Team enablement": "Team enablement",
+      "AI chatbot or assistant": "AI chatbot or assistant",
+      "Legal/compliance workflow": "Legal/compliance workflow",
+      "Creative or interactive platform": "Creative or interactive platform",
+      "Other": "Other"
+    },
+    "messageHint": "Outline the problem, timeline, or team context.",
+    "privacyPrefix": "By submitting this form, you agree that Teambotics may use your information to respond to your request. See our ",
+    "privacyLinkLabel": "Privacy Policy",
+    "privacySuffix": ".",
+    "submitLabel": "Send request",
+    "submittingLabel": "Sending...",
+    "emailLabel": "Prefer email?",
+    "validationErrorLabel": "Please correct the highlighted fields and try again.",
+    "spamSuccessLabel": "Thanks. Your note has been received.",
+    "requestErrorLabel": "Unable to send your message right now.",
+    "requestEmailFallbackLabel": "Unable to send your message right now. Please try email instead.",
+    "successLabel": "Thanks. Teambotics will follow up shortly."
+  },
+  "productPage": {
+    "allProductsLabel": "All products",
+    "detailEyebrow": "SYSTEM OVERVIEW",
+    "detailTitle": "System architecture, governance, and user value.",
+    "detailDescription": "Each Teambotics product is built as a governed system: defined user value, controlled AI behavior, and a measured path toward production deployment.",
+    "evidenceEyebrow": "OUTCOMES",
+    "evidenceTitle": "Demonstrated capabilities. Documented results.",
+    "buildProfileEyebrow": "Build profile",
+    "technologyLabel": "Technology",
+    "systemCapabilitiesLabel": "System capabilities"
   }
-};
+} as const;
