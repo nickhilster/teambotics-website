@@ -1,15 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motionTokens } from "@/lib/motion";
 import { useMotionPreferences } from "./MotionProvider";
 
-const FLIP_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-.,";
-const STEPS = 4;
-const STEP_MS = 65;
-const CHAR_STAGGER_MS = 40;
-const HOLD_MS = 4000;
+const HOLD_MS = 5200;
 
 type Props = {
   className?: string;
@@ -19,67 +15,29 @@ type Props = {
 
 export function HeroSolariTitle({ className, staticLine, cyclingLines }: Props) {
   const { prefersReducedMotion } = useMotionPreferences();
-  const [display, setDisplay] = useState(cyclingLines[0] ?? "");
-  const displayRef = useRef(cyclingLines[0] ?? "");
-  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
-
-  function scrambleTo(target: string) {
-    timersRef.current.forEach(clearTimeout);
-    timersRef.current = [];
-
-    const maxLen = Math.max(displayRef.current.length, target.length);
-
-    for (let i = 0; i < maxLen; i++) {
-      const targetChar = i < target.length ? target[i] : " ";
-      const totalSteps = targetChar.trim() === "" ? 0 : STEPS;
-
-      for (let step = 0; step <= totalSteps; step++) {
-        const delay = i * CHAR_STAGGER_MS + step * STEP_MS;
-        const isLast = step === totalSteps;
-        const pos = i;
-
-        timersRef.current.push(
-          setTimeout(() => {
-            const ch = isLast
-              ? targetChar
-              : FLIP_CHARS[Math.floor(Math.random() * FLIP_CHARS.length)];
-            const padded = displayRef.current.padEnd(maxLen, " ");
-            displayRef.current = padded.slice(0, pos) + ch + padded.slice(pos + 1);
-            setDisplay(displayRef.current);
-          }, delay)
-        );
-      }
-    }
-
-    // Guarantee exact final state
-    timersRef.current.push(
-      setTimeout(() => {
-        displayRef.current = target;
-        setDisplay(target);
-      }, maxLen * CHAR_STAGGER_MS + STEPS * STEP_MS + 100)
-    );
-  }
+  const safeCyclingLines = useMemo(
+    () => (cyclingLines.length > 0 ? cyclingLines : [""]),
+    [cyclingLines],
+  );
+  const cyclingKey = safeCyclingLines.join("\u001f");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (prefersReducedMotion || cyclingLines.length < 2) return;
+    setActiveIndex(0);
+  }, [cyclingKey]);
 
-    const entrySettleMs = motionTokens.duration.text * 1000 + 300;
-    let phraseIndex = 0;
-    let intervalId: ReturnType<typeof setInterval>;
+  useEffect(() => {
+    if (prefersReducedMotion || isPaused || safeCyclingLines.length < 2) {
+      return;
+    }
 
-    const startTimer = setTimeout(() => {
-      intervalId = setInterval(() => {
-        phraseIndex = (phraseIndex + 1) % cyclingLines.length;
-        scrambleTo(cyclingLines[phraseIndex]);
-      }, HOLD_MS);
-    }, entrySettleMs + HOLD_MS);
+    const intervalId = setInterval(() => {
+      setActiveIndex((currentIndex) => (currentIndex + 1) % safeCyclingLines.length);
+    }, HOLD_MS);
 
-    return () => {
-      clearTimeout(startTimer);
-      clearInterval(intervalId);
-      timersRef.current.forEach(clearTimeout);
-    };
-  }, [prefersReducedMotion, cyclingLines]);
+    return () => clearInterval(intervalId);
+  }, [cyclingKey, isPaused, prefersReducedMotion, safeCyclingLines.length]);
 
   if (prefersReducedMotion) {
     return (
@@ -88,7 +46,7 @@ export function HeroSolariTitle({ className, staticLine, cyclingLines }: Props) 
           <span className="text-reveal-line">{staticLine}</span>
         </span>
         <span style={{ display: "block" }}>
-          <span className="text-reveal-line">{cyclingLines[0]}</span>
+          <span className="text-reveal-line">{safeCyclingLines[0]}</span>
         </span>
       </h1>
     );
@@ -99,8 +57,18 @@ export function HeroSolariTitle({ className, staticLine, cyclingLines }: Props) 
     ease: motionTokens.ease.standard,
   };
 
+  const cyclingT = {
+    duration: 0.7,
+    ease: motionTokens.ease.standard,
+  };
+
   return (
-    <h1 className={className}>
+    <h1
+      aria-label={`${staticLine} ${safeCyclingLines[activeIndex]}`}
+      className={className}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       <span className="text-reveal-mask" style={{ display: "block" }}>
         <motion.span
           animate={{ y: 0 }}
@@ -117,10 +85,41 @@ export function HeroSolariTitle({ className, staticLine, cyclingLines }: Props) 
           animate={{ y: 0 }}
           className="text-reveal-line"
           initial={{ y: "110%" }}
-          style={{ display: "block" }}
+          style={{
+            display: "grid",
+            minWidth: 0,
+          }}
           transition={{ ...entryT, delay: 0.08 }}
         >
-          {display}
+          {safeCyclingLines.map((line, index) => {
+            const isActive = index === activeIndex;
+
+            return (
+              <motion.span
+                aria-hidden="true"
+                animate={{
+                  opacity: isActive ? 1 : 0,
+                  y: isActive ? 0 : "0.18em",
+                }}
+                className="hero__title-cycle-line"
+                initial={false}
+                key={line}
+                style={{
+                  // Each variant occupies the same CSS grid cell. Because none of
+                  // them are absolutely positioned, the browser reserves the
+                  // maximum width/height needed by the longest/wrapping string,
+                  // while opacity handles the visual swap in-place. This prevents
+                  // hero title reflow and avoids animation-driven CLS.
+                  gridArea: "1 / 1",
+                  minWidth: 0,
+                  pointerEvents: isActive ? "auto" : "none",
+                }}
+                transition={cyclingT}
+              >
+                {line}
+              </motion.span>
+            );
+          })}
         </motion.span>
       </span>
     </h1>
