@@ -32,7 +32,7 @@ export const siteMessagesEs419: SiteMessages = {
     "privacyLabel": "Privacidad",
     "termsLabel": "Términos",
     "linkedInLabel": "LinkedIn",
-    "madeWith": "Hecho con amor, empatía y cuidado. Nuestros agentes están alineados con los mismos valores."
+    "madeWith": "Hecho con amor, empatía y cuidado."
   },
   "hero": {
     "pill": "Productos a medida · Sistemas de flujo de trabajo · Entrega completa",
