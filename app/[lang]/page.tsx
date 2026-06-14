@@ -6,6 +6,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { HomeCTASection } from "@/components/home/HomeCTASection";
 import { LiveSystemsSection } from "@/components/home/LiveSystemsSection";
 import { PositioningSection } from "@/components/home/PositioningSection";
+import { OrganizationStructuredData } from "@/components/seo/OrganizationStructuredData";
 import { siteConfig } from "@/lib/config";
 import { getSiteMessages, isSiteLocale, siteLocaleHtmlLang, type LocalizedRouteLocale } from "@/lib/siteLocale";
 
@@ -45,6 +46,7 @@ export default async function LocalizedHomePage({ params }: LocalizedHomePagePro
 
   return (
     <>
+      <OrganizationStructuredData />
       <HeroSection />
       <PositioningSection />
       <LiveSystemsSection />
