@@ -1,0 +1,185 @@
+.admin-page-container {
+  width: min(1180px, calc(100vw - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.admin-back-link,
+.admin-actions-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.admin-back-link {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.admin-brand--header {
+  margin-bottom: 1rem;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.admin-actions-row {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.admin-select {
+  min-height: 2.6rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+.admin-alert {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  background: rgba(254, 226, 226, 0.55);
+  color: #991b1b;
+}
+
+.admin-metrics-grid,
+.admin-two-column-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-metrics-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-two-column-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.admin-metric-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  background: var(--color-bg-surface);
+}
+
+.admin-metric-card span,
+.admin-empty,
+.admin-row small,
+.admin-journey-card p,
+.admin-journey-steps small {
+  color: var(--color-text-secondary);
+}
+
+.admin-metric-card strong {
+  font-size: clamp(1.5rem, 3vw, 2.45rem);
+  line-height: 1;
+}
+
+.admin-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+}
+
+.admin-card__header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.admin-list,
+.admin-journey-steps {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.admin-row,
+.admin-journey-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-bg-page) 94%, transparent);
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.admin-row small {
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.admin-row span {
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.admin-journey-card {
+  padding: 1rem;
+}
+
+.admin-journey-card p {
+  margin: 0.35rem 0 0.85rem;
+}
+
+.admin-journey-steps div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-page);
+}
+
+.admin-journey-steps span {
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .admin-header,
+  .admin-two-column-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .admin-metrics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-actions-row {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-metrics-grid,
+  .admin-row {
+    grid-template-columns: 1fr;
+  }
+}
