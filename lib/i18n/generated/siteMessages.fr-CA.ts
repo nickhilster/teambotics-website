@@ -32,7 +32,7 @@ export const siteMessagesFrCA: SiteMessages = {
     "privacyLabel": "Confidentialité",
     "termsLabel": "Conditions",
     "linkedInLabel": "LinkedIn",
-    "madeWith": "Fait avec amour, empathie et soin. Nos agents sont alignés sur les mêmes valeurs."
+    "madeWith": "Fait avec amour, empathie et soin."
   },
   "hero": {
     "pill": "Produits sur mesure · Systèmes de flux de travail · Livraison complète",
