@@ -4,10 +4,12 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { HomeCTASection } from "@/components/home/HomeCTASection";
 import { ProductFlagshipSections } from "@/components/home/ProductFlagshipSections";
 import { PositioningSection } from "@/components/home/PositioningSection";
+import { OrganizationStructuredData } from "@/components/seo/OrganizationStructuredData";
 
 export default function HomePage() {
   return (
     <>
+      <OrganizationStructuredData />
       <HeroSection />
       <ProductFlagshipSections />
       <PositioningSection />
