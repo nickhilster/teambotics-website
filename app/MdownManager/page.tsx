@@ -6,25 +6,11 @@ export const metadata: Metadata = {
     "MDownManager indexes your .md vaults, adds AI summaries and semantic search, scans for security risks, and exposes a local HTTP API without sending files to the cloud.",
 };
 
-const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MDownManager</title>
-<style>
-/* --- Mobile fix preserved --- */
-@media (max-width: 768px) {
-  .nav-cta { display: none !important; }
-}
-</style>
-</head>
-<body>
-<!-- Full HTML content inlined -->
-${require('fs').readFileSync('/mnt/data/product-page(2).html','utf-8')}
-</body>
-</html>`;
-
 export default function Page() {
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <div style={{ padding: "40px", color: "white", background: "#020617" }}>
+      <h1>MDownManager page update in progress</h1>
+      <p>The latest HTML update did not deploy correctly. Reapplying a clean version.</p>
+    </div>
+  );
 }
