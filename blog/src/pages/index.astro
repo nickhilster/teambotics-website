@@ -7,8 +7,6 @@ const apiBase =
   import.meta.env.SITE_API_BASE ??
   (import.meta.env.DEV ? 'http://localhost:3000' : 'https://teambotics.app');
 
-const postsPerPage = 9;
-const currentPage = parseInt(Astro.url.searchParams.get('page') ?? '1', 10);
 const selectedTag = Astro.url.searchParams.get('tag') ?? null;
 
 let allPosts: Array<{
@@ -46,12 +44,7 @@ const filteredPosts = selectedTag
 // Get all unique tags
 const allTags = Array.from(new Set(allPosts.flatMap(post => post.tags))).sort();
 const activePostCount = filteredPosts.length;
-
-// Paginate
-const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-const validPage = Math.max(1, Math.min(currentPage, totalPages || 1));
-const startIdx = (validPage - 1) * postsPerPage;
-const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
+const posts = filteredPosts;
 ---
 
 <BlogLayout title={selectedTag ? `${selectedTag} — Teambotics Blog` : 'Teambotics Blog — Industrial Automation Insights'}>
@@ -94,7 +87,7 @@ const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
         <div class="blog-index__hero-metric">
           <span class="blog-index__hero-metric-label">{selectedTag ? 'Active topic' : 'Current view'}</span>
           <strong class="blog-index__hero-metric-value">
-            {selectedTag ? selectedTag : `${activePostCount} latest posts`}
+            {selectedTag ? selectedTag : `${activePostCount} posts`}
           </strong>
         </div>
       </div>
@@ -179,38 +172,10 @@ const posts = filteredPosts.slice(startIdx, startIdx + postsPerPage);
       <a href="/">Browse all topics</a>
     </p>
   ) : (
-    <>
-      <div class="blog-post-grid" id="posts">
-        {posts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </div>
-
-      {totalPages > 1 && (
-        <div class="blog-index__pagination">
-          {validPage > 1 && (
-            <a
-              href={`/?page=${validPage - 1}${selectedTag ? `&tag=${encodeURIComponent(selectedTag)}` : ''}`}
-              class="blog-index__pagination-link blog-index__pagination-link--prev"
-            >
-              ← Previous
-            </a>
-          )}
-
-          <div class="blog-index__pagination-info">
-            Page {validPage} of {totalPages}
-          </div>
-
-          {validPage < totalPages && (
-            <a
-              href={`/?page=${validPage + 1}${selectedTag ? `&tag=${encodeURIComponent(selectedTag)}` : ''}`}
-              class="blog-index__pagination-link blog-index__pagination-link--next"
-            >
-              Next →
-            </a>
-          )}
-        </div>
-      )}
-    </>
+    <div class="blog-post-grid" id="posts">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
   )}
 </BlogLayout>
