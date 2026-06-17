@@ -17,6 +17,7 @@ const CUSTOM_THUMBNAILS: Record<string, string> = {
   'context-recovery-agentic-work':       '/thumbnails/context-recovery-agentic-work.svg',
   'chatbots-should-ask-better-questions': '/thumbnails/chatbots-should-ask-better-questions.svg',
   'ai-should-not-replace-care':          '/thumbnails/ai-should-not-replace-care.svg',
+  'corporate-ai-adoption-operating-model': '/thumbnails/corporate-ai-adoption-operating-model.svg',
 };
 
 // Fallback: procedurally generated geometric SVG for unknown slugs
