@@ -478,7 +478,7 @@ export const staticBlogPosts: StaticBlogPost[] = [
     content: aiShouldNotReplaceCareContent,
     author: 'Nikhil Khedkar',
     tags: ['agentic-care', 'service-design', 'applied-ai', 'accessibility', 'human-ai-systems'],
-    cover_image_url: null,
+    cover_image_url: '/thumbnails/ai-should-not-replace-care.svg',
     published_at: '2026-06-04T00:00:00.000Z',
   },
   {
@@ -490,7 +490,7 @@ export const staticBlogPosts: StaticBlogPost[] = [
     content: aiAdoptionOperatingModelContent,
     author: 'Nikhil Khedkar',
     tags: ['ai-adoption', 'enterprise-ai', 'ai-governance', 'digital-transformation', 'ai-roi'],
-    cover_image_url: null,
+    cover_image_url: '/thumbnails/corporate-ai-adoption-operating-model.svg',
     published_at: '2026-06-17T00:00:00.000Z',
   },
   {
@@ -502,7 +502,7 @@ export const staticBlogPosts: StaticBlogPost[] = [
     content: aiAdoptionPersonalizedLearningContent,
     author: 'Nikhil Khedkar',
     tags: ['ai-adoption', 'learning-development', 'training', 'organizational-change', 'adult-learning'],
-    cover_image_url: null,
+    cover_image_url: '/thumbnails/ai-adoption-personalized-learning.svg',
     published_at: '2026-06-17T00:00:00.000Z',
   },
 ];
