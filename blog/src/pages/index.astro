@@ -2,6 +2,7 @@
 import BlogLayout from '../layouts/BlogLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { getStaticBlogPostSummaries } from '../data/static-posts.ts';
+import { getExecutiveBlogPostSummaries } from '../data/executive-overrides.ts';
 
 const apiBase =
   import.meta.env.SITE_API_BASE ??
@@ -26,14 +27,17 @@ try {
   const res = await fetch(`${apiBase}/api/blog/posts`);
   if (!res.ok) throw new Error(`API responded ${res.status}`);
   const data = await res.json() as { posts: typeof allPosts };
+  const overridePosts = getExecutiveBlogPostSummaries();
   const staticPosts = getStaticBlogPostSummaries();
-  const staticSlugs = new Set(staticPosts.map((post) => post.slug));
-  allPosts = [...staticPosts, ...(data.posts ?? []).filter((post) => !staticSlugs.has(post.slug))].sort((a, b) =>
+  const preferredSlugs = new Set([...overridePosts, ...staticPosts].map((post) => post.slug));
+  allPosts = [...overridePosts, ...staticPosts, ...(data.posts ?? []).filter((post) => !preferredSlugs.has(post.slug))].sort((a, b) =>
     new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime()
   );
 } catch (err) {
   fetchError = err instanceof Error ? err.message : 'Failed to load posts.';
-  allPosts = getStaticBlogPostSummaries();
+  allPosts = [...getExecutiveBlogPostSummaries(), ...getStaticBlogPostSummaries()].sort((a, b) =>
+    new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime()
+  );
 }
 
 // Filter posts by tag if selected
