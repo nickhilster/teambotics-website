@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, Download } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/lib/config";
 
@@ -15,6 +15,66 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/MdownManager`,
   },
 };
+
+const DOWNLOAD_VERSION = "0.3.0";
+const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager/releases/download/v${DOWNLOAD_VERSION}`;
+
+const pricingTiers = [
+  {
+    name: "Free",
+    price: null,
+    priceNote: "No credit card required",
+    highlight: false,
+    features: [
+      "1 vault",
+      "Full-text search",
+      "Security scanner",
+      "Explorer & categories",
+      "Local AI (Ollama)",
+    ],
+    cta: { label: "Download for Windows", href: `${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`, icon: true },
+  },
+  {
+    name: "Individual",
+    price: "$20",
+    priceNote: "per year",
+    highlight: true,
+    features: [
+      "Unlimited vaults",
+      "Everything in Free",
+      "Priority support",
+      "All future updates",
+    ],
+    cta: { label: "Buy Individual", href: "https://teambotics.lemonsqueezy.com/buy/individual", icon: false },
+  },
+  {
+    name: "Commercial",
+    price: "$149",
+    priceNote: "per year · up to 10 seats",
+    highlight: false,
+    features: [
+      "Unlimited vaults",
+      "Everything in Free",
+      "10 seat license",
+      "Commercial use rights",
+      "Priority support",
+    ],
+    cta: { label: "Buy Commercial", href: "https://teambotics.lemonsqueezy.com/buy/commercial", icon: false },
+  },
+  {
+    name: "Non-profit",
+    price: "Free",
+    priceNote: "on application",
+    highlight: false,
+    features: [
+      "Unlimited vaults",
+      "Everything in Free",
+      "Up to 10 seats",
+      "Commercial license terms",
+    ],
+    cta: { label: "Apply for access", href: "/nonprofit-application", icon: false },
+  },
+] as const;
 
 const heroOutcomes = [
   "Faster search across internal documentation",
@@ -243,37 +303,85 @@ export default function MdownManagerPage() {
       <section className="section section--border">
         <Container>
           <SectionIntro
-            eyebrow="Get started"
-            title="See whether MDownManager fits your documentation workflow"
+            eyebrow="Pricing"
+            title="Start free. Upgrade when you’re ready."
           >
             <p>
-              If your team relies on markdown-heavy documentation and needs
-              better structure, retrieval, and AI-ready context, MDownManager
-              may be a strong fit. The best next step is a short conversation
-              about your workflow, documentation patterns, and where teams are
-              losing time today.
+              MDownManager is free for personal use with no time limit.
+              Individual and team licenses unlock unlimited vaults and
+              commercial use rights.
             </p>
           </SectionIntro>
 
-          <div className="mt-10 flex flex-col justify-between gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] p-6 sm:flex-row sm:items-center sm:p-8">
-            <div>
-              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
-                Want to see MDownManager applied to your workflow?
-              </h3>
-              <p className="mt-1 text-sm text-[var(--color-text-tertiary)]">
-                We can walk through your documentation workflow, the product
-                direction, and where MDownManager may fit inside your team’s
-                operating stack.
-              </p>
-            </div>
-            <a
-              className="button button--primary"
-              href="mailto:hello@teambotics.app?subject=MDownManager%20commercial%20discussion"
-            >
-              <span>Talk to the team</span>
-              <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
-            </a>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {pricingTiers.map((tier) => (
+              <article
+                key={tier.name}
+                className={[
+                  "relative flex flex-col rounded-[var(--radius-xl)] border p-6",
+                  tier.highlight
+                    ? "border-[var(--color-accent)] bg-[var(--color-bg-elevated)] shadow-[0_0_0_1px_var(--color-accent),0_18px_60px_var(--color-card-glow)]"
+                    : "border-[var(--color-border)] bg-[var(--color-bg-surface)]",
+                ].join(" ")}
+              >
+                {tier.highlight && (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-[var(--color-accent)] bg-[var(--color-bg-base)] px-3 py-0.5 text-xs font-semibold text-[var(--color-accent)]">
+                    Most popular
+                  </span>
+                )}
+                <h3 className="text-base font-semibold text-[var(--color-text-primary)]">
+                  {tier.name}
+                </h3>
+                <div className="mt-3">
+                  {tier.price ? (
+                    <span className="text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+                      {tier.price}
+                    </span>
+                  ) : (
+                    <span className="text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+                      $0
+                    </span>
+                  )}
+                  <span className="ml-1.5 text-xs text-[var(--color-text-tertiary)]">
+                    {tier.priceNote}
+                  </span>
+                </div>
+
+                <ul className="mt-5 flex flex-1 flex-col gap-2">
+                  {tier.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
+                      <Check size={14} className="mt-0.5 shrink-0 text-[var(--color-accent)]" aria-hidden />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={tier.cta.href}
+                  target={tier.cta.href.startsWith("http") ? "_blank" : undefined}
+                  rel={tier.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={[
+                    "button mt-6 w-full justify-center",
+                    tier.highlight ? "button--primary" : "button--ghost",
+                  ].join(" ")}
+                >
+                  {tier.cta.icon && <Download size={14} aria-hidden />}
+                  <span>{tier.cta.label}</span>
+                  {!tier.cta.icon && <ArrowRight size={14} aria-hidden />}
+                </a>
+              </article>
+            ))}
           </div>
+
+          <p className="mt-6 text-center text-xs text-[var(--color-text-tertiary)]">
+            Windows 10+ · Local-first · No account required to use the free tier ·{" "}
+            <a
+              href="mailto:hello@teambotics.app"
+              className="text-[var(--color-accent)] hover:underline"
+            >
+              hello@teambotics.app
+            </a>
+          </p>
         </Container>
       </section>
     </>
