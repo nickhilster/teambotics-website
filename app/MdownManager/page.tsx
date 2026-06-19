@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const DOWNLOAD_VERSION = "0.3.0";
+const DOWNLOAD_VERSION = "0.3.1";
 const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager/releases/download/v${DOWNLOAD_VERSION}`;
 
 const pricingTiers = [
