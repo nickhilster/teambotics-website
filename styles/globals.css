@@ -312,6 +312,11 @@ html.dark .site-header--scrolled {
   letter-spacing: 0.02em;
   text-transform: none;
   color: var(--color-text-primary);
+  transition: opacity var(--transition-fast) ease;
+}
+
+.site-logo:hover {
+  opacity: 0.8;
 }
 
 .site-logo__text {
@@ -1610,6 +1615,10 @@ html.dark .card {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.products-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .capability-card__icon {
   display: inline-flex;
   align-items: center;
@@ -1628,6 +1637,99 @@ html.dark .card {
 .capability-card:hover .capability-card__icon {
   transform: translateY(-2px);
   background: color-mix(in srgb, var(--color-accent) 16%, transparent);
+}
+
+/* ── Products section ── */
+.products-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  border-radius: var(--radius-2xl);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease,
+    background-color var(--transition-fast) ease;
+}
+
+.product-card:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 54%, var(--color-border));
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-accent) 34%, transparent),
+    0 1rem 2.75rem color-mix(in srgb, var(--color-accent) 16%, transparent),
+    inset 0 0 2rem color-mix(in srgb, var(--color-accent) 6%, transparent);
+}
+
+.product-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.product-card__arrow {
+  flex-shrink: 0;
+  color: var(--color-text-tertiary);
+  transition:
+    transform var(--transition-fast) ease,
+    color var(--transition-fast) ease;
+}
+
+.product-card:hover .product-card__arrow {
+  transform: translate(3px, -3px);
+  color: var(--color-accent-muted);
+}
+
+.product-card__name {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.product-card__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-tertiary);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.product-card__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.product-card__stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-card__stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.product-card__stat-label {
+  font-size: 0.6875rem;
+  color: var(--color-text-tertiary);
+  margin-top: 0.2rem;
+  letter-spacing: 0.02em;
 }
 
 /* ── Engagement rail ── */
@@ -3646,6 +3748,7 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   .positioning,
   .systems-grid,
   .capabilities-grid,
+  .products-grid,
   .product-proof-grid,
   .product-detail-grid,
   .product-evidence,
