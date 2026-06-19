@@ -1,86 +1,80 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/lib/config";
 
-const githubUrl = "https://github.com/nickhilster/MDownManager";
-const downloadUrl =
-  "https://github.com/nickhilster/MDownManager/releases/download/v0.1.0/MdownManager_0.1.0_x64_en-US.msi";
-
 export const metadata: Metadata = {
-  title: "MDownManager — Markdown knowledge base, upgraded",
+  title: "MDownManager",
   description:
-    "MDownManager indexes your .md vaults, adds AI summaries and semantic search, scans for security risks, and exposes a local HTTP API without sending files to the cloud.",
+    "MDownManager is a Teambotics document operations product for teams that need cleaner markdown workflows, searchable knowledge, and AI-ready structure without the usual manual overhead.",
   openGraph: {
-    title: "MDownManager — Markdown knowledge base, upgraded",
+    title: `MDownManager | ${siteConfig.name}`,
     description:
-      "MDownManager indexes your .md vaults, adds AI summaries and semantic search, scans for security risks, and exposes a local HTTP API without sending files to the cloud.",
+      "A Teambotics document operations product for markdown-heavy teams that need cleaner structure, retrieval, and workflow support.",
     url: `${siteConfig.url}/MdownManager`,
   },
 };
 
 const proofPoints = [
   {
-    title: "Local indexing",
-    body: "Scan markdown vaults without uploading. All processing stays on your machine.",
+    title: "Commercial product direction",
+    body: "Positioned as part of the Teambotics product portfolio, not as a standalone open-source utility download page.",
   },
   {
-    title: "AI-powered summaries",
-    body: "Automatic abstract generation and key-point extraction from markdown files.",
+    title: "Markdown workflow focus",
+    body: "Designed for teams that run on notes, documentation, internal playbooks, research logs, and markdown-based operating context.",
   },
   {
-    title: "Semantic search",
-    body: "Find content by meaning, not just keywords. Understand relationships across your vault.",
+    title: "AI-ready knowledge layer",
+    body: "Turns scattered markdown into cleaner structure that can support retrieval, summarization, and downstream workflow automation.",
   },
   {
-    title: "Security scanning",
-    body: "Detect exposed secrets, credentials, and sensitive patterns in your documentation.",
-  },
-  {
-    title: "HTTP API",
-    body: "Query your indexed knowledge base programmatically. Build on top of it.",
-  },
-  {
-    title: "Privacy-first",
-    body: "Your data never leaves your machine. No cloud dependency, no telemetry.",
+    title: "Operational use cases",
+    body: "Useful when documentation needs to be searched, normalized, inspected, and made more usable across teams and systems.",
   },
 ] as const;
 
 const features = [
   {
     stage: "1",
-    name: "Vault Discovery",
-    desc: "Point MdownManager at any folder. It recursively scans and indexes all .md files, building a searchable knowledge map.",
-    tech: ["Recursive scan", "Metadata extraction", "Index building"],
+    name: "Ingest markdown at the workflow layer",
+    desc: "MDownManager starts with the markdown your team already produces: notes, handoff docs, process pages, research files, and internal reference material.",
+    tech: [
+      "Markdown collections",
+      "Workspace ingest",
+      "Document normalization",
+    ],
   },
   {
     stage: "2",
-    name: "AI Summarization",
-    desc: "Each document is automatically summarized with key points, context, and linked references extracted.",
-    tech: ["LLM processing", "Abstract generation", "Relationship mapping"],
+    name: "Structure the messy middle",
+    desc: "Instead of treating docs as disconnected files, the product organizes them into a more usable operating layer so teams can understand what exists and where important context lives.",
+    tech: ["Metadata capture", "Relationship mapping", "Content organization"],
   },
   {
     stage: "3",
-    name: "Semantic Search",
-    desc: "Search by meaning, not keywords. Find related documents even if they use different terminology.",
-    tech: ["Vector embeddings", "Similarity scoring", "Relevance ranking"],
+    name: "Improve retrieval and reuse",
+    desc: "Once the knowledge layer is structured, teams can retrieve information faster, reduce duplicated searching, and reuse institutional knowledge with less manual effort.",
+    tech: ["Search workflows", "Context retrieval", "Knowledge reuse"],
   },
   {
     stage: "4",
-    name: "Security Audit",
-    desc: "Scan for exposed credentials, API keys, secrets, and PII that shouldn't be in docs.",
-    tech: ["Pattern detection", "Risk scoring", "Audit reports"],
-  },
-  {
-    stage: "5",
-    name: "HTTP API",
-    desc: "Expose your indexed knowledge via a local HTTP server. Query, retrieve, and build integrations.",
-    tech: ["REST API", "JSON responses", "Custom endpoints"],
+    name: "Support AI and automation downstream",
+    desc: "The product direction aligns with the broader Teambotics thesis: better AI systems start with better inputs, better context, and clearer operational structure.",
+    tech: ["AI-ready context", "Workflow support", "Operational enablement"],
   },
 ] as const;
 
-function SectionIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
+function SectionIntro({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  children?: React.ReactNode;
+}) {
   return (
     <div className="max-w-3xl">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
@@ -106,33 +100,29 @@ export default function MdownManagerPage() {
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)] shadow-[0_18px_70px_var(--color-card-glow)]">
               <span aria-hidden="true">📚</span>
-              AI-powered · Local-first · Semantic search
+              Document operations · Markdown workflows · Product in evolution
             </div>
             <h1 className="text-5xl font-semibold tracking-[-0.07em] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl">
               MDownManager
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)] sm:text-xl">
-              Transform your markdown vault into an intelligent, searchable knowledge base. Index, summarize, search semantically, and expose via API — all locally.
+              MDownManager is evolving into a Teambotics product for teams that
+              rely on markdown as working infrastructure. The focus is no longer
+              a simple desktop download page — it is a clearer commercial
+              direction around document operations, knowledge usability, and
+              AI-ready context.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                className="btn-primary button"
-                href={downloadUrl}
-                rel="noopener noreferrer"
-                target="_blank"
+                className="button button--primary"
+                href="mailto:hello@teambotics.app?subject=MDownManager%20product%20inquiry"
               >
-                <span>Download v0.1.0</span>
-                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.5} />
+                <span>Discuss MDownManager</span>
+                <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
               </a>
-              <a
-                className="btn-secondary button"
-                href={githubUrl}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <span>View on GitHub</span>
-                <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.5} />
-              </a>
+              <Link className="button button--ghost" href="/about">
+                See Teambotics product direction
+              </Link>
             </div>
           </div>
         </Container>
@@ -140,15 +130,27 @@ export default function MdownManagerPage() {
 
       <section className="section section--border">
         <Container>
-          <SectionIntro eyebrow="Why we built it" title="Markdown vaults need intelligence">
+          <SectionIntro
+            eyebrow="Why it matters"
+            title="Markdown is often where the real operating context lives"
+          >
             <p>
-              Most teams have scattered markdown documentation: README files, decision logs, wiki pages, knowledge bases. They are useful, but they lack structure, searchability, and intelligence.
+              Teams often run on markdown long before they run on formal
+              systems: README files, SOPs, meeting notes, research logs,
+              decision records, internal guides, and product context. That
+              material is valuable, but it is usually fragmented,
+              under-structured, and hard to operationalize.
             </p>
           </SectionIntro>
 
           <div className="mt-8 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 text-base leading-8 text-[var(--color-text-secondary)] sm:p-8">
             <p>
-              MdownManager turns your vault into a living knowledge system. It indexes everything, creates semantic understanding, scans for security risks, and exposes a queryable API — without sending any of your data to the cloud.
+              The current direction for MDownManager is to make markdown-heavy
+              work more usable at a business level: easier to organize, easier
+              to retrieve from, and easier to plug into AI-assisted workflows.
+              That fits the broader Teambotics commercial model of shipping
+              focused applied-AI products rather than presenting unfinished
+              tooling as the end state.
             </p>
           </div>
 
@@ -158,8 +160,12 @@ export default function MdownManagerPage() {
                 className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-5 shadow-[0_18px_60px_var(--color-card-glow)]"
                 key={point.title}
               >
-                <h3 className="text-base font-semibold text-[var(--color-text-primary)]">{point.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{point.body}</p>
+                <h3 className="text-base font-semibold text-[var(--color-text-primary)]">
+                  {point.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+                  {point.body}
+                </p>
               </article>
             ))}
           </div>
@@ -168,15 +174,24 @@ export default function MdownManagerPage() {
 
       <section className="section section--border">
         <Container>
-          <SectionIntro eyebrow="How it works" title="Five-stage knowledge pipeline">
+          <SectionIntro
+            eyebrow="Product direction"
+            title="From raw markdown to a more usable operating layer"
+          >
             <p>
-              Every markdown file passes through discovery, summarization, indexing, security scanning, and API exposure. Your vault becomes queryable, intelligent, and safe.
+              The value is not just file indexing. It is the ability to take
+              documentation that already exists inside a team and make it more
+              usable for search, coordination, context transfer, and future
+              automation.
             </p>
           </SectionIntro>
 
           <div className="mt-10 max-w-4xl">
             {features.map((step, index) => (
-              <div className="grid grid-cols-[2.5rem_1fr] gap-5" key={step.stage}>
+              <div
+                className="grid grid-cols-[2.5rem_1fr] gap-5"
+                key={step.stage}
+              >
                 <div className="flex flex-col items-center">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] text-sm font-semibold text-[var(--color-accent)]">
                     {step.stage}
@@ -186,7 +201,9 @@ export default function MdownManagerPage() {
                   ) : null}
                 </div>
                 <article className="pb-8">
-                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">{step.name}</h3>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+                    {step.name}
+                  </h3>
                   <p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
                     {step.desc}
                   </p>
@@ -209,27 +226,34 @@ export default function MdownManagerPage() {
 
       <section className="section section--border">
         <Container>
-          <SectionIntro eyebrow="Get started" title="Download and index">
+          <SectionIntro
+            eyebrow="Availability"
+            title="Commercial conversations, not a public installer-first flow"
+          >
             <p>
-              MdownManager is a Windows desktop application. Download the installer, point it at your markdown folder, and let it build your knowledge base.
+              This page now reflects the current product state more accurately:
+              MDownManager is being positioned through Teambotics as a product
+              direction and engagement conversation, rather than a broad public
+              self-serve installer flow.
             </p>
           </SectionIntro>
 
           <div className="mt-10 flex flex-col justify-between gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
-              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Open source on GitHub</h3>
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+                Interested in the product direction?
+              </h3>
               <p className="mt-1 text-sm text-[var(--color-text-tertiary)]">
-                MIT licensed · Windows 10+ · Python backend · Electron UI
+                Teambotics is positioning MDownManager as part of its applied AI
+                product portfolio for document-heavy workflows.
               </p>
             </div>
             <a
-              className="btn-secondary button"
-              href={githubUrl}
-              rel="noopener noreferrer"
-              target="_blank"
+              className="button button--primary"
+              href="mailto:hello@teambotics.app?subject=MDownManager%20commercial%20discussion"
             >
-              <span>nickhilster/MDownManager</span>
-              <ArrowUpRight aria-hidden="true" size={16} strokeWidth={1.5} />
+              <span>Contact Teambotics</span>
+              <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
             </a>
           </div>
         </Container>
