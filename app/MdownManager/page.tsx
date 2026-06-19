@@ -7,39 +7,39 @@ import { siteConfig } from "@/lib/config";
 export const metadata: Metadata = {
   title: "MDownManager",
   description:
-    "MDownManager helps teams turn markdown-heavy documentation into a cleaner, searchable, AI-ready knowledge layer for faster work and better retrieval.",
+    "MDownManager helps teams turn markdown-heavy documentation into a searchable, structured knowledge layer that supports faster work, cleaner handoffs, and better AI-assisted workflows.",
   openGraph: {
     title: `MDownManager | ${siteConfig.name}`,
     description:
-      "A Teambotics product for teams that want markdown documentation to be easier to search, organize, and use across AI-assisted workflows.",
+      "A Teambotics product for teams that need markdown documentation to be easier to search, organize, reuse, and operationalize.",
     url: `${siteConfig.url}/MdownManager`,
   },
 };
 
 const proofPoints = [
   {
-    title: "Built for markdown-heavy teams",
-    body: "Ideal for teams that work across notes, SOPs, research files, internal docs, and process knowledge stored in markdown.",
+    title: "Designed for documentation-heavy workflows",
+    body: "Well suited to teams working across SOPs, research notes, internal guides, handoff docs, and markdown-based operating knowledge.",
   },
   {
-    title: "Faster retrieval",
-    body: "Make important context easier to find so teams spend less time digging through folders and disconnected files.",
+    title: "Faster access to critical context",
+    body: "Help teams find the right information faster instead of searching through disconnected files and folders.",
   },
   {
-    title: "AI-ready structure",
-    body: "Prepare documentation for better summarization, retrieval, and downstream AI-assisted workflows.",
+    title: "Stronger handoffs and reuse",
+    body: "Make internal knowledge easier to carry forward across projects, people, and recurring workflows.",
   },
   {
-    title: "More usable team knowledge",
-    body: "Turn scattered documentation into a clearer operating layer that is easier to search, reuse, and maintain.",
+    title: "Better inputs for AI-assisted work",
+    body: "Create a cleaner documentation layer for retrieval, summarization, and downstream automation use cases.",
   },
 ] as const;
 
 const features = [
   {
     stage: "1",
-    name: "Bring your markdown together",
-    desc: "Start with the documentation your team already has: process docs, research notes, handoff files, reference material, and working knowledge captured in markdown.",
+    name: "Centralize markdown knowledge",
+    desc: "Start with the documentation your team already produces: process docs, research notes, handoff files, reference material, and day-to-day operating knowledge stored in markdown.",
     tech: [
       "Markdown collections",
       "Workspace ingest",
@@ -48,20 +48,20 @@ const features = [
   },
   {
     stage: "2",
-    name: "Create clearer structure",
-    desc: "MDownManager helps organize disconnected files into a more understandable knowledge layer so teams can see what exists, what matters, and where context lives.",
+    name: "Organize what matters",
+    desc: "MDownManager helps turn disconnected files into a more structured knowledge layer so teams can see what exists, where context lives, and what should be easier to access.",
     tech: ["Metadata capture", "Relationship mapping", "Content organization"],
   },
   {
     stage: "3",
-    name: "Improve search and reuse",
-    desc: "With better structure, teams can retrieve information faster, reduce repeated searching, and reuse internal knowledge more confidently across projects and workflows.",
+    name: "Improve retrieval and continuity",
+    desc: "Better structure makes it easier to retrieve information quickly, reduce duplicate effort, and preserve useful context across teams and workflows.",
     tech: ["Search workflows", "Context retrieval", "Knowledge reuse"],
   },
   {
     stage: "4",
-    name: "Support AI-assisted work",
-    desc: "A cleaner documentation layer creates better inputs for summarization, retrieval, and automation, helping AI systems work from stronger context.",
+    name: "Enable AI-ready operations",
+    desc: "A cleaner documentation layer gives AI systems stronger inputs for summarization, retrieval, and automation, helping teams get more reliable value from AI-assisted work.",
     tech: ["AI-ready context", "Workflow support", "Operational enablement"],
   },
 ] as const;
@@ -106,17 +106,17 @@ export default function MdownManagerPage() {
               MDownManager
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)] sm:text-xl">
-              Turn markdown-heavy documentation into a cleaner, searchable
-              knowledge layer your team can actually use. MDownManager helps
-              teams organize internal context, improve retrieval, and prepare
-              documentation for AI-assisted workflows.
+              Turn markdown-heavy documentation into a structured knowledge
+              layer your team can actually use. MDownManager helps teams make
+              internal context easier to search, easier to reuse, and better
+              suited for AI-assisted workflows.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 className="button button--primary"
                 href="mailto:hello@teambotics.app?subject=MDownManager%20product%20inquiry"
               >
-                <span>Request a demo</span>
+                <span>Schedule a demo</span>
                 <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
               </a>
               <Link className="button button--ghost" href="/about">
@@ -130,24 +130,24 @@ export default function MdownManagerPage() {
       <section className="section section--border">
         <Container>
           <SectionIntro
-            eyebrow="Why teams need it"
-            title="Your best documentation is only valuable if people can use it"
+            eyebrow="Why it matters"
+            title="Documentation creates value when teams can actually work from it"
           >
             <p>
               Many teams already have valuable operating knowledge in markdown:
               SOPs, research notes, internal guides, handoff docs, decision
-              records, and working documentation. The challenge is not creating
-              more content — it is making the content you already have easier to
-              find, understand, and reuse.
+              records, and working documentation. The problem is rarely a lack
+              of content. It is that useful knowledge is hard to search, hard to
+              reuse, and easy to lose inside disconnected files.
             </p>
           </SectionIntro>
 
           <div className="mt-8 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 text-base leading-8 text-[var(--color-text-secondary)] sm:p-8">
             <p>
-              MDownManager is designed for teams that rely on markdown as part
-              of how they operate. It helps transform scattered documentation
-              into a more usable knowledge layer — one that supports faster
-              search, clearer handoffs, and better inputs for AI-assisted work.
+              MDownManager helps teams turn scattered markdown into a more
+              usable knowledge system. The result is faster search, clearer
+              handoffs, and a stronger foundation for AI-assisted work built on
+              real internal context.
             </p>
           </div>
 
@@ -173,13 +173,13 @@ export default function MdownManagerPage() {
         <Container>
           <SectionIntro
             eyebrow="How it works"
-            title="From scattered files to usable team knowledge"
+            title="From scattered markdown to operationally useful knowledge"
           >
             <p>
-              MDownManager is built to help teams get more value from the
-              documentation they already maintain. The result is a knowledge
-              layer that is easier to navigate today and better suited for
-              future AI and automation use cases.
+              MDownManager helps teams get more value from the documentation
+              they already maintain. It creates a knowledge layer that is easier
+              to navigate now and better prepared for future AI and automation
+              use cases.
             </p>
           </SectionIntro>
 
@@ -225,31 +225,33 @@ export default function MdownManagerPage() {
         <Container>
           <SectionIntro
             eyebrow="Get started"
-            title="See whether MDownManager fits your workflow"
+            title="See whether MDownManager fits your documentation workflow"
           >
             <p>
-              If your team runs on markdown-heavy documentation and needs better
-              structure, search, and AI-ready context, MDownManager may be a
-              strong fit. The best next step is a quick conversation about your
-              workflow and documentation environment.
+              If your team relies on markdown-heavy documentation and needs
+              better structure, retrieval, and AI-ready context, MDownManager
+              may be a strong fit. The best next step is a short conversation
+              about your workflow, documentation patterns, and where teams are
+              losing time today.
             </p>
           </SectionIntro>
 
           <div className="mt-10 flex flex-col justify-between gap-5 rounded-[var(--radius-2xl)] border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] p-6 sm:flex-row sm:items-center sm:p-8">
             <div>
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
-                Want to see MDownManager in context?
+                Want to see MDownManager applied to your workflow?
               </h3>
               <p className="mt-1 text-sm text-[var(--color-text-tertiary)]">
-                We can walk through the workflow, the product direction, and
-                where it may fit inside your team’s documentation stack.
+                We can walk through your documentation workflow, the product
+                direction, and where MDownManager may fit inside your team’s
+                operating stack.
               </p>
             </div>
             <a
               className="button button--primary"
               href="mailto:hello@teambotics.app?subject=MDownManager%20commercial%20discussion"
             >
-              <span>Talk to Teambotics</span>
+              <span>Talk to the team</span>
               <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
             </a>
           </div>
