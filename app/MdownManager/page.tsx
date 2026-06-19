@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, Download } from "lucide-react";
 import { Container } from "@/components/layout/Container";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -32,7 +33,11 @@ const pricingTiers = [
       "Explorer & categories",
       "Local AI (Ollama)",
     ],
-    cta: { label: "Download for Windows", href: `${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`, icon: true },
+    cta: {
+      label: "Download for Windows",
+      href: `${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`,
+      icon: true,
+    },
   },
   {
     name: "Individual",
@@ -45,7 +50,11 @@ const pricingTiers = [
       "Priority support",
       "All future updates",
     ],
-    cta: { label: "Buy Individual", href: "https://teambotics.lemonsqueezy.com/buy/individual", icon: false },
+    cta: {
+      label: "Buy Individual",
+      href: "https://teambotics.lemonsqueezy.com/buy/individual",
+      icon: false,
+    },
   },
   {
     name: "Commercial",
@@ -59,7 +68,11 @@ const pricingTiers = [
       "Commercial use rights",
       "Priority support",
     ],
-    cta: { label: "Buy Commercial", href: "https://teambotics.lemonsqueezy.com/buy/commercial", icon: false },
+    cta: {
+      label: "Buy Commercial",
+      href: "https://teambotics.lemonsqueezy.com/buy/commercial",
+      icon: false,
+    },
   },
   {
     name: "Non-profit",
@@ -72,7 +85,11 @@ const pricingTiers = [
       "Up to 10 seats",
       "Commercial license terms",
     ],
-    cta: { label: "Apply for access", href: "/nonprofit-application", icon: false },
+    cta: {
+      label: "Apply for access",
+      href: "/nonprofit-application",
+      icon: false,
+    },
   },
 ] as const;
 
@@ -164,9 +181,17 @@ export default function MdownManagerPage() {
       <section className="pt-[calc(var(--site-header-height)+4rem)] pb-14 sm:pb-20">
         <Container>
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)] shadow-[0_18px_70px_var(--color-card-glow)]">
-              <span aria-hidden="true">📚</span>
-              Document operations · Markdown knowledge · AI-ready workflows
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)] shadow-[0_18px_70px_var(--color-card-glow)]">
+                <span aria-hidden="true">📚</span>
+                Document operations · Markdown knowledge · AI-ready workflows
+              </div>
+              <div className="flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-2 shadow-[0_18px_60px_var(--color-card-glow)]">
+                <span className="px-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
             </div>
             <h1 className="text-5xl font-semibold tracking-[-0.07em] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl">
               MDownManager
@@ -349,8 +374,15 @@ export default function MdownManagerPage() {
 
                 <ul className="mt-5 flex flex-1 flex-col gap-2">
                   {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]">
-                      <Check size={14} className="mt-0.5 shrink-0 text-[var(--color-accent)]" aria-hidden />
+                    <li
+                      key={f}
+                      className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"
+                    >
+                      <Check
+                        size={14}
+                        className="mt-0.5 shrink-0 text-[var(--color-accent)]"
+                        aria-hidden
+                      />
                       {f}
                     </li>
                   ))}
@@ -358,8 +390,14 @@ export default function MdownManagerPage() {
 
                 <a
                   href={tier.cta.href}
-                  target={tier.cta.href.startsWith("http") ? "_blank" : undefined}
-                  rel={tier.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  target={
+                    tier.cta.href.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    tier.cta.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className={[
                     "button mt-6 w-full justify-center",
                     tier.highlight ? "button--primary" : "button--ghost",
@@ -374,7 +412,8 @@ export default function MdownManagerPage() {
           </div>
 
           <p className="mt-6 text-center text-xs text-[var(--color-text-tertiary)]">
-            Windows 10+ · Local-first · No account required to use the free tier ·{" "}
+            Windows 10+ · Local-first · No account required to use the free tier
+            ·{" "}
             <a
               href="mailto:hello@teambotics.app"
               className="text-[var(--color-accent)] hover:underline"
