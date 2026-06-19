@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   },
 };
 
+const heroOutcomes = [
+  "Faster search across internal documentation",
+  "Cleaner handoffs across teams and projects",
+  "Stronger context for AI-assisted workflows",
+] as const;
+
 const proofPoints = [
   {
     title: "Designed for documentation-heavy workflows",
@@ -111,6 +117,19 @@ export default function MdownManagerPage() {
               internal context easier to search, easier to reuse, and better
               suited for AI-assisted workflows.
             </p>
+            <ul
+              className="mt-6 grid max-w-2xl gap-3 text-sm leading-6 text-[var(--color-text-secondary)] sm:grid-cols-3 sm:text-base"
+              aria-label="MDownManager outcomes"
+            >
+              {heroOutcomes.map((item) => (
+                <li
+                  className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-4 py-3"
+                  key={item}
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 className="button button--primary"
