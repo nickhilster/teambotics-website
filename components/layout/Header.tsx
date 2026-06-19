@@ -62,7 +62,11 @@ export function Header() {
   return (
     <header className={`site-header${isScrolled ? " site-header--scrolled" : ""}`}>
       <Container className="site-header__inner">
-        <Link className="site-logo" href={homeHref}>
+        <Link
+          aria-label="Teambotics — go to homepage"
+          className="site-logo"
+          href={homeHref}
+        >
           <TeamboticsSVGLogo />
           <span className="site-logo__text">Teambotics</span>
         </Link>
