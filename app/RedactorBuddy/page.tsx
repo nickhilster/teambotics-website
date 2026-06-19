@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "RedactorBuddy — Local-First Financial Document Redaction",
+  title: "RedactorBuddy — Share Financial Documents Without Exposing Client Data",
   description:
-    "RedactorBuddy strips names, account numbers, SSNs and other PII from financial documents — entirely on your machine. No cloud. No uploads. Compliance-ready.",
+    "RedactorBuddy removes names, account numbers, SSNs and other PII from financial documents — entirely on your machine. No cloud. No subscription. Works offline.",
   openGraph: {
     title: "RedactorBuddy by Teambotics",
     description:
-      "Privacy-first PII redaction for financial documents. Runs locally, works offline, built for business.",
+      "Share financial documents with AI tools without exposing client data. Runs 100% locally on Windows — no internet required.",
     images: [{ url: "/brand/teambotics-logo-250.png" }],
   },
 };
 
 const BLUE = "#4F8EF7";
-const BLUE_DIM = "rgba(79,142,247,0.12)";
-const BLUE_BORDER = "rgba(79,142,247,0.3)";
+const BLUE_DIM = "rgba(79,142,247,0.10)";
+const BLUE_BORDER = "rgba(79,142,247,0.28)";
 const BG = "#0d0f12";
 const BG2 = "#161b22";
 const CARD = "#1c2128";
@@ -23,100 +23,104 @@ const BORDER = "#2d333b";
 const TEXT = "#dde3ec";
 const MUTED = "#7a8899";
 
-const milestones = [
-  {
-    label: "Phase 1",
-    title: "Core Redaction Engine",
-    date: "May 2026",
-    color: BLUE,
-    summary:
-      "Built the foundational pipeline that turns raw financial documents into clean, privacy-safe exports — entirely on the local machine.",
-    items: [
-      "Multi-format ingestion: PDF, Excel, CSV, JSON, plain text",
-      "Dual-layer redaction: compiled regex rules + Presidio NLP",
-      "Document classification (bank statement, payroll, invoice…)",
-      "Risk scoring: LOW / MEDIUM / HIGH remaining-PII grade",
-      "Structured export to JSON, CSV, and Markdown",
-      "Zero cloud calls — no data ever leaves the machine",
-    ],
-  },
-  {
-    label: "Phase 2",
-    title: "Desktop Application",
-    date: "May 2026",
-    color: "#a78bfa",
-    summary:
-      "Packaged the pipeline into a one-click Windows desktop app powered by Electron + PyInstaller — fully offline, no Python install required.",
-    items: [
-      "One-click Windows installer (.exe) with auto-update ready",
-      "Streamlit UI embedded inside Electron — native feel, web power",
-      "Animated loading screen showing live PII being redacted",
-      "Audio completion signal (ding) when a batch finishes",
-      "File drag-and-drop and folder upload support",
-      "Startup in under 4 seconds on modern hardware",
-    ],
-  },
-  {
-    label: "Phase 3",
-    title: "Business Batch Operations",
-    date: "May 2026",
-    color: "#4ade80",
-    summary:
-      "Turned a single-file tool into a department-ready system with persistent queues, watch folders, and a compliance audit trail.",
-    items: [
-      "Watch folders: drop a file, it processes automatically",
-      "SQLite-backed queue — survives restarts, tracks every job",
-      "Approval workflow: MEDIUM-risk exports require sign-off",
-      "Exportable audit log for compliance review (CSV)",
-      "Dashboard: monthly throughput, blocked items, folder status",
-      "Background processing — UI stays responsive during long batches",
-    ],
-  },
-  {
-    label: "Phase 4",
-    title: "Identity & Experience",
-    date: "June 2026",
-    color: "#f472b6",
-    summary:
-      "Gave the product a distinct visual identity: 9 handcrafted themes, an animated circuit-lock logo, and a loading screen that shows the product doing its job.",
-    items: [
-      "9 curated themes: 5 dark (Obsidian, Midnight, Terminal, Cinder, Void) + 4 light",
-      "Animated circuit-lock logo — lock body with pulsing local-machine traces",
-      "Animated loading screen: real PII being redacted word-by-word",
-      "Theme picker in the sidebar — instant live preview, no restart",
-      "Scrollbar, card, button, and input styling per-theme",
-    ],
-  },
-  {
-    label: "Phase 5",
-    title: "Intelligence Tools",
-    date: "June 2026",
-    color: BLUE,
-    summary:
-      "Surfaced the smarts already in the pipeline — and gave non-technical users controls they actually need for day-to-day workflows.",
-    items: [
-      "Redaction profiles: save named option presets, load in one click",
-      "Custom regex patterns: add business-specific PII via the Settings UI",
-      "Confidence scoring overlay: 🟢🟡🔴 per-entity detection quality",
-      "Profiles live in the local SQLite DB alongside the queue & audit log",
-      "Pattern validation before save — bad regex is caught at the UI",
-    ],
-  },
-];
-
-const upNext = [
-  { icon: "🔍", text: "OCR for scanned PDFs and image uploads" },
-  { icon: "📋", text: "Batch summary report PDF for compliance" },
-  { icon: "🌐", text: "LAN server mode — process files from any machine on the network" },
-  { icon: "📊", text: "Redaction confidence tuning — set per-entity score thresholds" },
-  { icon: "📧", text: "Outlook / local mail folder watch" },
-];
-
 const stats = [
-  { value: "0", label: "Cloud calls made" },
-  { value: "6", label: "Export formats" },
-  { value: "9", label: "UI themes" },
-  { value: "5", label: "Pipeline stages" },
+  { value: "0", label: "Cloud calls — ever" },
+  { value: "6", label: "File formats" },
+  { value: "<4s", label: "App startup" },
+  { value: "100%", label: "Offline capable" },
+];
+
+const steps = [
+  {
+    n: "01",
+    title: "Drop your document",
+    body: "Drag and drop any financial document — bank statements, pay stubs, invoices, tax forms, CSV exports — or point RedactorBuddy at a whole folder.",
+  },
+  {
+    n: "02",
+    title: "PII is stripped automatically",
+    body: "A dual-layer engine (compiled rules + AI) finds and removes names, account numbers, SSNs, emails, phone numbers, and addresses. You see a risk score before anything is exported.",
+  },
+  {
+    n: "03",
+    title: "Export clean, structured data",
+    body: "Download redacted output as JSON, CSV, or Markdown. Safe to paste into ChatGPT, Claude, or any other AI assistant — or share with a third-party processor.",
+  },
+];
+
+const features = [
+  {
+    icon: "🔒",
+    title: "Zero cloud",
+    body: "No data ever leaves your machine. No SaaS account, no upload, no server. RedactorBuddy runs entirely on your Windows PC.",
+  },
+  {
+    icon: "🤖",
+    title: "Dual-layer AI redaction",
+    body: "Compiled regex rules catch patterns instantly. Presidio NLP catches context-dependent PII that rules alone miss. Both run locally.",
+  },
+  {
+    icon: "📁",
+    title: "Any document format",
+    body: "PDF, Excel (.xlsx / .xls), CSV, JSON, plain text, Markdown. Drag a file or point to a folder — RedactorBuddy handles the rest.",
+  },
+  {
+    icon: "📊",
+    title: "Risk scoring before export",
+    body: "Every document gets a LOW / MEDIUM / HIGH remaining-PII grade. HIGH-risk exports are blocked until you explicitly approve them.",
+  },
+  {
+    icon: "📂",
+    title: "Watch folders",
+    body: "Drop files into a watched folder and they process automatically in the background. Ideal for accounting departments handling daily document volume.",
+  },
+  {
+    icon: "🗂️",
+    title: "Compliance audit trail",
+    body: "Every redaction is logged — what was removed, when, and the resulting risk level. Export the log as CSV for compliance review.",
+  },
+];
+
+const useCases = [
+  {
+    icon: "🏦",
+    who: "Accounting firms",
+    what: "Anonymise client bank statements and tax returns before analysing them with AI tools. Keep client data off third-party servers.",
+  },
+  {
+    icon: "🏠",
+    who: "Mortgage brokers",
+    what: "Strip borrower PII from income verification and bank statements before sharing with processors or underwriters.",
+  },
+  {
+    icon: "⚖️",
+    who: "Compliance & legal teams",
+    what: "Redact identifying information from documents before external review. The audit trail satisfies internal controls.",
+  },
+  {
+    icon: "👔",
+    who: "HR departments",
+    what: "Share payroll and benefits data internally without exposing employee SSNs, account numbers, or home addresses.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Does it need internet access?",
+    a: "Never. RedactorBuddy runs 100% offline. There is no server component, no telemetry, and no cloud dependency of any kind.",
+  },
+  {
+    q: "What operating systems are supported?",
+    a: "Windows 10 and Windows 11 (64-bit). A Mac build is on the roadmap.",
+  },
+  {
+    q: "Does it work on scanned PDFs?",
+    a: "Text-based PDFs are fully supported today. OCR for scanned documents is on the near-term roadmap.",
+  },
+  {
+    q: "How is it licensed?",
+    a: "RedactorBuddy is in early access. Reach out to discuss pricing for your team or organisation.",
+  },
 ];
 
 export default function RedactorBuddyPage() {
@@ -136,7 +140,7 @@ export default function RedactorBuddyPage() {
           position: "sticky",
           top: 0,
           zIndex: 50,
-          background: "rgba(13,15,18,0.88)",
+          background: "rgba(13,15,18,0.9)",
           backdropFilter: "blur(14px)",
           borderBottom: `1px solid ${BLUE_BORDER}`,
           padding: "0 1.5rem",
@@ -161,21 +165,29 @@ export default function RedactorBuddyPage() {
             by Teambotics
           </span>
         </div>
-        <a
-          href="mailto:hello@teambotics.app"
-          style={{
-            background: BLUE,
-            color: "#fff",
-            fontWeight: 700,
-            fontSize: "0.78rem",
-            padding: "0.4rem 1rem",
-            borderRadius: "6px",
-            textDecoration: "none",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Get early access
-        </a>
+        <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+          <a href="#how-it-works" style={{ fontSize: "0.8rem", color: MUTED, textDecoration: "none" }}>
+            How it works
+          </a>
+          <a href="#features" style={{ fontSize: "0.8rem", color: MUTED, textDecoration: "none" }}>
+            Features
+          </a>
+          <a
+            href="mailto:hello@teambotics.app?subject=RedactorBuddy early access"
+            style={{
+              background: BLUE,
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "0.78rem",
+              padding: "0.4rem 1rem",
+              borderRadius: "6px",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Get early access
+          </a>
+        </div>
       </nav>
 
       {/* ── HERO ────────────────────────────────────────── */}
@@ -183,7 +195,7 @@ export default function RedactorBuddyPage() {
         style={{
           maxWidth: "64rem",
           margin: "0 auto",
-          padding: "5rem 1.5rem 4rem",
+          padding: "5.5rem 1.5rem 4rem",
           textAlign: "center",
         }}
       >
@@ -227,7 +239,7 @@ export default function RedactorBuddyPage() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
-          {["Local only", "No cloud", "Offline-ready", "Compliance-ready"].map((tag) => (
+          {["No cloud", "Offline-ready", "Windows app", "Compliance-ready"].map((tag) => (
             <span
               key={tag}
               style={{
@@ -258,22 +270,70 @@ export default function RedactorBuddyPage() {
             WebkitTextFillColor: "transparent",
           }}
         >
-          Redact financial PII.<br />Entirely on your machine.
+          Share financial documents<br />without exposing client data.
         </h1>
 
         <p
           style={{
-            fontSize: "1.125rem",
+            fontSize: "1.15rem",
             color: MUTED,
-            maxWidth: "42rem",
-            margin: "0 auto 2.5rem",
-            lineHeight: 1.7,
+            maxWidth: "44rem",
+            margin: "0 auto 1rem",
+            lineHeight: 1.75,
           }}
         >
-          RedactorBuddy strips names, account numbers, SSNs, emails, phone numbers and other
-          sensitive identifiers from financial documents — then structures what remains into
-          clean, exportable data. No internet required. Ever.
+          RedactorBuddy strips names, account numbers, SSNs, emails and addresses
+          from financial documents in seconds — then exports clean, structured data
+          safe for AI tools, processors, or team sharing.
         </p>
+        <p
+          style={{
+            fontSize: "0.9rem",
+            color: MUTED,
+            maxWidth: "36rem",
+            margin: "0 auto 2.75rem",
+            lineHeight: 1.6,
+            opacity: 0.75,
+          }}
+        >
+          Everything runs on your Windows PC. No internet. No subscription. No data ever leaves your machine.
+        </p>
+
+        <div style={{ display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap", marginBottom: "3.5rem" }}>
+          <a
+            href="mailto:hello@teambotics.app?subject=RedactorBuddy early access"
+            style={{
+              display: "inline-block",
+              background: BLUE,
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "0.95rem",
+              padding: "0.75rem 2rem",
+              borderRadius: "8px",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            Request early access
+          </a>
+          <a
+            href="#how-it-works"
+            style={{
+              display: "inline-block",
+              background: "transparent",
+              color: TEXT,
+              fontWeight: 600,
+              fontSize: "0.95rem",
+              padding: "0.75rem 2rem",
+              borderRadius: "8px",
+              textDecoration: "none",
+              border: `1px solid ${BORDER}`,
+              letterSpacing: "-0.01em",
+            }}
+          >
+            See how it works
+          </a>
+        </div>
 
         {/* Stats row */}
         <div
@@ -285,18 +345,14 @@ export default function RedactorBuddyPage() {
             border: `1px solid ${BORDER}`,
             borderRadius: "12px",
             overflow: "hidden",
-            maxWidth: "36rem",
+            maxWidth: "38rem",
             margin: "0 auto",
           }}
         >
           {stats.map((s) => (
             <div
               key={s.label}
-              style={{
-                background: CARD,
-                padding: "1.25rem 0.5rem",
-                textAlign: "center",
-              }}
+              style={{ background: CARD, padding: "1.25rem 0.5rem", textAlign: "center" }}
             >
               <div
                 style={{
@@ -317,201 +373,329 @@ export default function RedactorBuddyPage() {
         </div>
       </header>
 
-      {/* ── TIMELINE ────────────────────────────────────── */}
-      <main id="rb-main" style={{ maxWidth: "52rem", margin: "0 auto", padding: "0 1.5rem 6rem" }}>
-        <h2
-          style={{
-            fontSize: "0.75rem",
-            fontWeight: 700,
-            letterSpacing: "0.12em",
-            color: MUTED,
-            textTransform: "uppercase",
-            marginBottom: "3rem",
-            textAlign: "center",
-          }}
-        >
-          Development timeline
-        </h2>
+      <main style={{ maxWidth: "60rem", margin: "0 auto", padding: "0 1.5rem 6rem" }}>
 
-        <div style={{ position: "relative" }}>
-          {/* vertical spine */}
+        {/* ── PROBLEM ─────────────────────────────────────── */}
+        <section style={{ maxWidth: "44rem", margin: "0 auto 6rem", textAlign: "center" }}>
+          <p
+            style={{
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              color: BLUE,
+              textTransform: "uppercase",
+              marginBottom: "1rem",
+            }}
+          >
+            The problem
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "#fff",
+              lineHeight: 1.25,
+              marginBottom: "1rem",
+            }}
+          >
+            AI tools are transforming financial work — but they require your client&apos;s data.
+          </h2>
+          <p style={{ color: MUTED, lineHeight: 1.75, fontSize: "0.95rem" }}>
+            Accounting firms, mortgage brokers, and compliance teams are under pressure to use AI for
+            analysis, summarisation, and review. But pasting a client bank statement into ChatGPT means
+            that statement — with names, account numbers, and SSNs — just left your firm&apos;s control.
+            RedactorBuddy solves this before the data moves.
+          </p>
+        </section>
+
+        {/* ── HOW IT WORKS ────────────────────────────────── */}
+        <section id="how-it-works" style={{ marginBottom: "6rem" }}>
+          <p
+            style={{
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              color: BLUE,
+              textTransform: "uppercase",
+              marginBottom: "0.75rem",
+              textAlign: "center",
+            }}
+          >
+            How it works
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "#fff",
+              textAlign: "center",
+              marginBottom: "3rem",
+            }}
+          >
+            Three steps to share-safe data
+          </h2>
+
           <div
             style={{
-              position: "absolute",
-              left: "1.35rem",
-              top: "2rem",
-              bottom: "2rem",
-              width: "2px",
-              background: `linear-gradient(to bottom, ${BLUE}, rgba(79,142,247,0.1))`,
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(15rem, 1fr))",
+              gap: "1rem",
             }}
-            aria-hidden="true"
-          />
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
-            {milestones.map((m, i) => (
-              <div key={m.title} style={{ display: "flex", gap: "1.75rem" }}>
-                {/* node */}
-                <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <div
-                    style={{
-                      width: "2.75rem",
-                      height: "2.75rem",
-                      borderRadius: "50%",
-                      background: `linear-gradient(135deg, ${m.color}22, ${m.color}44)`,
-                      border: `2px solid ${m.color}`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "0.65rem",
-                      fontWeight: 800,
-                      color: m.color,
-                      letterSpacing: "0.04em",
-                      zIndex: 1,
-                    }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                </div>
-
-                {/* card */}
+          >
+            {steps.map((s) => (
+              <div
+                key={s.n}
+                style={{
+                  background: CARD,
+                  border: `1px solid ${BORDER}`,
+                  borderRadius: "12px",
+                  padding: "1.75rem 1.5rem",
+                }}
+              >
                 <div
                   style={{
-                    flex: 1,
-                    background: CARD,
-                    border: `1px solid ${BORDER}`,
-                    borderRadius: "12px",
-                    padding: "1.5rem",
-                    marginTop: "0.25rem",
+                    fontSize: "0.65rem",
+                    fontWeight: 800,
+                    color: BLUE,
+                    letterSpacing: "0.1em",
+                    marginBottom: "0.75rem",
                   }}
                 >
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.6rem", gap: "1rem", flexWrap: "wrap" }}>
-                    <div>
-                      <span
-                        style={{
-                          fontSize: "0.65rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.1em",
-                          color: m.color,
-                          textTransform: "uppercase",
-                          display: "block",
-                          marginBottom: "0.2rem",
-                        }}
-                      >
-                        {m.label}
-                      </span>
-                      <h3
-                        style={{
-                          fontSize: "1.15rem",
-                          fontWeight: 700,
-                          letterSpacing: "-0.02em",
-                          color: "#fff",
-                          margin: 0,
-                        }}
-                      >
-                        {m.title}
-                      </h3>
-                    </div>
-                    <span
-                      style={{
-                        fontSize: "0.7rem",
-                        color: MUTED,
-                        background: BG2,
-                        border: `1px solid ${BORDER}`,
-                        padding: "0.2rem 0.6rem",
-                        borderRadius: "999px",
-                        whiteSpace: "nowrap",
-                        flexShrink: 0,
-                      }}
-                    >
-                      {m.date}
-                    </span>
-                  </div>
-
-                  <p style={{ fontSize: "0.88rem", color: MUTED, lineHeight: 1.65, marginBottom: "1rem" }}>
-                    {m.summary}
-                  </p>
-
-                  <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-                    {m.items.map((item) => (
-                      <li
-                        key={item}
-                        style={{
-                          fontSize: "0.82rem",
-                          color: TEXT,
-                          display: "flex",
-                          alignItems: "flex-start",
-                          gap: "0.5rem",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        <span style={{ color: m.color, marginTop: "0.15rem", flexShrink: 0 }}>▸</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {s.n}
                 </div>
+                <h3
+                  style={{
+                    fontSize: "1.05rem",
+                    fontWeight: 700,
+                    color: "#fff",
+                    letterSpacing: "-0.02em",
+                    marginBottom: "0.6rem",
+                  }}
+                >
+                  {s.title}
+                </h3>
+                <p style={{ fontSize: "0.85rem", color: MUTED, lineHeight: 1.7, margin: 0 }}>
+                  {s.body}
+                </p>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* ── UP NEXT ───────────────────────────────────── */}
-        <div
+        {/* ── FEATURES ────────────────────────────────────── */}
+        <section id="features" style={{ marginBottom: "6rem" }}>
+          <p
+            style={{
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              color: BLUE,
+              textTransform: "uppercase",
+              marginBottom: "0.75rem",
+              textAlign: "center",
+            }}
+          >
+            Features
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "#fff",
+              textAlign: "center",
+              marginBottom: "3rem",
+            }}
+          >
+            Everything a compliance-conscious team needs
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(17rem, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {features.map((f) => (
+              <div
+                key={f.title}
+                style={{
+                  background: CARD,
+                  border: `1px solid ${BORDER}`,
+                  borderRadius: "12px",
+                  padding: "1.5rem",
+                }}
+              >
+                <div style={{ fontSize: "1.5rem", marginBottom: "0.75rem" }}>{f.icon}</div>
+                <h3
+                  style={{
+                    fontSize: "0.95rem",
+                    fontWeight: 700,
+                    color: "#fff",
+                    marginBottom: "0.4rem",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {f.title}
+                </h3>
+                <p style={{ fontSize: "0.83rem", color: MUTED, lineHeight: 1.65, margin: 0 }}>
+                  {f.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── WHO IT'S FOR ────────────────────────────────── */}
+        <section style={{ marginBottom: "6rem" }}>
+          <p
+            style={{
+              fontSize: "0.72rem",
+              fontWeight: 700,
+              letterSpacing: "0.14em",
+              color: BLUE,
+              textTransform: "uppercase",
+              marginBottom: "0.75rem",
+              textAlign: "center",
+            }}
+          >
+            Who it&apos;s for
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontWeight: 700,
+              letterSpacing: "-0.03em",
+              color: "#fff",
+              textAlign: "center",
+              marginBottom: "3rem",
+            }}
+          >
+            Built for teams that handle sensitive documents daily
+          </h2>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(18rem, 1fr))",
+              gap: "1rem",
+            }}
+          >
+            {useCases.map((u) => (
+              <div
+                key={u.who}
+                style={{
+                  background: BG2,
+                  border: `1px solid ${BORDER}`,
+                  borderRadius: "12px",
+                  padding: "1.5rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "0.5rem",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
+                  <span style={{ fontSize: "1.4rem" }}>{u.icon}</span>
+                  <span style={{ fontWeight: 700, color: "#fff", fontSize: "0.95rem" }}>{u.who}</span>
+                </div>
+                <p style={{ fontSize: "0.83rem", color: MUTED, lineHeight: 1.65, margin: 0 }}>
+                  {u.what}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── TRUST BANNER ────────────────────────────────── */}
+        <section
           style={{
-            marginTop: "5rem",
             background: BLUE_DIM,
             border: `1px solid ${BLUE_BORDER}`,
             borderRadius: "14px",
-            padding: "2rem",
+            padding: "2.5rem",
+            marginBottom: "6rem",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(14rem, 1fr))",
+            gap: "2rem",
           }}
         >
+          {[
+            { icon: "🔐", title: "No data leaves your machine", body: "The app runs entirely offline. No network calls, ever." },
+            { icon: "🖥️", title: "One-click Windows installer", body: "No Python, no dependencies. Download, install, open." },
+            { icon: "📋", title: "Audit trail included", body: "Every redaction is logged. Export as CSV for compliance review." },
+          ].map((t) => (
+            <div key={t.title} style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+              <div style={{ fontSize: "1.4rem" }}>{t.icon}</div>
+              <div style={{ fontWeight: 700, color: "#fff", fontSize: "0.9rem" }}>{t.title}</div>
+              <div style={{ fontSize: "0.82rem", color: MUTED, lineHeight: 1.6 }}>{t.body}</div>
+            </div>
+          ))}
+        </section>
+
+        {/* ── FAQ ─────────────────────────────────────────── */}
+        <section style={{ marginBottom: "6rem" }}>
           <h2
             style={{
-              fontSize: "0.7rem",
+              fontSize: "1.25rem",
               fontWeight: 700,
-              letterSpacing: "0.12em",
-              color: BLUE,
-              textTransform: "uppercase",
-              marginBottom: "1.25rem",
+              letterSpacing: "-0.03em",
+              color: "#fff",
+              marginBottom: "1.5rem",
+              textAlign: "center",
             }}
           >
-            Coming next
+            Common questions
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            {upNext.map((u) => (
-              <div key={u.text} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ fontSize: "1.1rem" }}>{u.icon}</span>
-                <span style={{ fontSize: "0.88rem", color: TEXT }}>{u.text}</span>
+            {faqs.map((f) => (
+              <div
+                key={f.q}
+                style={{
+                  background: CARD,
+                  border: `1px solid ${BORDER}`,
+                  borderRadius: "10px",
+                  padding: "1.25rem 1.5rem",
+                }}
+              >
+                <div style={{ fontWeight: 700, color: "#fff", fontSize: "0.9rem", marginBottom: "0.4rem" }}>
+                  {f.q}
+                </div>
+                <div style={{ fontSize: "0.83rem", color: MUTED, lineHeight: 1.65 }}>
+                  {f.a}
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* ── CTA ───────────────────────────────────────── */}
-        <div
+        {/* ── CTA ─────────────────────────────────────────── */}
+        <section
           style={{
-            marginTop: "3.5rem",
             textAlign: "center",
-            padding: "2.5rem",
+            padding: "3rem 2rem",
             background: CARD,
             border: `1px solid ${BORDER}`,
-            borderRadius: "14px",
+            borderRadius: "16px",
           }}
         >
           <h2
             style={{
-              fontSize: "1.5rem",
-              fontWeight: 700,
-              letterSpacing: "-0.03em",
+              fontSize: "clamp(1.4rem, 3vw, 2rem)",
+              fontWeight: 800,
+              letterSpacing: "-0.04em",
               marginBottom: "0.75rem",
               color: "#fff",
             }}
           >
-            Want early access?
+            Ready to keep client data off the cloud?
           </h2>
-          <p style={{ color: MUTED, fontSize: "0.9rem", marginBottom: "1.5rem", lineHeight: 1.6 }}>
-            RedactorBuddy is in active development. We&apos;re onboarding accounting firms,
+          <p style={{ color: MUTED, fontSize: "0.9rem", marginBottom: "2rem", lineHeight: 1.7, maxWidth: "36rem", margin: "0 auto 2rem" }}>
+            RedactorBuddy is in early access. We&apos;re onboarding accounting firms,
             mortgage brokers, and compliance teams who process financial documents at volume.
+            Reach out and we&apos;ll get you set up.
           </p>
           <a
             href="mailto:hello@teambotics.app?subject=RedactorBuddy early access"
@@ -520,8 +704,8 @@ export default function RedactorBuddyPage() {
               background: BLUE,
               color: "#fff",
               fontWeight: 700,
-              fontSize: "0.9rem",
-              padding: "0.75rem 2rem",
+              fontSize: "1rem",
+              padding: "0.85rem 2.25rem",
               borderRadius: "8px",
               textDecoration: "none",
               letterSpacing: "-0.01em",
@@ -529,7 +713,10 @@ export default function RedactorBuddyPage() {
           >
             hello@teambotics.app
           </a>
-        </div>
+          <p style={{ fontSize: "0.75rem", color: MUTED, marginTop: "1rem" }}>
+            We typically respond within one business day.
+          </p>
+        </section>
       </main>
 
       {/* ── FOOTER ────────────────────────────────────────── */}
