@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="md-title md-desc">
+  <title id="md-title">MDownManager knowledge operations banner</title>
+  <desc id="md-desc">Dark product banner showing a markdown vault, scanner, explorer, and search-oriented knowledge workflow for MDownManager.</desc>
+
+  <defs>
+    <linearGradient id="md-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0c10"/>
+      <stop offset="100%" stop-color="#131722"/>
+    </linearGradient>
+    <linearGradient id="md-lime" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d8ff6b"/>
+      <stop offset="100%" stop-color="#bfe448"/>
+    </linearGradient>
+    <linearGradient id="md-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ed7ff"/>
+      <stop offset="100%" stop-color="#56bff0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" rx="32" fill="url(#md-bg)"/>
+  <circle cx="1028" cy="120" r="96" fill="#c8f750" opacity="0.06"/>
+  <circle cx="180" cy="534" r="128" fill="#5cc8ff" opacity="0.05"/>
+
+  <text x="60" y="74" fill="#c8f750" font-family="Geist Mono, monospace" font-size="20" letter-spacing="3">MDOWNMANAGER · KNOWLEDGE OPS</text>
+  <text x="60" y="152" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="60" font-weight="800">Markdown turned operational</text>
+  <text x="60" y="198" fill="#a9b0bd" font-family="Hanken Grotesk, sans-serif" font-size="24">Vault, explorer, scanner, and local AI retrieval in one structured documentation workflow.</text>
+
+  <rect x="172" y="236" width="858" height="324" rx="28" fill="#14141a" stroke="#ffffff" stroke-opacity="0.08"/>
+
+  <rect x="198" y="260" width="76" height="276" rx="18" fill="#0e1117" stroke="#ffffff" stroke-opacity="0.06"/>
+  <rect x="220" y="282" width="32" height="32" rx="10" fill="#c8f750" fill-opacity="0.12" stroke="#c8f750" stroke-opacity="0.22"/>
+  <text x="236" y="303" fill="#c8f750" font-family="Geist Mono, monospace" font-size="14" text-anchor="middle">V</text>
+  <rect x="220" y="330" width="32" height="32" rx="10" fill="#5cc8ff" fill-opacity="0.12" stroke="#5cc8ff" stroke-opacity="0.22"/>
+  <text x="236" y="351" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="14" text-anchor="middle">S</text>
+  <rect x="220" y="378" width="32" height="32" rx="10" fill="#5cc8ff" fill-opacity="0.12" stroke="#5cc8ff" stroke-opacity="0.22"/>
+  <text x="236" y="399" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="14" text-anchor="middle">C</text>
+  <rect x="220" y="426" width="32" height="32" rx="10" fill="#5cc8ff" fill-opacity="0.12" stroke="#5cc8ff" stroke-opacity="0.22"/>
+  <text x="236" y="447" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="14" text-anchor="middle">E</text>
+  <text x="236" y="500" fill="#7c8595" font-family="Geist Mono, monospace" font-size="12" text-anchor="middle">UI</text>
+
+  <rect x="290" y="260" width="716" height="54" rx="16" fill="#1b1b23"/>
+  <text x="320" y="295" fill="#f4f4f6" font-family="Bricolage Grotesque, sans-serif" font-size="26" font-weight="800">MDownManager</text>
+  <text x="566" y="295" fill="#8b8b99" font-family="Geist Mono, monospace" font-size="16">Vault   Scanner   Categories   Explorer   Local API</text>
+
+  <rect x="314" y="338" width="248" height="190" rx="20" fill="#0d1117" stroke="#5cc8ff" stroke-opacity="0.2"/>
+  <text x="340" y="370" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="18">VAULT</text>
+  <rect x="340" y="392" width="196" height="28" rx="12" fill="#141a22" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="360" y="411" fill="#f4f4f6" font-family="Geist Mono, monospace" font-size="14">/ops /research /handoff</text>
+  <rect x="340" y="434" width="196" height="14" rx="7" fill="#c8f750" opacity="0.18"/>
+  <rect x="340" y="456" width="154" height="12" rx="6" fill="#8b8b99" opacity="0.8"/>
+  <rect x="340" y="476" width="170" height="12" rx="6" fill="#8b8b99" opacity="0.62"/>
+  <rect x="340" y="496" width="128" height="12" rx="6" fill="#8b8b99" opacity="0.46"/>
+  <text x="340" y="524" fill="#a9b0bd" font-family="Hanken Grotesk, sans-serif" font-size="20">Index markdown-heavy folders</text>
+
+  <rect x="590" y="338" width="196" height="190" rx="20" fill="#0d1117" stroke="#c8f750" stroke-opacity="0.22"/>
+  <text x="616" y="370" fill="#c8f750" font-family="Geist Mono, monospace" font-size="18">SCANNER</text>
+  <rect x="616" y="396" width="144" height="40" rx="14" fill="#c8f750" opacity="0.12" stroke="#c8f750" stroke-opacity="0.22"/>
+  <text x="688" y="421" fill="#c8f750" font-family="Geist Mono, monospace" font-size="16" text-anchor="middle">SECRETS</text>
+  <rect x="616" y="446" width="144" height="40" rx="14" fill="#5cc8ff" opacity="0.12" stroke="#5cc8ff" stroke-opacity="0.22"/>
+  <text x="688" y="471" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="16" text-anchor="middle">PII</text>
+  <text x="616" y="514" fill="#f4f4f6" font-family="Hanken Grotesk, sans-serif" font-size="22" font-weight="700">14+ security rules</text>
+
+  <rect x="814" y="338" width="168" height="190" rx="20" fill="#0d1117" stroke="#5cc8ff" stroke-opacity="0.18"/>
+  <text x="840" y="370" fill="#5cc8ff" font-family="Geist Mono, monospace" font-size="18">SEARCH</text>
+  <rect x="840" y="394" width="116" height="26" rx="13" fill="#141a22" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="898" y="412" fill="#f4f4f6" font-family="Geist Mono, monospace" font-size="13" text-anchor="middle">semantic query</text>
+  <path d="M846 452h98" stroke="#5cc8ff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M846 474h80" stroke="#c8f750" stroke-width="4" stroke-linecap="round"/>
+  <path d="M846 496h66" stroke="#5cc8ff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+  <text x="840" y="522" fill="#a9b0bd" font-family="Hanken Grotesk, sans-serif" font-size="19">Local retrieval for AI workflows</text>
+
+  <g font-family="Geist Mono, monospace" font-size="16">
+    <path d="M562 430H590" stroke="#5cc8ff" stroke-width="4"/>
+    <path d="M786 430H814" stroke="#5cc8ff" stroke-width="4"/>
+    <path d="M172 286H122V214" stroke="#c8f750" stroke-width="4" fill="none"/>
+    <text x="60" y="210" fill="#c8f750">Windows app</text>
+    <path d="M1030 286H1084V214" stroke="#5cc8ff" stroke-width="4" fill="none"/>
+    <text x="986" y="210" fill="#5cc8ff">Local (Ollama)</text>
+  </g>
+
+  <text x="60" y="584" fill="#c8f750" font-family="Geist Mono, monospace" font-size="20" letter-spacing="2">Open product · teambotics.app/MdownManager</text>
+</svg>
