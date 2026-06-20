@@ -4186,3 +4186,23 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   color: var(--color-text-primary);
   text-decoration-color: var(--color-accent);
 }
+
+.hero__land-ack {
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+.hero__land-ack-link {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-border);
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.hero__land-ack-link:hover {
+  color: var(--color-text-secondary);
+  text-decoration-color: var(--color-accent);
+}

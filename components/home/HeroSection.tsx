@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { HeroSolariTitle } from "@/components/animation/HeroSolariTitle";
 import { HeroFlameParticles } from "@/components/animation/HeroFlameParticles";
@@ -62,6 +63,11 @@ export function HeroSection() {
               {product.name} &mdash; {product.statusLabel}
             </span>
           ))}
+        </SectionReveal>
+        <SectionReveal className="hero__land-ack" delay={0.58}>
+          <Link href="/land-acknowledgment" className="hero__land-ack-link">
+            Land acknowledgment
+          </Link>
         </SectionReveal>
       </Container>
     </section>
