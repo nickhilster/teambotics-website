@@ -342,11 +342,6 @@ export default function MdownManagerPage() {
                 MDownManager
               </h1>
               <p className="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style={{ color: pageTheme.textSecondary }}>
-                The public page now matches the product more closely: darker surfaces,
-                tighter panels, quieter typography, actual vault and scanner language,
-                and a more desktop-tool visual posture instead of a generic marketing page.
-              </p>
-              <p className="mt-4 max-w-2xl text-base leading-7" style={{ color: pageTheme.textSecondary }}>
                 MDownManager helps teams turn markdown-heavy documentation into a
                 structured knowledge layer that is easier to search, easier to reuse,
                 and better suited for local AI-assisted workflows.
@@ -395,12 +390,12 @@ export default function MdownManagerPage() {
               Core workflow
             </p>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-              Structured like the product, not like a generic SaaS page.
+              From scattered markdown to operationally useful knowledge
             </h2>
             <p className="mt-5 text-base leading-8 sm:text-lg" style={{ color: pageTheme.textSecondary }}>
-              The actual app is a compact desktop workspace built around vaults,
-              scanner feedback, categories, explorer panels, and local AI support.
-              This page now borrows that language directly instead of inventing a separate visual system.
+              MDownManager gives you a compact desktop workspace built around vaults,
+              scanner feedback, categories, explorer panels, and local AI support —
+              so your documentation stays structured, searchable, and ready to use.
             </p>
           </div>
 
@@ -431,7 +426,7 @@ export default function MdownManagerPage() {
               Product surfaces
             </p>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-              The page now speaks in the app’s own interface language.
+              Search, secure, and operationalize your docs
             </h2>
           </div>
 
@@ -471,7 +466,7 @@ export default function MdownManagerPage() {
               Pricing
             </p>
             <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
-              Same commercial structure, tighter product-fit presentation.
+              Start free. Upgrade when you're ready.
             </h2>
           </div>
 
