@@ -7,8 +7,10 @@ describe("product case-study content", () => {
     expect(products.map((product) => product.href)).toEqual([
       "/products/ryfine",
       "/products/ltb-buddy",
-      "/products/easybuddy",
+      "/products/redactorbuddy",
+      "/products/mdownmanager",
       "/products/code2motion",
+      "/products/easybuddy",
       "/products/storytellr",
     ]);
   });
