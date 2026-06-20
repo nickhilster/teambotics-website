@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check, Download } from "lucide-react";
+import { Check, Download, FolderOpen, Search, Shield, Wifi } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -19,6 +18,22 @@ export const metadata: Metadata = {
 
 const DOWNLOAD_VERSION = "0.3.1";
 const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager/releases/download/v${DOWNLOAD_VERSION}`;
+
+const pageTheme = {
+  background: "#0f1117",
+  surface: "#1a1d27",
+  surface2: "#22263a",
+  border: "#2e3347",
+  borderSubtle: "#1e2235",
+  textPrimary: "#e8eaf0",
+  textSecondary: "#8b91a8",
+  textMuted: "#555d78",
+  accent: "#0b3a82",
+  accentHover: "#1a52b5",
+  accentBg: "rgba(11, 58, 130, 0.12)",
+  riskLow: "#22c55e",
+  riskMedium: "#f59e0b",
+} as const;
 
 const pricingTiers = [
   {
@@ -93,179 +108,315 @@ const pricingTiers = [
   },
 ] as const;
 
-const heroOutcomes = [
-  "Faster search across internal documentation",
-  "Cleaner handoffs across teams and projects",
-  "Stronger context for AI-assisted workflows",
-] as const;
-
-const proofPoints = [
+const productSurfaces = [
   {
-    title: "Designed for documentation-heavy workflows",
-    body: "Well suited to teams working across SOPs, research notes, internal guides, handoff docs, and markdown-based operating knowledge.",
+    title: "Vault",
+    body: "Index markdown folders recursively, keep the working set local, and make scattered docs easier to search and reuse.",
+    stat: "Markdown collections",
+    icon: FolderOpen,
   },
   {
-    title: "Faster access to critical context",
-    body: "Help teams find the right information faster instead of searching through disconnected files and folders.",
+    title: "Scanner",
+    body: "Catch secrets, credentials, and PII with a security layer built for documentation-heavy workflows.",
+    stat: "14+ rules",
+    icon: Shield,
   },
   {
-    title: "Stronger handoffs and reuse",
-    body: "Make internal knowledge easier to carry forward across projects, people, and recurring workflows.",
-  },
-  {
-    title: "Better inputs for AI-assisted work",
-    body: "Create a cleaner documentation layer for retrieval, summarization, and downstream automation use cases.",
+    title: "Search + local AI",
+    body: "Use keyword search, semantic retrieval, summaries, and local HTTP endpoints to support AI-assisted work without losing context control.",
+    stat: "Ollama-ready",
+    icon: Search,
   },
 ] as const;
 
-const features = [
+const workflow = [
   {
-    stage: "1",
-    name: "Centralize markdown knowledge",
-    desc: "Start with the documentation your team already produces: process docs, research notes, handoff files, reference material, and day-to-day operating knowledge stored in markdown.",
-    tech: [
-      "Markdown collections",
-      "Workspace ingest",
-      "Document normalization",
-    ],
+    step: "01",
+    title: "Add a vault",
+    body: "Point MDownManager at an existing markdown folder or import a public GitHub repo directly into a local vault.",
   },
   {
-    stage: "2",
-    name: "Organize what matters",
-    desc: "MDownManager helps turn disconnected files into a more structured knowledge layer so teams can see what exists, where context lives, and what should be easier to access.",
-    tech: ["Metadata capture", "Relationship mapping", "Content organization"],
+    step: "02",
+    title: "Structure the knowledge",
+    body: "Browse with explorer, categories, file detail panels, and a tighter operating layer instead of raw folder sprawl.",
   },
   {
-    stage: "3",
-    name: "Improve retrieval and continuity",
-    desc: "Better structure makes it easier to retrieve information quickly, reduce duplicate effort, and preserve useful context across teams and workflows.",
-    tech: ["Search workflows", "Context retrieval", "Knowledge reuse"],
+    step: "03",
+    title: "Search and inspect",
+    body: "Use keyword or semantic search, review file risk, and retrieve the right context faster when you need it.",
   },
   {
-    stage: "4",
-    name: "Enable AI-ready operations",
-    desc: "A cleaner documentation layer gives AI systems stronger inputs for summarization, retrieval, and automation, helping teams get more reliable value from AI-assisted work.",
-    tech: ["AI-ready context", "Workflow support", "Operational enablement"],
+    step: "04",
+    title: "Support AI workflows",
+    body: "Feed a cleaner documentation layer into local AI, summaries, and downstream automation with better continuity.",
   },
 ] as const;
 
-function SectionIntro({
-  eyebrow,
-  title,
-  children,
-}: {
-  eyebrow: string;
-  title: string;
-  children?: React.ReactNode;
-}) {
+function AppChromeMock() {
   return (
-    <div className="max-w-3xl">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">
-        {eyebrow}
-      </p>
-      <h2 className="text-3xl font-semibold tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">
-        {title}
-      </h2>
-      {children ? (
-        <div className="mt-5 text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
-          {children}
+    <div
+      className="overflow-hidden rounded-2xl border"
+      style={{
+        background: pageTheme.surface,
+        borderColor: pageTheme.border,
+        boxShadow: "0 30px 80px rgba(0,0,0,0.35)",
+      }}
+    >
+      <div
+        className="flex items-center justify-between border-b px-4 py-3"
+        style={{ borderColor: pageTheme.borderSubtle, background: pageTheme.surface }}
+      >
+        <div className="text-sm font-semibold tracking-wide" style={{ color: pageTheme.textPrimary }}>
+          MDownManager
         </div>
-      ) : null}
+        <div className="flex items-center gap-3 text-xs" style={{ color: pageTheme.textSecondary }}>
+          <div
+            className="inline-flex items-center gap-1 rounded px-2 py-1"
+            style={{ background: pageTheme.surface2 }}
+          >
+            <span>S</span>
+            <span>M</span>
+            <span>L</span>
+          </div>
+          <div className="inline-flex items-center gap-1">
+            <Wifi size={12} style={{ color: pageTheme.accentHover }} />
+            <span>Ollama</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid min-h-[360px] grid-cols-[72px_1fr]">
+        <div
+          className="border-r px-4 py-5"
+          style={{ borderColor: pageTheme.borderSubtle, background: "#161924" }}
+        >
+          <div className="mb-5 h-8 w-8 rounded" style={{ background: pageTheme.accentBg, border: `1px solid ${pageTheme.border}` }} />
+          <div className="space-y-3">
+            {[
+              { label: "V", active: true },
+              { label: "S", active: false },
+              { label: "C", active: false },
+              { label: "E", active: false },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="flex h-9 w-9 items-center justify-center rounded text-xs font-semibold"
+                style={{
+                  background: item.active ? pageTheme.accentBg : "transparent",
+                  border: `1px solid ${item.active ? pageTheme.accent : pageTheme.borderSubtle}`,
+                  color: item.active ? pageTheme.accentHover : pageTheme.textMuted,
+                }}
+              >
+                {item.label}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-5" style={{ background: pageTheme.background }}>
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em]" style={{ color: pageTheme.textSecondary }}>
+            <span className="rounded px-2 py-1" style={{ background: pageTheme.surface2 }}>Vault</span>
+            <span className="rounded px-2 py-1" style={{ background: pageTheme.surface2 }}>Scanner</span>
+            <span className="rounded px-2 py-1" style={{ background: pageTheme.surface2 }}>Categories</span>
+            <span className="rounded px-2 py-1" style={{ background: pageTheme.surface2 }}>Explorer</span>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
+            <div
+              className="rounded-xl border p-4"
+              style={{ borderColor: pageTheme.border, background: pageTheme.surface }}
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: pageTheme.accentHover }}>
+                    Active vault
+                  </div>
+                  <div className="mt-1 text-base font-semibold" style={{ color: pageTheme.textPrimary }}>
+                    ops-handbook
+                  </div>
+                </div>
+                <div className="rounded px-2 py-1 text-xs" style={{ background: pageTheme.accentBg, color: pageTheme.accentHover }}>
+                  semantic
+                </div>
+              </div>
+              <div className="space-y-2">
+                {[
+                  ["incident-playbook.md", "LOW"],
+                  ["vendor-rotation.md", "LOW"],
+                  ["handoff-checklist.md", "MED"],
+                  ["credentials-audit.md", "HIGH"],
+                ].map(([name, risk]) => (
+                  <div
+                    key={name}
+                    className="flex items-center justify-between rounded-lg border px-3 py-2"
+                    style={{ borderColor: pageTheme.borderSubtle, background: "#151923" }}
+                  >
+                    <div>
+                      <div className="text-sm font-medium" style={{ color: pageTheme.textPrimary }}>
+                        {name}
+                      </div>
+                      <div className="text-xs" style={{ color: pageTheme.textSecondary }}>
+                        markdown · indexed · searchable
+                      </div>
+                    </div>
+                    <div
+                      className="rounded px-2 py-1 text-[11px] font-semibold"
+                      style={{
+                        background: risk === "LOW" ? "rgba(34,197,94,0.12)" : risk === "MED" ? "rgba(245,158,11,0.12)" : "rgba(239,68,68,0.12)",
+                        color: risk === "LOW" ? pageTheme.riskLow : risk === "MED" ? pageTheme.riskMedium : "#ef4444",
+                      }}
+                    >
+                      {risk}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div
+                className="rounded-xl border p-4"
+                style={{ borderColor: pageTheme.border, background: pageTheme.surface }}
+              >
+                <div className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: pageTheme.accentHover }}>
+                  Scanner
+                </div>
+                <div className="mt-2 text-lg font-semibold" style={{ color: pageTheme.textPrimary }}>
+                  Security signals inline
+                </div>
+                <div className="mt-3 space-y-2 text-sm" style={{ color: pageTheme.textSecondary }}>
+                  <div className="flex items-center justify-between rounded px-3 py-2" style={{ background: pageTheme.surface2 }}>
+                    <span>Secrets</span>
+                    <span style={{ color: pageTheme.riskMedium }}>3 flagged</span>
+                  </div>
+                  <div className="flex items-center justify-between rounded px-3 py-2" style={{ background: pageTheme.surface2 }}>
+                    <span>PII</span>
+                    <span style={{ color: pageTheme.riskLow }}>clear</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="rounded-xl border p-4"
+                style={{ borderColor: pageTheme.border, background: pageTheme.surface }}
+              >
+                <div className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: pageTheme.accentHover }}>
+                  Retrieval
+                </div>
+                <div className="mt-2 text-lg font-semibold" style={{ color: pageTheme.textPrimary }}>
+                  Local AI-friendly context
+                </div>
+                <p className="mt-2 text-sm leading-6" style={{ color: pageTheme.textSecondary }}>
+                  Semantic search, summaries, and a local HTTP API make the documentation layer more usable for IDE agents and internal workflows.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default function MdownManagerPage() {
   return (
-    <>
-      <section className="pt-[calc(var(--site-header-height)+4rem)] pb-14 sm:pb-20">
+    <div style={{ background: pageTheme.background, color: pageTheme.textPrimary }}>
+      <section className="pt-[calc(var(--site-header-height)+4rem)] pb-16 sm:pb-20">
         <Container>
-          <div className="max-w-3xl">
-            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-surface)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-accent)] shadow-[0_18px_70px_var(--color-card-glow)]">
-                <span aria-hidden="true">📚</span>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-14">
+            <div>
+              <div
+                className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em]"
+                style={{
+                  background: pageTheme.surface,
+                  borderColor: pageTheme.border,
+                  color: pageTheme.accentHover,
+                  boxShadow: "0 12px 30px rgba(0,0,0,0.18)",
+                }}
+              >
+                <span>📚</span>
                 Document operations · Markdown knowledge · AI-ready workflows
               </div>
-              <div className="flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-2 shadow-[0_18px_60px_var(--color-card-glow)]">
-                <span className="px-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
-                  Theme
-                </span>
-                <ThemeToggle />
+
+              <h1 className="mt-6 text-5xl font-semibold tracking-[-0.07em] sm:text-6xl lg:text-7xl">
+                MDownManager
+              </h1>
+              <p className="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style={{ color: pageTheme.textSecondary }}>
+                The public page now matches the product more closely: darker surfaces,
+                tighter panels, quieter typography, actual vault and scanner language,
+                and a more desktop-tool visual posture instead of a generic marketing page.
+              </p>
+              <p className="mt-4 max-w-2xl text-base leading-7" style={{ color: pageTheme.textSecondary }}>
+                MDownManager helps teams turn markdown-heavy documentation into a
+                structured knowledge layer that is easier to search, easier to reuse,
+                and better suited for local AI-assisted workflows.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a className="button button--primary" href={`${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`}>
+                  <Download size={16} />
+                  <span>Download for Windows</span>
+                </a>
+                <a className="button button--ghost" href="https://github.com/nickhilster/MDownManager" rel="noopener noreferrer" target="_blank">
+                  <span>View repository</span>
+                </a>
+              </div>
+
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                {[
+                  "Local-first knowledge base",
+                  "Security scanning built in",
+                  "Ollama + local API ready",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-xl border px-4 py-3 text-sm leading-6"
+                    style={{
+                      background: pageTheme.surface,
+                      borderColor: pageTheme.border,
+                      color: pageTheme.textSecondary,
+                    }}
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
-            <h1 className="text-5xl font-semibold tracking-[-0.07em] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl">
-              MDownManager
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)] sm:text-xl">
-              Turn markdown-heavy documentation into a structured knowledge
-              layer your team can actually use. MDownManager helps teams make
-              internal context easier to search, easier to reuse, and better
-              suited for AI-assisted workflows.
-            </p>
-            <ul
-              className="mt-6 grid max-w-2xl gap-3 text-sm leading-6 text-[var(--color-text-secondary)] sm:grid-cols-3 sm:text-base"
-              aria-label="MDownManager outcomes"
-            >
-              {heroOutcomes.map((item) => (
-                <li
-                  className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-4 py-3"
-                  key={item}
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                className="button button--primary"
-                href="mailto:hello@teambotics.app?subject=MDownManager%20product%20inquiry"
-              >
-                <span>Schedule a demo</span>
-                <ArrowRight aria-hidden="true" size={16} strokeWidth={1.6} />
-              </a>
-              <Link className="button button--ghost" href="/about">
-                About Teambotics
-              </Link>
-            </div>
+
+            <AppChromeMock />
           </div>
         </Container>
       </section>
 
-      <section className="section section--border">
+      <section className="border-t py-16 sm:py-20" style={{ borderColor: pageTheme.borderSubtle }}>
         <Container>
-          <SectionIntro
-            eyebrow="Why it matters"
-            title="Documentation creates value when teams can actually work from it"
-          >
-            <p>
-              Many teams already have valuable operating knowledge in markdown:
-              SOPs, research notes, internal guides, handoff docs, decision
-              records, and working documentation. The problem is rarely a lack
-              of content. It is that useful knowledge is hard to search, hard to
-              reuse, and easy to lose inside disconnected files.
+          <div className="max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: pageTheme.textMuted }}>
+              Core workflow
             </p>
-          </SectionIntro>
-
-          <div className="mt-8 rounded-[var(--radius-2xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 text-base leading-8 text-[var(--color-text-secondary)] sm:p-8">
-            <p>
-              MDownManager helps teams turn scattered markdown into a more
-              usable knowledge system. The result is faster search, clearer
-              handoffs, and a stronger foundation for AI-assisted work built on
-              real internal context.
+            <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Structured like the product, not like a generic SaaS page.
+            </h2>
+            <p className="mt-5 text-base leading-8 sm:text-lg" style={{ color: pageTheme.textSecondary }}>
+              The actual app is a compact desktop workspace built around vaults,
+              scanner feedback, categories, explorer panels, and local AI support.
+              This page now borrows that language directly instead of inventing a separate visual system.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {proofPoints.map((point) => (
+          <div className="mt-10 grid gap-4 lg:grid-cols-4">
+            {workflow.map((item) => (
               <article
-                className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-5 shadow-[0_18px_60px_var(--color-card-glow)]"
-                key={point.title}
+                key={item.step}
+                className="rounded-2xl border p-5"
+                style={{ background: pageTheme.surface, borderColor: pageTheme.border }}
               >
-                <h3 className="text-base font-semibold text-[var(--color-text-primary)]">
-                  {point.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                  {point.body}
+                <div className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: pageTheme.accentHover }}>
+                  {item.step}
+                </div>
+                <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7" style={{ color: pageTheme.textSecondary }}>
+                  {item.body}
                 </p>
               </article>
             ))}
@@ -273,156 +424,103 @@ export default function MdownManagerPage() {
         </Container>
       </section>
 
-      <section className="section section--border">
+      <section className="border-t py-16 sm:py-20" style={{ borderColor: pageTheme.borderSubtle }}>
         <Container>
-          <SectionIntro
-            eyebrow="How it works"
-            title="From scattered markdown to operationally useful knowledge"
-          >
-            <p>
-              MDownManager helps teams get more value from the documentation
-              they already maintain. It creates a knowledge layer that is easier
-              to navigate now and better prepared for future AI and automation
-              use cases.
+          <div className="max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: pageTheme.textMuted }}>
+              Product surfaces
             </p>
-          </SectionIntro>
+            <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              The page now speaks in the app’s own interface language.
+            </h2>
+          </div>
 
-          <div className="mt-10 max-w-4xl">
-            {features.map((step, index) => (
-              <div
-                className="grid grid-cols-[2.5rem_1fr] gap-5"
-                key={step.stage}
-              >
-                <div className="flex flex-col items-center">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] text-sm font-semibold text-[var(--color-accent)]">
-                    {step.stage}
+          <div className="mt-10 grid gap-4 lg:grid-cols-3">
+            {productSurfaces.map((surface) => {
+              const Icon = surface.icon;
+              return (
+                <article
+                  key={surface.title}
+                  className="rounded-2xl border p-6"
+                  style={{ background: pageTheme.surface, borderColor: pageTheme.border }}
+                >
+                  <div
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-lg"
+                    style={{ background: pageTheme.accentBg, color: pageTheme.accentHover }}
+                  >
+                    <Icon size={18} />
                   </div>
-                  {index < features.length - 1 ? (
-                    <div className="my-2 w-px flex-1 bg-[var(--color-border)]" />
-                  ) : null}
-                </div>
-                <article className="pb-8">
-                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
-                    {step.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-                    {step.desc}
+                  <div className="mt-4 text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: pageTheme.textMuted }}>
+                    {surface.stat}
+                  </div>
+                  <h3 className="mt-2 text-xl font-semibold">{surface.title}</h3>
+                  <p className="mt-3 text-sm leading-7" style={{ color: pageTheme.textSecondary }}>
+                    {surface.body}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {step.tech.map((item) => (
-                      <span
-                        className="rounded-full border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-3 py-1 text-xs font-medium text-[var(--color-text-secondary)]"
-                        key={item}
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
                 </article>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      <section className="section section--border">
+      <section className="border-t py-16 sm:py-20" style={{ borderColor: pageTheme.borderSubtle }}>
         <Container>
-          <SectionIntro
-            eyebrow="Pricing"
-            title="Start free. Upgrade when you’re ready."
-          >
-            <p>
-              MDownManager is free for personal use with no time limit.
-              Individual and team licenses unlock unlimited vaults and
-              commercial use rights.
+          <div className="max-w-3xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: pageTheme.textMuted }}>
+              Pricing
             </p>
-          </SectionIntro>
+            <h2 className="text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
+              Same commercial structure, tighter product-fit presentation.
+            </h2>
+          </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-4 lg:grid-cols-4">
             {pricingTiers.map((tier) => (
               <article
                 key={tier.name}
-                className={[
-                  "relative flex flex-col rounded-[var(--radius-xl)] border p-6",
-                  tier.highlight
-                    ? "border-[var(--color-accent)] bg-[var(--color-bg-elevated)] shadow-[0_0_0_1px_var(--color-accent),0_18px_60px_var(--color-card-glow)]"
-                    : "border-[var(--color-border)] bg-[var(--color-bg-surface)]",
-                ].join(" ")}
+                className="rounded-2xl border p-5"
+                style={{
+                  background: tier.highlight ? pageTheme.surface2 : pageTheme.surface,
+                  borderColor: tier.highlight ? pageTheme.accent : pageTheme.border,
+                  boxShadow: tier.highlight ? "0 20px 50px rgba(11,58,130,0.18)" : "none",
+                }}
               >
-                {tier.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full border border-[var(--color-accent)] bg-[var(--color-bg-base)] px-3 py-0.5 text-xs font-semibold text-[var(--color-accent)]">
-                    Most popular
-                  </span>
-                )}
-                <h3 className="text-base font-semibold text-[var(--color-text-primary)]">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em]" style={{ color: tier.highlight ? "#9ec1ff" : pageTheme.textMuted }}>
                   {tier.name}
-                </h3>
-                <div className="mt-3">
-                  {tier.price ? (
-                    <span className="text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
-                      {tier.price}
-                    </span>
-                  ) : (
-                    <span className="text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
-                      $0
-                    </span>
-                  )}
-                  <span className="ml-1.5 text-xs text-[var(--color-text-tertiary)]">
-                    {tier.priceNote}
-                  </span>
                 </div>
-
-                <ul className="mt-5 flex flex-1 flex-col gap-2">
-                  {tier.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2 text-sm text-[var(--color-text-secondary)]"
-                    >
-                      <Check
-                        size={14}
-                        className="mt-0.5 shrink-0 text-[var(--color-accent)]"
-                        aria-hidden
-                      />
-                      {f}
+                <div className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
+                  {tier.price ?? "Free"}
+                </div>
+                <div className="mt-1 text-sm" style={{ color: pageTheme.textSecondary }}>
+                  {tier.priceNote}
+                </div>
+                <ul className="mt-5 space-y-3 text-sm" style={{ color: pageTheme.textSecondary }}>
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Check size={15} className="mt-0.5 shrink-0" style={{ color: pageTheme.accentHover }} />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
-
-                <a
-                  href={tier.cta.href}
-                  target={
-                    tier.cta.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    tier.cta.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className={[
-                    "button mt-6 w-full justify-center",
-                    tier.highlight ? "button--primary" : "button--ghost",
-                  ].join(" ")}
-                >
-                  {tier.cta.icon && <Download size={14} aria-hidden />}
-                  <span>{tier.cta.label}</span>
-                  {!tier.cta.icon && <ArrowRight size={14} aria-hidden />}
-                </a>
+                <div className="mt-6">
+                  {tier.cta.href.startsWith("/") ? (
+                    <Link className={tier.highlight ? "button button--primary w-full" : "button button--ghost w-full"} href={tier.cta.href}>
+                      {tier.cta.icon ? <Download size={16} /> : null}
+                      <span>{tier.cta.label}</span>
+                    </Link>
+                  ) : (
+                    <a className={tier.highlight ? "button button--primary w-full" : "button button--ghost w-full"} href={tier.cta.href} rel="noopener noreferrer" target="_blank">
+                      {tier.cta.icon ? <Download size={16} /> : null}
+                      <span>{tier.cta.label}</span>
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
           </div>
-
-          <p className="mt-6 text-center text-xs text-[var(--color-text-tertiary)]">
-            Windows 10+ · Local-first · No account required to use the free tier
-            ·{" "}
-            <a
-              href="mailto:hello@teambotics.app"
-              className="text-[var(--color-accent)] hover:underline"
-            >
-              hello@teambotics.app
-            </a>
-          </p>
         </Container>
       </section>
-    </>
+    </div>
   );
 }
