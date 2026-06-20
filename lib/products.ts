@@ -247,6 +247,146 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "supportLabel": "Discuss LTB Buddy"
   },
   {
+    "slug": "redactorbuddy",
+    "name": "RedactorBuddy",
+    "title": "Offline PII Redaction Assistant",
+    "label": "Early Access",
+    "stage": "Early Access",
+    "status": "pilot",
+    "statusLabel": "EARLY ACCESS",
+    "market": "Compliance / Privacy / Financial Document Workflows",
+    "tagline": "A privacy-first redaction workflow that strips sensitive personal data from financial documents entirely on-device.",
+    "description": "An offline redaction assistant that removes names, account numbers, SSNs, and addresses from financial documents without cloud calls or subscription lock-in.",
+    "summary": "RedactorBuddy is built for teams that need a safer way to prepare sensitive financial documents before sharing, reviewing, or storing them. It keeps the workflow entirely on-device so privacy posture is part of the product, not an afterthought.",
+    "heroSummary": "Sensitive data removed locally before the file ever leaves the machine.",
+    "impact": "Brings privacy, compliance posture, and practical document cleanup into one offline workflow for sensitive records.",
+    "tags": [
+      "Privacy",
+      "Compliance",
+      "Offline Workflow"
+    ],
+    "techStack": [
+      "Windows",
+      "Local Processing",
+      "Document Parsing",
+      "PII Detection"
+    ],
+    "aiCapabilities": [
+      "PII identification",
+      "Offline redaction workflow",
+      "Sensitive document cleanup",
+      "Compliance-aware processing"
+    ],
+    "focusPoints": [
+      {
+        "label": "Trust Model",
+        "value": "The product is designed so sensitive files do not need to leave the device. That local-first posture is central to its value in privacy-sensitive workflows."
+      },
+      {
+        "label": "Document Scope",
+        "value": "RedactorBuddy focuses on financial documents where names, account numbers, SSNs, and addresses need to be removed quickly and consistently."
+      },
+      {
+        "label": "Operational Value",
+        "value": "It reduces manual cleanup work while giving teams a more controlled handoff step before files are shared with clients, partners, or internal reviewers."
+      }
+    ],
+    "proofPoints": [
+      "Processes sensitive documents entirely on-device with zero cloud calls.",
+      "Supports multiple document formats for practical redaction workflows.",
+      "Built around privacy and compliance posture rather than convenience-only AI usage.",
+      "Shows Teambotics can apply AI and workflow design to controlled, high-trust document handling."
+    ],
+    "detailSections": [
+      {
+        "title": "Product Framing",
+        "body": "RedactorBuddy is a workflow layer for preparing sensitive financial documents before they move further downstream. The priority is controlled handling, not flashy automation."
+      },
+      {
+        "title": "Privacy Posture",
+        "body": "The product is intentionally offline-first. That makes it useful in environments where cloud processing is a legal, operational, or trust concern."
+      },
+      {
+        "title": "Business Fit",
+        "body": "Teams that routinely prepare financial records, case files, or compliance-bound documents can use RedactorBuddy as a safer preprocessing step before review or distribution."
+      }
+    ],
+    "externalUrl": "https://www.teambotics.app/RedactorBuddy",
+    "externalLabel": "Request Access",
+    "supportUrl": "mailto:hello@teambotics.app?subject=RedactorBuddy%20case%20study",
+    "supportLabel": "Discuss RedactorBuddy"
+  },
+  {
+    "slug": "mdownmanager",
+    "name": "MDownManager",
+    "title": "Markdown Knowledge Operations",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "status": "live",
+    "statusLabel": "LIVE PRODUCT",
+    "market": "Knowledge Ops / Documentation / AI-Ready Workflows",
+    "tagline": "A document operations layer that turns markdown-heavy folders into a structured, searchable knowledge system for AI-ready work.",
+    "description": "A markdown knowledge product built for SOPs, research notes, and handoff docs that need to stay organized, searchable, and usable across evolving AI workflows.",
+    "summary": "MDownManager helps teams operationalize markdown-heavy documentation. Instead of scattered notes and folders, it creates a cleaner knowledge layer that supports retrieval, handoff, and local AI workflows such as Ollama-based usage.",
+    "heroSummary": "Markdown turned into an operational knowledge layer instead of a folder mess.",
+    "impact": "Makes documentation more reusable, searchable, and AI-ready for teams working across SOPs, research notes, and project handoffs.",
+    "tags": [
+      "Markdown Ops",
+      "Knowledge Layer",
+      "Local AI"
+    ],
+    "techStack": [
+      "Windows",
+      "Markdown",
+      "Search Indexing",
+      "Ollama"
+    ],
+    "aiCapabilities": [
+      "Structured knowledge organization",
+      "Local AI-ready retrieval",
+      "Documentation cleanup",
+      "Handoff-friendly search"
+    ],
+    "focusPoints": [
+      {
+        "label": "Knowledge Problem",
+        "value": "Markdown is flexible, but growing folders of notes, SOPs, and handoff docs become hard to search, maintain, and reuse at scale."
+      },
+      {
+        "label": "System Role",
+        "value": "MDownManager adds structure to markdown-heavy work so teams can navigate knowledge faster and prepare documentation for AI-assisted retrieval."
+      },
+      {
+        "label": "Operational Fit",
+        "value": "It is designed for people who already work in markdown and want better document operations without abandoning local control or lightweight workflows."
+      }
+    ],
+    "proofPoints": [
+      "Turns markdown-heavy documentation into a structured and searchable knowledge layer.",
+      "Supports SOPs, research notes, and handoff documentation workflows.",
+      "Built for Windows with local AI compatibility through Ollama.",
+      "Demonstrates applied AI value at the documentation and knowledge-operations layer."
+    ],
+    "detailSections": [
+      {
+        "title": "Product Framing",
+        "body": "MDownManager is a document operations product for markdown-heavy teams. It treats documentation as an asset that should stay usable, not as a graveyard of folders."
+      },
+      {
+        "title": "Interface Approach",
+        "body": "The product is designed to help users keep knowledge clean, structured, and searchable while preserving the simplicity of markdown as a working format."
+      },
+      {
+        "title": "Business Fit",
+        "body": "Teams building SOP libraries, research repositories, or AI handoff systems can use MDownManager to create a more durable operational knowledge layer."
+      }
+    ],
+    "externalUrl": "https://www.teambotics.app/MdownManager",
+    "externalLabel": "Open Product",
+    "supportUrl": "mailto:hello@teambotics.app?subject=MDownManager%20case%20study",
+    "supportLabel": "Discuss MDownManager"
+  },
+  {
     "slug": "easybuddy",
     "name": "EasyBuddy",
     "title": "Conversational Enablement & Onboarding",
@@ -388,7 +528,15 @@ export const productCaseStudies: ProductCaseStudy[] = [
   }
 ];
 
-const productDisplayOrder = ["ryfine", "ltb-buddy", "easybuddy", "code2motion", "storytellr"] as const;
+const productDisplayOrder = [
+  "ryfine",
+  "ltb-buddy",
+  "redactorbuddy",
+  "mdownmanager",
+  "code2motion",
+  "easybuddy",
+  "storytellr",
+] as const;
 
 export const products = productDisplayOrder
   .map((slug) => getProductBySlug(slug))
