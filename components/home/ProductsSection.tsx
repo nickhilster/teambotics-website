@@ -102,7 +102,7 @@ const products = [
     ],
     href: "/products/storytellr",
     badge: "Coming soon" as const,
-    badgeVariant: "default" as const,
+    badgeVariant: "build" as const,
   },
 ] as const;
 
