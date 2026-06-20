@@ -14,6 +14,14 @@ const BANNER_IMAGES: Partial<Record<string, { src: string; alt: string }>> = {
     src: "/media/ltb-buddy-intake-banner.svg",
     alt: "LTB Buddy three-stage intake flow: describe issue, structured conversation, application-ready output",
   },
+  redactorbuddy: {
+    src: "/media/redactorbuddy-offline-redaction-banner.svg",
+    alt: "RedactorBuddy offline-first workflow showing document intake, local PII detection, risk scoring, and safe export",
+  },
+  mdownmanager: {
+    src: "/media/mdownmanager-knowledge-ops-banner.svg",
+    alt: "MDownManager workflow showing markdown vault ingestion, scanner checks, and local search for AI-ready knowledge retrieval",
+  },
   easybuddy: {
     src: "/media/easybuddy-simulation-banner.svg",
     alt: "EasyBuddy simulation loop: customer scenario, staff practice response, AI coaching feedback",
