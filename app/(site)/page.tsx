@@ -2,6 +2,7 @@ import { CapabilitiesSection } from "@/components/home/CapabilitiesSection";
 import { EngagementModelSection } from "@/components/home/EngagementModelSection";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HomeCTASection } from "@/components/home/HomeCTASection";
+import { LandAcknowledgmentStrip } from "@/components/home/LandAcknowledgmentStrip";
 import { ProductFlagshipSections } from "@/components/home/ProductFlagshipSections";
 import { ProductsSection } from "@/components/home/ProductsSection";
 import { PositioningSection } from "@/components/home/PositioningSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <CapabilitiesSection />
       <EngagementModelSection />
       <HomeCTASection />
+      <LandAcknowledgmentStrip />
     </>
   );
 }
