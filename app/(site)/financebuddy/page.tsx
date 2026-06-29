@@ -7,14 +7,17 @@ import { siteConfig } from "@/lib/config";
 const githubUrl = "https://github.com/nickhilster/local-financial-redactor";
 
 export const metadata: Metadata = {
-  title: "Local Financial Redactor — Teambotics",
+  title: "RedactorBuddy — Teambotics",
   description:
-    "Redact PII from financial documents locally before passing sanitized data to AI. Privacy-first. No cloud calls.",
+    "RedactorBuddy redacts PII from financial documents locally before passing sanitized data to AI. Privacy-first. No cloud calls.",
+  alternates: {
+    canonical: `${siteConfig.url}/products/redactorbuddy`,
+  },
   openGraph: {
-    title: "Local Financial Redactor — Teambotics",
+    title: "RedactorBuddy — Teambotics",
     description:
-      "Redact PII from financial documents locally before passing sanitized data to AI. Privacy-first. No cloud calls.",
-    url: `${siteConfig.url}/financebuddy`,
+      "RedactorBuddy redacts PII from financial documents locally before passing sanitized data to AI. Privacy-first. No cloud calls.",
+    url: `${siteConfig.url}/products/redactorbuddy`,
   },
 };
 
@@ -114,7 +117,7 @@ export default function FinanceBuddyPage() {
               Privacy-first · Local only · No cloud calls
             </div>
             <h1 className="text-5xl font-semibold tracking-[-0.07em] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl">
-              Local Financial Redactor
+              RedactorBuddy
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)] sm:text-xl">
               A desktop tool for redacting PII from financial documents — built for teams that handle sensitive data but cannot afford to send it to the cloud.
