@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
     },
     {
-      url: siteConfig.url + "/financebuddy",
+      url: siteConfig.url + "/products/redactorbuddy",
       changeFrequency: "monthly",
       priority: 0.8,
       lastModified,
