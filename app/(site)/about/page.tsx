@@ -3,11 +3,29 @@ import Link from "next/link";
 import { SectionReveal } from "@/components/animation/SectionReveal";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/lib/config";
+import { products } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "Teambotics is an independent AI lab led by Nikhil Khedkar. We build conversational and interactive products for complex domains — legal, operational, narrative, and creative.",
+};
+
+const aboutProductSummaries: Record<string, string> = {
+  "/products/ryfine":
+    "Prompt refinement and context-shaping workflow for turning rough intent into clearer AI-ready instructions. Live product.",
+  "/products/ltb-buddy":
+    "Guided legal intake and LTB form support for Ontario tenants. Public beta.",
+  "/products/redactorbuddy":
+    "Offline PII redaction workflow for sensitive financial documents. Early access.",
+  "/products/mdownmanager":
+    "Markdown knowledge operations layer for searchable SOPs, research notes, and AI-ready handoff docs. Live product.",
+  "/products/code2motion":
+    "Interactive generative art and browser-native motion platform. In early access at code2motion.app.",
+  "/products/easybuddy":
+    "Bespoke AI training and onboarding assistant for frontline enterprise and service teams.",
+  "/products/storytellr":
+    "Client-facing narrative graph experience for founders, teams, and complex work stories. In build.",
 };
 
 export default function AboutPage() {
@@ -78,35 +96,20 @@ export default function AboutPage() {
           <SectionReveal className="about__section" delay={0.06}>
             <h2 className="about__section-title">What we build</h2>
             <p>
-              Our portfolio spans legal workflow, enterprise enablement, narrative intelligence,
-              and interactive creative technology. Some are proprietary platforms; some are
-              bespoke systems built for and with a specific partner.
+              Our portfolio spans prompt UX, legal workflow, privacy-first document operations,
+              markdown knowledge systems, enterprise enablement, narrative intelligence, and
+              interactive creative technology. Some are proprietary platforms; some are bespoke
+              systems built for and with a specific partner.
             </p>
             <ul className="about__product-list">
-              <li>
-                <Link className="about__product-link" href="/products/ltb-buddy">
-                  LTB Buddy
-                </Link>{" "}
-                — Guided legal intake and LTB form support for Ontario tenants. In beta.
-              </li>
-              <li>
-                <Link className="about__product-link" href="/products/easybuddy">
-                  EasyBuddy
-                </Link>{" "}
-                — Bespoke AI training and onboarding assistant for frontline enterprise teams.
-              </li>
-              <li>
-                <Link className="about__product-link" href="/products/code2motion">
-                  Code2Motion
-                </Link>{" "}
-                — Interactive generative art platform. In early access at code2motion.app.
-              </li>
-              <li>
-                <Link className="about__product-link" href="/products/storytellr">
-                  Storytellr
-                </Link>{" "}
-                — Client-facing narrative graph experience. In build.
-              </li>
+              {products.map((product) => (
+                <li key={product.href}>
+                  <Link className="about__product-link" href={product.href}>
+                    {product.name}
+                  </Link>{" "}
+                  — {aboutProductSummaries[product.href] ?? product.description}
+                </li>
+              ))}
             </ul>
           </SectionReveal>
 
