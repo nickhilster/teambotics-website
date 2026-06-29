@@ -38,7 +38,7 @@ const products = [
     name: "RedactorBuddy",
     tagline: "Compliance-ready · Offline PII redaction · Financial documents",
     description:
-      "Strips names, account numbers, SSNs, and addresses from financial documents entirely on-device — no cloud, no subscription required.",
+      "Strips names, account numbers, SSNs, and addresses from financial documents entirely on-device — no cloud, no uploads, ever.",
     stats: [
       { label: "Cloud calls", value: "0" },
       { label: "Formats", value: "6" },
