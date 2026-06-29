@@ -11,6 +11,27 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Product sites now live on their own domains
+      {
+        source: "/MdownManager",
+        destination: "https://mdownmanager.com",
+        permanent: true,
+      },
+      {
+        source: "/mdownmanager",
+        destination: "https://mdownmanager.com",
+        permanent: true,
+      },
+      {
+        source: "/RedactorBuddy",
+        destination: "https://redactorbuddy.com",
+        permanent: true,
+      },
+      {
+        source: "/redactorbuddy",
+        destination: "https://redactorbuddy.com",
+        permanent: true,
+      },
       {
         source: "/blog",
         destination: "https://blog.teambotics.app/",

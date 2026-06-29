@@ -44,7 +44,7 @@ const products = [
       { label: "Formats", value: "6" },
       { label: "Offline", value: "100%" },
     ],
-    href: "/products/redactorbuddy",
+    href: "https://redactorbuddy.com",
     badge: "Early access" as const,
     badgeVariant: "pilot" as const,
   },
@@ -58,7 +58,7 @@ const products = [
       { label: "Platform", value: "Windows" },
       { label: "AI", value: "Local (Ollama)" },
     ],
-    href: "/products/mdownmanager",
+    href: "https://mdownmanager.com",
     badge: "Live" as const,
     badgeVariant: "live" as const,
   },
@@ -118,11 +118,15 @@ export function ProductsSection() {
         </SectionReveal>
 
         <div className="products-grid">
-          {products.map((product, index) => (
+          {products.map((product, index) => {
+            const isExternal = product.href.startsWith("http");
+            return (
             <SectionReveal delay={index * 0.08} key={product.name}>
               <Link
                 className="card product-card"
                 href={product.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
               >
                 <div>
                   <div className="product-card__header">
@@ -153,7 +157,8 @@ export function ProductsSection() {
                 </div>
               </Link>
             </SectionReveal>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
