@@ -15,7 +15,7 @@ export function Footer() {
         <nav aria-label={messages.footer.navLabel}>
           <Link href="/about">About</Link>
           <Link href="/land-acknowledgment">Land Acknowledgment</Link>
-          <Link href="/financebuddy">FinanceBuddy</Link>
+          <Link href="/products/redactorbuddy">RedactorBuddy</Link>
           <Link href="/privacy">{messages.footer.privacyLabel}</Link>
           <Link href="/terms">{messages.footer.termsLabel}</Link>
           <Link href={siteConfig.socials.linkedin} rel="noopener noreferrer" target="_blank">
@@ -25,7 +25,7 @@ export function Footer() {
         </nav>
       </Container>
       <Container>
-        <p className="site-footer__made">❤️ {messages.footer.madeWith}</p>
+        <p className="site-footer__made">{"\u2764\ufe0f"} {messages.footer.madeWith}</p>
       </Container>
     </footer>
   );
