@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   },
 };
 
+// Route-level metadata wrapper for the public company manifesto page.
 export default function ManifestoLayout({ children }: { children: React.ReactNode }) {
   return children;
 }
