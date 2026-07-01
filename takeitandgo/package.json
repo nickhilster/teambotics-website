@@ -1,0 +1,18 @@
+{
+  "name": "takeitandgo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "vercel:link": "vercel link --yes",
+    "vercel:env:pull": "vercel env pull .env.local",
+    "vercel:deploy": "vercel deploy",
+    "vercel:deploy:prod": "vercel deploy --prod"
+  },
+  "dependencies": {
+    "astro": "^5.18.1"
+  }
+}

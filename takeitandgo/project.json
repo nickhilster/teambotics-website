@@ -1,0 +1,18 @@
+{
+  "name": "Take It And Go",
+  "slug": "takeitandgo",
+  "domain": "takeitandgo.teambotics.app",
+  "framework": "astro",
+  "owner": "Teambotics",
+  "scope": "public-open-source",
+  "deployment": {
+    "provider": "vercel",
+    "projectType": "independent",
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist"
+  },
+  "positioning": {
+    "summary": "Independent Teambotics umbrella project for sharing OSS that may overlap with Teambotics products.",
+    "principle": "Open source is allowed to compete with us if that is the right thing to publish."
+  }
+}

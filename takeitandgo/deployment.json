@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "Take It And Go",
+    "slug": "takeitandgo",
+    "domain": "takeitandgo.teambotics.app",
+    "owner": "Teambotics",
+    "framework": "astro",
+    "kind": "independent-vercel-project"
+  },
+  "automation": {
+    "linkCommand": "npm run vercel:link",
+    "envPullCommand": "npm run vercel:env:pull",
+    "previewDeployCommand": "npm run vercel:deploy",
+    "productionDeployCommand": "npm run vercel:deploy:prod"
+  },
+  "rules": {
+    "scope": [
+      "This project is deployed separately from the root Teambotics Next.js app.",
+      "This project uses Astro only.",
+      "This project is the OSS surface for public projects and may overlap with Teambotics business products."
+    ],
+    "doNot": [
+      "Do not link this folder to the root Next.js Vercel project.",
+      "Do not add Next.js app code or shared runtime dependencies here.",
+      "Do not require the root repository deployment to publish this site."
+    ]
+  }
+}

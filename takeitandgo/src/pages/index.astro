@@ -1,0 +1,138 @@
+---
+import "../styles/site.css";
+
+const modules = [
+  {
+    tag: "Launch code",
+    title: "Publish the thing before the polish becomes procrastination.",
+    copy: "Take It And Go is for open-source that ships fast, stays legible, and does not wait for committee approval.",
+  },
+  {
+    tag: "Signal",
+    title: "Readable first, covert second.",
+    copy: "The surface feels editorial and calm, but the structure underneath is full of systems thinking, versioning, and control-room precision.",
+  },
+  {
+    tag: "Boundary",
+    title: "Independent on purpose.",
+    copy: "This project stands apart from Teambotics visually and operationally. The domain is the only shared label.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Take It And Go is an independent Astro landing page for OSS releases, with a bright hacker-adjacent visual identity."
+    />
+    <title>Take It And Go</title>
+  </head>
+  <body>
+    <div class="scanline" aria-hidden="true"></div>
+    <header class="topbar">
+      <div class="shell topbar__inner">
+        <a class="brand" href="/">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__text">
+            <strong>Take It And Go</strong>
+            <em>Independent OSS dropzone</em>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#modules">Modules</a>
+          <a href="#principles">Principles</a>
+          <a href="#access">Access</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="shell hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">OSS for people who move first</p>
+            <h1>Take it and go.</h1>
+            <p class="lead">
+              A bright, technical, slightly subversive home for open-source projects.
+              Clean enough to trust. Sharp enough to feel like a tool. Independent enough
+              to give things away without asking permission.
+            </p>
+            <div class="actions" id="access">
+              <a class="button button--primary" href="#modules">View modules</a>
+              <a class="button button--secondary" href="#principles">Read the rules</a>
+            </div>
+          </div>
+
+          <aside class="terminal" aria-label="Project brief">
+            <div class="terminal__bar">
+              <span class="terminal__dot terminal__dot--one"></span>
+              <span class="terminal__dot terminal__dot--two"></span>
+              <span class="terminal__dot terminal__dot--three"></span>
+              <span>takeitandgo.session</span>
+            </div>
+            <div class="terminal__body">
+              <p class="terminal__line"><span>$</span> open --public --fast</p>
+              <p class="terminal__line"><span>></span> publish useful things even when they compete</p>
+              <p class="terminal__line"><span>></span> keep the UI calm, the logic sharp, the docs honest</p>
+              <p class="terminal__line"><span>></span> no corporate chrome, no gloom, no cosplay</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="modules">
+        <div class="shell">
+          <div class="section__head">
+            <p class="eyebrow">Modules</p>
+            <h2>Three statements that set the tone.</h2>
+            <p>
+              This identity should feel like a clean operator console crossed with an art
+              book. Functional, but not sterile. Hacker-adjacent, but not dark.
+            </p>
+          </div>
+
+          <div class="grid">
+            {modules.map((module) => (
+              <article class="card">
+                <div class="meta">{module.tag}</div>
+                <h3>{module.title}</h3>
+                <p>{module.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--split" id="principles">
+        <div class="shell split">
+          <div class="section__head section__head--tight">
+            <p class="eyebrow">Principles</p>
+            <h2>Open-source with teeth.</h2>
+            <p>
+              The visual language should signal discipline, independence, and a willingness
+              to publish work that is useful even when it blurs the lines around the core
+              business.
+            </p>
+          </div>
+
+          <div class="principles">
+            <div class="principle">Bright paper base, not black velvet.</div>
+            <div class="principle">Precision lines, clipped corners, small command cues.</div>
+            <div class="principle">Hackers, but with daylight and good legibility.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer__inner">
+        <span>Take It And Go</span>
+        <span>Independent from Teambotics, except for the URL.</span>
+      </div>
+    </footer>
+  </body>
+</html>
