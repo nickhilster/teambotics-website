@@ -730,7 +730,7 @@ export default function RedactorBuddyPage() {
         }}
       >
         <span>RedactorBuddy by </span>
-        <a href="https://teambotics.app" style={{ color: BLUE, textDecoration: "none" }}>
+        <a href="https://www.teambotics.app" style={{ color: BLUE, textDecoration: "none" }}>
           Teambotics
         </a>
         <span> · Privacy-first · Local only · No cloud</span>

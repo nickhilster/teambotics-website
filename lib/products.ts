@@ -451,7 +451,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "The system is well suited to distributed service organizations where managers need consistent training quality across many locations and shifting teams."
       }
     ],
-    "externalUrl": "https://teambotics.app/easybuddy",
+    "externalUrl": "https://www.teambotics.app/easybuddy",
     "externalLabel": "Open Product",
     "supportUrl": "mailto:hello@teambotics.app?subject=EasyBuddy%20case%20study",
     "supportLabel": "Discuss EasyBuddy"

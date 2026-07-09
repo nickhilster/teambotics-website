@@ -6,7 +6,7 @@ import { getExecutiveBlogPostSummaries } from '../data/executive-overrides.ts';
 
 const apiBase =
   import.meta.env.SITE_API_BASE ??
-  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://teambotics.app');
+  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.teambotics.app');
 
 const selectedTag = Astro.url.searchParams.get('tag') ?? null;
 

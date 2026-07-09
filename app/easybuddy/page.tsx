@@ -737,9 +737,9 @@ export default function EasyBuddyPage() {
         </div>
         <div style={{ display: "flex", gap: "1.5rem" }}>
           {[
-            { label: "Privacy", href: "https://teambotics.app/privacy" },
-            { label: "Terms", href: "https://teambotics.app/terms" },
-            { label: "teambotics.app", href: "https://teambotics.app" },
+            { label: "Privacy", href: "https://www.teambotics.app/privacy" },
+            { label: "Terms", href: "https://www.teambotics.app/terms" },
+            { label: "teambotics.app", href: "https://www.teambotics.app" },
           ].map((link) => (
             <a
               key={link.label}

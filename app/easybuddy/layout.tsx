@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "EasyBuddy – Human-First AI for Frontline Teams",
     description:
       "Voice-guided onboarding, scenario coaching, and instant policy lookups — built for the floor, not the boardroom.",
-    url: "https://teambotics.app/easybuddy",
+    url: "https://www.teambotics.app/easybuddy",
     siteName: "EasyBuddy by TeamBotics",
     images: [
       {

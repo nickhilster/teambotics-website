@@ -466,7 +466,17 @@ The objective is to construct a more intelligent operating system for the enterp
 - [Stanford HAI: AI Index Report 2025](https://hai.stanford.edu/ai-index/2025-ai-index-report)
 - [Deloitte: State of Generative AI in the Enterprise](https://www.deloitte.com/us/en/insights/topics/generative-ai/state-of-generative-ai-in-enterprise.html)
 - [European Commission: Regulatory Framework for AI](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
-- [First Analysis of the EU Artificial Intelligence Act](https://arxiv.org/abs/2408.08318)`;
+- [First Analysis of the EU Artificial Intelligence Act](https://arxiv.org/abs/2408.08318)
+
+---
+
+**Teambotics Field Note**
+
+## Transform Strategic Insight Into Safer AI Workflows
+
+Teambotics designs AI systems for real operating environments: constrained workflows, source-grounded knowledge, human review gates, and adoption paths that respect the people doing the work.
+
+[Visit Teambotics](https://www.teambotics.app) | [Explore Our Work](https://www.teambotics.app)`;
 
 export const staticBlogPosts: StaticBlogPost[] = [
   {

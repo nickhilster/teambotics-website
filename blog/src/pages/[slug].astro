@@ -19,7 +19,7 @@ import CollaborationGradient from '../components/CollaborationGradient.astro';
 const { slug } = Astro.params as { slug: string };
 const apiBase =
   import.meta.env.SITE_API_BASE ??
-  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://teambotics.app');
+  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.teambotics.app');
 
 type Post = {
   id: string;
@@ -124,10 +124,10 @@ const renderedContent = processCallouts(rawHtml);
           source-grounded knowledge, human review gates, and adoption paths that respect the people doing the work.
         </p>
         <div class="article-cta__actions">
-          <a href="https://teambotics.app" class="article-cta__button article-cta__button--primary" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.teambotics.app" class="article-cta__button article-cta__button--primary" target="_blank" rel="noopener noreferrer">
             Visit TeamBotics ↗
           </a>
-          <a href="https://teambotics.app" class="article-cta__button article-cta__button--secondary" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.teambotics.app" class="article-cta__button article-cta__button--secondary" target="_blank" rel="noopener noreferrer">
             Explore the lab
           </a>
         </div>
