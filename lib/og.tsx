@@ -66,12 +66,14 @@ export function buildOgImage(logoSrc: string) {
         </div>
         <div
           style={{
+            alignItems: "center",
             display: "flex",
             flexDirection: "column",
             fontSize: 72,
             fontWeight: 700,
             letterSpacing: "-0.06em",
             lineHeight: 1,
+            textAlign: "center",
           }}
         >
           <span>Built for the</span>
