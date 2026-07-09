@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const BOARD_WIDTH = 10;
 const BOARD_HEIGHT = 18;
@@ -436,6 +436,21 @@ function buildDisplayBoard(board: Board, active: FallingPiece): Board {
   return display;
 }
 
+function getActiveCellKeys(active: FallingPiece): Set<string> {
+  const keys = new Set<string>();
+
+  for (const cell of getCells(active)) {
+    const x = active.x + cell.x;
+    const y = active.y + cell.y;
+
+    if (y >= 0 && y < BOARD_HEIGHT && x >= 0 && x < BOARD_WIDTH) {
+      keys.add(`${y}-${x}`);
+    }
+  }
+
+  return keys;
+}
+
 function applyAction(state: GameState, action: ControlAction): GameState {
   if (action === "restart") {
     return createGameState();
@@ -475,10 +490,46 @@ function applyAction(state: GameState, action: ControlAction): GameState {
   }
 }
 
+const PULSE_ACTIONS = new Set<ControlAction>([
+  "left",
+  "right",
+  "down",
+  "hard-drop",
+  "rotate-left",
+  "rotate-right",
+]);
+
 export function NotFoundTetris() {
   const [game, setGame] = useState<GameState>(() =>
     createGameState(INITIAL_ACTIVE_PIECE, INITIAL_NEXT_PIECE),
   );
+  const [isPulsing, setIsPulsing] = useState(false);
+  const pulseTimeoutRef = useRef<number | null>(null);
+
+  const dispatch = useCallback((action: ControlAction) => {
+    setGame((current) => applyAction(current, action));
+
+    if (PULSE_ACTIONS.has(action)) {
+      setIsPulsing(true);
+
+      if (pulseTimeoutRef.current !== null) {
+        window.clearTimeout(pulseTimeoutRef.current);
+      }
+
+      pulseTimeoutRef.current = window.setTimeout(() => {
+        setIsPulsing(false);
+        pulseTimeoutRef.current = null;
+      }, 150);
+    }
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (pulseTimeoutRef.current !== null) {
+        window.clearTimeout(pulseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     if (game.status !== "running") {
@@ -504,37 +555,34 @@ export function NotFoundTetris() {
       }
 
       switch (event.key) {
-        case "ArrowLeft":
+        case "a":
+        case "A":
           event.preventDefault();
-          setGame((current) => applyAction(current, "left"));
+          dispatch("left");
           break;
-        case "ArrowRight":
+        case "d":
+        case "D":
           event.preventDefault();
-          setGame((current) => applyAction(current, "right"));
+          dispatch("right");
           break;
-        case "ArrowDown":
+        case "s":
+        case "S":
           event.preventDefault();
-          setGame((current) => applyAction(current, "down"));
-          break;
-        case "ArrowUp":
-        case "x":
-        case "X":
-          event.preventDefault();
-          setGame((current) => applyAction(current, "rotate-right"));
-          break;
-        case "z":
-        case "Z":
-          event.preventDefault();
-          setGame((current) => applyAction(current, "rotate-left"));
+          dispatch("down");
           break;
         case " ":
           event.preventDefault();
-          setGame((current) => applyAction(current, "hard-drop"));
+          dispatch("hard-drop");
+          break;
+        case "w":
+        case "W":
+          event.preventDefault();
+          dispatch("rotate-right");
           break;
         case "r":
         case "R":
           event.preventDefault();
-          setGame((current) => applyAction(current, "restart"));
+          dispatch("restart");
           break;
         default:
           break;
@@ -544,10 +592,11 @@ export function NotFoundTetris() {
     window.addEventListener("keydown", onKeyDown);
 
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  }, [dispatch]);
 
   const displayBoard = buildDisplayBoard(game.board, game.active);
   const previewBoard = createPreviewBoard(game.next);
+  const activeCellKeys = getActiveCellKeys(game.active);
 
   return (
     <section className="not-found-console" aria-labelledby="not-found-console-title">
@@ -587,7 +636,9 @@ export function NotFoundTetris() {
             <div className="not-found-console__screen-noise" aria-hidden="true" />
             <div className="not-found-console__playfield">
               <div
-                className="not-found-console__board"
+                className={`not-found-console__board${
+                  isPulsing ? " not-found-console__board--pulse" : ""
+                }`}
                 aria-label={`Tetris board. Score ${game.score}. Lines ${game.lines}. Level ${game.level}.`}
                 role="img"
               >
@@ -598,7 +649,11 @@ export function NotFoundTetris() {
                       className={`not-found-console__cell${
                         cell === 0
                           ? ""
-                          : ` not-found-console__cell--filled not-found-console__cell--${cell}`
+                          : ` not-found-console__cell--filled not-found-console__cell--${cell}${
+                              activeCellKeys.has(`${rowIndex}-${cellIndex}`)
+                                ? " not-found-console__cell--active"
+                                : ""
+                            }`
                       }`}
                       key={`${rowIndex}-${cellIndex}`}
                     />
@@ -636,7 +691,7 @@ export function NotFoundTetris() {
 
                 <div className="not-found-console__panel">
                   <span className="not-found-console__panel-label">controls</span>
-                  <p className="not-found-console__status">arrows, z/x, space, r</p>
+                  <p className="not-found-console__status">wasd, space to drop, r</p>
                 </div>
               </div>
 
@@ -648,7 +703,7 @@ export function NotFoundTetris() {
                   </p>
                   <button
                     className="not-found-console__overlay-button"
-                    onClick={() => setGame((current) => applyAction(current, "restart"))}
+                    onClick={() => dispatch("restart")}
                     type="button"
                   >
                     Restart
@@ -663,28 +718,28 @@ export function NotFoundTetris() {
           <div className="not-found-console__cluster" role="group" aria-label="Movement controls">
             <button
               className="not-found-console__control-button not-found-console__control-button--secondary"
-              onClick={() => setGame((current) => applyAction(current, "rotate-left"))}
+              onClick={() => dispatch("rotate-left")}
               type="button"
             >
               ⟲
             </button>
             <button
               className="not-found-console__control-button not-found-console__control-button--secondary"
-              onClick={() => setGame((current) => applyAction(current, "left"))}
+              onClick={() => dispatch("left")}
               type="button"
             >
               ◀
             </button>
             <button
               className="not-found-console__control-button not-found-console__control-button--secondary"
-              onClick={() => setGame((current) => applyAction(current, "down"))}
+              onClick={() => dispatch("down")}
               type="button"
             >
               ▼
             </button>
             <button
               className="not-found-console__control-button not-found-console__control-button--secondary"
-              onClick={() => setGame((current) => applyAction(current, "right"))}
+              onClick={() => dispatch("right")}
               type="button"
             >
               ▶
@@ -694,21 +749,21 @@ export function NotFoundTetris() {
           <div className="not-found-console__action-cluster" role="group" aria-label="Action buttons">
             <button
               className="not-found-console__control-button not-found-console__control-button--primary"
-              onClick={() => setGame((current) => applyAction(current, "rotate-right"))}
+              onClick={() => dispatch("rotate-right")}
               type="button"
             >
               ⟳
             </button>
             <button
               className="not-found-console__control-button not-found-console__control-button--primary not-found-console__control-button--wide"
-              onClick={() => setGame((current) => applyAction(current, "hard-drop"))}
+              onClick={() => dispatch("hard-drop")}
               type="button"
             >
               Drop
             </button>
             <button
               className="not-found-console__control-pill"
-              onClick={() => setGame((current) => applyAction(current, "restart"))}
+              onClick={() => dispatch("restart")}
               type="button"
             >
               Reset

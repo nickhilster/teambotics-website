@@ -36,7 +36,7 @@ export default function NotFound() {
           <div className="not-found-badges" aria-label="Recovery console details">
             <span className="not-found-badge">Lab-issued FC-404</span>
             <span className="not-found-badge">Recovery sim</span>
-            <span className="not-found-badge">Arrows + Z/X + Space</span>
+            <span className="not-found-badge">WASD + Space to Drop</span>
           </div>
           <div className="not-found-actions">
             <Button href="/">Return home</Button>
