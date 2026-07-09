@@ -42,6 +42,14 @@ export type GitHubRepoTarget = {
   sourceKey: string;
 };
 
+type TigRepoRow = {
+  owner?: string;
+  repo?: string;
+  full_name?: string;
+  label?: string;
+  enabled?: boolean;
+};
+
 export type GitHubIngestionResult = {
   runId: string;
   status: "succeeded" | "partial" | "failed";
@@ -83,6 +91,10 @@ function inferProductSlug(repo: string) {
 function getProductLabel(productSlug: string | null, repo: string) {
   const product = productCaseStudies.find((entry) => entry.slug === productSlug);
   return product?.name ?? repo;
+}
+
+function buildRepoLabel(repo: string) {
+  return `${repo} GitHub knowledge`;
 }
 
 export function parseGitHubIngestRepos(value: string | undefined | null) {
@@ -287,6 +299,34 @@ async function fetchRepositoryHead(target: GitHubRepoTarget, token: string) {
     defaultBranch,
     commitSha: commit.sha,
   };
+}
+
+export async function loadGitHubIngestRepos() {
+  const sql = await getNeonClient();
+  const rows = toRows<TigRepoRow>(await sql.query(
+    "SELECT owner, repo, full_name, label, enabled FROM tig_github_repos WHERE enabled = true ORDER BY created_at ASC",
+  ));
+
+  if (rows.length > 0) {
+    return rows
+      .filter((row) => row.owner && row.repo)
+      .map<GitHubRepoTarget>((row) => {
+        const owner = String(row.owner).trim();
+        const repo = String(row.repo).trim();
+        const fullName = row.full_name?.trim() || `${owner}/${repo}`;
+        return {
+          owner,
+          repo,
+          fullName,
+          productSlug: null,
+          route: null,
+          label: row.label?.trim() || buildRepoLabel(repo),
+          sourceKey: `tig:${owner}/${repo}`,
+        };
+      });
+  }
+
+  return parseGitHubIngestRepos(process.env.GITHUB_INGEST_REPOS);
 }
 
 async function fetchRepositoryTree(target: GitHubRepoTarget, token: string, ref: string) {
@@ -497,9 +537,9 @@ export async function runGitHubIngestion(options: { triggerType: string }) : Pro
     throw new Error("GITHUB_INGEST_TOKEN is required for GitHub ingestion.");
   }
 
-  const repos = parseGitHubIngestRepos(process.env.GITHUB_INGEST_REPOS);
+  const repos = await loadGitHubIngestRepos();
   if (repos.length === 0) {
-    throw new Error("GITHUB_INGEST_REPOS must list at least one owner/repo pair.");
+    throw new Error("No TIG GitHub repos are configured. Add repos in the TIG admin tab or set GITHUB_INGEST_REPOS.");
   }
 
   await getNeonClient();

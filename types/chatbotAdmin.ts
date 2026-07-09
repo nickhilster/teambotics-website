@@ -186,6 +186,19 @@ export type ChatbotIngestionRun = {
   errorSummary: string | null
 }
 
+export type TigGithubRepo = {
+  id: string
+  repoKey: string
+  owner: string
+  repo: string
+  fullName: string
+  label: string
+  enabled: boolean
+  notes: string | null
+  lastSyncedAt: string | null
+  lastError: string | null
+}
+
 export type ChatbotConfigSummary = Pick<
   ChatbotConfigVersion,
   'id' | 'versionNumber' | 'status' | 'label' | 'createdAt' | 'publishedAt' | 'notes' | 'publishNote'

@@ -161,6 +161,26 @@ async function createSchema() {
       ON chatbot_sources (enabled)
     `,
     `
+    CREATE TABLE IF NOT EXISTS tig_github_repos (
+      id text PRIMARY KEY,
+      repo_key text NOT NULL UNIQUE,
+      owner text NOT NULL,
+      repo text NOT NULL,
+      full_name text NOT NULL UNIQUE,
+      label text NOT NULL,
+      enabled boolean NOT NULL DEFAULT true,
+      notes text,
+      last_synced_at timestamptz,
+      last_error text,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      updated_at timestamptz NOT NULL DEFAULT now()
+    )
+    `,
+    `
+    CREATE INDEX IF NOT EXISTS idx_tig_github_repos_enabled
+      ON tig_github_repos (enabled)
+    `,
+    `
     CREATE TABLE IF NOT EXISTS chatbot_documents (
       id text PRIMARY KEY,
       source_type text NOT NULL,

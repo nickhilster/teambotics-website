@@ -17,6 +17,7 @@ import type {
   ChatbotIngestionRun,
   ChatbotLogEntry,
   ChatbotSource,
+  TigGithubRepo,
 } from '@/types/chatbotAdmin';
 
 const ADMIN_TABS = [
@@ -34,6 +35,7 @@ const ADMIN_TABS = [
   { id: 'versions', label: 'Versions' },
   { id: 'sources', label: 'Sources' },
   { id: 'ingestion', label: 'Ingestion' },
+  { id: 'tig', label: 'TIG' },
 ] as const;
 
 type AdminTab = (typeof ADMIN_TABS)[number]['id'];
@@ -134,6 +136,9 @@ export default function ChatbotAdminPage() {
   const [versions, setVersions] = useState<ChatbotConfigSummary[]>([]);
   const [sources, setSources] = useState<ChatbotSource[]>([]);
   const [ingestionRuns, setIngestionRuns] = useState<ChatbotIngestionRun[]>([]);
+  const [tigRepos, setTigRepos] = useState<TigGithubRepo[]>([]);
+  const [tigRepoValue, setTigRepoValue] = useState('headroomlabs-ai/headroom');
+  const [tigRepoNotes, setTigRepoNotes] = useState('');
   const [isPanelLoading, setIsPanelLoading] = useState(false);
   const [testPrompt, setTestPrompt] = useState('What should I know about LTB Buddy?');
   const [testResult, setTestResult] = useState<AdminTestResponse | null>(null);
@@ -161,6 +166,7 @@ export default function ChatbotAdminPage() {
     if (activeTab === 'versions') void loadVersions();
     if (activeTab === 'sources') void loadSources();
     if (activeTab === 'ingestion') void loadIngestion();
+    if (activeTab === 'tig') void loadTigRepos();
   }, [activeTab, isAuthenticated]);
 
   async function checkSession() {
@@ -365,6 +371,90 @@ export default function ChatbotAdminPage() {
       setPanelError(err instanceof Error ? err.message : 'Unable to load ingestion runs');
     } finally {
       setIsPanelLoading(false);
+    }
+  }
+
+  async function loadTigRepos() {
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/tig');
+      const payload = await response.json();
+      if (!response.ok) {
+        throw new Error(payload.error ?? 'Unable to load TIG repos');
+      }
+      setTigRepos(Array.isArray(payload.repos) ? payload.repos : []);
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to load TIG repos');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function addTigRepo() {
+    const fullName = tigRepoValue.trim();
+    if (!fullName) {
+      setPanelError('Enter an owner/repo value before adding a repo.');
+      return;
+    }
+
+    setIsPanelLoading(true);
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/tig', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, notes: tigRepoNotes.trim() || null }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to add repo');
+      }
+      setTigRepoValue('');
+      setTigRepoNotes('');
+      await loadTigRepos();
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to add repo');
+    } finally {
+      setIsPanelLoading(false);
+    }
+  }
+
+  async function toggleTigRepo(repo: TigGithubRepo) {
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/tig', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repoKey: repo.repoKey, enabled: !repo.enabled }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to update repo');
+      }
+      setTigRepos((current) => current.map((entry) => (
+        entry.repoKey === repo.repoKey ? payload.repo as TigGithubRepo : entry
+      )));
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to update repo');
+    }
+  }
+
+  async function deleteTigRepo(repo: TigGithubRepo) {
+    setPanelError(null);
+    try {
+      const response = await fetch('/api/admin/chatbot/tig', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ repoKey: repo.repoKey }),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error ?? 'Unable to delete repo');
+      }
+      setTigRepos((current) => current.filter((entry) => entry.repoKey !== repo.repoKey));
+    } catch (err) {
+      setPanelError(err instanceof Error ? err.message : 'Unable to delete repo');
     }
   }
 
@@ -1131,6 +1221,70 @@ export default function ChatbotAdminPage() {
     </section>
   );
 
+  const renderTigPanel = () => (
+    <section className="panel-card">
+      <div className="panel-heading-row">
+        <div>
+          <h2 className="panel-title">TIG GitHub repos</h2>
+          <p className="panel-description">Manage the repo list that powers Take It & Go ingestion.</p>
+        </div>
+        <button type="button" className="admin-link-button" onClick={loadTigRepos}>
+          Refresh
+        </button>
+      </div>
+
+      <div className="admin-tool-grid" style={{ marginBottom: '1rem' }}>
+        <label className="field-row">
+          <span>GitHub repo</span>
+          <input
+            value={tigRepoValue}
+            onChange={(event) => setTigRepoValue(event.target.value)}
+            placeholder="owner/repo"
+          />
+        </label>
+        <label className="field-row">
+          <span>Notes</span>
+          <input
+            value={tigRepoNotes}
+            onChange={(event) => setTigRepoNotes(event.target.value)}
+            placeholder="Optional notes"
+          />
+        </label>
+        <button type="button" className="admin-link-button" onClick={addTigRepo}>
+          Add repo
+        </button>
+      </div>
+
+      {isPanelLoading && activeTab === 'tig' ? <div className="panel-empty-state">Loading TIG repos…</div> : null}
+
+      <div className="admin-table-list">
+        {tigRepos.length > 0 ? tigRepos.map((repo) => (
+          <article className="admin-log-row" key={repo.repoKey}>
+            <div>
+              <div className="admin-row-title">
+                <span className="admin-pill">{repo.enabled ? 'enabled' : 'disabled'}</span>
+                <strong>{repo.fullName}</strong>
+              </div>
+              <p>{repo.label}</p>
+              {repo.notes ? <p>{repo.notes}</p> : null}
+              {repo.lastError ? <p className="admin-row-error">{repo.lastError}</p> : null}
+            </div>
+            <div className="admin-row-meta">
+              <button type="button" className="admin-link-button" onClick={() => toggleTigRepo(repo)}>
+                {repo.enabled ? 'Disable' : 'Enable'}
+              </button>
+              <button type="button" className="admin-link-button" onClick={() => deleteTigRepo(repo)}>
+                Remove
+              </button>
+            </div>
+          </article>
+        )) : (
+          <div className="panel-empty-state">No TIG repos configured yet.</div>
+        )}
+      </div>
+    </section>
+  );
+
   const renderPanel = () => {
     switch (activeTab) {
       case 'behavior':
@@ -1161,6 +1315,8 @@ export default function ChatbotAdminPage() {
         return renderSourcesPanel();
       case 'ingestion':
         return renderIngestionPanel();
+      case 'tig':
+        return renderTigPanel();
       default:
         return null;
     }
