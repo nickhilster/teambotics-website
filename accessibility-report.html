@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teambotics Accessibility &amp; QA Report — 2026-06-08</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #070b1a;
+    --surface: #0d1330;
+    --elevated: #151d45;
+    --text: #f5f7ff;
+    --text-secondary: #a8afd6;
+    --accent-pink: #ff4db8;
+    --accent-orange: #f97316;
+    --accent-yellow: #eab308;
+    --accent-green: #22c55e;
+    --accent-red: #ef4444;
+    --border: rgba(101,117,204,0.24);
+    --gradient: linear-gradient(135deg, #6d5cff, #3dc8d0, #66e6ff);
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 0 4rem;
+  }
+
+  /* ── HEADER ── */
+  .report-header {
+    background: linear-gradient(160deg, #0d1330 0%, #070b1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(109,92,255,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .header-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+  .report-header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.6rem;
+    line-height: 1.2;
+  }
+  .report-meta { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.2rem; }
+  .meta-chip {
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .meta-chip strong { color: var(--text); }
+
+  /* ── LAYOUT ── */
+  .content { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+  .section { margin-bottom: 3.5rem; }
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title .badge {
+    font-size: 0.65rem;
+    background: var(--elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.15rem 0.4rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── STAT CARDS ── */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .stat-card.critical::before { background: var(--accent-red); }
+  .stat-card.serious::before { background: var(--accent-orange); }
+  .stat-card.moderate::before { background: var(--accent-yellow); }
+  .stat-card.minor::before { background: #60a5fa; }
+  .stat-card.pass::before { background: var(--accent-green); }
+  .stat-number { font-size: 2.8rem; font-weight: 800; line-height: 1; margin-bottom: 0.3rem; }
+  .stat-card.critical .stat-number { color: var(--accent-red); }
+  .stat-card.serious .stat-number { color: var(--accent-orange); }
+  .stat-card.moderate .stat-number { color: var(--accent-yellow); }
+  .stat-card.minor .stat-number { color: #60a5fa; }
+  .stat-card.pass .stat-number { color: var(--accent-green); }
+  .stat-label { font-size: 0.78rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* ── VERDICT ── */
+  .verdict-box {
+    background: var(--surface);
+    border: 1px solid rgba(234,179,8,0.4);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .verdict-icon { font-size: 1.8rem; flex-shrink: 0; }
+  .verdict-text { font-size: 0.95rem; color: var(--text-secondary); }
+  .verdict-text strong { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 1.05rem; }
+
+  /* ── PRIORITIES ── */
+  .priority-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .priority-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.7rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .priority-num {
+    background: var(--elevated);
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700;
+    flex-shrink: 0;
+    color: var(--accent-pink);
+  }
+  .priority-item p { color: var(--text-secondary); margin-top: 0.1rem; font-size: 0.82rem; }
+
+  /* ── SEVERITY CHIPS ── */
+  .chip {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .chip-critical { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+  .chip-serious  { background: rgba(249,115,22,0.15); color: #fb923c; border: 1px solid rgba(249,115,22,0.3); }
+  .chip-moderate { background: rgba(234,179,8,0.12); color: #fbbf24; border: 1px solid rgba(234,179,8,0.3); }
+  .chip-minor    { background: rgba(96,165,250,0.12); color: #93c5fd; border: 1px solid rgba(96,165,250,0.3); }
+  .chip-pass     { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+  .chip-info     { background: rgba(168,175,214,0.1); color: var(--text-secondary); border: 1px solid var(--border); }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th {
+    background: var(--elevated);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(101,117,204,0.1);
+    vertical-align: top;
+    color: var(--text-secondary);
+  }
+  td strong { color: var(--text); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(101,117,204,0.04); }
+
+  /* ── FINDING CARDS ── */
+  .findings-group { margin-bottom: 2.5rem; }
+  .findings-group-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--elevated);
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .finding-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .finding-card::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 3px;
+    border-radius: 3px 0 0 3px;
+  }
+  .finding-card.critical::before { background: var(--accent-red); }
+  .finding-card.serious::before  { background: var(--accent-orange); }
+  .finding-card.moderate::before { background: var(--accent-yellow); }
+  .finding-card.minor::before    { background: #60a5fa; }
+  .finding-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+  }
+  .finding-title { font-size: 1rem; font-weight: 700; color: var(--text); flex: 1; min-width: 200px; }
+  .finding-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.82rem;
+    margin-bottom: 0.9rem;
+    padding: 0.75rem 1rem;
+    background: rgba(101,117,204,0.06);
+    border-radius: 8px;
+  }
+  .meta-row { display: contents; }
+  .meta-key { color: var(--text-secondary); font-weight: 600; }
+  .meta-val { color: var(--text); }
+  .finding-desc { font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.65; }
+  .finding-code {
+    background: #050916;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.65rem 0.9rem;
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.78rem;
+    color: #a5d6a7;
+    overflow-x: auto;
+    margin-bottom: 0.75rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  .finding-fix {
+    font-size: 0.85rem;
+    color: #a5d6a7;
+    background: rgba(34,197,94,0.06);
+    border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+  }
+  .finding-fix strong { display: block; margin-bottom: 0.25rem; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-green); }
+
+  /* ── CONTRAST TABLE ── */
+  .pass-cell { color: #4ade80; font-weight: 700; }
+  .fail-cell { color: #f87171; font-weight: 700; }
+  .ratio-high { color: #4ade80; }
+  .ratio-mid  { color: #fbbf24; }
+  .ratio-fail { color: #f87171; }
+  .swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: middle; margin-right: 4px; border: 1px solid rgba(255,255,255,0.15); }
+
+  /* ── CHECKLIST ── */
+  .checklist { display: flex; flex-direction: column; gap: 0.6rem; }
+  .checklist-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.8rem 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .check-num {
+    background: var(--elevated);
+    color: var(--accent-pink);
+    font-weight: 800;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    padding: 0.15rem 0.45rem;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 2rem;
+    text-align: center;
+  }
+  .check-content { flex: 1; }
+  .check-title { font-weight: 700; color: var(--text); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .check-desc { font-size: 0.82rem; color: var(--text-secondary); }
+  .effort-tag {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-left: 0.4rem;
+  }
+  .effort-s { background: rgba(34,197,94,0.1); color: #4ade80; border: 1px solid rgba(34,197,94,0.25); }
+  .effort-m { background: rgba(234,179,8,0.1); color: #fbbf24; border: 1px solid rgba(234,179,8,0.25); }
+  .effort-l { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .toc h2 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.75rem; }
+  .toc ol { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
+  .toc a { color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; }
+  .toc a:hover { color: var(--accent-pink); }
+
+  /* ── MISC ── */
+  .note-box {
+    background: rgba(109,92,255,0.08);
+    border: 1px solid rgba(109,92,255,0.25);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+  .note-box strong { color: #a78bfa; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ HEADER ════════════════════ -->
+<header class="report-header">
+  <div class="header-inner">
+    <h1>Teambotics — Accessibility &amp; QA Audit Report</h1>
+    <p style="color:var(--text-secondary);font-size:0.92rem;margin-top:0.4rem;">
+      Automated axe-core 4.9.1 + manual DOM inspection + E2E flow testing
+    </p>
+    <div class="report-meta">
+      <div class="meta-chip"><strong>Date:</strong> 2026-06-08</div>
+      <div class="meta-chip"><strong>URL:</strong> http://localhost:3000</div>
+      <div class="meta-chip"><strong>Standard:</strong> WCAG 2.1 AA</div>
+      <div class="meta-chip"><strong>Viewports:</strong> Desktop 1280×800, Mobile 375×812</div>
+      <div class="meta-chip"><strong>Themes:</strong> Light &amp; Dark</div>
+      <div class="meta-chip"><strong>Tool:</strong> axe-core CDN + preview_eval + DOM inspection</div>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- TOC -->
+  <nav class="toc" aria-label="Report contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#executive-summary">1. Executive Summary</a></li>
+      <li><a href="#e2e-results">2. E2E Flow Results</a></li>
+      <li><a href="#findings">3. Accessibility Findings by Page</a></li>
+      <li><a href="#contrast-appendix">4. Contrast Appendix</a></li>
+      <li><a href="#remediation">5. Remediation Checklist</a></li>
+    </ol>
+  </nav>
+
+  <!-- ════════════════════ EXECUTIVE SUMMARY ════════════════════ -->
+  <section class="section" id="executive-summary">
+    <h2 class="section-title">1. Executive Summary <span class="badge">WCAG 2.1 AA</span></h2>
+
+    <div class="stat-grid">
+      <div class="stat-card critical">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Critical</div>
+      </div>
+      <div class="stat-card serious">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Serious</div>
+      </div>
+      <div class="stat-card moderate">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Moderate</div>
+      </div>
+      <div class="stat-card minor">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Minor</div>
+      </div>
+      <div class="stat-card pass">
+        <div class="stat-number">42+</div>
+        <div class="stat-label">axe Passes</div>
+      </div>
+    </div>
+
+    <div class="verdict-box">
+      <div class="verdict-icon">⚠️</div>
+      <div class="verdict-text">
+        <strong>WCAG 2.1 AA: Conditional Pass — Remediation Required</strong>
+        The main Teambotics site (/, /about, /privacy, /terms, /products/*) passes axe automated checks on most pages with no critical barriers to task completion. However, three serious issues require immediate attention: a scrollable table lacking keyboard access on /privacy, confirmed color-contrast failures on the /easybuddy standalone page, and missing aria-invalid/aria-describedby on invalid form fields site-wide. Several moderate issues around landmark structure, mobile drawer ARIA, and heading semantics also need addressing before the site can claim full WCAG 2.1 AA conformance.
+      </div>
+    </div>
+
+    <h3 style="font-size:1rem;font-weight:700;margin-bottom:0.75rem;color:var(--text);">Top 5 Priorities</h3>
+    <ul class="priority-list">
+      <li class="priority-item">
+        <div class="priority-num">1</div>
+        <div>
+          <strong>/privacy — Scrollable table not keyboard accessible</strong> <span class="chip chip-serious">Serious</span>
+          <p>WCAG 2.1.1 (A). A data table on the Privacy Policy page is not reachable via keyboard. Add <code>tabindex="0"</code> to the scrollable container so keyboard users can scroll it.</p>
+        </div>
+      </li>
+      <li class="priority-item">
+        <div class="priority-num">2</div>
+        <div>
+          <strong>/easybuddy — 18 color-contrast violations</strong> <span class="chip chip-serious">Serious</span>
+          <p>WCAG 1.4.3 (AA). Inline styles use <code>rgba(255,255,255,0.4)</code> and <code>rgba(255,255,255,0.45)</code> at small font sizes producing ratios of 3.47–4.47:1 against dark backgrounds, all below the 4.5:1 threshold.</p>
+        </div>
+      </li>
+      <li class="priority-item">
+        <div class="priority-num">3</div>
+        <div>
+          <strong>All pages — No skip-to-content link</strong> <span class="chip chip-serious">Serious</span>
+          <p>WCAG 2.4.1 (A). There is no skip navigation link. Keyboard and screen-reader users must tab through the full header (logo + language switcher + theme toggle + 5 nav links) on every page load.</p>
+        </div>
+      </li>
+      <li class="priority-item">
+        <div class="priority-num">4</div>
+        <div>
+          <strong>Contact form — Missing aria-invalid + aria-describedby on error state</strong> <span class="chip chip-moderate">Moderate</span>
+          <p>WCAG 1.3.1 (A) / 3.3.1 (A). When the form is submitted with invalid data, visual error messages appear but fields do not receive <code>aria-invalid="true"</code> or <code>aria-describedby</code> pointing to the error, so screen readers cannot programmatically associate the error with its field.</p>
+        </div>
+      </li>
+      <li class="priority-item">
+        <div class="priority-num">5</div>
+        <div>
+          <strong>/about — Duplicate main landmark</strong> <span class="chip chip-moderate">Moderate</span>
+          <p>WCAG 1.3.6 / Best practice. The about page renders two <code>&lt;main&gt;</code> elements. The shell renders one and the page component renders another inside it, triggering three axe landmark violations. Screen reader virtual cursors and landmark navigation become ambiguous.</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ════════════════════ E2E RESULTS ════════════════════ -->
+  <section class="section" id="e2e-results">
+    <h2 class="section-title">2. E2E Flow Results</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Flow</th>
+            <th>Status</th>
+            <th>Viewport / Theme</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Home page loads</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop + Mobile / Dark + Light</td>
+            <td>Page renders, H1 present, no JS errors, Fast Refresh active in dev</td>
+          </tr>
+          <tr>
+            <td><strong>Header nav — Systems / Capabilities / Approach / Contact</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>All 4 anchor links present with meaningful text. Nav has aria-label="Primary".</td>
+          </tr>
+          <tr>
+            <td><strong>Theme toggle (light ↔ dark)</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop</td>
+            <td>Button label "Toggle color theme" present. Body bg switches from rgb(247,248,255) to rgb(7,11,26) on click. ⚠️ Button label does not announce current state (no aria-pressed or dynamic label).</td>
+          </tr>
+          <tr>
+            <td><strong>Contact form — invalid submission</strong></td>
+            <td><span class="chip chip-serious">⚠️ Issues</span></td>
+            <td>Desktop / Dark</td>
+            <td>Visual errors appear (role="alert" on each message, role="status" on summary). ❌ Fields missing aria-invalid="true" and aria-describedby. Focus is not moved to first error field.</td>
+          </tr>
+          <tr>
+            <td><strong>Language switcher — fr-CA</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>&lt;html lang="fr-CA"&gt; set correctly. H1 renders in French.</td>
+          </tr>
+          <tr>
+            <td><strong>Language switcher — es-419</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>&lt;html lang="es-419"&gt; set correctly. H1 renders in Spanish.</td>
+          </tr>
+          <tr>
+            <td><strong>Language switcher — option labels</strong></td>
+            <td><span class="chip chip-moderate">⚠️ Minor Issue</span></td>
+            <td>All</td>
+            <td>Options show "Francais" and "Espanol" without accents. Should be "Français" and "Español" for correctness and screen-reader pronunciation.</td>
+          </tr>
+          <tr>
+            <td><strong>Mobile hamburger menu open/close</strong></td>
+            <td><span class="chip chip-moderate">⚠️ Issues</span></td>
+            <td>Mobile 375×812 / Dark</td>
+            <td>Drawer opens and shows correct nav links. ❌ Button label stays "Open navigation" when open (should toggle to "Close navigation"). ❌ aria-expanded not set on button. ❌ .mobile-drawer has no role="dialog"/aria-modal; focus not trapped.</td>
+          </tr>
+          <tr>
+            <td><strong>Products — click from home to /products/ltb-buddy</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>Product card links present, product page H1 matches product name.</td>
+          </tr>
+          <tr>
+            <td><strong>/about page</strong></td>
+            <td><span class="chip chip-moderate">⚠️ Issues</span></td>
+            <td>Desktop / Dark</td>
+            <td>3 axe landmark violations: duplicate &lt;main&gt;, main not top-level, landmark not unique.</td>
+          </tr>
+          <tr>
+            <td><strong>/privacy page</strong></td>
+            <td><span class="chip chip-serious">⚠️ Issues</span></td>
+            <td>Desktop / Dark</td>
+            <td>scrollable-region-focusable violation on &lt;table&gt; element.</td>
+          </tr>
+          <tr>
+            <td><strong>/terms page</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>No violations, H1 present, lang="en".</td>
+          </tr>
+          <tr>
+            <td><strong>/products/ltb-buddy, /code2motion, /easybuddy, /storytellr</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>No axe violations. color-contrast marked "incomplete" (axe cannot assess due to background complexity) — manual spot-check passed for primary text.</td>
+          </tr>
+          <tr>
+            <td><strong>/easybuddy (standalone)</strong></td>
+            <td><span class="chip chip-serious">⚠️ Issues</span></td>
+            <td>Desktop / Dark</td>
+            <td>18 color-contrast violations, 5 heading-order violations, missing main landmark, 15 regions outside landmarks, scrollable table with tabIndex=-1.</td>
+          </tr>
+          <tr>
+            <td><strong>/fr-CA, /es-419 locale pages</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>Desktop / Dark</td>
+            <td>Correct html[lang] set. No axe violations. H1 renders translated content.</td>
+          </tr>
+          <tr>
+            <td><strong>/nonexistent — 404 page</strong></td>
+            <td><span class="chip chip-moderate">⚠️ Minor Issue</span></td>
+            <td>Desktop / Dark</td>
+            <td>Friendly 404 page with nav links (Return home, Browse products). ❌ &lt;title&gt; is "Teambotics" — should include "404" for screen readers and browser history. No header/footer/nav shell rendered (isolated page, intentional but reduces context).</td>
+          </tr>
+          <tr>
+            <td><strong>Skip-to-content link</strong></td>
+            <td><span class="chip chip-serious">❌ Missing</span></td>
+            <td>All pages</td>
+            <td>No skip link found on any page. WCAG 2.4.1 (A) violation for keyboard users.</td>
+          </tr>
+          <tr>
+            <td><strong>LinkedIn external link</strong></td>
+            <td><span class="chip chip-minor">⚠️ Minor Issue</span></td>
+            <td>All pages</td>
+            <td>Opens in _blank (rel="noopener noreferrer" present ✅). ❌ No aria-label indicating "opens in new tab" — screen reader users may be surprised.</td>
+          </tr>
+          <tr>
+            <td><strong>prefers-reduced-motion</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>All</td>
+            <td>CSS @media (prefers-reduced-motion) rules found in stylesheets.</td>
+          </tr>
+          <tr>
+            <td><strong>No console JS errors</strong></td>
+            <td><span class="chip chip-pass">✅ Pass</span></td>
+            <td>All</td>
+            <td>No [error] level console entries. Only dev-mode Vercel Analytics/Speed Insights info logs.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ════════════════════ FINDINGS ════════════════════ -->
+  <section class="section" id="findings">
+    <h2 class="section-title">3. Accessibility Findings</h2>
+
+    <div class="note-box">
+      <strong>Methodology note:</strong> axe-core 4.9.1 was injected via CDN and run with <code>wcag2a, wcag2aa, wcag21a, wcag21aa, best-practice</code> rules on every page. DOM inspection and manual checks supplement automated results. The <em>color-contrast</em> rule was marked "incomplete" by axe on most Teambotics-brand pages (not /easybuddy) because background images/gradients prevented automated measurement — those were manually spot-checked and passed.
+    </div>
+
+    <!-- ─ SITE-WIDE ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">Site-wide (all pages)</div>
+
+      <div class="finding-card serious">
+        <div class="finding-header">
+          <div class="finding-title">No skip-to-content link</div>
+          <span class="chip chip-serious">Serious</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">All pages</span>
+          <span class="meta-key">Viewports</span><span class="meta-val">Desktop + Mobile</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">2.4.1 Bypass Blocks (Level A)</span>
+          <span class="meta-key">axe rule</span><span class="meta-val">bypass (not triggered — element absent)</span>
+        </div>
+        <p class="finding-desc">No <code>&lt;a href="#main-content"&gt;Skip to main content&lt;/a&gt;</code> (or equivalent) exists anywhere in the DOM. Keyboard users must tab through the full header on every page: logo link + language selector + theme toggle + 5 navigation links = 8 tab stops before reaching page content. On mobile with the hamburger, it's slightly fewer, but the problem persists.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Add a visually-hidden but focusable skip link as the very first child of <code>&lt;body&gt;</code>:<br>
+          <code>&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;</code><br>
+          Add <code>id="main-content"</code> to the <code>&lt;main&gt;</code> element. Style the skip link to appear only on focus.
+        </div>
+      </div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Contact form: fields not associated with error messages programmatically</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/ (home contact section)</span>
+          <span class="meta-key">Viewports</span><span class="meta-val">Desktop + Mobile</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.3.1 Info and Relationships (A), 3.3.1 Error Identification (A)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">#lead-name, #lead-email, #lead-message</span>
+        </div>
+        <p class="finding-desc">On invalid form submission, three <code>&lt;span role="alert"&gt;</code> error messages render visually but: (1) the associated inputs do not receive <code>aria-invalid="true"</code>, (2) there is no <code>aria-describedby</code> linking each input to its error <code>&lt;span&gt;</code>. Screen readers announce the alerts via live region, but cannot determine which field is invalid from the input's own accessible context. Additionally, focus is not programmatically moved to the first invalid field.</p>
+        <div class="finding-code">&lt;!-- Current (problematic) --&gt;
+&lt;input id="lead-name" type="text" required&gt;
+&lt;span role="alert" class="lead-form__error"&gt;Please add your name.&lt;/span&gt;
+
+&lt;!-- Required --&gt;
+&lt;input id="lead-name" aria-invalid="true" aria-describedby="lead-name-error" ...&gt;
+&lt;span id="lead-name-error" role="alert" class="lead-form__error"&gt;Please add your name.&lt;/span&gt;</div>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          On validation failure: set <code>aria-invalid="true"</code> on each failing field; set <code>aria-describedby</code> pointing to its error span (add a matching <code>id</code> to each error <code>&lt;span&gt;</code>); move focus to the first invalid field or the status summary.
+        </div>
+      </div>
+
+      <div class="finding-card minor">
+        <div class="finding-header">
+          <div class="finding-title">Theme toggle button: no announced state</div>
+          <span class="chip chip-minor">Minor</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">All (header)</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">4.1.2 Name, Role, Value (A)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">button[aria-label="Toggle color theme"]</span>
+        </div>
+        <p class="finding-desc">The theme toggle button has a static label "Toggle color theme" but no <code>aria-pressed</code> attribute to indicate current state (light or dark). Screen reader users cannot determine the active theme without additional context.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Add <code>aria-pressed="true/false"</code> that reflects current dark/light state, or dynamically update the <code>aria-label</code> to "Switch to light theme" / "Switch to dark theme".
+        </div>
+      </div>
+
+      <div class="finding-card minor">
+        <div class="finding-header">
+          <div class="finding-title">LinkedIn footer link: no "opens in new tab" indication</div>
+          <span class="chip chip-minor">Minor</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">All (footer)</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">WCAG 2.4.4 Link Purpose (AA) — best practice</span>
+          <span class="meta-key">Selector</span><span class="meta-val">footer a[href*="linkedin"]</span>
+        </div>
+        <p class="finding-desc">The LinkedIn link opens in a new tab (<code>target="_blank"</code>) but has no visual indicator or accessible announcement of this behaviour. The <code>rel="noopener noreferrer"</code> is correctly set (good). However, screen reader users should be informed via aria-label or a visually-hidden span.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Change to: <code>&lt;a href="..." target="_blank" aria-label="LinkedIn (opens in new tab)"&gt;LinkedIn&lt;/a&gt;</code>
+        </div>
+      </div>
+
+      <div class="finding-card minor">
+        <div class="finding-header">
+          <div class="finding-title">Language switcher option labels missing diacritics</div>
+          <span class="chip chip-minor">Minor</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">All (header)</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">Best practice / pronunciation</span>
+          <span class="meta-key">Selector</span><span class="meta-val">select[aria-label="Language"] option</span>
+        </div>
+        <p class="finding-desc">Option values are "Francais" and "Espanol" — missing accent marks. Screen readers will mispronounce these as English words rather than French/Spanish. Should be "Français" and "Español".</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Update option text: <code>&lt;option value="fr-CA"&gt;Français&lt;/option&gt;</code> and <code>&lt;option value="es-419"&gt;Español&lt;/option&gt;</code>.
+        </div>
+      </div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">CTA section H2 accessible name polluted by decorative chip text</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/ (home — CTA thesis section)</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.3.1 Info and Relationships (A)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">h2.cta-section__title &gt; span.cta-thesis</span>
+        </div>
+        <p class="finding-desc">The fifth H2 on the home page contains <code>&lt;span&gt;</code> decorative chips ("Product", "Discovery") inside the heading. Screen readers read the heading as "ProductDiscoveryQuality output begins with a quality input process." — the decorative tag words prepended to the headline create a confusing heading outline and accessible name. Document outline tools will show this garbled heading.</p>
+        <div class="finding-code">&lt;h2 class="cta-section__title"&gt;
+  &lt;span class="cta-thesis"&gt;
+    &lt;span class="cta-thesis__meta"&gt;
+      &lt;span class="cta-thesis__chip"&gt;Product&lt;/span&gt;  &lt;!-- decorative --&gt;
+      &lt;span class="cta-thesis__chip"&gt;Discovery&lt;/span&gt; &lt;!-- decorative --&gt;
+    &lt;/span&gt;
+    &lt;span class="cta-thesis__headline"&gt;Quality output begins with a quality input process.&lt;/span&gt;
+  &lt;/span&gt;
+&lt;/h2&gt;</div>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Add <code>aria-hidden="true"</code> to the <code>.cta-thesis__meta</code> span so chips are excluded from the heading's accessible name: <code>&lt;span class="cta-thesis__meta" aria-hidden="true"&gt;</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ MOBILE ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">Mobile Navigation (375×812)</div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Mobile drawer: missing ARIA pattern (no aria-expanded, no role, no focus trap)</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">All (mobile viewport)</span>
+          <span class="meta-key">Viewports</span><span class="meta-val">Mobile</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">4.1.2 Name, Role, Value (A); 2.1.2 No Keyboard Trap (A)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">button[aria-label="Open navigation"], .mobile-drawer</span>
+        </div>
+        <p class="finding-desc">Three related issues were observed on the mobile hamburger drawer: (1) The trigger button retains the label "Open navigation" even when the drawer is open — it should switch to "Close navigation" or use <code>aria-expanded</code>. (2) <code>aria-expanded</code> is absent from the button entirely, so screen readers cannot determine open/closed state. (3) The drawer element (<code>.mobile-drawer</code>) has no <code>role="dialog"</code> or <code>aria-modal="true"</code> and does not trap focus — a keyboard user could tab outside the drawer while it is visually open.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          (1) Add <code>aria-expanded="false"</code> to the trigger, toggling to <code>"true"</code> when open. (2) Update <code>aria-label</code> or add <code>aria-controls="mobile-drawer"</code> already present but complement with expanded state. (3) On open: add <code>role="dialog"</code> + <code>aria-modal="true"</code> + <code>aria-label="Navigation menu"</code> to <code>.mobile-drawer</code>; trap focus inside using a focus-trap utility; move focus to first link on open; restore focus to trigger on close.
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ /about ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">/about</div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Duplicate &lt;main&gt; landmark — nested main elements</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/about</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.3.6 Identify Purpose (AAA) / ARIA best practice</span>
+          <span class="meta-key">axe rules</span><span class="meta-val">landmark-main-is-top-level, landmark-no-duplicate-main, landmark-unique</span>
+          <span class="meta-key">Selector</span><span class="meta-val">.site-shell &gt; main (outer), .about-page (inner)</span>
+        </div>
+        <p class="finding-desc">Three axe violations triggered by the same root cause: <code>.about-page</code> renders a second <code>&lt;main&gt;</code> element nested inside the shell's <code>&lt;main&gt;</code>. ARIA spec mandates exactly one <code>main</code> landmark per page. Screen readers using landmark navigation (e.g. NVDA+Q or VoiceOver rotor) will encounter two "main" regions, causing confusion about primary content boundaries.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Change the <code>.about-page</code> component's root element from <code>&lt;main&gt;</code> to a semantically neutral element such as <code>&lt;div&gt;</code> or <code>&lt;article&gt;</code>. The shell already provides the single <code>&lt;main&gt;</code> wrapper.
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ /privacy ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">/privacy</div>
+
+      <div class="finding-card serious">
+        <div class="finding-header">
+          <div class="finding-title">Scrollable table not keyboard accessible</div>
+          <span class="chip chip-serious">Serious</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/privacy</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">2.1.1 Keyboard (A)</span>
+          <span class="meta-key">axe rule</span><span class="meta-val">scrollable-region-focusable</span>
+          <span class="meta-key">Selector</span><span class="meta-val">table (wrapping DIV)</span>
+        </div>
+        <p class="finding-desc">The Privacy Policy page contains a data table whose content overflows horizontally. The table's parent container is scrollable but has no <code>tabindex="0"</code>, meaning keyboard users cannot scroll or access content that is off-screen. Mouse-only users can scroll, but keyboard-only and switch-access users cannot reach clipped table content.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Wrap the table in a <code>&lt;div role="region" aria-label="Data table" tabindex="0" style="overflow-x:auto"&gt;</code>, or add <code>tabindex="0"</code> directly to the scrollable wrapper div. Alternatively, redesign the table to be responsive and avoid overflow at small viewports.
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ /easybuddy ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">/easybuddy (standalone page)</div>
+
+      <div class="finding-card serious">
+        <div class="finding-header">
+          <div class="finding-title">18 elements fail color-contrast (inline styles using rgba opacity)</div>
+          <span class="chip chip-serious">Serious</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/easybuddy</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.4.3 Contrast Minimum (AA) — 4.5:1 for normal text</span>
+          <span class="meta-key">axe rule</span><span class="meta-val">color-contrast (18 nodes)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">Multiple (see details)</span>
+        </div>
+        <p class="finding-desc">Multiple inline styles use <code>rgba(255,255,255,0.4)</code> (computed #666, ratio 3.65:1) and <code>rgba(255,255,255,0.45)</code> (computed #777, ratios 4.46–4.47:1) against very dark backgrounds. All three groups fail the 4.5:1 threshold for normal-weight text at 8–12px.</p>
+        <div class="finding-code">/* Failing instances (sample) */
+span { color: rgba(255,255,255,0.4); }  /* ratio 3.65:1 vs #000 — FAIL */
+p    { color: rgba(255,255,255,0.45); } /* ratio 4.46:1 vs #061722 — FAIL */
+div  { color: rgba(255,255,255,0.45); } /* ratio 4.47:1 vs #080808 — FAIL */</div>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Replace opacity-based white with absolute color values. Use at minimum <code>rgba(255,255,255,0.55)</code> (~5.5:1 on #000) or switch to <code>#8a8a9a</code> palette tokens. For the "by TeamBotics" attribution text, use <code>rgba(255,255,255,0.6)</code> or increase font size to 18.67px+ (large text threshold, allowing 3:1).
+        </div>
+      </div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Heading order skipped (H1 → H4) in 5 locations</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/easybuddy</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.3.1 Info and Relationships (A) — WCAG best practice</span>
+          <span class="meta-key">axe rule</span><span class="meta-val">heading-order (5 nodes)</span>
+        </div>
+        <p class="finding-desc">The page jumps from H1 directly to H4 in feature card sections (e.g., "Customer Service Simulation", "Real-Time Diagnostics", "Reduces Turnover &amp; Stress", etc.). Screen readers and document outline tools rely on sequential heading hierarchy for efficient navigation. Skipping levels disrupts navigation and page structure understanding.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Change H4 elements in feature grids to H2 or H3 as appropriate to the document hierarchy, or introduce intermediate H2/H3 section headings above the feature grids to maintain sequential levels.
+        </div>
+      </div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Missing main landmark + 15 regions outside landmarks</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/easybuddy</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">1.3.6 / ARIA landmark best practice</span>
+          <span class="meta-key">axe rules</span><span class="meta-val">landmark-one-main, region</span>
+        </div>
+        <p class="finding-desc">The standalone EasyBuddy page has no <code>&lt;main&gt;</code> landmark. All 15 content <code>&lt;section&gt;</code> elements fall outside any landmark. Screen reader users who navigate by landmarks (NVDA forms mode, VoiceOver rotor) will find no navigable structure — all content appears as one undifferentiated block.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Wrap the page's content sections in a <code>&lt;main id="main-content"&gt;</code> element. Give each major <code>&lt;section&gt;</code> an <code>aria-label</code> or <code>aria-labelledby</code> pointing to its visible heading.
+        </div>
+      </div>
+
+      <div class="finding-card moderate">
+        <div class="finding-header">
+          <div class="finding-title">Scrollable table inside /easybuddy not focusable (tabIndex=-1)</div>
+          <span class="chip chip-moderate">Moderate</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/easybuddy</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">2.1.1 Keyboard (A)</span>
+          <span class="meta-key">Selector</span><span class="meta-val">table (tabIndex=-1)</span>
+        </div>
+        <p class="finding-desc">Same pattern as /privacy: a table element has <code>tabIndex=-1</code> (programmatically set, not keyboard-reachable). Any overflowing content within it cannot be accessed via keyboard.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Change table's tabindex from -1 to 0, or wrap in <code>&lt;div tabindex="0" role="region" aria-label="Comparison table" style="overflow-x:auto"&gt;</code>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ 404 ─ -->
+    <div class="findings-group">
+      <div class="findings-group-title">/nonexistent (404)</div>
+
+      <div class="finding-card minor">
+        <div class="finding-header">
+          <div class="finding-title">404 page: &lt;title&gt; does not identify error state</div>
+          <span class="chip chip-minor">Minor</span>
+        </div>
+        <div class="finding-meta">
+          <span class="meta-key">Pages</span><span class="meta-val">/nonexistent (404)</span>
+          <span class="meta-key">WCAG</span><span class="meta-val">2.4.2 Page Titled (A)</span>
+          <span class="meta-key">Observed title</span><span class="meta-val">"Teambotics" (expected: "404 — Page Not Found | Teambotics")</span>
+        </div>
+        <p class="finding-desc">The 404 page's <code>&lt;title&gt;</code> element is "Teambotics" — identical to the home page. Screen reader users who land on this page and check the title for context will not know they reached a not-found error. Browser history and tab labels are also unhelpfully generic.</p>
+        <div class="finding-fix">
+          <strong>Recommended Fix</strong>
+          Update the 404 page metadata: <code>&lt;title&gt;404 — Page Not Found | Teambotics&lt;/title&gt;</code>.
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ════════════════════ CONTRAST APPENDIX ════════════════════ -->
+  <section class="section" id="contrast-appendix">
+    <h2 class="section-title">4. Contrast Appendix</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;">Ratios computed via WCAG relative luminance formula. Pass thresholds: normal text ≥ 4.5:1 (AA), large text / UI components ≥ 3.0:1 (AA). "Large text" = ≥18pt (24px) regular or ≥14pt (18.67px) bold.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Context</th>
+            <th>Theme</th>
+            <th>Foreground</th>
+            <th>Background</th>
+            <th>Ratio</th>
+            <th>AA Normal</th>
+            <th>AA Large</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>H1 heading</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#f6f8fc"></span>rgb(246,248,252)</td>
+            <td><span class="swatch" style="background:#070b1a"></span>rgb(7,11,26)</td>
+            <td class="ratio-high">18.43:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>H1 heading</strong></td>
+            <td>Light</td>
+            <td><span class="swatch" style="background:#0d1421"></span>rgb(13,20,33)</td>
+            <td><span class="swatch" style="background:#f7f8ff"></span>rgb(247,248,255)</td>
+            <td class="ratio-high">17.40:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Body paragraph text</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#e2eaf7"></span>rgb(226,234,247)</td>
+            <td><span class="swatch" style="background:#070b1a"></span>rgb(7,11,26)</td>
+            <td class="ratio-high">16.18:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Body paragraph text</strong></td>
+            <td>Light</td>
+            <td><span class="swatch" style="background:#3d4a5f"></span>rgb(61,74,95)</td>
+            <td><span class="swatch" style="background:#f7f8ff"></span>rgb(247,248,255)</td>
+            <td class="ratio-high">8.46:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Nav links (secondary)</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#a8afd6"></span>rgb(168,175,214)</td>
+            <td><span class="swatch" style="background:#070b1a"></span>rgb(7,11,26)</td>
+            <td class="ratio-high">9.11:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Nav links</strong></td>
+            <td>Light</td>
+            <td><span class="swatch" style="background:#596188"></span>rgb(89,97,136)</td>
+            <td><span class="swatch" style="background:#f7f8ff"></span>rgb(247,248,255)</td>
+            <td class="ratio-mid">5.68:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Footer links</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#596188"></span>rgb(89,97,136)</td>
+            <td><span class="swatch" style="background:#070b1a"></span>rgb(7,11,26)</td>
+            <td class="ratio-fail">3.26:1</td>
+            <td class="fail-cell">❌ Fail</td>
+            <td class="pass-cell">✅ Pass (large)</td>
+          </tr>
+          <tr>
+            <td><strong>Footer links</strong></td>
+            <td>Light</td>
+            <td><span class="swatch" style="background:#596188"></span>rgb(89,97,136)</td>
+            <td><span class="swatch" style="background:#f7f8ff"></span>rgb(247,248,255)</td>
+            <td class="ratio-mid">5.68:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Accent pink (headings/eyebrows)</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#ff7ad9"></span>rgb(255,122,217)</td>
+            <td><span class="swatch" style="background:#070b1a"></span>rgb(7,11,26)</td>
+            <td class="ratio-high">8.43:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+          <tr>
+            <td><strong>Accent pink (CTAs / kickers)</strong></td>
+            <td>Light</td>
+            <td><span class="swatch" style="background:#cf3aa9"></span>rgb(207,58,169)</td>
+            <td><span class="swatch" style="background:#f7f8ff"></span>rgb(247,248,255)</td>
+            <td class="ratio-fail">4.10:1</td>
+            <td class="fail-cell">❌ Fail</td>
+            <td class="pass-cell">✅ Pass (large)</td>
+          </tr>
+          <tr>
+            <td><strong>/easybuddy — attribution "by TeamBotics"</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#666666"></span>rgba(255,255,255,0.4) → #666</td>
+            <td><span class="swatch" style="background:#000000"></span>#000</td>
+            <td class="ratio-fail">3.65:1</td>
+            <td class="fail-cell">❌ Fail (8px text)</td>
+            <td class="fail-cell">❌ Fail</td>
+          </tr>
+          <tr>
+            <td><strong>/easybuddy — stat caption text</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#767f85"></span>rgba(255,255,255,0.45) → ~#767f85</td>
+            <td><span class="swatch" style="background:#061722"></span>#061722</td>
+            <td class="ratio-fail">4.46:1</td>
+            <td class="fail-cell">❌ Fail (13.6px)</td>
+            <td class="pass-cell">✅ Pass (large)</td>
+          </tr>
+          <tr>
+            <td><strong>/easybuddy — feature card descriptions</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#777777"></span>rgba(255,255,255,0.45) → #777</td>
+            <td><span class="swatch" style="background:#080808"></span>#080808</td>
+            <td class="ratio-fail">4.47:1</td>
+            <td class="fail-cell">❌ Fail (12px, 13 nodes)</td>
+            <td class="pass-cell">✅ Pass (large)</td>
+          </tr>
+          <tr>
+            <td><strong>Form labels (dark theme)</strong></td>
+            <td>Dark</td>
+            <td><span class="swatch" style="background:#a8afd6"></span>rgb(168,175,214)</td>
+            <td><span class="swatch" style="background:#0d1330"></span>rgb(13,19,48)</td>
+            <td class="ratio-high">8.47:1</td>
+            <td class="pass-cell">✅ Pass</td>
+            <td class="pass-cell">✅ Pass</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.8rem;margin-top:0.75rem;">⚠️ Footer links in dark theme (rgb(89,97,136) on rgb(7,11,26)) achieve 3.26:1 — only passing for large text (≥24px or bold ≥18.67px). Footer links render at 15px regular weight, putting this into <strong>WCAG AA failure</strong> territory for normal text.</p>
+  </section>
+
+  <!-- ════════════════════ REMEDIATION CHECKLIST ════════════════════ -->
+  <section class="section" id="remediation">
+    <h2 class="section-title">5. Remediation Checklist <span class="badge">Prioritized</span></h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin-bottom:1.25rem;">Ordered by severity then effort. Effort: <span class="effort-tag effort-s">S</span> = &lt;1hr, <span class="effort-tag effort-m">M</span> = half-day, <span class="effort-tag effort-l">L</span> = multi-day</p>
+    <div class="checklist">
+
+      <div class="checklist-item">
+        <div class="check-num">#1</div>
+        <div class="check-content">
+          <div class="check-title">Add skip-to-content link <span class="chip chip-serious">Serious</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Insert <code>&lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;</code> as first child of <code>&lt;body&gt;</code>. Add <code>id="main-content"</code> to <code>&lt;main&gt;</code>. CSS: visually hidden until :focus-visible.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#2</div>
+        <div class="check-content">
+          <div class="check-title">Fix scrollable tables on /privacy and /easybuddy <span class="chip chip-serious">Serious</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Add <code>tabindex="0"</code> to the scrollable wrapper div on both pages, or use <code>role="region" aria-label="..."</code>. Two separate files to update.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#3</div>
+        <div class="check-content">
+          <div class="check-title">Fix color-contrast failures on /easybuddy <span class="chip chip-serious">Serious</span><span class="effort-tag effort-m">M</span></div>
+          <div class="check-desc">Replace all inline <code>rgba(255,255,255,0.4)</code> and <code>rgba(255,255,255,0.45)</code> with values achieving ≥4.5:1. Minimum safe value: <code>rgba(255,255,255,0.55)</code> on pure-black backgrounds, or use absolute hex values from the Teambotics design token palette.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#4</div>
+        <div class="check-content">
+          <div class="check-title">Add aria-invalid + aria-describedby to contact form error state <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">On validation failure: set <code>aria-invalid="true"</code> on each failing field, assign unique IDs to each error <code>&lt;span&gt;</code>, add <code>aria-describedby</code> to each field pointing to its error span. Move focus to first invalid field or the status message.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#5</div>
+        <div class="check-content">
+          <div class="check-title">Fix duplicate &lt;main&gt; on /about <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Change the root element of the <code>AboutPage</code> component from <code>&lt;main&gt;</code> to <code>&lt;div&gt;</code> or <code>&lt;article&gt;</code>. The shell already provides the <code>&lt;main&gt;</code>.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#6</div>
+        <div class="check-content">
+          <div class="check-title">Fix mobile drawer ARIA pattern <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-m">M</span></div>
+          <div class="check-desc">Add <code>aria-expanded</code> to hamburger toggle button (dynamic). Add <code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-label="Navigation menu"</code> to <code>.mobile-drawer</code>. Implement focus trap on open; restore focus on close. Update button label to toggle between "Open navigation" / "Close navigation".</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#7</div>
+        <div class="check-content">
+          <div class="check-title">Fix footer link contrast in dark theme <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Footer link color in dark mode is rgb(89,97,136) → 3.26:1 against the dark background. Increase to at least rgb(120,130,175) (~4.5:1). Update the <code>--color-text-secondary</code> token for footer context or add a dedicated <code>.site-footer a { color: ... }</code> override.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#8</div>
+        <div class="check-content">
+          <div class="check-title">Fix accent pink contrast in light theme for normal-weight small text <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Accent pink (rgb(207,58,169)) on the light background (rgb(247,248,255)) is 4.10:1 — fails for normal text. For eyebrow/kicker text at 10px, this is a clear failure. Darken the light-theme accent to ~rgb(175,35,140) which achieves ≥4.5:1, or apply only to elements meeting large-text criteria.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#9</div>
+        <div class="check-content">
+          <div class="check-title">Add aria-hidden to decorative CTA chips inside H2 <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Add <code>aria-hidden="true"</code> to <code>.cta-thesis__meta</code> to prevent "Product" and "Discovery" from polluting the H2 accessible name. Verify heading outline reads only the actual headline text.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#10</div>
+        <div class="check-content">
+          <div class="check-title">Fix heading hierarchy on /easybuddy (H1 → H4 skips) <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-m">M</span></div>
+          <div class="check-desc">Audit the full /easybuddy heading structure. Replace H4 elements in feature card grids with H2 or H3. Introduce labelled section headings at H2 level if needed to maintain logical hierarchy across 5 affected locations.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#11</div>
+        <div class="check-content">
+          <div class="check-title">Add main landmark + label sections on /easybuddy <span class="chip chip-moderate">Moderate</span><span class="effort-tag effort-m">M</span></div>
+          <div class="check-desc">Wrap all content sections in a <code>&lt;main id="main-content"&gt;</code>. Add <code>aria-labelledby</code> to each <code>&lt;section&gt;</code> pointing to its heading, so landmark navigation works correctly.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#12</div>
+        <div class="check-content">
+          <div class="check-title">Update theme toggle to expose current state <span class="chip chip-minor">Minor</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Add <code>aria-pressed="true/false"</code> to the theme toggle button reflecting current dark/light state, so screen reader users know the current theme without visual inspection.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#13</div>
+        <div class="check-content">
+          <div class="check-title">Fix 404 page title <span class="chip chip-minor">Minor</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Update the 404 page's Next.js metadata export to use <code>title: "404 — Page Not Found | Teambotics"</code>.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#14</div>
+        <div class="check-content">
+          <div class="check-title">Announce external link for LinkedIn <span class="chip chip-minor">Minor</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Add <code>aria-label="LinkedIn (opens in new tab)"</code> to the LinkedIn footer anchor.</div>
+        </div>
+      </div>
+
+      <div class="checklist-item">
+        <div class="check-num">#15</div>
+        <div class="check-content">
+          <div class="check-title">Fix language option labels — add diacritics <span class="chip chip-minor">Minor</span><span class="effort-tag effort-s">S</span></div>
+          <div class="check-desc">Change "Francais" → "Français" and "Espanol" → "Español" in the language switcher option elements for correct screen-reader pronunciation.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <hr>
+    <p style="color:var(--text-secondary);font-size:0.82rem;text-align:center;">
+      Audit performed 2026-06-08 · axe-core 4.9.1 · WCAG 2.1 AA ·
+      Pages tested: /, /about, /privacy, /terms, /products/ltb-buddy, /products/code2motion, /products/easybuddy, /products/storytellr, /easybuddy, /fr-CA, /es-419, /nonexistent ·
+      Viewports: 1280×800 desktop, 375×812 mobile · Themes: light &amp; dark
+    </p>
+  </section>
+
+</div>
+</body>
+</html>
