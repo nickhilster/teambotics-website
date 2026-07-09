@@ -1,22 +1,37 @@
 ---
 import "../styles/site.css";
 
-const modules = [
+const repos = [
   {
-    tag: "Launch code",
-    title: "Publish the thing before the polish becomes procrastination.",
-    copy: "Take It And Go is for open-source that ships fast, stays legible, and does not wait for committee approval.",
+    name: "headroomlabs-ai/headroom",
+    category: "Agentic systems",
+    description: "Agentic workflows and prompt-heavy product work with a bias toward practical execution.",
+    href: "https://github.com/headroomlabs-ai/headroom",
   },
   {
-    tag: "Signal",
-    title: "Readable first, covert second.",
-    copy: "The surface feels editorial and calm, but the structure underneath is full of systems thinking, versioning, and control-room precision.",
+    name: "Graphify-Labs/graphify",
+    category: "Structure extraction",
+    description: "Graph-oriented thinking, relationship mapping, and visual structure for messy information spaces.",
+    href: "https://github.com/Graphify-Labs/graphify",
   },
   {
-    tag: "Boundary",
-    title: "Independent on purpose.",
-    copy: "This project stands apart from Teambotics visually and operationally. The domain is the only shared label.",
+    name: "Leonxlnx/agentic-ai-prompt-research",
+    category: "Prompt research",
+    description: "Research and testing patterns for agentic systems that need repeatability and control.",
+    href: "https://github.com/Leonxlnx/agentic-ai-prompt-research",
   },
+  {
+    name: "msitarzewski/agency-agents",
+    category: "Workflow experiments",
+    description: "Agency-minded agent workflows and tools for getting from idea to usable system.",
+    href: "https://github.com/msitarzewski/agency-agents",
+  },
+];
+
+const principles = [
+  "Open by default where it helps the project.",
+  "Small, practical tools before broad platforms.",
+  "Clear docs, clear ownership, clear next steps.",
 ];
 ---
 
@@ -27,112 +42,105 @@ const modules = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Take It And Go is an independent Astro landing page for OSS releases, with a bright hacker-adjacent visual identity."
+      content="Take It And Go is an independent Astro home for open-source releases with a bright sunrise identity."
     />
     <title>Take It And Go</title>
   </head>
   <body>
-    <div class="scanline" aria-hidden="true"></div>
-    <header class="topbar">
-      <div class="shell topbar__inner">
-        <a class="brand" href="/">
-          <span class="brand__mark" aria-hidden="true"></span>
-          <span class="brand__text">
-            <strong>Take It And Go</strong>
-            <em>Independent OSS dropzone</em>
-          </span>
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="#modules">Modules</a>
-          <a href="#principles">Principles</a>
-          <a href="#access">Access</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="shell hero__grid">
-          <div class="hero__copy">
-            <p class="eyebrow">OSS for people who move first</p>
+    <main class="takeitandgo">
+      <section class="takeitandgo-hero">
+        <div class="shell takeitandgo-hero__inner">
+          <div class="takeitandgo-hero__copy">
+            <p class="takeitandgo-kicker">Open source, shipped cleanly</p>
             <h1>Take it and go.</h1>
-            <p class="lead">
-              A bright, technical, slightly subversive home for open-source projects.
-              Clean enough to trust. Sharp enough to feel like a tool. Independent enough
-              to give things away without asking permission.
+            <p class="takeitandgo-hero__lead">
+              A bright, technically sharp home for open-source projects that deserve to
+              look polished without feeling corporate. Fast to share, easy to scan, and
+              built to stand on its own.
             </p>
-            <div class="actions" id="access">
-              <a class="button button--primary" href="#modules">View modules</a>
-              <a class="button button--secondary" href="#principles">Read the rules</a>
+            <div class="takeitandgo-hero__actions" id="access">
+              <a class="button button--primary" href="#repos">View the first four</a>
+              <a class="button button--secondary" href="#principles">Read the principles</a>
             </div>
           </div>
 
-          <aside class="terminal" aria-label="Project brief">
-            <div class="terminal__bar">
-              <span class="terminal__dot terminal__dot--one"></span>
-              <span class="terminal__dot terminal__dot--two"></span>
-              <span class="terminal__dot terminal__dot--three"></span>
-              <span>takeitandgo.session</span>
+          <aside class="takeitandgo-hero__panel" aria-label="Project brief">
+            <div class="takeitandgo-hero__panel-top">
+              <span class="takeitandgo-hero__panel-label">takeitandgo.session</span>
+              <span aria-hidden="true">✦</span>
             </div>
-            <div class="terminal__body">
-              <p class="terminal__line"><span>$</span> open --public --fast</p>
-              <p class="terminal__line"><span>></span> publish useful things even when they compete</p>
-              <p class="terminal__line"><span>></span> keep the UI calm, the logic sharp, the docs honest</p>
-              <p class="terminal__line"><span>></span> no corporate chrome, no gloom, no cosplay</p>
-            </div>
+            <ul class="takeitandgo-hero__list">
+              <li>
+                <strong>Ship public early.</strong>
+                <span>Put the repo in front of people before the polish becomes delay.</span>
+              </li>
+              <li>
+                <strong>Keep the surface warm.</strong>
+                <span>Bright, readable, and specific enough to feel trustworthy at first glance.</span>
+              </li>
+              <li>
+                <strong>Leave room for more.</strong>
+                <span>New projects should slot in without redesigning the system.</span>
+              </li>
+            </ul>
           </aside>
         </div>
       </section>
 
-      <section class="section" id="modules">
+      <section class="takeitandgo-section" id="repos">
         <div class="shell">
-          <div class="section__head">
-            <p class="eyebrow">Modules</p>
-            <h2>Three statements that set the tone.</h2>
+          <div class="takeitandgo-section__heading">
+            <p class="takeitandgo-kicker">Seed set</p>
+            <h2>The first four projects are live on the page.</h2>
             <p>
-              This identity should feel like a clean operator console crossed with an art
-              book. Functional, but not sterile. Hacker-adjacent, but not dark.
+              These are the initial repos we are surfacing. The page is structured so new
+              projects can drop in without changing the visual system.
             </p>
           </div>
 
-          <div class="grid">
-            {modules.map((module) => (
-              <article class="card">
-                <div class="meta">{module.tag}</div>
-                <h3>{module.title}</h3>
-                <p>{module.copy}</p>
+          <div class="takeitandgo-grid">
+            {repos.map((repo, index) => (
+              <article class="takeitandgo-card">
+                <div class="takeitandgo-card__header">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{repo.category}</span>
+                </div>
+                <h3><a href={repo.href} target="_blank" rel="noreferrer">{repo.name}</a></h3>
+                <p>{repo.description}</p>
+                <a class="takeitandgo-card__link" href={repo.href} target="_blank" rel="noreferrer">
+                  Open on GitHub
+                </a>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section class="section section--split" id="principles">
-        <div class="shell split">
-          <div class="section__head section__head--tight">
-            <p class="eyebrow">Principles</p>
+      <section class="takeitandgo-section takeitandgo-section--split" id="principles">
+        <div class="shell takeitandgo-split">
+          <div class="takeitandgo-section__heading takeitandgo-section__heading--tight">
+            <p class="takeitandgo-kicker">Principles</p>
             <h2>Open-source with teeth.</h2>
             <p>
-              The visual language should signal discipline, independence, and a willingness
-              to publish work that is useful even when it blurs the lines around the core
-              business.
+              The product should feel independent, deliberate, and useful. It should read
+              like a serious release channel, not a marketing wrapper.
             </p>
           </div>
 
-          <div class="principles">
-            <div class="principle">Bright paper base, not black velvet.</div>
-            <div class="principle">Precision lines, clipped corners, small command cues.</div>
-            <div class="principle">Hackers, but with daylight and good legibility.</div>
+          <div class="takeitandgo-principles">
+            {principles.map((principle) => (
+              <div class="takeitandgo-principle">{principle}</div>
+            ))}
           </div>
         </div>
       </section>
-    </main>
 
-    <footer class="footer">
-      <div class="shell footer__inner">
-        <span>Take It And Go</span>
-        <span>Independent from Teambotics, except for the URL.</span>
-      </div>
-    </footer>
+      <footer class="takeitandgo-footer">
+        <div class="shell takeitandgo-footer__inner">
+          <span>Take It And Go</span>
+          <span>Independent OSS release channel.</span>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>
