@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Git, Branches, and the Things We Leave Behind">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050815"/>
+      <stop offset="100%" stop-color="#090d1d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="warmAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <linearGradient id="inheritanceBlend" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#14b8a6"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="58%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#99f6e4"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="78%" cy="20%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="88%" cy="75%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="32"/>
+    </filter>
+    <clipPath id="clip"><rect width="640" height="360"/></clipPath>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glow1)"/>
+  <rect width="640" height="360" fill="url(#glow2)"/>
+
+  <!-- Soft inheritance/branch glow -->
+  <ellipse cx="560" cy="80" rx="130" ry="95" fill="#38bdf8" fill-opacity="0.06" filter="url(#blur)" clip-path="url(#clip)"/>
+  <ellipse cx="580" cy="220" rx="115" ry="85" fill="#14b8a6" fill-opacity="0.05" filter="url(#blur)" clip-path="url(#clip)"/>
+
+  <!-- Right-side branch/tree architecture: growing branches from root -->
+  <!-- Main trunk -->
+  <line x1="540" y1="250" x2="540" y2="90" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.25"/>
+
+  <!-- Primary branches -->
+  <line x1="540" y1="90" x2="490" y2="60" stroke="#14b8a6" stroke-width="1.5" stroke-opacity="0.35"/>
+  <line x1="540" y1="90" x2="590" y2="65" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.35"/>
+
+  <!-- Secondary branches (left fork) -->
+  <line x1="490" y1="60" x2="460" y2="45" stroke="#14b8a6" stroke-width="1" stroke-opacity="0.28"/>
+  <line x1="490" y1="60" x2="475" y2="80" stroke="#fb7185" stroke-width="1" stroke-opacity="0.25"/>
+
+  <!-- Secondary branches (right fork) -->
+  <line x1="590" y1="65" x2="615" y2="50" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.28"/>
+  <line x1="590" y1="65" x2="610" y2="85" stroke="#14b8a6" stroke-width="1" stroke-opacity="0.25"/>
+
+  <!-- Tertiary branches (showing depth and history) -->
+  <line x1="540" y1="140" x2="510" y2="125" stroke="#fb7185" stroke-width="1" stroke-opacity="0.20"/>
+  <line x1="540" y1="140" x2="570" y2="130" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.20"/>
+  <line x1="540" y1="190" x2="515" y2="175" stroke="#14b8a6" stroke-width="1" stroke-opacity="0.20"/>
+
+  <!-- Dead branch (showing abandoned work) -->
+  <line x1="540" y1="160" x2="480" y2="155" stroke="#fb7185" stroke-width="1" stroke-opacity="0.15" stroke-dasharray="2,2"/>
+
+  <!-- Nodes at branch points -->
+  <circle cx="540" cy="90" r="3" fill="#38bdf8" fill-opacity="0.6"/>
+  <circle cx="490" cy="60" r="2" fill="#14b8a6" fill-opacity="0.5"/>
+  <circle cx="590" cy="65" r="2" fill="#38bdf8" fill-opacity="0.5"/>
+  <circle cx="540" cy="140" r="2" fill="#fb7185" fill-opacity="0.4"/>
+  <circle cx="540" cy="190" r="2" fill="#14b8a6" fill-opacity="0.4"/>
+  <circle cx="540" cy="250" r="3" fill="#38bdf8" fill-opacity="0.5"/>
+
+  <!-- Root indicator -->
+  <rect x="530" y="250" width="20" height="3" rx="1.5" fill="#14b8a6" fill-opacity="0.3"/>
+
+  <!-- Label for tree structure -->
+  <text x="540" y="280" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="8" font-weight="600" letter-spacing="1.5" fill="#99f6e4" fill-opacity="0.45">INHERITANCE</text>
+
+  <!-- Left accent bar -->
+  <rect x="48" y="60" width="4" height="240" rx="2" fill="url(#inheritanceBlend)" fill-opacity="0.35"/>
+
+  <!-- Tag -->
+  <rect x="62" y="68" width="92" height="22" rx="11" fill="#38bdf8" fill-opacity="0.10" stroke="#38bdf8" stroke-width="0.75" stroke-opacity="0.40"/>
+  <text x="108" y="83" text-anchor="middle" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="2" fill="#99f6e4" fill-opacity="0.92">OPEN SOURCE</text>
+
+  <!-- Main title -->
+  <text x="62" y="140" font-family="ui-sans-serif,system-ui,sans-serif" font-size="42" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">Git, Branches,</text>
+  <text x="62" y="188" font-family="ui-sans-serif,system-ui,sans-serif" font-size="42" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1">and the Things</text>
+  <rect x="62" y="196" width="228" height="4" rx="2" fill="url(#inheritanceBlend)" fill-opacity="0.70"/>
+  <text x="62" y="244" font-family="ui-sans-serif,system-ui,sans-serif" font-size="42" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1" fill-opacity="0.68">We Leave Behind</text>
+
+  <!-- Branding -->
+  <text x="62" y="320" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="2.5" fill="#14b8a6" fill-opacity="0.55">TEAMBOTICS</text>
+  <rect x="48" y="335" width="544" height="1" rx="0.5" fill="url(#inheritanceBlend)" fill-opacity="0.12"/>
+</svg>
