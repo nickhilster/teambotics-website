@@ -2382,6 +2382,13 @@ html.dark .engagement-step__content {
   gap: clamp(1.25rem, 3vw, 3rem);
 }
 
+.not-found-theme-toggle {
+  position: absolute;
+  top: clamp(0.9rem, 2vw, 1.6rem);
+  right: clamp(1rem, 4vw, 2rem);
+  z-index: 2;
+}
+
 .not-found-copy-panel {
   grid-area: copy;
   position: relative;

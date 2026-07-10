@@ -30,8 +30,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
-    // Read the theme the beforeInteractive script already applied to <html>
-    const initial: Theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    // Compute the theme ourselves rather than trusting <html> already
+    // reflects it — the root beforeInteractive script never runs on routes
+    // Next renders through the client-side not-found/error boundary.
+    const storedTheme = window.localStorage.getItem(STORAGE_KEY);
+    const initial: Theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : getSystemTheme();
+    applyTheme(initial);
     setTheme(initial);
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
