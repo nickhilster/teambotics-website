@@ -12,7 +12,8 @@
       "name": "blog",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "blog", "run", "dev"],
-      "port": 4321
+      "port": 4321,
+      "autoPort": true
     }
   ]
 }
