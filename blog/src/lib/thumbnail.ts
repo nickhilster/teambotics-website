@@ -19,6 +19,7 @@ const CUSTOM_THUMBNAILS: Record<string, string> = {
   'ai-should-not-replace-care':          '/thumbnails/ai-should-not-replace-care.svg',
   'corporate-ai-adoption-operating-model': '/thumbnails/corporate-ai-adoption-operating-model.svg',
   'ai-adoption-personalized-learning':   '/thumbnails/ai-adoption-personalized-learning.svg',
+  'training-exclusion-is-not-data-protection': '/thumbnails/training-exclusion-is-not-data-protection.svg',
 };
 
 // Fallback: procedurally generated geometric SVG for unknown slugs

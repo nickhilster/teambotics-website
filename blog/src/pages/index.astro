@@ -100,20 +100,19 @@ const posts = filteredPosts;
     <div class="blog-index__hero-visual" aria-hidden="true">
       <div class="blog-index__hero-visual-shell">
         <div class="blog-index__hero-visual-grid"></div>
-        <div class="blog-index__hero-visual-beam"></div>
-        <div class="blog-index__hero-lanes">
-          <span class="blog-index__hero-lane blog-index__hero-lane--wide"></span>
-          <span class="blog-index__hero-lane blog-index__hero-lane--mid"></span>
-          <span class="blog-index__hero-lane blog-index__hero-lane--narrow"></span>
-          <span class="blog-index__hero-lane blog-index__hero-lane--wide"></span>
-        </div>
-        <span class="blog-index__hero-node blog-index__hero-node--one"></span>
-        <span class="blog-index__hero-node blog-index__hero-node--two"></span>
-        <span class="blog-index__hero-node blog-index__hero-node--three"></span>
         <div class="blog-index__hero-visual-caption">
           <span class="blog-index__hero-visual-label">Signal scan</span>
           <strong>{selectedTag ? selectedTag : 'All topics'}</strong>
           <span>{activePostCount} articles in scope</span>
+        </div>
+        <div class="blog-index__hero-lanes">
+          <div class="blog-index__hero-visual-beam"></div>
+          <span class="blog-index__hero-lane blog-index__hero-lane--wide"></span>
+          <span class="blog-index__hero-lane blog-index__hero-lane--mid"></span>
+          <span class="blog-index__hero-lane blog-index__hero-lane--narrow"></span>
+          <span class="blog-index__hero-node blog-index__hero-node--one"></span>
+          <span class="blog-index__hero-node blog-index__hero-node--two"></span>
+          <span class="blog-index__hero-node blog-index__hero-node--three"></span>
         </div>
       </div>
     </div>
