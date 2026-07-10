@@ -53,49 +53,7 @@ const posts = filteredPosts;
 
 <BlogLayout title={selectedTag ? `${selectedTag} — Teambotics Blog` : 'Teambotics Blog — Industrial Automation Insights'}>
   <div class="blog-index__hero">
-    <div class="blog-index__hero-copy">
-      <span class="blog-index__eyebrow">Teambotics Blog</span>
-      <div class="blog-index__hero-kicker" aria-label="Editorial focus">
-        <span>Industrial AI</span>
-        <span>Operational systems</span>
-        <span>Adoption discipline</span>
-      </div>
-      <h1 class="blog-index__title">Operational insight for teams turning AI into dependable work</h1>
-      <p class="blog-index__subtitle">
-        Field notes, implementation patterns, and pragmatic guidance for automation programs that
-        need to survive contact with real operations.
-      </p>
-      <div class="blog-index__hero-actions">
-        <a href="#posts" class="blog-index__hero-button blog-index__hero-button--primary">
-          Explore articles
-        </a>
-        {allTags.length > 0 && (
-          <button
-            type="button"
-            class="blog-index__hero-button blog-index__hero-button--secondary"
-            data-topic-toggle
-          >
-            Browse topics
-          </button>
-        )}
-      </div>
-      <div class="blog-index__hero-metrics">
-        <div class="blog-index__hero-metric">
-          <span class="blog-index__hero-metric-label">Published posts</span>
-          <strong class="blog-index__hero-metric-value">{allPosts.length}</strong>
-        </div>
-        <div class="blog-index__hero-metric">
-          <span class="blog-index__hero-metric-label">Topic library</span>
-          <strong class="blog-index__hero-metric-value">{allTags.length}</strong>
-        </div>
-        <div class="blog-index__hero-metric">
-          <span class="blog-index__hero-metric-label">{selectedTag ? 'Active topic' : 'Current view'}</span>
-          <strong class="blog-index__hero-metric-value">
-            {selectedTag ? selectedTag : `${activePostCount} posts`}
-          </strong>
-        </div>
-      </div>
-    </div>
+    <span class="blog-index__eyebrow">Teambotics Blog</span>
 
     <div class="blog-index__hero-visual" aria-hidden="true">
       <div class="blog-index__hero-visual-shell">
@@ -113,6 +71,41 @@ const posts = filteredPosts;
           <span class="blog-index__hero-node blog-index__hero-node--one"></span>
           <span class="blog-index__hero-node blog-index__hero-node--two"></span>
           <span class="blog-index__hero-node blog-index__hero-node--three"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-index__hero-copy">
+      <h1 class="blog-index__title">Operational insight for teams turning AI into dependable work</h1>
+      <p class="blog-index__subtitle">
+        Field notes, implementation patterns, and pragmatic guidance for automation programs that
+        need to survive contact with real operations.
+      </p>
+      {allTags.length > 0 && (
+        <div class="blog-index__hero-actions">
+          <button
+            type="button"
+            class="blog-index__hero-button blog-index__hero-button--secondary"
+            data-topic-toggle
+          >
+            Browse topics
+          </button>
+        </div>
+      )}
+      <div class="blog-index__hero-metrics">
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">Published posts</span>
+          <strong class="blog-index__hero-metric-value">{allPosts.length}</strong>
+        </div>
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">Topic library</span>
+          <strong class="blog-index__hero-metric-value">{allTags.length}</strong>
+        </div>
+        <div class="blog-index__hero-metric">
+          <span class="blog-index__hero-metric-label">{selectedTag ? 'Active topic' : 'Current view'}</span>
+          <strong class="blog-index__hero-metric-value">
+            {selectedTag ? selectedTag : `${activePostCount} posts`}
+          </strong>
         </div>
       </div>
     </div>
