@@ -525,6 +525,80 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "externalLabel": "Open Preview",
     "supportUrl": "mailto:hello@teambotics.app?subject=Storytellr%20case%20study",
     "supportLabel": "Discuss Storytellr"
+  },
+  {
+    "slug": "recruiterbuddy",
+    "name": "RecruiterBuddy",
+    "title": "Candidate Research and Briefing",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "status": "live",
+    "statusLabel": "LIVE PRODUCT",
+    "market": "Talent / Recruiting Workflows / Hiring Preparation",
+    "tagline": "A recruiter-side candidate intelligence brief for profile research, claim verification, dossier review, and role-fit analysis.",
+    "description": "RecruiterBuddy is a candidate research and briefing product that helps recruiters prepare faster before the first conversation.",
+    "summary": "RecruiterBuddy turns scattered candidate signals into a structured briefing so recruiters can move faster, ask sharper questions, and align teams with less manual research.",
+    "heroSummary": "Know your candidate before the first call.",
+    "impact": "Fills the gap between scattered candidate signals and the structured briefing recruiters need before a first conversation — making preparation faster, team alignment easier, and hiring judgment sharper.",
+    "tags": [
+      "Recruiting",
+      "Candidate Intelligence",
+      "Hiring Preparation"
+    ],
+    "techStack": [
+      "LinkedIn Integration",
+      "Structured Research Workflow",
+      "PDF Export",
+      "Role-Fit Analysis"
+    ],
+    "aiCapabilities": [
+      "Profile parsing and claim verification",
+      "Digital footprint synthesis",
+      "Role-fit gap analysis",
+      "Structured briefing generation"
+    ],
+    "focusPoints": [
+      {
+        "label": "The Problem",
+        "value": "Recruiters jump between LinkedIn, resumes, portfolios, GitHub, articles, search results, and internal notes before a first conversation. The research is scattered, the format is inconsistent, and the time cost compounds across every role."
+      },
+      {
+        "label": "The Workflow",
+        "value": "RecruiterBuddy moves through profile parsing, surface scan, claim verification, digital-depth review, consistency checks, absence analysis, and synthesis — then packages the output into a two-minute briefing note."
+      },
+      {
+        "label": "The Standard",
+        "value": "Signals are surfaced as verified, plausible, unverifiable, or contradictory — so recruiters know what to probe rather than assuming fit. Uncertainty is made explicit, not hidden."
+      }
+    ],
+    "proofPoints": [
+      "Turns scattered candidate signals into a structured briefing note, dossier, and role-fit analysis in minutes.",
+      "Separates verified, plausible, unverifiable, and contradictory signals so recruiters know exactly what to probe.",
+      "Speeds up hiring-team alignment before screens, hiring-manager calls, and final-round discussions.",
+      "Designed for preparation and alignment support — not automated hiring decisions."
+    ],
+    "detailSections": [
+      {
+        "title": "Briefing Note",
+        "body": "A two-minute briefing with candidate summary, standout signal, probe areas, and suggested first-call questions — generated from structured research rather than manual review."
+      },
+      {
+        "title": "Dossier",
+        "body": "A full candidate timeline, skills inventory, online presence review, claim verification, and flags — organized into one reference document the hiring team can share and annotate."
+      },
+      {
+        "title": "Fit Analysis",
+        "body": "A role-fit assessment covering alignment, candidate reality, AI-world fit, identified gaps, dealbreaker risk, and a bottom-line recommendation — structured for hiring-team review."
+      },
+      {
+        "title": "Trust Posture",
+        "body": "RecruiterBuddy is a preparation and alignment tool. It surfaces what is known, what is plausible, and what needs a direct question — keeping human judgment responsible for the final hiring decision."
+      }
+    ],
+    "externalUrl": "https://teambotics.app/#contact",
+    "externalLabel": "Request demo",
+    "supportUrl": "mailto:hello@teambotics.app?subject=RecruiterBuddy",
+    "supportLabel": "Discuss RecruiterBuddy"
   }
 ];
 
