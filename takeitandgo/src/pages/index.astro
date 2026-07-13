@@ -172,6 +172,50 @@ function formatStars(count: number): string {
   return String(count);
 }
 
+type GithubStats = {
+  stars: number;
+  updatedLabel: string;
+  openIssues: number;
+};
+
+function formatUpdatedLabel(pushedAt: string): string {
+  const days = Math.floor((Date.now() - new Date(pushedAt).getTime()) / 86_400_000);
+  if (days < 1) return "updated today";
+  if (days < 30) return `updated ${days}d ago`;
+  const months = Math.floor(days / 30);
+  if (months < 12) return `updated ${months}mo ago`;
+  return `updated ${Math.floor(months / 12)}y ago`;
+}
+
+async function fetchGithubStats(repoUrl: string): Promise<GithubStats | null> {
+  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+  if (!match) return null;
+  const path = `${match[1]}/${match[2]}`;
+  try {
+    const response = await fetch(`https://api.github.com/repos/${path}`, {
+      headers: {
+        Accept: "application/vnd.github+json",
+        "User-Agent": "takeitandgo-build",
+      },
+    });
+    if (!response.ok) {
+      console.warn(`GitHub stats fetch failed for ${path}: ${response.status}`);
+      return null;
+    }
+    const data = await response.json();
+    return {
+      stars: data.stargazers_count,
+      updatedLabel: formatUpdatedLabel(data.pushed_at),
+      openIssues: data.open_issues_count,
+    };
+  } catch (error) {
+    console.warn(`GitHub stats fetch errored for ${path}:`, error);
+    return null;
+  }
+}
+
+const githubStats = await Promise.all(projects.map((project) => fetchGithubStats(project.repo)));
+
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
 const notes = [
