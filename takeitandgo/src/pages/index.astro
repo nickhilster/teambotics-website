@@ -14,6 +14,8 @@ type Project = {
   description: string;
   why: string;
   repo: string;
+  audience: string;
+  quickstart: string;
 };
 
 // A real, hand-checked shortlist. Every entry links to its actual repo.
@@ -26,6 +28,8 @@ const projects: Project[] = [
       "Recursively searches directories for a regex pattern and prints the matches, respecting your .gitignore by default.",
     why: "It is the search tool we reach for first. Fast enough that you stop batching greps and just ask.",
     repo: "https://github.com/BurntSushi/ripgrep",
+    audience: "Anyone who still greps large trees by hand and wants an instant search that respects .gitignore.",
+    quickstart: "rg 'TODO' --type js",
   },
   {
     name: "fzf",
@@ -35,6 +39,8 @@ const projects: Project[] = [
       "A general-purpose command-line fuzzy finder that plugs into shells, editors, and any pipeline that emits lines.",
     why: "One binary that quietly upgrades history search, file jumping, and git checkout. Learn it once, use it everywhere.",
     repo: "https://github.com/junegunn/fzf",
+    audience: "Terminal users who want fuzzy history search, file-jumping, and git checkout without memorizing exact paths.",
+    quickstart: "brew install fzf && vim $(fzf)",
   },
   {
     name: "htmx",
@@ -44,6 +50,8 @@ const projects: Project[] = [
       "Gives you AJAX, WebSockets, and server-sent events straight from HTML attributes, no build step required.",
     why: "A reminder that a lot of interactive UI never needed a framework. Great for small, sturdy interfaces.",
     repo: "https://github.com/bigskysoftware/htmx",
+    audience: "Teams building small, sturdy UIs who don't want a full SPA framework's build step and bundle size.",
+    quickstart: '<script src="https://unpkg.com/htmx.org"></script>',
   },
   {
     name: "Zod",
@@ -53,6 +61,8 @@ const projects: Project[] = [
       "TypeScript-first schema validation that infers your static types from a single source of truth.",
     why: "Write the schema once and get parsing, validation, and types for free. It removes a whole class of drift.",
     repo: "https://github.com/colinhacks/zod",
+    audience: "TypeScript teams tired of writing runtime validation and static types twice for the same shape.",
+    quickstart: "npm install zod",
   },
   {
     name: "Astro",
@@ -62,6 +72,8 @@ const projects: Project[] = [
       "A content-focused web framework that ships zero JavaScript by default and lets you bring any UI library you like.",
     why: "It is what this very page is built on. The islands model makes fast, mostly-static sites the easy path.",
     repo: "https://github.com/withastro/astro",
+    audience: "Teams building mostly-static, content-heavy sites who want islands of interactivity, not a full SPA runtime.",
+    quickstart: "npm create astro@latest",
   },
   {
     name: "Playwright",
@@ -71,6 +83,8 @@ const projects: Project[] = [
       "Reliable end-to-end browser testing across Chromium, Firefox, and WebKit through one consistent API.",
     why: "Auto-waiting and honest tracing mean fewer flaky tests and faster answers when something breaks.",
     repo: "https://github.com/microsoft/playwright",
+    audience: "QA and dev teams who want one API for end-to-end tests across Chromium, Firefox, and WebKit.",
+    quickstart: "npm init playwright@latest",
   },
   {
     name: "DuckDB",
@@ -80,6 +94,8 @@ const projects: Project[] = [
       "An in-process analytical SQL database — think SQLite, but built for fast queries over local files.",
     why: "Query a pile of CSV or Parquet files with real SQL and no server to stand up. It changes how you explore data.",
     repo: "https://github.com/duckdb/duckdb",
+    audience: "Anyone with a pile of CSV or Parquet files who wants real SQL without spinning up a database server.",
+    quickstart: "duckdb -c \"SELECT * FROM 'data.csv' LIMIT 5\"",
   },
   {
     name: "Meilisearch",
@@ -89,6 +105,8 @@ const projects: Project[] = [
       "A fast, typo-tolerant search engine you can drop into an app and have returning relevant results in minutes.",
     why: "Sensible defaults out of the box. You get search that feels good without tuning a heavyweight cluster.",
     repo: "https://github.com/meilisearch/meilisearch",
+    audience: "Teams adding search to an app who want typo-tolerant, relevant results without tuning a heavyweight cluster.",
+    quickstart: "curl -X POST 'http://localhost:7700/indexes/movies/documents' --data-binary @movies.json",
   },
   {
     name: "Caddy",
@@ -98,6 +116,8 @@ const projects: Project[] = [
       "A web server with automatic HTTPS. Sensible defaults get a real site online from a one-line config.",
     why: "TLS certificates renew themselves and stay out of your way. The shortest honest path from box to live site.",
     repo: "https://github.com/caddyserver/caddy",
+    audience: "Anyone self-hosting a site who wants HTTPS to just work without touching Certbot or nginx configs.",
+    quickstart: "caddy reverse-proxy --from example.com --to localhost:3000",
   },
   {
     name: "Uptime Kuma",
@@ -107,6 +127,8 @@ const projects: Project[] = [
       "A self-hosted monitoring tool: a clean, friendly status page and alerting for the services you run.",
     why: "Set it up in an afternoon and finally know when something is down before your users tell you.",
     repo: "https://github.com/louislam/uptime-kuma",
+    audience: "Self-hosters who want to know a service is down before a user tells them, without paying for a SaaS monitor.",
+    quickstart: "docker run -d --name uptime-kuma -p 3001:3001 louislam/uptime-kuma",
   },
   {
     name: "Excalidraw",
@@ -116,6 +138,8 @@ const projects: Project[] = [
       "A virtual whiteboard for hand-drawn-style diagrams — fast, collaborative, and usable offline.",
     why: "The lo-fi look keeps diagrams feeling like thinking, not deliverables. Perfect for sketching a system live.",
     repo: "https://github.com/excalidraw/excalidraw",
+    audience: "Teams who want to sketch a system or flow live on a call without their diagram looking like a deliverable.",
+    quickstart: "npm install @excalidraw/excalidraw",
   },
   {
     name: "Biome",
@@ -125,8 +149,28 @@ const projects: Project[] = [
       "One fast toolchain that formats and lints JavaScript and TypeScript, replacing several tools with a single binary.",
     why: "Near-instant runs and one config file. Less time arguing with tooling, more time writing the thing.",
     repo: "https://github.com/biomejs/biome",
+    audience: "JS/TS teams tired of juggling ESLint, Prettier, and their conflicting configs across a monorepo.",
+    quickstart: "npx @biomejs/biome check --write .",
   },
 ];
+
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function relatedPicks(project: Project, all: Project[]): Project[] {
+  return all.filter((p) => p.category === project.category && p.name !== project.name).slice(0, 3);
+}
+
+function formatStars(count: number): string {
+  if (count >= 1000) {
+    return `${(count / 1000).toFixed(1)}k`;
+  }
+  return String(count);
+}
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
