@@ -662,6 +662,7 @@ const submitCategories = categories.filter((c) => c !== "All");
         let activeCategory = "All";
 
         const applyFilters = () => {
+          collapseAllCards();
           const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : "";
           let shown = 0;
 
@@ -697,6 +698,62 @@ const submitCategories = categories.filter((c) => c !== "All");
         if (search instanceof HTMLInputElement) {
           search.addEventListener("input", applyFilters);
         }
+
+        // ---- Expand a pick into its deeper layers ----
+        const collapseAllCards = () => {
+          cards.forEach((card) => {
+            const toggle = card.querySelector(".project-card__toggle");
+            const panel = card.querySelector(".project-card__panel");
+            if (toggle instanceof HTMLButtonElement) {
+              toggle.setAttribute("aria-expanded", "false");
+            }
+            if (panel instanceof HTMLElement) {
+              panel.hidden = true;
+            }
+          });
+        };
+
+        const expandCard = (card) => {
+          const toggle = card.querySelector(".project-card__toggle");
+          const panel = card.querySelector(".project-card__panel");
+          const alreadyOpen = panel instanceof HTMLElement && !panel.hidden;
+          collapseAllCards();
+          if (alreadyOpen) return;
+          if (toggle instanceof HTMLButtonElement) {
+            toggle.setAttribute("aria-expanded", "true");
+          }
+          if (panel instanceof HTMLElement) {
+            panel.hidden = false;
+          }
+        };
+
+        cards.forEach((card) => {
+          const toggle = card.querySelector(".project-card__toggle");
+          if (toggle instanceof HTMLButtonElement) {
+            toggle.addEventListener("click", () => expandCard(card));
+          }
+        });
+
+        document.querySelectorAll("[data-related-target]").forEach((chip) => {
+          chip.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const targetId = chip.getAttribute("data-related-target") || "";
+            const targetCard = document.getElementById(targetId);
+            if (!(targetCard instanceof HTMLElement)) return;
+
+            if (targetCard.hidden) {
+              activeCategory = "All";
+              chips.forEach((other) => {
+                other.setAttribute("aria-pressed", String(other.getAttribute("data-filter") === "All"));
+              });
+              if (search instanceof HTMLInputElement) search.value = "";
+              applyFilters();
+            }
+
+            expandCard(targetCard);
+            targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          });
+        });
 
         // ---- Submission form ----
         const form = document.getElementById("submit-form");
