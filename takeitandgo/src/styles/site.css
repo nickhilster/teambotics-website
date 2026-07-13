@@ -352,6 +352,7 @@ h3 {
 .button:focus-visible,
 .theme-toggle:focus-visible,
 .menu-toggle:focus-visible,
+.project-card__toggle:focus-visible,
 .project-link:focus-visible,
 .text-link:focus-visible,
 .site-nav a:focus-visible {
@@ -634,15 +635,20 @@ h3 {
   color: var(--color-muted-strong);
 }
 
-.project-card__toggle {
+.project-card__header {
   display: grid;
   gap: var(--space-3);
-  width: 100%;
+  cursor: pointer;
+}
+
+.project-card__toggle {
+  display: inline;
   padding: 0;
   border: 0;
   background: transparent;
   color: inherit;
   font: inherit;
+  font-weight: 700;
   text-align: left;
   cursor: pointer;
 }

@@ -405,22 +405,26 @@ const submitCategories = categories.filter((c) => c !== "All");
                   data-name={project.name.toLowerCase()}
                   data-description={project.description.toLowerCase()}
                 >
-                  <button
-                    class="project-card__toggle"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls={`pick-${slug}-panel`}
-                  >
+                  <div class="project-card__header">
                     <div class="project-card__meta">
                       <span>{project.category}</span>
                       <span class="chip chip--tag" aria-label={`Written in ${project.language}`}>
                         {project.language}
                       </span>
                     </div>
-                    <h3>{project.name}</h3>
+                    <h3>
+                      <button
+                        class="project-card__toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls={`pick-${slug}-panel`}
+                      >
+                        {project.name}
+                      </button>
+                    </h3>
                     <p>{project.description}</p>
                     <p class="project-card__teaser">{teaser}</p>
-                  </button>
+                  </div>
 
                   <div class="project-card__panel" id={`pick-${slug}-panel`} hidden>
                     <p class="project-card__why">
@@ -728,9 +732,9 @@ const submitCategories = categories.filter((c) => c !== "All");
         };
 
         cards.forEach((card) => {
-          const toggle = card.querySelector(".project-card__toggle");
-          if (toggle instanceof HTMLButtonElement) {
-            toggle.addEventListener("click", () => expandCard(card));
+          const header = card.querySelector(".project-card__header");
+          if (header instanceof HTMLElement) {
+            header.addEventListener("click", () => expandCard(card));
           }
         });
 
@@ -752,6 +756,10 @@ const submitCategories = categories.filter((c) => c !== "All");
 
             expandCard(targetCard);
             targetCard.scrollIntoView({ behavior: "smooth", block: "center" });
+            const targetToggle = targetCard.querySelector(".project-card__toggle");
+            if (targetToggle instanceof HTMLButtonElement) {
+              targetToggle.focus();
+            }
           });
         });
 
