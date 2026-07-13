@@ -216,6 +216,24 @@ async function fetchGithubStats(repoUrl: string): Promise<GithubStats | null> {
 
 const githubStats = await Promise.all(projects.map((project) => fetchGithubStats(project.repo)));
 
+const pickCards = projects.map((project, index) => {
+  const stats = githubStats[index];
+  const related = relatedPicks(project, projects);
+  const teaserParts = [
+    "Quickstart",
+    related.length > 0 ? `${related.length} related` : null,
+    stats ? `★ ${formatStars(stats.stars)}` : null,
+  ].filter((part): part is string => Boolean(part));
+
+  return {
+    project,
+    stats,
+    related,
+    slug: slugify(project.name),
+    teaser: teaserParts.join(" · "),
+  };
+});
+
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
 const notes = [
@@ -379,29 +397,72 @@ const submitCategories = categories.filter((c) => c !== "All");
             </p>
 
             <div class="project-grid" id="project-grid">
-              {projects.map((project) => (
+              {pickCards.map(({ project, stats, related, slug, teaser }) => (
                 <article
                   class="project-card"
+                  id={`pick-${slug}`}
                   data-category={project.category}
                   data-name={project.name.toLowerCase()}
                   data-description={project.description.toLowerCase()}
                 >
-                  <div class="project-card__meta">
-                    <span>{project.category}</span>
-                    <span class="chip chip--tag" aria-label={`Written in ${project.language}`}>
-                      {project.language}
-                    </span>
+                  <button
+                    class="project-card__toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls={`pick-${slug}-panel`}
+                  >
+                    <div class="project-card__meta">
+                      <span>{project.category}</span>
+                      <span class="chip chip--tag" aria-label={`Written in ${project.language}`}>
+                        {project.language}
+                      </span>
+                    </div>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <p class="project-card__teaser">{teaser}</p>
+                  </button>
+
+                  <div class="project-card__panel" id={`pick-${slug}-panel`} hidden>
+                    <p class="project-card__why">
+                      <span class="project-card__why-label">Why we picked it</span>
+                      {project.why}
+                    </p>
+                    <p class="project-card__audience">
+                      <span class="project-card__audience-label">Who it's for</span>
+                      {project.audience}
+                    </p>
+                    <div class="project-card__quickstart">
+                      <span class="project-card__quickstart-label">Try it</span>
+                      <pre><code>{project.quickstart}</code></pre>
+                    </div>
+                    {stats && (
+                      <div class="project-card__stats">
+                        <span>★ {formatStars(stats.stars)}</span>
+                        <span>{stats.updatedLabel}</span>
+                        <span>{stats.openIssues} open issues</span>
+                      </div>
+                    )}
+                    {related.length > 0 && (
+                      <div class="project-card__related">
+                        <span class="project-card__related-label">Related picks</span>
+                        <div class="related-chips">
+                          {related.map((relatedProject) => (
+                            <button
+                              class="chip"
+                              type="button"
+                              data-related-target={`pick-${slugify(relatedProject.name)}`}
+                            >
+                              {relatedProject.name}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    <a class="project-link" href={project.repo} target="_blank" rel="noreferrer noopener">
+                      View on GitHub
+                      <span aria-hidden="true">↗</span>
+                    </a>
                   </div>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <p class="project-card__why">
-                    <span class="project-card__why-label">Why we picked it</span>
-                    {project.why}
-                  </p>
-                  <a class="project-link" href={project.repo} target="_blank" rel="noreferrer noopener">
-                    View on GitHub
-                    <span aria-hidden="true">↗</span>
-                  </a>
                 </article>
               ))}
             </div>
