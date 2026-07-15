@@ -20,6 +20,7 @@ const CUSTOM_THUMBNAILS: Record<string, string> = {
   'corporate-ai-adoption-operating-model': '/thumbnails/corporate-ai-adoption-operating-model.svg',
   'ai-adoption-personalized-learning':   '/thumbnails/ai-adoption-personalized-learning.svg',
   'training-exclusion-is-not-data-protection': '/thumbnails/training-exclusion-is-not-data-protection.svg',
+  'software-should-give-your-team-more-time-with-people': '/thumbnails/software-should-give-your-team-more-time-with-people.svg',
 };
 
 // Fallback: procedurally generated geometric SVG for unknown slugs
