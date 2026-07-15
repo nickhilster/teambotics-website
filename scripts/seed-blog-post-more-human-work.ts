@@ -1,6 +1,6 @@
 /**
- * Seed a Teambotics blog post on building software that reduces screen time,
- * removes repetitive work, and gives teams more room for human interaction.
+ * Seed or update the Teambotics post on software that reduces screen work
+ * and gives teams more room for human interaction.
  *
  * Usage: pnpm tsx scripts/seed-blog-post-more-human-work.ts
  */
@@ -41,132 +41,111 @@ const POST = {
   title: "Software Should Give Your Team More Time With People",
   slug: "software-should-give-your-team-more-time-with-people",
   excerpt:
-    "The best business software should feel less like another system to manage and more like a capable new team member—one that handles repetitive digital work so your people can focus on judgment, collaboration, and customers.",
-  content: `## The Real Cost of Digital Work
+    "We build software to take mundane digital work off a team’s plate, so people can spend more time using judgment, serving customers, and working with one another.",
+  content: `## Why We Keep Coming Back to This Problem
 
-Most teams do not have a shortage of software.
+Most teams already have enough software.
 
-They have a shortage of time.
+What they do not have enough of is uninterrupted time.
 
-A typical workday is already divided across inboxes, documents, dashboards, approvals, project tools, reporting systems, and internal chat. Each platform may be useful on its own, but together they create a steady stream of small administrative demands.
+A normal workday is spread across inboxes, documents, dashboards, approvals, project tools, and internal chat. None of those systems is necessarily the problem on its own. The problem is the accumulation of small digital tasks around the real work.
 
-Copy this. Reformat that. Find the latest version. Remove sensitive details. Rewrite the message. Update the status. Move the information into another system.
+Copy this. Reformat that. Find the correct version. Remove sensitive information. Rewrite the message. Move the same material into another system.
 
-None of these tasks looks significant in isolation. Collectively, they consume the attention that should be going toward customers, colleagues, decisions, and creative problem-solving.
+Each task looks minor. Together, they consume a meaningful share of the day.
 
-That is the problem we care about.
+That is the problem we are building for.
 
-## A Better Standard for Business Software
+## Software Should Behave Like a Good Team Member
 
-We believe a business product should behave less like another screen to manage and more like a capable new member of the team.
+Our view is fairly simple: a business product should earn its place on the team.
 
-A useful team member does not create more process for everyone else. They absorb work. They understand their role. They make the people around them more effective.
+A good team member does not create unnecessary process for everyone else. They take responsibility for a clear area of work. They reduce pressure. They make the people around them more capable.
 
-Software should be held to the same standard.
+We think software should be held to the same standard.
 
-The goal is not to automate every part of a job. The goal is to remove the repetitive digital work around the job so that people have more room to do the parts that require judgment, empathy, context, creativity, and trust.
+That does not mean automating every part of a job. In many roles, the most valuable work still depends on judgment, context, trust, empathy, and conversation. Those are not inconveniences to eliminate. They are often the work itself.
 
-That distinction matters.
+The opportunity is to remove the repetitive digital work around those moments.
 
-Technology is at its best when it expands human capacity. It is at its worst when people spend their day maintaining the technology itself.
+A manager should have more time to coach.
 
-## Every Product Should Earn Its Place on the Team
+A clinician should have more time with a patient.
 
-When we design a product, we ask a simple question:
+A consultant should have more time to understand the client.
 
-**What work will this take off someone's plate?**
+A team should have more time to resolve a difficult decision together.
 
-Not what dashboard can we add. Not how many settings can we expose. Not how impressive the technology sounds.
+When software handles the routine preparation, formatting, organization, transformation, and follow-up, it protects the work that only people can do well.
 
-What recurring burden will disappear?
+## We Do Not Want Users to Go to School for the Product
 
-A strong product should be able to stand on its own, solve a clear problem, and deliver value without requiring a training program. The user should not need to go to school to learn the tool. The product should make the right action visible before the user has to search for it.
+Ease of use is not a finishing layer for us. It is part of the product strategy.
 
-That is a demanding design standard, but it is an important one. Complexity in the underlying system should not become complexity for the person using it.
+We do not want a team to need a training program before the software becomes useful. We want the product to make the next action visible before the user has to search for it.
 
-The result should feel natural:
+That is a high standard, particularly when the underlying product is technically complex. But complexity in the system should not become complexity for the person using it.
 
-- The next step is clear.
-- The repetitive work is reduced.
+The experience should feel clear:
+
+- The next step is easy to recognize.
+- The repetitive effort is reduced.
 - The user remains in control.
-- The outcome is useful immediately.
+- The value is visible quickly.
 
-## Less Screen Interaction, More Human Interaction
+We will not always get that perfectly on the first attempt. Good product design is iterative. But the direction is consistent: the product should carry more of the cognitive load, not transfer it to the user.
 
-For most organizations, the highest-value work still happens between people.
+## Local First, Connected When It Helps
 
-A manager coaching an employee.
+We also believe useful software should not become useless the moment the internet is unavailable.
 
-A consultant listening carefully to a client.
+Cloud services can add significant leverage. They can provide access to stronger models, synchronization, collaboration, and external integrations. We use those capabilities where they improve the work.
 
-A healthcare professional reassuring a patient.
+But we do not think connectivity should always be the price of admission.
 
-A sales team understanding what a customer actually needs.
+Where practical, our products are designed to continue performing meaningful work locally. That improves resilience and gives teams more control over sensitive information.
 
-A project team resolving uncertainty together.
+For organizations working with client material, regulated records, proprietary documents, or internal knowledge, privacy is stronger when it is supported by the architecture—not only by a policy statement.
 
-These moments require attention. They are difficult to automate well, and in many cases they should not be automated at all.
+The internet should be able to supercharge the product without being the only reason it functions.
 
-But they can be protected.
+## Each Product Should Stand on Its Own
 
-When software handles the mundane preparation, formatting, organization, transformation, and follow-up work, people can spend less time interacting with digital screens and more time interacting with one another.
+We are building focused products, not features looking for a container.
 
-That is not anti-technology. It is a more mature use of technology.
+Each product should solve a clear problem well enough to justify itself independently. A customer should not need to buy an entire suite to receive value from one tool.
 
-The screen is a tool, not the destination.
+At the same time, independent products can become more capable when they work together. Shared context, consistent workflows, and careful interoperability can reduce the friction between tasks without forcing the user into a large, monolithic system.
 
-## Useful Without Becoming Dependent
+That balance matters to us.
 
-We also believe software should remain dependable when connectivity is limited or unavailable.
+Standalone value creates trust.
 
-Cloud services can add significant value. They can improve collaboration, provide access to powerful models, enable synchronization, and connect teams across locations. We use that leverage where it genuinely helps.
+Interoperability creates leverage.
 
-But connectivity should not always be the price of admission.
+The connection between products should feel like an advantage, not a dependency.
 
-Where practical, products should continue doing meaningful work locally. This creates resilience, improves privacy, and gives organizations more control over how their information is handled.
-
-The internet can supercharge a product without being the only reason it works.
-
-For teams handling sensitive documents, proprietary knowledge, regulated information, or client material, that architectural choice matters. Privacy is stronger when it is built into how the product operates, not added later as a policy statement.
-
-## Independent Value, Greater Value Together
-
-Each tool should justify its own place in the organization.
-
-At the same time, tools can become more valuable when they work together. Shared context, consistent workflows, local data, and carefully designed integrations can reduce the friction between tasks without forcing teams into a monolithic platform.
-
-That means organizations do not have to choose between focused products and connected systems.
-
-They can have both:
-
-- Products that solve one job well.
-- Products that remain useful independently.
-- Products that become more capable when connected.
-- Products that preserve user choice and control.
-
-The business value comes from that combination. Standalone usefulness creates trust. Interoperability creates leverage.
-
-## The Outcome We Are Building Toward
+## The Outcome We Are Working Toward
 
 We are not trying to give teams more software to operate.
 
 We are trying to give them more capacity.
 
-More time to speak with customers.
+More time with customers.
 
-More time to make good decisions.
+More time for decisions.
 
-More time to teach, collaborate, build, and lead.
+More time for collaboration, teaching, and leadership.
 
 Less time spent copying, formatting, searching, switching, and repeating.
 
-The best technology does not demand constant attention. It quietly removes friction and helps the team perform at a higher level.
+The best business software does not demand constant attention. It quietly removes friction and helps the team perform at a higher level.
 
-That is the standard we are building toward: software that feels intuitive from the first moment, remains useful when the internet is unavailable, protects the work entrusted to it, and takes responsibility for the repetitive tasks that should never have consumed so much human time in the first place.
+That is the standard we are working toward: products that feel intuitive, remain useful when connectivity is limited, respect the work entrusted to them, and take responsibility for the mundane tasks that consume too much human time.
 
-Every product should earn its place like a strong new team member.
+We are still building toward that standard. But the principle is settled.
 
-It should make the whole team more human—not less.`,
+Every product should earn its place like a capable new team member—and help the people using it spend more of their day being human.`,
   cover_image_url: null,
   author: "Nikhil Khedkar",
   tags: ["human-centered-software", "workflow-design", "local-first", "team-productivity", "automation"],
@@ -178,16 +157,7 @@ async function run() {
   const connectionString = getConnectionString();
   const sql = neon(connectionString);
 
-  console.log(`Seeding blog post: ${POST.title}`);
-
-  const existing = await sql`
-    SELECT id FROM blog_posts WHERE slug = ${POST.slug} LIMIT 1
-  `;
-
-  if (existing.length > 0) {
-    console.log(`  ⏭  Skipping "${POST.title}" (slug already exists)`);
-    return;
-  }
+  console.log(`Seeding or updating blog post: ${POST.title}`);
 
   await sql`
     INSERT INTO blog_posts (title, slug, excerpt, content, cover_image_url, author, tags, status, published_at)
@@ -202,9 +172,18 @@ async function run() {
       ${POST.status},
       ${POST.published_at}
     )
+    ON CONFLICT (slug) DO UPDATE SET
+      title = EXCLUDED.title,
+      excerpt = EXCLUDED.excerpt,
+      content = EXCLUDED.content,
+      cover_image_url = EXCLUDED.cover_image_url,
+      author = EXCLUDED.author,
+      tags = EXCLUDED.tags,
+      status = EXCLUDED.status,
+      updated_at = NOW()
   `;
 
-  console.log(`  ✓  Created "${POST.title}"`);
+  console.log(`  ✓  Seeded or updated "${POST.title}"`);
 }
 
 run().catch((err) => {
