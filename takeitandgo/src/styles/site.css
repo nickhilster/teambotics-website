@@ -352,6 +352,7 @@ h3 {
 .button:focus-visible,
 .theme-toggle:focus-visible,
 .menu-toggle:focus-visible,
+.project-card__toggle:focus-visible,
 .project-link:focus-visible,
 .text-link:focus-visible,
 .site-nav a:focus-visible {
@@ -632,6 +633,86 @@ h3 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-muted-strong);
+}
+
+.project-card__header {
+  display: grid;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+
+.project-card__toggle {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-card__teaser {
+  font-size: var(--type-caption);
+  color: var(--color-muted);
+}
+
+.project-card__panel {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-card__panel[hidden] {
+  display: none;
+}
+
+.project-card__audience,
+.project-card__stats {
+  font-size: var(--type-caption);
+  color: var(--color-muted);
+}
+
+.project-card__audience-label,
+.project-card__quickstart-label,
+.project-card__related-label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: var(--type-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted-strong);
+}
+
+.project-card__quickstart pre {
+  margin: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-strong);
+  overflow-x: auto;
+}
+
+.project-card__quickstart code {
+  font-family: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+  font-size: var(--type-caption);
+  white-space: pre;
+}
+
+.project-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.related-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }
 
 .browser-empty {
