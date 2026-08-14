@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const DOWNLOAD_VERSION = "0.3.1";
+const DOWNLOAD_VERSION = "0.3.2";
 const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager/releases/download/v${DOWNLOAD_VERSION}`;
 
 const pageTheme = {
@@ -50,7 +50,7 @@ const pricingTiers = [
     ],
     cta: {
       label: "Download for Windows",
-      href: `${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`,
+      href: `${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64_en-US.msi`,
       icon: true,
     },
   },
@@ -348,7 +348,7 @@ export default function MdownManagerPage() {
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <a className="button button--primary" href={`${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64-setup.exe`}>
+                <a className="button button--primary" href={`${DOWNLOAD_BASE}/MDownManager_${DOWNLOAD_VERSION}_x64_en-US.msi`}>
                   <Download size={16} />
                   <span>Download for Windows</span>
                 </a>
