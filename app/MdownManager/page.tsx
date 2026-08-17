@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
 };
 
-const DOWNLOAD_VERSION = "0.3.2";
-const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager/releases/download/v${DOWNLOAD_VERSION}`;
+const DOWNLOAD_VERSION = "0.3.3";
+const DOWNLOAD_BASE = `https://github.com/nickhilster/MDownManager-releases/releases/download/v${DOWNLOAD_VERSION}`;
 
 const pageTheme = {
   background: "#0f1117",
