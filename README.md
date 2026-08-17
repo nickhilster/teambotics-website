@@ -32,6 +32,18 @@ The section is mounted in:
 app/(site)/page.tsx
 ```
 
+## Teambotics Values (blog.teambotics.app/values)
+
+The blog publishes a self-updating "Teambotics Values" page, written for both human readers and AI agents:
+
+- Human page: `https://blog.teambotics.app/values`
+- Agent-readable markdown mirror: `https://blog.teambotics.app/values.md`
+- Underlying structured data: `https://www.teambotics.app/api/values`
+
+The values themselves are not hand-maintained. A scheduled job (`/api/cron/sync-values`, same auth pattern as `/api/cron/ingest-github`, runs daily per `vercel.json`) rereads the full published blog archive and asks an LLM to extract the operating values actually evidenced across posts, storing the result in the `site_values` table. The synthesis logic lives in `lib/values/synthesize.ts` and can be run manually with `pnpm values:sync`. If no synthesis has run yet (or a run fails), `app/api/values/route.ts` falls back to a hand-authored seed in the same file so the page is never empty.
+
+The blog page (`blog/src/pages/values.astro`) and its markdown mirror (`blog/src/pages/values.md.ts`) both fetch `/api/values` at request time, so the content updates automatically as new posts are published — no redeploy required.
+
 ## Stack
 
 - Framework: Next.js 16

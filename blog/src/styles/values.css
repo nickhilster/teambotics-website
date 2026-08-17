@@ -1,0 +1,238 @@
+/* ================================================================
+   Teambotics Values page — mobile-first, tokens from tokens.css
+   ================================================================ */
+
+.values-error {
+  padding: 3rem 0;
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.values-error a {
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+.values-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────── */
+.values-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 46rem;
+}
+
+.values-hero__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.values-hero__title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@media (min-width: 640px) {
+  .values-hero__title { font-size: 2.4rem; }
+}
+
+.values-hero__intro {
+  color: var(--color-text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.values-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+}
+
+/* ── Agent callout ────────────────────────────────────────────── */
+.values-agent-callout {
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.values-agent-callout__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-muted);
+}
+
+.values-agent-callout__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.values-agent-callout__body {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.values-agent-callout__body code {
+  font-size: 0.85em;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.1rem 0.35rem;
+}
+
+/* ── Value cards ──────────────────────────────────────────────── */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 720px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.value-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.value-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.value-card__principle {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.value-card__description {
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.value-card__agent {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.value-card__agent-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.value-card__agent p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+.value-card__evidence {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.value-card__evidence-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.value-card__evidence-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.value-card__evidence-links a {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  background: var(--color-bg-elevated);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.7rem;
+  text-decoration: none;
+}
+
+.value-card__evidence-links a:hover {
+  color: var(--color-accent);
+}
+
+/* ── Agent playbook ───────────────────────────────────────────── */
+.values-playbook {
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.values-playbook__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.values-playbook__subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.values-playbook__list {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.values-playbook__list li {
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-left: 0.25rem;
+}
+
+/* ── Footer meta ──────────────────────────────────────────────── */
+.values-footer {
+  color: var(--color-text-tertiary);
+  font-size: 0.85rem;
+  text-align: center;
+}

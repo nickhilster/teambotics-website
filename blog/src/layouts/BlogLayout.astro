@@ -7,9 +7,10 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  markdownAlternate?: string;
 }
 
-const { title, description = 'Insights on industrial automation and robotics from the Teambotics team.', ogImage } = Astro.props;
+const { title, description = 'Insights on industrial automation and robotics from the Teambotics team.', ogImage, markdownAlternate } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const brandAssetBase = 'https://www.teambotics.app/brand';
 ---
@@ -21,6 +22,9 @@ const brandAssetBase = 'https://www.teambotics.app/brand';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href={`${brandAssetBase}/teambotics-logo-32.png`} />
     <link rel="canonical" href={canonicalURL} />
+    {markdownAlternate && (
+      <link rel="alternate" type="text/markdown" title={`${title} (agent-readable markdown)`} href={markdownAlternate} />
+    )}
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -51,6 +55,9 @@ const brandAssetBase = 'https://www.teambotics.app/brand';
           <span class="blog-header__site-name">Teambotics Blog</span>
         </a>
         <nav class="blog-header__nav">
+          <a href="/values" class="blog-header__nav-link">
+            Values
+          </a>
           <a href="https://www.teambotics.app" class="blog-header__nav-link" target="_blank" rel="noopener noreferrer">
             Main site ↗
           </a>

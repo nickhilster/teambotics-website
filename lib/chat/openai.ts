@@ -65,7 +65,11 @@ export async function createEmbedding(input: string, config: OpenAiRuntimeConfig
   return payload.data?.[0]?.embedding ?? null;
 }
 
-export async function createChatCompletion(messages: ChatMessage[], config: OpenAiRuntimeConfig) {
+export async function createChatCompletion(
+  messages: ChatMessage[],
+  config: OpenAiRuntimeConfig,
+  options?: { responseFormat?: "json_object" },
+) {
   if (!config.apiKey) {
     return null;
   }
@@ -75,6 +79,7 @@ export async function createChatCompletion(messages: ChatMessage[], config: Open
     messages,
     temperature: config.temperature ?? 0.3,
     max_tokens: config.maxTokens ?? 900,
+    ...(options?.responseFormat ? { response_format: { type: options.responseFormat } } : {}),
   });
 
   return payload.choices?.[0]?.message?.content?.trim() || null;

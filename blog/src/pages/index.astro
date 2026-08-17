@@ -81,8 +81,8 @@ const posts = filteredPosts;
         Field notes, implementation patterns, and pragmatic guidance for automation programs that
         need to survive contact with real operations.
       </p>
-      {allTags.length > 0 && (
-        <div class="blog-index__hero-actions">
+      <div class="blog-index__hero-actions">
+        {allTags.length > 0 && (
           <button
             type="button"
             class="blog-index__hero-button blog-index__hero-button--secondary"
@@ -90,8 +90,11 @@ const posts = filteredPosts;
           >
             Browse topics
           </button>
-        </div>
-      )}
+        )}
+        <a href="/values" class="blog-index__hero-button blog-index__hero-button--secondary">
+          Read our values
+        </a>
+      </div>
       <div class="blog-index__hero-metrics">
         <div class="blog-index__hero-metric">
           <span class="blog-index__hero-metric-label">Published posts</span>

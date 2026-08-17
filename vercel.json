@@ -5,6 +5,10 @@
     {
       "path": "/api/cron/ingest-github",
       "schedule": "0 6 */2 * *"
+    },
+    {
+      "path": "/api/cron/sync-values",
+      "schedule": "0 7 * * *"
     }
   ]
 }
