@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/lib/config";
 import { bossTheme as t } from "./_lib/theme";
+import { SealMark } from "./guide/_components/GuideChrome";
+
+const serif = { fontFamily: "var(--font-boss-serif)" } as const;
 
 export const metadata: Metadata = {
   title: "BOSS",
@@ -109,6 +112,11 @@ export default function BossPage() {
     <div style={{ background: t.background, color: t.textPrimary }}>
       <section className="pt-[calc(var(--site-header-height)+4rem)] pb-16 sm:pb-20">
         <Container>
+          <div className="mb-8 flex items-center gap-2.5" style={{ color: t.accentInk }}>
+            <SealMark size={22} />
+            <span className="text-lg font-semibold" style={serif}>BOSS</span>
+          </div>
+
           <div
             className="mb-6 inline-flex items-center gap-2 rounded-md border px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.16em]"
             style={{ background: t.surface, borderColor: t.border, color: t.accentInk }}
@@ -116,7 +124,7 @@ export default function BossPage() {
             A human approval gate for AI coding agents
           </div>
 
-          <h1 className="max-w-[13ch] text-5xl font-semibold tracking-[-0.03em] sm:text-6xl lg:text-7xl">
+          <h1 className="max-w-[13ch] text-5xl font-semibold tracking-[-0.01em] sm:text-6xl lg:text-7xl" style={serif}>
             Nothing touches your repo until you say so.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 sm:text-xl" style={{ color: t.textSecondary }}>
@@ -141,7 +149,7 @@ export default function BossPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: t.textMuted }}>
             How it works
           </p>
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+          <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.01em] sm:text-4xl" style={serif}>
             One gate, every write.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 sm:text-lg" style={{ color: t.textSecondary }}>
@@ -160,7 +168,7 @@ export default function BossPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: t.textMuted }}>
             Setup
           </p>
-          <h2 className="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Five steps, once.</h2>
+          <h2 className="text-3xl font-semibold tracking-[-0.01em] sm:text-4xl" style={serif}>Five steps, once.</h2>
 
           <div className="mt-10 grid gap-4 lg:grid-cols-5">
             {steps.map((step) => (
@@ -179,7 +187,7 @@ export default function BossPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: t.textMuted }}>
             MCP tools
           </p>
-          <h2 className="max-w-xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+          <h2 className="max-w-xl text-3xl font-semibold tracking-[-0.01em] sm:text-4xl" style={serif}>
             What the AI can actually call.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: t.textSecondary }}>
@@ -213,7 +221,7 @@ export default function BossPage() {
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: t.textMuted }}>
             Ecosystem
           </p>
-          <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+          <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.01em] sm:text-4xl" style={serif}>
             BOSS is the hub. These are optional.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8" style={{ color: t.textSecondary }}>
@@ -236,7 +244,7 @@ export default function BossPage() {
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-6 rounded-2xl border p-8" style={{ background: t.surface, borderColor: t.border }}>
             <div>
-              <h2 className="text-2xl font-semibold tracking-[-0.02em]">Ready to try it?</h2>
+              <h2 className="text-2xl font-semibold" style={serif}>Ready to try it?</h2>
               <p className="mt-2 text-sm" style={{ color: t.textSecondary }}>v0.2.1 · MIT license</p>
             </div>
             <div className="flex flex-wrap gap-3">

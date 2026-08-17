@@ -5,6 +5,16 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { bossTheme, guideNav, guideNavFlat } from "../../_lib/theme";
 
+export function SealMark({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="10.5" stroke="currentColor" strokeWidth="1.4" />
+      <circle cx="12" cy="12" r="7" stroke="currentColor" strokeWidth="1" strokeDasharray="1.6 2.2" />
+      <path d="M8.2 12.4l2.6 2.6 5-5.4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function GuideSidebar() {
   const pathname = usePathname();
 
@@ -15,8 +25,11 @@ export function GuideSidebar() {
       style={{ borderColor: bossTheme.border, background: bossTheme.surface }}
     >
       <div className="mb-4 border-b px-6 pb-5" style={{ borderColor: bossTheme.borderSubtle }}>
-        <Link href="/BOSS" className="text-base font-semibold tracking-tight" style={{ color: bossTheme.textPrimary }}>
-          BOSS Guide
+        <Link href="/BOSS" className="flex items-center gap-2 no-underline" style={{ color: bossTheme.textPrimary }}>
+          <SealMark size={18} />
+          <span className="text-base font-semibold" style={{ fontFamily: "var(--font-boss-serif)" }}>
+            BOSS Guide
+          </span>
         </Link>
         <div className="mt-1 text-xs" style={{ color: bossTheme.textMuted }}>
           v0.2.1
@@ -61,16 +74,16 @@ export function GuideSidebar() {
 export function CodeBlock({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div
-      className="relative mb-5 overflow-x-auto rounded-md border px-4 py-3.5"
+      className="relative mb-5 mt-3 rounded-md border"
       style={{ borderColor: bossTheme.border, background: bossTheme.surface2 }}
     >
       <span
-        className="absolute -top-[9px] left-3 rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em]"
-        style={{ background: bossTheme.accent, color: "#1a1206" }}
+        className="absolute -top-[10px] left-3 rounded px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em]"
+        style={{ fontFamily: "var(--font-boss-sans)", background: bossTheme.accent, color: "#1a1206" }}
       >
         {label}
       </span>
-      <pre className="m-0 whitespace-pre font-mono text-[13.5px]" style={{ color: bossTheme.textPrimary }}>
+      <pre className="m-0 overflow-x-auto px-4 py-3.5 font-mono text-[13.5px]" style={{ color: bossTheme.textPrimary }}>
         {children}
       </pre>
     </div>
@@ -134,7 +147,11 @@ export function H2({ children, first = false }: { children: ReactNode; first?: b
   return (
     <h2
       className={`mb-3 text-xl font-semibold ${first ? "mt-8" : "mt-10 border-t pt-6"}`}
-      style={{ color: bossTheme.textPrimary, borderColor: first ? "transparent" : bossTheme.borderSubtle }}
+      style={{
+        color: bossTheme.textPrimary,
+        borderColor: first ? "transparent" : bossTheme.borderSubtle,
+        fontFamily: "var(--font-boss-serif)",
+      }}
     >
       {children}
     </h2>
@@ -225,7 +242,10 @@ export function GuideArticle({
       >
         {eyebrow}
       </p>
-      <h1 className="mb-4 text-3xl font-semibold tracking-tight sm:text-4xl" style={{ color: bossTheme.textPrimary }}>
+      <h1
+        className="mb-4 text-3xl font-semibold sm:text-4xl"
+        style={{ color: bossTheme.textPrimary, fontFamily: "var(--font-boss-serif)" }}
+      >
         {title}
       </h1>
       <p className="mb-10 max-w-[56ch] text-lg leading-7" style={{ color: bossTheme.textSecondary }}>
