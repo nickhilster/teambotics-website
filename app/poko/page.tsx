@@ -22,18 +22,51 @@ const highlights = [
   },
 ] as const;
 
+const mediaCards = [
+  {
+    title: "Desktop presence in motion",
+    body: "A live look at Poko’s animated desktop companion surface and the mood of the product while agents are active.",
+    src: "/media/poko-hero.gif",
+    alt: "Animated Poko desktop companion preview",
+  },
+  {
+    title: "Context menu surface",
+    body: "The current desktop shell already exposes quick controls, session actions, and product entry points from the pet surface.",
+    src: "/media/poko-context-menu.png",
+    alt: "Poko context menu screenshot",
+  },
+  {
+    title: "Permission and handoff visibility",
+    body: "Permission requests and other high-attention events are surfaced as visible UI rather than disappearing into hidden terminal state.",
+    src: "/media/poko-permission-bubble.png",
+    alt: "Poko permission bubble screenshot",
+  },
+  {
+    title: "Remote and companion workflows",
+    body: "Poko is already stretching beyond the pet itself into broader runtime and remote-coordination surfaces.",
+    src: "/media/poko-remote-ssh.png",
+    alt: "Poko remote SSH settings screenshot",
+  },
+] as const;
+
 const downloadCards = [
   {
-    label: "Windows",
-    body: "Primary production target with architecture-specific installers and the most complete runtime validation path today.",
+    label: "Windows x64",
+    body: "Primary production target today, with architecture-specific installer support and the most complete runtime validation path.",
+    cta: "Windows release notes",
+    href: "https://github.com/Teambotics-BackBurner/poko/releases",
   },
   {
-    label: "macOS",
-    body: "Supported build target for the desktop companion workflow, theme system, and packaged app surface.",
+    label: "Windows ARM64",
+    body: "Separate installer track for ARM64 Windows builds so release artifacts stay architecture-specific instead of universal.",
+    cta: "ARM64 release track",
+    href: "https://github.com/Teambotics-BackBurner/poko/releases",
   },
   {
-    label: "Linux",
-    body: "Supported packaging target for the local desktop runtime and companion experience.",
+    label: "macOS + Linux",
+    body: "Supported build targets for the desktop companion workflow, theme system, and packaged app surface as the product matures.",
+    cta: "Platform release page",
+    href: "https://github.com/Teambotics-BackBurner/poko/releases",
   },
 ] as const;
 
@@ -132,6 +165,24 @@ export default function PokoProductPage() {
       </section>
 
       <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>See Poko in action</h2>
+        <p className={styles.sectionIntro}>These are current product visuals from the live desktop runtime — not generic placeholders. They show the existing desktop shell, permission surface, and broader runtime settings already present in the product.</p>
+        <div className={styles.mediaGrid}>
+          {mediaCards.map((card) => (
+            <article key={card.title} className={styles.mediaCard}>
+              <div className={styles.mediaFrame}>
+                <img src={card.src} alt={card.alt} className={styles.mediaImage} />
+              </div>
+              <div className={styles.mediaCopy}>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
         <div className={styles.grid2}>
           <div className={styles.card}>
             <h3>Why people use it</h3>
@@ -155,15 +206,8 @@ export default function PokoProductPage() {
       </section>
 
       <section className={styles.section}>
-        <div className={styles.callout}>
-          <h3>What a polished product page will eventually show here</h3>
-          <p>A richer launch pass can swap this section for live screenshots, motion captures, or short GIFs from the desktop runtime. For now, this space is intentionally holding the shape and rhythm of that media-driven story block.</p>
-        </div>
-      </section>
-
-      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Downloads</h2>
-        <p className={styles.sectionIntro}>Poko ships as a desktop app. The public download path currently runs through GitHub Releases while the product site continues to mature.</p>
+        <p className={styles.sectionIntro}>Poko ships as a desktop app. The release path is currently centered on platform-specific packaged builds, with Windows as the most complete production validation path right now.</p>
         <div className={styles.grid3}>
           {downloadCards.map((card) => (
             <article key={card.label} className={styles.card}>
@@ -172,12 +216,15 @@ export default function PokoProductPage() {
                 <Download size={18} />
               </div>
               <p>{card.body}</p>
+              <div className={styles.actions} style={{ marginTop: "1rem" }}>
+                <a className="button button--ghost" href={card.href} target="_blank" rel="noopener noreferrer">{card.cta}</a>
+              </div>
             </article>
           ))}
         </div>
-        <div className={styles.actions}>
-          <a className="button button--primary" href="https://github.com/Teambotics-BackBurner/poko/releases" target="_blank" rel="noopener noreferrer">Open Releases</a>
-          <Link className="button button--ghost" href="/how-to-use">Read setup guide</Link>
+        <div className={styles.callout} style={{ marginTop: "1.25rem" }}>
+          <h3>Release notes</h3>
+          <p>The current packaging flow is already set up for architecture-specific Windows installers and supported macOS/Linux targets. As public release distribution tightens, these cards can be switched from release-page links to direct per-asset download links.</p>
         </div>
       </section>
 

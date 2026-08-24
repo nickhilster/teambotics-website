@@ -368,6 +368,49 @@
 .linkList { grid-template-columns: 1fr; }
 .showcaseGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.mediaCard {
+  border: 1px solid rgba(146, 166, 211, 0.18);
+  background: rgba(12, 19, 33, 0.82);
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  overflow: hidden;
+}
+
+.mediaFrame {
+  position: relative;
+  background: linear-gradient(180deg, rgba(7, 14, 26, 0.98) 0%, rgba(5, 9, 18, 0.98) 100%);
+  border-bottom: 1px solid rgba(146, 166, 211, 0.12);
+}
+
+.mediaImage {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.mediaCopy {
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.mediaCopy h3 {
+  margin: 0 0 0.6rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.mediaCopy p {
+  margin: 0;
+  color: #a9b4d2;
+  line-height: 1.75;
+}
+
 .card h3,
 .callout h3,
 .authTitle,
@@ -630,7 +673,8 @@
   .grid3,
   .metricGrid,
   .showcaseGrid,
-  .heroStats {
+  .heroStats,
+  .mediaGrid {
     grid-template-columns: 1fr;
   }
 }
