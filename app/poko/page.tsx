@@ -16,7 +16,7 @@ export default function PokoProductPage() {
   return (
     <div className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroCard}>
+        <div className={`${styles.heroCard} ${styles.heroPrimary}`}>
           <p className={styles.kicker}>Poko is the active product line</p>
           <h1 className={styles.pageTitle}>A desktop companion for coding-agent work.</h1>
           <p className={styles.lead}>
@@ -28,7 +28,7 @@ export default function PokoProductPage() {
             <Button href="/features" variant="ghost">Explore Features</Button>
           </div>
         </div>
-        <aside className={styles.heroCard}>
+        <aside className={`${styles.heroCard} ${styles.heroSecondary}`}>
           <div className={styles.signalList}>
             <div className={styles.signalItem}>
               <strong>Real-time agent state</strong>

@@ -1,9 +1,10 @@
 .shell {
   min-height: 100vh;
+  color: #f5f7fb;
   background:
-    radial-gradient(circle at top left, rgba(255, 77, 184, 0.12), transparent 24rem),
-    radial-gradient(circle at top right, rgba(109, 92, 255, 0.16), transparent 28rem),
-    linear-gradient(180deg, var(--color-bg-page) 0%, color-mix(in srgb, var(--color-bg-page) 92%, black) 100%);
+    radial-gradient(circle at 18% 10%, rgba(126, 143, 255, 0.22), transparent 0 24%),
+    radial-gradient(circle at 82% 16%, rgba(73, 211, 199, 0.14), transparent 0 22%),
+    linear-gradient(180deg, #08101b 0%, #05070d 100%);
 }
 
 .header {
@@ -12,19 +13,23 @@
   z-index: 30;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  background: color-mix(in srgb, var(--color-bg-page) 82%, transparent);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(5, 10, 18, 0.72);
+  border-bottom: 1px solid rgba(146, 166, 211, 0.1);
+}
+
+.navWrap,
+.page,
+.footerInner {
+  width: min(calc(100% - 2rem), 70rem);
+  margin: 0 auto;
 }
 
 .navWrap {
-  width: min(calc(100% - 2rem), 78rem);
-  margin: 0 auto;
-  min-height: 4.75rem;
+  min-height: 4.5rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
-  padding: 0.75rem 0;
 }
 
 .brand {
@@ -34,58 +39,55 @@
 }
 
 .brandKicker {
-  font-size: 0.7rem;
-  text-transform: uppercase;
+  font-size: 0.72rem;
   letter-spacing: 0.16em;
-  color: var(--color-accent-bright);
+  text-transform: uppercase;
+  color: #49d3c7;
   font-weight: 700;
 }
 
 .brandName {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: #ffffff;
 }
 
 .nav {
   display: flex;
+  gap: 0.5rem;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 0.5rem;
 }
 
 .navLink {
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
-  color: var(--color-text-secondary);
+  color: #a9b4d2;
   font-weight: 600;
+  transition: background 160ms ease, color 160ms ease;
 }
 
 .navLink:hover,
 .navLinkActive {
-  background: color-mix(in srgb, var(--color-accent) 18%, transparent);
-  color: var(--color-text-primary);
+  background: rgba(126, 143, 255, 0.14);
+  color: #ffffff;
 }
 
 .footer {
-  padding: 1.5rem 0 3rem;
+  padding: 1.25rem 0 3rem;
 }
 
 .footerInner {
-  width: min(calc(100% - 2rem), 78rem);
-  margin: 0 auto;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text-tertiary);
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(146, 166, 211, 0.12);
+  color: #7e8aa7;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .page {
-  width: min(calc(100% - 2rem), 78rem);
-  margin: 0 auto;
   padding: 4rem 0 5rem;
 }
 
@@ -99,23 +101,41 @@
 .heroCard,
 .card,
 .callout,
-.tableWrap {
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-surface) 92%, transparent);
-  border-radius: var(--radius-2xl);
-  box-shadow: 0 20px 70px var(--color-card-glow);
+.tableWrap,
+.authCard,
+.signalItem,
+.metricCard,
+.linkCard {
+  background: rgba(12, 19, 33, 0.82);
+  border: 1px solid rgba(146, 166, 211, 0.18);
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
 .heroCard,
+.card,
 .callout,
 .tableWrap,
-.card {
+.authCard,
+.metricCard,
+.linkCard {
   padding: 1.6rem;
+}
+
+.heroPrimary {
+  padding: 1.9rem;
+}
+
+.heroSecondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .kicker {
   margin: 0 0 0.9rem;
-  color: var(--color-accent-bright);
+  color: #49d3c7;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -124,16 +144,32 @@
 
 .pageTitle {
   margin: 0 0 1rem;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  font-size: clamp(2.75rem, 6vw, 4.9rem);
   line-height: 0.96;
   letter-spacing: -0.06em;
+  color: #ffffff;
+}
+
+.lead,
+.sectionIntro,
+.card p,
+.card li,
+.callout p,
+.callout li,
+.signalItem span,
+.note,
+.table td,
+.linkCard span,
+.authDescription,
+.inputLabel,
+.metricCard span {
+  color: #a9b4d2;
 }
 
 .lead {
   margin: 0;
   max-width: 52rem;
-  color: var(--color-text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   line-height: 1.8;
 }
 
@@ -144,6 +180,23 @@
   margin-top: 1.6rem;
 }
 
+:global(.button) {
+  border-radius: 999px;
+}
+
+:global(.button.button--primary) {
+  background: linear-gradient(135deg, #7e8fff 0%, #6c9cff 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 14px 36px rgba(108, 156, 255, 0.22);
+}
+
+:global(.button.button--ghost) {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(146, 166, 211, 0.16);
+  color: #f5f7fb;
+}
+
 .section {
   padding-top: 2rem;
 }
@@ -152,18 +205,20 @@
   margin: 0 0 0.8rem;
   font-size: clamp(2rem, 4vw, 3rem);
   letter-spacing: -0.04em;
+  color: #ffffff;
 }
 
 .sectionIntro {
   margin: 0 0 1.5rem;
   max-width: 50rem;
-  color: var(--color-text-secondary);
   line-height: 1.8;
 }
 
 .grid2,
 .grid3,
-.stepList {
+.stepList,
+.metricGrid,
+.linkList {
   display: grid;
   gap: 1rem;
 }
@@ -171,11 +226,16 @@
 .grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .stepList { grid-template-columns: 1fr; }
+.metricGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1rem 0 1.5rem; }
+.linkList { grid-template-columns: 1fr; }
 
 .card h3,
-.callout h3 {
+.callout h3,
+.authTitle,
+.linkCard strong {
   margin: 0 0 0.7rem;
   font-size: 1.2rem;
+  color: #ffffff;
 }
 
 .card p,
@@ -183,7 +243,6 @@
 .callout p,
 .callout li {
   margin: 0;
-  color: var(--color-text-secondary);
   line-height: 1.8;
 }
 
@@ -203,19 +262,14 @@
 
 .signalItem {
   padding: 1rem;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-elevated) 88%, transparent);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .signalItem strong {
   display: block;
   margin-bottom: 0.35rem;
-}
-
-.signalItem span {
-  color: var(--color-text-secondary);
-  line-height: 1.7;
+  color: #ffffff;
 }
 
 .badgeRow {
@@ -227,8 +281,8 @@
 .badge {
   padding: 0.45rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  border: 1px solid rgba(146, 166, 211, 0.18);
+  color: #a9b4d2;
   font-size: 0.78rem;
   font-weight: 700;
 }
@@ -241,8 +295,8 @@
   justify-content: center;
   border-radius: 999px;
   margin-bottom: 0.9rem;
-  background: color-mix(in srgb, var(--color-accent) 16%, transparent);
-  color: var(--color-text-primary);
+  background: rgba(126, 143, 255, 0.16);
+  color: #ffffff;
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -257,16 +311,15 @@
   text-align: left;
   vertical-align: top;
   padding: 1rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(146, 166, 211, 0.12);
 }
 
 .table th {
   font-size: 0.82rem;
-  color: var(--color-text-primary);
+  color: #ffffff;
 }
 
 .table td {
-  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
@@ -281,13 +334,13 @@
 }
 
 .statusLive {
-  background: color-mix(in srgb, var(--color-live) 18%, transparent);
-  color: var(--color-live);
+  background: rgba(34, 197, 94, 0.12);
+  color: #9ff0b8;
 }
 
 .statusNext {
-  background: color-mix(in srgb, var(--color-pilot) 16%, transparent);
-  color: var(--color-pilot);
+  background: rgba(126, 143, 255, 0.14);
+  color: #c6d0ff;
 }
 
 .adminHeader {
@@ -308,66 +361,105 @@
 .adminNav a {
   padding: 0.6rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  border: 1px solid rgba(146, 166, 211, 0.18);
+  color: #a9b4d2;
   font-weight: 600;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .adminNav a:hover {
-  color: var(--color-text-primary);
-  background: color-mix(in srgb, var(--color-bg-elevated) 85%, transparent);
-}
-
-.metricGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 1rem 0 1.5rem;
+  color: #ffffff;
+  background: rgba(126, 143, 255, 0.14);
 }
 
 .metricCard {
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg-surface) 95%, transparent);
+  border-radius: 16px;
+}
+
+.metricCard strong {
+  font-size: 1.75rem;
+  color: #ffffff;
 }
 
 .metricCard span {
   display: block;
-  color: var(--color-text-tertiary);
   margin-bottom: 0.55rem;
-}
-
-.metricCard strong {
-  font-size: 1.6rem;
-}
-
-.linkList {
-  display: grid;
-  gap: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .linkCard {
   display: block;
-  padding: 1.05rem 1.1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: color-mix(in srgb, var(--color-bg-surface) 95%, transparent);
 }
 
-.linkCard strong {
-  display: block;
-  margin-bottom: 0.35rem;
+.authGate {
+  width: min(calc(100% - 2rem), 32rem);
+  margin: 5.5rem auto 4rem;
 }
 
-.linkCard span {
-  color: var(--color-text-secondary);
-  line-height: 1.65;
+.authCard {
+  padding: 1.8rem;
+}
+
+.authEyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #49d3c7;
+}
+
+.authTitle {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.authDescription {
+  margin: 0 0 1rem;
+  line-height: 1.8;
+}
+
+.authForm {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.inputWrap {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.inputLabel {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.input {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 14px;
+  border: 1px solid rgba(146, 166, 211, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  padding: 0.85rem 1rem;
+}
+
+.input::placeholder {
+  color: #7e8aa7;
+}
+
+.error {
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  background: rgba(239, 68, 68, 0.1);
+  color: #ffd0d0;
 }
 
 .note {
-  color: var(--color-text-tertiary);
   font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 @media (max-width: 960px) {
@@ -380,7 +472,9 @@
 }
 
 @media (max-width: 760px) {
-  .navWrap {
+  .navWrap,
+  .adminHeader,
+  .footerInner {
     align-items: flex-start;
     flex-direction: column;
   }
@@ -393,8 +487,13 @@
     padding: 2.5rem 0 4rem;
   }
 
-  .adminHeader,
-  .footerInner {
-    flex-direction: column;
+  .heroCard,
+  .card,
+  .callout,
+  .tableWrap,
+  .authCard,
+  .metricCard,
+  .linkCard {
+    padding: 1.25rem;
   }
 }
