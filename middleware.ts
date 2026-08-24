@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 const subdomainRoutes: Record<string, string> = {
   easybuddy: "/easybuddy",
   feedbackfish: "/feedbackfish",
+  poko: "/poko",
 };
 
 export function middleware(request: NextRequest) {
