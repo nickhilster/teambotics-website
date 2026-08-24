@@ -1,7 +1,41 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Download, Monitor, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import styles from "@/components/poko/poko-site.module.css";
+
+const highlights = [
+  {
+    icon: Monitor,
+    title: "Real-time desktop presence",
+    body: "See thinking, working, waiting, and completion states without checking every terminal.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Steward-style trust loop",
+    body: "Mission briefs, waiting reasons, replay summaries, and handoff flows are now part of Poko’s local product surface.",
+  },
+  {
+    icon: Sparkles,
+    title: "Local-first coordination",
+    body: "Poko sits between you and your tools without pretending to be the user or silently taking over.",
+  },
+] as const;
+
+const downloadCards = [
+  {
+    label: "Windows",
+    body: "Primary production target with architecture-specific installers and the most complete runtime validation path today.",
+  },
+  {
+    label: "macOS",
+    body: "Supported build target for the desktop companion workflow, theme system, and packaged app surface.",
+  },
+  {
+    label: "Linux",
+    body: "Supported packaging target for the local desktop runtime and companion experience.",
+  },
+] as const;
 
 export const metadata: Metadata = {
   title: "Product",
@@ -27,20 +61,33 @@ export default function PokoProductPage() {
             <Button href="/how-to-use" variant="ghost">How to Use</Button>
             <Button href="/features" variant="ghost">Explore Features</Button>
           </div>
+          <div className={styles.heroStats}>
+            <div className={styles.heroStat}><span>Surface</span><strong>Desktop-native</strong></div>
+            <div className={styles.heroStat}><span>Mode</span><strong>Local-first</strong></div>
+            <div className={styles.heroStat}><span>Focus</span><strong>Multi-agent clarity</strong></div>
+          </div>
         </div>
         <aside className={`${styles.heroCard} ${styles.heroSecondary}`}>
-          <div className={styles.signalList}>
-            <div className={styles.signalItem}>
-              <strong>Real-time agent state</strong>
-              <span>See thinking, working, waiting, and completion states without checking every terminal.</span>
+          <div className={styles.previewPanel}>
+            <div className={styles.previewTopline}>
+              <span className={styles.previewDot}></span>
+              <span>Poko desktop runtime</span>
             </div>
-            <div className={styles.signalItem}>
-              <strong>Desktop-native Steward direction</strong>
-              <span>Mission briefs, waiting reasons, replay summaries, and handoff flows are now part of Poko’s local product surface.</span>
+            <div className={styles.previewStage}>
+              <div className={styles.previewPet}>
+                <div className={styles.previewPetOrb}></div>
+                <div className={styles.previewPetGlow}></div>
+              </div>
+              <div className={styles.previewStack}>
+                <div className={styles.previewChip}>Thinking</div>
+                <div className={styles.previewChip}>Mission Brief</div>
+                <div className={styles.previewChip}>Explain run</div>
+              </div>
             </div>
-            <div className={styles.signalItem}>
-              <strong>Local-first coordination</strong>
-              <span>Poko is designed to sit between you and your tools without pretending to be the user or silently taking over.</span>
+            <div className={styles.previewTimeline}>
+              <div className={styles.previewLine}><span>Hermes</span><strong>Working</strong></div>
+              <div className={styles.previewLine}><span>Steward</span><strong>Waiting reason: Permission review</strong></div>
+              <div className={styles.previewLine}><span>Session</span><strong>Replay summary ready</strong></div>
             </div>
           </div>
           <div className={styles.badgeRow}>
@@ -53,21 +100,34 @@ export default function PokoProductPage() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>What Poko does</h2>
-        <p className={styles.sectionIntro}>Poko brings live agent activity, desktop presence, and Steward-style trust loops into one local product.</p>
+        <h2 className={styles.sectionTitle}>Why Poko feels different</h2>
+        <p className={styles.sectionIntro}>Poko is not just a mascot or status light. It is becoming the local desktop layer that makes agent work more visible, more reviewable, and easier to trust.</p>
         <div className={styles.grid3}>
-          <article className={styles.card}>
-            <h3>Stay aware of your agents</h3>
+          {highlights.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className={styles.card}>
+                <div className={styles.featureIconWrap}><Icon size={20} /></div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.showcaseGrid}>
+          <div className={styles.card}>
+            <p className={styles.kicker}>Live visibility</p>
+            <h3>Make agent work visible on the desktop</h3>
             <p>Poko watches supported local coding agents and reflects their live state on your desktop — thinking, working, waiting, done, and more.</p>
-          </article>
-          <article className={styles.card}>
-            <h3>Make agent work visible</h3>
-            <p>Instead of letting activity disappear into terminals and background processes, Poko gives you a persistent desktop surface for what’s happening now.</p>
-          </article>
-          <article className={styles.card}>
-            <h3>Help with trust and handoffs</h3>
+          </div>
+          <div className={styles.card}>
+            <p className={styles.kicker}>Trust and handoffs</p>
+            <h3>Turn hidden work into reviewable flows</h3>
             <p>Poko’s Steward direction is about making requests, approvals, waiting reasons, and handoffs easier to understand — without hiding who asked, what happened, or what was shared.</p>
-          </article>
+          </div>
         </div>
       </section>
 
@@ -91,6 +151,33 @@ export default function PokoProductPage() {
               <li><strong>Coordination:</strong> support parallel sessions and stronger multi-agent workflows over time.</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.callout}>
+          <h3>What a polished product page will eventually show here</h3>
+          <p>A richer launch pass can swap this section for live screenshots, motion captures, or short GIFs from the desktop runtime. For now, this space is intentionally holding the shape and rhythm of that media-driven story block.</p>
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Downloads</h2>
+        <p className={styles.sectionIntro}>Poko ships as a desktop app. The public download path currently runs through GitHub Releases while the product site continues to mature.</p>
+        <div className={styles.grid3}>
+          {downloadCards.map((card) => (
+            <article key={card.label} className={styles.card}>
+              <div className={styles.downloadHead}>
+                <h3>{card.label}</h3>
+                <Download size={18} />
+              </div>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+        <div className={styles.actions}>
+          <a className="button button--primary" href="https://github.com/Teambotics-BackBurner/poko/releases" target="_blank" rel="noopener noreferrer">Open Releases</a>
+          <Link className="button button--ghost" href="/how-to-use">Read setup guide</Link>
         </div>
       </section>
 

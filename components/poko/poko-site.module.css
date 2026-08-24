@@ -197,6 +197,143 @@
   color: #f5f7fb;
 }
 
+.heroStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+
+.heroStat {
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(146, 166, 211, 0.14);
+}
+
+.heroStat span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #7e8aa7;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.heroStat strong {
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.previewPanel {
+  display: grid;
+  gap: 1rem;
+}
+
+.previewTopline {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #c6d0ff;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.previewDot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: #49d3c7;
+  box-shadow: 0 0 0.8rem rgba(73, 211, 199, 0.45);
+}
+
+.previewStage {
+  position: relative;
+  min-height: 15rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(146, 166, 211, 0.16);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(126, 143, 255, 0.25), transparent 0 26%),
+    radial-gradient(circle at 80% 18%, rgba(73, 211, 199, 0.14), transparent 0 22%),
+    linear-gradient(180deg, rgba(7, 14, 26, 0.95) 0%, rgba(5, 9, 18, 0.96) 100%);
+}
+
+.previewPet {
+  position: absolute;
+  left: 1.3rem;
+  bottom: 1.2rem;
+  width: 9rem;
+  height: 9rem;
+}
+
+.previewPetOrb {
+  position: absolute;
+  inset: 1rem;
+  border-radius: 2rem;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.5), transparent 0 18%),
+    linear-gradient(135deg, rgba(126, 143, 255, 0.95), rgba(73, 211, 199, 0.7));
+  box-shadow: 0 1.5rem 3rem rgba(73, 211, 199, 0.14);
+}
+
+.previewPetGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(126, 143, 255, 0.22), rgba(126, 143, 255, 0));
+  filter: blur(12px);
+}
+
+.previewStack {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.previewChip {
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(146, 166, 211, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #e4ebff;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.previewTimeline {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.previewLine {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(146, 166, 211, 0.12);
+}
+
+.previewLine span {
+  color: #7e8aa7;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.previewLine strong {
+  color: #ffffff;
+  font-size: 0.92rem;
+  text-align: right;
+}
+
 .section {
   padding-top: 2rem;
 }
@@ -218,7 +355,8 @@
 .grid3,
 .stepList,
 .metricGrid,
-.linkList {
+.linkList,
+.showcaseGrid {
   display: grid;
   gap: 1rem;
 }
@@ -228,6 +366,7 @@
 .stepList { grid-template-columns: 1fr; }
 .metricGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1rem 0 1.5rem; }
 .linkList { grid-template-columns: 1fr; }
+.showcaseGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .card h3,
 .callout h3,
@@ -254,6 +393,18 @@
 
 .card li + li,
 .callout li + li { margin-top: 0.45rem; }
+
+.featureIconWrap {
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(126, 143, 255, 0.88), rgba(73, 211, 199, 0.72));
+}
 
 .signalList {
   display: grid;
@@ -340,6 +491,17 @@
 
 .statusNext {
   background: rgba(126, 143, 255, 0.14);
+  color: #c6d0ff;
+}
+
+.downloadHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.downloadHead svg {
   color: #c6d0ff;
 }
 
@@ -466,7 +628,9 @@
   .hero,
   .grid2,
   .grid3,
-  .metricGrid {
+  .metricGrid,
+  .showcaseGrid,
+  .heroStats {
     grid-template-columns: 1fr;
   }
 }
