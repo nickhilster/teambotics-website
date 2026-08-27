@@ -16,7 +16,6 @@ type ValueItem = {
 
 type ValuesDoc = {
   generatedAt: string;
-  model: string;
   sourcePostCount: number;
   sourcePostSlugs: string[];
   intro: string;
@@ -32,7 +31,7 @@ function renderMarkdown(doc: ValuesDoc, postTitleBySlug: Map<string, string>) {
   lines.push('# Teambotics Values');
   lines.push('');
   lines.push(
-    '> Machine-readable mirror of https://blog.teambotics.app/values, generated automatically from the Teambotics blog archive. This document is regenerated on a schedule as the blog changes — do not cache it long-term.',
+    '> Machine-readable mirror of https://blog.teambotics.app/values. Reviewed and updated whenever a new post is published — do not cache it long-term.',
   );
   lines.push('');
   lines.push(`Last synced: ${doc.generatedAt}`);

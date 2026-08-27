@@ -40,9 +40,11 @@ The blog publishes a self-updating "Teambotics Values" page, written for both hu
 - Agent-readable markdown mirror: `https://blog.teambotics.app/values.md`
 - Underlying structured data: `https://www.teambotics.app/api/values`
 
-The values themselves are not hand-maintained. A scheduled job (`/api/cron/sync-values`, same auth pattern as `/api/cron/ingest-github`, runs daily per `vercel.json`) rereads the full published blog archive and asks an LLM to extract the operating values actually evidenced across posts, storing the result in the `site_values` table. The synthesis logic lives in `lib/values/synthesize.ts` and can be run manually with `pnpm values:sync`. If no synthesis has run yet (or a run fails), `app/api/values/route.ts` falls back to a hand-authored seed in the same file so the page is never empty.
+The values are hand-maintained in `lib/values/values.json`, model-agnostic by design: no LLM API call, no cron, no DB. Whichever agent publishes a post (via `scripts/create-blog-post.ts` or a seed script) re-scans the archive against the file and updates it in the same change if the new post evidences a value not yet captured. `app/api/values/route.ts` just serves that file as-is.
 
-The blog page (`blog/src/pages/values.astro`) and its markdown mirror (`blog/src/pages/values.md.ts`) both fetch `/api/values` at request time, so the content updates automatically as new posts are published — no redeploy required.
+The blog page (`blog/src/pages/values.astro`) and its markdown mirror (`blog/src/pages/values.md.ts`) both fetch `/api/values` at request time.
+
+This deliberately does not cover posts published directly through the `/admin/blog` self-serve UI without an agent in the loop — the page can go stale after one of those until an agent next touches the blog. If self-serve publishing becomes the normal path rather than the exception, this should move to event-driven synthesis (trigger an LLM call from the admin publish action itself) instead.
 
 ## Stack
 

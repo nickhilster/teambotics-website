@@ -20,7 +20,6 @@
     "chat:seed": "tsx scripts/seed-teambotics-knowledge.ts",
     "chat:seed:dry-run": "tsx scripts/seed-teambotics-knowledge.ts --dry-run",
     "chat:ingest:github": "tsx scripts/ingest-github-knowledge.ts",
-    "values:sync": "tsx scripts/sync-values.ts",
     "blog:seed": "tsx scripts/seed-blog-posts.ts",
     "blog:seed:ai-2026": "tsx scripts/seed-blog-posts-ai-2026.ts"
   },

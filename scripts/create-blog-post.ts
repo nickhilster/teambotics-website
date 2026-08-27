@@ -13,6 +13,11 @@
  * Examples:
  *   pnpm tsx scripts/create-blog-post.ts "predictive maintenance using sensor data"
  *   pnpm tsx scripts/create-blog-post.ts "how to evaluate an LLM vendor for operational use"
+ *
+ * After publishing (status: published, not --draft), re-read lib/values/values.json against
+ * the new post and update it in the same change if the post evidences a value not yet
+ * captured, or strengthens an existing item's evidence. See README.md's "Teambotics Values"
+ * section for why this is a manual step rather than an API call.
  */
 
 import OpenAI from 'openai';

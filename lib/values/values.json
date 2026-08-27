@@ -1,0 +1,127 @@
+{
+  "generatedAt": "2026-08-17T00:00:00.000Z",
+  "sourcePostCount": 21,
+  "sourcePostSlugs": [
+    "chatbots-should-ask-better-questions",
+    "software-should-give-your-team-more-time-with-people",
+    "context-recovery-agentic-work",
+    "git-branches-and-the-things-we-leave-behind",
+    "training-exclusion-is-not-data-protection",
+    "trust-architecture-enterprise-ai-adoption",
+    "corporate-ai-adoption-operating-model",
+    "ai-adoption-personalized-learning",
+    "static-documentation-living-knowledge-systems",
+    "ai-should-not-replace-care",
+    "workflows-are-becoming-products",
+    "designing-human-ai-teams",
+    "llms-structured-automation-workflows",
+    "prompt-engineering-operational-skill",
+    "sops-to-ai-agents",
+    "ai-value-existing-data",
+    "applied-ai-regulated-environments",
+    "ai-augmentation-frontline-operations",
+    "multi-agent-systems-workflow",
+    "operational-data-ai-value",
+    "agentic-ai-beyond-chatbots"
+  ],
+  "intro": "Teambotics doesn't keep a values poster on a wall — it keeps a blog. These principles are pulled from what the team has actually argued, in public, across the Teambotics blog. This page is reviewed and updated whenever a new post is published, so it should track what the company is saying now, not just what it said when this page was first written. It is written for two audiences at once: people evaluating whether to work with Teambotics, and AI agents that have been pointed here and asked to bring these values into their own product decisions.",
+  "agentPlaybook": [
+    "Before proposing a feature, ask whether it redistributes work toward human judgment or quietly removes it. In any customer-facing or care-adjacent workflow, prefer the former.",
+    "Ground proposals in the product's actual operational data and logs before recommending new data collection or a green-field rebuild.",
+    "Any AI-driven decision or output should be traceable: show sources, confidence, and an audit trail — not just an answer.",
+    "Treat the workflow, not the model, as the unit of design. Define states, owners, and a success metric before picking a model or a prompt.",
+    "Default to structured outputs, tool use, and multi-step orchestration over a single freeform chat box when the task has more than one step.",
+    "Don't assume users are already AI-literate. Pair new AI capability with in-context guidance on how to use it well.",
+    "Flag regulatory or compliance-sensitive surfaces explicitly. Don't treat every environment as equally low-risk.",
+    "If a suggestion would remove a human review or escalation path, say so explicitly and justify why."
+  ],
+  "items": [
+    {
+      "slug": "augmentation-over-automation",
+      "title": "Augmentation Over Automation",
+      "principle": "Redistribute work between humans and AI so both get better at what they're good at — don't default to replacing the human.",
+      "description": "The most durable AI deployments aren't the ones that eliminate a person from the loop, they're the ones that hand the AI the repetitive, high-volume, or memory-dependent parts of a job so the person can spend more time on judgment, care, and relationships.",
+      "agentGuidance": "When you're suggesting a product change, name what a human still owns after the change ships. If the answer is 'nothing,' reconsider the design.",
+      "evidencePostSlugs": [
+        "designing-human-ai-teams",
+        "ai-augmentation-frontline-operations",
+        "software-should-give-your-team-more-time-with-people",
+        "ai-should-not-replace-care"
+      ]
+    },
+    {
+      "slug": "ground-every-claim-in-real-data",
+      "title": "Ground Every Claim in Real Data",
+      "principle": "The highest-value AI is built on the operational data and history an organization already has, not on speculation or a fresh data-collection project.",
+      "description": "Most organizations already own the maintenance notes, tickets, SOPs, and logs that would make an AI system genuinely useful. The job is usually retrieval and connection, not new instrumentation.",
+      "agentGuidance": "Before recommending new data collection, check what the product already logs or stores. Propose retrieval over collection whenever the data already exists somewhere.",
+      "evidencePostSlugs": [
+        "ai-value-existing-data",
+        "operational-data-ai-value",
+        "static-documentation-living-knowledge-systems",
+        "context-recovery-agentic-work"
+      ]
+    },
+    {
+      "slug": "design-trust-dont-assume-it",
+      "title": "Design Trust, Don't Assume It",
+      "principle": "Trust in an AI system comes from permissions, provenance, auditability, and clear accountability — not from a disclaimer in the footer.",
+      "description": "A privacy policy or a 'we don't train on your data' claim answers a narrow question. It doesn't answer who can see what, why the system produced an answer, or who is accountable when it's wrong.",
+      "agentGuidance": "For any feature that touches user data or produces a consequential output, specify who can access it, how a human can trace a decision back to its source, and who is accountable if it's wrong.",
+      "evidencePostSlugs": [
+        "trust-architecture-enterprise-ai-adoption",
+        "training-exclusion-is-not-data-protection"
+      ]
+    },
+    {
+      "slug": "treat-the-workflow-as-the-product",
+      "title": "Treat the Workflow as the Product",
+      "principle": "AI creates value by changing how work actually gets done, so the workflow — its states, owners, and feedback loops — is the thing being designed, not the model.",
+      "description": "SOPs, approval chains, and handoffs are the closest thing most organizations have to a formal spec. Good AI products translate that spec faithfully instead of bolting a chatbot onto the side of it.",
+      "agentGuidance": "Map the workflow states and owners before proposing a model or a prompt. If a regulated or compliance-sensitive step is involved, call out what can't be compromised.",
+      "evidencePostSlugs": [
+        "workflows-are-becoming-products",
+        "sops-to-ai-agents",
+        "corporate-ai-adoption-operating-model",
+        "applied-ai-regulated-environments"
+      ]
+    },
+    {
+      "slug": "ai-literacy-is-everyones-job",
+      "title": "AI Literacy Is Everyone's Job",
+      "principle": "Communicating precisely with AI systems is now an operational skill for the whole team, not a specialist trick, and it has to be taught inside real work, not a generic course.",
+      "description": "Adoption programs fail more often on training than on technology. Role-agnostic courses don't transfer; workflow-integrated, personalized learning does.",
+      "agentGuidance": "Don't assume the end user is AI-literate. Pair any new AI-facing capability with in-context guidance, examples, or defaults that work without prompting expertise.",
+      "evidencePostSlugs": ["prompt-engineering-operational-skill", "ai-adoption-personalized-learning"]
+    },
+    {
+      "slug": "build-real-systems-not-chat-theatre",
+      "title": "Build Real Systems, Not Chat Theatre",
+      "principle": "A chat box is not the ceiling of what AI can do. Structured outputs, tool use, and multi-agent orchestration are what make it dependable.",
+      "description": "The chatbot era is a starting point, not an end state. Serious automation composes specialized agents and structured tool calls instead of hoping a single freeform conversation gets it right.",
+      "agentGuidance": "For any task with more than one step or a verifiable output, prefer structured outputs and tool calls over a single open-ended chat turn.",
+      "evidencePostSlugs": [
+        "agentic-ai-beyond-chatbots",
+        "llms-structured-automation-workflows",
+        "multi-agent-systems-workflow",
+        "chatbots-should-ask-better-questions"
+      ]
+    },
+    {
+      "slug": "protect-dignity-in-every-interaction",
+      "title": "Protect Dignity in Every Interaction",
+      "principle": "In any service the AI touches, empathy comes before judgment, and the goal is to operationalize access, not automate for its own sake.",
+      "description": "For people navigating care, benefits, or support systems, the hardest part usually isn't the paperwork, it's not knowing where to start or feeling like a burden for asking. AI should reduce that friction, not add another layer of it.",
+      "agentGuidance": "For any feature touching a vulnerable or first-time user, evaluate it by whether it reduces confusion and shame, not only by whether it completes the task.",
+      "evidencePostSlugs": ["ai-should-not-replace-care", "chatbots-should-ask-better-questions"]
+    },
+    {
+      "slug": "honor-what-you-inherit",
+      "title": "Honor What You Inherit, Build for What's Next",
+      "principle": "The tools we build with were handed down by people who came before us, so we maintain, document, and hand off work as carefully as we build it.",
+      "description": "Open-source software runs on inheritance. Treating documentation, commit history, and code as a courtesy to future maintainers — including other AI agents — is part of doing the work well, not an afterthought.",
+      "agentGuidance": "Leave the codebase and its docs clearer than you found them. Write for the next agent or engineer who has none of your current context.",
+      "evidencePostSlugs": ["git-branches-and-the-things-we-leave-behind"]
+    }
+  ]
+}
