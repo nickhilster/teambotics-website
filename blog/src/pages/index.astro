@@ -3,36 +3,18 @@ import BlogLayout from '../layouts/BlogLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import { getStaticBlogPostSummaries } from '../data/static-posts.ts';
 import { getExecutiveBlogPostSummaries } from '../data/executive-overrides.ts';
+import { getApiBase } from '../lib/get-post.ts';
+import { getAllPosts, type PostSummary } from '../lib/get-all-posts.ts';
 
-const apiBase =
-  import.meta.env.SITE_API_BASE ??
-  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.teambotics.app');
+const apiBase = getApiBase(import.meta.env);
 
 const selectedTag = Astro.url.searchParams.get('tag') ?? null;
 
-let allPosts: Array<{
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  author: string;
-  tags: string[];
-  cover_image_url: string | null;
-  published_at: string | null;
-}> = [];
-
+let allPosts: PostSummary[] = [];
 let fetchError: string | null = null;
 
 try {
-  const res = await fetch(`${apiBase}/api/blog/posts`);
-  if (!res.ok) throw new Error(`API responded ${res.status}`);
-  const data = await res.json() as { posts: typeof allPosts };
-  const overridePosts = getExecutiveBlogPostSummaries();
-  const staticPosts = getStaticBlogPostSummaries();
-  const preferredSlugs = new Set([...overridePosts, ...staticPosts].map((post) => post.slug));
-  allPosts = [...overridePosts, ...staticPosts, ...(data.posts ?? []).filter((post) => !preferredSlugs.has(post.slug))].sort((a, b) =>
-    new Date(b.published_at || 0).getTime() - new Date(a.published_at || 0).getTime()
-  );
+  allPosts = await getAllPosts(apiBase);
 } catch (err) {
   fetchError = err instanceof Error ? err.message : 'Failed to load posts.';
   allPosts = [...getExecutiveBlogPostSummaries(), ...getStaticBlogPostSummaries()].sort((a, b) =>

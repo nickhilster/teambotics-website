@@ -3,8 +3,7 @@ import { marked } from '../lib/marked-config.ts';
 import { processCallouts } from '../lib/callouts.ts';
 import BlogLayout from '../layouts/BlogLayout.astro';
 import { getGeometricThumbnailUrl } from '../lib/thumbnail.ts';
-import { getStaticBlogPost } from '../data/static-posts.ts';
-import { getExecutiveBlogPost } from '../data/executive-overrides.ts';
+import { getApiBase, resolvePostBySlug, type Post } from '../lib/get-post.ts';
 import AgentEvolution from '../components/AgentEvolution.astro';
 import DataValuePyramid from '../components/DataValuePyramid.astro';
 import MultiAgentFlow from '../components/MultiAgentFlow.astro';
@@ -17,37 +16,14 @@ import WorkflowDiagram from '../components/WorkflowDiagram.astro';
 import CollaborationGradient from '../components/CollaborationGradient.astro';
 
 const { slug } = Astro.params as { slug: string };
-const apiBase =
-  import.meta.env.SITE_API_BASE ??
-  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.teambotics.app');
+const apiBase = getApiBase(import.meta.env);
 
-type Post = {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  tags: string[];
-  cover_image_url: string | null;
-  published_at: string | null;
-};
+const { post, notFound, fetchError } = slug
+  ? await resolvePostBySlug(slug, apiBase)
+  : { post: null as Post | null, notFound: true, fetchError: null };
 
-let post: Post | null = slug ? getExecutiveBlogPost(slug) ?? getStaticBlogPost(slug) : null;
-let fetchError: string | null = null;
-
-if (!post) {
-  try {
-    const res = await fetch(`${apiBase}/api/blog/posts/${encodeURIComponent(slug)}`);
-    if (res.status === 404) {
-      return Astro.redirect('/404', 404);
-    }
-    if (!res.ok) throw new Error(`API responded ${res.status}`);
-    const data = (await res.json()) as { post: Post };
-    post = data.post ?? null;
-  } catch (err) {
-    fetchError = err instanceof Error ? err.message : 'Failed to load post.';
-  }
+if (notFound) {
+  return Astro.redirect('/404', 404);
 }
 
 if (!post && !fetchError) {
@@ -70,6 +46,7 @@ const renderedContent = processCallouts(rawHtml);
     title={`${post.title} — Teambotics Blog`}
     description={post.excerpt}
     ogImage={post.cover_image_url ?? undefined}
+    markdownAlternate={`/${post.slug}.md`}
   >
     <article class="blog-post">
       <a href="/" class="blog-post__back">← All posts</a>
