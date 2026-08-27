@@ -300,19 +300,6 @@ async function createSchema() {
     CREATE INDEX IF NOT EXISTS idx_blog_posts_published_at
       ON blog_posts (published_at DESC)
     `,
-    `
-    CREATE TABLE IF NOT EXISTS site_values (
-      id                  text        PRIMARY KEY,
-      generated_at        timestamptz NOT NULL DEFAULT now(),
-      model               text        NOT NULL,
-      source_post_count   integer     NOT NULL DEFAULT 0,
-      source_post_slugs   text[]      NOT NULL DEFAULT '{}',
-      intro               text        NOT NULL DEFAULT '',
-      agent_playbook      jsonb       NOT NULL DEFAULT '[]'::jsonb,
-      items               jsonb       NOT NULL DEFAULT '[]'::jsonb,
-      updated_at          timestamptz NOT NULL DEFAULT now()
-    )
-    `,
   ];
 
   for (const statement of schemaStatements) {
