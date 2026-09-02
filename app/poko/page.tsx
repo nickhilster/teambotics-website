@@ -49,8 +49,11 @@ const mediaCards = [
   },
 ] as const;
 
+// Poko's source repo is private, so its release assets 404 for anonymous
+// visitors. Public downloads are published to a dedicated public releases
+// repo instead (same pattern as MDownManager's nickhilster/MDownManager-releases).
 const POKO_WINDOWS_X64_DOWNLOAD_URL =
-  "https://github.com/Teambotics-BackBurner/poko/releases/download/v0.12.11/Poko-Setup-0.12.11-x64.exe";
+  "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.12.11/Poko-Setup-0.12.11-x64.exe";
 
 const downloadCards = [
   {
@@ -64,14 +67,14 @@ const downloadCards = [
     label: "Windows ARM64",
     body: "Separate installer track for ARM64 Windows builds so release artifacts stay architecture-specific instead of universal.",
     cta: "Coming soon",
-    href: "https://github.com/Teambotics-BackBurner/poko/releases",
+    href: "https://github.com/Teambotics-BackBurner/poko-releases/releases",
     external: true,
   },
   {
     label: "macOS + Linux",
     body: "Supported build targets for the desktop companion workflow, theme system, and packaged app surface as the product matures.",
     cta: "Coming soon",
-    href: "https://github.com/Teambotics-BackBurner/poko/releases",
+    href: "https://github.com/Teambotics-BackBurner/poko-releases/releases",
     external: true,
   },
 ] as const;
