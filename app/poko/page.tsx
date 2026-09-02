@@ -49,24 +49,30 @@ const mediaCards = [
   },
 ] as const;
 
+const POKO_WINDOWS_X64_DOWNLOAD_URL =
+  "https://github.com/Teambotics-BackBurner/poko/releases/download/v0.12.11/Poko-Setup-0.12.11-x64.exe";
+
 const downloadCards = [
   {
     label: "Windows x64",
     body: "Primary production target today, with architecture-specific installer support and the most complete runtime validation path.",
-    cta: "Windows release notes",
-    href: "https://github.com/Teambotics-BackBurner/poko/releases",
+    cta: "Download for Windows (x64)",
+    href: POKO_WINDOWS_X64_DOWNLOAD_URL,
+    external: false,
   },
   {
     label: "Windows ARM64",
     body: "Separate installer track for ARM64 Windows builds so release artifacts stay architecture-specific instead of universal.",
-    cta: "ARM64 release track",
+    cta: "Coming soon",
     href: "https://github.com/Teambotics-BackBurner/poko/releases",
+    external: true,
   },
   {
     label: "macOS + Linux",
     body: "Supported build targets for the desktop companion workflow, theme system, and packaged app surface as the product matures.",
-    cta: "Platform release page",
+    cta: "Coming soon",
     href: "https://github.com/Teambotics-BackBurner/poko/releases",
+    external: true,
   },
 ] as const;
 
@@ -90,7 +96,7 @@ export default function PokoProductPage() {
             Poko reacts in real time to what your agents are doing, keeps important handoffs visible, and helps turn multi-agent activity into something you can actually follow.
           </p>
           <div className={styles.actions}>
-            <a className="button button--primary" href="https://github.com/Teambotics-BackBurner/poko/releases" target="_blank" rel="noopener noreferrer">Download Poko</a>
+            <a className="button button--primary" href={POKO_WINDOWS_X64_DOWNLOAD_URL}>Download Poko (Windows x64)</a>
             <Button href="/how-to-use" variant="ghost">How to Use</Button>
             <Button href="/features" variant="ghost">Explore Features</Button>
           </div>
@@ -217,14 +223,20 @@ export default function PokoProductPage() {
               </div>
               <p>{card.body}</p>
               <div className={styles.actions} style={{ marginTop: "1rem" }}>
-                <a className="button button--ghost" href={card.href} target="_blank" rel="noopener noreferrer">{card.cta}</a>
+                <a
+                  className="button button--ghost"
+                  href={card.href}
+                  {...(card.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                >
+                  {card.cta}
+                </a>
               </div>
             </article>
           ))}
         </div>
         <div className={styles.callout} style={{ marginTop: "1.25rem" }}>
           <h3>Release notes</h3>
-          <p>The current packaging flow is already set up for architecture-specific Windows installers and supported macOS/Linux targets. As public release distribution tightens, these cards can be switched from release-page links to direct per-asset download links.</p>
+          <p>Windows x64 is live now as a direct installer download. Windows ARM64, macOS, and Linux builds will switch from the GitHub release page to direct per-asset download links as each platform ships.</p>
         </div>
       </section>
 
@@ -240,7 +252,7 @@ export default function PokoProductPage() {
           <h2 className={styles.sectionTitle}>Bring your coding agents onto the desktop.</h2>
           <p className={styles.sectionIntro}>Use Poko to make sessions more visible, more understandable, and easier to manage.</p>
           <div className={styles.actions}>
-            <a className="button button--primary" href="https://github.com/Teambotics-BackBurner/poko/releases" target="_blank" rel="noopener noreferrer">Download</a>
+            <a className="button button--primary" href={POKO_WINDOWS_X64_DOWNLOAD_URL}>Download (Windows x64)</a>
             <Button href="/how-to-use" variant="ghost">Read the setup guide</Button>
             <Button href="/features" variant="ghost">See implemented features</Button>
           </div>
