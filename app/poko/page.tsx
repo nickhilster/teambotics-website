@@ -53,7 +53,7 @@ const mediaCards = [
 // visitors. Public downloads are published to a dedicated public releases
 // repo instead (same pattern as MDownManager's nickhilster/MDownManager-releases).
 const POKO_WINDOWS_X64_DOWNLOAD_URL =
-  "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.12.11/Poko-Setup-0.12.11-x64.exe";
+  "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.13.0/Poko-Setup-0.13.0-x64.exe";
 
 const downloadCards = [
   {
