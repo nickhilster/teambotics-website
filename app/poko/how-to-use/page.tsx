@@ -4,7 +4,7 @@ import styles from "@/components/poko/poko-site.module.css";
 const steps = [
   {
     title: "Install Poko",
-    body: "Download the latest release for your platform and install it like a normal desktop app. Current release targets are Windows, macOS, and Linux.",
+    body: "Download and install it like a normal desktop app. Windows x64 is the current direct-download release; Windows ARM64, macOS, and Linux builds are on the way.",
   },
   {
     title: "Launch Poko",
@@ -16,15 +16,15 @@ const steps = [
   },
   {
     title: "Understand what Poko is showing",
-    body: "Poko’s desktop presence changes based on what your agent is doing. Thinking means planning, working means active tool use, notification or attention means human awareness is needed, and idle or done means the current task has settled.",
+    body: "Poko’s desktop presence changes based on what your agent is doing. Thinking means planning, working means active tool use, notification or attention means human awareness is needed, idle or done means the current task has settled, stale flags a session gone quiet whose process is still alive, and crashed flags one whose process died — it clears itself automatically a couple of minutes later.",
   },
   {
     title: "Use the Dashboard and HUD",
-    body: "Use the Dashboard for fuller session visibility, recent activity, focus actions, and explain-the-run flows. Use the HUD for compact live awareness beside the desktop character.",
+    body: "Use the Dashboard for fuller session visibility: an expandable Context Brief per session (last prompt, latest output, changed files, next action), recent activity, focus actions, and explain-the-run flows. Use the HUD for compact live awareness beside the desktop character.",
   },
   {
     title: "Use Steward features when they appear",
-    body: "Depending on the workflow, you may see mission briefs, pending Steward decisions, waiting reasons, handoff summaries, replay surfaces, and readiness-style reports.",
+    body: "Depending on the workflow, you may see mission briefs, pending Steward decisions, waiting reasons, handoff summaries, replay surfaces, and readiness-style reports. Turn on AI-powered summaries in Settings to layer an AI-written brief on top of the built-in explain-the-run report.",
   },
   {
     title: "Customize the experience",
@@ -32,7 +32,7 @@ const steps = [
   },
   {
     title: "Use advanced surfaces only when needed",
-    body: "Poko also includes broader coordination surfaces like remote or mobile companion flows, diagnostics, and Steward or replay tooling. Start with the live desktop experience first and add more only when the workflow calls for it.",
+    body: "Poko also includes broader coordination surfaces like a remote-SSH session bridge, a mobile companion, Telegram-based remote approval, diagnostics, and Steward or replay tooling. Start with the live desktop experience first and add more only when the workflow calls for it.",
   },
   {
     title: "If something looks wrong",
