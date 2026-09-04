@@ -52,30 +52,45 @@ const mediaCards = [
 // Poko's source repo is private, so its release assets 404 for anonymous
 // visitors. Public downloads are published to a dedicated public releases
 // repo instead (same pattern as MDownManager's nickhilster/MDownManager-releases).
-const POKO_WINDOWS_X64_DOWNLOAD_URL =
-  "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.14.0/Poko-Setup-0.14.0-x64.exe";
+const POKO_RELEASE_BASE = "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.14.0";
+const POKO_WINDOWS_X64_DOWNLOAD_URL = `${POKO_RELEASE_BASE}/Poko-Setup-0.14.0-x64.exe`;
 
 const downloadCards = [
   {
     label: "Windows x64",
-    body: "Primary production target today, with architecture-specific installer support and the most complete runtime validation path.",
+    body: "The primary production target, with the most complete runtime validation path.",
     cta: "Download for Windows (x64)",
     href: POKO_WINDOWS_X64_DOWNLOAD_URL,
-    external: false,
   },
   {
     label: "Windows ARM64",
-    body: "Separate installer track for ARM64 Windows builds so release artifacts stay architecture-specific instead of universal.",
-    cta: "Coming soon",
-    href: "https://github.com/Teambotics-BackBurner/poko-releases/releases",
-    external: true,
+    body: "A native installer for ARM64 Windows devices, built and signed separately from the x64 track.",
+    cta: "Download for Windows (ARM64)",
+    href: `${POKO_RELEASE_BASE}/Poko-Setup-0.14.0-arm64.exe`,
   },
   {
-    label: "macOS + Linux",
-    body: "Supported build targets for the desktop companion workflow, theme system, and packaged app surface as the product matures.",
-    cta: "Coming soon",
-    href: "https://github.com/Teambotics-BackBurner/poko-releases/releases",
-    external: true,
+    label: "macOS (Apple Silicon)",
+    body: "Native arm64 build for M-series Macs.",
+    cta: "Download for macOS (Apple Silicon)",
+    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-arm64.dmg`,
+  },
+  {
+    label: "macOS (Intel)",
+    body: "x64 build for Intel-based Macs.",
+    cta: "Download for macOS (Intel)",
+    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-x64.dmg`,
+  },
+  {
+    label: "Linux (AppImage)",
+    body: "Portable, distro-agnostic build — no installation step, just run it.",
+    cta: "Download AppImage",
+    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-x86_64.AppImage`,
+  },
+  {
+    label: "Linux (.deb)",
+    body: "Native package for Debian- and Ubuntu-based distributions.",
+    cta: "Download .deb",
+    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-amd64.deb`,
   },
 ] as const;
 
@@ -216,7 +231,7 @@ export default function PokoProductPage() {
 
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Downloads</h2>
-        <p className={styles.sectionIntro}>Poko ships as a desktop app. The release path is currently centered on platform-specific packaged builds, with Windows as the most complete production validation path right now.</p>
+        <p className={styles.sectionIntro}>Poko ships as a native desktop app for Windows, macOS, and Linux — pick the direct installer for your platform and architecture below.</p>
         <div className={styles.grid3}>
           {downloadCards.map((card) => (
             <article key={card.label} className={styles.card}>
@@ -226,20 +241,14 @@ export default function PokoProductPage() {
               </div>
               <p>{card.body}</p>
               <div className={styles.actions} style={{ marginTop: "1rem" }}>
-                <a
-                  className="button button--ghost"
-                  href={card.href}
-                  {...(card.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                >
-                  {card.cta}
-                </a>
+                <a className="button button--ghost" href={card.href}>{card.cta}</a>
               </div>
             </article>
           ))}
         </div>
         <div className={styles.callout} style={{ marginTop: "1.25rem" }}>
           <h3>Release notes</h3>
-          <p>Windows x64 is live now as a direct installer download. Windows ARM64, macOS, and Linux builds will switch from the GitHub release page to direct per-asset download links as each platform ships.</p>
+          <p>All six installers are built from the same v0.14.0 release: two Windows architectures (x64, ARM64), both macOS architectures (Apple Silicon, Intel), and two Linux package formats (AppImage, .deb). Windows x64 has the most complete production validation to date.</p>
         </div>
       </section>
 
