@@ -52,8 +52,9 @@ const mediaCards = [
 // Poko's source repo is private, so its release assets 404 for anonymous
 // visitors. Public downloads are published to a dedicated public releases
 // repo instead (same pattern as MDownManager's nickhilster/MDownManager-releases).
-const POKO_RELEASE_BASE = "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.14.0";
-const POKO_WINDOWS_X64_DOWNLOAD_URL = `${POKO_RELEASE_BASE}/Poko-Setup-0.14.0-x64.exe`;
+const POKO_WINDOWS_X64_RELEASE_BASE = "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.14.1";
+const POKO_PLATFORM_RELEASE_BASE = "https://github.com/Teambotics-BackBurner/poko-releases/releases/download/v0.14.0";
+const POKO_WINDOWS_X64_DOWNLOAD_URL = `${POKO_WINDOWS_X64_RELEASE_BASE}/Poko-Setup-0.14.1-x64.exe`;
 
 const downloadCards = [
   {
@@ -66,31 +67,31 @@ const downloadCards = [
     label: "Windows ARM64",
     body: "A native installer for ARM64 Windows devices, built and signed separately from the x64 track.",
     cta: "Download for Windows (ARM64)",
-    href: `${POKO_RELEASE_BASE}/Poko-Setup-0.14.0-arm64.exe`,
+    href: `${POKO_PLATFORM_RELEASE_BASE}/Poko-Setup-0.14.0-arm64.exe`,
   },
   {
     label: "macOS (Apple Silicon)",
     body: "Native arm64 build for M-series Macs.",
     cta: "Download for macOS (Apple Silicon)",
-    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-arm64.dmg`,
+    href: `${POKO_PLATFORM_RELEASE_BASE}/Poko-0.14.0-arm64.dmg`,
   },
   {
     label: "macOS (Intel)",
     body: "x64 build for Intel-based Macs.",
     cta: "Download for macOS (Intel)",
-    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-x64.dmg`,
+    href: `${POKO_PLATFORM_RELEASE_BASE}/Poko-0.14.0-x64.dmg`,
   },
   {
     label: "Linux (AppImage)",
     body: "Portable, distro-agnostic build — no installation step, just run it.",
     cta: "Download AppImage",
-    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-x86_64.AppImage`,
+    href: `${POKO_PLATFORM_RELEASE_BASE}/Poko-0.14.0-x86_64.AppImage`,
   },
   {
     label: "Linux (.deb)",
     body: "Native package for Debian- and Ubuntu-based distributions.",
     cta: "Download .deb",
-    href: `${POKO_RELEASE_BASE}/Poko-0.14.0-amd64.deb`,
+    href: `${POKO_PLATFORM_RELEASE_BASE}/Poko-0.14.0-amd64.deb`,
   },
 ] as const;
 
@@ -248,7 +249,7 @@ export default function PokoProductPage() {
         </div>
         <div className={styles.callout} style={{ marginTop: "1.25rem" }}>
           <h3>Release notes</h3>
-          <p>All six installers are built from the same v0.14.0 release: two Windows architectures (x64, ARM64), both macOS architectures (Apple Silicon, Intel), and two Linux package formats (AppImage, .deb). Windows x64 has the most complete production validation to date.</p>
+          <p>Windows x64 is available as the latest v0.14.1 build. The Windows ARM64, macOS, and Linux downloads remain on their validated v0.14.0 builds while their next platform-specific packages complete.</p>
         </div>
       </section>
 
