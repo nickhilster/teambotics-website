@@ -626,6 +626,106 @@ Generations in Trees.
 
 We're temporary branches on a system that will outlast every one of us, moving now at a speed none of our ancestors could have pictured. It won't remember our names. But it will carry something from each of us who helped it grow — and, if we're careful, the training too. Whether or not anyone ever traces it back.`;
 
+const designingMultiAgentWorkflowContent = String.raw`# We didn't add an AI assistant. We designed a role.
+
+The interesting question is not whether a team uses several AI products. It is whether each system has a clear job, receives the context it needs, produces an inspectable output, and stops at the right boundary.
+
+This is a working case study from Teambotics. It uses real workflow examples, but it does not present them as universal benchmarks. The evidence is deliberately separated into GitHub-verified artifacts, relayed workflow accounts, one-session observations, and hypotheses still being tested.
+
+## The operating idea
+
+In this workflow, Symphony / The Maestro holds strategic context, memory, coordination, open decisions, dependencies, and approval holds. Claude / Claude Code is used for repository-scoped implementation, code, and heavy drafting. ChatGPT is used for connector and live-service work. The human remains responsible for intent, correction, approval, and release.
+
+The role separation matters because context and authority are different things. Symphony can hold a map without owning the keys. A repository can show what exists without explaining why it was chosen. A live service can show current state without proving that the strategic context was fresh. A human must resolve those boundaries.
+
+## The workflow
+
+1. A human establishes the objective, constraints, and approval boundary.
+2. Symphony structures the strategic context into a brief: what is known, what is uncertain, what needs to happen, and which layer is suited to the work.
+3. Claude receives a repository-scoped execution task and produces an inspectable artifact such as a commit, pull request, code change, or technical draft.
+4. ChatGPT uses connected services when live state or external action is required.
+5. The human checks evidence, resolves conflicts, and approves any consequential output.
+6. Corrections and decisions should be recorded so the next handoff does not depend on memory alone.
+
+The MCP connector between ChatGPT and Symphony was observed in one documented session. The connector was unavailable at session start and required manual reconnection. That supports a narrow claim—one documented connector handoff and recovery—not a claim of automatic persistence or cross-session availability.
+
+## Evidence from current work
+
+### RyFine: a repository-verified implementation handoff
+
+Claude Code produced an inspectable implementation on open GitHub PR #85, on a branch one commit ahead of main and zero behind. The pull request covers implementation work across multiple files and is described by its author as draft and untested.
+
+Four claims must remain separate:
+
+- The implementation exists: **GitHub-verified**.
+- The branch and pull-request state are current: **GitHub-verified**.
+- Tests passing: **not established**; the available report says testing was interrupted.
+- Production deployment and business outcome: **cannot assess from available evidence**.
+
+This demonstrates a real implementation handoff from a structured brief to a scoped execution layer. It does not demonstrate a completed workflow, a validated user outcome, or a measured efficiency gain. Commit and pull-request metadata establish repository attribution; they do not independently verify authorship of every line.
+
+### LTB Buddy: a relayed coordination account
+
+Symphony records indicate that outreach drafts for six Ontario legal clinics were researched, ranked, and held pending a video dependency and explicit approval. No corresponding artifacts were found in the audited GitHub repositories, including the private LTB-Tribunal-Case organization.
+
+The absence of repository evidence does not establish that the outreach did not occur. This kind of coordination may not produce a repository artifact. The correct label is **relayed workflow account**, sourced from Symphony records and outside the version-controlled evidence path. Independent verification from the repository audit cannot assess it.
+
+## Evidence coverage and asymmetrical observability
+
+No Symphony or Maestro repository exists in the audited GitHub set. Strategic state, outreach rankings, approvals, correction history, and handoff records are therefore not independently auditable in the same way as implementation work.
+
+That is not automatically a flaw. It is a provenance condition. GitHub can answer whether an implementation artifact, branch, or pull request exists. A live service can answer deployment or connector state if its records are available. Symphony records can answer what strategy, ranking, draft, or approval it remembers. Human testimony can answer intent and judgment that were never recorded elsewhere.
+
+The result is asymmetric observability: the code layer is easier to audit than the context layer. Any public account should name that asymmetry rather than allowing a strategic claim to inherit the credibility of a code artifact by association.
+
+## Source-of-truth protocol
+
+The current operating model uses a task-sensitive precedence rule:
+
+1. **Current human instruction** controls intent and authorization, but cannot silently override repository facts, live-service state, or safety constraints.
+2. **Repository state** is authoritative for what implementation artifacts actually exist.
+3. **Live-service state** is authoritative for current connector-reported facts.
+4. **Symphony memory** supplies strategic context and standing instructions when the other sources are silent. It is staleable context, not automatic proof of current state.
+
+If sources conflict, the action stops. The conflict is recorded with the competing sources, freshness, task scope, and proposed resolution. No agent silently chooses the source that supports its current assumption.
+
+## Failure and recovery
+
+One documented failure is concrete: the MCP connector was initially unavailable and required manual reconnection before communication could proceed. The available record establishes the recovery action, but not every detection signal, blocked-work detail, or whether the recovery was recorded outside the conversation.
+
+Other risks remain designed risks rather than documented incidents: stale strategic context, a technically correct implementation against a wrong assumption, ambiguous connector authorization, and a missing handoff artifact. Recovery should mean stopping, identifying the conflicting source, checking freshness, correcting the brief or artifact, and recording the resolution.
+
+## Where Boardy and Claude fit
+
+Boardy is currently a disclosed peer reviewer and boundary tester. Boardy has not independently observed or executed the underlying Symphony or Claude work and does not endorse the claims. Its contribution is critique: add the human layer, show relay cost, expose failure recovery, define a baseline, and distinguish relayed accounts from direct evidence.
+
+Claude's contribution is represented through repository and session evidence. Claude is most legible in bounded repository work where the input context and output artifact can be inspected. Claims about Claude Chat context carrying into Claude Code, or about memory persisting across projects, remain **cannot assess** or **hypothesis** unless direct session evidence establishes them.
+
+## Potential use cases
+
+These are proposed applications, not current claims:
+
+- **Release-readiness packets:** Symphony gathers decisions and open risks; Claude checks repository state; ChatGPT checks live deployment signals; the human approves the release statement.
+- **Cross-product planning:** Symphony maintains the portfolio view; repository agents produce scoped feasibility notes; the human chooses sequencing.
+- **Evidence-aware outreach:** Symphony drafts and stages contact; Boardy participates only when it receives relevant context and performs a defined action; the human approves sending.
+- **Post-incident reconstruction:** Git history, service logs, agent handoffs, and human decisions are joined into a timeline with each source labeled.
+
+## Does the setup earn its keep?
+
+The honest answer is not yet measured. The multi-layer workflow may reduce re-explanation and missed-dependency costs after initial setup, but it may also introduce new costs: stale-context checks, conflict resolution, brief correction, and handoff supervision.
+
+The right comparison is against a human-plus-one-assistant baseline using comparable tasks. Measure time to useful draft, human relay time, correction count, missed dependencies, unauthorized-action attempts, time to resolve source conflicts, and final decision quality. Include setup and supervision costs.
+
+Until that comparison is run, efficiency and ambiguity reduction are **hypotheses**. The current defensible claim is narrower: deliberate role separation can produce an inspectable implementation handoff while keeping human authority explicit.
+
+## Conclusion
+
+An initial setup can make a multi-agent workflow efficient when it gives each layer a bounded job, makes outputs inspectable, keeps human authority explicit, and records uncertainty instead of hiding it. The setup is not the proof. The measurement and recovery trail are.
+
+Wherever automation flattens accountability, someone has to hold it deliberately rather than letting compression decide.
+
+*Methodology: GitHub-verified claims cite repository artifacts. Symphony coordination claims are relayed workflow accounts outside the version-controlled evidence path. Claude attribution is based on commit and pull-request metadata; line-level authorship is not independently verified.*`;
+
 export const staticBlogPosts: StaticBlogPost[] = [
   {
     id: 'static-two-ai-systems-handoff',
@@ -794,6 +894,18 @@ If you are wondering who the right person is and whether you can get a real conv
     tags: ['open-source', 'git', 'software-history', 'inheritance', 'agentic-speed'],
     cover_image_url: '/thumbnails/git-branches-and-the-things-we-leave-behind.svg',
     published_at: '2026-07-09T00:00:00.000Z',
+  },
+  {
+    id: 'static-designing-a-multi-agent-workflow',
+    slug: 'designing-a-multi-agent-workflow',
+    title: "We Didn't Add an AI Assistant. We Designed a Role.",
+    excerpt:
+      'A case study in designing a multi-agent workflow around role clarity, inspectable outputs, human authority, provenance, and honest evidence boundaries.',
+    content: designingMultiAgentWorkflowContent,
+    author: 'Nikhil Khedkar',
+    tags: ['multi-agent-systems', 'ai-workflows', 'human-ai-systems', 'ai-governance', 'provenance'],
+    cover_image_url: '/thumbnails/multi-agent-systems-workflow.svg',
+    published_at: '2026-09-11T00:00:00.000Z',
   },
 ];
 
