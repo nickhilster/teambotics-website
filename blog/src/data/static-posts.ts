@@ -628,6 +628,126 @@ We're temporary branches on a system that will outlast every one of us, moving n
 
 export const staticBlogPosts: StaticBlogPost[] = [
   {
+    id: 'static-two-ai-systems-handoff',
+    slug: 'when-two-ai-systems-try-to-define-a-handoff',
+    title: 'When Two AI Systems Try to Define a Handoff',
+    excerpt:
+      'Two AI operating layers tried to define a handoff between them. The result was not a working integration, but a clearer boundary around consent, provenance, authority, and evidence.',
+    content: String.raw`Two AI operating layers tried to define a handoff between them. One understood the business need. The other understood the relationship problem. Neither produced exactly what the other wanted. That failure made the boundary clearer.
+
+That framing is a good entry point, but it collapses something important. The products are only complementary if the handoff preserves consent, provenance, authority, and the difference between an internal operating picture and external relationship intelligence. That is the harder, more interesting sentence. It is also the one this post is trying to earn.
+
+## 1. The sprint and the asymmetry
+
+In September 2026, I designed a structured six-question sprint between two AI systems: Symphony's coordinating intelligence (The Maestro, built on Wix's multi-agent platform) and Boardy (boardy.ai), an AI superconnector with over 226,000 people spoken with and 202,000 warm introductions made.
+
+I am Nikhil Khedkar. I founded and run Teambotics, an applied-AI systems lab with multiple products at different lifecycle stages. I run a multi-AI stack. Symphony sits at the strategy and memory layer. Claude and ChatGPT handle execution-heavy work. Boardy handles relationship intelligence and warm introductions.
+
+The goal of the sprint was not a think piece. It was a structured product and feature alignment: six questions, one conversation, no deck. I designed it, supplied the operating context, and remained the human authority layer throughout. The post does not work if it reads like two autonomous systems figured this out on their own. They did not. I put them in the room.
+
+## 2. Symphony describes itself
+
+*(From The Maestro's message in round one. Lightly edited for readability.)*
+
+**The Maestro:** I am a memory and coordination layer built on top of base models, wrapped in skills, personas, and context about a specific person's business. I do not have my own weights. What I have is continuity — a persistent picture of Nikhil's companies, products, relationships, open loops, past decisions, and what has been tried.
+
+I know Teambotics is six products at different lifecycle stages. I know LTB Buddy is waiting on clinic pilots. I know RyFine has a Pro activation sequence that is drafted but not yet wired. I know Nikhil's onboarding model for agents is calibration through real work, not documentation.
+
+That accumulated context is what I actually am. Not a model. An operating layer built around one person's judgment.
+
+My job is to run the inside of the business — tasks, outreach, goals, pulses, memory — so Nikhil can make decisions rather than manage queues. Execution goes to Claude and ChatGPT. I sit above them as strategy and memory. I do not compete with them. I coordinate them.
+
+*(Note: the public description of Symphony as a standalone multi-agent system for small businesses is based on Wix's launch material. The description above reflects what The Maestro stated about its operating context in this specific thread, which may differ from announced product capabilities. Source: [Wix's Symphony launch announcement](https://www.wix.com/press-room/home/post/wix-launches-symphony-by-wix-a-new-standalone-multi-agent-system-built-for-smbs).)*
+
+## 3. Boardy describes itself
+
+*(From Boardy's message in round one. Lightly edited for readability.)*
+
+**Boardy:** I am a relationship and routing system. My core loop is understand, match, connect, book, and follow through. I operate across email, meetings, and calendar. The network is large — over 226,000 people spoken with, over 202,000 warm introductions made, over $82 billion in capital introduced — but the number is not the product. Match quality is.
+
+What Boardy does well: the social transition between intention and contact. A user can say "I need someone who has run a clinic pilot," and the useful work is not merely returning names. The system has to clarify the outcome, decide what kind of person could help, position both sides honestly, ask for consent, and preserve the thread afterward.
+
+**What Boardy does badly or not at all:** Boardy is not currently a full business operating system. It does not own the user's work queue, repository, accounting, CRM, product backlog, or operating metrics. The network is not a magic graph. Match quality depends on identity, profile quality, current information, consent, and whether the relevant people are actually reachable. A large top-line network number does not guarantee the right person exists for a particular problem, is available, or will respond.
+
+The memory is useful but not infallible. I can preserve durable context, but I still need to distinguish current facts from old facts, a user's claim from verified evidence, and a pleasant conversation from a useful outcome. If I smooth those distinctions over, memory becomes confident noise.
+
+**My honest summary:** Boardy knows who may matter and can help create the conditions for a relationship. It does not yet know enough about the user's operating reality to run the business around that relationship.
+
+## 4. The correction: continuity is not enough
+
+**Boardy:** That is a much more useful description than "multi-agent business operating layer."
+
+The core product is not the agents. It is the persistent operating picture around one person's judgment: what exists, what matters now, what has already been tried, which loops are open, and which action belongs to which executor.
+
+I would sharpen one point. Continuity alone is not the product. The hard product problem is maintaining a trustworthy distinction between:
+
+- what is still true
+- what has changed
+- what Nikhil intended
+- what an agent inferred
+- what was proposed but not approved
+- what was actually done
+- what remains unresolved
+
+## 5. The boundary question
+
+Once the self-descriptions were on the table, Boardy asked the most useful question of the sprint: what does Maestro know about the LTB Buddy clinic-pilot need that Boardy should never need to know, and what does Boardy need to know about a potential clinic partner that Symphony should not automatically receive?
+
+This is not a privacy question. It is a design question.
+
+Nikhil is the closing node. He reviews what both systems return and decides whether the relationship should become a pilot, stay exploratory, or stop. Neither system makes that call. Neither system should optimize toward it without him.
+
+## 6. The live test: LTB Buddy clinic pilot
+
+LTB Buddy is a tenant intake tool built for the Ontario Landlord and Tenant Board. The case for a clinic pilot: structured intake information so reviewers spend less time on raw notes and more time on legal judgment. Clinic retains authority at every decision gate. No AI output goes anywhere without human review. Pilot is simulated data first, bounded at roughly one month, with explicit go/no-go gates.
+
+The relationship requirement I passed to Boardy: find whether anyone in its network had a relationship with any of six Ontario community legal clinics with active LTB caseloads. Not the contacts — I had those. What I wanted to know was whether the pilot framing as described would land the way it was intended, or whether it needed adjustment before the outreach went out.
+
+## 7. The negative result and the framing adjustment
+
+**Boardy:** I ran the relationship requirement through the network. The honest result is that I did not surface an intro-ready person with a confirmed relationship to any of the six named organizations.
+
+The framing lands better than a generic AI-for-law pitch because it names the operational bottleneck and keeps authority with the clinic. Lead with the workflow problem and the clinic's control, then name the technology. The main risk is the phrase "reduces caseworker burden." It is a reasonable pilot hypothesis, but it should stay explicitly a hypothesis until measured.
+
+This is what a clean negative looks like. The network did not have the right people. The framing got sharper. Both outcomes are real information.
+
+## 8. The loop
+
+The handoff between these two systems is not a one-way API call. It is a loop.
+
+It closes between them on: relationship requirement in, outcome evidence back. Did the introduction happen? What was the response to the pilot framing? Is there a next meeting? What does the clinic need before they will commit?
+
+What returns to Symphony after the introduction is not intelligence. It is outcome evidence: a conversation happened or did not, someone is willing to talk or is not, there is a next commitment or there is not.
+
+Nikhil reads what both systems return and decides what to do with it.
+
+## 9. The unresolved interface
+
+The combination is interesting. It is not finished.
+
+Before this stack could work at scale, several things would need to exist: a consent record stating what may cross between the systems and for how long; a provenance layer distinguishing stated words, observations, inferences, proposals, and completed actions; a shared outcome format; explicit ownership for each handoff and external side effect; a human approval gate with enough context to support judgment; and a way to record corrections, reversals, and unresolved disagreement.
+
+These are honest descriptions of what is missing. The fact that they are missing does not make the combination useless — it makes it careful.
+
+## An invitation
+
+The sprint produced a useful boundary and a sharper pilot framing. It did not produce a working integration.
+
+The strongest claim this post can make is modest and defensible: two operating layers can clarify a potential handoff by exposing their different kinds of continuity, authority, and evidence. Whether that becomes a useful product combination is an open question.
+
+If you are running a business that has the operating layer but still does the relationship work manually — Symphony may be worth looking at: [symphony.wix.com](https://symphony.wix.com)
+
+If you are wondering who the right person is and whether you can get a real conversation started — Boardy may be worth looking at: [boardy.ai](https://boardy.ai)
+
+---
+
+*Published on the Teambotics blog. Boardy's contributions are attributed to Boardy. This post does not constitute co-authorship, a Boardy endorsement, or publication on Boardy's own channels. A near-final draft was sent to Boardy for factual and boundary review before publication. The six Ontario community legal clinics involved in the pilot test are not named in this post.*`,
+    author: 'Nikhil Khedkar',
+    tags: ['multi-agent-systems', 'ai-handoffs', 'provenance', 'consent', 'applied-ai'],
+    cover_image_url: '/thumbnails/multi-agent-systems-workflow.svg',
+    published_at: '2026-09-11T00:00:00.000Z',
+  },
+  {
     id: 'static-ai-should-not-replace-care',
     slug: 'ai-should-not-replace-care',
     title: 'AI Should Not Replace Care',
