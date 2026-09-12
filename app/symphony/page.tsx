@@ -92,7 +92,7 @@ export default function SymphonyPage() {
             A practical field guide for getting lasting value from Symphony after signup: clearer briefs, cleaner handoffs, better memory, and deliberate execution.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryAction} href={starterUrl}>Get the 15-minute starter <span aria-hidden="true">↗</span></a>
+            <a className={styles.primaryAction} href={starterUrl}>Paste starter into Maestro <span aria-hidden="true">↗</span></a>
             <a className={styles.textAction} href="#notes">Browse field notes</a>
           </div>
         </div>
@@ -121,9 +121,9 @@ export default function SymphonyPage() {
           <h2>Proactive thinking. Gated doing.</h2>
         </div>
         <div className={styles.firstWinCopy}>
-          <p>Maestro should open on a specific observation from the user&apos;s context, produce one prioritized next move, and leave the user holding a useful draft or brief.</p>
-          <p>That first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
-          <a className={styles.inlineCta} href={starterUrl}>Open the GitHub starter Gist <span aria-hidden="true">↗</span></a>
+          <p>Start with one user-initiated paste from the starter. Maestro should open on a specific observation from that context, produce one prioritized next move, and leave the user holding a useful draft or brief.</p>
+          <p>The first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
+          <a className={styles.inlineCta} href={starterUrl}>Copy the one-message starter <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
