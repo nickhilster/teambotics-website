@@ -62,10 +62,10 @@ const fieldNoteDetails = [
 const starterUrl = "https://gist.github.com/nickhilster/44bc66fc618fb683ab6cdfb6d4cc3cf8";
 
 const onboardingWeeks = [
-  ["01", "Prove value", "Days 1–7", "One useful first win, a clear approval rhythm, and zero metered surprises."],
-  ["02", "Establish the handoff loop", "Days 8–14", "Turn conversation into briefs and artifacts that can move work forward."],
-  ["03", "Spend once, on purpose", "Days 15–21", "Try one tightly scoped metered action with an explicit yes and verified outcome."],
-  ["04", "Widen by evidence", "Days 22–30", "Expand only the named permissions that the first three weeks earned."],
+  ["01", "Prove value", "Days 1–7", "Chat-first", "One useful first win, a clear approval rhythm, and zero metered surprises."],
+  ["02", "Establish the handoff loop", "Days 8–14", "Chat-first", "Turn conversation into briefs and artifacts that can move work forward."],
+  ["03", "Spend once, on purpose", "Days 15–21", "Supervised", "Try one tightly scoped metered action with an explicit yes and verified outcome."],
+  ["04", "Widen by evidence", "Days 22–30", "Evidence-led", "Expand only the named permissions that the first three weeks earned."],
 ];
 
 export default function SymphonyPage() {
@@ -123,6 +123,7 @@ export default function SymphonyPage() {
         <div className={styles.firstWinCopy}>
           <p>Start with one user-initiated paste from the starter. Maestro should open on a specific observation from that context, produce one prioritized next move, and leave the user holding a useful draft or brief.</p>
           <p>The first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
+          <p className={styles.failureRamp}><strong>If the paste does not work:</strong> resend it as one message with the context filled in, ask Maestro to remain chat-only, and stop if the response still does not follow the format.</p>
           <a className={styles.inlineCta} href={starterUrl}>Copy the one-message starter <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -131,18 +132,18 @@ export default function SymphonyPage() {
         <div className={styles.sectionIntro}>
           <p className={styles.sectionLabel}>ADOPTION PLAYBOOK</p>
           <h2>Four weeks. One trust curve.</h2>
-          <p>Week 1 is the first-class funnel. The rest of the month earns the right to widen the leash by evidence.</p>
+          <p>Week 1 is the first-class funnel. Weeks 1–2 are chat and handoff work; the rest of the month earns the right to widen the leash by evidence.</p>
         </div>
         <div className={styles.weeks}>
-          {onboardingWeeks.map(([number, title, days, copy]) => (
+          {onboardingWeeks.map(([number, title, days, mode, copy]) => (
             <article className={`${styles.week} ${number === "01" ? styles.weekFeatured : ""}`} key={number}>
-              <span>{number}</span><small>{days}</small><h3>{title}</h3><p>{copy}</p>
+              <span>{number}</span><small>{days}</small><em>{mode}</em><h3>{title}</h3><p>{copy}</p>
             </article>
           ))}
         </div>
         <div className={styles.weekOneDetail}>
           <span className={styles.sectionLabel}>WEEK 01 / DAY 01 → DAYS 2–7</span>
-          <p><strong>Day 1:</strong> one specific observation, one prioritized next move, one useful artifact. <strong>Days 2–7:</strong> a single recommended next move, the first handoff artifact, continuity on a stalled thread, and a short free review.</p>
+          <p><strong>Day 1:</strong> one specific observation, one prioritized next move, one useful artifact. <strong>Days 2–7:</strong> a single recommended next move, the first handoff artifact, continuity on a stalled thread, and a short free review. The Week 1 output becomes the brief that Week 2 hands forward.</p>
         </div>
       </section>
 
