@@ -59,6 +59,15 @@ const fieldNoteDetails = [
   },
 ];
 
+const starterUrl = "https://gist.github.com/nickhilster/44bc66fc618fb683ab6cdfb6d4cc3cf8";
+
+const onboardingWeeks = [
+  ["01", "Prove value", "Days 1–7", "One useful first win, a clear approval rhythm, and zero metered surprises."],
+  ["02", "Establish the handoff loop", "Days 8–14", "Turn conversation into briefs and artifacts that can move work forward."],
+  ["03", "Spend once, on purpose", "Days 15–21", "Try one tightly scoped metered action with an explicit yes and verified outcome."],
+  ["04", "Widen by evidence", "Days 22–30", "Expand only the named permissions that the first three weeks earned."],
+];
+
 export default function SymphonyPage() {
   return (
     <main className={styles.site}>
@@ -83,7 +92,7 @@ export default function SymphonyPage() {
             A practical field guide for getting lasting value from Symphony after signup: clearer briefs, cleaner handoffs, better memory, and deliberate execution.
           </p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryAction} href="#playbook">Start with the playbook <span aria-hidden="true">↘</span></a>
+            <a className={styles.primaryAction} href={starterUrl}>Get the 15-minute starter <span aria-hidden="true">↗</span></a>
             <a className={styles.textAction} href="#notes">Browse field notes</a>
           </div>
         </div>
@@ -106,18 +115,35 @@ export default function SymphonyPage() {
         <p className={styles.statementText}>The signup is the beginning. The compounding value comes from a way of working.</p>
       </section>
 
+      <section className={styles.firstWin} id="first-win">
+        <div>
+          <p className={styles.sectionLabel}>THE FIRST 15 MINUTES</p>
+          <h2>Proactive thinking. Gated doing.</h2>
+        </div>
+        <div className={styles.firstWinCopy}>
+          <p>Maestro should open on a specific observation from the user&apos;s context, produce one prioritized next move, and leave the user holding a useful draft or brief.</p>
+          <p>That first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
+          <a className={styles.inlineCta} href={starterUrl}>Open the GitHub starter Gist <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
       <section className={styles.section} id="playbook">
         <div className={styles.sectionIntro}>
           <p className={styles.sectionLabel}>ADOPTION PLAYBOOK</p>
-          <h2>Start small. Keep the signal.</h2>
-          <p>Build confidence in stages. Every step should leave behind a useful artifact, a clearer boundary, or a better question.</p>
+          <h2>Four weeks. One trust curve.</h2>
+          <p>Week 1 is the first-class funnel. The rest of the month earns the right to widen the leash by evidence.</p>
         </div>
-        <ol className={styles.steps}>
-          <li><span>01</span><div><h3>Orient</h3><p>Name the work, the owner, the source of truth, and what success looks like.</p></div></li>
-          <li><span>02</span><div><h3>Observe</h3><p>Use chat to pressure-test assumptions and shape the brief before execution.</p></div></li>
-          <li><span>03</span><div><h3>Delegate</h3><p>Give one bounded task to one executor with an explicit approval gate.</p></div></li>
-          <li><span>04</span><div><h3>Review</h3><p>Keep what worked, record what changed, and widen scope only when evidence supports it.</p></div></li>
-        </ol>
+        <div className={styles.weeks}>
+          {onboardingWeeks.map(([number, title, days, copy]) => (
+            <article className={`${styles.week} ${number === "01" ? styles.weekFeatured : ""}`} key={number}>
+              <span>{number}</span><small>{days}</small><h3>{title}</h3><p>{copy}</p>
+            </article>
+          ))}
+        </div>
+        <div className={styles.weekOneDetail}>
+          <span className={styles.sectionLabel}>WEEK 01 / DAY 01 → DAYS 2–7</span>
+          <p><strong>Day 1:</strong> one specific observation, one prioritized next move, one useful artifact. <strong>Days 2–7:</strong> a single recommended next move, the first handoff artifact, continuity on a stalled thread, and a short free review.</p>
+        </div>
       </section>
 
       <section className={`${styles.section} ${styles.notesSection}`} id="notes">
