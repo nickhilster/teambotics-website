@@ -198,6 +198,11 @@ export default function SymphonyPage() {
         </div>
       </section>
 
+      <section className={styles.contextBridge}>
+        <span className={styles.sectionLabel}>BUILDING WITH SYMPHONY?</span>
+        <Link href="/symphony/operating">See the practitioner operating model →</Link>
+      </section>
+
       <footer className={styles.footer}>
         <div><span className={styles.footerTitle}>SYMPHONY FIELD GUIDE</span><span className={styles.footerNote}>An independent Teambotics publication.</span></div>
         <div className={styles.footerLinks}><Link href="/">Teambotics</Link><a href="#top">Back to top ↑</a></div>
