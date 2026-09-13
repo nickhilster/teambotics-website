@@ -45,7 +45,7 @@ export default function OperatingModelPage() {
 
       <section className={styles.notice}>
         <span className={styles.label}>READING NOTE</span>
-        <p>This version is for people building or studying an operating model around Symphony. New to Symphony and looking for your first 15 minutes? <Link href="/symphony">Start with the newcomer guide →</Link></p>
+        <p>This version is for people building or studying an operating model around Symphony. See the public <Link href="/symphony/boundaries">Boundary Map</Link> for the concise user checklist. New to Symphony and looking for your first 15 minutes? <Link href="/symphony">Start with the newcomer guide →</Link></p>
       </section>
 
       <section className={styles.section}>

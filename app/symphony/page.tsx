@@ -79,6 +79,8 @@ export default function SymphonyPage() {
         <nav className={styles.nav} aria-label="Symphony guide navigation">
           <a href="#playbook">Playbook</a>
           <a href="#notes">Field notes</a>
+          <Link href="/symphony/boundaries">Boundary map</Link>
+          <Link href="/symphony/recovery">Recovery guide</Link>
           <a href="#exploration">Exploration</a>
         </nav>
         <span className={styles.headerTag}>PUBLIC FIELD GUIDE / 01</span>
@@ -126,7 +128,33 @@ export default function SymphonyPage() {
           <p className={styles.failureRamp}><strong>If the paste does not work:</strong> resend it as one message with the context filled in, ask Maestro to remain chat-only, and stop if the response still does not follow the format.</p>
           <a className={styles.inlineCta} href={starterUrl}>Copy the one-message starter <span aria-hidden="true">↗</span></a>
           <Link className={styles.inlineCta} href="/symphony/first-15">Read the first-conversation walkthrough <span aria-hidden="true">→</span></Link>
+          <Link className={styles.inlineCta} href="/symphony/boundaries">Open the one-screen boundary map <span aria-hidden="true">→</span></Link>
         </div>
+      </section>
+
+      <section className={`${styles.section} ${styles.firstWinKit}`} aria-labelledby="first-win-kit-heading">
+        <div className={styles.sectionIntro}>
+          <p className={styles.sectionLabel}>FIRST WIN KIT / START HERE</p>
+          <h2 id="first-win-kit-heading">One small loop. Then decide.</h2>
+          <p>This visual is a storyboard for the first conversation, not a recording of Symphony’s current interface. It shows the learning sequence without making claims about what the product will return.</p>
+        </div>
+        <ol className={styles.kitSteps}>
+          <li><span>01</span><strong>Open</strong><small>Start a new conversation.</small></li>
+          <li><span>02</span><strong>Copy</strong><small>Use the one-paste starter.</small></li>
+          <li><span>03</span><strong>Paste + send</strong><small>Give one real, bounded problem.</small></li>
+          <li><span>04</span><strong>Correct</strong><small>Fix a wrong assumption or add context.</small></li>
+          <li><span>05</span><strong>Keep / stop</strong><small>Use the result in chat, or pause before an action.</small></li>
+        </ol>
+        <aside className={styles.boundaryCard}>
+          <div><span className={styles.sectionLabel}>BEFORE THE NEXT STEP</span><h3>Check three separate things.</h3></div>
+          <ul>
+            <li><strong>Resource:</strong> could this consume credits or another limited resource?</li>
+            <li><strong>Effect:</strong> could it contact someone or change something outside this conversation?</li>
+            <li><strong>Permission:</strong> who must approve the exact action, and what should happen if the answer is unclear?</li>
+          </ul>
+          <p>If any answer is unknown, pause and ask for the proposed action and its expected effects before deciding.</p>
+        </aside>
+        <p className={styles.kitFootnote}>The guide does not establish Symphony’s live metering or approval behavior. Check the current product flow; treat unclear cost, effect, or permission as unknown.</p>
       </section>
 
       <section className={styles.section} id="playbook">

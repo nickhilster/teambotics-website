@@ -98,6 +98,7 @@ export default function FirstFifteenPage() {
           <article><h3>The reply feels generic</h3><p>Correct the assumption and name what matters. For example: “You assumed activation means feature use. For this product, it means completing a first project. Reframe the next step around that.”</p></article>
           <article><h3>It seems ready to act outside chat</h3><p>Ask it to talk the step through first. Before a metered or external action, it should state the exact proposal and wait for your explicit approval. An explanation is not approval.</p></article>
         </div>
+        <Link className={styles.cta} href="/symphony/recovery">See six correction prompts and a reusable task brief <span aria-hidden="true">→</span></Link>
       </section>
 
       <section className={styles.close}>
@@ -108,6 +109,7 @@ export default function FirstFifteenPage() {
 
       <footer className={styles.footer}>
         <span>Independent Teambotics publication.</span>
+        <Link href="/symphony/boundaries">Read the boundary map →</Link>
         <Link href="/symphony/operating">Building with Symphony? Read the practitioner notes →</Link>
       </footer>
     </main>
