@@ -125,6 +125,7 @@ export default function SymphonyPage() {
           <p>The first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
           <p className={styles.failureRamp}><strong>If the paste does not work:</strong> resend it as one message with the context filled in, ask Maestro to remain chat-only, and stop if the response still does not follow the format.</p>
           <a className={styles.inlineCta} href={starterUrl}>Copy the one-message starter <span aria-hidden="true">↗</span></a>
+          <Link className={styles.inlineCta} href="/symphony/first-15">Read the first-conversation walkthrough <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 
