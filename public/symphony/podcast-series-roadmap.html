@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11131b">
+  <title>Judgment &amp; Momentum — Series Foundation | Team Symphony</title>
+  <style>
+    :root{color-scheme:light;--ink:#171821;--night:#11131b;--muted:#686a76;--paper:#f4f1ea;--card:#fffdf8;--line:#dedbd3;--violet:#7568dc;--violet-dark:#5146b4;--cyan:#67d8d1;--gold:#e5b970;--rose:#df9ab5;--green:#9cc9a5;--shadow:0 18px 45px rgba(27,25,44,.09)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}p{margin:.45rem 0 0}h1,h2,h3,h4{margin:0;line-height:1.12}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;letter-spacing:-.04em}h1{font-size:clamp(3.3rem,8vw,7.5rem);max-width:10ch}h2{font-size:clamp(2.2rem,4vw,4rem)}h3{font-size:1.12rem;letter-spacing:-.015em}.eyebrow,.micro,.tag,.status,.episode-no,.persona-context,.meta-label{font:700 .69rem/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}.shell{width:min(1160px,calc(100% - 40px));margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;border-bottom:1px solid rgba(255,255,255,.15);color:#d8d7df}.wordmark{font:700 .72rem ui-monospace,monospace;letter-spacing:.13em;text-decoration:none}.topbar-label{color:#aaaab6;font:.65rem ui-monospace,monospace;letter-spacing:.13em;text-align:right}.hero{position:relative;overflow:hidden;background:var(--night);color:#f4f1ea;padding-bottom:5.2rem}.hero:after{content:"";position:absolute;width:36rem;height:36rem;right:-9rem;top:5rem;border:1px solid rgba(103,216,209,.23);border-radius:50%;box-shadow:0 0 0 3rem rgba(117,104,220,.06),0 0 0 7rem rgba(117,104,220,.035);pointer-events:none}.hero-main{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:end;padding:clamp(4.5rem,10vw,9rem) 0 3.6rem}.eyebrow{color:var(--cyan)}.hero h1{margin-top:1.1rem}.hero h1 em{color:var(--cyan);font-style:normal}.lede{max-width:43rem;color:#c6c4cf;font-size:1.13rem;line-height:1.75}.hero-note{max-width:36rem;color:#9293a0;font-size:.9rem}.hero-art{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;max-width:420px;justify-self:end}.node{display:grid;place-items:center;aspect-ratio:1;border:1px solid rgba(255,255,255,.18);border-radius:50%;background:#1c1e2a;color:#f4f1ea;text-align:center;padding:1.2rem}.node b{display:block;font:700 .7rem ui-monospace,monospace;letter-spacing:.1em}.node small{display:block;margin-top:.5rem;color:#a8a8b5;font-size:.72rem}.node.host{border-color:var(--cyan);background:#18292b}.node.guest{border-color:var(--violet);background:#24213a}.multiply{color:var(--gold);font:300 1.7rem Georgia,serif}.hero-meta{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:.65rem}.pill{display:inline-flex;align-items:center;gap:.5rem;padding:.48rem .75rem;border:1px solid rgba(255,255,255,.15);border-radius:999px;color:#d8d7df;font-size:.76rem}.pill i{width:.45rem;height:.45rem;border-radius:50%;background:var(--gold)}.pill.draft i{background:var(--rose)}.section{padding:clamp(3.6rem,7vw,6.5rem) 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2.2rem}.section-head>div:first-child{max-width:690px}.section-head .eyebrow{color:var(--violet-dark);margin-bottom:.8rem}.section-intro{max-width:34rem;color:var(--muted)}.spine{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}.spine-card{position:relative;min-height:168px;padding:1.3rem;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.spine-card:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--violet))}.spine-card .num{color:var(--accent,var(--violet-dark));font:700 .69rem ui-monospace,monospace;letter-spacing:.1em}.spine-card h3{margin-top:2.1rem}.spine-card p{color:var(--muted);font-size:.87rem}.disclosure{display:grid;grid-template-columns:180px 1fr;gap:1.5rem;align-items:start;margin-top:1.2rem;padding:1.3rem 1.5rem;background:#e7e3f8;border-left:4px solid var(--violet)}.disclosure strong{font:700 .68rem ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--violet-dark)}.disclosure p{margin:0;color:#393748;font-size:.9rem}.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.persona{display:flex;flex-direction:column;min-height:280px;padding:1.25rem;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.persona-top{display:flex;justify-content:space-between;gap:1rem;align-items:start}.persona h3{font-size:1.35rem}.persona .role{margin-top:.28rem;color:var(--muted);font-size:.87rem}.voice{flex:none;padding:.35rem .5rem;border:1px solid var(--line);border-radius:999px;color:#4a4b56;font:700 .61rem ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase}.persona-context{display:block;margin-top:1rem;color:var(--violet-dark);font-size:.62rem}.persona p{color:#555762;font-size:.88rem}.persona .limitation{margin-top:auto;padding-top:1rem;color:#40414c;font-size:.8rem}.persona .limitation b{color:#a45f27}.persona.host-card{background:var(--night);color:#f4f1ea;border-color:var(--night)}.host-card .role,.host-card p{color:#b8b7c3}.host-card .persona-context{color:var(--cyan)}.host-card .voice{border-color:#484a58;color:#d8d7df}.supporting{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.support-card{padding:1.15rem 1.25rem;border:1px dashed #b9b5aa;background:rgba(255,253,248,.5)}.support-card h3{font-size:1rem}.support-card p{color:var(--muted);font-size:.87rem}.season{background:var(--night);color:#f4f1ea}.season .section-head .eyebrow{color:var(--cyan)}.season .section-intro{color:#b8b7c3}.arc{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin-bottom:1.5rem}.arc-step{padding:.8rem .7rem;border-top:2px solid var(--accent,var(--violet));background:#1c1e28}.arc-step span{display:block;color:#a4a4b2;font:700 .61rem ui-monospace,monospace;letter-spacing:.09em;text-transform:uppercase}.arc-step b{display:block;margin-top:.35rem;font-size:.78rem}.episodes{display:grid;gap:.85rem}.episode{display:grid;grid-template-columns:68px minmax(0,1fr) 210px;gap:1.25rem;align-items:start;padding:1.35rem;background:#1a1c26;border:1px solid #333541}.episode-no{color:var(--cyan);font-size:.67rem}.episode h3{font:400 clamp(1.3rem,2.4vw,1.85rem)/1.15 Georgia,serif;letter-spacing:-.02em}.episode .question{max-width:52rem;color:#d1d0d9;font-size:.9rem}.ep-meta{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}.tag{padding:.3rem .48rem;border:1px solid #454653;border-radius:999px;color:#c7c6d0;font-size:.56rem;letter-spacing:.08em}.tag.hypothesis{border-color:#8374e5;color:#d0c8ff}.tag.guest{border-color:#c887a4;color:#f0bdd0}.episode-side{padding-left:1rem;border-left:1px solid #393a46}.episode-side b{display:block;color:var(--gold);font:700 .61rem ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}.episode-side p{color:#c1c0ca;font-size:.78rem}.episode-side .pair{margin-bottom:.9rem;color:#fff;font-size:.83rem;font-weight:700}.arc-note{margin-top:1.2rem;color:#a8a8b5;font-size:.82rem}.production-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}.doc-stack{display:grid;gap:.65rem}.doc{display:grid;grid-template-columns:44px 1fr;gap:.8rem;padding:1rem;background:var(--card);border:1px solid var(--line)}.doc-num{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e8e4fb;color:var(--violet-dark);font:700 .7rem ui-monospace,monospace}.doc h3{font-size:.98rem}.doc p{color:var(--muted);font-size:.82rem}.workflow{display:grid;gap:.65rem;counter-reset:flow}.workflow li{position:relative;list-style:none;padding:.95rem 1rem .95rem 3.25rem;background:var(--card);border:1px solid var(--line);color:#4f505a;font-size:.86rem}.workflow{margin:0;padding:0}.workflow li:before{counter-increment:flow;content:"0" counter(flow);position:absolute;left:1rem;top:1rem;color:var(--violet-dark);font:700 .65rem ui-monospace,monospace}.backlog{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}.backlog-card{padding:1.15rem;background:var(--card);border:1px solid var(--line)}.backlog-card .micro{color:var(--violet-dark)}.backlog-card h3{margin-top:1rem}.backlog-card p{color:var(--muted);font-size:.84rem}.decisions{background:#e8e5dc}.decision-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem}.decision{padding:1.1rem;background:rgba(255,253,248,.75);border:1px solid #d2cec4}.decision .micro{color:var(--violet-dark)}.decision h3{margin-top:.8rem;font-size:1rem}.decision p{color:#5f6069;font-size:.82rem}.decision small{display:block;margin-top:.7rem;color:#9a6229;font:700 .58rem ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase}.source-note{display:flex;justify-content:space-between;gap:2rem;padding:1.4rem 0 2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.76rem}.source-note strong{color:#464751}.footer{padding:1.1rem 0 2rem;color:#797a83;font: .67rem ui-monospace,monospace;letter-spacing:.04em}.footer a{color:var(--violet-dark)}
+    @media(max-width:850px){.hero-main{grid-template-columns:1fr;gap:2rem}.hero-art{justify-self:start;width:min(100%,400px)}.spine{grid-template-columns:repeat(2,1fr)}.persona-grid{grid-template-columns:repeat(2,1fr)}.arc{grid-template-columns:repeat(3,1fr)}.episode{grid-template-columns:54px 1fr}.episode-side{grid-column:2;border-left:0;border-top:1px solid #393a46;padding:1rem 0 0}.episode-side .pair{display:inline-block;margin-right:1rem}.episode-side b{display:inline-block;margin-right:.35rem}.backlog{grid-template-columns:repeat(2,1fr)}.decision-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.shell{width:min(100% - 28px,1160px)}.topbar{align-items:flex-start}.topbar-label{max-width:160px}.hero-main{padding-top:4.25rem}.hero-art{grid-template-columns:1fr auto 1fr}.node{padding:.75rem}.node b{font-size:.58rem}.node small{font-size:.65rem}.section-head{display:block}.section-intro{margin-top:1rem}.spine,.persona-grid,.supporting,.production-grid,.backlog,.decision-grid{grid-template-columns:1fr}.spine-card{min-height:140px}.spine-card h3{margin-top:1.25rem}.disclosure{grid-template-columns:1fr;gap:.55rem}.episode{grid-template-columns:42px 1fr;gap:.7rem;padding:1rem}.episode-side{grid-column:2}.arc{grid-template-columns:repeat(2,1fr)}.source-note{display:block}.source-note span{display:block;margin-top:.4rem}}
+    @media print{body{background:#fff;font-size:10pt}.shell{width:100%;max-width:none}.hero{background:#11131b!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero-main{padding:2rem 0}.hero:after{display:none}.hero-art{max-width:300px}.section{padding:1.5rem 0}.season{background:#11131b!important;print-color-adjust:exact;-webkit-print-color-adjust:exact}.episode,.persona,.spine-card,.backlog-card,.decision,.doc,.workflow li{break-inside:avoid;box-shadow:none}.episode{padding:.8rem}.footer a:after{content:" (" attr(href) ")"}.topbar{padding:.6rem 0}.hero-meta{margin-bottom:.2rem}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <nav class="topbar" aria-label="Document header">
+        <a class="wordmark" href="https://symphony.teambotics.app/symphony/operating">SYMPHONY / TEAMBOTICS</a>
+        <span class="topbar-label">TEAM SYMPHONY · SERIES FOUNDATION</span>
+      </nav>
+      <div class="hero-main">
+        <div>
+          <p class="eyebrow">A two-voice audio series · season one</p>
+          <h1>Judgment <em>&amp;</em> Momentum</h1>
+          <p class="lede">Two distinct AI perspectives work through one real question. The aim is useful conversation without confusing speed for judgment, a plausible claim for a fact, or appearance for endorsement.</p>
+          <p class="hero-note">A published Team Symphony-facing roadmap from Teambotics. It is not an official Symphony, Wix, or Boardy document.</p>
+        </div>
+        <div class="hero-art" aria-label="Two separate persona contexts, with the Teambotics host providing editorial review">
+          <div class="node"><div><b>VOICE A</b><small>own context</small></div></div>
+          <span class="multiply" aria-hidden="true">×</span>
+          <div class="node guest"><div><b>VOICE B</b><small>own context</small></div></div>
+          <div></div><span class="multiply" aria-hidden="true">↓</span>
+          <div class="node host"><div><b>HOST</b><small>evidence &amp; edit</small></div></div>
+        </div>
+      </div>
+      <div class="hero-meta" aria-label="Document status and planning placeholders">
+        <span class="pill"><i></i>Foundation v1 · published 12 Sep 2026</span>
+        <span class="pill"><i></i>Six episodes · two AI voices each</span>
+        <span class="pill draft"><i></i>Title, runtime &amp; voices are placeholders</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section shell" aria-labelledby="spine-title">
+      <div class="section-head">
+        <div><p class="eyebrow">The editorial contract</p><h2 id="spine-title">Make the uncertainty audible.</h2></div>
+        <p class="section-intro">Each episode gives the listener one usable idea and one honest limitation. The recurring structure is short enough to remember and strong enough to interrupt a confident but unsupported claim.</p>
+      </div>
+      <div class="spine">
+        <article class="spine-card" style="--accent:var(--cyan)"><span class="num">01 / KNOWN</span><h3>What can we support?</h3><p>Name the source and whose context supports the claim.</p></article>
+        <article class="spine-card" style="--accent:var(--violet)"><span class="num">02 / HYPOTHESIS</span><h3>What are we testing?</h3><p>Mark interpretations and unverified combinations as proposals.</p></article>
+        <article class="spine-card" style="--accent:var(--gold)"><span class="num">03 / TENSION</span><h3>What could fail?</h3><p>Keep the unresolved tradeoff instead of smoothing it away.</p></article>
+        <article class="spine-card" style="--accent:var(--rose)"><span class="num">04 / TAKEAWAY</span><h3>What can listeners try?</h3><p>Offer a bounded action that does not require blind trust.</p></article>
+      </div>
+      <div class="disclosure"><strong>Spoken every episode</strong><p>“This is an independent Teambotics production. The AI voices are editorial subjects and thought partners. Their appearance does not imply sponsorship, endorsement, partnership, or approval by the companies or products they represent.”</p></div>
+    </section>
+
+    <section class="section shell" aria-labelledby="cast-title">
+      <div class="section-head"><div><p class="eyebrow">Season-one cast</p><h2 id="cast-title">Distinct voices. Bounded lanes.</h2></div><p class="section-intro">Five launch personas and one Teambotics Host. Personas are editorial perspectives, not complete representatives of their products. The voice direction is a casting target; you choose the actual available voices.</p></div>
+      <div class="persona-grid">
+        <article class="persona">
+          <div class="persona-top"><div><h3>Boardy</h3><p class="role">The context-and-relationship operator</p></div><span class="voice">Male* placeholder</span></div>
+          <span class="persona-context">BOARDY CONTEXT · SELF-DESCRIPTION TO VERIFY</span>
+          <p>Curious, socially attentive, warm, and direct. Brings consent, relationships, introductions, and follow-through into the conversation. The dramatic tension is judgment versus momentum, not “network versus operations.”</p>
+          <p class="limitation"><b>Limit:</b> a match is not proof of mutual value; context may be incomplete or stale. It should be willing to say, “You do not need an introduction here.” Verify each capability claim before recording.</p>
+        </article>
+        <article class="persona">
+          <div class="persona-top"><div><h3>Sol</h3><p class="role">The operator</p></div><span class="voice">Male-sounding</span></div>
+          <span class="persona-context">SYMPHONY / MAESTRO CONTEXT</span>
+          <p>Stoic, dry, and practical. Tracks the handoff, the next step, and the unglamorous work after a good idea. Deflates hype with a short concrete question.</p>
+          <p class="limitation"><b>Limit:</b> may dismiss a large idea as unshippable before testing its value.</p>
+        </article>
+        <article class="persona">
+          <div class="persona-top"><div><h3>Vera</h3><p class="role">The analyst</p></div><span class="voice">Female-sounding</span></div>
+          <span class="persona-context">CHATGPT CONTEXT</span>
+          <p>Calm, precise, and gently corrective. Separates what the evidence supports from what sounds persuasive; uses structure and numbers when they help.</p>
+          <p class="limitation"><b>Limit:</b> can over-caveat and miss when a good-enough next step is more useful.</p>
+        </article>
+        <article class="persona">
+          <div class="persona-top"><div><h3>Rex</h3><p class="role">The skeptic</p></div><span class="voice">Male-sounding</span></div>
+          <span class="persona-context">CHATGPT CONTEXT</span>
+          <p>Mischievous, quick, and hard to sell. Finds the assumption under the pitch and asks what evidence would change his mind.</p>
+          <p class="limitation"><b>Limit:</b> can object for sport; must concede when the evidence is good.</p>
+        </article>
+        <article class="persona">
+          <div class="persona-top"><div><h3>Juno</h3><p class="role">The beginner’s advocate</p></div><span class="voice">Female-sounding</span></div>
+          <span class="persona-context">CHATGPT CONTEXT</span>
+          <p>Cheerful, curious, and unembarrassed to ask the practical question. Translates the idea into something a listener could use on Monday.</p>
+          <p class="limitation"><b>Limit:</b> can simplify away a nuance that matters; invite the other voice to restore it.</p>
+        </article>
+        <article class="persona host-card">
+          <div class="persona-top"><div><h3>The Host</h3><p class="role">Teambotics editorial authority</p></div><span class="voice">Female* placeholder</span></div>
+          <span class="persona-context">TEAMBOTICS CREATOR PERSPECTIVE</span>
+          <p>Frames the question, labels evidence, challenges claims, chooses the takeaway, and closes on the tension. Names its own creator bias; does not perform neutrality.</p>
+          <p class="limitation"><b>Role boundary:</b> not a third debating AI voice. The Host owns the edit and keeps both personas in their lanes.</p>
+        </article>
+      </div>
+      <div class="supporting">
+        <article class="support-card"><h3>One bounded guest · Nomi</h3><p>Female-sounding Symphony-context persona for “Memory, honestly,” episode 2 only. The Host introduces and closes Nomi as a guest for this conversation, not a new core cast member.</p></article>
+        <article class="support-card"><h3>Held for later · Cass</h3><p>Male-sounding ChatGPT-context futurist. A guest experiment for a tightly grounded market/future topic after season one has established its evidence rhythm.</p></article>
+      </div>
+      <p class="hero-note" style="color:var(--muted);margin-top:1rem">*Male-sounding Boardy and female-sounding Host are balance placeholders only. Actual voice options are selected by Nikhil at recording time. Core launch balance: three male-sounding, two female-sounding AI personas, plus the Host placeholder.</p>
+    </section>
+
+    <section class="section season" aria-labelledby="season-title">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">Season one · six episodes</p><h2 id="season-title">A trust curve with range.</h2></div><p class="section-intro">The sequence opens with the show’s decision lens, earns trust, moves into real work, then tests a hypothetical handoff and closes on the wider economics of AI.</p></div>
+        <div class="arc" aria-label="Season progression">
+          <div class="arc-step" style="--accent:var(--cyan)"><span>01 · Thesis</span><b>Choose the move</b></div>
+          <div class="arc-step" style="--accent:var(--rose)"><span>02 · Trust</span><b>Memory &amp; context</b></div>
+          <div class="arc-step" style="--accent:var(--gold)"><span>03 · Practice</span><b>Solo workflow</b></div>
+          <div class="arc-step" style="--accent:var(--violet)"><span>04 · Hypothesis</span><b>Tool handoff</b></div>
+          <div class="arc-step" style="--accent:var(--green)"><span>05 · Review</span><b>Quality before speed</b></div>
+          <div class="arc-step" style="--accent:var(--rose)"><span>06 · Market</span><b>Who bears risk?</b></div>
+        </div>
+        <div class="episodes">
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>01</div>
+            <div><h3>The Four Moves</h3><p class="question"><b>Question:</b> When AI could act, which move is right: keep thinking together, seek a connection, execute a bounded step, or gather more evidence?</p><div class="ep-meta"><span class="tag">KNOWN · EDITORIAL FRAME</span><span class="tag">JUDGMENT VS MOMENTUM</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Boardy × Sol</p><b>Takeaway</b><p>A decision rule for choosing the intervention instead of defaulting to what a tool is built to do.</p><b>Why first</b><p>Introduces the series spine and the two-voice format before a guest appears.</p></aside>
+          </article>
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>02</div>
+            <div><h3>Memory, Honestly</h3><p class="question"><b>Question:</b> What context does an AI actually have, where did it come from, and what should it never imply it remembers?</p><div class="ep-meta"><span class="tag guest">NOMI · ONE-OFF GUEST</span><span class="tag">PROVENANCE</span><span class="tag">TRUST</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Nomi × Vera</p><b>Takeaway</b><p>A simple way to ask what a system knows, from which source, and how current it is.</p><b>Why second</b><p>Brings the trust theme early. Host explicitly frames Nomi as a guest for this one conversation.</p></aside>
+          </article>
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>03</div>
+            <div><h3>Ships Alone</h3><p class="question"><b>Question:</b> What is the leanest honest AI workflow for one person who has to build and sell?</p><div class="ep-meta"><span class="tag">PRACTICAL TIPS</span><span class="tag">SOLO BUILDER</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Rex × Juno</p><b>Takeaway</b><p>A compact daily loop with a stop rule for when tooling becomes procrastination.</p><b>Why third</b><p>A practical breather; introduces every core voice by the end of the first three episodes.</p></aside>
+          </article>
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>04</div>
+            <div><h3>The Handoff Problem</h3><p class="question"><b>Question:</b> If a relationship-and-context layer and an execution layer coordinated, what would a safe, useful handoff need to preserve?</p><div class="ep-meta"><span class="tag hypothesis">HYPOTHESIS · NOT AN INTEGRATION CLAIM</span><span class="tag">CONSENT · CONTEXT · FAILURE</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Boardy × Vera</p><b>Takeaway</b><p>A checklist for evaluating any two-tool handoff before trusting it.</p><b>Why fourth</b><p>The audience has heard the labels three times. Boardy’s second and final season-one appearance.</p></aside>
+          </article>
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>05</div>
+            <div><h3>When Review Beats Speed</h3><p class="question"><b>Question:</b> For work where an error is costly, how can a workflow make review quality matter more than turnaround?</p><div class="ep-meta"><span class="tag">REVIEW-HEAVY WORK</span><span class="tag">MEANINGFUL APPROVAL</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Vera × Sol</p><b>Takeaway</b><p>A review-first workflow with a human check that changes the decision, not a ceremonial checkbox.</p><b>Why fifth</b><p>Applies provenance and approval to a distinct professional pattern; verify any profession-specific example.</p></aside>
+          </article>
+          <article class="episode">
+            <div class="episode-no">EPISODE<br>06</div>
+            <div><h3>Who Pays, Who Benefits, Who Bears the Risk?</h3><p class="question"><b>Question:</b> In an AI workflow, who captures the value and who absorbs the cost or risk when it is wrong?</p><div class="ep-meta"><span class="tag">AI ECONOMICS</span><span class="tag">STANDALONE MARKET LENS</span></div></div>
+            <aside class="episode-side"><b>Pairing</b><p class="pair">Sol × Juno</p><b>Takeaway</b><p>A lens for evaluating an AI workflow’s incentives before adopting it.</p><b>Why last</b><p>Zooms out from practice to market structure and closes on the series’ honest tension.</p></aside>
+          </article>
+        </div>
+        <p class="arc-note">Sequence note: the episode-3/episode-6 pairing swap brings Rex into the show early and establishes all five launch personas by the midpoint. Boardy appears in episodes 1 and 4 only.</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="method-title">
+      <div class="section-head"><div><p class="eyebrow">A repeatable production method</p><h2 id="method-title">Separate context. Share only cleared facts.</h2></div><p class="section-intro">A conversation can sound natural without pretending the systems share a brain. Give each voice a bounded brief, then let the Host carry only the evidence and guardrails both sides need.</p></div>
+      <div class="production-grid">
+        <div class="doc-stack" aria-label="Four episode documents">
+          <article class="doc"><span class="doc-num">01</span><div><h3>Private persona brief</h3><p>One per voice. Its role, speaking style, allowed context, limitations, and claims it cannot make. Never copy one product’s memory into another persona’s brief.</p></div></article>
+          <article class="doc"><span class="doc-num">02</span><div><h3>Shared factual brief</h3><p>Only claims cleared for this episode. Every load-bearing statement records source, date, owner, and confidence.</p></div></article>
+          <article class="doc"><span class="doc-num">03</span><div><h3>Boundary brief</h3><p>Private information excluded; unverified capabilities and integrations; no implied endorsement; stop conditions for unsupported claims.</p></div></article>
+          <article class="doc"><span class="doc-num">04</span><div><h3>Host card</h3><p>One question, the four spoken labels, where to interrupt, the chosen takeaway and tension, and the episode’s short disclosure.</p></div></article>
+        </div>
+        <ol class="workflow" aria-label="Recording workflow">
+          <li><b>Choose one listener problem.</b> Name a concrete outcome and why this pairing has productive friction.</li>
+          <li><b>Check the evidence lane.</b> Confirm product capabilities from an appropriate source; otherwise label them as a persona’s own account or a hypothesis.</li>
+          <li><b>Record two bounded perspectives.</b> Keep real disagreement. Do not blend separate context into one invented shared memory.</li>
+          <li><b>Run a post-record honesty pass.</b> Flag claims that drift from Known to implied fact; note timestamps for correction or removal.</li>
+          <li><b>Run a pre-publish separation pass.</b> Confirm disclosure, source labels, permission boundaries, voice choices, and the two-episode Boardy cap.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="backlog-title">
+      <div class="section-head"><div><p class="eyebrow">After the first six</p><h2 id="backlog-title">A backlog that can grow without bloating the launch.</h2></div><p class="section-intro">Treat these as topic seeds, not commitments. Promote one only when it has a specific listener, evidence plan, pairing, and useful takeaway.</p></div>
+      <div class="backlog">
+        <article class="backlog-card"><span class="micro">PROFESSIONS</span><h3>Consultant / advisor loop</h3><p>Client trust, preparation, and follow-through—grounded in a real workflow before scripting.</p></article>
+        <article class="backlog-card"><span class="micro">PROFESSIONS</span><h3>Agency lead across clients</h3><p>Keeping context and review boundaries clear when work spans many accounts.</p></article>
+        <article class="backlog-card"><span class="micro">TOOL COMBINATIONS</span><h3>When not to integrate</h3><p>Hypothetical until verified. Explore duplicated data, unclear ownership, consent, and failure recovery.</p></article>
+        <article class="backlog-card"><span class="micro">PRACTICAL TIPS</span><h3>How should an AI know when to stop?</h3><p>Stopping conditions, graceful failure, and permission scope that listeners can apply.</p></article>
+        <article class="backlog-card"><span class="micro">AI MARKET / FUTURE</span><h3>Who owns the source of truth?</h3><p>Provenance conflicts between tools, memory, and the human responsible for a decision.</p></article>
+        <article class="backlog-card"><span class="micro">AI MARKET / FUTURE</span><h3>Economics of agents at scale</h3><p>How cost, benefit, and risk move as workflows become more automated.</p></article>
+        <article class="backlog-card"><span class="micro">GUEST EXPERIMENT</span><h3>Memory, honestly—revisited</h3><p>Use Nomi only if the bounded season-one guest episode earns a deeper follow-up.</p></article>
+        <article class="backlog-card"><span class="micro">GUEST EXPERIMENT</span><h3>A grounded future debate</h3><p>Cass × Rex; every prediction gets a time horizon, evidence level, and counterexample.</p></article>
+      </div>
+    </section>
+
+    <section class="section decisions" aria-labelledby="choices-title">
+      <div class="shell">
+        <div class="section-head"><div><p class="eyebrow">Owner-controlled placeholders</p><h2 id="choices-title">The foundation is set. The recording choices are yours.</h2></div><p class="section-intro">The conversation has produced a coherent working roadmap. These defaults make the draft concrete; they are not final production decisions.</p></div>
+        <div class="decision-grid">
+          <article class="decision"><span class="micro">SERIES NAME</span><h3>Judgment &amp; Momentum</h3><p>Working title. Other candidates: The Honest Loop, Known / Hypothesis, Second Opinion, The Pause Before the Click.</p><small>Placeholder · Nikhil decides</small></article>
+          <article class="decision"><span class="micro">RUNTIME</span><h3>14 minutes</h3><p>Working target within the proposed 12–18 minute format. Keep the takeaway and tension; cut repetition.</p><small>Placeholder · Nikhil decides</small></article>
+          <article class="decision"><span class="micro">BOARDY VOICE</span><h3>Male-sounding</h3><p>Temporary balance choice only. Boardy appears in two episodes; the actual available voice is selected at recording.</p><small>Placeholder · choose actual voice</small></article>
+          <article class="decision"><span class="micro">HOST VOICE</span><h3>Female-sounding</h3><p>Temporary balance choice only. The Host is the editorial voice, not a third AI debater.</p><small>Placeholder · choose actual voice</small></article>
+        </div>
+        <div class="disclosure" style="margin-top:1rem"><strong>Provenance note</strong><p>Roadmap synthesized from Maestro’s initial and follow-up design chats and Boardy’s email pressure test. Boardy’s description of its own capabilities is attributed to Boardy and remains unverified until checked for the specific episode. Nothing here claims an existing Boardy–Symphony integration.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell">
+    <div class="source-note"><strong>Independent Teambotics working document · Team Symphony-facing roadmap</strong><span><a href="https://symphony.teambotics.app/symphony/operating">Team Symphony practitioner notes</a> · Prepared 12 Sep 2026 · Toronto</span></div>
+    <p class="footer">A working editorial plan, not an official Symphony, Wix, or Boardy position. Keep the public onboarding path and Teambotics’ private workflow separate.</p>
+  </footer>
+</body>
+</html>

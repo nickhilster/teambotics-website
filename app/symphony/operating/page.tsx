@@ -79,6 +79,11 @@ export default function OperatingModelPage() {
         </div>
       </section>
 
+      <section className={styles.notice} aria-label="Podcast series roadmap">
+        <span className={styles.label}>SERIES ROADMAP</span>
+        <p>The six-episode foundation, persona lanes, and recording discipline for the independent Teambotics audio series. <Link href="/symphony/podcast-series-roadmap.html">Read the podcast roadmap →</Link></p>
+      </section>
+
       <footer className={styles.footer}><Link href="/symphony">← New-user guide</Link><span>Independent Teambotics publication / not an official Symphony or Wix document</span></footer>
     </main>
   );
