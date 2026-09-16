@@ -2,11 +2,11 @@ import type { StaticBlogPost } from './static-posts';
 
 const operationalDataAiValueContent = String.raw`Operational leaders do not need to wait for a perfect data transformation programme before creating value from AI. In many organizations, the highest-value AI asset already exists: years of maintenance notes, quality records, shift handovers, incident reports, SOPs, sensor exports, service tickets, and operating history.
 
-The issue is not that the data is absent. The issue is that it is trapped.
+The issue isn't that the data is absent — it's that it's trapped.
 
 It lives in PDFs, shared drives, CSV exports, emails, scanned forms, disconnected systems, technician notes, and legacy reporting tools. It is technically available but operationally inaccessible. People know the information exists somewhere, but finding it requires memory, relationships, patience, and time.
 
-That is not a storage problem. It is a decision-speed problem.
+That's a decision-speed problem, not a storage problem.
 
 For C-suite leaders, the strategic question is no longer whether the organization has enough operational data for AI. The better question is whether the organization can convert that data into faster decisions, lower risk, better continuity, and measurable operating advantage.
 
@@ -25,9 +25,9 @@ AI changes the economics of this archive.
 
 Retrieval-augmented generation, or RAG, allows an organization to connect language models to its own source material. Instead of asking a model to guess, the system retrieves relevant internal documents, records, logs, or notes and uses them as context for the response. In practical terms, this means a frontline manager, engineer, analyst, or executive can ask a plain-language question and receive an answer grounded in the organization's own operating history.
 
-The business value is not novelty. The business value is reducing the delay between question and evidence.
+The business value is reducing the delay between question and evidence, not novelty.
 
-## RAG is not a chatbot project. It is an operating intelligence layer.
+## RAG Is an Operating Intelligence Layer, Not a Chatbot Project
 
 A common mistake is treating RAG as another chatbot feature. That undersells the opportunity.
 
@@ -67,7 +67,7 @@ Executives often hear that AI requires clean, normalized, perfectly governed dat
 
 For operational retrieval, the starting threshold is different.
 
-The first goal is not perfect data. The first goal is findable, source-grounded data.
+The first goal is findable, source-grounded data — perfect data can come later.
 
 Modern retrieval systems can work with imperfect records, inconsistent language, partial notes, document fragments, and legacy files. That does not mean quality is irrelevant. It means the organization can start extracting value before a multi-year data-cleanup programme is complete.
 
@@ -90,9 +90,7 @@ The metric should be chosen before the pilot begins.
 
 A strong first pilot can be measured against simple operational baselines: time to find the right record, time to prepare an incident brief, time to resolve a recurring fault, percentage of questions answered with source citations, reduction in repeated escalations, or number of knowledge gaps identified.
 
-The point is not to prove that AI is impressive.
-
-The point is to prove that access to operational history changes the speed and quality of work.
+The point is to prove that access to operational history changes the speed and quality of work — not to prove that AI is impressive.
 
 ## A practical executive starting point
 
@@ -133,23 +131,17 @@ This is how organizations move quickly without becoming reckless.
 
 ## The strategic implication
 
-The organizations best positioned for operational AI will not simply be those with the largest data teams. They will be the ones that treat operational knowledge as a managed asset.
+The organizations best positioned for operational AI will be the ones that treat operational knowledge as a managed asset — having the largest data team won't be enough on its own.
 
 That means capturing work as it happens. Preserving context. Making records findable. Connecting documents to decisions. Designing workflows so that knowledge does not depend entirely on memory, tenure, or informal networks.
 
 AI makes this discipline more valuable because it changes what can be done with the archive.
 
-A passive archive is a cost center.
+A passive archive is a cost center; a searchable, governed, source-grounded operational knowledge layer is an asset.
 
-A searchable, governed, source-grounded operational knowledge layer is an asset.
+The companies that build this layer now will have an advantage that is difficult to buy later: years of proprietary operating history ready to support better decisions, faster onboarding, stronger compliance, and more resilient execution.
 
-The companies that build this layer now will have an advantage that is difficult to buy later: they will have years of proprietary operating history ready to support better decisions, faster onboarding, stronger compliance, and more resilient execution.
-
-That is the real AI opportunity inside operational data.
-
-Not more data for its own sake.
-
-Better access to the knowledge the organization already earned.`;
+The real AI opportunity inside operational data is not more data for its own sake — it is better access to the knowledge the organization already earned.`;
 
 const EXECUTIVE_OVERRIDES: StaticBlogPost[] = [
   {
