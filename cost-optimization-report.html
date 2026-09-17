@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost Optimization Report — teambotics-website</title>
+<style>
+  :root {
+    --ink:#161b22; --muted:#57606a; --bg:#ffffff; --panel:#f6f8fa; --border:#d0d7de;
+    --confirmed:#0a5c1f; --confirmed-bg:#e6f4ea;
+    --estimated:#7a4a00; --estimated-bg:#fff3d6;
+    --inferred:#5a3b8a; --inferred-bg:#efe6fa;
+    --unknown:#5b6169; --unknown-bg:#eceef0;
+    --accent:#0969da;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family: -apple-system, Segoe UI, Helvetica, Arial, sans-serif; line-height:1.55; }
+  header.masthead { background:var(--panel); border-bottom:1px solid var(--border); padding:2rem 1.5rem; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 1.5rem; }
+  h1 { font-size: 1.7rem; margin: 0 0 .3rem; }
+  h2 { font-size: 1.3rem; border-bottom: 2px solid var(--border); padding-bottom: .4rem; margin-top: 2.5rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.5rem; }
+  .meta-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: .75rem 1.5rem; margin-top:1rem; font-size:.92rem; }
+  .meta-grid dt { color: var(--muted); font-weight:600; }
+  .meta-grid dd { margin:0; }
+  table { width:100%; border-collapse: collapse; margin: 1rem 0; font-size: .88rem; }
+  caption { text-align:left; font-weight:600; margin-bottom:.5rem; color: var(--muted); }
+  th, td { border: 1px solid var(--border); padding: .5rem .6rem; text-align:left; vertical-align:top; }
+  th { background: var(--panel); }
+  .status { display:inline-flex; align-items:center; gap:.35rem; font-weight:700; font-size:.78rem; padding:.15rem .5rem; border-radius: 999px; white-space:nowrap; }
+  .status::before { content:''; width:.6rem; height:.6rem; border-radius:50%; display:inline-block; }
+  .status.confirmed { color:var(--confirmed); background:var(--confirmed-bg); }
+  .status.confirmed::before { background:var(--confirmed); }
+  .status.estimated { color:var(--estimated); background:var(--estimated-bg); }
+  .status.estimated::before { background:var(--estimated); clip-path: polygon(50% 0,100% 100%,0 100%); border-radius:0; }
+  .status.inferred { color:var(--inferred); background:var(--inferred-bg); }
+  .status.inferred::before { background:var(--inferred); border-radius:2px; }
+  .status.unknown { color:var(--unknown); background:var(--unknown-bg); }
+  .status.unknown::before { background:var(--unknown); border-radius:2px; transform:rotate(45deg); }
+  .health { display:inline-flex; align-items:center; gap:.5rem; font-weight:700; padding:.4rem .9rem; border-radius:8px; font-size:1rem; }
+  .health.amber { background: var(--estimated-bg); color: var(--estimated); }
+  .callout { border-left: 4px solid var(--accent); background: var(--panel); padding: .9rem 1.1rem; margin: 1rem 0; font-size:.92rem; }
+  .rec { border:1px solid var(--border); border-radius:8px; padding:1rem 1.2rem; margin:1rem 0; break-inside: avoid; }
+  .rec h3 { margin-top:0; }
+  .rec dl { display:grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem; font-size:.88rem; margin:.6rem 0 0; }
+  .rec dt { color:var(--muted); font-weight:600; }
+  .rec dd { margin:0; }
+  .complexity { font-weight:700; }
+  .badge-id { font-family: ui-monospace, Consolas, monospace; font-size:.8rem; color:var(--muted); }
+  footer.report-footer { margin: 3rem 0 2rem; color: var(--muted); font-size: .85rem; text-align:center; }
+  code { background: var(--panel); padding: .1rem .3rem; border-radius: 4px; font-size: .85em; }
+  details summary { cursor:pointer; font-weight:600; }
+  @media print {
+    .no-print { display:none; }
+    .rec { break-inside: avoid; }
+    a { color: var(--ink); text-decoration:underline; }
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <h1>Cost Optimization Report</h1>
+    <p style="margin:0;color:var(--muted)">Repository: <strong>teambotics-website</strong></p>
+    <dl class="meta-grid">
+      <div><dt>Repository root</dt><dd><code>C:\dev\teambotics-website</code></dd></div>
+      <div><dt>Branch</dt><dd><code>main</code></dd></div>
+      <div><dt>Commit</dt><dd><code>c531ce3</code></dd></div>
+      <div><dt>Uncommitted changes</dt><dd>None</dd></div>
+      <div><dt>Audit date</dt><dd>2026-08-27 (America/Toronto)</dd></div>
+      <div><dt>Reporting currency / period</dt><dd>USD, normalized monthly (mixed confidence — see Methodology)</dd></div>
+    </dl>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section aria-labelledby="exec-summary-h">
+  <h2 id="exec-summary-h">1. Executive Summary</h2>
+  <p><strong>Scope:</strong> Static and CI/CD inspection of the <code>teambotics-website</code> monorepo (Next.js main site + Astro blog subproject, both deployed to Vercel), plus read-only Vercel API access (team plan, project inventory, deployment metadata). No billing exports, no Neon/OpenAI/GitHub billing consoles, and no usage dashboards were available in this session.</p>
+  <p><strong>Confirmed monthly total:</strong> Not determinable from available evidence — the one clearly billable line item confirmed (Vercel Pro plan) has a per-seat base price but this audit could not confirm seat count or usage-based overage, so no total is computed. Presenting a number here would imply a precision the evidence doesn't support.</p>
+  <p><strong>Evidence counts:</strong> 2 items <span class="status confirmed">Confirmed</span> in kind (not $), 0 fully priced <span class="status estimated">Estimated</span>, 6 <span class="status inferred">Inferred</span>, 4 <span class="status unknown">Unknown</span>.</p>
+  <h3>Top 3 by expected value</h3>
+  <ol>
+    <li><strong>R1 — Confirm actual Vercel seat count and usage-based line items</strong> against a real invoice. Every other estimate in this report is downstream of this being unknown.</li>
+    <li><strong>R2 — Audit and likely remove unused Supabase credentials</strong> from environment configuration on the sibling <code>portfolio-website</code> repo (cross-referenced here; see that report) — not directly costly, but a live, unused credential is both a cost-hygiene and security smell.</li>
+    <li><strong>R3 — Verify OpenAI usage against actual API billing</strong>; token-based LLM costs are the single largest plausible variable-cost driver in this codebase and this audit has zero visibility into request volume.</li>
+  </ol>
+  <p><strong>Cost-health rating:</strong> <span class="health amber">⚠ Amber — plausible but unverified spend</span> — the architecture (serverless functions, managed Postgres, LLM API calls, multiple custom domains) is a normal, reasonably efficient shape for a project like this, but almost every dollar figure in this report is unconfirmed because billing access wasn't available. This is a data-visibility problem, not a demonstrated overspend problem.</p>
+</section>
+
+<section aria-labelledby="snapshot-h">
+  <h2 id="snapshot-h">2. Audit Snapshot &amp; Service Map</h2>
+  <p>Two deployable units live in this repository, both on Vercel under the <strong>Teambotics Inc</strong> team (confirmed via the Vercel API as being on the <strong>Pro</strong> plan):</p>
+  <ul>
+    <li><strong>teambotics-website</strong> — Next.js 16 app (root), serving <code>www.teambotics.app</code>, <code>teambotics.app</code>, and <code>poko.teambotics.app</code>. Hosts the chatbot backend, blog admin API, blog data API, and a Vercel Cron job.</li>
+    <li><strong>teambotics-blog</strong> — Astro app in <code>blog/</code>, deployed as a <em>separate</em> Vercel project, serving <code>blog.teambotics.app</code>.</li>
+  </ul>
+  <p>Detected external services, by category:</p>
+  <ul>
+    <li><strong>Hosting / compute:</strong> Vercel (2 projects under one team, confirmed Pro plan)</li>
+    <li><strong>Database:</strong> Neon Postgres (<code>@neondatabase/serverless</code>), with a per-PR ephemeral preview-branch workflow (<code>.github/workflows/neon-preview-cleanup.yml</code>) confirming active use of Neon's branching feature</li>
+    <li><strong>LLM / AI:</strong> OpenAI (<code>openai</code> SDK, chat completions + embeddings for a RAG chatbot; default model <code>gpt-4o-mini</code> unless overridden)</li>
+    <li><strong>Observability:</strong> <code>@vercel/analytics</code>, <code>@vercel/speed-insights</code></li>
+    <li><strong>Source control / CI:</strong> GitHub (private repo, confirmed via deployment metadata), GitHub Actions (2 workflows: Neon preview cleanup, translation integrity check)</li>
+    <li><strong>Domains:</strong> at least 3 custom domains observed live on Vercel (<code>teambotics.app</code>, <code>blog.teambotics.app</code>, <code>poko.teambotics.app</code>); registrar and renewal cost unknown</li>
+  </ul>
+  <div class="callout"><strong>Scope limitations:</strong> No access to Vercel billing/usage dashboard (only team/project/deployment metadata via API), no Neon console or billing export, no OpenAI usage dashboard, no GitHub billing page, no domain registrar records. Every dollar amount below is either absent or explicitly marked as a bounded estimate/formula, per the evidence hierarchy in this audit's operating rules.</div>
+</section>
+
+<section aria-labelledby="inventory-h">
+  <h2 id="inventory-h">3. Cost Inventory</h2>
+
+  <h3>Confirmed</h3>
+  <table>
+    <caption>Items with direct evidence of an active paid arrangement (amount not necessarily confirmed)</caption>
+    <thead><tr><th>ID</th><th>Service</th><th>Category</th><th>Pricing model</th><th>Confidence</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td class="badge-id">C1</td><td>Vercel — Pro plan</td><td>Hosting</td><td>Per-seat + usage</td><td>High</td><td>Vercel API: team <code>Teambotics Inc</code>, <code>plan: "pro"</code></td></tr>
+      <tr><td class="badge-id">C2</td><td>Neon — PR preview branching</td><td>Database</td><td>Usage-dependent (branch-hours)</td><td>High</td><td><code>.github/workflows/neon-preview-cleanup.yml</code> actively creates/deletes a Neon branch per PR</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Inferred</h3>
+  <table>
+    <caption>Plausible costs suggested by code/config evidence, not verified as billed <span aria-hidden="true">— all rows <code>UNCONFIRMED</code></span></caption>
+    <thead><tr><th>ID</th><th>Service</th><th>Category</th><th>Reasoning</th><th>Confidence</th></tr></thead>
+    <tbody>
+      <tr><td class="badge-id">I1</td><td>OpenAI API (chat + embeddings)</td><td>AI/ML</td><td><code>openai</code> SDK wired into a live chatbot/RAG path (<code>lib/chat/openai.ts</code> pattern); default model <code>gpt-4o-mini</code>; no request-volume evidence available</td><td>Medium</td></tr>
+      <tr><td class="badge-id">I2</td><td>Neon — base compute/storage plan</td><td>Database</td><td>Multiple tables (<code>blog_posts</code>, chatbot/RAG tables) imply an active, non-trivial database beyond the free-tier's typical hobby footprint, but Neon's free tier could still cover this workload</td><td>Low</td></tr>
+      <tr><td class="badge-id">I3</td><td><code>teambotics.app</code>, <code>poko.teambotics.app</code>, <code>blog.teambotics.app</code> domain registration</td><td>DNS/Domains</td><td>Custom domains live on Vercel; registrar and renewal cost not visible from this repo</td><td>Medium</td></tr>
+      <tr><td class="badge-id">I4</td><td>GitHub Actions minutes</td><td>CI/CD</td><td>2 workflows, both lightweight (PR-triggered branch cleanup + a translation-integrity check); on a private repo this consumes included Actions minutes, likely within any free/Team allotment given the low trigger frequency</td><td>Low</td></tr>
+      <tr><td class="badge-id">I5</td><td>Vercel Cron — <code>ingest-github</code></td><td>Compute</td><td><code>vercel.json</code> schedules <code>/api/cron/ingest-github</code> every 2 days; cron invocations bill as normal function invocations under the Pro plan, cost negligible at this frequency</td><td>High</td></tr>
+      <tr><td class="badge-id">I6</td><td>Vercel Analytics / Speed Insights</td><td>Observability</td><td><code>@vercel/analytics</code> and <code>@vercel/speed-insights</code> are dependencies; actual wiring not re-confirmed in this pass for the root app (confirmed wired in the sibling <code>portfolio-website</code> repo's <code>App.tsx</code>) — both products have usage-based pricing beyond a free events/visit threshold on paid plans</td><td>Low</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Unknown</h3>
+  <table>
+    <caption>Evidence is insufficient to determine whether a cost exists</caption>
+    <thead><tr><th>ID</th><th>Item</th><th>Why unknown</th></tr></thead>
+    <tbody>
+      <tr><td class="badge-id">U1</td><td>Vercel seat count / user-based charges</td><td>Team member count not exposed by the API scope used in this audit</td></tr>
+      <tr><td class="badge-id">U2</td><td>Neon plan tier (Free / Launch / Scale)</td><td>No Neon console or billing access</td></tr>
+      <tr><td class="badge-id">U3</td><td>OpenAI monthly spend</td><td>No OpenAI usage dashboard access; request volume and token counts unknown</td></tr>
+      <tr><td class="badge-id">U4</td><td>GitHub org/plan tier</td><td>No GitHub billing page access; unclear if this is a personal account (private repos free) or a paid org/Enterprise seat</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section aria-labelledby="rec-h">
+  <h2 id="rec-h">4. Optimisation Recommendations</h2>
+
+  <div class="rec">
+    <h3><span class="badge-id">R1</span> Pull one real invoice from each live provider before acting on anything else in this report</h3>
+    <dl>
+      <dt>Linked items</dt><dd>C1, I2, I3, U1–U4</dd>
+      <dt>Baseline</dt><dd>Every cost estimate in this repo audit is inferred from code, not billing</dd>
+      <dt>Proposed state</dt><dd>Pull the latest Vercel invoice, Neon invoice, and OpenAI usage export</dd>
+      <dt>Steps</dt><dd>1) Vercel dashboard → Settings → Billing → download latest invoice. 2) Neon console → Billing → usage/invoice. 3) OpenAI platform → Usage → export by API key.</dd>
+      <dt>Expected impact</dt><dd>No direct savings; this is the prerequisite for any dollar-accurate decision. Formula: real savings = (current confirmed spend) − (spend after any change below), which cannot be computed without this step.</dd>
+      <dt>Trade-offs</dt><dd>None — read-only.</dd>
+      <dt>Complexity</dt><dd><span class="complexity">Low</span></dd>
+      <dt>Reversibility</dt><dd>N/A (no change made)</dd>
+      <dt>Owner</dt><dd>Whoever holds billing admin on Vercel/Neon/OpenAI</dd>
+    </dl>
+  </div>
+
+  <div class="rec">
+    <h3><span class="badge-id">R2</span> Confirm the <code>OPENAI_CHAT_MODEL</code> in production is the cheapest model that meets the chatbot's quality bar</h3>
+    <dl>
+      <dt>Linked items</dt><dd>I1</dd>
+      <dt>Baseline</dt><dd>Default is <code>gpt-4o-mini</code> per <code>DEFAULT_OPENAI_CHAT_MODEL</code>, overridable via env var — worth confirming the deployed env var hasn't drifted to a pricier model</dd>
+      <dt>Proposed state</dt><dd>Check the live <code>OPENAI_CHAT_MODEL</code> Vercel env var value against the intended default</dd>
+      <dt>Steps</dt><dd>1) Vercel → project env vars → confirm <code>OPENAI_CHAT_MODEL</code>. 2) If unset or overridden to a larger model without a documented reason, revert to the mini-tier default or the smallest model that passes existing chat-quality checks.</dd>
+      <dt>Expected impact</dt><dd>Formula: token cost scales roughly linearly with model tier; mini-tier models are typically 5–20× cheaper per token than flagship models at similar-generation providers. Cannot state a dollar figure without request volume (see R1).</dd>
+      <dt>Trade-offs</dt><dd>Smaller models can reduce answer quality on harder questions; validate against the chatbot's existing eval/test coverage before changing anything.</dd>
+      <dt>Complexity</dt><dd><span class="complexity">Low</span></dd>
+      <dt>Reversibility</dt><dd>Fully reversible — a single env var</dd>
+      <dt>Owner</dt><dd>Whoever owns the chatbot runtime config</dd>
+    </dl>
+  </div>
+
+  <div class="rec">
+    <h3><span class="badge-id">R3</span> Confirm Neon preview branches are actually being cleaned up in practice, not just on paper</h3>
+    <dl>
+      <dt>Linked items</dt><dd>C2, I2</dd>
+      <dt>Baseline</dt><dd><code>neon-preview-cleanup.yml</code> only fires on <code>pull_request: closed</code> — a PR closed without merging, a failed workflow run, or a branch left open outside a PR flow would leave an orphaned Neon branch consuming storage/compute</dd>
+      <dt>Proposed state</dt><dd>Spot-check the Neon console for stale <code>preview/*</code> branches older than a few days</dd>
+      <dt>Steps</dt><dd>1) Neon console → Branches → sort by age → look for any <code>preview/*</code> branch with no corresponding open PR.</dd>
+      <dt>Expected impact</dt><dd>Qualitative — bounded by how many stale branches exist; each one is small but non-zero storage/compute-hour cost</dd>
+      <dt>Trade-offs</dt><dd>None</dd>
+      <dt>Complexity</dt><dd><span class="complexity">Low</span></dd>
+      <dt>Reversibility</dt><dd>N/A (audit step)</dd>
+      <dt>Owner</dt><dd>Whoever owns the Neon project</dd>
+    </dl>
+  </div>
+
+  <div class="rec">
+    <h3><span class="badge-id">R4</span> Right-size the Vercel Cron schedule if <code>ingest-github</code>'s underlying data doesn't actually change every 2 days</h3>
+    <dl>
+      <dt>Linked items</dt><dd>I5</dd>
+      <dt>Baseline</dt><dd>Runs every 2 days regardless of whether there's new GitHub activity to ingest</dd>
+      <dt>Proposed state</dt><dd>If the ingested source is low-churn, move to a weekly schedule</dd>
+      <dt>Steps</dt><dd>Edit the <code>schedule</code> cron expression in <code>vercel.json</code>.</dd>
+      <dt>Expected impact</dt><dd>Negligible at Pro-plan function pricing — flagged for completeness, not because it's a meaningful lever</dd>
+      <dt>Trade-offs</dt><dd>Slower propagation of new GitHub knowledge into whatever consumes it</dd>
+      <dt>Complexity</dt><dd><span class="complexity">Low</span></dd>
+      <dt>Reversibility</dt><dd>Fully reversible — one line in <code>vercel.json</code></dd>
+      <dt>Owner</dt><dd>Whoever owns the ingest pipeline</dd>
+    </dl>
+  </div>
+</section>
+
+<section aria-labelledby="nondecisions-h">
+  <h2 id="nondecisions-h">5. Non-Decisions Log</h2>
+  <table>
+    <caption>Reviewed items with no recommended change, and why</caption>
+    <thead><tr><th>Item</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>GitHub Actions workflows (I4)</td><td>Both workflows are event-triggered (PR close, push/PR), not scheduled polling — trigger frequency is proportional to real development activity, not wasteful by construction.</td></tr>
+      <tr><td>Self-hosted fonts / static assets</td><td>No CDN or paid font-service dependency detected in this repo's own package.json; no action needed.</td></tr>
+      <tr><td>Splitting the blog into a second Vercel project (C1)</td><td>Already architected this way, which is the efficient choice — it lets the Astro blog and Next.js app scale/deploy independently rather than sharing one monolithic function bundle.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section aria-labelledby="methodology-h">
+  <h2 id="methodology-h">6. Methodology &amp; Limitations</h2>
+  <p><strong>Discovery approach:</strong> Static inspection of <code>package.json</code>, <code>vercel.json</code>, <code>.github/workflows/</code>, and application code for third-party service wiring, cross-referenced with read-only Vercel API calls (<code>list_teams</code>, <code>list_projects</code>, <code>get_project</code>, <code>list_deployments</code>) already available from this session's context. No repository scripts were executed, no dependencies installed, and no infrastructure was provisioned or altered for this audit.</p>
+  <p><strong>Evidence hierarchy applied:</strong> Billing evidence &gt; runtime evidence &gt; repository evidence &gt; external pricing evidence &gt; inference, per this audit's operating contract. No billing evidence was available in this session for any provider.</p>
+  <p><strong>Normalization:</strong> All amounts are reported in USD where a provider's list pricing is USD-denominated; no currency conversion was performed since no non-USD costs were identified.</p>
+  <p><strong>Inaccessible in this session:</strong> Vercel billing/usage dashboard, Neon console and billing export, OpenAI usage dashboard, GitHub billing page, domain registrar records, any invoice or bank/card statement.</p>
+  <p><strong>Pricing sources:</strong> No official pricing page was cited with a specific dollar figure in this report, because no usage volume was available to apply pricing to — citing a rate without a quantity would create false precision. If usage data becomes available, official pricing pages (vercel.com/pricing, neon.tech/pricing, openai.com/api/pricing) should be cited with access dates in a follow-up pass.</p>
+  <p><strong>Validation performed:</strong> This file was opened in a browser and checked for console errors (none found) and correct text rendering of all 6 sections at desktop viewport. Mobile viewport rendering and print-CSS output were reviewed by construction (structure and media queries), not by rendering at those sizes.</p>
+</section>
+
+</main>
+
+<footer class="report-footer wrap">
+  Generated by CostBuddy · self-contained, no external dependencies · repository: teambotics-website
+</footer>
+</body>
+</html>
