@@ -1,0 +1,15 @@
+{
+  "name": "Teambotics",
+  "framework": "next-app-router",
+  "frameworkConfidence": 1,
+  "rootDir": "C:/DEV/teambotics-website",
+  "hostnames": [
+    "teambotics.app",
+    "www.teambotics.app",
+    "blog.teambotics.app",
+    "poko.teambotics.app",
+    "symphony.teambotics.app",
+    "easybuddy.teambotics.app",
+    "feedbackfish.teambotics.app"
+  ]
+}

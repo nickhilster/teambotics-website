@@ -1,0 +1,1197 @@
+[
+  {
+    "path": "/",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/",
+        "claim": "route-exists",
+        "source": "app/(site)/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/about",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/about/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/about",
+        "claim": "route-exists",
+        "source": "app/(site)/about/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/about",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/financebuddy",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/financebuddy/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/financebuddy",
+        "claim": "route-exists",
+        "source": "app/(site)/financebuddy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/financebuddy",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/land-acknowledgment",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/land-acknowledgment/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/land-acknowledgment",
+        "claim": "route-exists",
+        "source": "app/(site)/land-acknowledgment/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/land-acknowledgment",
+        "claim": "content-boundary-tag:main",
+        "source": "app/(site)/land-acknowledgment/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/manifesto",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/manifesto/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/manifesto",
+        "claim": "route-exists",
+        "source": "app/(site)/manifesto/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/manifesto",
+        "claim": "content-boundary-tag:main",
+        "source": "app/(site)/manifesto/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/privacy",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/privacy/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/privacy",
+        "claim": "route-exists",
+        "source": "app/(site)/privacy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/privacy",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/products/[slug]",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/products/[slug]/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [
+      "slug"
+    ],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/products/[slug]",
+        "claim": "route-exists",
+        "source": "app/(site)/products/[slug]/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/products/[slug]",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/terms",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/(site)/terms/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/terms",
+        "claim": "route-exists",
+        "source": "app/(site)/terms/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/terms",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/admin/blog",
+    "classification": "authenticated",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/admin/blog/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/admin/blog",
+        "claim": "route-exists",
+        "source": "app/admin/blog/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/admin/blog",
+        "claim": "authenticated",
+        "source": "app/api/admin/login/route.ts",
+        "method": "auth-check-detected",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/admin/chatbot",
+    "classification": "authenticated",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/admin/chatbot/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/admin/chatbot",
+        "claim": "route-exists",
+        "source": "app/admin/chatbot/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/admin/chatbot",
+        "claim": "authenticated",
+        "source": "app/api/admin/login/route.ts",
+        "method": "auth-check-detected",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/admin/theme",
+    "classification": "authenticated",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/admin/theme/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/admin/theme",
+        "claim": "route-exists",
+        "source": "app/admin/theme/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/admin/theme",
+        "claim": "authenticated",
+        "source": "app/api/admin/login/route.ts",
+        "method": "auth-check-detected",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/admin/visitors",
+    "classification": "authenticated",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/admin/visitors/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/admin/visitors",
+        "claim": "route-exists",
+        "source": "app/admin/visitors/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/admin/visitors",
+        "claim": "authenticated",
+        "source": "app/api/admin/login/route.ts",
+        "method": "auth-check-detected",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS",
+        "claim": "route-exists",
+        "source": "app/BOSS/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/audit",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/audit/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/audit",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/audit/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/claude-code",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/claude-code/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/claude-code",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/claude-code/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/cli",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/cli/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/cli",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/cli/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/codex",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/codex/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/codex",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/codex/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/console",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/console/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/console",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/console/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/init",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/init/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/init",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/init/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/BOSS/guide/troubleshooting",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/BOSS/guide/troubleshooting/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/BOSS/guide/troubleshooting",
+        "claim": "route-exists",
+        "source": "app/BOSS/guide/troubleshooting/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/dyknow",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/dyknow/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/dyknow",
+        "claim": "route-exists",
+        "source": "app/dyknow/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/dyknow",
+        "claim": "content-boundary-tag:main",
+        "source": "app/dyknow/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/easybuddy",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/easybuddy/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/easybuddy",
+        "claim": "route-exists",
+        "source": "app/easybuddy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/easybuddy",
+        "claim": "content-boundary-tag:main",
+        "source": "app/easybuddy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/feedbackfish",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/feedbackfish/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/feedbackfish",
+        "claim": "route-exists",
+        "source": "app/feedbackfish/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/feedbackfish",
+        "claim": "content-boundary-tag:main",
+        "source": "app/feedbackfish/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/MdownManager",
+    "classification": "unknown",
+    "contentType": "redirect",
+    "sourceFiles": [
+      "app/MdownManager/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": "https://mdownmanager.com",
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/MdownManager",
+        "claim": "route-exists",
+        "source": "app/MdownManager/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/MdownManager",
+        "claim": "redirects-to:https://mdownmanager.com",
+        "source": "next.config.ts",
+        "method": "config-redirect",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/nonprofit-application",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/nonprofit-application/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/nonprofit-application",
+        "claim": "route-exists",
+        "source": "app/nonprofit-application/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/poko",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko",
+        "claim": "route-exists",
+        "source": "app/poko/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/poko/admin",
+    "classification": "private-internal",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/admin/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/admin",
+        "claim": "route-exists",
+        "source": "app/poko/admin/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/admin",
+        "claim": "private-internal",
+        "source": "app/poko/admin/page.tsx",
+        "method": "metadata-robots-noindex",
+        "confidence": 0.7
+      },
+      {
+        "subject": "route:/poko/admin",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 0.7
+  },
+  {
+    "path": "/poko/admin/controls",
+    "classification": "private-internal",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/admin/controls/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/admin/controls",
+        "claim": "route-exists",
+        "source": "app/poko/admin/controls/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/admin/controls",
+        "claim": "private-internal",
+        "source": "app/poko/admin/controls/page.tsx",
+        "method": "metadata-robots-noindex",
+        "confidence": 0.7
+      },
+      {
+        "subject": "route:/poko/admin/controls",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 0.7
+  },
+  {
+    "path": "/poko/admin/roadmap",
+    "classification": "private-internal",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/admin/roadmap/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/admin/roadmap",
+        "claim": "route-exists",
+        "source": "app/poko/admin/roadmap/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/admin/roadmap",
+        "claim": "private-internal",
+        "source": "app/poko/admin/roadmap/page.tsx",
+        "method": "metadata-robots-noindex",
+        "confidence": 0.7
+      },
+      {
+        "subject": "route:/poko/admin/roadmap",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 0.7
+  },
+  {
+    "path": "/poko/admin/trackerbuddy",
+    "classification": "private-internal",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/admin/trackerbuddy/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/admin/trackerbuddy",
+        "claim": "route-exists",
+        "source": "app/poko/admin/trackerbuddy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/admin/trackerbuddy",
+        "claim": "private-internal",
+        "source": "app/poko/admin/trackerbuddy/page.tsx",
+        "method": "metadata-robots-noindex",
+        "confidence": 0.7
+      },
+      {
+        "subject": "route:/poko/admin/trackerbuddy",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 0.7
+  },
+  {
+    "path": "/poko/features",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/features/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/features",
+        "claim": "route-exists",
+        "source": "app/poko/features/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/features",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/poko/how-to-use",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/poko/how-to-use/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/poko/how-to-use",
+        "claim": "route-exists",
+        "source": "app/poko/how-to-use/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/poko/how-to-use",
+        "claim": "content-boundary-tag:main",
+        "source": "components/poko/PokoShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/RedactorBuddy",
+    "classification": "unknown",
+    "contentType": "redirect",
+    "sourceFiles": [
+      "app/RedactorBuddy/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": "https://redactorbuddy.com",
+    "contentBoundaryTag": null,
+    "provenance": [
+      {
+        "subject": "route:/RedactorBuddy",
+        "claim": "route-exists",
+        "source": "app/RedactorBuddy/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/RedactorBuddy",
+        "claim": "redirects-to:https://redactorbuddy.com",
+        "source": "next.config.ts",
+        "method": "config-redirect",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/symphony",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/symphony/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/symphony",
+        "claim": "route-exists",
+        "source": "app/symphony/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/symphony",
+        "claim": "content-boundary-tag:main",
+        "source": "app/symphony/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/symphony/boundaries",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/symphony/boundaries/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/symphony/boundaries",
+        "claim": "route-exists",
+        "source": "app/symphony/boundaries/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/symphony/boundaries",
+        "claim": "content-boundary-tag:main",
+        "source": "app/symphony/boundaries/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/symphony/first-15",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/symphony/first-15/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/symphony/first-15",
+        "claim": "route-exists",
+        "source": "app/symphony/first-15/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/symphony/first-15",
+        "claim": "content-boundary-tag:main",
+        "source": "app/symphony/first-15/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/symphony/operating",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/symphony/operating/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/symphony/operating",
+        "claim": "route-exists",
+        "source": "app/symphony/operating/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/symphony/operating",
+        "claim": "content-boundary-tag:main",
+        "source": "app/symphony/operating/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/symphony/recovery",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/symphony/recovery/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/symphony/recovery",
+        "claim": "route-exists",
+        "source": "app/symphony/recovery/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/symphony/recovery",
+        "claim": "content-boundary-tag:main",
+        "source": "app/symphony/recovery/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/[lang]",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/[lang]/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [
+      "lang"
+    ],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/[lang]",
+        "claim": "route-exists",
+        "source": "app/[lang]/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/[lang]",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "path": "/[lang]/products/[slug]",
+    "classification": "public-static",
+    "contentType": "page",
+    "sourceFiles": [
+      "app/[lang]/products/[slug]/page.tsx"
+    ],
+    "agentReadableAlternate": null,
+    "canonicalUrl": null,
+    "dynamicSegments": [
+      "lang",
+      "slug"
+    ],
+    "redirectsTo": null,
+    "contentBoundaryTag": "main",
+    "provenance": [
+      {
+        "subject": "route:/[lang]/products/[slug]",
+        "claim": "route-exists",
+        "source": "app/[lang]/products/[slug]/page.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      },
+      {
+        "subject": "route:/[lang]/products/[slug]",
+        "claim": "content-boundary-tag:main",
+        "source": "components/layout/SiteShell.tsx",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  }
+]

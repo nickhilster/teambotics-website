@@ -1,0 +1,513 @@
+[
+  {
+    "name": "/api/admin/blog/posts",
+    "description": "API route at /api/admin/blog/posts",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/blog/posts/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/blog/posts",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/blog/posts/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/blog/posts/[id]",
+    "description": "API route at /api/admin/blog/posts/[id]",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/blog/posts/[id]/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/blog/posts/[id]",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/blog/posts/[id]/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/analytics",
+    "description": "API route at /api/admin/chatbot/analytics",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/analytics/route.ts",
+    "authRequired": true,
+    "sideEffects": false,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/analytics",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/analytics/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/compare",
+    "description": "API route at /api/admin/chatbot/compare",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/compare/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/compare",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/chatbot/compare/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/config",
+    "description": "API route at /api/admin/chatbot/config",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/config/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/config",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/config/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/ingestion",
+    "description": "API route at /api/admin/chatbot/ingestion",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/ingestion/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/ingestion",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/ingestion/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/logs",
+    "description": "API route at /api/admin/chatbot/logs",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/logs/route.ts",
+    "authRequired": true,
+    "sideEffects": false,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/logs",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/logs/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/publish",
+    "description": "API route at /api/admin/chatbot/publish",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/publish/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/publish",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/chatbot/publish/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/sources",
+    "description": "API route at /api/admin/chatbot/sources",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/sources/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/sources",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/sources/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/test",
+    "description": "API route at /api/admin/chatbot/test",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/test/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/test",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/chatbot/test/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/tig",
+    "description": "API route at /api/admin/chatbot/tig",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/tig/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/tig",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/tig/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/chatbot/versions",
+    "description": "API route at /api/admin/chatbot/versions",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/chatbot/versions/route.ts",
+    "authRequired": true,
+    "sideEffects": false,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/chatbot/versions",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/chatbot/versions/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/login",
+    "description": "API route at /api/admin/login",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/login/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/login",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/login/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/logout",
+    "description": "API route at /api/admin/logout",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/logout/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/logout",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/logout/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/session",
+    "description": "API route at /api/admin/session",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/session/route.ts",
+    "authRequired": true,
+    "sideEffects": false,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/session",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/session/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/theme/config",
+    "description": "API route at /api/admin/theme/config",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/theme/config/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/theme/config",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/theme/config/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/theme/publish",
+    "description": "API route at /api/admin/theme/publish",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/theme/publish/route.ts",
+    "authRequired": true,
+    "sideEffects": true,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/theme/publish",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/admin/theme/publish/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/admin/visitors",
+    "description": "API route at /api/admin/visitors",
+    "kind": "readable",
+    "backingImplementation": "app/api/admin/visitors/route.ts",
+    "authRequired": true,
+    "sideEffects": false,
+    "constraints": [
+      "requires admin session cookie (see lib/adminAuth)"
+    ],
+    "provenance": [
+      {
+        "subject": "capability:/api/admin/visitors",
+        "claim": "has-GET-handler",
+        "source": "app/api/admin/visitors/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/blog/posts",
+    "description": "API route at /api/blog/posts",
+    "kind": "readable",
+    "backingImplementation": "app/api/blog/posts/route.ts",
+    "authRequired": false,
+    "sideEffects": false,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/blog/posts",
+        "claim": "has-GET-handler",
+        "source": "app/api/blog/posts/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/blog/posts/[slug]",
+    "description": "API route at /api/blog/posts/[slug]",
+    "kind": "readable",
+    "backingImplementation": "app/api/blog/posts/[slug]/route.ts",
+    "authRequired": false,
+    "sideEffects": false,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/blog/posts/[slug]",
+        "claim": "has-GET-handler",
+        "source": "app/api/blog/posts/[slug]/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/chat",
+    "description": "API route at /api/chat",
+    "kind": "readable",
+    "backingImplementation": "app/api/chat/route.ts",
+    "authRequired": false,
+    "sideEffects": true,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/chat",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/chat/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/cron/ingest-github",
+    "description": "API route at /api/cron/ingest-github",
+    "kind": "readable",
+    "backingImplementation": "app/api/cron/ingest-github/route.ts",
+    "authRequired": false,
+    "sideEffects": false,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/cron/ingest-github",
+        "claim": "has-GET-handler",
+        "source": "app/api/cron/ingest-github/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/leads",
+    "description": "API route at /api/leads",
+    "kind": "readable",
+    "backingImplementation": "app/api/leads/route.ts",
+    "authRequired": false,
+    "sideEffects": true,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/leads",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/leads/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/values",
+    "description": "API route at /api/values",
+    "kind": "readable",
+    "backingImplementation": "app/api/values/route.ts",
+    "authRequired": false,
+    "sideEffects": false,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/values",
+        "claim": "has-GET-handler",
+        "source": "app/api/values/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  },
+  {
+    "name": "/api/visitor/log",
+    "description": "API route at /api/visitor/log",
+    "kind": "readable",
+    "backingImplementation": "app/api/visitor/log/route.ts",
+    "authRequired": false,
+    "sideEffects": true,
+    "constraints": [],
+    "provenance": [
+      {
+        "subject": "capability:/api/visitor/log",
+        "claim": "no-GET-handler-found",
+        "source": "app/api/visitor/log/route.ts",
+        "method": "framework-route-parser",
+        "confidence": 1
+      }
+    ],
+    "confidence": 1
+  }
+]

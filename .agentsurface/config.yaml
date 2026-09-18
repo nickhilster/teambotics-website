@@ -1,0 +1,17 @@
+version: '0.1'
+site:
+  name: Teambotics
+  hostnames:
+    - teambotics.app
+    - www.teambotics.app
+    - blog.teambotics.app
+    - poko.teambotics.app
+    - symphony.teambotics.app
+    - easybuddy.teambotics.app
+    - feedbackfish.teambotics.app
+routes:
+  exclude: []
+output:
+  dir: .
+ownership:
+  overwriteHumanOwned: false
