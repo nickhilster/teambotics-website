@@ -12,20 +12,34 @@ export function middleware(request: NextRequest) {
   const subdomain = hostname.split(".")[0];
   const targetRoute = subdomainRoutes[subdomain];
 
-  if (!targetRoute) {
-    return NextResponse.next();
-  }
-
   const pathname = request.nextUrl.pathname;
+  const effectivePath =
+    targetRoute && !(pathname === targetRoute || pathname.startsWith(`${targetRoute}/`))
+      ? pathname === "/"
+        ? targetRoute
+        : `${targetRoute}${pathname}`
+      : pathname;
 
-  if (pathname === targetRoute || pathname.startsWith(`${targetRoute}/`)) {
-    return NextResponse.next();
+  // AgentSurface: route "*.md" discovery requests to a dedicated internal handler.
+  // A bare "/<path>.md" would otherwise collide with the existing [lang] dynamic
+  // segment at the app root — Next.js resolves that single dynamic segment before a
+  // catch-all gets a chance for a single path segment. See
+  // app/agentsurface-md/[...agentsurfaceSlug]/route.ts. (Note: a leading-underscore
+  // folder name was tried first but Next.js treats "_name" as a private, routing-
+  // excluded folder, so the segment must not start with "_".)
+  if (effectivePath.endsWith(".md")) {
+    const url = request.nextUrl.clone();
+    url.pathname = `/agentsurface-md${effectivePath}`;
+    return NextResponse.rewrite(url);
   }
 
-  const url = request.nextUrl.clone();
-  url.pathname = pathname === "/" ? targetRoute : `${targetRoute}${pathname}`;
+  if (effectivePath !== pathname) {
+    const url = request.nextUrl.clone();
+    url.pathname = effectivePath;
+    return NextResponse.rewrite(url);
+  }
 
-  return NextResponse.rewrite(url);
+  return NextResponse.next();
 }
 
 export const config = {
