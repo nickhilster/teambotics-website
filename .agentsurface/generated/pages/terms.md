@@ -9,7 +9,7 @@ Terms
 
 Terms governing the use of the Teambotics public website and assistant experience.
 
-Last updated August 17, 2026
+Last updated May 23, 2026
 
 Last updated: May 19, 2026
 

@@ -2,7 +2,7 @@
   "name": "Teambotics",
   "framework": "next-app-router",
   "frameworkConfidence": 1,
-  "rootDir": "C:/DEV/teambotics-website",
+  "rootDir": "C:\\dev\\teambotics-website",
   "hostnames": [
     "teambotics.app",
     "www.teambotics.app",

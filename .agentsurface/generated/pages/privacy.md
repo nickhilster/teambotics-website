@@ -9,7 +9,7 @@ Policy
 
 How Teambotics handles visitor, contact, and chatbot information on the public site.
 
-Last updated August 17, 2026
+Last updated May 23, 2026
 
 Last updated: May 19, 2026
 

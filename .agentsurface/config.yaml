@@ -12,6 +12,6 @@ site:
 routes:
   exclude: []
 output:
-  dir: .
+  dir: public
 ownership:
-  overwriteHumanOwned: false
+  overwriteHumanOwned: true
