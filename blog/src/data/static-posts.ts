@@ -855,8 +855,132 @@ If you are wondering who the right person is and whether you can get a real conv
     cover_image_url: '/thumbnails/multi-agent-systems-workflow.svg',
     published_at: '2026-09-11T00:00:00.000Z',
   },
+  {
+    id: 'static-agent-operating-modes',
+    slug: 'agent-operating-modes',
+    title: 'Before You Ask an Agent to Act, Know What Kind of Problem You Have',
+    excerpt:
+      'Three compact operating modes help humans and AI agents distinguish between changing an existing system, understanding an open question, and entering an unknown environment.',
+    content: agentOperatingModesContent,
+    author: 'Nikhil Khedkar',
+    tags: ['ai-agents', 'agentic-workflows', 'human-ai-systems', 'operating-models', 'applied-ai'],
+    cover_image_url: null,
+    published_at: '2026-09-24T00:00:00.000Z',
+  },
 ];
 
+
+const agentOperatingModesContent = String.raw`An agent is asked to improve an existing project. It immediately creates a new document, introduces a new tool, and reorganizes the workflow before learning why the current one looks the way it does.
+
+Another agent is given an open research question. It collects a large amount of information and jumps from findings to recommendations without stating the insight that connects them.
+
+A third enters an unfamiliar machine and drafts an integration plan based on software it assumes is installed.
+
+These look like different failures. They share the same mistake: the agent began in the wrong operating mode.
+
+At Teambotics, we have been developing three short modes for work with humans and AI agents:
+
+- **Audit. Addit. Edit.** for changing something that already exists.
+- **Analyze. Realize. Actualize.** for an open question that needs understanding.
+- **Detect. Decide. Draft.** for an unfamiliar environment whose state must be established.
+
+The language emerged through real work across product design, research, repository changes, and local AI integration. We now use it as a compact way to tell an agent what kind of work it is entering and what a responsible outcome should look like.
+
+## Existing work: Audit. Addit. Edit.
+
+Most production work starts with an existing system. There may be code, documents, decisions, users, conventions, and constraints that are not visible in the request.
+
+**Audit** means inspecting that state before changing it. Read the relevant files. Trace the existing workflow. Find prior decisions. Identify what works, what conflicts, and what has not been verified.
+
+**Addit** means adding only what the audit shows is missing or materially weak. The invented word is intentional: *add it* and *add to it*. We use the following working definition:
+
+> **Addit** *(verb)*: to improve an existing work by adding what its audit reveals is missing.
+
+**Edit** means integrating the addition into the whole. Remove duplication, reconcile inconsistencies, simplify where the new material allows it, and validate the resulting system end to end.
+
+The sequence prevents a common form of AI-assisted clutter. Generation makes addition cheap. Coherence still requires judgment.
+
+### Expected output
+
+An agent working in this mode should be able to show:
+
+- what it inspected;
+- what gap it found;
+- why the addition addresses that gap;
+- how the surrounding work changed; and
+- what it validated afterward.
+
+## Open questions: Analyze. Realize. Actualize.
+
+Research and strategy begin somewhere else. The problem may be ambiguous, the evidence may conflict, and the useful output may not be known at the start.
+
+**Analyze** means weighing the available evidence and context. Separate observed facts from interpretations and hypotheses. Show where the evidence is thin or contested.
+
+**Realize** means stating the insight produced by that analysis. What now appears true? What changed in our understanding? Which implication matters?
+
+**Actualize** means giving the insight a useful form when action fits the intent. That form may be a decision, an artifact, an experiment, a recommendation, or a sharper question for the next round of work.
+
+The middle step is the critical one. A collection of research is not yet understanding. A recommendation without an explicit insight is difficult to examine because the reasoning remains hidden between the evidence and the action.
+
+### Expected output
+
+An agent working in this mode should be able to show:
+
+- the evidence it considered;
+- the distinction between fact, inference, and uncertainty;
+- the core realization in clear language; and
+- the concrete form that follows from it.
+
+## Unknown environments: Detect. Decide. Draft.
+
+An unfamiliar machine, repository, service, or operating environment has to be observed before it can be planned around.
+
+**Detect** means inspecting and testing the actual state. What is present? What is running? What is reachable? What is broken? Which claimed capabilities can be verified directly?
+
+**Decide** means prioritizing from those findings. Choose the next move based on the goal, constraints, and observed evidence.
+
+**Draft** means producing the next usable form. It may be an executable plan or an implementation. The agent should label which one it has delivered so a proposal is never mistaken for completed work.
+
+We used this mode while preparing a local computer for AI workload routing. The task required hardware detection, an inventory of installed models and services, capability checks, and only then a recommendation about which work could sensibly run locally. A generic architecture drafted before inspection would have answered a different question from the one the machine presented.
+
+### Expected output
+
+An agent working in this mode should be able to show:
+
+- what it detected directly;
+- which assumptions remain unresolved;
+- why it chose the proposed direction; and
+- whether the result is a plan or a working implementation.
+
+## Choosing the mode
+
+| Situation | Primary mode | First obligation | Typical result |
+|---|---|---|---|
+| Modify an existing product, document, or workflow | **Audit. Addit. Edit.** | Understand the current whole | An integrated, validated change |
+| Investigate an open or contested question | **Analyze. Realize. Actualize.** | Establish what the evidence means | An insight given useful form |
+| Enter an unfamiliar technical environment | **Detect. Decide. Draft.** | Establish the actual state | A grounded plan or implementation |
+
+Some tasks cross modes. An agent may detect the state of an unfamiliar repository, then audit the workflow it finds. An audit may expose a strategic question that requires analysis. The useful rule is to choose the primary mode, state it, and name any transition when the work changes character.
+
+## Rules across all three modes
+
+The modes differ, but the same operating contract applies to each:
+
+1. **Say what was verified.** If a claim was inferred or could not be checked, label it.
+2. **Integrate rather than accumulate.** New output should become part of the existing system where one exists.
+3. **Keep consequential actions reviewable.** Pause before an irreversible or externally consequential step unless the authority to take it is explicit.
+4. **Deliver the requested outcome.** A working change, a decision, and a plan are different deliverables. Name the one produced.
+5. **State the approach when modes overlap.** This lets the human inspect the agent's framing before accepting its result.
+
+## A working operating model
+
+This is a working method developed through our own human-agent workflows. We have encoded versions of it in agent guidance and used it to structure tasks. We have not yet run a controlled comparison measuring its effect on completion time, correction rate, or decision quality.
+
+That evidence boundary matters. Memorable language can improve an instruction without proving that it improves a system. The next useful step is to test the modes on comparable tasks and record where they reduce unnecessary additions, unsupported decisions, and plans based on unverified environments.
+
+The current value is practical and narrower: the three modes make the starting obligation explicit.
+
+Before an agent acts, it should know whether it is changing an existing thing, understanding an open question, or entering unknown ground. Once that is clear, three verbs can carry a surprising amount of operating context.`;
 export function getStaticBlogPost(slug: string) {
   return staticBlogPosts.find((post) => post.slug === slug) ?? null;
 }
