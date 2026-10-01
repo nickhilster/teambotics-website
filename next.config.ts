@@ -29,6 +29,17 @@ const nextConfig: NextConfig = {
         destination: "https://redactorbuddy.com",
         permanent: true,
       },
+      // FeedbackFish is a NikDesign product
+      {
+        source: "/feedbackfish",
+        destination: "https://www.nikdesign.ca/feedbackfish",
+        permanent: true,
+      },
+      {
+        source: "/feedbackfish/:path*",
+        destination: "https://www.nikdesign.ca/feedbackfish",
+        permanent: true,
+      },
       {
         source: "/blog",
         destination: "https://blog.teambotics.app/",
