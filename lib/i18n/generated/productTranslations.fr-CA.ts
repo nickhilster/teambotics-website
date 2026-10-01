@@ -200,13 +200,13 @@ export const productTranslationsFrCA: Record<string, GeneratedProductTranslation
   },
   "storytellr": {
     "title": "Graphe narratif oriente client",
-    "label": "Bientot",
-    "stage": "Apercus prives en cours",
-    "statusLabel": "BIENTOT",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "statusLabel": "LIVE PRODUCT",
     "market": "Marques personnelles / Positionnement fondateur / Narration d'equipe",
     "tagline": "Un graphe narratif oriente client qui aide les personnes a montrer qui elles sont, ce qu'elles ont bati et pourquoi cela compte.",
     "description": "Une surface narrative interactive qui relie themes, etapes, relations et preuves afin que clients et collaborateurs comprennent un travail complexe plus vite qu'avec un profil statique.",
-    "summary": "StoryTeller est en cours de construction comme une experience de graphe publique pour les parcours difficiles a expliquer dans une simple chronologie. Il relie decisions, projets, collaborateurs et resultats dans une vue lisible ou la capacite et la credibilite se comprennent plus vite.",
+    "summary": "StoryTeller est une experience de graphe publique pour les parcours difficiles a expliquer dans une simple chronologie. Il relie decisions, projets, collaborateurs et resultats dans une vue lisible ou la capacite et la credibilite se comprennent plus vite.",
     "heroSummary": "Une narration en graphe interactive pour les parcours professionnels complexes.",
     "impact": "Concu pour les marques personnelles, les fondatrices et fondateurs, ainsi que les equipes qui ont besoin d'une surface narrative plus forte qu'un CV, une grille portfolio ou une page profil statique.",
     "tags": [
@@ -260,8 +260,8 @@ export const productTranslationsFrCA: Record<string, GeneratedProductTranslation
         "body": "Le travail complexe perd de son sens lorsqu'il est aplati en roles ou cartes de projet deconnectes. StoryTeller garde les elements relies ensemble afin que clients, collaborateurs et equipes de recrutement puissent suivre le recit avec son contexte."
       }
     ],
-    "externalLabel": "Ouvrir l'apercu",
-    "supportLabel": "Parler de StoryTeller",
+    "externalLabel": "Ouvrir StoryTeller",
+    "supportLabel": "Voir sur GitHub",
     "ctaLabel": "Lire l'etude de cas"
   },
   "ryfine": {

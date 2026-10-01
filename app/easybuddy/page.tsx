@@ -732,7 +732,7 @@ export default function EasyBuddyPage() {
             style={{ borderRadius: "4px" }}
           />
           <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
-            © 2026 TeamBotics Inc. · Based in Canada 🍁 · Human-First AI, Built For Trust
+            © 2026 Teambotics Inc. · Based in Canada 🍁 · Human-First AI, Built For Trust
           </span>
         </div>
         <div style={{ display: "flex", gap: "1.5rem" }}>

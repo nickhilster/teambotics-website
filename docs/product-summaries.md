@@ -125,7 +125,7 @@ StoryTeller is a client-facing narrative graph experience in progress that helps
 
 **Longer summary**
 
-StoryTeller is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
+StoryTeller is a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
 
 **Audience**
 
@@ -141,14 +141,14 @@ Teambotics frames StoryTeller as a narrative enablement system: a structured pub
 
 **What the product should not be claimed to do**
 
-- Do not claim StoryTeller is fully launched; the public messaging says it is coming soon and private previews are in progress.
+- StoryTeller is launched (live at storyteller.teambotics.app); do not invent features beyond the public product page.
 - Do not claim customer counts, conversion lifts, hiring outcomes, or other performance metrics.
 - Do not claim StoryTeller replaces professional judgment, hiring decisions, or relationship-building.
 - Do not describe unfinished features as generally available.
 
 **Chatbot-safe answer**
 
-StoryTeller is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
+StoryTeller is a live Teambotics product. It is a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
 
 ---
 

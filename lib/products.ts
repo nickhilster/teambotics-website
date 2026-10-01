@@ -460,14 +460,14 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "slug": "storytellr",
     "name": "StoryTeller",
     "title": "Client-Facing Narrative Graph",
-    "label": "Coming Soon",
-    "stage": "Private previews in progress",
-    "status": "build",
-    "statusLabel": "COMING SOON",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "status": "live",
+    "statusLabel": "LIVE PRODUCT",
     "market": "Personal Brands / Founder Positioning / Team Storytelling",
     "tagline": "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
     "description": "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
-    "summary": "StoryTeller is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
+    "summary": "StoryTeller is a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
     "heroSummary": "Everything you've built, connected and explained — not flattened into a timeline.",
     "impact": "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
     "tags": [
@@ -514,7 +514,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
       },
       {
         "title": "Launch Direction",
-        "body": "The upcoming release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction."
+        "body": "The release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction."
       },
       {
         "title": "Why It Matters",
@@ -522,9 +522,9 @@ export const productCaseStudies: ProductCaseStudy[] = [
       }
     ],
     "externalUrl": "https://storyteller.teambotics.app",
-    "externalLabel": "Open Preview",
-    "supportUrl": "mailto:hello@teambotics.app?subject=StoryTeller%20case%20study",
-    "supportLabel": "Discuss StoryTeller"
+    "externalLabel": "Open StoryTeller",
+    "supportUrl": "https://github.com/Teambotics-Inc/StoryTeller",
+    "supportLabel": "View on GitHub"
   },
   {
     "slug": "recruiterbuddy",

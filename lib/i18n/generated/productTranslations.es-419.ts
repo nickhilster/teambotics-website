@@ -200,13 +200,13 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
   },
   "storytellr": {
     "title": "Grafo narrativo orientado al cliente",
-    "label": "Proximamente",
-    "stage": "Vistas previas privadas en curso",
-    "statusLabel": "PROXIMAMENTE",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "statusLabel": "LIVE PRODUCT",
     "market": "Marcas personales / Posicionamiento de fundadores / Narrativa de equipos",
     "tagline": "Un grafo narrativo orientado al cliente que ayuda a mostrar quien es una persona, que ha construido y por que importa.",
     "description": "Una superficie narrativa interactiva que conecta temas, hitos, relaciones y evidencia para que clientes y colaboradores entiendan trabajo complejo mas rapido que con un perfil estatico.",
-    "summary": "StoryTeller se esta construyendo como una experiencia publica de grafo para trabajos dificiles de explicar en una sola linea de tiempo. Conecta decisiones, proyectos, colaboradores y resultados en una vista legible donde la capacidad y la credibilidad se entienden con mayor rapidez.",
+    "summary": "StoryTeller es una experiencia publica de grafo para trabajos dificiles de explicar en una sola linea de tiempo. Conecta decisiones, proyectos, colaboradores y resultados en una vista legible donde la capacidad y la credibilidad se entienden con mayor rapidez.",
     "heroSummary": "Narrativa en grafo interactiva para trayectorias profesionales complejas.",
     "impact": "Creado para marcas personales, personas fundadoras y equipos que necesitan una superficie narrativa mas fuerte que un CV, una cuadricula de portafolio o una pagina de perfil estatica.",
     "tags": [
@@ -253,15 +253,15 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
       },
       {
         "title": "Direccion de lanzamiento",
-        "body": "La proxima version se centra en una experiencia publica de grafo limpia, controles ligeros para curar la historia y un onboarding que ayude a publicar con menos friccion."
+        "body": "La version se centra en una experiencia publica de grafo limpia, controles ligeros para curar la historia y un onboarding que ayude a publicar con menos friccion."
       },
       {
         "title": "Por que importa",
         "body": "El trabajo complejo pierde sentido cuando se aplana en roles o tarjetas de proyecto desconectadas. StoryTeller mantiene el trabajo relacionado unido para que clientes, colaboradores y equipos de contratacion puedan seguir la historia con contexto."
       }
     ],
-    "externalLabel": "Abrir vista previa",
-    "supportLabel": "Hablar de StoryTeller",
+    "externalLabel": "Abrir StoryTeller",
+    "supportLabel": "Ver en GitHub",
     "ctaLabel": "Leer caso"
   },
   "ryfine": {

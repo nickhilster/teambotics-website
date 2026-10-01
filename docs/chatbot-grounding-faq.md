@@ -58,7 +58,7 @@ A: Code2Motion is a Teambotics product — an interactive generative art platfor
 
 **Q: What is StoryTeller?**
 
-A: StoryTeller is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so founders, teams, and personal brands can present complex work more clearly than they could through a static profile alone.
+A: StoryTeller is a live Teambotics product. It is a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so founders, teams, and personal brands can present complex work more clearly than they could through a static profile alone.
 
 ---
 

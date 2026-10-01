@@ -96,13 +96,13 @@ const products = [
     description:
       "Connects milestones, themes, relationships, and proof points into a readable public narrative surface for complex work.",
     stats: [
-      { label: "Stage", value: "Coming soon" },
+      { label: "Stage", value: "Live product" },
       { label: "Model", value: "Narrative graph" },
       { label: "Audience", value: "Founders / teams" },
     ],
     href: "/products/storytellr",
-    badge: "Coming soon" as const,
-    badgeVariant: "build" as const,
+    badge: "Live" as const,
+    badgeVariant: "live" as const,
   },
 ] as const;
 

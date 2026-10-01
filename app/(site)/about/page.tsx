@@ -25,7 +25,7 @@ const aboutProductSummaries: Record<string, string> = {
   "/products/easybuddy":
     "Bespoke AI training and onboarding assistant for frontline enterprise and service teams.",
   "/products/storytellr":
-    "Client-facing narrative graph experience for founders, teams, and complex work stories. In build.",
+    "Client-facing narrative graph experience for founders, teams, and complex work stories. Live product.",
 };
 
 export default function AboutPage() {
