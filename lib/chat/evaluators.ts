@@ -31,9 +31,9 @@ export const PUBLIC_CHAT_EVALUATORS = [
   },
   {
     id: "storytellr-overview",
-    question: "What is Storytellr?",
+    question: "What is StoryTeller?",
     expectedRoute: "/products/storytellr",
-    expectedTitle: "Storytellr summary",
+    expectedTitle: "StoryTeller summary",
   },
   {
     id: "contact-route",

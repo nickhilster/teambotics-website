@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 const subdomainRoutes: Record<string, string> = {
   easybuddy: "/easybuddy",
-  feedbackfish: "/feedbackfish",
   poko: "/poko",
   symphony: "/symphony",
 };
@@ -11,6 +10,11 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
   const subdomain = hostname.split(".")[0];
   const targetRoute = subdomainRoutes[subdomain];
+
+  // FeedbackFish is a NikDesign product; the old subdomain redirects there.
+  if (subdomain === "feedbackfish") {
+    return NextResponse.redirect("https://www.nikdesign.ca/feedbackfish", 308);
+  }
 
   const pathname = request.nextUrl.pathname;
   const effectivePath =

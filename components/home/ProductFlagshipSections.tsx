@@ -32,7 +32,7 @@ const BANNER_IMAGES: Partial<Record<string, { src: string; alt: string }>> = {
   },
   storytellr: {
     src: "/media/storytellr-graph-banner.svg",
-    alt: "Storytellr narrative graph showing career projects, decisions, collaborators, milestones, themes, and outcomes as connected nodes",
+    alt: "StoryTeller narrative graph showing career projects, decisions, collaborators, milestones, themes, and outcomes as connected nodes",
   },
 };
 

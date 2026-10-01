@@ -240,7 +240,7 @@ Include answers for:
 - Can LTB Buddy give legal advice?
 - What is EasyBuddy?
 - What is Code2Motion?
-- What is Storytellr?
+- What is StoryTeller?
 - How can someone contact Teambotics?
 - Does Teambotics publish its GitHub repositories?
 - What should the assistant do when it does not know?
@@ -269,7 +269,7 @@ Products:
 - LTB Buddy.
 - EasyBuddy.
 - Code2Motion.
-- Storytellr.
+- StoryTeller.
 
 For each product, include:
 

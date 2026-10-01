@@ -6,7 +6,11 @@ const organizationStructuredData = {
   name: siteConfig.name,
   url: siteConfig.url,
   description:
-    "Teambotics builds purpose-built products and workflow systems with an operating standard grounded in love, empathy, care, accountability, and responsible agent behavior.",
+    "Agents for Humans. Teambotics is an AI lab building agents for humans, with an operating standard grounded in love, empathy, care, accountability, and responsible agent behavior.",
+  sameAs: [
+    siteConfig.socials.linkedin,
+    `https://x.com/${siteConfig.socials.x.replace(/^@/, "")}`,
+  ],
   slogan: "Made with love, empathy, and care.",
   knowsAbout: [
     "Purpose-built products",

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description:
       "Some work needs the ocean. Most work needs the right flow. Teambotics builds private, practical, agent-native AI systems for teams.",
     url: "https://www.teambotics.app/manifesto",
-    siteName: "Teambotics Inc.",
+    siteName: "Teambotics",
     locale: "en_CA",
     type: "website",
   },

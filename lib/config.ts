@@ -3,7 +3,7 @@ import { products } from "@/lib/products";
 export const siteConfig = {
   name: "Teambotics",
   description:
-    "Teambotics is an independent AI lab building conversational and interactive products that turn complex domains — legal, operational, narrative, creative — into experiences people can actually use.",
+    "Agents for Humans. Teambotics is an AI lab building agents for humans.",
   url: "https://www.teambotics.app",
   socials: {
     x: "@teambotics",

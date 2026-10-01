@@ -241,7 +241,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "The system is designed for a regulated, document-heavy workflow where traceability, restraint, and consistency are more valuable than novelty."
       }
     ],
-    "externalUrl": "https://ltbbuddy.ca/",
+    "externalUrl": "https://ltbbuddy.ca",
     "externalLabel": "Open Beta",
     "supportUrl": "mailto:hello@teambotics.app?subject=LTB%20Buddy%20case%20study",
     "supportLabel": "Discuss LTB Buddy"
@@ -311,7 +311,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "Teams that routinely prepare financial records, case files, or compliance-bound documents can use RedactorBuddy as a safer preprocessing step before review or distribution."
       }
     ],
-    "externalUrl": "https://www.teambotics.app/RedactorBuddy",
+    "externalUrl": "https://redactorbuddy.com",
     "externalLabel": "Request Access",
     "supportUrl": "mailto:hello@teambotics.app?subject=RedactorBuddy%20case%20study",
     "supportLabel": "Discuss RedactorBuddy"
@@ -381,7 +381,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "Teams building SOP libraries, research repositories, or AI handoff systems can use MDownManager to create a more durable operational knowledge layer."
       }
     ],
-    "externalUrl": "https://www.teambotics.app/MdownManager",
+    "externalUrl": "https://mdownmanager.com",
     "externalLabel": "Open Product",
     "supportUrl": "mailto:hello@teambotics.app?subject=MDownManager%20case%20study",
     "supportLabel": "Discuss MDownManager"
@@ -458,16 +458,16 @@ export const productCaseStudies: ProductCaseStudy[] = [
   },
   {
     "slug": "storytellr",
-    "name": "Storytellr",
+    "name": "StoryTeller",
     "title": "Client-Facing Narrative Graph",
-    "label": "Coming Soon",
-    "stage": "Private previews in progress",
-    "status": "build",
-    "statusLabel": "COMING SOON",
+    "label": "Live Product",
+    "stage": "Live Product",
+    "status": "live",
+    "statusLabel": "LIVE PRODUCT",
     "market": "Personal Brands / Founder Positioning / Team Storytelling",
     "tagline": "A client-facing narrative graph that helps people show who they are, what they've built, and why it matters.",
     "description": "An interactive story surface that connects themes, milestones, relationships, and proof points so clients and collaborators can understand complex work faster than a static profile.",
-    "summary": "Storytellr is being built as a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
+    "summary": "StoryTeller is a public graph experience for work that is hard to explain in a single timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so capability and credibility are easier to scan.",
     "heroSummary": "Everything you've built, connected and explained — not flattened into a timeline.",
     "impact": "Built for personal brands, founders, and teams that need a stronger narrative surface than a resume, portfolio grid, or static profile page.",
     "tags": [
@@ -494,7 +494,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
       },
       {
         "label": "Narrative Graph",
-        "value": "Storytellr turns that missing context into a readable graph experience organized around themes, milestones, and relationships instead of a flat timeline."
+        "value": "StoryTeller turns that missing context into a readable graph experience organized around themes, milestones, and relationships instead of a flat timeline."
       },
       {
         "label": "Launch Focus",
@@ -510,21 +510,21 @@ export const productCaseStudies: ProductCaseStudy[] = [
     "detailSections": [
       {
         "title": "Product Framing",
-        "body": "Storytellr is a client-facing narrative surface for people who need more than a static profile. The value is faster understanding: who someone is, what they have built, and why it matters."
+        "body": "StoryTeller is a client-facing narrative surface for people who need more than a static profile. The value is faster understanding: who someone is, what they have built, and why it matters."
       },
       {
         "title": "Launch Direction",
-        "body": "The upcoming release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction."
+        "body": "The release centers on a clean public graph experience, lightweight controls for curating a story, and onboarding that helps first-time users publish with less friction."
       },
       {
         "title": "Why It Matters",
-        "body": "Complex work loses meaning when it is flattened into disconnected roles or project cards. Storytellr keeps related work connected so clients, collaborators, and hiring teams can follow the story with context intact."
+        "body": "Complex work loses meaning when it is flattened into disconnected roles or project cards. StoryTeller keeps related work connected so clients, collaborators, and hiring teams can follow the story with context intact."
       }
     ],
-    "externalUrl": "https://www.nikdesign.ca/storytellr",
-    "externalLabel": "Open Preview",
-    "supportUrl": "mailto:hello@teambotics.app?subject=Storytellr%20case%20study",
-    "supportLabel": "Discuss Storytellr"
+    "externalUrl": "https://storyteller.teambotics.app",
+    "externalLabel": "Open StoryTeller",
+    "supportUrl": "https://github.com/Teambotics-Inc/StoryTeller",
+    "supportLabel": "View on GitHub"
   },
   {
     "slug": "recruiterbuddy",
@@ -595,7 +595,7 @@ export const productCaseStudies: ProductCaseStudy[] = [
         "body": "RecruiterBuddy is a preparation and alignment tool. It surfaces what is known, what is plausible, and what needs a direct question — keeping human judgment responsible for the final hiring decision."
       }
     ],
-    "externalUrl": "https://teambotics.app/#contact",
+    "externalUrl": "https://www.teambotics.app/#contact",
     "externalLabel": "Request demo",
     "supportUrl": "mailto:hello@teambotics.app?subject=RecruiterBuddy",
     "supportLabel": "Discuss RecruiterBuddy"

@@ -11,7 +11,7 @@ import { OrganizationStructuredData } from "@/components/seo/OrganizationStructu
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
+  title: { absolute: siteConfig.name },
   description: siteConfig.description,
   alternates: {
     canonical: siteConfig.url,

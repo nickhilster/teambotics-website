@@ -48,7 +48,7 @@ test("product detail pages render the ported case-study model", async ({ page })
     ["ltb-buddy", "LTB Buddy"],
     ["easybuddy", "EasyBuddy"],
     ["code2motion", "Code2Motion"],
-    ["storytellr", "Storytellr"],
+    ["storytellr", "StoryTeller"],
   ];
 
   for (const [slug, name] of products) {

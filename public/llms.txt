@@ -27,7 +27,6 @@ Source model: .agentsurface/model/routes.json
 - [BOSS/guide/troubleshooting](/BOSS/guide/troubleshooting)
 - [dyknow](/dyknow.md)
 - [easybuddy](/easybuddy.md)
-- [feedbackfish](/feedbackfish.md)
 - [nonprofit-application](/nonprofit-application)
 - [poko](/poko.md)
 - [poko/features](/poko/features.md)

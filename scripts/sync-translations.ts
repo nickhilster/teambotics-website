@@ -165,7 +165,7 @@ async function translateLeaves(
         "Translate each value in the english JSON map into the target locale.",
         "Keep the exact same JSON keys.",
         "If an existing translation is already strong, you may preserve its tone while updating meaning to match the English source.",
-        "Preserve these terms exactly when they appear: Teambotics, OpenAI, React, Vercel, PWA, RAG, LinkedIn, LTB Buddy, EasyBuddy, Code2Motion, Storytellr, PlayRoom, ToyMaker.",
+        "Preserve these terms exactly when they appear: Teambotics, OpenAI, React, Vercel, PWA, RAG, LinkedIn, LTB Buddy, EasyBuddy, Code2Motion, StoryTeller, PlayRoom, ToyMaker.",
         "English leaf map:",
         JSON.stringify(englishLeaves, null, 2),
         "Existing translation leaf map:",

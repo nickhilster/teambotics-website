@@ -29,7 +29,7 @@ export default function EasyBuddyPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image
             src="/brand/teambotics-logo-amber.png"
-            alt="TeamBotics"
+            alt="Teambotics"
             width={32}
             height={32}
             style={{ borderRadius: "6px" }}
@@ -38,7 +38,7 @@ export default function EasyBuddyPage() {
             EasyBuddy
           </span>
           <span style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.6)", marginLeft: "0.25rem" }}>
-            by TeamBotics
+            by Teambotics
           </span>
         </div>
         <a
@@ -75,7 +75,7 @@ export default function EasyBuddyPage() {
       >
         <Image
           src="/brand/teambotics-logo-amber.png"
-          alt="TeamBotics Logo"
+          alt="Teambotics Logo"
           width={80}
           height={80}
           style={{ marginBottom: "1.5rem", borderRadius: "12px" }}
@@ -191,7 +191,7 @@ export default function EasyBuddyPage() {
               AI should serve people — not replace them.
             </h2>
             <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              At TeamBotics, we design emotionally intelligent systems that reduce friction, increase
+              At Teambotics, we design emotionally intelligent systems that reduce friction, increase
               clarity, and help your team show up as their best selves.
             </p>
             <p style={{ color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
@@ -726,13 +726,13 @@ export default function EasyBuddyPage() {
         <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
           <Image
             src="/brand/teambotics-logo-amber.png"
-            alt="TeamBotics"
+            alt="Teambotics"
             width={28}
             height={28}
             style={{ borderRadius: "4px" }}
           />
           <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.85rem" }}>
-            © 2025 TeamBotics Inc. · Based in Canada 🍁 · Human-First AI, Built For Trust
+            © 2026 Teambotics Inc. · Based in Canada 🍁 · Human-First AI, Built For Trust
           </span>
         </div>
         <div style={{ display: "flex", gap: "1.5rem" }}>

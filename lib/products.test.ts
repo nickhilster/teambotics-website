@@ -24,7 +24,7 @@ describe("product case-study content", () => {
       expect(product.detailSections.length).toBeGreaterThanOrEqual(3);
       expect(product.techStack.length).toBeGreaterThanOrEqual(3);
       expect(product.externalUrl).toMatch(/^https?:\/\//);
-      expect(product.supportUrl).toMatch(/^mailto:/);
+      expect(product.supportUrl).toMatch(/^(mailto:|https:\/\/)/);
     }
   });
 
@@ -60,6 +60,6 @@ describe("product case-study content", () => {
     expect(frenchProduct?.stage).toBe("MVP sur mesure, en production");
     expect(frenchProduct?.focusPoints[0]?.label).toBe("Simulation");
     expect(spanishProduct?.detailSections[0]?.title).toBe("Enfoque de producto");
-    expect(spanishProduct?.supportLabel).toBe("Hablar de Storytellr");
+    expect(spanishProduct?.supportLabel).toBe("Ver en GitHub");
   });
 });
