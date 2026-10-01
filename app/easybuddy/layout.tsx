@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description:
       "Voice-guided onboarding, scenario coaching, and instant policy lookups — built for the floor, not the boardroom.",
     url: "https://www.teambotics.app/easybuddy",
-    siteName: "EasyBuddy by TeamBotics",
+    siteName: "EasyBuddy by Teambotics",
     images: [
       {
         url: "https://cdn.gamma.app/sogu61n3buhmo0y/generated-images/g1jKH497VJC3Umhe2xVUp.png",

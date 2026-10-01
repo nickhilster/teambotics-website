@@ -266,7 +266,7 @@ function buildFallbackReply(sources: ChatSource[], pageContext?: ChatPageContext
   if (!sourceSummary) {
     return {
       message:
-        `I do not have enough Teambotics context to answer that confidently.${pageHint} Try asking about LTB Buddy, EasyBuddy, Code2Motion, Storytellr, or Teambotics' engagement model.`,
+        `I do not have enough Teambotics context to answer that confidently.${pageHint} Try asking about LTB Buddy, EasyBuddy, Code2Motion, StoryTeller, or Teambotics' engagement model.`,
       suggestions: [
         "Tell me about LTB Buddy",
         "What does Teambotics build?",

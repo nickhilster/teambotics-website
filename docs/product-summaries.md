@@ -117,15 +117,15 @@ Code2Motion is the creative range of Teambotics — it shows that the same produ
 
 ---
 
-## Storytellr
+## StoryTeller
 
 **One-sentence summary**
 
-Storytellr is a client-facing narrative graph experience in progress that helps people show who they are, what they have built, and why it matters.
+StoryTeller is a client-facing narrative graph experience in progress that helps people show who they are, what they have built, and why it matters.
 
 **Longer summary**
 
-Storytellr is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
+StoryTeller is being built as a public graph experience for work that does not fit neatly into a static profile or timeline. It connects decisions, projects, collaborators, and outcomes in one readable view so clients and collaborators can understand context faster. The current release work is focused on polished public publishing, lightweight story curation, and smoother onboarding for first-time users.
 
 **Audience**
 
@@ -137,18 +137,18 @@ Traditional profile pages show roles and projects in sequence, but they hide how
 
 **How Teambotics frames this product**
 
-Teambotics frames Storytellr as a narrative enablement system: a structured public surface that makes complex work legible, easier to walk through, and easier to trust.
+Teambotics frames StoryTeller as a narrative enablement system: a structured public surface that makes complex work legible, easier to walk through, and easier to trust.
 
 **What the product should not be claimed to do**
 
-- Do not claim Storytellr is fully launched; the public messaging says it is coming soon and private previews are in progress.
+- Do not claim StoryTeller is fully launched; the public messaging says it is coming soon and private previews are in progress.
 - Do not claim customer counts, conversion lifts, hiring outcomes, or other performance metrics.
-- Do not claim Storytellr replaces professional judgment, hiring decisions, or relationship-building.
+- Do not claim StoryTeller replaces professional judgment, hiring decisions, or relationship-building.
 - Do not describe unfinished features as generally available.
 
 **Chatbot-safe answer**
 
-Storytellr is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
+StoryTeller is a Teambotics product currently in progress. It is being built as a client-facing narrative graph experience that connects projects, decisions, collaborators, and outcomes so people can understand complex work more clearly than they could from a static profile alone. Public launch messaging says it is coming soon and private previews are in progress.
 
 ---
 
@@ -164,4 +164,4 @@ These constraints apply to all product descriptions and chatbot responses:
 
 ---
 
-*Last reviewed: 2026-05-19. EasyBuddy and Code2Motion summaries drafted from live product pages — owner should confirm before chatbot goes live. Storytellr should be rechecked when the product launches.*
+*Last reviewed: 2026-05-19. EasyBuddy and Code2Motion summaries drafted from live product pages — owner should confirm before chatbot goes live. StoryTeller should be rechecked when the product launches.*

@@ -219,7 +219,7 @@ Behavior requirements:
    - "Can LTB Buddy give me legal advice?"
    - "What is EasyBuddy?"
    - "What is Code2Motion?"
-   - "What is Storytellr?"
+   - "What is StoryTeller?"
    - "How do I contact Teambotics?"
    - "What private clients has Teambotics worked with?"
 7. Validate that unsupported claims are refused or redirected.
@@ -245,7 +245,7 @@ The ingestion system should support these products:
 - LTB Buddy
 - EasyBuddy
 - Code2Motion
-- Storytellr
+- StoryTeller
 
 The actual private GitHub repository identifiers should be configured through environment variables or a private config file that is not committed if it contains sensitive information.
 

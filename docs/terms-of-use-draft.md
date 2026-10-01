@@ -71,7 +71,7 @@ When you submit a lead form, inquiry, or contact form on the Site, you represent
 
 All content on this Site — including text, design, graphics, product names, and software — is owned by or licensed to Teambotics. You may not reproduce, distribute, or create derivative works from Site content without written permission.
 
-"Teambotics," product names (including LTB Buddy, EasyBuddy, Code2Motion, and Storytellr), and any associated marks are the property of Teambotics. Use of these names without permission is not authorized.
+"Teambotics," product names (including LTB Buddy, EasyBuddy, Code2Motion, and StoryTeller), and any associated marks are the property of Teambotics. Use of these names without permission is not authorized.
 
 ---
 

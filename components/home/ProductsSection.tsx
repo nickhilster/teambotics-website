@@ -91,7 +91,7 @@ const products = [
     badgeVariant: "live" as const,
   },
   {
-    name: "Storytellr",
+    name: "StoryTeller",
     tagline: "Narrative graph · Founder positioning · Client storytelling",
     description:
       "Connects milestones, themes, relationships, and proof points into a readable public narrative surface for complex work.",

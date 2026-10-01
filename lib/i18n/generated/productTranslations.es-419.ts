@@ -206,7 +206,7 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
     "market": "Marcas personales / Posicionamiento de fundadores / Narrativa de equipos",
     "tagline": "Un grafo narrativo orientado al cliente que ayuda a mostrar quien es una persona, que ha construido y por que importa.",
     "description": "Una superficie narrativa interactiva que conecta temas, hitos, relaciones y evidencia para que clientes y colaboradores entiendan trabajo complejo mas rapido que con un perfil estatico.",
-    "summary": "Storytellr se esta construyendo como una experiencia publica de grafo para trabajos dificiles de explicar en una sola linea de tiempo. Conecta decisiones, proyectos, colaboradores y resultados en una vista legible donde la capacidad y la credibilidad se entienden con mayor rapidez.",
+    "summary": "StoryTeller se esta construyendo como una experiencia publica de grafo para trabajos dificiles de explicar en una sola linea de tiempo. Conecta decisiones, proyectos, colaboradores y resultados en una vista legible donde la capacidad y la credibilidad se entienden con mayor rapidez.",
     "heroSummary": "Narrativa en grafo interactiva para trayectorias profesionales complejas.",
     "impact": "Creado para marcas personales, personas fundadoras y equipos que necesitan una superficie narrativa mas fuerte que un CV, una cuadricula de portafolio o una pagina de perfil estatica.",
     "tags": [
@@ -233,7 +233,7 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
       },
       {
         "label": "Grafo narrativo",
-        "value": "Storytellr convierte ese contexto ausente en una experiencia de grafo legible organizada alrededor de temas, hitos y relaciones en lugar de una linea de tiempo plana."
+        "value": "StoryTeller convierte ese contexto ausente en una experiencia de grafo legible organizada alrededor de temas, hitos y relaciones en lugar de una linea de tiempo plana."
       },
       {
         "label": "Foco de lanzamiento",
@@ -249,7 +249,7 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
     "detailSections": [
       {
         "title": "Enfoque de producto",
-        "body": "Storytellr es una superficie narrativa orientada a clientes para personas que necesitan algo mas que un perfil estatico. Su valor es acelerar la comprension: quien es alguien, que ha construido y por que importa."
+        "body": "StoryTeller es una superficie narrativa orientada a clientes para personas que necesitan algo mas que un perfil estatico. Su valor es acelerar la comprension: quien es alguien, que ha construido y por que importa."
       },
       {
         "title": "Direccion de lanzamiento",
@@ -257,11 +257,11 @@ export const productTranslationsEs419: Record<string, GeneratedProductTranslatio
       },
       {
         "title": "Por que importa",
-        "body": "El trabajo complejo pierde sentido cuando se aplana en roles o tarjetas de proyecto desconectadas. Storytellr mantiene el trabajo relacionado unido para que clientes, colaboradores y equipos de contratacion puedan seguir la historia con contexto."
+        "body": "El trabajo complejo pierde sentido cuando se aplana en roles o tarjetas de proyecto desconectadas. StoryTeller mantiene el trabajo relacionado unido para que clientes, colaboradores y equipos de contratacion puedan seguir la historia con contexto."
       }
     ],
     "externalLabel": "Abrir vista previa",
-    "supportLabel": "Hablar de Storytellr",
+    "supportLabel": "Hablar de StoryTeller",
     "ctaLabel": "Leer caso"
   },
   "ryfine": {

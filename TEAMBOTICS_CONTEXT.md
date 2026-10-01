@@ -1,6 +1,6 @@
-# TeamBotics Context Pack v0.1
+# Teambotics Context Pack v0.1
 
-**Purpose:** Give AI assistants, coding agents, product collaborators, and future contributors enough durable context to understand TeamBotics as an ecosystem rather than as a loose collection of projects.
+**Purpose:** Give AI assistants, coding agents, product collaborators, and future contributors enough durable context to understand Teambotics as an ecosystem rather than as a loose collection of projects.
 
 **Status:** Working context substrate. This is not a pitch deck, resume, investor memo, or public manifesto. It is an internal alignment document.
 
@@ -8,7 +8,7 @@
 
 ## 1. Core thesis
 
-TeamBotics turns lived friction into operating systems.
+Teambotics turns lived friction into operating systems.
 
 The company is not simply building “AI products.” AI is the medium. The deeper pattern is helping people move from confusion, pressure, scattered information, and institutional complexity into usable structure.
 
@@ -16,7 +16,7 @@ Across the product ecosystem, the repeated question is:
 
 > How do we help people become operators inside complex systems instead of casualties of them?
 
-TeamBotics products should be understood as tools for translation:
+Teambotics products should be understood as tools for translation:
 
 - lived experience → structured story
 - scattered knowledge → actionable guidance
@@ -31,7 +31,7 @@ The company’s center of gravity is applied AI, workflow intelligence, human en
 
 ## 2. Founder through line
 
-TeamBotics comes from a nonlinear founder path across art, VFX/post-production, retail operations, customer experience, software workflows, AI systems, music, legal-system exposure, and product prototyping.
+Teambotics comes from a nonlinear founder path across art, VFX/post-production, retail operations, customer experience, software workflows, AI systems, music, legal-system exposure, and product prototyping.
 
 That path matters because the products are not random experiments. They come from direct contact with systems that fail ordinary people:
 
@@ -50,14 +50,14 @@ The founder-market fit is not based on formal credentials alone. It comes from c
 
 Use these ideas as internal anchors:
 
-- **Disciplined, not paranoid.** TeamBotics evaluates inbound opportunities with openness and verification.
+- **Disciplined, not paranoid.** Teambotics evaluates inbound opportunities with openness and verification.
 - **Story under rules.** Legal, institutional, and business systems often run on structured storytelling, evidence, timing, audience, and procedure.
 - **Context before output.** Good AI work depends on durable context, source grounding, and clear boundaries.
 - **Static information is not enough.** Websites, resumes, docs, and knowledge bases need to become adaptive, maintained, and operational.
 - **AI as leverage, not theatre.** The goal is usable capability, not hype.
-- **Turn passive users into active operators.** This is one of the strongest recurring TeamBotics principles.
+- **Turn passive users into active operators.** This is one of the strongest recurring Teambotics principles.
 
-Avoid making TeamBotics sound like a generic “AI automation agency.” The company should be positioned as a product ecosystem and applied AI operating layer focused on workflow, context, and human enablement.
+Avoid making Teambotics sound like a generic “AI automation agency.” The company should be positioned as a product ecosystem and applied AI operating layer focused on workflow, context, and human enablement.
 
 ---
 
@@ -66,7 +66,7 @@ Avoid making TeamBotics sound like a generic “AI automation agency.” The com
 ### 4.1 LTBBuddy
 
 **Repo:** `nickhilster/ltb-buddy`  
-**Public product:** `ltbbuddy.ca` / related TeamBotics product pages
+**Public product:** `ltbbuddy.ca` / related Teambotics product pages
 
 LTBBuddy is a tenant-focused Ontario legal guidance and filing-support product. It is not meant to replace lawyers or paralegals. Its purpose is to help tenants understand rights, organize facts, build timelines, structure evidence, and communicate their situation in a form that the legal/tribunal process can recognize.
 
@@ -130,7 +130,7 @@ Key terms:
 - **Comoders:** creative builders
 - **Explonauts:** curious explorers/users
 
-### 4.4 StoryTeller / Storytellr
+### 4.4 StoryTeller / StoryTeller
 
 **Repo:** `nickhilster/StoryTeller`
 
@@ -165,7 +165,7 @@ DyKnow has two complementary forms:
 - **DyKnow Cloud:** hosted system that monitors approved sources
 - **DyKnow Local:** repo-native CLI / VS Code extension that runs inside the customer’s environment
 
-DyKnow is also the meta-layer for TeamBotics itself. It should maintain TeamBotics’ own product, repo, and context documentation.
+DyKnow is also the meta-layer for Teambotics itself. It should maintain Teambotics’ own product, repo, and context documentation.
 
 ### 4.6 NikBot / Portfolio intelligence
 
@@ -183,7 +183,7 @@ Core thesis:
 
 BlueBot is an earlier proof-of-concept retail assistant connected to Best Buy-style knowledge, training, customer handling, and internal support. It helped validate the broader pattern that frontline employees need contextual, conversational access to policy and workflow knowledge.
 
-BlueBot should be treated as a predecessor/proof point for EasyBuddy and the wider TeamBotics philosophy.
+BlueBot should be treated as a predecessor/proof point for EasyBuddy and the wider Teambotics philosophy.
 
 ### 4.8 AgentSync and related agent tooling
 
@@ -201,7 +201,7 @@ Core thesis:
 
 Known high-confidence repositories:
 
-- `nickhilster/teambotics-website` — TeamBotics website and likely central ecosystem surface
+- `nickhilster/teambotics-website` — Teambotics website and likely central ecosystem surface
 - `nickhilster/DyKnow` — Dynamic Knowledge Pages / source-aligned knowledge maintenance
 - `nickhilster/StoryTeller` — life story graph / narrative intelligence
 - `nickhilster/Code2Motion` — interactive art / ToyMaker / PlayRoom / c2merse platform
@@ -223,7 +223,7 @@ When in doubt, inspect repo README, `AGENTS.md`, docs, and deployment configurat
 
 ## 6. Inbound relationship discipline
 
-TeamBotics may receive emails or messages claiming investor, family-office, private equity, acquisition, or advisory interest.
+Teambotics may receive emails or messages claiming investor, family-office, private equity, acquisition, or advisory interest.
 
 Default posture:
 
@@ -233,7 +233,7 @@ Inbound leads should be categorized:
 
 1. **Suspicious / unverified:** mismatched domains, vague language, fake urgency, no clear identity, no credible firm trail.
 2. **Real but low-signal:** actual person/company, but likely selling services or generic outbound.
-3. **Real and strategically useful:** credible relationship, relevant thesis, clear mandate, thoughtful understanding of TeamBotics.
+3. **Real and strategically useful:** credible relationship, relevant thesis, clear mandate, thoughtful understanding of Teambotics.
 
 Do not send pitch decks, financials, cap table information, confidential roadmaps, private repos, or internal strategy over email to unverified parties.
 
@@ -264,7 +264,7 @@ Avoid public or professional use of raw traumatic details, named third parties, 
 
 ## 8. How future AI agents should use this file
 
-When working on TeamBotics projects:
+When working on Teambotics projects:
 
 1. Read this file first.
 2. Identify which product/repo the task touches.
@@ -279,7 +279,7 @@ When working on TeamBotics projects:
 
 ## 9. One-line summaries
 
-**TeamBotics:** Applied AI systems that turn lived friction into operating tools.
+**Teambotics:** Applied AI systems that turn lived friction into operating tools.
 
 **LTBBuddy:** Helps tenants turn stressful legal situations into structured, evidence-backed case preparation.
 
@@ -299,10 +299,10 @@ When working on TeamBotics projects:
 
 ## 10. Current strategic center
 
-The strategic center of TeamBotics is not any single product.
+The strategic center of Teambotics is not any single product.
 
 The center is the pattern:
 
-> People are trapped inside systems they cannot translate themselves into. TeamBotics builds AI-assisted tools that help them understand, structure, express, and act.
+> People are trapped inside systems they cannot translate themselves into. Teambotics builds AI-assisted tools that help them understand, structure, express, and act.
 
 That is the context future agents should keep at the back of their mind.

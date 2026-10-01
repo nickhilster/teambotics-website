@@ -20,7 +20,7 @@ const companyDocuments: TeamboticsKnowledgeDocument[] = [
     sourceKey: "company",
     route: "/",
     content:
-      "What does Teambotics do? Teambotics builds intelligent workflow systems and interactive platforms. The company focuses on adoption-ready AI, workflow enablement, compliance-aware interfaces, creative technology, and narrative systems shaped for operational clarity and practical trust.",
+      "What does Teambotics do? Teambotics is an AI lab building agents for humans: Agents for Humans. Teambotics builds intelligent workflow systems and interactive platforms. The company focuses on adoption-ready AI, workflow enablement, compliance-aware interfaces, creative technology, and narrative systems shaped for operational clarity and practical trust.",
   },
   {
     id: "company-positioning",
@@ -29,7 +29,7 @@ const companyDocuments: TeamboticsKnowledgeDocument[] = [
     sourceKey: "company",
     route: "/",
     content:
-      "Teambotics builds intelligent workflow systems and interactive platforms. The company focuses on adoption-ready products for operational workflows, compliance-aware interfaces, creative technology, and narrative enablement. The standard is clarity, usability, release readiness, and practical trust.",
+      "Teambotics is an AI lab building agents for humans: Agents for Humans. Teambotics builds intelligent workflow systems and interactive platforms. The company focuses on adoption-ready products for operational workflows, compliance-aware interfaces, creative technology, and narrative enablement. The standard is clarity, usability, release readiness, and practical trust.",
   },
   {
     id: "company-capabilities",

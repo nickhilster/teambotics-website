@@ -60,6 +60,6 @@ describe("product case-study content", () => {
     expect(frenchProduct?.stage).toBe("MVP sur mesure, en production");
     expect(frenchProduct?.focusPoints[0]?.label).toBe("Simulation");
     expect(spanishProduct?.detailSections[0]?.title).toBe("Enfoque de producto");
-    expect(spanishProduct?.supportLabel).toBe("Hablar de Storytellr");
+    expect(spanishProduct?.supportLabel).toBe("Hablar de StoryTeller");
   });
 });
