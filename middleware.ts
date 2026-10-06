@@ -4,6 +4,7 @@ const subdomainRoutes: Record<string, string> = {
   easybuddy: "/easybuddy",
   poko: "/poko",
   symphony: "/symphony",
+  codexsidecar: "/codexsidecar",
 };
 
 export function middleware(request: NextRequest) {
