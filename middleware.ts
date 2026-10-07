@@ -5,6 +5,7 @@ const subdomainRoutes: Record<string, string> = {
   poko: "/poko",
   symphony: "/symphony",
   codexsidecar: "/codexsidecar",
+  muse: "/muse",
 };
 
 export function middleware(request: NextRequest) {
@@ -18,6 +19,27 @@ export function middleware(request: NextRequest) {
   }
 
   const pathname = request.nextUrl.pathname;
+
+  // Serve the standalone Muse proposal page and its audio assets from public/muse.
+  // The HTML is rewritten at the host root, so its relative `assets/...` URLs
+  // arrive at `/assets/...` and need the same host-scoped prefix.
+  if (subdomain === "muse") {
+    const musePath =
+      pathname === "/" || pathname === "/muse" || pathname === "/muse/"
+        ? "/muse/index.html"
+        : pathname.startsWith("/muse/")
+          ? pathname
+          : `/muse${pathname}`;
+
+    if (musePath !== pathname) {
+      const url = request.nextUrl.clone();
+      url.pathname = musePath;
+      return NextResponse.rewrite(url);
+    }
+
+    return NextResponse.next();
+  }
+
   const effectivePath =
     targetRoute && !(pathname === targetRoute || pathname.startsWith(`${targetRoute}/`))
       ? pathname === "/"
