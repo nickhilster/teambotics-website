@@ -60,7 +60,7 @@ Notes:
 
 ## Deployment
 
-The proposed release path is a dedicated Preview branch on `testing.teambotics.app`, followed by a reviewed merge to production for `www.teambotics.app`. Verify rendered content and the contact form on each hostname; a successful Vercel build alone is insufficient. The RBH and IKOKI cards contain text only while sanitized visuals are prepared.
+The release path is the Preview branch `codex/website-overhaul-spec` on `testing.teambotics.app`, followed by a reviewed merge to production for `www.teambotics.app`. The testing hostname is assigned to that branch and receives an `X-Robots-Tag: noindex, nofollow` response header. Verify rendered content and the contact form on each hostname; a successful Vercel build alone is insufficient. The RBH and IKOKI cards contain text only while sanitized visuals are prepared.
 
 ## Commit Convention
 
