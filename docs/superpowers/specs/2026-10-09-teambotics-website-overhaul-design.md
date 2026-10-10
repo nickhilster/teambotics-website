@@ -8,15 +8,15 @@ Status: **Draft for Nikhil and Instinct review**, 9 October 2026. This specifies
 
 **Reported by Instinct on 9 October, awaiting direct review in this spec:** Nikhil classifies the Instinct and Muse pages as submitted proposals and wants no logos on the landing page. Instinct supplied the draft copy and status labels below; those remain proposed wording, not approved publication copy.
 
-The site should help a customer-service or operations leader understand, within the first screen, who Teambotics helps, what it does alongside a team, and how to start a scoped conversation. The promise is practical: enable people on AI tools that already exist, then build a small bridge where those tools do not cover the real workflow. Nikhil's frontline service experience is part of the reason to trust that approach.
+**Agreed by Nikhil on 9 October:** Address broader AI and innovation buyers first, while making the operational method concrete. The site should explain, within the first screen, what Teambotics helps an organization do and how to start a scoped conversation. Frontline service is a credible starting environment and source of experience, not the limit of the consultancy's audience.
 
-**Proposed primary audience:** leaders responsible for frontline service, training, operations, or customer experience who are trying to make AI useful in day-to-day work. Validate this audience and buying trigger with Nikhil before final copy.
+The working thesis in the draft `C:\dev\a16z\docs\video-story-outline.md` is that **forward-deployed workflows are the product**: human intent → scoped context → agent work → human review → usable output → lessons into the next run. Projects should demonstrate this loop rather than form a disconnected portfolio. The a16z video remains a draft narrative, not a finished or accepted proposal asset.
 
 ## Approach considered
 
-1. **Refocus the existing homepage (recommended).** Keep the current domain, product routes, contact form, accessibility shell, and localization flow. Replace the product-first narrative and navigation with a consultancy journey. This is the shortest path to one clear front door.
+1. **Refocus the existing homepage and visual system (recommended direction).** Keep the current domain, product routes, contact form, accessibility shell, and localization flow. Replace the product-first narrative with a consultancy journey and develop an editorial visual language around the workflow. Nikhil selected clear typography, process diagrams, and restrained motion as the visual direction on 9 October.
 2. **Add a separate consultancy landing page.** This preserves the product-first homepage but creates two public entrances and conflicts with the selected direction.
-3. **Rebuild the site and visual system.** This could serve a broader brand reset, but adds design and migration work before the offer and proof are settled.
+3. **Rebuild the site and visual system from scratch.** This would add design and migration work beyond the agreed narrative and visual refresh; choose it only if the current implementation cannot support the approved design.
 
 The recommended approach changes the homepage narrative and relevant shared copy. Product detail pages remain accessible as evidence; their claims and status labels still require review before being featured.
 
@@ -24,15 +24,17 @@ The recommended approach changes the homepage narrative and relevant shared copy
 
 | Order | Section | Question it answers | Required action or content |
 | --- | --- | --- | --- |
-| 1 | Hero | Is this for my team? | Frontline-focused headline, two-sentence explanation, primary **Discuss a pilot** CTA to contact, secondary **See how we work** anchor. |
-| 2 | The working method | What would Teambotics do with us? | Two linked activities: enable the team on available AI tools; identify and build a bridge for the uncovered workflow. Explain the human role and operational context in plain language. |
+| 1 | Hero | What does Teambotics do for an AI buyer? | Consultancy outcome and a primary conversation CTA; explain the embedded working style below the headline. The final CTA wording is open. |
+| 2 | The workflow thesis | How does the work produce value? | A readable process diagram: human intent → scoped context → agent work → human review → usable output → lessons. Explain how enabling existing tools and building the missing bridge fit this loop. |
 | 3 | Proposal proof | Can this team frame a useful engagement quickly? | Instinct and Muse cards explicitly labeled **submitted proposal**. Describe the proposed direction, with links. Neither card implies a commissioned engagement, accepted proposal, or adoption by the addressed team. |
-| 4 | Published work | Can I inspect something real? | LTB Buddy (**public beta**) and RyFine (**live product**) lead. Small Wonder (**published fan-comic**) is a lighter third card showing creative range, not a customer-service deployment. Keep other products available through secondary navigation or product pages. |
-| 5 | Two-week pilot | What happens first? | Week one: embed, observe, and enable existing tools. Week two: build one agreed bridge within a fixed scope. Show the boundary, handoff, and outcome only after deliverables are confirmed. |
+| 4 | Product and prototype proof | Can I inspect something real? | Lead with inspectable LTB Buddy, RyFine, and Code2Motion. Consider RBH Marketer Agent and IKOKI as carefully labeled case studies after publication boundaries and screenshots are settled. Small Wonder is a lighter creative-range item. Each item shows which part of the workflow it evidences. |
+| 5 | Scoped starting format | What happens first? | A two-week pilot is a proposed format, scoped per engagement, not a fixed universal package. Illustrative sequence: understand and enable in week one; build one agreed bridge in week two. Do not promise deliverables before scoping. |
 | 6 | Credibility | Why trust this perspective? | Nikhil's firsthand frontline and enablement experience, with his employer and account relationships stated precisely. Use plain text and no logos, following Instinct's report of Nikhil's direction. |
 | 7 | Contact | What should I do now? | One pilot-oriented form and direct email fallback. Ask for team, workflow, existing tools, and the gap; keep the current privacy notice and spam protection. |
 
-The header should lead to **How we work**, **Proof**, **Pilot**, and **Contact**. A product index can remain in the footer or a secondary link. The primary CTA should lead to the same contact destination from hero, pilot, and header. On mobile, the offer and CTA should remain clear before the first long proof block.
+The header should lead to **How we work**, **Proof**, **Start a project**, and **Contact**. A product index can remain in the footer or a secondary link. The primary CTA should lead to the same contact destination from hero, starting-format section, and header. On mobile, the offer and CTA should remain clear before the first long proof block.
+
+For the a16z work, prepare one inspectable **workflow trace** rather than a generic video card: the brief or goal, context gathered, bounded agent work, human review decision, resulting artifact, and what changed for the next run. Use dated screenshots or clips only after checking their provenance and publication rights. The proposed video can later demonstrate this trace, but the current outline alone supports only the thesis and planned story, not a completed production outcome.
 
 ## Copy direction
 
@@ -44,9 +46,15 @@ Voice: direct, specific, and easy to explain. Describe what a team will see and 
 >
 > Teambotics works alongside customer-service teams to put existing AI tools to work in the workflows they actually use. When those tools leave a gap, we design and build the bridge.
 
+This draft predates Nikhil's decision to address broader AI and innovation buyers first. Preserve its plain outcome and working-style explanation, then revise the audience language with Instinct before publication.
+
 **Instinct's draft working-method lead:** “Start with the work, not another tool.” Follow it with the real task, handoffs, and constraints; show where existing tools fit and what specific missing piece Teambotics would build. Explain the working style in plain language rather than using “forward deployed” as the headline.
 
-Supporting line, subject to Nikhil's review: **Led by someone who has worked frontline customer service.** His supplied career record supports that claim through customer support for a Rogers Wireless account and team leadership at Best Buy Canada. The site should show the pilot as a concrete way to start, while avoiding a guarantee that every engagement can produce a production system in two weeks.
+Supporting line, subject to Nikhil's review: **Led by someone who has worked frontline customer service.** His supplied career record supports that claim through customer support for a Rogers Wireless account and team leadership at Best Buy Canada. The site can show the pilot as a possible way to start, scoped for each engagement, without guaranteeing a production system in two weeks.
+
+## Visual direction
+
+**Agreed by Nikhil on 9 October:** A consultancy editorial treatment: clear typography, process diagrams, and restrained motion. Make the workflow loop a useful explanatory graphic, with a short plain-language caption at each step. Use consistent evidence labels and real, approved artifact screenshots on proof cards. Motion may reveal handoffs or progress, but the same information must remain legible without animation and when reduced motion is requested. Keep the primary contact action visually stronger than outbound proof links. The final palette, type scale, and page compositions still need design review on the testing site.
 
 ## Evidence and publication rules
 
@@ -56,24 +64,28 @@ Supporting line, subject to Nikhil's review: **Led by someone who has worked fro
 | [Muse proposal](https://muse.teambotics.app/) | Instinct describes a product-design proposal on legible agent work, trust, and identity; `origin/main` has its published page, and the subdomain returned HTTP 200. | **Submitted proposal**. Describe proposal content, not client delivery. |
 | [LTB Buddy](https://ltbbuddy.ca/) | Instinct labels it a public beta; its public homepage returned HTTP 200 and describes Ontario tenant rights and LTB application help. | **Public beta**. Guided intake and filing support; do not imply legal representation or measured outcomes. |
 | [RyFine](https://ryfine.app/) | Instinct labels it a live product; its public homepage returned HTTP 200 and describes clearer AI instructions and local/BYOK operation. | **Live product**. Explain the inspectable prompt workflow without claiming buyer-specific production readiness or adoption. |
+| [Code2Motion](https://code2motion.app/) | Nikhil calls it a fully ready MVP. The private `nickhilster/Code2Motion` repo documents working PlayRoom and ToyMaker surfaces; on 9 October the root, [PlayRoom](https://playroom.code2motion.app/), and [ToyMaker](https://toymaker.code2motion.app/) each returned HTTP 200. The current TeamBotics site still calls it early access. | **MVP**, subject to a final demo and copy review. Describe the inspectable create, preview, publish, and discover flow; do not imply completed future features, adoption, or a production customer deployment. Update the old early-access label when the approved site ships. |
+| RBH Marketer Agent | The private `Teambotics-Inc/rbh-marketer-agent` repo describes an access-controlled campaign-drafting engine configured for RBH/IQOS/VEEV, using public official sources and Canadian regulatory context. Outputs are drafts requiring legal/compliance sign-off. Nikhil permits a carefully labeled public case study or sanitized demo. | **Prototype / case study candidate**. Confirm when and in what capacity it was built, sanitize screenshots, and distinguish it from Nikhil's RBH employment. No RBH commission, use, approval, or endorsement claim without evidence. |
+| IKOKI / IKO Knowledge Integrator | The private `nickhilster/IKO_knowledge_Integrator--IKOKI-` repo contains a 46 KB HTML prototype and a whitepaper labeled a Senior Business Analyst thought exercise. The concept is a guided, role-aware access layer over IKO knowledge. Nikhil permits a carefully labeled public case study or sanitized demo. | **Independent prototype / thought-exercise candidate**, pending confirmation of its submission history and public-safe content. No IKO commission, use, or endorsement claim without evidence. |
 | [Small Wonder](https://smallwonder.nikdesign.ca/) | Instinct identifies a published fan-comic; the public page returned HTTP 200 and describes eleven one-page situations reimagining the sitcom. | **Published fan-comic**. A lighter creative-range card, explicitly not evidence of customer-service deployment. |
+| a16z workflow/video | `C:\dev\a16z\docs\video-story-outline.md` is a draft three-minute narrative with a central human-and-agent workflow loop, proposed software and media artifacts, and an investment ask. No finished video or acceptance is established by the outline. | Show the **TeamBotics workflow thesis** and selected verified artifacts on the consultancy site. A completed proposal video can be linked later after production and publication review; do not imply a16z selection or funding. |
 | Rogers Wireless | Nikhil's supplied career record identifies Gemma Communications as his employer and Rogers Wireless as the customer/account context. It records customer support, billing, troubleshooting, and sales starting April 2013; the end date is unresolved. | If named, say **customer service and sales supporting Rogers Wireless through Gemma Communications**. Do not call Nikhil a direct Rogers employee, or imply a Teambotics client relationship or endorsement. |
 | Best Buy Canada | Nikhil's supplied career record identifies a direct **Team Lead** role from August 2022 to February 2024, including frontline training, coaching, and operations. It describes BlueBot as a designed/piloted concept at Sherway Gardens. | **Former Best Buy Canada team lead** is supported by this record. Do not claim a corporate-scale BlueBot launch or a Teambotics client engagement. |
 | Rothmans, Benson & Hedges (RBH) | Nikhil's supplied career record identifies **Lead Platform Advancement, Enablement**, September to December 2025, at RBH / a Philip Morris International affiliate. It describes internal platform and AI enablement work in a regulated environment. | Attribute this as prior employment/role experience. Keep internal details confidential; do not imply a Teambotics contract, production deployment of prototypes, or RBH endorsement. |
 
 The career record is Nikhil-provided evidence, not independent employer confirmation. It supports accurately attributed text. The landing page uses no logos, per Instinct's report; quotations or endorsement language would need separate approval. Proposed public summary: **Experience spans customer service supporting Rogers Wireless through Gemma Communications, frontline team leadership at Best Buy Canada, and platform enablement at RBH.** This is a draft, not approved site copy.
 
-Every proof card should make the evidence type visible: **proposal**, **published product**, **published creative work**, or **personal experience**. A proof item with missing attribution or a broken destination stays out of the launch page until resolved.
+Every proof card should make the evidence type visible: **proposal**, **published product**, **prototype**, **published creative work**, or **personal experience**. A proof item with missing attribution, unsafe content, or a broken destination stays out of the launch page until resolved. For private-repo work, publish selected screenshots or a sanitized demonstration rather than the private source.
 
 ## Pilot definition to finalize
 
-The two-week pilot is an **offer concept**, pending Nikhil's confirmation of its commercial and delivery terms. Proposed scope language: one team, one workflow, one agreed bridge. Define the following before publishing the offer:
+**Agreed by Nikhil on 9 October:** The two-week pilot is a proposed starting format; scope each engagement. Proposed scope language: one team, one workflow, one agreed bridge. Define the following before publishing any specific offer:
 
 - Buyer and team size; access and onboarding requirements.
 - Week-one activities and tangible output (for example, workflow map, tool-use plan, or training session).
 - Week-two bridge type, acceptance test, handoff, support period, and what counts as complete.
 - What is excluded: broad systems replacement, unrestricted integrations, or production guarantees unless separately scoped.
-- Pricing language, if any, and whether the two weeks are a standard package or a starting format.
+- Pricing language, if any. Do not present the illustrative two-week sequence as a standard package.
 
 ## Repository fit and delivery boundaries
 
@@ -98,7 +110,7 @@ The current `teambotics.app` DNS zone is managed by Vercel, and the `teambotics-
 
 - Hero states audience, service, and contact action without requiring a visitor to infer them from a product grid.
 - Proposals, published work, and personal experience carry distinct visible labels and accurate attribution.
-- Pilot section explains both weeks and its fixed boundary, using terms Nikhil has approved.
+- Pilot section identifies two weeks as a possible scoped format and explains the illustrative sequence without promising universal deliverables.
 - One primary contact journey works from desktop and mobile; form submission, error handling, and email fallback still work.
 - English and generated locale content agree on section structure; translation checks, lint, typecheck, tests, build, keyboard navigation, and mobile layout pass.
 - All featured destinations load, and the published page is checked visually and functionally after deployment. A successful build or deployment status alone is insufficient.
@@ -108,8 +120,11 @@ The current `teambotics.app` DNS zone is managed by Vercel, and the `teambotics-
 
 1. Confirm the final first-person or company voice and approve the concise career summary for the public site.
 2. Review Instinct's proposal-card summaries and narrow published-work labels. Keep recipient, submission date, adoption, and outcome details off the page without a supporting record.
-3. Approve Small Wonder as a lighter creative-range card; its link and published collection are now identified.
-4. Define the pilot deliverables, exclusions, commercial terms, and preferred contact action.
-5. Review Instinct's reported no-logo direction and approve the final text-only career attribution; career connections are detailed in the evidence table above.
+3. Confirm the origin and submission history of RBH Marketer Agent and IKOKI, then select sanitized screenshots or demos and exact public labels. Nikhil approved their use as carefully labeled case studies, not claims of organizational adoption.
+4. Select the Code2Motion demo path and reconcile its current early-access site label with Nikhil's ready-MVP description.
+5. Decide which a16z workflow artifacts can be shown now; the story outline is a draft, and the proposal video must be completed before it is presented as finished.
+6. Approve Small Wonder as a lighter creative-range card; its link and published collection are now identified.
+7. Define the pilot deliverables, exclusions, commercial terms, and preferred contact action.
+8. Review Instinct's reported no-logo direction and approve the final text-only career attribution; career connections are detailed in the evidence table above.
 
 The project-room thread is the discussion record. This file is the versioned site spec; decisions returned in that thread should be incorporated here with dates and attribution before implementation.
