@@ -81,6 +81,19 @@ The inspected site is a Next.js 16 app. The homepage is assembled in `app/(site)
 
 Implementation should update the homepage section order, navigation and CTA copy, form prompts and relevant metadata together. Preserve existing product routes, the lead API and privacy text, and the standalone proposal subdomains. The checkout used for this spec is based on `origin/main` at `94ab2f9`; the original local `main` has unrelated Symphony and lockfile edits. Future implementation should use a clean worktree and reconcile against the then-current remote before editing. README positioning should be refreshed when the new site actually ships, rather than describing a draft as implemented.
 
+## Staging and cutover
+
+**Agreed release strategy (Nikhil, 9 October):** Put the overhaul on `testing.teambotics.app` first. Keep `www.teambotics.app` on the existing site until the full overhaul is ready, then serve the approved version there.
+
+The current `teambotics.app` DNS zone is managed by Vercel, and the `teambotics-website` project already owns `www.teambotics.app`. The testing hostname resolves to Vercel but currently returns HTTP 404 because it is not assigned to that project. The current middleware has no `testing` hostname rewrite, so once assigned it should serve the ordinary homepage. Vercel supports attaching a custom domain to a specific Preview Git branch.
+
+1. Develop the overhaul on a dedicated non-production branch based on current `origin/main`. Attach `testing.teambotics.app` to that branch's Preview deployments in the existing `teambotics-website` project. Verify the hostname, certificate, and rendered page after assignment.
+2. Iterate and test on `testing.teambotics.app`: desktop/mobile layout, links, localization, accessibility, contact form and API behavior, plus any changed product or proposal routes under the testing hostname. Keep the production branch and `www` serving the current site.
+3. Once the content, pilot terms, and page are approved, merge the reviewed commit to the production branch. Vercel then builds the production version and assigns the existing `www.teambotics.app` domain; the root-domain redirect remains in place. This is a deployment cutover, not a DNS transfer or a move to a new Vercel project.
+4. Verify the exact live `www` body, assets, links, forms, and affected subdomains after deployment. Keep the previous production deployment available for rollback if the live check fails.
+
+**Release caveats:** Preview and production can have different environment variables; a production merge creates a new build, so a passing preview is not sufficient live proof. The project's current SSO protection excludes custom domains, so the testing hostname should be treated as publicly reachable unless a separate access rule is configured. Decide whether testing needs access protection before sharing it.
+
 ## Acceptance criteria for a later implementation
 
 - Hero states audience, service, and contact action without requiring a visitor to infer them from a product grid.
@@ -89,6 +102,7 @@ Implementation should update the homepage section order, navigation and CTA copy
 - One primary contact journey works from desktop and mobile; form submission, error handling, and email fallback still work.
 - English and generated locale content agree on section structure; translation checks, lint, typecheck, tests, build, keyboard navigation, and mobile layout pass.
 - All featured destinations load, and the published page is checked visually and functionally after deployment. A successful build or deployment status alone is insufficient.
+- The overhaul is validated on `testing.teambotics.app` while `www.teambotics.app` still serves the old site; after cutover, `www` and existing subdomains receive live smoke checks.
 
 ## Open decisions for the project room
 
