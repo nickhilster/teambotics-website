@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CapabilitiesSection } from "@/components/home/CapabilitiesSection";
-import { EngagementModelSection } from "@/components/home/EngagementModelSection";
-import { HeroSection } from "@/components/home/HeroSection";
-import { HomeCTASection } from "@/components/home/HomeCTASection";
-import { LiveSystemsSection } from "@/components/home/LiveSystemsSection";
-import { PositioningSection } from "@/components/home/PositioningSection";
+import { ConsultancyHome } from "@/components/home/ConsultancyHome";
+import { LandAcknowledgmentStrip } from "@/components/home/LandAcknowledgmentStrip";
 import { OrganizationStructuredData } from "@/components/seo/OrganizationStructuredData";
 import { siteConfig } from "@/lib/config";
-import { getSiteMessages, isSiteLocale, siteLocaleHtmlLang, type LocalizedRouteLocale } from "@/lib/siteLocale";
+import { isSiteLocale, siteLocaleHtmlLang, type LocalizedRouteLocale } from "@/lib/siteLocale";
+
+const descriptions = {
+  "fr-CA": "Teambotics travaille avec les équipes pour rendre l’IA utile dans leurs processus, de la compréhension du travail à la création du lien manquant.",
+  "es-419": "Teambotics trabaja con los equipos para hacer útil la IA en sus flujos, desde comprender el trabajo hasta construir el enlace que falta.",
+};
 
 type LocalizedHomePageProps = {
   params: Promise<{ lang: string }>;
@@ -21,16 +22,17 @@ export async function generateMetadata({ params }: LocalizedHomePageProps): Prom
     return {};
   }
 
-  const messages = getSiteMessages(lang as LocalizedRouteLocale);
+  const description = descriptions[lang as LocalizedRouteLocale];
 
   return {
     title: {
       absolute: siteConfig.name,
     },
-    description: messages.hero.copy,
+    description,
+    alternates: { canonical: `${siteConfig.url}/${lang}` },
     openGraph: {
       title: siteConfig.name,
-      description: messages.hero.copy,
+      description,
       url: `${siteConfig.url}/${lang}`,
       locale: siteLocaleHtmlLang[lang as LocalizedRouteLocale],
     },
@@ -47,12 +49,8 @@ export default async function LocalizedHomePage({ params }: LocalizedHomePagePro
   return (
     <>
       <OrganizationStructuredData />
-      <HeroSection />
-      <PositioningSection />
-      <LiveSystemsSection />
-      <CapabilitiesSection />
-      <EngagementModelSection />
-      <HomeCTASection />
+      <ConsultancyHome />
+      <LandAcknowledgmentStrip />
     </>
   );
 }
