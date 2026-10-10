@@ -12,14 +12,36 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { withLocalePath } from "@/lib/siteLocale";
 import { Container } from "./Container";
 
+const consultancyNav = {
+  en: [
+    { label: "How we work", href: "#systems" },
+    { label: "Proof", href: "#capabilities" },
+    { label: "Start a project", href: "#engagement" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "fr-CA": [
+    { label: "Notre approche", href: "#systems" },
+    { label: "Réalisations", href: "#capabilities" },
+    { label: "Démarrer un projet", href: "#engagement" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "es-419": [
+    { label: "Cómo trabajamos", href: "#systems" },
+    { label: "Proyectos", href: "#capabilities" },
+    { label: "Iniciar un proyecto", href: "#engagement" },
+    { label: "Contacto", href: "#contact" },
+  ],
+};
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const { locale, messages } = useSiteLocale();
-  const navItems = messages.header.navItems;
+  const navItems = consultancyNav[locale];
   const showLanguageSwitcher = pathname !== "/privacy" && pathname !== "/terms";
   const homeHref = withLocalePath(locale, "/");
+  const isHome = pathname === homeHref || pathname === `${homeHref}/`;
   const contactHref = withLocalePath(locale, "/#contact");
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerFirstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -79,7 +101,7 @@ export function Header() {
         </nav>
         <div className="site-header__meta">
           {showLanguageSwitcher ? <LanguageSwitcher /> : null}
-          <ThemeToggle />
+          {isHome ? null : <ThemeToggle />}
           <button
             ref={toggleRef}
             aria-controls="mobile-drawer"
@@ -109,7 +131,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href={contactHref}>{messages.header.ctaLabel}</Button>
+          <Button href={contactHref}>{navItems[3].label}</Button>
         </Container>
       </div>
     </header>

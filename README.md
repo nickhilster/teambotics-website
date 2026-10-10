@@ -1,36 +1,10 @@
 # Teambotics Website
 
-Public product and company website for Teambotics, built as a Next.js application and deployed through Vercel.
+Public Next.js website for Teambotics, deployed through Vercel. The homepage presents one AI consultancy entry point, then shows the workflow method, proposals, published products, and paid prototype work as separately labeled evidence. Product detail routes remain available.
 
-The site positions Teambotics around applied AI systems, workflow automation, product strategy, and deployable operating infrastructure. As of this update, **RyFine** is treated as the flagship product surface: the clearest live example of the Teambotics thesis that better AI outcomes begin with clearer human intent, grounded context, and controlled execution.
+The homepage lives in `app/(site)/page.tsx` and `components/home/ConsultancyHome.tsx`, with scoped styles in `ConsultancyHome.module.css`. Its English, French Canadian, and Latin American Spanish copy is maintained together in that component. The shared lead form posts to `/api/leads`; a booking URL has not yet been added.
 
-## RyFine Flagship Integration
-
-RyFine is now featured directly after the homepage hero as the primary product pathway. The integration highlights:
-
-- Prompt refinement from rough instruction to professional-grade prompt
-- Repo and project context as grounding inputs
-- A/B model comparison for stronger output selection
-- Local-first privacy options through BYOK and local providers
-- Direct user journey links to `https://ryfine.app/` and `https://ryfine.app/about`
-
-The homepage section uses a self-contained React component at:
-
-```txt
-components/home/RyfineFlagshipSection.tsx
-```
-
-The supporting visual asset is copied from the RyFine repository source of truth:
-
-```txt
-public/media/ryfine-feature-map-banner.svg
-```
-
-The section is mounted in:
-
-```txt
-app/(site)/page.tsx
-```
+The earlier product sections remain in `components/home/` but are no longer mounted on the homepage. The consultancy draft is intended for `testing.teambotics.app` before any production cutover.
 
 ## Teambotics Values (blog.teambotics.app/values)
 
@@ -67,7 +41,7 @@ Open the local Next.js dev server shown by the terminal, usually `http://localho
 
 ## Quality Gates
 
-Run these before deployment or before merging a product-positioning branch:
+Run these before deployment or merge:
 
 ```bash
 pnpm translations:check
@@ -81,26 +55,20 @@ Notes:
 
 - `prebuild` runs `pnpm translations:sync`.
 - `pretypecheck` runs `pnpm translations:check`.
-- Avoid editing localized product/message source files unless generated translation artifacts are also updated.
+- The homepage copy is manually localized in `ConsultancyHome.tsx`. Changes to `lib/i18n/siteMessages.source.ts` or product translation sources require `pnpm translations:sync` and a review of generated translations.
+- `pnpm lint` currently reports errors in unrelated existing files; assess changed files separately until the repo-wide lint baseline is fixed.
 
-## Deployment Readiness
+## Deployment
 
-The RyFine flagship update is designed to require minimal manual configuration:
-
-- No new environment variables are required.
-- The section links externally to the live RyFine product and product page.
-- The visual asset is stored locally under `public/media` to avoid runtime dependency on the RyFine repo.
-- Styling is kept inside existing Tailwind and site utility conventions rather than requiring global stylesheet expansion.
+The proposed release path is a dedicated Preview branch on `testing.teambotics.app`, followed by a reviewed merge to production for `www.teambotics.app`. Verify rendered content and the contact form on each hostname; a successful Vercel build alone is insufficient. The RBH and IKOKI cards contain text only while sanitized visuals are prepared.
 
 ## Commit Convention
 
 Use direct, scoped commit messages such as:
 
 ```txt
-feat: add RyFine flagship homepage section
-feat: feature RyFine after homepage hero
-refactor: keep RyFine flagship section self contained
-docs: document RyFine flagship integration
+feat: add consultancy homepage
+docs: describe staging release path
 ```
 
 <!-- dyknow-dogfood-marker: 2026-05-24 -->

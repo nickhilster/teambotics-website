@@ -1,12 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { siteConfig } from "@/lib/config";
 import { Container } from "./Container";
 
 export function Footer() {
-  const { messages } = useSiteLocale();
+  const pathname = usePathname();
+  const { locale, messages } = useSiteLocale();
+  const isHome = pathname === "/" || pathname === `/${locale}`;
+  const homeCopyright = {
+    en: "© 2026 Teambotics. AI consultancy for human and agent workflows.",
+    "fr-CA": "© 2026 Teambotics. Conseil en IA pour les processus humains et les agents.",
+    "es-419": "© 2026 Teambotics. Consultoría de IA para flujos de trabajo entre personas y agentes.",
+  };
 
   return (
     <footer className="site-footer">
@@ -14,7 +22,7 @@ export function Footer() {
         className="site-footer__inner"
         style={{ alignItems: "flex-start", gap: "clamp(1.5rem, 4vw, 4rem)" }}
       >
-        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}>{messages.footer.copyright}</p>
+        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}>{isHome ? homeCopyright[locale] : messages.footer.copyright}</p>
         <nav
           aria-label={messages.footer.navLabel}
           style={{

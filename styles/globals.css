@@ -2191,6 +2191,39 @@ html.dark .engagement-step__content {
   color: var(--color-text-secondary);
 }
 
+/* The consultancy homepage has its own editorial surface. Keep shared product pages unchanged. */
+.site-shell:has(.consultancy-home) .site-header,
+html.dark .site-shell:has(.consultancy-home) .site-header {
+  background: #fbfaf5;
+  border-bottom-color: #c9d3c7;
+  box-shadow: none;
+}
+
+.site-shell:has(.consultancy-home) .site-header .site-logo,
+.site-shell:has(.consultancy-home) .site-header .site-nav a,
+.site-shell:has(.consultancy-home) .site-header .site-nav-toggle {
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .land-strip,
+.site-shell:has(.consultancy-home) .site-footer {
+  background: #193127;
+  color: #e5eee4;
+  --color-text-secondary: #d4e0d5;
+  --color-text-primary: #fff;
+  --color-border: #506b56;
+}
+
+.site-shell:has(.consultancy-home) .land-strip a,
+.site-shell:has(.consultancy-home) .site-footer a {
+  color: #e5eee4;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-toggle {
+  background: #315642;
+  box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
+}
+
 .text-reveal-mask {
   display: block;
   overflow: hidden;
