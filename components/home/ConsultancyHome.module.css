@@ -1,9 +1,9 @@
 .home { --ink:#193127; --muted:#4d6256; --line:#c9d3c7; --paper:#f2f3ec; --cream:#fbfaf5; color:var(--ink); background:var(--cream); }
 .wrap { width:min(1200px, calc(100% - 48px)); margin-inline:auto; }
-.hero { min-height: min(800px, 90svh); display:flex; align-items:center; position:relative; overflow:hidden; padding:clamp(120px, 14vw, 200px) 0 130px; background:radial-gradient(circle at 85% 15%, #e3e8d8 0, transparent 35%), var(--cream); border-bottom:1px solid var(--line); }
+.hero { min-height: min(740px, 90svh); display:flex; align-items:center; position:relative; overflow:hidden; padding:clamp(88px, 8vw, 130px) 0 95px; background:radial-gradient(circle at 85% 15%, #e3e8d8 0, transparent 35%), var(--cream); border-bottom:1px solid var(--line); }
 .hero::before { content:""; position:absolute; inset:0 0 0 auto; width:25%; border-left:1px solid #e1e5da; pointer-events:none; }
 .eyebrow { margin:0 0 30px; color:#617669; font:600 .72rem/1.4 var(--font-geist-mono), monospace; letter-spacing:.15em; text-transform:uppercase; }
-.hero h1 { max-width:1000px; margin:0; font-size:clamp(4rem, 8.7vw, 9rem); line-height:.96; letter-spacing:-.075em; font-weight:550; text-wrap:balance; }
+.hero h1 { max-width:1000px; margin:0; font-size:clamp(4rem, 7vw, 7.5rem); line-height:.98; letter-spacing:-.075em; font-weight:550; text-wrap:balance; }
 .lede { max-width:680px; margin:44px 0 0; color:var(--muted); font-size:clamp(1.2rem, 2vw, 1.6rem); line-height:1.48; }
 .actions { display:flex; gap:18px; flex-wrap:wrap; align-items:center; margin-top:42px; }
 .actions a { display:inline-flex; min-height:52px; align-items:center; gap:28px; padding:14px 20px; text-decoration:none; font-weight:650; transition:transform .2s ease, background .2s ease; }
