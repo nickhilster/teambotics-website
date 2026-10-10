@@ -2224,6 +2224,15 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
   box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
 }
 
+@media (max-width: 600px) {
+  .site-shell:has(.consultancy-home) .chatbot-widget {
+    position: static;
+    align-items: flex-end;
+    padding: 1rem;
+    background: #193127;
+  }
+}
+
 .text-reveal-mask {
   display: block;
   overflow: hidden;

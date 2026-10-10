@@ -8,7 +8,7 @@ const copy = {
   en: {
     eyebrow: "AI consultancy · from workflow to working system",
     title: "Make AI useful where the work happens.",
-    intro: "Teambotics works alongside teams to understand the real task, put existing AI tools to work, and build the missing bridge when the workflow needs one.",
+    intro: "Teambotics works alongside teams to understand the real task, put existing AI tools to work, and build the missing bridge when the workflow needs one. Frontline customer service is one place we put this method to work.",
     discuss: "Discuss your workflow",
     seeMethod: "See how we work",
     methodLabel: "The method",
@@ -16,12 +16,14 @@ const copy = {
     methodIntro: "A useful system begins with a clear handoff between people and agents. We map that handoff before proposing a build.",
     steps: ["Human intent", "Scoped context", "Agent work", "Human review", "Usable output", "Next-run lessons"],
     methodNote: "Existing tools stay in the loop when they fit. We design a focused bridge for the gap they leave.",
+    methodExampleLabel: "A possible handoff, not a client result",
+    methodExample: "For a frontline service question: approved policy context → agent draft → human review → corrections that inform the next run.",
     proofLabel: "Selected work",
-    proofTitle: "Ideas you can inspect. Claims you can place.",
-    proofIntro: "These are different kinds of evidence: published products, submitted proposals, and paid prototypes. Their labels describe the relationship accurately.",
+    proofTitle: "Selected work.",
+    proofIntro: "Published products, submitted proposals, and prototypes show different parts of the method. Each is labeled by what was actually made or submitted.",
     proposals: "Submitted proposals",
     products: "Published products and MVPs",
-    prototypes: "Paid prototype work",
+    prototypes: "Submitted and delivered prototypes",
     open: "View project",
     privateNote: "Case study preview · sanitized visuals in preparation",
     pilotLabel: "A possible starting format",
@@ -36,12 +38,12 @@ const copy = {
     credibilityCopy: "Nikhil Khedkar's experience spans customer service supporting Rogers Wireless through Gemma Communications, frontline team leadership at Best Buy Canada, and platform enablement at RBH. These are prior roles and account experience, not Teambotics client engagements.",
     contactLabel: "Start a conversation",
     contactTitle: "What work should AI make easier for your team?",
-    contactCopy: "Tell us where the task stalls, what tools you already use, and what a useful first result would look like. A booking link is coming; the brief form and email are available now.",
+    contactCopy: "Tell us where the task stalls, what tools you already use, and what a useful first result would look like. Send a brief or email us to start the conversation.",
   },
   "fr-CA": {
     eyebrow: "Conseil en IA · du processus au système utilisable",
     title: "Rendre l’IA utile là où le travail se fait.",
-    intro: "Teambotics travaille avec les équipes pour comprendre la tâche réelle, mettre à profit les outils d’IA existants et créer le lien manquant lorsque le processus en a besoin.",
+    intro: "Teambotics travaille avec les équipes pour comprendre la tâche réelle, mettre à profit les outils d’IA existants et créer le lien manquant lorsque le processus en a besoin. Le service à la clientèle de première ligne est l’un des domaines où cette méthode s’applique.",
     discuss: "Parlons de votre processus",
     seeMethod: "Voir notre approche",
     methodLabel: "La méthode",
@@ -49,12 +51,14 @@ const copy = {
     methodIntro: "Un système utile repose sur un transfert clair entre les personnes et les agents. Nous définissons ce transfert avant de proposer une solution.",
     steps: ["Intention humaine", "Contexte délimité", "Travail de l’agent", "Révision humaine", "Résultat utilisable", "Leçons pour la suite"],
     methodNote: "Nous conservons les outils existants lorsqu’ils conviennent et concevons un lien ciblé pour combler l’écart.",
+    methodExampleLabel: "Exemple de transfert, pas un résultat client",
+    methodExample: "Pour une question de service : contexte approuvé → brouillon de l’agent → révision humaine → corrections pour la prochaine exécution.",
     proofLabel: "Travaux sélectionnés",
-    proofTitle: "Des idées à examiner. Des réalisations bien situées.",
-    proofIntro: "Ces exemples représentent différents types de preuves : produits publiés, propositions soumises et prototypes rémunérés.",
+    proofTitle: "Travaux sélectionnés.",
+    proofIntro: "Produits publiés, propositions soumises et prototypes illustrent différents aspects de la méthode. Chaque exemple porte une étiquette qui précise ce qui a été réalisé ou soumis.",
     proposals: "Propositions soumises",
     products: "Produits publiés et MVP",
-    prototypes: "Prototypes rémunérés",
+    prototypes: "Prototypes soumis et livrés",
     open: "Voir le projet",
     privateNote: "Aperçu de l’étude de cas · visuels anonymisés en préparation",
     pilotLabel: "Un point de départ possible",
@@ -69,12 +73,12 @@ const copy = {
     credibilityCopy: "L’expérience de Nikhil Khedkar comprend le service à la clientèle pour Rogers Wireless par l’entremise de Gemma Communications, la direction d’une équipe de première ligne chez Best Buy Canada et l’habilitation de plateformes chez RBH. Il s’agit d’expériences professionnelles antérieures, et non de mandats clients de Teambotics.",
     contactLabel: "Entamons la conversation",
     contactTitle: "Quel travail l’IA devrait-elle faciliter pour votre équipe?",
-    contactCopy: "Décrivez le point de blocage, vos outils actuels et le premier résultat utile. Un lien de réservation suivra; le formulaire et le courriel sont disponibles dès maintenant.",
+    contactCopy: "Décrivez le point de blocage, vos outils actuels et le premier résultat utile. Envoyez un bref descriptif ou écrivez-nous pour entamer la conversation.",
   },
   "es-419": {
     eyebrow: "Consultoría de IA · del flujo de trabajo al sistema útil",
     title: "Hacer que la IA sirva donde ocurre el trabajo.",
-    intro: "Teambotics trabaja con los equipos para entender la tarea real, aprovechar las herramientas de IA existentes y construir el enlace que falta cuando el flujo lo necesita.",
+    intro: "Teambotics trabaja con los equipos para entender la tarea real, aprovechar las herramientas de IA existentes y construir el enlace que falta cuando el flujo lo necesita. La atención al cliente de primera línea es una aplicación de este método.",
     discuss: "Hablemos de tu flujo de trabajo",
     seeMethod: "Conoce nuestro método",
     methodLabel: "El método",
@@ -82,12 +86,14 @@ const copy = {
     methodIntro: "Un sistema útil empieza con un traspaso claro entre personas y agentes. Definimos ese traspaso antes de proponer una solución.",
     steps: ["Intención humana", "Contexto delimitado", "Trabajo del agente", "Revisión humana", "Resultado útil", "Aprendizaje para la siguiente vez"],
     methodNote: "Mantenemos las herramientas existentes cuando funcionan y diseñamos un enlace específico para cubrir lo que falta.",
+    methodExampleLabel: "Ejemplo de traspaso, no un resultado de cliente",
+    methodExample: "Para una consulta de atención: contexto aprobado → borrador del agente → revisión humana → correcciones para la siguiente ejecución.",
     proofLabel: "Trabajo seleccionado",
-    proofTitle: "Ideas que puedes explorar. Resultados con contexto.",
-    proofIntro: "Estos ejemplos son distintos tipos de evidencia: productos publicados, propuestas presentadas y prototipos remunerados.",
+    proofTitle: "Trabajo seleccionado.",
+    proofIntro: "Los productos publicados, las propuestas presentadas y los prototipos muestran distintas partes del método. Cada uno indica qué se creó o presentó.",
     proposals: "Propuestas presentadas",
     products: "Productos publicados y MVP",
-    prototypes: "Prototipos remunerados",
+    prototypes: "Prototipos presentados y entregados",
     open: "Ver proyecto",
     privateNote: "Avance del caso · imágenes depuradas en preparación",
     pilotLabel: "Un posible punto de partida",
@@ -102,7 +108,7 @@ const copy = {
     credibilityCopy: "La experiencia de Nikhil Khedkar incluye atención al cliente para Rogers Wireless a través de Gemma Communications, liderazgo de primera línea en Best Buy Canada y habilitación de plataformas en RBH. Son empleos y experiencia previos, no proyectos de clientes de Teambotics.",
     contactLabel: "Iniciemos la conversación",
     contactTitle: "¿Qué trabajo debería facilitar la IA para tu equipo?",
-    contactCopy: "Cuéntanos dónde se detiene la tarea, qué herramientas usan y cómo sería un primer resultado útil. Pronto habrá un enlace para reservar; el formulario y el correo ya están disponibles.",
+    contactCopy: "Cuéntanos dónde se detiene la tarea, qué herramientas usan y cómo sería un primer resultado útil. Envía un resumen o escríbenos para iniciar la conversación.",
   },
 } as const;
 
@@ -118,8 +124,8 @@ const evidence = {
       { name: "Code2Motion", status: "MVP", detail: "Create, preview, and publish interactive motion work.", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Paid submitted prototype", detail: "A campaign-drafting concept built after Nikhil’s RBH role and submitted to RBH. Drafts require human compliance review." },
-      { name: "IKOKI", status: "Paid pilot prototype", detail: "A guided, role-aware knowledge access concept. IKO paid for the pilot and received the HTML prototype." },
+      { name: "RBH Marketer Agent", status: "Submitted prototype", detail: "A campaign-drafting concept built after Nikhil’s RBH role and submitted to RBH. Drafts require human compliance review." },
+      { name: "IKOKI", status: "Prototype delivered", detail: "A guided, role-aware knowledge access concept. The HTML prototype was delivered to IKO." },
     ],
   },
   "fr-CA": {
@@ -133,8 +139,8 @@ const evidence = {
       { name: "Code2Motion", status: "MVP", detail: "Créer, prévisualiser et publier des projets de mouvement interactifs.", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Prototype rémunéré soumis", detail: "Un concept de rédaction de campagnes créé après le poste de Nikhil chez RBH et soumis à RBH. Les brouillons exigent une révision humaine de conformité." },
-      { name: "IKOKI", status: "Prototype pilote rémunéré", detail: "Un concept d’accès guidé aux connaissances selon les rôles. IKO a rémunéré le pilote et reçu le prototype HTML." },
+      { name: "RBH Marketer Agent", status: "Prototype soumis", detail: "Un concept de rédaction de campagnes créé après le poste de Nikhil chez RBH et soumis à RBH. Les brouillons exigent une révision humaine de conformité." },
+      { name: "IKOKI", status: "Prototype livré", detail: "Un concept d’accès guidé aux connaissances selon les rôles. Le prototype HTML a été livré à IKO." },
     ],
   },
   "es-419": {
@@ -148,8 +154,8 @@ const evidence = {
       { name: "Code2Motion", status: "MVP", detail: "Crear, previsualizar y publicar trabajo de movimiento interactivo.", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Prototipo remunerado presentado", detail: "Un concepto de redacción de campañas creado después del empleo de Nikhil en RBH y presentado a RBH. Los borradores requieren revisión humana de cumplimiento." },
-      { name: "IKOKI", status: "Prototipo de piloto remunerado", detail: "Un concepto de acceso guiado al conocimiento según el rol. IKO pagó el piloto y recibió el prototipo HTML." },
+      { name: "RBH Marketer Agent", status: "Prototipo presentado", detail: "Un concepto de redacción de campañas creado después del empleo de Nikhil en RBH y presentado a RBH. Los borradores requieren revisión humana de cumplimiento." },
+      { name: "IKOKI", status: "Prototipo entregado", detail: "Un concepto de acceso guiado al conocimiento según el rol. El prototipo HTML se entregó a IKO." },
     ],
   },
 } as const;
@@ -171,7 +177,6 @@ export function ConsultancyHome() {
             <a className={styles.secondary} href="#systems">{t.seeMethod} <span aria-hidden="true">↓</span></a>
           </div>
         </div>
-        <div className={styles.heroIndex} aria-hidden="true">01 / 04&nbsp;&nbsp; HUMAN + AGENT WORKFLOWS</div>
       </section>
 
       <section className={styles.section} id="systems" aria-labelledby="method-title">
@@ -185,6 +190,7 @@ export function ConsultancyHome() {
             {t.steps.map((step, index) => <li key={step}><span>{String(index + 1).padStart(2, "0")}</span><strong>{step}</strong></li>)}
           </ol>
           <p className={styles.methodNote}>{t.methodNote}</p>
+          <div className={styles.methodExample}><span>{t.methodExampleLabel}</span><p>{t.methodExample}</p></div>
         </div>
       </section>
 
