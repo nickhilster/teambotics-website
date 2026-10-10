@@ -22,7 +22,7 @@ const copy = {
     proofTitle: "Selected work.",
     proofIntro: "Published products, submitted proposals, and prototypes show different parts of the method. Each is labeled by what was actually made or submitted.",
     proposals: "Submitted proposals",
-    products: "Published products and MVPs",
+    products: "Published products and early access",
     prototypes: "Submitted and delivered prototypes",
     open: "View project",
     privateNote: "Case study preview · sanitized visuals in preparation",
@@ -57,7 +57,7 @@ const copy = {
     proofTitle: "Travaux sélectionnés.",
     proofIntro: "Produits publiés, propositions soumises et prototypes illustrent différents aspects de la méthode. Chaque exemple porte une étiquette qui précise ce qui a été réalisé ou soumis.",
     proposals: "Propositions soumises",
-    products: "Produits publiés et MVP",
+    products: "Produits publiés et accès anticipé",
     prototypes: "Prototypes soumis et livrés",
     open: "Voir le projet",
     privateNote: "Aperçu de l’étude de cas · visuels anonymisés en préparation",
@@ -92,7 +92,7 @@ const copy = {
     proofTitle: "Trabajo seleccionado.",
     proofIntro: "Los productos publicados, las propuestas presentadas y los prototipos muestran distintas partes del método. Cada uno indica qué se creó o presentó.",
     proposals: "Propuestas presentadas",
-    products: "Productos publicados y MVP",
+    products: "Productos publicados y acceso anticipado",
     prototypes: "Prototipos presentados y entregados",
     open: "Ver proyecto",
     privateNote: "Avance del caso · imágenes depuradas en preparación",
@@ -121,7 +121,7 @@ const evidence = {
     products: [
       { name: "LTB Buddy", status: "Public beta", detail: "Guided Ontario tenant intake and filing support.", href: "https://ltbbuddy.ca/" },
       { name: "RyFine", status: "Live product", detail: "A clearer workflow for writing and refining AI instructions.", href: "https://ryfine.app/" },
-      { name: "Code2Motion", status: "MVP", detail: "Create, preview, and publish interactive motion work.", href: "https://code2motion.app/" },
+      { name: "Code2Motion", status: "Early access", detail: "Explore PlayRoom and ToyMaker for browser-native creative experiences.", href: "https://code2motion.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Submitted prototype", detail: "A campaign-drafting concept built after Nikhil’s RBH role and submitted to RBH. Drafts require human compliance review." },
@@ -136,7 +136,7 @@ const evidence = {
     products: [
       { name: "LTB Buddy", status: "Bêta publique", detail: "Accompagnement des locataires ontariens pour l’accueil et les demandes au Tribunal.", href: "https://ltbbuddy.ca/" },
       { name: "RyFine", status: "Produit en ligne", detail: "Un processus plus clair pour rédiger et améliorer les instructions destinées à l’IA.", href: "https://ryfine.app/" },
-      { name: "Code2Motion", status: "MVP", detail: "Créer, prévisualiser et publier des projets de mouvement interactifs.", href: "https://code2motion.app/" },
+      { name: "Code2Motion", status: "Accès anticipé", detail: "Explorer PlayRoom et ToyMaker pour des expériences créatives natives du navigateur.", href: "https://code2motion.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Prototype soumis", detail: "Un concept de rédaction de campagnes créé après le poste de Nikhil chez RBH et soumis à RBH. Les brouillons exigent une révision humaine de conformité." },
@@ -151,7 +151,7 @@ const evidence = {
     products: [
       { name: "LTB Buddy", status: "Beta pública", detail: "Orientación para inquilinos de Ontario sobre admisión y solicitudes al tribunal.", href: "https://ltbbuddy.ca/" },
       { name: "RyFine", status: "Producto disponible", detail: "Un proceso más claro para escribir y mejorar instrucciones para IA.", href: "https://ryfine.app/" },
-      { name: "Code2Motion", status: "MVP", detail: "Crear, previsualizar y publicar trabajo de movimiento interactivo.", href: "https://code2motion.app/" },
+      { name: "Code2Motion", status: "Acceso anticipado", detail: "Explora PlayRoom y ToyMaker para experiencias creativas nativas del navegador.", href: "https://code2motion.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Prototipo presentado", detail: "Un concepto de redacción de campañas creado después del empleo de Nikhil en RBH y presentado a RBH. Los borradores requieren revisión humana de cumplimiento." },

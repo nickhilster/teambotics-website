@@ -1,10 +1,10 @@
 # Teambotics Website
 
-Public Next.js website for Teambotics, deployed through Vercel. The homepage presents one AI consultancy entry point, then shows the workflow method, proposals, published products, and paid prototype work as separately labeled evidence. Product detail routes remain available.
+Public Next.js website for Teambotics, deployed through Vercel. The homepage presents one AI consultancy entry point, then shows the workflow method, proposals, products, and carefully labeled prototype work as evidence. Product detail routes remain available.
 
-The homepage lives in `app/(site)/page.tsx` and `components/home/ConsultancyHome.tsx`, with scoped styles in `ConsultancyHome.module.css`. Its English, French Canadian, and Latin American Spanish copy is maintained together in that component. The shared lead form posts to `/api/leads`; a booking URL has not yet been added.
+The homepage lives in `app/(site)/page.tsx` and `components/home/ConsultancyHome.tsx`, with scoped styles in `ConsultancyHome.module.css`. Its English, French Canadian, and Latin American Spanish copy is maintained together in that component. The shared lead form posts to `/api/leads`; a booking URL has not yet been added. Until mail notifications are configured, follow the [manual lead check](docs/operations/lead-check.md).
 
-The earlier product sections remain in `components/home/` but are no longer mounted on the homepage. The consultancy draft is intended for `testing.teambotics.app` before any production cutover.
+The earlier product sections remain in `components/home/` but are no longer mounted on the homepage. The consultancy build is reviewed on `testing.teambotics.app` before production deployment.
 
 ## Teambotics Values (blog.teambotics.app/values)
 
