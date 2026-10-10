@@ -99,14 +99,14 @@ Implementation should update the homepage section order, navigation and CTA copy
 
 **Agreed release strategy (Nikhil, 9 October):** Put the overhaul on `testing.teambotics.app` first. Keep `www.teambotics.app` on the existing site until the full overhaul is ready, then serve the approved version there.
 
-The `teambotics.app` DNS zone is managed by Vercel, and the `teambotics-website` project owns `www.teambotics.app`. On 9 October, `testing.teambotics.app` was added to the same project, verified, and assigned to the Preview branch `codex/website-overhaul-spec`. The branch requires a deployment after assignment before the testing hostname can be treated as live. The middleware has no `testing` hostname rewrite, so the hostname serves the ordinary homepage. Vercel supports attaching a custom domain to a specific Preview Git branch.
+The `teambotics.app` DNS zone is managed by Vercel, and the `teambotics-website` project owns `www.teambotics.app`. On 9 October, `testing.teambotics.app` was added to the same project, verified, and assigned to the Preview branch `codex/website-overhaul-spec`. A branch Preview deployment now serves the new homepage there. Vercel supports attaching a custom domain to a specific Preview Git branch.
 
 1. Develop the overhaul on a dedicated non-production branch based on current `origin/main`. Attach `testing.teambotics.app` to that branch's Preview deployments in the existing `teambotics-website` project. Verify the hostname, certificate, and rendered page after assignment.
 2. Iterate and test on `testing.teambotics.app`: desktop/mobile layout, links, localization, accessibility, contact form and API behavior, plus any changed product or proposal routes under the testing hostname. Keep the production branch and `www` serving the current site.
 3. Once the content, pilot terms, and page are approved, merge the reviewed commit to the production branch. Vercel then builds the production version and assigns the existing `www.teambotics.app` domain; the root-domain redirect remains in place. This is a deployment cutover, not a DNS transfer or a move to a new Vercel project.
 4. Verify the exact live `www` body, assets, links, forms, and affected subdomains after deployment. Keep the previous production deployment available for rollback if the live check fails.
 
-**Release caveats:** Preview and production can have different environment variables; a production merge creates a new build, so a passing preview is not sufficient live proof. The project's current SSO protection excludes custom domains, so the testing hostname should be treated as publicly reachable unless a separate access rule is configured. Decide whether testing needs access protection before sharing it.
+**Release caveats:** Preview and production can have different environment variables; a production merge creates a new build, so a passing preview is not sufficient live proof. Anonymous visitors to the testing hostname currently see Vercel's login screen. A Vercel share link grants access to the draft and has been sent privately to Instinct in the project-room thread. Keep that bearer link out of the repository and public copy.
 
 ## Acceptance criteria for a later implementation
 
