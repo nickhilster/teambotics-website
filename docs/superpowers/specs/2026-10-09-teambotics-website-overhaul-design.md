@@ -6,6 +6,8 @@ Status: **Draft for Nikhil and Instinct review**, 9 October 2026. This specifies
 
 **Agreed:** The homepage has one consultancy front door. Products and submitted proposals support the offer as evidence, rather than competing with it as equal entry points. Nikhil chose this in the project discussion on 9 October. Instinct's [project-room email](https://mail.google.com/mail/u/?authuser=nickhilster%40gmail.com#all/1a122f3c4c0f12b8) supplies the working positioning, proof set, and two-week pilot outline.
 
+**Reported by Instinct on 9 October, awaiting direct review in this spec:** Nikhil classifies the Instinct and Muse pages as submitted proposals and wants no logos on the landing page. Instinct supplied the draft copy and status labels below; those remain proposed wording, not approved publication copy.
+
 The site should help a customer-service or operations leader understand, within the first screen, who Teambotics helps, what it does alongside a team, and how to start a scoped conversation. The promise is practical: enable people on AI tools that already exist, then build a small bridge where those tools do not cover the real workflow. Nikhil's frontline service experience is part of the reason to trust that approach.
 
 **Proposed primary audience:** leaders responsible for frontline service, training, operations, or customer experience who are trying to make AI useful in day-to-day work. Validate this audience and buying trigger with Nikhil before final copy.
@@ -24,10 +26,10 @@ The recommended approach changes the homepage narrative and relevant shared copy
 | --- | --- | --- | --- |
 | 1 | Hero | Is this for my team? | Frontline-focused headline, two-sentence explanation, primary **Discuss a pilot** CTA to contact, secondary **See how we work** anchor. |
 | 2 | The working method | What would Teambotics do with us? | Two linked activities: enable the team on available AI tools; identify and build a bridge for the uncovered workflow. Explain the human role and operational context in plain language. |
-| 3 | Proposal proof | Can this team frame a useful engagement quickly? | Instinct and Muse cards explicitly labeled **submitted proposal**. Describe the problem framing and proposed intervention, with links. Never present a proposal as delivered client work or measured outcome. |
-| 4 | Published work | Can I inspect something real? | LTB Buddy, RyFine, and Small Wonder, each with a verified live link, current stage, one user problem, and what can actually be tried or viewed. Keep other products available through secondary navigation or product pages. |
+| 3 | Proposal proof | Can this team frame a useful engagement quickly? | Instinct and Muse cards explicitly labeled **submitted proposal**. Describe the proposed direction, with links. Neither card implies a commissioned engagement, accepted proposal, or adoption by the addressed team. |
+| 4 | Published work | Can I inspect something real? | LTB Buddy (**public beta**) and RyFine (**live product**) lead. Small Wonder (**published fan-comic**) is a lighter third card showing creative range, not a customer-service deployment. Keep other products available through secondary navigation or product pages. |
 | 5 | Two-week pilot | What happens first? | Week one: embed, observe, and enable existing tools. Week two: build one agreed bridge within a fixed scope. Show the boundary, handoff, and outcome only after deliverables are confirmed. |
-| 6 | Credibility | Why trust this perspective? | Nikhil's firsthand frontline and enablement experience, with his employer and account relationships stated precisely. Use plain text; brand marks or endorsement language need separate permission. |
+| 6 | Credibility | Why trust this perspective? | Nikhil's firsthand frontline and enablement experience, with his employer and account relationships stated precisely. Use plain text and no logos, following Instinct's report of Nikhil's direction. |
 | 7 | Contact | What should I do now? | One pilot-oriented form and direct email fallback. Ask for team, workflow, existing tools, and the gap; keep the current privacy notice and spam protection. |
 
 The header should lead to **How we work**, **Proof**, **Pilot**, and **Contact**. A product index can remain in the footer or a secondary link. The primary CTA should lead to the same contact destination from hero, pilot, and header. On mobile, the offer and CTA should remain clear before the first long proof block.
@@ -36,11 +38,13 @@ The header should lead to **How we work**, **Proof**, **Pilot**, and **Contact**
 
 Voice: direct, specific, and easy to explain. Describe what a team will see and do. Avoid broad AI transformation claims, invented outcome metrics, and language that implies an employment relationship was a Teambotics client engagement.
 
-**Draft hero, for review:**
+**Instinct's revised draft hero, for Nikhil's review:**
 
 > Make AI useful on the frontline.
 >
-> Teambotics works alongside customer-service teams to make better use of the AI tools they already have. When those tools leave a gap in the real workflow, we build the bridge.
+> Teambotics works alongside customer-service teams to put existing AI tools to work in the workflows they actually use. When those tools leave a gap, we design and build the bridge.
+
+**Instinct's draft working-method lead:** “Start with the work, not another tool.” Follow it with the real task, handoffs, and constraints; show where existing tools fit and what specific missing piece Teambotics would build. Explain the working style in plain language rather than using “forward deployed” as the headline.
 
 Supporting line, subject to Nikhil's review: **Led by someone who has worked frontline customer service.** His supplied career record supports that claim through customer support for a Rogers Wireless account and team leadership at Best Buy Canada. The site should show the pilot as a concrete way to start, while avoiding a guarantee that every engagement can produce a production system in two weeks.
 
@@ -48,17 +52,18 @@ Supporting line, subject to Nikhil's review: **Led by someone who has worked fro
 
 | Item | Current evidence | Public label / gate |
 | --- | --- | --- |
-| Instinct proposal | Named as a submitted proposal in the project-room email; subdomain returned HTTP 200 during this review. | **Submitted proposal**. Confirm intended recipient, publication rights, and the exact scope before summarizing. |
-| Muse proposal | Project-room email names it; `origin/main` contains `public/muse/index.html` titled as a product design proposal; subdomain returned HTTP 200. | **Submitted proposal**. Describe proposal content, not client delivery. |
-| LTB Buddy and RyFine | Current site links them as a public beta and live product, respectively. | Recheck current stage and usable destination when preparing launch copy. |
-| Small Wonder | Named in the project-room email; no supporting page or status was found in the inspected site source. | Hold its card until link, publisher, ownership, and status are supplied. |
+| [Instinct proposal](https://instinct.teambotics.app/) | Instinct describes a product-consulting proposal on trust, visible review states, and voices; the public page returned HTTP 200. | **Submitted proposal**. Do not name an individual recipient or imply acceptance, commission, or adoption. |
+| [Muse proposal](https://muse.teambotics.app/) | Instinct describes a product-design proposal on legible agent work, trust, and identity; `origin/main` has its published page, and the subdomain returned HTTP 200. | **Submitted proposal**. Describe proposal content, not client delivery. |
+| [LTB Buddy](https://ltbbuddy.ca/) | Instinct labels it a public beta; its public homepage returned HTTP 200 and describes Ontario tenant rights and LTB application help. | **Public beta**. Guided intake and filing support; do not imply legal representation or measured outcomes. |
+| [RyFine](https://ryfine.app/) | Instinct labels it a live product; its public homepage returned HTTP 200 and describes clearer AI instructions and local/BYOK operation. | **Live product**. Explain the inspectable prompt workflow without claiming buyer-specific production readiness or adoption. |
+| [Small Wonder](https://smallwonder.nikdesign.ca/) | Instinct identifies a published fan-comic; the public page returned HTTP 200 and describes eleven one-page situations reimagining the sitcom. | **Published fan-comic**. A lighter creative-range card, explicitly not evidence of customer-service deployment. |
 | Rogers Wireless | Nikhil's supplied career record identifies Gemma Communications as his employer and Rogers Wireless as the customer/account context. It records customer support, billing, troubleshooting, and sales starting April 2013; the end date is unresolved. | If named, say **customer service and sales supporting Rogers Wireless through Gemma Communications**. Do not call Nikhil a direct Rogers employee, or imply a Teambotics client relationship or endorsement. |
 | Best Buy Canada | Nikhil's supplied career record identifies a direct **Team Lead** role from August 2022 to February 2024, including frontline training, coaching, and operations. It describes BlueBot as a designed/piloted concept at Sherway Gardens. | **Former Best Buy Canada team lead** is supported by this record. Do not claim a corporate-scale BlueBot launch or a Teambotics client engagement. |
 | Rothmans, Benson & Hedges (RBH) | Nikhil's supplied career record identifies **Lead Platform Advancement, Enablement**, September to December 2025, at RBH / a Philip Morris International affiliate. It describes internal platform and AI enablement work in a regulated environment. | Attribute this as prior employment/role experience. Keep internal details confidential; do not imply a Teambotics contract, production deployment of prototypes, or RBH endorsement. |
 
-The career record is Nikhil-provided evidence, not independent employer confirmation. It supports accurately attributed text. Logo use and quotations still need separate approval. Proposed public summary: **Experience spans customer service supporting Rogers Wireless through Gemma Communications, frontline team leadership at Best Buy Canada, and platform enablement at RBH.** This is a draft, not approved site copy.
+The career record is Nikhil-provided evidence, not independent employer confirmation. It supports accurately attributed text. The landing page uses no logos, per Instinct's report; quotations or endorsement language would need separate approval. Proposed public summary: **Experience spans customer service supporting Rogers Wireless through Gemma Communications, frontline team leadership at Best Buy Canada, and platform enablement at RBH.** This is a draft, not approved site copy.
 
-Every proof card should make the evidence type visible: **proposal**, **published product**, or **personal experience**. A proof item with missing attribution or a broken destination stays out of the launch page until resolved.
+Every proof card should make the evidence type visible: **proposal**, **published product**, **published creative work**, or **personal experience**. A proof item with missing attribution or a broken destination stays out of the launch page until resolved.
 
 ## Pilot definition to finalize
 
@@ -88,9 +93,9 @@ Implementation should update the homepage section order, navigation and CTA copy
 ## Open decisions for the project room
 
 1. Confirm the final first-person or company voice and approve the concise career summary for the public site.
-2. Supply and approve proposal summaries, publication rights, and accurate relationship wording for Instinct and Muse.
-3. Supply Small Wonder's live link and stage; reconfirm LTB Buddy and RyFine status.
+2. Review Instinct's proposal-card summaries and narrow published-work labels. Keep recipient, submission date, adoption, and outcome details off the page without a supporting record.
+3. Approve Small Wonder as a lighter creative-range card; its link and published collection are now identified.
 4. Define the pilot deliverables, exclusions, commercial terms, and preferred contact action.
-5. Confirm any logo or named-organization permissions separately; career connections are now attributed in the evidence table above.
+5. Review Instinct's reported no-logo direction and approve the final text-only career attribution; career connections are detailed in the evidence table above.
 
 The project-room thread is the discussion record. This file is the versioned site spec; decisions returned in that thread should be incorporated here with dates and attribution before implementation.
