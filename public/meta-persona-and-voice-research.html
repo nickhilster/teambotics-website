@@ -1,0 +1,397 @@
+The inline attachment extraction is incomplete. Use extraction_file_uri for the complete content and images as JSON, or file_uri for the original attachment.
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Meta Persona and Voice Research</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f3f5f4;
+      --paper-2: #ffffff;
+      --ink: #151918;
+      --muted: #5c6663;
+      --line: #c9d0cd;
+      --line-strong: #8f9b97;
+      --green: #0c7359;
+      --green-soft: #d9eee7;
+      --red: #b43a2f;
+      --red-soft: #f6dfdc;
+      --amber: #9a6312;
+      --amber-soft: #f5e8cd;
+      --blue: #1c5f8a;
+      --blue-soft: #dcebf4;
+      --shadow: 0 18px 48px rgba(20, 28, 25, .08);
+      --display: "Avenir Next", "Segoe UI", Helvetica, sans-serif;
+      --body: Georgia, "Times New Roman", serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #101513;
+        --paper-2: #181e1b;
+        --ink: #edf2ef;
+        --muted: #aab5b0;
+        --line: #38423e;
+        --line-strong: #66736e;
+        --green: #74d4b1;
+        --green-soft: #183e32;
+        --red: #ff9186;
+        --red-soft: #492521;
+        --amber: #e6bd72;
+        --amber-soft: #40331d;
+        --blue: #8dc6e8;
+        --blue-soft: #193647;
+        --shadow: 0 18px 48px rgba(0, 0, 0, .24);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        var(--paper);
+      background-size: 44px 44px;
+      background-position: -1px -1px;
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: var(--green); }
+    button { font: inherit; }
+    .shell { width: min(1240px, calc(100% - 40px)); margin: 0 auto; padding: 44px 0 80px; }
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+    .lead, .signal {
+      background: var(--paper-2);
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow);
+    }
+    .lead { padding: clamp(28px, 5vw, 62px); }
+    .signal { padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
+    .kicker, .label, .eyebrow {
+      font-family: var(--display);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+    .kicker { color: var(--green); font-size: .76rem; margin: 0 0 18px; }
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      font: 700 clamp(2.8rem, 7vw, 6.6rem)/.91 var(--display);
+      letter-spacing: -.065em;
+    }
+    .dek {
+      max-width: 760px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 1.8vw, 1.35rem);
+    }
+    .signal .number {
+      font: 700 clamp(4rem, 9vw, 7rem)/.85 var(--display);
+      letter-spacing: -.08em;
+      color: var(--green);
+    }
+    .signal h2 { font: 700 1.4rem/1.1 var(--display); margin: 12px 0 8px; }
+    .signal p { margin: 0; color: var(--muted); }
+    .signal .stamp { border-top: 1px solid var(--line); margin-top: 28px; padding-top: 16px; font: 600 .78rem/1.45 var(--display); color: var(--muted); }
+
+    .legend {
+      background: var(--ink);
+      color: var(--paper-2);
+      padding: 14px 18px;
+      display: flex;
+      gap: 10px 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      font: 600 .78rem/1.35 var(--display);
+      margin-bottom: 56px;
+    }
+    @media (prefers-color-scheme: dark) { .legend { background: #edf2ef; color: #151918; } }
+    .legend strong { text-transform: uppercase; letter-spacing: .1em; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; background: currentColor; }
+    .status-live { color: #68c9a7; }
+    .status-index { color: #8fc8e8; }
+    .status-press { color: #e7be73; }
+    .status-leak { color: #f28f85; }
+    @media (prefers-color-scheme: dark) {
+      .status-live { color: #0c7359; } .status-index { color: #1c5f8a; }
+      .status-press { color: #86560f; } .status-leak { color: #a9352c; }
+    }
+
+    .section { scroll-margin-top: 24px; margin: 0 0 72px; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 26px;
+      border-top: 2px solid var(--ink);
+      padding-top: 18px;
+    }
+    .section-no { font: 700 3.2rem/1 var(--display); letter-spacing: -.06em; color: var(--line-strong); }
+    .section h2 { margin: 0 0 8px; font: 700 clamp(2rem, 4vw, 3.4rem)/1 var(--display); letter-spacing: -.04em; }
+    .section-intro { margin: 0; max-width: 780px; color: var(--muted); font-size: 1.08rem; }
+
+    .verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line-strong); border: 1px solid var(--line-strong); }
+    .verdict { background: var(--paper-2); padding: 26px; min-height: 240px; }
+    .verdict .label { font-size: .72rem; color: var(--muted); }
+    .verdict h3 { font: 700 1.5rem/1.12 var(--display); letter-spacing: -.025em; margin: 18px 0 12px; }
+    .verdict p { margin: 0; color: var(--muted); }
+    .verdict.winner { background: var(--green-soft); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; }
+    .filter {
+      border: 1px solid var(--line-strong);
+      background: var(--paper-2);
+      color: var(--ink);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font: 700 .78rem/1 var(--display);
+      cursor: pointer;
+    }
+    .filter[aria-pressed="true"] { background: var(--ink); color: var(--paper-2); }
+    @media (prefers-color-scheme: dark) { .filter[aria-pressed="true"] { background: #edf2ef; color: #151918; } }
+
+    .timeline { position: relative; border-left: 2px solid var(--line-strong); margin-left: 84px; }
+    .event { position: relative; display: grid; grid-template-columns: 122px minmax(0, 1fr) auto; gap: 18px; padding: 0 0 26px 28px; }
+    .event::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--green); }
+    .event time { position: absolute; width: 70px; right: calc(100% + 15px); top: 1px; text-align: right; font: 700 .72rem/1.25 var(--display); color: var(--muted); }
+    .event .year { font: 700 1.08rem/1.1 var(--display); }
+    .event h3 { font: 700 1.05rem/1.25 var(--display); margin: 0 0 5px; }
+    .event p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .event .tag { align-self: start; padding: 4px 7px; border: 1px solid currentColor; font: 700 .64rem/1 var(--display); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .event[data-kind="persona"]::before { border-color: var(--amber); }
+    .event[data-kind="voice"]::before { border-color: var(--blue); }
+    .event[data-kind="muse"]::before { border-color: var(--green); }
+    .event.hidden { display: none; }
+
+    .matrix { display: grid; grid-template-columns: 1.15fr repeat(3, 1fr); border: 1px solid var(--line-strong); background: var(--line-strong); gap: 1px; }
+    .cell { background: var(--paper-2); padding: 16px 18px; min-width: 0; }
+    .cell.head { font: 700 .76rem/1.25 var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .cell.rowhead { font: 700 .95rem/1.25 var(--display); }
+    .cell.good { background: var(--green-soft); }
+    .cell.caution { background: var(--amber-soft); }
+    .cell.gap { background: var(--red-soft); }
+    .cell span { display: block; color: var(--muted); font-size: .86rem; margin-top: 4px; }
+    .mobile-matrix { display: none; }
+
+    .columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .brief { background: var(--paper-2); border-top: 5px solid var(--ink); padding: 24px; box-shadow: var(--shadow); }
+    .brief.voice { border-color: var(--blue); }
+    .brief.persona { border-color: var(--amber); }
+    .brief.muse { border-color: var(--green); }
+    .brief .eyebrow { font-size: .69rem; color: var(--muted); }
+    .brief h3 { margin: 12px 0 12px; font: 700 1.45rem/1.1 var(--display); letter-spacing: -.025em; }
+    .brief p { color: var(--muted); margin: 0 0 14px; }
+    .brief ul { margin: 0; padding-left: 1.1rem; }
+    .brief li { margin: 0 0 10px; }
+
+    .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .finding { padding: 26px; background: var(--paper-2); border: 1px solid var(--line); }
+    .finding strong.n { display: block; font: 700 3rem/1 var(--display); color: var(--green); letter-spacing: -.05em; }
+    .finding h3 { margin: 12px 0 10px; font: 700 1.4rem/1.15 var(--display); }
+    .finding p { margin: 0; color: var(--muted); }
+    .finding .basis { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); font: 600 .78rem/1.5 var(--display); color: var(--muted); }
+
+    .callout {
+      margin-top: 18px;
+      background: var(--ink);
+      color: var(--paper-2);
+      padding: clamp(28px, 5vw, 54px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: 32px;
+      align-items: end;
+    }
+    @media (prefers-color-scheme: dark) { .callout { background: #edf2ef; color: #151918; } }
+    .callout blockquote { font: 700 clamp(1.8rem, 4vw, 3.4rem)/1.02 var(--display); letter-spacing: -.045em; margin: 0; }
+    .callout p { margin: 0; opacity: .72; }
+
+    .unknowns { background: var(--amber-soft); border: 1px solid var(--amber); padding: 24px; }
+    .unknowns h3 { margin: 0 0 14px; font: 700 1.3rem/1.1 var(--display); }
+    .unknowns ul { margin: 0; padding-left: 1.2rem; columns: 2; column-gap: 42px; }
+    .unknowns li { margin: 0 0 12px; break-inside: avoid; }
+
+    details.sources { background: var(--paper-2); border: 1px solid var(--line-strong); }
+    details.sources summary { cursor: pointer; padding: 18px 22px; font: 700 1rem/1.2 var(--display); }
+    .source-list { border-top: 1px solid var(--line); padding: 20px 22px 24px; columns: 2; column-gap: 36px; }
+    .source-list p { break-inside: avoid; margin: 0 0 14px; font-size: .9rem; color: var(--muted); }
+    .source-list strong { color: var(--ink); font-family: var(--display); }
+    footer { margin-top: 30px; color: var(--muted); font: 600 .78rem/1.5 var(--display); }
+
+    @media (max-width: 900px) {
+      .masthead, .columns, .stack, .callout { grid-template-columns: 1fr; }
+      .signal { min-height: 260px; }
+      .verdict-grid { grid-template-columns: 1fr; }
+      .verdict { min-height: 0; }
+      .matrix { display: none; }
+      .mobile-matrix { display: grid; gap: 12px; }
+      .mobile-row { background: var(--paper-2); border: 1px solid var(--line-strong); padding: 18px; }
+      .mobile-row h3 { font: 700 1.1rem/1.2 var(--display); margin: 0 0 12px; }
+      .mobile-row dl { display: grid; grid-template-columns: 92px 1fr; gap: 8px 12px; margin: 0; }
+      .mobile-row dt { font: 700 .68rem/1.3 var(--display); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+      .mobile-row dd { margin: 0; }
+      .source-list { columns: 1; }
+    }
+    @media (max-width: 640px) {
+      .shell { width: min(100% - 24px, 1240px); padding-top: 18px; }
+      .lead { padding: 26px 20px 30px; }
+      h1 { font-size: clamp(2.5rem, 15vw, 4.2rem); }
+      .masthead { gap: 10px; }
+      .signal { padding: 22px; min-height: 230px; }
+      .legend { margin-bottom: 44px; }
+      .section { margin-bottom: 54px; }
+      .section-head { grid-template-columns: 1fr; gap: 8px; }
+      .section-no { font-size: 1rem; letter-spacing: .12em; }
+      .timeline { margin-left: 58px; }
+      .event { grid-template-columns: 1fr; gap: 7px; padding-left: 20px; }
+      .event time { width: 46px; right: calc(100% + 12px); font-size: .64rem; }
+      .event .tag { justify-self: start; }
+      .unknowns ul { columns: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <section class="lead" aria-labelledby="main-title">
+        <p class="kicker">Research synthesis · 05 October 2026</p>
+        <h1 id="main-title">Meta has the parts. It does not have the cast.</h1>
+        <p class="dek">Meta has personas at scale and elite speech research, while Muse is converging on one deeply customizable agent. The open product territory is different: a persistent ensemble of user-created personas, each recognized by its own voice.</p>
+      </section>
+      <aside class="signal" aria-label="Key finding">
+        <div>
+          <div class="number">3</div>
+          <h2>persona strategies in three years</h2>
+          <p>Licensed celebrity characters, user-made AI Studio characters, then one personal agent in Muse.</p>
+        </div>
+        <div class="stamp">Most official launch claims are indexed reporting. Muse’s September 8 announcement was verified live; press and leak claims stay labeled.</div>
+      </aside>
+    </header>
+
+    <div class="legend" aria-label="Evidence key">
+      <strong>Evidence key</strong>
+      <span class="status-live"><i class="dot"></i>verified live</span>
+      <span class="status-index"><i class="dot"></i>indexed reporting</span>
+      <span class="status-press"><i class="dot"></i>press / community</span>
+      <span class="status-leak"><i class="dot"></i>unconfirmed leak</span>
+    </div>
+
+    <section class="section" id="verdict">
+      <div class="section-head">
+        <div class="section-no">01</div>
+        <div>
+          <h2>The strategic read</h2>
+          <p class="section-intro">Three adjacent systems exist. None currently combines multiple user-authored identities with durable, per-persona voice ownership.</p>
+        </div>
+      </div>
+      <div class="verdict-grid">
+        <article class="verdict">
+          <span class="label">AI Studio</span>
+          <h3>Many personas, limited voice differentiation</h3>
+          <p>Users can shape name, personality, tone, avatar and behavior. An April 2025 handbook says they can choose a voice from a library and call the AI—but that feature could not be re-verified live in October 2026.</p>
+        </article>
+        <article class="verdict">
+          <span class="label">Muse</span>
+          <h3>One agent, increasingly expressive identity</h3>
+          <p>Press describes renaming, avatars and Soul.md; Connect 2026 reporting describes a voice users can specify in plain language. Nothing public describes a user-owned cast of distinct agents.</p>
+        </article>
+        <article class="verdict winner">
+          <span class="label">Open territory</span>
+          <h3>Voice as caller ID for a trusted cast</h3>
+          <p>The defensible unit is not “a voice feature.” It is a stable relationship between persona, role, authority and voice—so the listener knows who is speaking before hearing the content.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="timeline">
+      <div class="section-head">
+        <div class="section-no">02</div>
+        <div>
+          <h2>From novelty to identity</h2>
+          <p class="section-intro">Meta’s path is not linear. It repeatedly separates character, voice and agency—then recombines them in a different product.</p>
+        </div>
+      </div>
+      <div class="filters" aria-label="Filter timeline">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="persona" aria-pressed="false">Personas</button>
+        <button class="filter" data-filter="voice" aria-pressed="false">Voice research</button>
+        <button class="filter" data-filter="muse" aria-pressed="false">Muse</button>
+      </div>
+      <div class="timeline">
+        <article class="event" data-kind="voice"><time datetime="2023-06-16">16 Jun</time><div class="year">2023</div><div><h3>Voicebox announced</h3><p>In-context speech generation, style cloning from a two-second sample, editing and denoising across six languages. Withheld from public release over misuse risk. <a href="https://www.medianama.com/2023/06/223-metas-generative-ai-voicebox/" target="_blank" rel="noopener">MediaNama</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="voice"><time datetime="2023-08-22">22 Aug</time><div class="year">2023</div><div><h3>SeamlessM4T launches</h3><p>Multimodal translation across roughly 100 text languages and 36 speech languages, under a research/non-commercial license. <a href="https://www.zdnet.com/article/you-can-demo-meta-ai-powered-multilingual-speech-and-text-translator-heres-how/" target="_blank" rel="noopener">ZDNET</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="persona"><time datetime="2023-09-27">27 Sep</time><div class="year">2023</div><div><h3>Celebrity characters debut</h3><p>About 28 fictional AI archetypes use licensed likenesses and voices, including Snoop Dogg, Paris Hilton, Tom Brady, Kendall Jenner and MrBeast. <a href="https://www.nme.com/news/music/snoop-dogg-and-paris-hilton-among-metas-new-ai-chatbots-3505579" target="_blank" rel="noopener">NME</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="voice"><time datetime="2023-12-04">04 Dec</time><div class="year">2023</div><div><h3>Seamless gets expressive and streaming modes</h3><p>SeamlessExpressive transfers vocal qualities; SeamlessStreaming starts translating while a speaker is still talking, with reported latency under two seconds. <a href="https://www.web3cafe.in/artificial-intelligence/story/meta-has-updated-its-seamlessm4t-to-its-latest-updated-version-v2-architecture-that-transforms-speech-translation-into-a-seamless-communication-720715-2023-12-04" target="_blank" rel="noopener">Web3Cafe</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="voice"><time datetime="2023-12-11">11 Dec</time><div class="year">2023</div><div><h3>Audiobox demo</h3><p>Zero-shot text-to-speech, voice cloning from a short recording and text-to-sound generation; research demo only, non-commercial, unavailable in Texas and Illinois. <a href="https://readwrite.com/meet-audiobox-metas-new-generative-ai-that-clones-voices/" target="_blank" rel="noopener">ReadWrite</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="persona"><time datetime="2024-07-30">29–30 Jul</time><div class="year">2024</div><div><h3>AI Studio launches in the US</h3><p>Llama 3.1 powers user-created custom characters and creator AIs across Instagram and the web. <a href="https://ppc.land/meta-launches-ai-studio-personalized-ai-creation-for-all-users/" target="_blank" rel="noopener">PPC Land</a> · <a href="https://www.neowin.net/news/meta-ai-studio-allows-anyone-to-create-custom-ai-characters/" target="_blank" rel="noopener">Neowin</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="persona"><time datetime="2024-07-30">~30 Jul</time><div class="year">2024</div><div><h3>Celebrity characters retired</h3><p>Less than a year after launch, Meta strips the likenesses and closes the accounts. Reporting cites weak traction, “creepy” reception, high licensing costs and a pivot to AI Studio. <a href="https://businessghana.com/site/news/technology/311461/Meta-scraps-celebrity-AI-chatbots-after-less-than-a-year-despite-reportedly-paying-top-creators" target="_blank" rel="noopener">BusinessGhana</a> · <a href="https://www.digitaltrends.com/computing/facebook-shelves-celebrity-ai-chatbot-program/" target="_blank" rel="noopener">Digital Trends</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="voice"><time datetime="2024-09-25">25 Sep</time><div class="year">2024</div><div><h3>Meta AI gets voice mode</h3><p>Selectable celebrity and generic voices launch in the US, Canada, Australia and New Zealand. The celebrity set includes Awkwafina, Judi Dench, John Cena, Keegan-Michael Key and Kristen Bell. <a href="https://www.androidcentral.com/apps-software/meta-ai-gets-new-ways-to-communicate" target="_blank" rel="noopener">Android Central</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="voice"><time datetime="2024-10-04">04 Oct</time><div class="year">2024</div><div><h3>Movie Gen Audio announced</h3><p>A 13B-parameter research model generates up to 45 seconds of ambient sound, music and Foley synchronized to video. It was not released as a product. <a href="https://www.neowin.net/news/meta-unveils-movie-gen-claiming-the-most-advanced-video-generation-model-yet/" target="_blank" rel="noopener">Neowin</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="persona"><time datetime="2025-04">Apr</time><div class="year">2025</div><div><h3>AI Studio handbook describes voice calls</h3><p>The handbook says creators can select a voice “from a library of options” and people can call the AI. The official page returned 403 during this research; evidence comes from a mirrored official PDF. <a href="https://healthwellnesscoaching.substack.com/api/v1/file/64df239a-5a5e-4912-b2fc-a3b8dd44ba15.pdf" target="_blank" rel="noopener">Handbook mirror</a></p></div><span class="tag status-press">Press</span></article>
+        <article class="event" data-kind="voice"><time datetime="2025-04-29">29 Apr</time><div class="year">2025</div><div><h3>Standalone Meta AI app</h3><p>A voice-first Llama 4 app introduces full-duplex conversations and background operation in four launch markets. <a href="https://www.macrumors.com/2025/04/29/meta-launches-new-ai-app/" target="_blank" rel="noopener">MacRumors</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="muse"><time datetime="2026-09-01">01 Sep</time><div class="year">2026</div><div><h3>Muse Voice Transcribe</h3><p>Real-time speech-to-text with diarization, priced at $3 per 1,000 audio minutes through the Meta Model API. <a href="https://dataconomy.com/2026/09/02/meta-muse-voice-transcribe-real-time-audio-model-20-speakers/" target="_blank" rel="noopener">Dataconomy</a></p></div><span class="tag status-index">Index</span></article>
+        <article class="event" data-kind="muse"><time datetime="2026-09-08">08 Sep</time><div class="year">2026</div><div><h3>Muse launches in the US</h3><p>Meta frames Muse as a personal agent on Muse Spark 1.3, with Secure VM, Sentinel approvals and Link by Stripe payments. The official announcement does not discuss personas, avatars or voice. <a href="https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/" target="_blank" rel="noopener">Meta Newsroom</a></p></div><span class="tag status-live">Live</span></article>
+        <article class="event" data-kind="muse"><time datetime="2026-09-10">10 Sep</time><div class="year">2026</div><div><h3>Custom voice library appears in testing</h3><p>An unconfirmed report describes a voice selector and prompt-generated voices saved to a personal library. Internal labels may reference Microsoft voice technology, but do not establish production use. <a href="https://www.testingcatalog.com/meta-prepares-custom-voices-and-model-upgrades-for-muse/" target="_blank" rel="noopener">TestingCatalog</a></p></div><span class="tag status-leak">Leak</span></article>
+        <article class="event" data-kind="muse"><time datetime="2026-09-23">23 Sep</time><div class="year">2026</div><div><h3>Realtime Voice + Realtime Avatar</h3><p>Connect reporting describes a voice configurable in plain language and a live lip-synced avatar generated from a reference image. <a href="https://codersera.com/blog/meta-muse-charm-realtime-avatar-2026/" target="_blank" rel="noopener">Codersera</a> · <a href="https://runtimewire.com/article/meta-muse-live-video-chat-voice" target="_blank" rel="noopener">RuntimeWire</a></p></div><span class="tag status-index">Index</span></article>
+      </div>
+    </section>
+
+    <section class="section" id="map">
+      <div class="section-head">
+        <div class="section-no">03</div>
+        <div>
+          <h2>Capability map</h2>
+          <p class="section-intro">Meta’s products optimize for different identity models. The cells describe what the research found—not a claim that every feature remains available in every market.</p>
+        </div>
+      </div>
+      <div class="matrix" role="table" aria-label="Capability comparison">
+        <div class="cell head" role="columnheader">Capability</div><div class="cell head" role="columnheader">Celebrity AIs</div><div class="cell head" role="columnheader">AI Studio</div><div class="cell head" role="columnheader">Muse</div>
+        <div class="cell rowhead" role="rowheader">Identity model</div><div class="cell">Fictional archetypes attached to licensed celebrities</div><div class="cell good">User-created characters and creator extensions</div><div class="cell">One personal agent</div>
+        <div class="cell rowhead" role="rowheader">Personality controls</div><div class="cell caution">Top-down, fixed</div><div class="cell good">Name, personality, tone, knowledge, examples and starters</div><div class="cell caution">Communication style and Soul.md described in press/community reporting</div>
+        <div class="cell rowhead" role="rowheader">Visual identity</div><div class="cell">Licensed likeness</div><div class="cell good">Template or uploaded avatar</div><div class="cell caution">Rename/custom avatar reported; Realtime Avatar announced</div>
+        <div class="cell rowhead" role="rowheader">Voice model</div><div class="cell">Licensed celebrity voice</div><div class="cell caution">Fixed voice library described in April 2025 handbook</div><div class="cell good">Plain-language voice design announced; library reported in testing</div>
+        <div class="cell rowhead" role="rowheader">Many personas, many stable voices</div><div class="cell gap">No</div><div class="cell gap">Not established</div><div class="cell gap">No public evidence</div>
+        <div class="cell rowhead" role="rowheader">Status</div><div class="cell gap">Retired mid-2024</div><div class="cell good">Operating; voice feature not re-verified</div><div class="cell good">Live; identity layer evolving</div>
+      </div>
+      <div class="mobile-matrix" aria-label="Capability comparison, stacked">
+        <article class="mobile-row"><h3>Celebrity AIs</h3><dl><dt>Identity</dt><dd>Fixed archetypes with licensed likenesses and voices</dd><dt>Control</dt><dd>Top-down</dd><dt>Cast + voices</dt><dd>No</dd><dt>Status</dt><dd>Retired mid-2024</dd></dl></article>
+        <article class="mobile-row"><h3>AI Studio</h3><dl><dt>Identity</dt><dd>User-created characters and creator extensions</dd><dt>Control</dt><dd>Name, personality, tone, knowledge, avatar and prompts</dd><dt>Voice</dt><dd>Fixed library described in April 2025 handbook; not re-verified</dd><dt>Cast + voices</dt><dd>Not established</dd></dl></article>
+        <article class="mobile-row"><h3>Muse</h3><dl><dt>Identity</dt><dd>One personal agent</dd><dt>Control</dt><dd>Rename, avatar and Soul.md reported outside official launch materials</dd><dt>Voice</dt><dd>Plain-language voice design announced; library reported in testing</dd><dt>Cast + voices</dt><dd>No public evidence</dd></dl></article>
+      </div>
+    </section>
+
+    <section class="section" id="layers">
+      <div class="section-head">
+        <div class="section-no">04</div>
+        <div>
+          <h2>What each layer actually proves</h2>
+          <p class="section-intro">The strongest pitch separates product evidence from inference—and separates both from leaks.</p>
+        </div>
+      </div>
+      <div class="columns">
+        <article class="brief persona"><span class="eyebrow">Persona layer</span><h3>AI Studio validated user authorship</h3><p>People can create characters for entertainment, teaching or creator communication, distribute them across Meta surfaces, and shape how they behave.</p><ul><li>Creator AIs can answer DMs and story replies.</li><li>Audience and topic controls were reported.</li><li>AI responses are labeled.</li></ul></article>
+        <article class="brief voice"><span class="eyebrow">Voice layer</span><h3>Research depth is not product availability</h3><p>Voicebox, Audiobox, Seamless and Movie Gen show deep capability. Meta has kept cloning/generation largely research-only or non-commercial.</p><ul><li>No public commercial TTS or voice-cloning API was found.</li><li>Muse Voice Transcribe is speech-to-text, not generation.</li><li>Safety and legal risk visibly shape availability.</li></ul></article>
+        <article class="brief muse"><span class="eyebrow">Agent layer</span><h3>Muse is converging on embodiment</h3><p>Official launch material centers tasks and safeguards. Later reporting adds customization, realtime voice and avatar expression.</p><ul><li>One customizable agent—not a managed cast.</li><li>Voice description is public reporting from Connect 2026.</li><li>A saved custom-voice library remains an unconfirmed test.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" id="implications">
+      <div class="section-head">
+        <div class="section-no">05</div>
+        <div>
+          <h2>Five implications for the pitch</
