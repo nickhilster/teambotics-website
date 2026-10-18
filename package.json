@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prebuild": "pnpm translations:sync",
+    "prebuild": "pnpm translations:sync && node scripts/sync-muse-proposal.mjs",
     "pretypecheck": "pnpm translations:check",
     "content:watch": "tsx scripts/watch-translations.ts",
     "content:sync": "pnpm translations:sync && pnpm typecheck",

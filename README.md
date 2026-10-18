@@ -6,6 +6,8 @@ The homepage lives in `app/(site)/page.tsx` and `components/home/ConsultancyHome
 
 The earlier product sections remain in `components/home/` but are no longer mounted on the homepage. The consultancy build is reviewed on `testing.teambotics.app` before production deployment.
 
+The `muse.teambotics.app` host is served by this Vercel project. Its page and assets are sourced from the pinned `nickhilster/muse-proposal` revision in `scripts/sync-muse-proposal.mjs`; the prebuild step materializes that source under `public/muse/` without checking in a second editable copy. Update the pinned revision when publishing Muse changes.
+
 ## Teambotics Values (blog.teambotics.app/values)
 
 The blog publishes a self-updating "Teambotics Values" page, written for both human readers and AI agents:

@@ -47,6 +47,12 @@ export function middleware(request: NextRequest) {
         : `${targetRoute}${pathname}`
       : pathname;
 
+  // Let Muse's generated static route work on the preview hostname too. On the
+  // production Muse host, the host-scoped rewrite above already maps to this path.
+  if (effectivePath === pathname && (pathname === "/muse" || pathname.startsWith("/muse/"))) {
+    return NextResponse.next();
+  }
+
   // AgentSurface: route "*.md" discovery requests to a dedicated internal handler.
   // A bare "/<path>.md" would otherwise collide with the existing [lang] dynamic
   // segment at the app root — Next.js resolves that single dynamic segment before a
