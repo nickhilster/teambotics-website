@@ -1,0 +1,49 @@
+name: Discover candidate projects
+
+on:
+  schedule:
+    - cron: '17 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: discovery
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .cache/github-api-cache.json
+          key: github-api-cache-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: github-api-cache-${{ runner.os }}-
+      - run: npm ci
+      - name: Search GitHub and produce sourced candidates
+        run: node scripts/discover.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - run: npm run validate && npm run build && npm run smoke
+      - name: Open or update the bounded candidate report pull request
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          token: ${{ github.token }}
+          branch: automation/discovery-candidates
+          delete-branch: false
+          add-paths: data/discovery-candidates.json
+          commit-message: 'chore: refresh discovered candidate report'
+          title: 'Candidate discovery report'
+          body: |
+            Automated, sourced discovery leads for human review. Candidates are not endorsements and are never added to the editorial picks automatically.
+
+            Review the methodology and filters in `data/discovery.json` and `README.md`.

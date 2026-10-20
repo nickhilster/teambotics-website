@@ -10,9 +10,13 @@
     "vercel:link": "vercel link --yes",
     "vercel:env:pull": "vercel env pull .env.local",
     "vercel:deploy": "vercel deploy",
-    "vercel:deploy:prod": "vercel deploy --prod"
+    "vercel:deploy:prod": "vercel deploy --prod",
+    "validate": "node scripts/validate-data.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "discover": "node scripts/discover.mjs",
+    "verify:repositories": "node scripts/verify.mjs"
   },
   "dependencies": {
-    "astro": "^5.18.1"
+    "astro": "^7.4.1"
   }
 }

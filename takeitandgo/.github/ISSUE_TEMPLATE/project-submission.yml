@@ -1,0 +1,42 @@
+name: Project submission
+description: Suggest an open-source project for human review
+title: "Project suggestion: "
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Upstream repository
+      placeholder: https://github.com/owner/repository
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Repository license (SPDX identifier if known)
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: What it does and who it helps
+    validations:
+      required: true
+  - type: input
+    id: quickstart
+    attributes:
+      label: A useful quickstart
+    validations:
+      required: true
+  - type: input
+    id: documentation
+    attributes:
+      label: Documentation or source supporting this suggestion
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgement
+    attributes:
+      label: Review expectations
+      options:
+        - label: I understand that submitting a project does not guarantee inclusion or endorsement.
+          required: true

@@ -1,0 +1,18 @@
+{
+  "categories": [
+    { "name": "CLI", "topics": ["command-line", "cli", "terminal"], "query": "topic:command-line" },
+    { "name": "Web", "topics": ["web", "web-framework", "javascript"], "query": "topic:web-framework" },
+    { "name": "Testing", "topics": ["testing", "test-automation"], "query": "topic:test-automation" },
+    { "name": "Data", "topics": ["database", "analytics", "search"], "query": "topic:database" },
+    { "name": "Self-hosting", "topics": ["self-hosted", "server"], "query": "topic:self-hosted" },
+    { "name": "Design", "topics": ["design", "whiteboard", "diagram"], "query": "topic:design" },
+    { "name": "Dev tools", "topics": ["developer-tools", "formatter", "linter"], "query": "topic:developer-tools" }
+  ],
+  "filters": {
+    "minimumStars": 100,
+    "maximumAgeDays": 365,
+    "requireDocumentation": true,
+    "allowedLicenses": ["Apache-2.0", "BSD-2-Clause", "BSD-3-Clause", "MIT", "ISC", "MPL-2.0", "Unlicense"]
+  },
+  "limits": { "resultsPerCategory": 30, "pagesPerCategory": 2, "candidatesPerCategory": 8, "candidateReportLimit": 50 }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/nickhilster/takeitandgo/blob/main/data/picks.schema.json",
+  "title": "Take It and Go editorial picks",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["name", "category", "language", "description", "why", "repo", "audience", "quickstart"],
+    "properties": {
+      "name": { "type": "string", "minLength": 1 },
+      "category": { "type": "string", "minLength": 1 },
+      "language": { "type": "string", "minLength": 1 },
+      "description": { "type": "string", "minLength": 1 },
+      "why": { "type": "string", "minLength": 1 },
+      "repo": { "type": "string", "format": "uri", "pattern": "^https://github\\.com/[^/]+/[^/]+$" },
+      "audience": { "type": "string", "minLength": 1 },
+      "quickstart": { "type": "string", "minLength": 1 }
+    }
+  }
+}

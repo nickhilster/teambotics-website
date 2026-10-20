@@ -432,6 +432,13 @@ h3 {
   list-style: none;
 }
 
+.methodology-note {
+  margin: var(--space-4) 0 0;
+  color: var(--color-muted);
+  font-size: var(--type-caption);
+  line-height: 1.6;
+}
+
 .checklist li,
 .status-strip span {
   padding-top: var(--space-2);
