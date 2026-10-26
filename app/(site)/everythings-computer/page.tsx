@@ -15,12 +15,12 @@ const PHOTO_IMAGE =
 export const metadata: Metadata = {
   title: "Everything's computer. | Sources | Teambotics",
   description:
-    "March 11, 2025: an actual presidential quote, the original transcript, an archival photograph, and an unusually thorough set of independent reports.",
+    "A sourced presidential quote, archival photograph, and journalism bibliography — plus why source transparency matters in an age of AI-accelerated misinformation.",
   alternates: { canonical: "https://www.teambotics.app/everythings-computer" },
   openGraph: {
     title: "Everything's computer. Yes, there are sources.",
     description:
-      "An original transcript, an official White House photograph, and a completely unreasonable number of journalistic receipts.",
+      "The joke leads to the sources. The sources lead to journalism worth reading and supporting.",
     url: "https://www.teambotics.app/everythings-computer",
     siteName: "Teambotics",
     type: "article",
@@ -55,13 +55,13 @@ const quoteRecords = [
 const reporting = [
   {
     outlet: "Reuters",
-    headline: "Trump says he will buy a new Tesla to support Musk",
+    headline: "Trump says violence against Tesla is domestic terrorism",
     href: "https://www.reuters.com/world/us/trump-says-he-will-buy-new-tesla-show-support-musk-2025-03-11/",
     context: "Newswire · March 11, 2025",
   },
   {
     outlet: "Associated Press",
-    headline: "Trump shops for a Tesla at the White House",
+    headline: "WATCH: Trump talks Tesla shopping with Musk",
     href: "https://www.pbs.org/newshour/politics/watch-trump-talks-tesla-shopping-with-musk",
     context: "AP reporting hosted by PBS NewsHour · March 11, 2025",
   },
@@ -73,7 +73,7 @@ const reporting = [
   },
   {
     outlet: "CBS News",
-    headline: "Government expert on Elon Musk and DOGE's changes",
+    headline: "Government expert on Elon Musk and DOGE’s slash-and-burn exercise",
     href: "https://www.cbsnews.com/news/government-expert-on-elon-musk-and-doges-slash-and-burn-exercise/",
     context: "Report recalling the quote, with slightly different transcription · March 16, 2025",
   },
@@ -85,7 +85,7 @@ const reporting = [
   },
   {
     outlet: "The Guardian",
-    headline: "Live coverage of the Tesla display and questions",
+    headline: "Live White House coverage including the Tesla display",
     href: "https://www.theguardian.com/us-news/live/2025/mar/11/donald-trump-latest-us-politics-news-live",
     context: "White House coverage · March 11, 2025",
   },
@@ -103,19 +103,19 @@ const reporting = [
   },
   {
     outlet: "Bloomberg",
-    headline: "Trump shops for Teslas at White House to back Musk",
+    headline: "Trump shops for Teslas at White House to back Elon Musk",
     href: "https://www.bloomberg.com/news/articles/2025-03-11/trump-says-he-ll-buy-a-tesla-to-support-musk-after-shares-plunge",
     context: "Business reporting · March 11, 2025",
   },
   {
     outlet: "The Washington Post",
-    headline: "A new role for the South Lawn: Tesla car lot",
+    headline: "A new role for the South Lawn of Trump’s White House: Tesla car lot",
     href: "https://www.washingtonpost.com/politics/2025/03/11/trump-musk-tesla-white-house/",
     context: "On-scene reporting · March 11, 2025",
   },
   {
     outlet: "Politico",
-    headline: "White House prepares high-profile Tesla purchase",
+    headline: "White House prepares high-profile purchase of Tesla auto",
     href: "https://www.politico.com/news/2025/03/11/white-house-trump-purchase-tesla-auto-00224238",
     context: "Event preparations and political context · March 11, 2025",
   },
@@ -127,13 +127,13 @@ const reporting = [
   },
   {
     outlet: "The Independent",
-    headline: "Trump reverses his stance on EVs after Musk's support",
+    headline: "Trump flips stance on EVs after Musk’s support",
     href: "https://www.independent.co.uk/news/world/americas/us-politics/trump-elon-musk-tesla-ev-b2713975.html",
     context: "Event reporting and context · March 12, 2025",
   },
   {
     outlet: "Fox News",
-    headline: "Trump buys red Tesla Model S at White House",
+    headline: "Dems outraged by Trump ‘playing car salesman’ for Tesla",
     href: "https://www.foxnews.com/politics/corruption-broad-daylight-dems-outraged-rump-playing-car-salesman-tesla",
     context: "Reporting and political reactions · March 11, 2025",
   },
@@ -197,6 +197,58 @@ export default function EverythingsComputerPage() {
           </div>
         </section>
 
+        <section className={styles.pressPledge} id="why-journalism-matters" aria-labelledby="press-pledge-title">
+          <div className={styles.pressPledgeIntro}>
+            <p className={styles.overline}>Why this page exists</p>
+            <h2 id="press-pledge-title">
+              The joke travels fast. Evidence should travel with it.
+            </h2>
+            <p className={styles.pressPledgeDek}>
+              This is a small tribute to quality journalism, the people who document
+              public events, and the readers who take the trouble to check.
+            </p>
+          </div>
+          <div className={styles.pressPledgeBody}>
+            <p>
+              AI makes plausible text, images, audio, and viral claims faster and cheaper
+              to produce. Verification still takes effort. That makes accountable
+              reporting, original records, editorial scrutiny, and visible provenance
+              more important — not less.
+            </p>
+            <p>
+              We believe the interface should help. That&apos;s why this page separates
+              <strong> direct evidence of the exact quote</strong> from
+              <strong> independent reporting about the event</strong>.
+              We link to the publishers, credit the photographer, and make sources
+              discoverable without asking you to take our word for it.
+            </p>
+            <p className={styles.pressSupport}>
+              <strong>Support the work:</strong> Read the reporting at its source.
+              Follow journalists and outlets you trust, subscribe or contribute when
+              you can, and share the original link instead of an unsourced screenshot.
+              Journalism takes people, time, and resources.
+            </p>
+          </div>
+          <a
+            className={styles.essayFeature}
+            href="https://blog.nikdesign.ca/posts/designing-for-truth"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span className={styles.essayEyebrow}>Further reading · NikDesign Journal</span>
+            <span className={styles.essayTitle}>Designing for Truth</span>
+            <span className={styles.essaySummary}>
+              How UX can expose the origins of claims, reduce the friction of checking,
+              and teach people to notice misinformation. An essay built around the
+              SynFo research and the design of trustworthy information systems.
+            </span>
+            <span className={styles.essayAction}>
+              Read the essay <span aria-hidden="true">↗</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </span>
+          </a>
+        </section>
+
         <section className={styles.recordSection} aria-labelledby="verbatim-sources">
           <div className={styles.sectionHeading}>
             <div>
@@ -229,9 +281,10 @@ export default function EverythingsComputerPage() {
             <span>{String(reporting.length).padStart(2, "0")} reports</span>
           </div>
           <p className={styles.reportingNote}>
-            Independently reported coverage and newswire reporting about the March 11
-            White House Tesla event. These links document the occasion, not necessarily
-            the exact wording. Some stories are syndicated or behind subscriptions.
+            Reporting from multiple newsrooms on the March 11 White House Tesla event.
+            These links document the occasion, not necessarily the exact wording.
+            Some reports are syndicated and some require subscriptions. Visit the
+            original publishers and support the work that made this record possible.
           </p>
           <div className={styles.reportingGrid}>
             {reporting.map((source, index) => (
