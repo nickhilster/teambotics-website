@@ -21,6 +21,77 @@
 .context h2 { margin:0; max-width:590px; font-size:clamp(2.4rem,5vw,4.7rem); line-height:1.02; letter-spacing:-.07em; font-weight:560; }
 .context p:not(.overline) { margin:0 0 1.35rem; max-width:480px; color:#42584a; font-size:1.08rem; line-height:1.7; }
 .context strong { color:#172520; }
+.pressPledge {
+  margin: 0 0 clamp(5rem, 9vw, 8rem);
+  border-top: 2px solid #203b2b;
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+  background: #e9eee5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+.pressPledgeIntro h2 {
+  margin: 0 0 2rem;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  font-weight: 560;
+  letter-spacing: -.066em;
+  text-wrap: balance;
+}
+.pressPledgeDek {
+  margin: 0;
+  max-width: 520px;
+  font-size: clamp(1.18rem, 2vw, 1.5rem);
+  line-height: 1.45;
+  color: #40624d;
+}
+.pressPledgeBody {
+  color: #354c3b;
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+.pressPledgeBody p { margin: 0 0 1.3rem; }
+.pressPledgeBody strong { color: #172d20; }
+.pressSupport { padding-top: 1.5rem; border-top: 1px solid #c0cfbf; }
+.essayFeature {
+  display: flex;
+  flex-direction: column;
+  gap: .85rem;
+  grid-column: 1 / -1;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  color: #fff;
+  background: #193428;
+  text-decoration: none;
+  border: 1px solid #193428;
+  transition: background .2s ease;
+}
+.essayFeature:hover, .essayFeature:focus-visible { background: #2c5039; }
+.essayEyebrow {
+  color: #b5d8b6;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font: 650 .76rem/1.5 var(--font-geist-mono), monospace;
+}
+.essayTitle {
+  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -.065em;
+  font-weight: 560;
+}
+.essaySummary {
+  max-width: 750px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #d8e6d9;
+}
+.essayAction {
+  margin-top: .5rem;
+  align-self: flex-start;
+  font: 700 .9rem var(--font-geist-mono), monospace;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: .3rem;
+}
+
 .recordSection, .reportingSection { margin-bottom:clamp(5rem,9vw,8rem); }
 .sectionHeading { display:flex; align-items:end; justify-content:space-between; gap:1rem; flex-wrap:wrap; border-top:2px solid #203b2b; padding:1.5rem 0 2rem; }
 .sectionHeading h2 { margin:0; font-size:clamp(2rem,4.2vw,3.9rem); letter-spacing:-.062em; line-height:1.05; font-weight:560; }
@@ -52,6 +123,8 @@
 .notes strong { color:#213a2b; }
 .page a:focus-visible { outline:3px solid #2a754d; outline-offset:5px; }
 @media (max-width:850px) {
+  .pressPledge { grid-template-columns: 1fr; }
+  .essayFeature { grid-column: 1; }
   .context { grid-template-columns:1fr; gap:2rem; }
   .reportingGrid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
