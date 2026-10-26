@@ -2182,6 +2182,35 @@ html.dark .engagement-step__content {
   margin: 0;
 }
 
+.site-footer__ai-disclaimer {
+  width: 100%;
+  border-top: 1px solid var(--color-border);
+  padding: 1.25rem 0 0.9rem;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.site-footer__ai-disclaimer p {
+  margin: 0.25rem 0;
+}
+
+.site-footer__ai-disclaimer p:last-child {
+  font-weight: 600;
+}
+
+.site-footer__ai-disclaimer cite {
+  color: var(--color-text-secondary);
+  font-style: normal;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.site-footer__ai-disclaimer a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .site-footer__made {
   margin: 0;
   padding: 0.75rem 0 0;
