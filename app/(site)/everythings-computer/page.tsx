@@ -211,7 +211,8 @@ export default function EverythingsComputerPage() {
           <div className={styles.pressPledgeBody}>
             <p>
               AI makes plausible text, images, audio, and viral claims faster and cheaper
-              to produce. Verification still takes effort. That makes accountable
+              to produce. That accelerates both misinformation and deliberate disinformation.
+              Verification still takes effort. That makes accountable
               reporting, original records, editorial scrutiny, and visible provenance
               more important — not less.
             </p>
@@ -319,12 +320,13 @@ export default function EverythingsComputerPage() {
             <a href={PHOTO_SOURCE} target="_blank" rel="noopener noreferrer"> View image source and rights notice ↗</a>.
             Wikimedia Commons classifies this federal-government photo as U.S. public domain;
             its metadata also carries White House conditions against promotional or endorsement-implying uses.
-            This independent archival page does not imply endorsement by any pictured person,
+            This independent editorial archive does not imply endorsement by any pictured person,
             photographer, publisher, or government entity.
           </p>
           <p>
             The existence of media coverage is not an endorsement of this page by any listed outlet.
-            Article titles and links were checked on October 26, 2026. External links may change.
+            The bibliography was assembled and checked where accessible on October 26, 2026;
+            some publisher sites restrict automated inspection. External links and headlines may change.
           </p>
         </footer>
       </div>
