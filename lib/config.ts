@@ -2,6 +2,7 @@ import { products } from "@/lib/products";
 
 export const siteConfig = {
   name: "Teambotics",
+  tagline: "Learn. Commit. Push.",
   description:
     "Teambotics works with teams to make AI useful in real workflows, from mapping the work to building the missing bridge.",
   url: "https://www.teambotics.app",

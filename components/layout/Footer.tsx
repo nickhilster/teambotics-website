@@ -22,7 +22,7 @@ export function Footer() {
         className="site-footer__inner"
         style={{ alignItems: "flex-start", gap: "clamp(1.5rem, 4vw, 4rem)" }}
       >
-        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}>{isHome ? homeCopyright[locale] : messages.footer.copyright}</p>
+        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}><strong style={{ display: "block", marginBottom: ".5rem" }}>{siteConfig.tagline}</strong>{isHome ? homeCopyright[locale] : messages.footer.copyright}</p>
         <nav
           aria-label={messages.footer.navLabel}
           style={{
@@ -44,6 +44,22 @@ export function Footer() {
         </nav>
       </Container>
       <Container>
+        <section className="site-footer__ai-disclaimer" aria-label="AI disclaimer">
+          <p>
+            “Everything’s computer.”{" "}
+            <cite>
+              — <Link href="/everythings-computer" title="See the photographic and journalistic sources for this quote">
+                President of the United States of America, 2025
+              </Link>
+            </cite>
+          </p>
+          <p>
+            “Everything’s AI.”{" "}
+            <cite>— <a href="https://nikdesign.ca" target="_blank" rel="noopener noreferrer">
+              Teambotics, 2026<span className="sr-only"> (opens nikdesign.ca in a new tab)</span>
+            </a></cite>
+          </p>
+        </section>
         <p className="site-footer__made">{"\u2764\ufe0f"} {messages.footer.madeWith}</p>
       </Container>
     </footer>

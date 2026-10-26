@@ -11,7 +11,7 @@ const organizationStructuredData = {
     siteConfig.socials.linkedin,
     `https://x.com/${siteConfig.socials.x.replace(/^@/, "")}`,
   ],
-  slogan: "Made with love, empathy, and care.",
+  slogan: siteConfig.tagline,
   knowsAbout: [
     "Purpose-built products",
     "Workflow systems",
