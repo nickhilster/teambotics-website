@@ -22,7 +22,7 @@ export function Footer() {
         className="site-footer__inner"
         style={{ alignItems: "flex-start", gap: "clamp(1.5rem, 4vw, 4rem)" }}
       >
-        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}>{isHome ? homeCopyright[locale] : messages.footer.copyright}</p>
+        <p style={{ maxWidth: "36rem", lineHeight: 1.55 }}><strong style={{ display: "block", marginBottom: ".5rem" }}>{siteConfig.tagline}</strong>{isHome ? homeCopyright[locale] : messages.footer.copyright}</p>
         <nav
           aria-label={messages.footer.navLabel}
           style={{
