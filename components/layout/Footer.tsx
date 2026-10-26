@@ -48,20 +48,16 @@ export function Footer() {
           <p>
             “Everything’s computer.”{" "}
             <cite>
-              — <a
-                href="https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-tesla-vehicles-white-house-march-11-2025"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="March 11, 2025 transcript, 20:32–20:47"
-              >
+              — <Link href="/everythings-computer" title="See the photographic and journalistic sources for this quote">
                 President of the United States of America, 2025
-                <span className="sr-only"> (opens transcript in new tab)</span>
-              </a>
+              </Link>
             </cite>
           </p>
           <p>
             “Everything’s AI.”{" "}
-            <cite>— Teambotics, 2026</cite>
+            <cite>— <a href="https://nikdesign.ca" target="_blank" rel="noopener noreferrer">
+              Teambotics, 2026<span className="sr-only"> (opens nikdesign.ca in a new tab)</span>
+            </a></cite>
           </p>
         </section>
         <p className="site-footer__made">{"\u2764\ufe0f"} {messages.footer.madeWith}</p>
