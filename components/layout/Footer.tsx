@@ -44,6 +44,26 @@ export function Footer() {
         </nav>
       </Container>
       <Container>
+        <section className="site-footer__ai-disclaimer" aria-label="AI disclaimer">
+          <p>
+            “Everything’s computer.”{" "}
+            <cite>
+              — <a
+                href="https://rollcall.com/factbase/trump/transcript/donald-trump-press-gaggle-tesla-vehicles-white-house-march-11-2025"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="March 11, 2025 transcript, 20:32–20:47"
+              >
+                President of the United States of America, 2025
+                <span className="sr-only"> (opens transcript in new tab)</span>
+              </a>
+            </cite>
+          </p>
+          <p>
+            “Everything’s AI.”{" "}
+            <cite>— Teambotics, 2026</cite>
+          </p>
+        </section>
         <p className="site-footer__made">{"\u2764\ufe0f"} {messages.footer.madeWith}</p>
       </Container>
     </footer>
