@@ -3,6 +3,7 @@
 import { LeadCaptureForm } from "@/components/home/LeadCaptureForm";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { siteConfig } from "@/lib/config";
+import { Tagline } from "@/components/layout/Tagline";
 import styles from "./ConsultancyHome.module.css";
 
 const copy = {
@@ -171,7 +172,7 @@ export function ConsultancyHome() {
       <section className={styles.hero} aria-labelledby="home-title">
         <div className={styles.wrap}>
           <p className={styles.eyebrow}>{t.eyebrow}</p>
-          <p className={styles.brandTagline}>{siteConfig.tagline}</p>
+          <p className={styles.brandTagline}><Tagline /></p>
           <h1 id="home-title">{t.title}</h1>
           <p className={styles.lede}>{t.intro}</p>
           <div className={styles.actions}>
