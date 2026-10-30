@@ -212,9 +212,8 @@ export default function EverythingsComputerPage() {
             <p>
               AI makes plausible text, images, audio, and viral claims faster and cheaper
               to produce. That accelerates both misinformation and deliberate disinformation.
-              Verification still takes effort. That makes accountable
-              reporting, original records, editorial scrutiny, and visible provenance
-              more important — not less.
+              Checking still takes people, records, and time. So keep the receipts
+              attached to the claim: who said it, where, and who reported it first.
             </p>
             <p>
               We believe the interface should help. That&apos;s why this page separates
