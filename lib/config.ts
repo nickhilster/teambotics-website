@@ -6,7 +6,7 @@ export const siteConfig = {
   // The three dots (and only the dots) link to a page on the saying that inspired the line.
   taglineHref: "https://www.saada.org/tides/article/educate-agitate-organize",
   description:
-    "Teambotics works with teams to make AI useful in real workflows, from mapping the work to building the missing bridge.",
+    "Teambotics works with teams to make AI useful in real workflows, from mapping the work to building the missing piece.",
   url: "https://www.teambotics.app",
   socials: {
     x: "@teambotics",
