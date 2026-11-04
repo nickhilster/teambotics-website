@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repository = "nickhilster/muse-proposal";
-const revision = "527e902ceb0ddae1af378859471cae903bcf1342";
+const revision = "8ed0837da6d0583b13d165260d48a42846d2181d";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(root, "public", "muse");
 const apiUrl = `https://api.github.com/repos/${repository}/git/trees/${revision}?recursive=1`;
@@ -23,7 +23,7 @@ if (tree.truncated || !Array.isArray(tree.tree)) {
 const files = tree.tree
   .filter((entry) =>
     entry.type === "blob" &&
-    (entry.path === "index.html" || entry.path.startsWith("assets/") || entry.path.startsWith("docs/bob-")),
+    (entry.path === "index.html" || entry.path.startsWith("assets/") || entry.path.startsWith("docs/bob-") || entry.path.startsWith("seniors/")),
   )
   .map((entry) => entry.path)
   .sort();
