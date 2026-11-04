@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repository = "nickhilster/muse-proposal";
-const revision = "8ed0837da6d0583b13d165260d48a42846d2181d";
+const revision = "a4172cbd7d816ee1c40e755c0172b8fd4d9eee94";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDirectory = path.join(root, "public", "muse");
 const apiUrl = `https://api.github.com/repos/${repository}/git/trees/${revision}?recursive=1`;
