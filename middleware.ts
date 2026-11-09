@@ -17,12 +17,19 @@ export function middleware(request: NextRequest) {
   }
 
   const pathname = request.nextUrl.pathname;
+  const isSymphonyGuideAlias =
+    pathname === "/symphony-guide" || pathname.startsWith("/symphony-guide/");
+  const publicPath = isSymphonyGuideAlias
+    ? pathname.replace(/^\/symphony-guide(?=\/|$)/, "/symphony")
+    : pathname;
   const effectivePath =
-    targetRoute && !(pathname === targetRoute || pathname.startsWith(`${targetRoute}/`))
-      ? pathname === "/"
-        ? targetRoute
-        : `${targetRoute}${pathname}`
-      : pathname;
+    publicPath !== pathname
+      ? publicPath
+      : targetRoute && !(pathname === targetRoute || pathname.startsWith(`${targetRoute}/`))
+        ? pathname === "/"
+          ? targetRoute
+          : `${targetRoute}${pathname}`
+        : pathname;
 
   // AgentSurface: route "*.md" discovery requests to a dedicated internal handler.
   // A bare "/<path>.md" would otherwise collide with the existing [lang] dynamic

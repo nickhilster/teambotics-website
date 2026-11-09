@@ -20,10 +20,10 @@ export default function RecoveryPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Link href="/symphony" className={styles.brand}>SYMPHONY FIELD GUIDE</Link>
+        <Link href="/symphony-guide" className={styles.brand}>SYMPHONY FIELD GUIDE</Link>
         <nav aria-label="Recovery guide navigation">
-          <Link href="/symphony/first-15">First conversation</Link>
-          <Link href="/symphony/boundaries">Boundary map</Link>
+          <Link href="/symphony-guide/first-15">First conversation</Link>
+          <Link href="/symphony-guide/boundaries">Boundary map</Link>
         </nav>
       </header>
       <section className={styles.hero}>
@@ -53,9 +53,9 @@ export default function RecoveryPage() {
       <section className={styles.close}>
         <p className={styles.kicker}>BEFORE YOU CONTINUE</p>
         <h2>Correct the context. Verify the claim. Keep the decision with its owner.</h2>
-        <div><Link href="/symphony/boundaries">Use the boundary map →</Link><Link href="/symphony">Return to the public field guide →</Link></div>
+        <div><Link href="/symphony-guide/boundaries">Use the boundary map →</Link><Link href="/symphony-guide">Return to the public field guide →</Link></div>
       </section>
-      <footer className={styles.footer}><Link href="/symphony">← Symphony field guide</Link><span>Independent Teambotics publication.</span></footer>
+      <footer className={styles.footer}><Link href="/symphony-guide">← Symphony field guide</Link><span>Independent Teambotics publication.</span></footer>
     </main>
   );
 }

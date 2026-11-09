@@ -42,10 +42,10 @@ export default function BoundaryMapPage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Link href="/symphony" className={styles.brand}>SYMPHONY FIELD GUIDE</Link>
+        <Link href="/symphony-guide" className={styles.brand}>SYMPHONY FIELD GUIDE</Link>
         <nav aria-label="Boundary guide navigation">
-          <Link href="/symphony/first-15">First conversation</Link>
-          <Link href="/symphony/recovery">Recovery guide</Link>
+          <Link href="/symphony-guide/first-15">First conversation</Link>
+          <Link href="/symphony-guide/recovery">Recovery guide</Link>
         </nav>
       </header>
 
@@ -97,12 +97,12 @@ export default function BoundaryMapPage() {
         <p className={styles.kicker}>TEAM SYMPHONY / PRACTITIONER LAYER</p>
         <h2>Same map, deeper evidence.</h2>
         <p>The practitioner version should record what was actually observed: the request, source, proposed action, decision owner, approval, result, and correction. Do not present a template as an audit log unless the product records those events.</p>
-        <Link href="/symphony/operating">Read the practitioner operating model →</Link>
+        <Link href="/symphony-guide/operating">Read the practitioner operating model →</Link>
       </section>
 
       <footer className={styles.footer}>
-        <Link href="/symphony">← Symphony field guide</Link>
-        <Link href="/symphony/recovery">Open the recovery guide →</Link>
+        <Link href="/symphony-guide">← Symphony field guide</Link>
+        <Link href="/symphony-guide/recovery">Open the recovery guide →</Link>
         <span>Independent Teambotics publication.</span>
       </footer>
     </main>

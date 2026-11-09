@@ -1,241 +1,26 @@
 import Link from "next/link";
 import styles from "./symphony.module.css";
 
-const fieldNotes = [
-  {
-    number: "01",
-    label: "Adoption",
-    title: "The first 30 days with a business agent",
-    copy: "A small, observable progression from orientation to useful delegation. Start with the work, then earn the permissions.",
-  },
-  {
-    number: "02",
-    label: "Operating discipline",
-    title: "Why approval gates beat accidental autonomy",
-    copy: "A practical way to keep a human in the loop when an action can change a system, reach a person, or consume a scarce resource.",
-  },
-  {
-    number: "03",
-    label: "Economics",
-    title: "What a run costs—and what it is worth",
-    copy: "Credit literacy without false precision: make the tradeoff visible, batch the work, and spend when the outcome justifies it.",
-  },
+const evidence = [
+  ["Implemented / documented", "Chat-first operating rules, bounded handoffs, approval language, durable decision records, and a credit-spend policy are captured in the working repository."],
+  ["Designed / proposed", "Role separation, context flow, verification loops, and human responsibility boundaries are expressed as a system model for testing."],
+  ["Still being explored", "How much authority to delegate, how memory should travel between workspaces, and when a metered run earns its cost remain open product questions."],
 ];
-
-const operatingRules = [
-  ["Chat first", "Use conversation to think, scope, and brief before asking an agent to act."],
-  ["One task, one executor", "Give one bounded objective to one executor with a clear source of truth and stop condition."],
-  ["Permission is specific", "Approval belongs to the exact action, scope, and moment—not to a vague standing intention."],
-  ["Memory needs hygiene", "Keep durable decisions, temporary context, and unverified claims visibly separate."],
+const systemSteps = [
+  ["01", "Human intent", "A person names the purpose, context, and desired outcome."], ["02", "Agent advice", "Researchers, critics, and advisors help shape a bounded brief."], ["03", "Human judgment", "The human checks evidence, scope, cost, and consequences."], ["04", "Execution", "One named executor acts only within the approved boundary."], ["05", "Verification + memory", "The result is checked, then a decision or learning can persist."],
 ];
-
-const fieldNoteDetails = [
-  {
-    number: "01",
-    label: "ADOPTION / 30 DAYS",
-    title: "Earn the permissions",
-    paragraphs: [
-      "The first month should be a calibration loop, not a race to automate everything. Start with observation and briefing. Let the agent show how it handles context, uncertainty, and handoffs before expanding its remit.",
-      "A useful checkpoint is simple: can a new request arrive, become a bounded brief, and return with its evidence and next decision still visible? If not, widen the context before widening the authority.",
-    ],
-  },
-  {
-    number: "02",
-    label: "OPERATING DISCIPLINE / APPROVALS",
-    title: "A gate is part of the work",
-    paragraphs: [
-      "Approval is not friction added after the useful thinking. It is the boundary that makes the useful thinking safe to act on. The gate should name the exact action, the destination, the expected spend or external effect, and the stop condition.",
-      "A previous yes is not a blank cheque. If the scope, cost, balance, or evidence changes materially, bring the decision back with the new facts in view.",
-    ],
-  },
-  {
-    number: "03",
-    label: "ECONOMICS / CREDIT LITERACY",
-    title: "Spend for the decision it unlocks",
-    paragraphs: [
-      "The right question is rarely “can the agent do this?” It is “what decision will this run unlock, and is that decision worth the metered action?” Planning and briefing should happen before the paid step wherever the product permits it.",
-      "When the cost is not visible in advance, say so plainly. Batch related work, avoid retries without a fresh approval, and treat a surprising delta as a signal to pause and review rather than as a new baseline.",
-    ],
-  },
-];
-
-const starterUrl = "https://gist.github.com/nickhilster/44bc66fc618fb683ab6cdfb6d4cc3cf8";
-
-const onboardingWeeks = [
-  ["01", "Prove value", "Days 1–7", "Chat-first", "One useful first win, a clear approval rhythm, and zero metered surprises."],
-  ["02", "Establish the handoff loop", "Days 8–14", "Chat-first", "Turn conversation into briefs and artifacts that can move work forward."],
-  ["03", "Spend once, on purpose", "Days 15–21", "Supervised", "Try one tightly scoped metered action with an explicit yes and verified outcome."],
-  ["04", "Widen by evidence", "Days 22–30", "Evidence-led", "Expand only the named permissions that the first three weeks earned."],
-];
+const learnings = [["Advice is not authority", "A useful recommendation and permission to act are different product states."], ["Memory is a design surface", "Durable decisions, temporary context, and unverified claims need different treatment."], ["Economics changes the interaction", "Credits and uncertain metering make batching, previews, and stop conditions part of UX."], ["A pivot is evidence", "The move from agent novelty to operating discipline made the real design problem more visible."]];
 
 export default function SymphonyPage() {
-  return (
-    <main className={styles.site}>
-      <header className={styles.header}>
-        <Link className={styles.wordmark} href="/" aria-label="Teambotics home">
-          <span className={styles.wordmarkMark} aria-hidden="true">T</span>
-          <span>TEAMBOTICS</span>
-        </Link>
-        <nav className={styles.nav} aria-label="Symphony guide navigation">
-          <a href="#playbook">Playbook</a>
-          <a href="#notes">Field notes</a>
-          <Link href="/symphony/boundaries">Boundary map</Link>
-          <Link href="/symphony/recovery">Recovery guide</Link>
-          <a href="#exploration">Exploration</a>
-        </nav>
-        <span className={styles.headerTag}>PUBLIC FIELD GUIDE / 01</span>
-      </header>
-
-      <section className={styles.hero}>
-        <div className={styles.heroCopy}>
-          <p className={styles.kicker}>A Teambotics working library</p>
-          <h1>Make the operating layer earn its place.</h1>
-          <p className={styles.lede}>
-            A practical field guide for getting lasting value from Symphony after signup: clearer briefs, cleaner handoffs, better memory, and deliberate execution.
-          </p>
-          <div className={styles.heroActions}>
-            <a className={styles.primaryAction} href={starterUrl}>Paste starter into Maestro <span aria-hidden="true">↗</span></a>
-            <a className={styles.textAction} href="#notes">Browse field notes</a>
-          </div>
-        </div>
-        <div className={styles.heroDiagram} aria-label="A diagram showing context, judgment, and execution connected in sequence" role="img">
-          <div className={styles.diagramGrid} />
-          <div className={`${styles.node} ${styles.nodeTop}`}><span>01</span><strong>CONTEXT</strong><small>what is true?</small></div>
-          <div className={`${styles.node} ${styles.nodeRight}`}><span>02</span><strong>JUDGMENT</strong><small>what is worth doing?</small></div>
-          <div className={`${styles.node} ${styles.nodeBottom}`}><span>03</span><strong>EXECUTION</strong><small>what is approved?</small></div>
-          <svg className={styles.diagramLines} viewBox="0 0 500 500" aria-hidden="true">
-            <path d="M250 110 C375 120 400 215 355 295" />
-            <path d="M355 325 C310 410 180 415 140 330" />
-            <path d="M125 290 C75 205 120 125 220 108" />
-          </svg>
-          <p className={styles.diagramCaption}>A useful agentic system is a loop, not a button.</p>
-        </div>
-      </section>
-
-      <section className={styles.statement}>
-        <p className={styles.sectionLabel}>THE THESIS</p>
-        <p className={styles.statementText}>The signup is the beginning. The compounding value comes from a way of working.</p>
-      </section>
-
-      <section className={styles.firstWin} id="first-win">
-        <div>
-          <p className={styles.sectionLabel}>THE FIRST 15 MINUTES</p>
-          <h2>Proactive thinking. Gated doing.</h2>
-        </div>
-        <div className={styles.firstWinCopy}>
-          <p>Start with one user-initiated paste from the starter. Maestro should open on a specific observation from that context, produce one prioritized next move, and leave the user holding a useful draft or brief.</p>
-          <p>The first win stays in chat. Anything that spends credits, reaches another person, calls a connector, or creates an external side effect waits behind an explicit approval gate.</p>
-          <p className={styles.failureRamp}><strong>If the paste does not work:</strong> resend it as one message with the context filled in, ask Maestro to remain chat-only, and stop if the response still does not follow the format.</p>
-          <a className={styles.inlineCta} href={starterUrl}>Copy the one-message starter <span aria-hidden="true">↗</span></a>
-          <Link className={styles.inlineCta} href="/symphony/first-15">Read the first-conversation walkthrough <span aria-hidden="true">→</span></Link>
-          <Link className={styles.inlineCta} href="/symphony/boundaries">Open the one-screen boundary map <span aria-hidden="true">→</span></Link>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.firstWinKit}`} aria-labelledby="first-win-kit-heading">
-        <div className={styles.sectionIntro}>
-          <p className={styles.sectionLabel}>FIRST WIN KIT / START HERE</p>
-          <h2 id="first-win-kit-heading">One small loop. Then decide.</h2>
-          <p>This visual is a storyboard for the first conversation, not a recording of Symphony’s current interface. It shows the learning sequence without making claims about what the product will return.</p>
-        </div>
-        <ol className={styles.kitSteps}>
-          <li><span>01</span><strong>Open</strong><small>Start a new conversation.</small></li>
-          <li><span>02</span><strong>Copy</strong><small>Use the one-paste starter.</small></li>
-          <li><span>03</span><strong>Paste + send</strong><small>Give one real, bounded problem.</small></li>
-          <li><span>04</span><strong>Correct</strong><small>Fix a wrong assumption or add context.</small></li>
-          <li><span>05</span><strong>Keep / stop</strong><small>Use the result in chat, or pause before an action.</small></li>
-        </ol>
-        <aside className={styles.boundaryCard}>
-          <div><span className={styles.sectionLabel}>BEFORE THE NEXT STEP</span><h3>Check three separate things.</h3></div>
-          <ul>
-            <li><strong>Resource:</strong> could this consume credits or another limited resource?</li>
-            <li><strong>Effect:</strong> could it contact someone or change something outside this conversation?</li>
-            <li><strong>Permission:</strong> who must approve the exact action, and what should happen if the answer is unclear?</li>
-          </ul>
-          <p>If any answer is unknown, pause and ask for the proposed action and its expected effects before deciding.</p>
-        </aside>
-        <p className={styles.kitFootnote}>The guide does not establish Symphony’s live metering or approval behavior. Check the current product flow; treat unclear cost, effect, or permission as unknown.</p>
-      </section>
-
-      <section className={styles.section} id="playbook">
-        <div className={styles.sectionIntro}>
-          <p className={styles.sectionLabel}>ADOPTION PLAYBOOK</p>
-          <h2>Four weeks. One trust curve.</h2>
-          <p>Week 1 is the first-class funnel. Weeks 1–2 are chat and handoff work; the rest of the month earns the right to widen the leash by evidence.</p>
-        </div>
-        <div className={styles.weeks}>
-          {onboardingWeeks.map(([number, title, days, mode, copy]) => (
-            <article className={`${styles.week} ${number === "01" ? styles.weekFeatured : ""}`} key={number}>
-              <span>{number}</span><small>{days}</small><em>{mode}</em><h3>{title}</h3><p>{copy}</p>
-            </article>
-          ))}
-        </div>
-        <div className={styles.weekOneDetail}>
-          <span className={styles.sectionLabel}>WEEK 01 / DAY 01 → DAYS 2–7</span>
-          <p><strong>Day 1:</strong> one specific observation, one prioritized next move, one useful artifact. <strong>Days 2–7:</strong> a single recommended next move, the first handoff artifact, continuity on a stalled thread, and a short free review. The Week 1 output becomes the brief that Week 2 hands forward.</p>
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.notesSection}`} id="notes">
-        <div className={styles.sectionIntro}>
-          <p className={styles.sectionLabel}>FIELD NOTES</p>
-          <h2>Lessons for the working day.</h2>
-          <p>Short, source-aware essays and templates for operators who want useful autonomy without losing the plot.</p>
-        </div>
-        <div className={styles.noteGrid}>
-          {fieldNotes.map((note) => (
-            <article className={styles.noteCard} key={note.number}>
-              <div className={styles.noteMeta}><span>{note.number}</span><span>{note.label}</span></div>
-              <h3>{note.title}</h3>
-              <p>{note.copy}</p>
-              <a className={styles.readMore} href={`#note-${note.number}`}>Read the note <span aria-hidden="true">↘</span></a>
-            </article>
-          ))}
-        </div>
-        <div className={styles.noteDetails}>
-          {fieldNoteDetails.map((note) => (
-            <article className={styles.noteDetail} id={`note-${note.number}`} key={note.number}>
-              <div className={styles.noteDetailMeta}><span>{note.number}</span><span>{note.label}</span></div>
-              <div>
-                <h3>{note.title}</h3>
-                {note.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.rules}>
-        <div className={styles.ruleIntro}>
-          <p className={styles.sectionLabel}>THE OPERATING LAYER</p>
-          <h2>Good systems make the next decision easier.</h2>
-        </div>
-        <div className={styles.ruleList}>
-          {operatingRules.map(([title, copy], index) => (
-            <div className={styles.rule} key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{copy}</p></div></div>
-          ))}
-        </div>
-      </section>
-
-      <section className={`${styles.section} ${styles.exploration}`} id="exploration">
-        <div className={styles.explorationMark}>?</div>
-        <div>
-          <p className={styles.sectionLabel}>OPEN EXPLORATION</p>
-          <h2>Could a relationship layer and an operating layer make each other better?</h2>
-          <p>This is a question, not an integration claim. Boardy × Symphony is an early hypothesis worth testing at the boundary between “who” and “what happens next.”</p>
-          <span className={styles.status}>HYPOTHESIS / NOT A PARTNERSHIP</span>
-        </div>
-      </section>
-
-      <section className={styles.contextBridge}>
-        <span className={styles.sectionLabel}>BUILDING WITH SYMPHONY?</span>
-        <Link href="/symphony/operating">See the practitioner operating model →</Link>
-      </section>
-
-      <footer className={styles.footer}>
-        <div><span className={styles.footerTitle}>SYMPHONY FIELD GUIDE</span><span className={styles.footerNote}>An independent Teambotics publication.</span></div>
-        <div className={styles.footerLinks}><Link href="/">Teambotics</Link><a href="#top">Back to top ↑</a></div>
-      </footer>
-    </main>
-  );
+  return <main className={styles.site}>
+    <header className={styles.header}><Link className={styles.wordmark} href="/" aria-label="Teambotics home"><span className={styles.wordmarkMark} aria-hidden="true">T</span><span>TEAMBOTICS</span></Link><nav className={styles.nav} aria-label="Symphony case study navigation"><a href="#story">Case study</a><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#learnings">Learnings</a><Link href="/symphony-guide/boundaries">Boundary map</Link></nav><span className={styles.headerTag}>LIVING PRODUCT-DESIGN CASE STUDY</span></header>
+    <section className={styles.hero}><div className={styles.heroCopy}><p className={styles.kicker}>SYMPHONY / AN AI PRODUCT-DESIGN EXPERIMENT</p><h1>When agents become participants in product work.</h1><p className={styles.lede}>Symphony explores how a product team changes when AI agents can research, critique, advise, and execute—and what humans must remain responsible for as that capability grows.</p><div className={styles.heroActions}><a className={styles.primaryAction} href="#story">Trace the experiment <span aria-hidden="true">↓</span></a><Link className={styles.textAction} href="/symphony-guide/first-15">See the first-conversation walkthrough →</Link></div></div><div className={styles.heroDiagram} role="img" aria-label="Human intent moves through agent advice, judgment, execution, and verification before becoming durable knowledge"><div className={styles.diagramGrid}/><svg className={styles.diagramLines} viewBox="0 0 500 500" aria-hidden="true"><path d="M250 100 C390 120 415 220 350 300"/><path d="M350 330 C300 420 180 420 135 335"/><path d="M120 295 C65 205 120 115 220 100"/></svg><div className={`${styles.node} ${styles.nodeTop}`}><span>01</span><strong>INTENT</strong><small>human purpose</small></div><div className={`${styles.node} ${styles.nodeRight}`}><span>02</span><strong>JUDGMENT</strong><small>evidence + scope</small></div><div className={`${styles.node} ${styles.nodeBottom}`}><span>03</span><strong>VERIFY</strong><small>memory + learning</small></div><p className={styles.diagramCaption}>The interesting product is the boundary between capability and responsibility.</p></div></section>
+    <section className={styles.thesis} id="story"><p className={styles.sectionLabel}>THE QUESTION</p><h2>What happens to the product-development lifecycle when the team includes agents?</h2><p>Not “can an agent do the work?” The design question is where intent originates, where judgment happens, how context moves, who approves consequences, and how the team remembers what it learned.</p></section>
+    <section className={styles.storySection}><div className={styles.sectionIntro}><p className={styles.sectionLabel}>WHY → PROBLEM → HYPOTHESIS</p><h2>The pivot made the real problem visible.</h2><p>Symphony began with the promise of a multi-agent operating layer. Working through the idea exposed a more important challenge: coordination, authority, context, and verification matter more than the number of agents.</p></div><div className={styles.timeline}><article><span>01 / ORIGIN</span><h3>Agent capability was the starting point.</h3><p>Could a team of specialized agents make research, critique, planning, and execution feel like a coherent system?</p></article><article className={styles.timelinePivot}><span>02 / OBSERVATION</span><h3>Capability without boundaries creates ambiguity.</h3><p>Advice can look like authorization. Context can disappear between conversations. Metered actions make “just try it” a consequential product choice.</p></article><article><span>03 / PIVOT</span><h3>Design the operating layer first.</h3><p>The current experiment focuses on explicit handoffs, durable records, approval gates, and evidence-led expansion of authority.</p></article></div></section>
+    <section className={styles.systemSection} id="system"><div className={styles.sectionIntro}><p className={styles.sectionLabel}>CURRENT SYSTEM MODEL</p><h2>Human purpose. Agent leverage. Human responsibility.</h2><p>This is a model of the current design direction—not a claim that every step is automated in the live product.</p></div><div className={styles.systemGrid}>{systemSteps.map(([number,title,copy])=><article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div><div className={styles.responsibility}><div><p className={styles.sectionLabel}>RESPONSIBILITY MAP</p><h3>The human does not disappear from the loop.</h3></div><ul><li><strong>Intent</strong> originates with the human.</li><li><strong>Advice</strong> can be delegated.</li><li><strong>Approval</strong> belongs to the exact action.</li><li><strong>Verification</strong> returns to the human and the record.</li></ul></div></section>
+    <section className={styles.evidenceSection} id="evidence"><div className={styles.sectionIntro}><p className={styles.sectionLabel}>CLAIM HYGIENE</p><h2>What is real, what is designed, what is unknown.</h2><p>The boundary is part of the case study. It prevents a compelling system diagram from becoming an unsupported product claim.</p></div><div className={styles.evidenceGrid}>{evidence.map(([label,copy])=><article key={label}><span>{label}</span><p>{copy}</p></article>)}</div><div className={styles.artifactLinks}><Link href="/symphony-guide/boundaries">Open the boundary map →</Link><Link href="/symphony-guide/recovery">Read the recovery guide →</Link><Link href="/symphony-guide/operating">See the practitioner model →</Link></div></section>
+    <section className={styles.learningsSection} id="learnings"><div className={styles.sectionIntro}><p className={styles.sectionLabel}>OBSERVATION → LEARNING</p><h2>The product is also the test harness.</h2><p>Each operating rule is a hypothesis about how people and agents can work together without confusing fluency for reliability.</p></div><div className={styles.learningGrid}>{learnings.map(([title,copy],index)=><article key={title}><span>0{index+1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
+    <section className={styles.nextSection}><div className={styles.explorationMark}>?</div><div><p className={styles.sectionLabel}>NEXT QUESTION</p><h2>How much authority can a system earn by evidence?</h2><p>The next experiment is not full autonomy. It is a measurable handoff: a bounded brief, a visible decision, one approved action, and a verified record of what happened.</p><span className={styles.status}>OPEN / TESTABLE / NOT A PRODUCTION CLAIM</span></div></section>
+    <footer className={styles.footer}><div><span className={styles.footerTitle}>SYMPHONY</span><span className={styles.footerNote}>An independent Teambotics product-design experiment.</span></div><div className={styles.footerLinks}><Link href="/">Teambotics</Link><a href="#top">Back to top ↑</a></div></footer>
+  </main>;
 }

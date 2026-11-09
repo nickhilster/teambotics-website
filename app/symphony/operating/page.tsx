@@ -23,7 +23,7 @@ export default function OperatingModelPage() {
   return (
     <main className={styles.site}>
       <header className={styles.header}>
-        <Link className={styles.wordmark} href="/symphony" aria-label="Symphony field guide home">SYMPHONY / TEAMBOTICS</Link>
+        <Link className={styles.wordmark} href="/symphony-guide" aria-label="Symphony field guide home">SYMPHONY / TEAMBOTICS</Link>
         <span className={styles.headerTag}>TEAM SYMPHONY / PRACTITIONER NOTES</span>
       </header>
 
@@ -45,7 +45,7 @@ export default function OperatingModelPage() {
 
       <section className={styles.notice}>
         <span className={styles.label}>READING NOTE</span>
-        <p>This version is for people building or studying an operating model around Symphony. See the public <Link href="/symphony/boundaries">Boundary Map</Link> for the concise user checklist. New to Symphony and looking for your first 15 minutes? <Link href="/symphony">Start with the newcomer guide →</Link></p>
+        <p>This version is for people building or studying an operating model around Symphony. See the public <Link href="/symphony-guide/boundaries">Boundary Map</Link> for the concise user checklist. New to Symphony and looking for your first 15 minutes? <Link href="/symphony-guide">Start with the newcomer guide →</Link></p>
       </section>
 
       <section className={styles.section}>
@@ -81,10 +81,10 @@ export default function OperatingModelPage() {
 
       <section className={styles.notice} aria-label="Podcast series roadmap">
         <span className={styles.label}>SERIES ROADMAP</span>
-        <p>The six-episode foundation, persona lanes, and recording discipline for the independent Teambotics audio series. <Link href="/symphony/podcast-series-roadmap.html">Read the podcast roadmap →</Link></p>
+        <p>The six-episode foundation, persona lanes, and recording discipline for the independent Teambotics audio series. <Link href="/symphony-guide/podcast-series-roadmap.html">Read the podcast roadmap →</Link></p>
       </section>
 
-      <footer className={styles.footer}><Link href="/symphony">← New-user guide</Link><span>Independent Teambotics publication / not an official Symphony or Wix document</span></footer>
+      <footer className={styles.footer}><Link href="/symphony-guide">← New-user guide</Link><span>Independent Teambotics publication / not an official Symphony or Wix document</span></footer>
     </main>
   );
 }

@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Symphony Field Guide",
+  title: "Symphony — An AI Product-Design Experiment",
   description:
-    "A public field guide from Teambotics for adopting a multi-agent operating layer with clarity, evidence, and deliberate execution.",
+    "A living Teambotics case study exploring how AI agents change product-development work, responsibility, handoffs, and decision-making.",
   alternates: {
-    canonical: "https://symphony.teambotics.app",
+    canonical: "https://symphony.teambotics.app/symphony-guide",
   },
   openGraph: {
-    title: "Symphony Field Guide | Teambotics",
+    title: "Symphony — An AI Product-Design Experiment | Teambotics",
     description:
-      "A public field guide for adopting a multi-agent operating layer with clarity, evidence, and deliberate execution.",
-    url: "https://symphony.teambotics.app",
+      "A living case study exploring how AI agents change product-development work, responsibility, handoffs, and decision-making.",
+    url: "https://symphony.teambotics.app/symphony-guide",
   },
 };
 
