@@ -3893,6 +3893,18 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
 
   .site-header__meta {
     gap: 0.5rem;
+    min-width: 0;
+  }
+
+  /* TBW-008: at 200% text size the header meta cluster must be able to
+     shrink instead of pushing the page sideways. */
+  .site-header .language-switcher {
+    min-width: 0;
+  }
+
+  .site-header .language-switcher__select {
+    min-width: 0;
+    max-width: 24vw;
   }
 
   .site-logo {
@@ -4322,12 +4334,12 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   --color-bg-elevated: #e9eee3;
   --color-text-primary: #193127;
   --color-text-secondary: #4d6256;
-  --color-text-tertiary: #617669;
+  --color-text-tertiary: #5b7263;
   --color-border: #c9d3c7;
   --color-border-strong: #aebdaf;
   --color-accent: #315642;
   --color-accent-bright: #315642;
-  --color-accent-muted: #617669;
+  --color-accent-muted: #5b7263;
   --color-live: #44634d;
   --color-pilot: #44634d;
   --color-glow: rgba(49, 86, 66, 0.12);
@@ -4564,7 +4576,7 @@ html.dark .site-shell:has(.product-case-study) .product-case-study .button--prim
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.15em;
-  color: #617669;
+  color: #5b7263;
 }
 
 html.dark .product-case-study .section-eyebrow {
@@ -4596,7 +4608,7 @@ html.dark .product-case-study .section-eyebrow {
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: #617669;
+  color: #5b7263;
 }
 
 html.dark .product-case-study .product-focus-card__label,
