@@ -128,3 +128,35 @@ PR #41 (Chat pill + tap targets) is held open because the pill still overlaps th
 - `styles/globals.css` is 4,300+ lines and the product block is interleaved with dark-theme variants — budget the CSS archaeology honestly; the flash is fast because the *template* is singular, not because the stylesheet is small.
 - The consultancy module CSS is scoped and self-contained; resist "just import it" — the product template's class names and structure differ. Map tokens, don't transplant classes.
 - Per-product brand colours were the most likely place for quiet scope creep; D5 closed it — alignment is absolute, one system, no per-product accents.
+
+## Phase 0 deliverables (completed 2026-11-10)
+
+### Token / pattern mapping (approved by the D1–D5 decisions)
+
+| Product-page pattern (before) | Landing equivalent applied |
+|---|---|
+| Page bg `#f7f8ff`, shell gradient wash (pink/blue radials) | Paper `#f2f3ec` + one faint sage radial (landing hero tint `#e3e8d8`) |
+| Accent magenta `#b52d96` / bright `#f062c0`, pilot blue `#456bff`, live teal `#118c7a` | Green family only: ink `#193127`, primary green `#315642`, sage `#617669`, tag green `#44634d` (D5: no other hues) |
+| Text `#151935` / `#596188` / `#838bb1` | `#193127` / `#4d6256` / `#617669` |
+| Borders `rgba(86,96,164,.16/.28)` | `#c9d3c7` / strong `#aebdaf` |
+| Dark theme `#070b1a` navy, accent `#ff4db8` | Dark greens: page `#121c15`, surface `#182620`, elevated `#1e2f24`, text `#edf3ea`/`#b7c7ba`, accent `#a9c6b0` (D2) |
+| Header (shared lavender chrome) | Cream `#fbfaf5` header, ink text; dark: `#14231a` (D3 full) |
+| Footer / land strip (shared light chrome) | Solid `#193127`, pale green text; dark: `#0b120d` (D3 full) |
+| Chat toggle (magenta gradient pill) | Solid `#315642`; on mobile (≤600px) the widget is in-flow on a green strip, exactly as on the landing page (D3) |
+| Hero (layered accent gradients) | Flat surface + faint sage radial; title weight 700 → 550, spacing −.055em → −.065em, line-height .9 → .98 |
+| Tag + status badge (glass pills, shadows, pulsing live dot, blue build/pilot) | Flat mono tags: 1px strong border, square, transparent bg, no shadow, dot removed, one green for every status (D5) |
+| Buttons (global translucent neon-border pill-ish, animated) | Scoped (D4): primary solid ink rectangle (hover `#315642`; dark `#3d6a4e`), ghost transparent with ruled border, square, min-height 52px, no animation/backdrop blur; global `.button` untouched |
+| Hero actions on mobile (full-width stacked) | Auto-width, row-wrap (landing pattern) — also removes the TBW-006 "All products" coverage geometry |
+| Focus/detail cards (1.5rem radius, gradient tint, glow shadow) | Flat surface `#fbfaf5`, 1px ruled border, square, no shadow |
+| Card/stack labels (sans, accent colour) | Geist Mono, sage, .68rem, letterspaced |
+| Section eyebrows (sans .625rem, accent) / titles (weight 700) | Mono .72rem sage / weight 550, −.055em |
+| Chips (pill, translucent surface) | Square, transparent, ruled border |
+| Proof-list check icon (live teal) | Green via scoped `--color-live: #44634d` |
+
+Implementation shape: one scoped block appended to `styles/globals.css` keyed on `.site-shell:has(.product-case-study)` (tokens + chrome) and `.product-case-study` (page body), plus a wrapper class in `ProductCaseStudyContent.tsx`. Base product rules are not edited, so the change is one reviewable, removable layer.
+
+### Legacy-route inventory (1280px renders captured 2026-11-10, pre-build)
+
+Rendered and eyeballed: `/` (landing, reference), `/easybuddy`, `/financebuddy`, `/poko`, `/symphony`, `/BOSS`, `/about`, `/everythings-computer`, `/products/ryfine` (target). All except the landing run the pre-overhaul system, as expected — they are the follow-on decision set, not this flash's scope.
+
+Corrections to the spec's earlier inventory guesses: `/MdownManager`, `/RedactorBuddy` and `/feedbackfish` are **308 redirects off-site** (to mdownmanager.com, redactorbuddy.com, nikdesign.ca/feedbackfish) — there is no on-site surface to align, despite page files existing in `app/`. (The standalone `app/MdownManager/page.tsx` does reference the global button classes, but the route redirects before it can render.) Screenshots are kept with the TBW-007 working files (`~/workspace/review-pr41/tbw007/inventory/`).
