@@ -1,0 +1,21 @@
+# RyFine CI Context
+
+> Last updated: 2026-07-17T15:22:51Z · commit `c270389` · RyFineCI process v1
+
+## Overview
+teambotics-website is the public marketing/product site for Teambotics, a company built around applied AI systems and workflow automation. It currently showcases RyFine (ryfine.app) as its flagship product, featured prominently on the homepage. The site is a Next.js app deployed on Vercel.
+
+## Architecture
+`app/` holds Next.js App Router routes: a main marketing site under `(site)`, localized routes under `[lang]`, plus `admin` and `api` routes, and several standalone product sub-apps (`MdownManager`, `RedactorBuddy`, `dyknow`, `easybuddy`, `feedbackfish`, `nonprofit-application`) — these are independent mini-apps living inside `app/`, not part of the main marketing flow. `blog/` is a separate Astro sub-project with its own `package.json`, lockfile, and `node_modules` — treat it as a distinct app, not a folder of the Next.js site. `components/` is organized by domain (`home`, `products`, `chatbot`, `content`, `layout`, `theme`, `ui`, `admin`, `animation`, `seo`, `visitor`); the RyFine homepage integration lives in `components/home/RyfineFlagshipSection.tsx`. `lib/` holds shared logic: i18n (`lib/i18n`), blog helpers (`lib/blog`), chat/AI (`lib/chat`), Neon DB access (`lib/neon.ts`), leads, products, and admin auth (`adminAuth.ts`). `scripts/` contains build/content tooling (translation sync/bootstrap, blog seeding, GitHub knowledge ingestion). `docs/` has architecture, product, and policy docs. `.tracker/` is the issue tracker (see Conventions). `public/media/` holds static assets such as the RyFine banner SVG.
+
+## Stack
+Next.js 16.2.6, React 19.2.4 / react-dom 19.2.4, TypeScript 5, Tailwind CSS 4, Framer Motion 12, Lucide React icons, Geist font. OpenAI SDK 6, `@neondatabase/serverless` (Neon Postgres), `@octokit/rest` (GitHub). Markdown via `react-markdown` + `remark-gfm`. Analytics via `@vercel/analytics` and `@vercel/speed-insights`. Tooling: pnpm workspace (do not use npm/yarn), ESLint 9, Vitest 4 for unit tests, Playwright 1.59 + axe-core for e2e/a11y.
+
+## Conventions
+Issue tracking lives in `.tracker/issues/*.md` (one file per issue, migrated in full fidelity from Linear, which this tracker replaces for this project). Source of truth is `.tracker/issues/<ID>.md`; the human-readable board is `.tracker/board.html` (regenerate with `node .tracker/generate.js` after editing issue files); schema reference is `.tracker/ISSUE_SCHEMA.md`. Agents must use this tracker, not Linear, for issue lookup/creation/updates. Commit messages follow a scoped conventional style (`feat:`, `refactor:`, `docs:`). Localization lives under `lib/i18n` and the `[lang]` route segment — don't hand-edit generated translation artifacts; run the sync scripts instead. Tests: Vitest for unit tests (co-located `*.test.ts`), Playwright for e2e (`e2e/` dir, `playwright.config.ts`). Lint/type config lives in `eslint.config.mjs` and `tsconfig.json`.
+
+## Entry points
+Install with `pnpm install`. Dev server: `pnpm dev` (Next dev, typically `localhost:3000`). Build: `pnpm build` (runs `prebuild` → `pnpm translations:sync` first). Start: `pnpm start`. Quality gates to run before merge/deploy: `pnpm translations:check`, `pnpm lint`, `pnpm typecheck` (runs `pretypecheck` → `translations:check`), `pnpm test` (Vitest), `pnpm build`, and `pnpm test:e2e` (Playwright) for e2e. Content/translation scripts: `pnpm translations:bootstrap`, `pnpm translations:sync`, `pnpm content:watch`, `pnpm content:sync`. Seeding scripts: `pnpm chat:seed`, `pnpm blog:seed`.
+
+## Gotchas
+`prebuild` and `pretypecheck` auto-run translation sync/check — invoking `next build` directly outside the pnpm scripts can skip this and leave stale translation content. The `blog/` directory is a nested, independently-managed Astro project with its own dependency tree; changes there don't flow through the main site's build. Several unrelated standalone mini-apps live under `app/` alongside the main site routes, so `app/` is not a single cohesive application — check which sub-app a file belongs to before assuming shared conventions apply. The issue tracker fully replaces Linear for this repo; do not query or write to Linear for task tracking here.
