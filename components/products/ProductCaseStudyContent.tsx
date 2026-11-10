@@ -24,7 +24,7 @@ export function ProductCaseStudyContent({ slug }: ProductCaseStudyContentProps) 
   }
 
   return (
-    <>
+    <div className="product-case-study">
       <section className="product-hero">
         <Container className="product-hero__inner">
           <SectionReveal>
@@ -146,6 +146,6 @@ export function ProductCaseStudyContent({ slug }: ProductCaseStudyContentProps) 
           </div>
         </Container>
       </section>
-    </>
+    </div>
   );
 }

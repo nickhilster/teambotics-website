@@ -4305,3 +4305,314 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
   color: var(--color-text-secondary);
   text-decoration-color: var(--color-accent);
 }
+/* ============================================================
+   TBW-007 — Product pages on the landing page's visual system.
+   Decisions (Nik, 2026-11-10): D1 landing is the source of truth;
+   D2 dark theme re-derived from the green palette; D3 full chrome;
+   D4 buttons scoped to product pages (global .button untouched);
+   D5 alignment absolute (no per-product accents).
+   Everything below is scoped to shells containing .product-case-study,
+   following the .consultancy-home scoping precedent above.
+   ============================================================ */
+
+/* -- Token layer (light) -- */
+.site-shell:has(.product-case-study) {
+  --color-bg-page: #f2f3ec;
+  --color-bg-surface: #fbfaf5;
+  --color-bg-elevated: #e9eee3;
+  --color-text-primary: #193127;
+  --color-text-secondary: #4d6256;
+  --color-text-tertiary: #617669;
+  --color-border: #c9d3c7;
+  --color-border-strong: #aebdaf;
+  --color-accent: #315642;
+  --color-accent-bright: #315642;
+  --color-accent-muted: #617669;
+  --color-live: #44634d;
+  --color-pilot: #44634d;
+  --color-glow: rgba(49, 86, 66, 0.12);
+  --color-card-glow: rgba(25, 49, 39, 0.05);
+  --color-flame-a: #315642;
+  --color-flame-b: #44634d;
+  --color-flame-c: #6f8978;
+  /* Inherited text colour must be set inside the scope: body sits outside
+     .site-shell, so elements without their own colour rule would otherwise
+     keep the root navy. */
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 85% 15%, #e3e8d8 0, transparent 35%),
+    var(--color-bg-page);
+}
+
+/* -- Token layer (dark, re-derived from the green palette) -- */
+html.dark .site-shell:has(.product-case-study) {
+  --color-bg-page: #121c15;
+  --color-bg-surface: #182620;
+  --color-bg-elevated: #1e2f24;
+  --color-text-primary: #edf3ea;
+  --color-text-secondary: #b7c7ba;
+  --color-text-tertiary: #8fa695;
+  --color-border: #2f4a38;
+  --color-border-strong: #46644e;
+  --color-accent: #a9c6b0;
+  --color-accent-bright: #d3e6d6;
+  --color-accent-muted: #8fa695;
+  --color-live: #a9c6b0;
+  --color-pilot: #a9c6b0;
+  --color-glow: rgba(169, 198, 176, 0.1);
+  --color-card-glow: rgba(0, 0, 0, 0.22);
+  --color-flame-a: #a9c6b0;
+  --color-flame-b: #6f8978;
+  --color-flame-c: #44634d;
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(169, 198, 176, 0.07) 0, transparent 35%),
+    var(--color-bg-page);
+}
+
+/* -- Chrome: header (full consultancy treatment, D3) -- */
+.site-shell:has(.product-case-study) .site-header {
+  background: #fbfaf5;
+  border-bottom-color: #c9d3c7;
+  box-shadow: none;
+}
+
+html.dark .site-shell:has(.product-case-study) .site-header {
+  background: #14231a;
+  border-bottom-color: #2f4a38;
+  box-shadow: none;
+}
+
+.site-shell:has(.product-case-study) .site-header .site-logo,
+.site-shell:has(.product-case-study) .site-header .site-nav a,
+.site-shell:has(.product-case-study) .site-header .site-nav-toggle {
+  color: #193127;
+}
+
+html.dark .site-shell:has(.product-case-study) .site-header .site-logo,
+html.dark .site-shell:has(.product-case-study) .site-header .site-nav a,
+html.dark .site-shell:has(.product-case-study) .site-header .site-nav-toggle {
+  color: #edf3ea;
+}
+
+/* -- Chrome: footer + land strip -- */
+.site-shell:has(.product-case-study) .land-strip,
+.site-shell:has(.product-case-study) .site-footer {
+  background: #193127;
+  color: #e5eee4;
+  --color-text-secondary: #d4e0d5;
+  --color-text-primary: #fff;
+  --color-border: #506b56;
+}
+
+html.dark .site-shell:has(.product-case-study) .land-strip,
+html.dark .site-shell:has(.product-case-study) .site-footer {
+  background: #0b120d;
+  color: #d7e4d8;
+  --color-text-secondary: #b7c7ba;
+  --color-border: #29402f;
+}
+
+.site-shell:has(.product-case-study) .land-strip a,
+.site-shell:has(.product-case-study) .site-footer a {
+  color: #e5eee4;
+}
+
+html.dark .site-shell:has(.product-case-study) .land-strip a,
+html.dark .site-shell:has(.product-case-study) .site-footer a {
+  color: #d7e4d8;
+}
+
+/* -- Chrome: Chat widget -- */
+.site-shell:has(.product-case-study) .chatbot-toggle {
+  background: #315642;
+  box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
+}
+
+@media (max-width: 600px) {
+  .site-shell:has(.product-case-study) .chatbot-widget {
+    position: static;
+    align-items: flex-end;
+    padding: 1rem;
+    background: #193127;
+  }
+
+  html.dark .site-shell:has(.product-case-study) .chatbot-widget {
+    background: #0b120d;
+  }
+}
+
+/* -- Hero: flat editorial surface, landing heading grammar -- */
+.product-case-study .product-hero {
+  background: radial-gradient(circle at 85% 15%, #e3e8d8 0, transparent 35%);
+}
+
+html.dark .product-case-study .product-hero {
+  background: radial-gradient(circle at 85% 15%, rgba(169, 198, 176, 0.07) 0, transparent 35%);
+}
+
+.product-case-study .product-hero__title {
+  font-weight: 550;
+  letter-spacing: -0.065em;
+  line-height: 0.98;
+}
+
+.product-case-study .product-hero__tagline {
+  font-weight: 550;
+  letter-spacing: -0.03em;
+}
+
+/* Eyebrow row: flat mono tags, no glass, no shadows, no status pulse (D5) */
+.product-case-study .product-hero__eyebrow-row .tag,
+.product-case-study .product-hero__eyebrow-row .status-badge {
+  margin-top: 0;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #44634d;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+html.dark .site-shell:has(.product-case-study) .product-case-study .product-hero__eyebrow-row .tag,
+html.dark .site-shell:has(.product-case-study) .product-case-study .product-hero__eyebrow-row .status-badge {
+  color: var(--color-accent);
+  background: transparent;
+  border-color: var(--color-border-strong);
+  box-shadow: none;
+}
+
+.product-case-study .status-badge__dot {
+  display: none;
+}
+
+/* -- Buttons: scoped landing treatment (D4) -- */
+.site-shell:has(.product-case-study) .product-case-study .button {
+  border-radius: 0;
+  min-height: 3.25rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  animation: none;
+}
+
+.site-shell:has(.product-case-study) .product-case-study .button--primary {
+  background: #193127;
+  border-color: #193127;
+  color: #fff;
+}
+
+.site-shell:has(.product-case-study) .product-case-study .button--primary:hover {
+  background: #315642;
+  border-color: #315642;
+  color: #fff;
+}
+
+html.dark .site-shell:has(.product-case-study) .product-case-study .button--primary {
+  background: #3d6a4e;
+  border-color: #3d6a4e;
+  color: #fff;
+}
+
+html.dark .site-shell:has(.product-case-study) .product-case-study .button--primary:hover {
+  background: #4a7c5e;
+  border-color: #4a7c5e;
+}
+
+.site-shell:has(.product-case-study) .product-case-study .button--ghost {
+  background: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.site-shell:has(.product-case-study) .product-case-study .button--ghost:hover {
+  background: transparent;
+  border-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+
+.product-case-study .product-hero__back-link {
+  font-size: 0.875rem;
+  opacity: 0.85;
+}
+
+/* Hero actions keep their natural width at phone widths (landing pattern).
+   Full-width stacked buttons are what put the "All products" button under
+   the floating Chat pill in TBW-006; auto-width actions cannot be covered
+   by it, and on product pages the pill is in-flow on mobile in any case. */
+@media (max-width: 40rem) {
+  .product-case-study .product-hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .product-case-study .product-hero__actions .button {
+    width: auto;
+  }
+}
+
+/* -- Sections: mono eyebrows, landing heading weight -- */
+.product-case-study .section-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #617669;
+}
+
+html.dark .product-case-study .section-eyebrow {
+  color: var(--color-text-tertiary);
+}
+
+.product-case-study .section-title {
+  font-weight: 550;
+  letter-spacing: -0.055em;
+}
+
+.product-case-study .product-stack__title {
+  font-weight: 550;
+  letter-spacing: -0.05em;
+}
+
+/* -- Cards + chips: flat, ruled, square -- */
+.product-case-study .product-focus-card,
+.product-case-study .product-detail-card {
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-bg-surface);
+  box-shadow: none;
+}
+
+.product-case-study .product-focus-card__label,
+.product-case-study .product-stack__label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #617669;
+}
+
+html.dark .product-case-study .product-focus-card__label,
+html.dark .product-case-study .product-stack__label {
+  color: var(--color-text-tertiary);
+}
+
+.product-case-study .product-detail-card h3 {
+  font-weight: 550;
+  letter-spacing: -0.03em;
+}
+
+.product-case-study .product-chip-list span {
+  border-radius: 0;
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
