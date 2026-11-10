@@ -42,13 +42,40 @@ Rendered check (390px, from the TBW-006 review renders, 2026-11-09): the home pa
 
 **Out of scope (inventory only, Phase 0 confirms the list):** the legacy standalone product-era routes that do not use the case-study template (e.g. `/easybuddy`, `/MdownManager`, `/RedactorBuddy`, `/feedbackfish`, `/financebuddy`, `/poko`, `/symphony`, `/BOSS`), and the other pre-overhaul editorial pages (`/about`, `/everythings-computer`, legal pages). They run the same old system, so the mismatch is wider than the product pages — but this flash does not absorb them. Phase 0 inventories them so Nik can scope a follow-on with full information.
 
-## Decisions needed from Nik before build (Phase 0 gate)
+## Decisions (Phase 0 gate)
 
-- **D1 — Direction.** Landing is the source of truth and product pages move to it (assumed throughout this spec, per Nik's framing). Confirm.
-- **D2 — Dark theme.** The landing surface effectively has one editorial palette that persists into dark mode. Do product pages (a) adopt the same single-surface treatment, (b) keep a dark variant re-derived from the green palette, or (c) keep the current navy/magenta dark theme? This changes the token work materially — decide first.
-- **D3 — Chrome scope.** Do product pages get the full consultancy chrome (cream header, solid-green footer, green Chat toggle), or only the page body? Recommendation: full chrome — the header/footer seam is the first thing a visitor sees.
-- **D4 — Buttons.** The global `.button--primary` is consumed site-wide (legal, about, forms, admin-adjacent surfaces). Scope the new button treatment to product pages (like the consultancy overrides are scoped to home), or change the global button and accept estate-wide impact? Recommendation: scoped first, global later by separate ticket.
-- **D5 — Product identity accents.** RyFine is pink-branded in its own product materials. Does each product keep a small accent of its own inside the aligned template (e.g. one accent colour for its badge/charts), or is the alignment absolute? Decide the rule, not per-page exceptions.
+Answered by Nik, 2026-11-10 (D4 still open):
+
+- **D1 — Direction. DECIDED: YES.** Landing is the source of truth; product pages move to it.
+- **D2 — Dark theme. DECIDED: keep a dark theme**, recorded as a dark variant re-derived from the landing/green palette. The current navy/magenta dark theme does not survive — keeping it would contradict D5. (Nik's answer was "dark theme"; if he meant keep the existing dark theme unchanged, this is the line to correct.)
+- **D3 — Chrome scope. DECIDED: FULL.** Product pages get the full consultancy chrome: cream header, solid-green footer, green Chat toggle — not body only.
+- **D4 — Buttons. OPEN — Nik requested more info.** Brief below.
+- **D5 — Product identity accents. DECIDED: alignment is ABSOLUTE.** No per-product brand colours inside the aligned template, no exceptions slot. (RyFine's pink lives in RyFine's own product, not on its Teambotics page.)
+
+## D4 brief — what the global button actually is, and who renders it (added 2026-11-10)
+
+What exists today (`styles/globals.css`, ~line 566): the global `.button` is a 0.625rem-radius, translucent surface with a 1.5px border and an **animated neon border cycle**; `.button--primary` tints it with `--color-accent` (magenta family), `.button--ghost` is its quieter sibling with a slower animation. The landing page uses none of it — its buttons are module-scoped (solid ink `#193127`, square, min-height 52px, no animation).
+
+Who renders the global button classes (grep-verified 2026-11-10, rendering consumers only):
+
+| Surface | File(s) | In this flash's scope? |
+|---|---|---|
+| Product template (the target) | `components/products/ProductCaseStudyContent.tsx` (3 uses) | Yes |
+| BOSS pages | `app/BOSS/page.tsx` (4) | No — inventory only |
+| Poko site + admin chrome | `app/poko/page.tsx` (3), `components/poko/PokoAdminChrome.tsx` (1) — Poko also has its own `:global(.button--primary)` override in `poko-site.module.css` that assumes the current button | No |
+| Legacy standalone product page | `app/MdownManager/page.tsx` (4) | No — inventory only |
+| FinanceBuddy | `app/(site)/financebuddy/page.tsx` (3) | No |
+| Nonprofit application | `app/nonprofit-application/page.tsx` (1) | No |
+| 404 page | `components/content/NotFoundTetris.tsx` (2) | No |
+| Lead form (landing contact) | `components/home/LeadCaptureForm.tsx` (2) — already overridden to solid ink inside the consultancy contact section | Already scoped-overridden |
+
+(Three more components reference the classes — `HeroSection`, `ProductFlagshipSections`, `LiveSystemsSection` — but nothing imports them; they don't render.)
+
+**If D4 = global:** editing `.button`/`.button--primary` restyles BOSS, Poko (including its admin chrome, whose override expects the current shape), the standalone MdownManager page, FinanceBuddy, the nonprofit form and the 404 in the same commit — pages that keep their lavender/magenta systems, so their buttons would then mismatch their own pages, and each needs its own QA. That converts this flash into an estate-wide button migration.
+
+**If D4 = scoped:** product pages get the landing button treatment under a product-page scope — exactly the pattern the codebase already uses three times (consultancy chrome overrides, the lead-form override in the contact section, Poko's own override). Zero collateral; the other surfaces keep today's button until the legacy-inventory decision gives them their own pass.
+
+**Recommendation (unchanged): scoped for this flash**, with a follow-on ticket for the global button once Nik decides the legacy routes' fate from the Phase 0 inventory. D4 is the last open Phase 0 item; the token mapping does not depend on it except for the button row.
 
 ## The flash — phases
 
@@ -100,4 +127,4 @@ PR #41 (Chat pill + tap targets) is held open because the pill still overlaps th
 
 - `styles/globals.css` is 4,300+ lines and the product block is interleaved with dark-theme variants — budget the CSS archaeology honestly; the flash is fast because the *template* is singular, not because the stylesheet is small.
 - The consultancy module CSS is scoped and self-contained; resist "just import it" — the product template's class names and structure differ. Map tokens, don't transplant classes.
-- Per-product brand colours (D5) are the most likely place for quiet scope creep. One rule, applied uniformly.
+- Per-product brand colours were the most likely place for quiet scope creep; D5 closed it — alignment is absolute, one system, no per-product accents.
