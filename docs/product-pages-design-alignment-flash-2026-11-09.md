@@ -44,12 +44,12 @@ Rendered check (390px, from the TBW-006 review renders, 2026-11-09): the home pa
 
 ## Decisions (Phase 0 gate)
 
-Answered by Nik, 2026-11-10 (D4 still open):
+Answered by Nik, 2026-11-10 — **Phase 0 fully decided:**
 
 - **D1 — Direction. DECIDED: YES.** Landing is the source of truth; product pages move to it.
 - **D2 — Dark theme. DECIDED: keep a dark theme**, recorded as a dark variant re-derived from the landing/green palette. The current navy/magenta dark theme does not survive — keeping it would contradict D5. (Nik's answer was "dark theme"; if he meant keep the existing dark theme unchanged, this is the line to correct.)
 - **D3 — Chrome scope. DECIDED: FULL.** Product pages get the full consultancy chrome: cream header, solid-green footer, green Chat toggle — not body only.
-- **D4 — Buttons. OPEN — Nik requested more info.** Brief below.
+- **D4 — Buttons. DECIDED: SCOPED to product pages.** The landing button treatment applies under a product-page scope only; the global `.button--primary` is untouched in this flash. Brief below (the evidence the decision was made on).
 - **D5 — Product identity accents. DECIDED: alignment is ABSOLUTE.** No per-product brand colours inside the aligned template, no exceptions slot. (RyFine's pink lives in RyFine's own product, not on its Teambotics page.)
 
 ## D4 brief — what the global button actually is, and who renders it (added 2026-11-10)
@@ -75,7 +75,7 @@ Who renders the global button classes (grep-verified 2026-11-10, rendering consu
 
 **If D4 = scoped:** product pages get the landing button treatment under a product-page scope — exactly the pattern the codebase already uses three times (consultancy chrome overrides, the lead-form override in the contact section, Poko's own override). Zero collateral; the other surfaces keep today's button until the legacy-inventory decision gives them their own pass.
 
-**Recommendation (unchanged): scoped for this flash**, with a follow-on ticket for the global button once Nik decides the legacy routes' fate from the Phase 0 inventory. D4 is the last open Phase 0 item; the token mapping does not depend on it except for the button row.
+**Recommendation: scoped for this flash**, with a follow-on ticket for the global button once Nik decides the legacy routes' fate from the Phase 0 inventory. **Nik decided scoped (2026-11-10)** — the brief above is the record the decision rests on.
 
 ## The flash — phases
 
