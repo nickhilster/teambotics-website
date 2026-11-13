@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { runChatRuntime, type ChatRuntimeRequest } from "@/lib/chat/runtime";
+import { runChatViaBackend } from "@/lib/chat/adapter";
+import type { ChatRuntimeRequest } from "@/lib/chat/runtime";
 
 export const runtime = "nodejs";
 
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const result = await runChatRuntime(request, { ...body, message });
+    const result = await runChatViaBackend(request, { ...body, message });
     return NextResponse.json(result);
   } catch (error) {
     if (error instanceof Response) {

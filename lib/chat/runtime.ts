@@ -258,7 +258,7 @@ function parseSuggestions(message: string) {
   };
 }
 
-function buildFallbackReply(sources: ChatSource[], pageContext?: ChatPageContext) {
+export function buildFallbackReply(sources: ChatSource[], pageContext?: ChatPageContext) {
   const topSources = sources.slice(0, 2);
   const sourceSummary = topSources.map((source) => source.excerpt).join(" ");
   const pageHint = pageContext?.pagePath ? ` I can see you are on ${pageContext.pagePath}.` : "";
@@ -286,7 +286,7 @@ function buildFallbackReply(sources: ChatSource[], pageContext?: ChatPageContext
   };
 }
 
-async function logChatMessage(payload: ChatLogPayload) {
+export async function logChatMessage(payload: ChatLogPayload) {
   try {
     const client = await getNeonClient();
     await client.query(
