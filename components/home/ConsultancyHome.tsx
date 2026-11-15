@@ -22,7 +22,6 @@ const copy = {
     methodExample: "For a frontline service question: approved policy context → agent draft → human review → corrections that inform the next run.",
     proofLabel: "Selected work",
     proofTitle: "Selected work.",
-    proofIntro: "Live products first, then proposals. Everything is labelled by what it actually is.",
     proposals: "Proposals",
     products: "Published products and early access",
     prototypes: "Submitted and delivered prototypes",
@@ -53,7 +52,6 @@ const copy = {
     methodExample: "Pour une question de service : contexte approuvé → brouillon de l’agent → révision humaine → corrections pour la prochaine exécution.",
     proofLabel: "Travaux sélectionnés",
     proofTitle: "Travaux sélectionnés.",
-    proofIntro: "Les produits en ligne d’abord, puis les prototypes et les propositions. Chaque exemple est étiqueté pour ce qu’il est réellement.",
     proposals: "Propositions",
     products: "Produits publiés et accès anticipé",
     prototypes: "Prototypes soumis et livrés",
@@ -84,7 +82,6 @@ const copy = {
     methodExample: "Para una consulta de atención: contexto aprobado → borrador del agente → revisión humana → correcciones para la siguiente ejecución.",
     proofLabel: "Trabajo seleccionado",
     proofTitle: "Trabajo seleccionado.",
-    proofIntro: "Primero los productos disponibles, luego los prototipos y las propuestas. Cada ejemplo está etiquetado por lo que realmente es.",
     proposals: "Propuestas",
     products: "Productos publicados y acceso anticipado",
     prototypes: "Prototipos presentados y entregados",
@@ -193,7 +190,6 @@ export function ConsultancyHome() {
           <p className={styles.eyebrow}>{t.proofLabel} / 02</p>
           <div className={styles.sectionHead}>
             <h2 id="proof-title">{t.proofTitle}</h2>
-            <p>{t.proofIntro}</p>
           </div>
           <h3 className={styles.groupTitle}>{t.products}</h3>
           <div className={styles.grid}>

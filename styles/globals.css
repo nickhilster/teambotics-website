@@ -4377,6 +4377,189 @@ html.dark .product-hero__eyebrow-row .status-badge--pilot {
 }
 
 /* ============================================================
+   Land acknowledgment page on the consultancy visual system.
+   Same construction as TBW-007 (product pages): a green-palette
+   token layer scoped to shells containing .land-page, full
+   chrome, and editorial typography for the .land* elements.
+   The acknowledgment text itself is unchanged.
+   ============================================================ */
+
+/* -- Token layer (light) -- */
+.site-shell:has(.land-page) {
+  --color-bg-page: #f2f3ec;
+  --color-bg-surface: #fbfaf5;
+  --color-bg-elevated: #e9eee3;
+  --color-text-primary: #193127;
+  --color-text-secondary: #4d6256;
+  --color-text-tertiary: #5b7263;
+  --color-border: #c9d3c7;
+  --color-border-strong: #aebdaf;
+  --color-accent: #315642;
+  --color-accent-bright: #315642;
+  --color-accent-muted: #5b7263;
+  --color-live: #44634d;
+  --color-pilot: #44634d;
+  --color-glow: rgba(49, 86, 66, 0.12);
+  --color-card-glow: rgba(25, 49, 39, 0.05);
+  --color-flame-a: #315642;
+  --color-flame-b: #44634d;
+  --color-flame-c: #6f8978;
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 85% 15%, #e3e8d8 0, transparent 35%),
+    var(--color-bg-page);
+}
+
+/* -- Token layer (dark, re-derived from the green palette) -- */
+html.dark .site-shell:has(.land-page) {
+  --color-bg-page: #121c15;
+  --color-bg-surface: #182620;
+  --color-bg-elevated: #1e2f24;
+  --color-text-primary: #edf3ea;
+  --color-text-secondary: #b7c7ba;
+  --color-text-tertiary: #8fa695;
+  --color-border: #2f4a38;
+  --color-border-strong: #46644e;
+  --color-accent: #a9c6b0;
+  --color-accent-bright: #d3e6d6;
+  --color-accent-muted: #8fa695;
+  --color-live: #a9c6b0;
+  --color-pilot: #a9c6b0;
+  --color-glow: rgba(169, 198, 176, 0.1);
+  --color-card-glow: rgba(0, 0, 0, 0.22);
+  --color-flame-a: #a9c6b0;
+  --color-flame-b: #6f8978;
+  --color-flame-c: #44634d;
+  color: var(--color-text-primary);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(169, 198, 176, 0.07) 0, transparent 35%),
+    var(--color-bg-page);
+}
+
+/* -- Chrome: header -- */
+.site-shell:has(.land-page) .site-header {
+  background: #fbfaf5;
+  border-bottom-color: #c9d3c7;
+  box-shadow: none;
+}
+
+html.dark .site-shell:has(.land-page) .site-header {
+  background: #14231a;
+  border-bottom-color: #2f4a38;
+  box-shadow: none;
+}
+
+.site-shell:has(.land-page) .site-header .site-logo,
+.site-shell:has(.land-page) .site-header .site-nav a,
+.site-shell:has(.land-page) .site-header .site-nav-toggle {
+  color: #193127;
+}
+
+html.dark .site-shell:has(.land-page) .site-header .site-logo,
+html.dark .site-shell:has(.land-page) .site-header .site-nav a,
+html.dark .site-shell:has(.land-page) .site-header .site-nav-toggle {
+  color: #edf3ea;
+}
+
+/* -- Chrome: footer + land strip -- */
+.site-shell:has(.land-page) .land-strip,
+.site-shell:has(.land-page) .site-footer {
+  background: #193127;
+  color: #e5eee4;
+  --color-text-secondary: #d4e0d5;
+  --color-text-primary: #fff;
+  --color-border: #506b56;
+}
+
+html.dark .site-shell:has(.land-page) .land-strip,
+html.dark .site-shell:has(.land-page) .site-footer {
+  background: #0b120d;
+  color: #d7e4d8;
+  --color-text-secondary: #b7c7ba;
+  --color-border: #29402f;
+}
+
+.site-shell:has(.land-page) .land-strip a,
+.site-shell:has(.land-page) .site-footer a {
+  color: #e5eee4;
+}
+
+html.dark .site-shell:has(.land-page) .land-strip a,
+html.dark .site-shell:has(.land-page) .site-footer a {
+  color: #d7e4d8;
+}
+
+/* -- Chrome: chat widget (flat green, no neon-dusk gradient) -- */
+.site-shell:has(.land-page) .chatbot-toggle {
+  background: #315642;
+  box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
+}
+
+.site-shell:has(.land-page) .chatbot-send {
+  background: #315642;
+}
+
+@media (max-width: 600px) {
+  .site-shell:has(.land-page) .chatbot-widget {
+    position: static;
+    align-items: flex-end;
+    padding: 1rem;
+    background: #193127;
+  }
+}
+
+/* -- Editorial typography for the page itself -- */
+.land-page {
+  padding-top: clamp(5.5rem, 9vw, 8rem);
+  padding-bottom: clamp(6rem, 10vw, 9rem);
+}
+
+.land-page .section-eyebrow {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #5b7263;
+}
+
+html.dark .land-page .section-eyebrow {
+  color: #8fa695;
+}
+
+.land__title {
+  font-size: clamp(2.9rem, 6vw, 5rem);
+  font-weight: 550;
+  line-height: 1.0;
+  letter-spacing: -0.065em;
+}
+
+.land__lead p {
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+.land__section-title {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-tertiary);
+}
+
+.land__territory-region {
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  text-transform: none;
+  color: var(--color-text-primary);
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.land__territory-list li::before {
+  color: var(--color-text-tertiary);
+}
+
+/* ============================================================
    Land Acknowledgment Strip (home page)
    ============================================================ */
 
