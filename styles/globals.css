@@ -2253,6 +2253,117 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
   box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
 }
 
+/* The consultancy homepage retires the old neon-dusk chatbot palette.
+   The panel speaks the page's editorial green/cream surface instead. */
+.site-shell:has(.consultancy-home) .chatbot-panel {
+  padding: 1.25rem;
+  gap: 0.875rem;
+  background: #fbfaf5;
+  border: 1px solid #c9d3c7;
+  border-radius: 0;
+  box-shadow: 0 1.5rem 3rem rgba(25, 49, 39, 0.22);
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-panel__title {
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-panel__subtitle {
+  color: #4d6256;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-close {
+  color: #4d6256;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-panel__history {
+  gap: 0.625rem;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-panel__empty {
+  padding: 0.9rem 1rem;
+  border: 1px solid #c9d3c7;
+  border-radius: 0;
+  background: #f2f3ec;
+  color: #4d6256;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-bubble {
+  padding: 0.8rem 0.95rem;
+  border-radius: 0;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-bubble--user {
+  background: #193127;
+  color: #fbfaf5;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-bubble--assistant {
+  background: #f2f3ec;
+  border: 1px solid #c9d3c7;
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-sources__label,
+.site-shell:has(.consultancy-home) .chatbot-runtime-note {
+  color: #5b7263;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-sources a,
+.site-shell:has(.consultancy-home) .chatbot-sources span:not(.chatbot-sources__label),
+.site-shell:has(.consultancy-home) .chatbot-suggestions button {
+  border-color: #aebdaf;
+  border-radius: 0;
+  background: #fbfaf5;
+  color: #315642;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-suggestions button:hover {
+  border-color: #315642;
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-error {
+  border-radius: 0;
+  background: #f7e8e2;
+  border-color: #d8a79c;
+  color: #7c2d1e;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-panel__footer {
+  gap: 0.625rem;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-disclaimer {
+  color: #697a6c;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-input {
+  min-height: 3.25rem;
+  padding: 0.8rem 0.95rem;
+  border-color: #c9d3c7;
+  border-radius: 0;
+  background: #ffffff;
+  color: #193127;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-send {
+  min-height: 2.75rem;
+  border-radius: 0;
+  background: #193127;
+  color: #fbfaf5;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-send:hover:not(:disabled) {
+  background: #315642;
+}
+
+.site-shell:has(.consultancy-home) .chatbot-send:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 @media (max-width: 600px) {
   .site-shell:has(.consultancy-home) .chatbot-widget {
     position: static;

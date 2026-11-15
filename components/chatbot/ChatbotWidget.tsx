@@ -224,6 +224,9 @@ export function ChatbotWidget() {
           {error ? <div className="chatbot-error" role="alert">{error}</div> : null}
 
           <div className="chatbot-panel__footer">
+            <p className="chatbot-disclaimer">
+              This assistant answers questions about Teambotics and its products. It is not a professional advisor. Responses are informational only and may not be complete or current.
+            </p>
             <textarea
               ref={inputRef}
               value={message}

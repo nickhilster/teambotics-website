@@ -28,6 +28,7 @@
 .methodExample p { max-width:780px; margin:0; font-size:clamp(1.15rem,2vw,1.5rem); line-height:1.45; letter-spacing:-.025em; }
 .proof { background:var(--paper); }
 .groupTitle { margin:70px 0 22px; padding-top:15px; border-top:1px solid var(--ink); font:600 .75rem var(--font-geist-mono), monospace; letter-spacing:.11em; text-transform:uppercase; }
+.proof .groupTitle:first-of-type { margin-top:8px; }
 .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
 .card { min-height:270px; display:flex; flex-direction:column; padding:28px; background:var(--cream); border:1px solid var(--line); }
 .tag { align-self:flex-start; padding:5px 8px; border:1px solid #aebdaf; color:#44634d; font:600 .66rem/1.2 var(--font-geist-mono), monospace; text-transform:uppercase; letter-spacing:.07em; }
