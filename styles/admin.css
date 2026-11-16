@@ -155,6 +155,7 @@
 }
 
 .chatbot-sources__label,
+.chatbot-suggestions__label,
 .chatbot-runtime-note {
   width: 100%;
   color: var(--color-text-tertiary);

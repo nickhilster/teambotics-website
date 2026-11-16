@@ -6,6 +6,20 @@ import { MessageSquare, Send, X } from 'lucide-react';
 const STORAGE_KEY = 'teambotics-chat-session';
 const MAX_MESSAGES = 30;
 
+const STARTER_SUGGESTIONS = [
+  'What does Teambotics do?',
+  'Which product should I start with?',
+  'How do engagements work?',
+];
+
+const WELCOME_MESSAGE: ChatMessage = {
+  role: 'assistant',
+  content:
+    "Hey \u2014 I'm the Teambotics Assistant. Ask me anything about our products, how we work, or starting a project.",
+  suggestions: STARTER_SUGGESTIONS,
+  local: true,
+};
+
 type ChatMessage = {
   role: 'user' | 'assistant';
   content: string;
@@ -17,6 +31,8 @@ type ChatMessage = {
   }>;
   suggestions?: string[];
   mode?: 'live' | 'fallback' | 'grounded-refusal';
+  /** Display-only entry (the seeded welcome); never sent to the backend. */
+  local?: boolean;
 };
 
 export function ChatbotWidget() {
@@ -36,7 +52,7 @@ export function ChatbotWidget() {
     window.localStorage.setItem(STORAGE_KEY, newId);
     return newId;
   });
-  const [history, setHistory] = useState<ChatMessage[]>([]);
+  const [history, setHistory] = useState<ChatMessage[]>([WELCOME_MESSAGE]);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -104,7 +120,7 @@ export function ChatbotWidget() {
           message: userMessage,
           sessionId,
           conversationId: sessionId,
-          history,
+          history: history.filter((entry) => !entry.local),
           pageContext,
         }),
       });
@@ -182,9 +198,7 @@ export function ChatbotWidget() {
           </div>
 
           <div className="chatbot-panel__history" aria-live="polite" aria-atomic="false">
-            {history.length === 0 ? (
-              <div className="chatbot-panel__empty">Say hello and mention the page you're on.</div>
-            ) : history.map((item, index) => (
+            {history.map((item, index) => (
               <div key={`${item.role}-${index}`} className={`chatbot-bubble chatbot-bubble--${item.role}`}>
                 <span>{item.content}</span>
                 {item.role === 'assistant' && item.sources && item.sources.length > 0 ? (
@@ -206,6 +220,7 @@ export function ChatbotWidget() {
                 ) : null}
                 {item.role === 'assistant' && item.suggestions && item.suggestions.length > 0 ? (
                   <div className="chatbot-suggestions">
+                    <span className="chatbot-suggestions__label">Try asking</span>
                     {item.suggestions.slice(0, 3).map((suggestion) => (
                       <button
                         key={suggestion}
