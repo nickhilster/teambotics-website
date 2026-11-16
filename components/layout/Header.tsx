@@ -15,19 +15,19 @@ import { Container } from "./Container";
 const consultancyNav = {
   en: [
     { label: "How we work", href: "#systems" },
-    { label: "Proof", href: "#capabilities" },
+    { label: "Products", href: "#capabilities" },
     { label: "Start a project", href: "#engagement" },
     { label: "Contact", href: "#contact" },
   ],
   "fr-CA": [
     { label: "Notre approche", href: "#systems" },
-    { label: "Réalisations", href: "#capabilities" },
+    { label: "Produits", href: "#capabilities" },
     { label: "Démarrer un projet", href: "#engagement" },
     { label: "Contact", href: "#contact" },
   ],
   "es-419": [
     { label: "Cómo trabajamos", href: "#systems" },
-    { label: "Proyectos", href: "#capabilities" },
+    { label: "Productos", href: "#capabilities" },
     { label: "Iniciar un proyecto", href: "#engagement" },
     { label: "Contacto", href: "#contact" },
   ],

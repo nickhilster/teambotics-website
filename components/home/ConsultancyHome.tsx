@@ -110,6 +110,7 @@ const evidence = {
       { name: "RyFine", status: "Live product", detail: "Draft an instruction, test it against real cases, and revise what fails.", href: "https://ryfine.app/" },
       { name: "Code2Motion", status: "Early access", detail: "Two browser-based creative tools: PlayRoom and ToyMaker.", href: "https://code2motion.app/" },
       { name: "Claim Checker", status: "Live product", detail: "An open, auditable claim-verification method — point your agent at a public claim, get back an audit with its sources.", href: "https://claimchecker.teambotics.app/" },
+      { name: "Take It and Go", status: "Live product", detail: "Open-source picks worth grabbing — a short, browsable curation desk of projects worth taking, plus a form to send us one.", href: "https://takeitandgo.teambotics.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Submitted prototype", detail: "A campaign-drafting agent built for a regulated brand. It drafts; a person reviews every draft for compliance before anything ships.", href: "https://rbh.teambotics.app/" },
@@ -126,6 +127,7 @@ const evidence = {
       { name: "RyFine", status: "Produit en ligne", detail: "Un processus plus clair pour rédiger et améliorer les instructions destinées à l’IA.", href: "https://ryfine.app/" },
       { name: "Code2Motion", status: "Accès anticipé", detail: "Explorer PlayRoom et ToyMaker pour des expériences créatives natives du navigateur.", href: "https://code2motion.app/" },
       { name: "Claim Checker", status: "Produit en ligne", detail: "Une méthode ouverte et vérifiable de vérification des affirmations — confiez une affirmation publique à votre agent et recevez un audit avec ses sources.", href: "https://claimchecker.teambotics.app/" },
+      { name: "Take It and Go", status: "Produit en ligne", detail: "Des projets open source qui valent le détour — une courte liste à parcourir, plus un formulaire pour nous en proposer un.", href: "https://takeitandgo.teambotics.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Prototype soumis", detail: "Un agent de rédaction de campagnes conçu pour une marque réglementée. Il rédige; une personne révise chaque brouillon pour conformité avant tout envoi.", href: "https://rbh.teambotics.app/" },
@@ -142,6 +144,7 @@ const evidence = {
       { name: "RyFine", status: "Producto disponible", detail: "Un proceso más claro para escribir y mejorar instrucciones para IA.", href: "https://ryfine.app/" },
       { name: "Code2Motion", status: "Acceso anticipado", detail: "Explora PlayRoom y ToyMaker para experiencias creativas nativas del navegador.", href: "https://code2motion.app/" },
       { name: "Claim Checker", status: "Producto disponible", detail: "Un método abierto y auditable de verificación de afirmaciones: entrega una afirmación pública a tu agente y recibe una auditoría con sus fuentes.", href: "https://claimchecker.teambotics.app/" },
+      { name: "Take It and Go", status: "Producto disponible", detail: "Proyectos de código abierto que vale la pena llevarse: una lista breve para explorar, más un formulario para enviarnos uno.", href: "https://takeitandgo.teambotics.app/" },
     ],
     prototypes: [
       { name: "RBH Marketer Agent", status: "Prototipo presentado", detail: "Un agente de redacción de campañas creado para una marca regulada. Redacta borradores; una persona revisa cada borrador por cumplimiento antes de que salga.", href: "https://rbh.teambotics.app/" },
