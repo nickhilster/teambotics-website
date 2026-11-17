@@ -26,8 +26,13 @@ export function LanguageSwitcher() {
           if (isSiteLocale(nextLocale)) {
             const { pathname: basePath } = stripLocaleFromPath(pathname);
             const hash = typeof window === "undefined" ? "" : window.location.hash;
+            // Only the home and product pages have localized routes. For any
+            // other page (about, legal, editorial), switch to the localized
+            // home instead of pushing a locale-prefixed URL that 404s.
+            const hasLocalizedRoute = basePath === "/" || basePath.startsWith("/products");
+            const target = hasLocalizedRoute ? `${basePath}${hash}` : "/";
 
-            router.push(withLocalePath(nextLocale, `${basePath}${hash}`));
+            router.push(withLocalePath(nextLocale, target));
           }
         }}
         value={locale}

@@ -2222,7 +2222,11 @@ html.dark .engagement-step__content {
 
 /* The consultancy homepage has its own editorial surface. Keep shared product pages unchanged. */
 .site-shell:has(.consultancy-home) .site-header,
-html.dark .site-shell:has(.consultancy-home) .site-header {
+html.dark .site-shell:has(.consultancy-home) .site-header ,
+
+/* The consultancy homepage has its own editorial surface. Keep shared product pages unchanged. */
+.site-shell:has(.editorial-page) .site-header,
+html.dark .site-shell:has(.editorial-page) .site-header {
   background: #fbfaf5;
   border-bottom-color: #c9d3c7;
   box-shadow: none;
@@ -2230,12 +2234,19 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
 
 .site-shell:has(.consultancy-home) .site-header .site-logo,
 .site-shell:has(.consultancy-home) .site-header .site-nav a,
-.site-shell:has(.consultancy-home) .site-header .site-nav-toggle {
+.site-shell:has(.consultancy-home) .site-header .site-nav-toggle ,
+
+.site-shell:has(.editorial-page) .site-header .site-logo,
+.site-shell:has(.editorial-page) .site-header .site-nav a,
+.site-shell:has(.editorial-page) .site-header .site-nav-toggle {
   color: #193127;
 }
 
 .site-shell:has(.consultancy-home) .land-strip,
-.site-shell:has(.consultancy-home) .site-footer {
+.site-shell:has(.consultancy-home) .site-footer ,
+
+.site-shell:has(.editorial-page) .land-strip,
+.site-shell:has(.editorial-page) .site-footer {
   background: #193127;
   color: #e5eee4;
   --color-text-secondary: #d4e0d5;
@@ -2244,18 +2255,27 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
 }
 
 .site-shell:has(.consultancy-home) .land-strip a,
-.site-shell:has(.consultancy-home) .site-footer a {
+.site-shell:has(.consultancy-home) .site-footer a ,
+
+.site-shell:has(.editorial-page) .land-strip a,
+.site-shell:has(.editorial-page) .site-footer a {
   color: #e5eee4;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-toggle {
+.site-shell:has(.consultancy-home) .chatbot-toggle ,
+
+.site-shell:has(.editorial-page) .chatbot-toggle {
   background: #315642;
   box-shadow: 0 0.5rem 1.4rem rgba(25, 49, 39, 0.2);
 }
 
 /* The consultancy homepage retires the old neon-dusk chatbot palette.
    The panel speaks the page's editorial green/cream surface instead. */
-.site-shell:has(.consultancy-home) .chatbot-panel {
+.site-shell:has(.consultancy-home) .chatbot-panel ,
+
+/* The consultancy homepage retires the old neon-dusk chatbot palette.
+   The panel speaks the page's editorial green/cream surface instead. */
+.site-shell:has(.editorial-page) .chatbot-panel {
   padding: 1.25rem;
   gap: 0.875rem;
   background: #fbfaf5;
@@ -2265,23 +2285,33 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
   color: #193127;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-panel__title {
+.site-shell:has(.consultancy-home) .chatbot-panel__title ,
+
+.site-shell:has(.editorial-page) .chatbot-panel__title {
   color: #193127;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-panel__subtitle {
+.site-shell:has(.consultancy-home) .chatbot-panel__subtitle ,
+
+.site-shell:has(.editorial-page) .chatbot-panel__subtitle {
   color: #4d6256;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-close {
+.site-shell:has(.consultancy-home) .chatbot-close ,
+
+.site-shell:has(.editorial-page) .chatbot-close {
   color: #4d6256;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-panel__history {
+.site-shell:has(.consultancy-home) .chatbot-panel__history ,
+
+.site-shell:has(.editorial-page) .chatbot-panel__history {
   gap: 0.625rem;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-panel__empty {
+.site-shell:has(.consultancy-home) .chatbot-panel__empty ,
+
+.site-shell:has(.editorial-page) .chatbot-panel__empty {
   padding: 0.9rem 1rem;
   border: 1px solid #c9d3c7;
   border-radius: 0;
@@ -2289,57 +2319,80 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
   color: #4d6256;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-bubble {
+.site-shell:has(.consultancy-home) .chatbot-bubble ,
+
+.site-shell:has(.editorial-page) .chatbot-bubble {
   padding: 0.8rem 0.95rem;
   border-radius: 0;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-bubble--user {
+.site-shell:has(.consultancy-home) .chatbot-bubble--user ,
+
+.site-shell:has(.editorial-page) .chatbot-bubble--user {
   background: #193127;
   color: #fbfaf5;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-bubble--assistant {
+.site-shell:has(.consultancy-home) .chatbot-bubble--assistant ,
+
+.site-shell:has(.editorial-page) .chatbot-bubble--assistant {
   background: #f2f3ec;
   border: 1px solid #c9d3c7;
   color: #193127;
 }
 
 .site-shell:has(.consultancy-home) .chatbot-sources__label,
-.site-shell:has(.consultancy-home) .chatbot-runtime-note {
+.site-shell:has(.consultancy-home) .chatbot-runtime-note ,
+
+.site-shell:has(.editorial-page) .chatbot-sources__label,
+.site-shell:has(.editorial-page) .chatbot-runtime-note {
   color: #5b7263;
 }
 
 .site-shell:has(.consultancy-home) .chatbot-sources a,
 .site-shell:has(.consultancy-home) .chatbot-sources span:not(.chatbot-sources__label),
-.site-shell:has(.consultancy-home) .chatbot-suggestions button {
+.site-shell:has(.consultancy-home) .chatbot-suggestions button ,
+
+.site-shell:has(.editorial-page) .chatbot-sources a,
+.site-shell:has(.editorial-page) .chatbot-sources span:not(.chatbot-sources__label),
+.site-shell:has(.editorial-page) .chatbot-suggestions button {
   border-color: #aebdaf;
   border-radius: 0;
   background: #fbfaf5;
   color: #315642;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-suggestions button:hover {
+.site-shell:has(.consultancy-home) .chatbot-suggestions button:hover ,
+
+.site-shell:has(.editorial-page) .chatbot-suggestions button:hover {
   border-color: #315642;
   color: #193127;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-error {
+.site-shell:has(.consultancy-home) .chatbot-error ,
+
+.site-shell:has(.editorial-page) .chatbot-error {
   border-radius: 0;
   background: #f7e8e2;
   border-color: #d8a79c;
   color: #7c2d1e;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-panel__footer {
+.site-shell:has(.consultancy-home) .chatbot-panel__footer ,
+
+.site-shell:has(.editorial-page) .chatbot-panel__footer {
   gap: 0.625rem;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-disclaimer {
+.site-shell:has(.consultancy-home) .chatbot-disclaimer ,
+
+.site-shell:has(.editorial-page) .chatbot-disclaimer {
   color: #697a6c;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-input {
+.site-shell:has(.consultancy-home) .chatbot-input ,
+
+.site-shell:has(.editorial-page) .chatbot-input {
   min-height: 3.25rem;
   padding: 0.8rem 0.95rem;
   border-color: #c9d3c7;
@@ -2348,24 +2401,31 @@ html.dark .site-shell:has(.consultancy-home) .site-header {
   color: #193127;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-send {
+.site-shell:has(.consultancy-home) .chatbot-send ,
+
+.site-shell:has(.editorial-page) .chatbot-send {
   min-height: 2.75rem;
   border-radius: 0;
   background: #193127;
   color: #fbfaf5;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-send:hover:not(:disabled) {
+.site-shell:has(.consultancy-home) .chatbot-send:hover:not(:disabled) ,
+
+.site-shell:has(.editorial-page) .chatbot-send:hover:not(:disabled) {
   background: #315642;
 }
 
-.site-shell:has(.consultancy-home) .chatbot-send:disabled {
+.site-shell:has(.consultancy-home) .chatbot-send:disabled ,
+
+.site-shell:has(.editorial-page) .chatbot-send:disabled {
   opacity: 0.55;
   cursor: default;
 }
 
 @media (max-width: 600px) {
-  .site-shell:has(.consultancy-home) .chatbot-widget {
+  .site-shell:has(.consultancy-home) .chatbot-widget ,
+  .site-shell:has(.editorial-page) .chatbot-widget {
     position: static;
     align-items: flex-end;
     padding: 1rem;
@@ -4921,4 +4981,42 @@ html.dark .product-case-study .product-stack__label {
   border-color: var(--color-border);
   color: var(--color-text-secondary);
   font-weight: 500;
+}
+
+/* -- Editorial subpages (about, privacy, terms, everythings-computer) -------
+   They share the landing's cream/green editorial surface. Like the landing,
+   the surface stays cream in dark mode, so these pages hide the theme toggle. */
+.site-shell:has(.editorial-page) {
+  --color-bg-page: #fbfaf5;
+  --color-bg-surface: #fbfaf5;
+  --color-bg-elevated: #f2f3ec;
+  --color-text-primary: #193127;
+  --color-text-secondary: #4d6256;
+  --color-text-tertiary: #5b7263;
+  --color-border: #c9d3c7;
+  --color-border-strong: #aebdaf;
+  --color-accent: #315642;
+  --color-accent-bright: #315642;
+  --color-accent-muted: #44634d;
+  --color-live: #315642;
+  --color-pilot: #718f78;
+  --color-glow: #d1dfcf;
+  --color-card-glow: #d4dfd1;
+  background: #fbfaf5;
+  color: #193127;
+}
+
+html.dark .site-shell:has(.editorial-page) {
+  background: #fbfaf5;
+  color: #193127;
+}
+
+/* Legal documents: tighten the empty band between the page header and the
+   content card. */
+.site-shell:has(.editorial-page) .section:has(.legal-document__hero) {
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.site-shell:has(.editorial-page) .section:has(.legal-markdown) {
+  padding-top: 0;
 }

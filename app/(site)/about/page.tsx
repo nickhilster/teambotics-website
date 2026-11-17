@@ -30,7 +30,7 @@ const aboutProductSummaries: Record<string, string> = {
 
 export default function AboutPage() {
   return (
-    <div className="about-page">
+    <div className="about-page editorial-page">
       <section className="section" id="about">
         <Container className="about">
 

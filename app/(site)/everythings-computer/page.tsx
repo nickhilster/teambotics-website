@@ -141,7 +141,7 @@ const reporting = [
 
 export default function EverythingsComputerPage() {
   return (
-    <article className={styles.page}>
+    <article className={`${styles.page} editorial-page`}>
       <div className={styles.shell}>
         <div className={styles.topline}>
           <Link href="/" className={styles.back}>← Teambotics</Link>
