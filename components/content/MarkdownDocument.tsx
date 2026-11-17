@@ -38,7 +38,7 @@ function renderMarkdownLink({ href, children, ...props }: ComponentPropsWithoutR
 
 export function MarkdownDocument({ eyebrow, title, description, lastUpdated, markdown }: MarkdownDocumentProps) {
   return (
-    <>
+    <div className="editorial-page">
       <section className="section section--border">
         <Container className="legal-document__hero">
           <p className="section-eyebrow">{eyebrow}</p>
@@ -74,6 +74,6 @@ export function MarkdownDocument({ eyebrow, title, description, lastUpdated, mar
           </div>
         </Container>
       </section>
-    </>
+    </div>
   );
 }

@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { TeamboticsSVGLogo } from "@/components/layout/TeamboticsSVGLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { withLocalePath } from "@/lib/siteLocale";
+import { stripLocaleFromPath, withLocalePath } from "@/lib/siteLocale";
 import { Container } from "./Container";
 
 const consultancyNav = {
@@ -39,9 +39,16 @@ export function Header() {
   const pathname = usePathname();
   const { locale, messages } = useSiteLocale();
   const navItems = consultancyNav[locale];
-  const showLanguageSwitcher = pathname !== "/privacy" && pathname !== "/terms";
   const homeHref = withLocalePath(locale, "/");
-  const isHome = pathname === homeHref || pathname === `${homeHref}/`;
+  const { pathname: basePath } = stripLocaleFromPath(pathname);
+  const isHome = basePath === "/";
+  // The editorial pages share the landing's cream/green surface, which has no
+  // dark variant, so they hide the theme toggle like the landing does.
+  const isEditorialPage =
+    isHome ||
+    ["/about", "/privacy", "/terms", "/land-acknowledgment", "/everythings-computer"].some(
+      (route) => basePath === route || basePath === `${route}/`,
+    );
   const contactHref = withLocalePath(locale, "/#contact");
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerFirstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -100,8 +107,8 @@ export function Header() {
           ))}
         </nav>
         <div className="site-header__meta">
-          {showLanguageSwitcher ? <LanguageSwitcher /> : null}
-          {isHome ? null : <ThemeToggle />}
+          <LanguageSwitcher />
+          {isEditorialPage ? null : <ThemeToggle />}
           <button
             ref={toggleRef}
             aria-controls="mobile-drawer"

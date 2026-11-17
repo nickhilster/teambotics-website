@@ -83,9 +83,15 @@ function readSiteDocument(id: SiteDocumentId): SiteDocument {
   const config = SITE_DOCUMENTS[id];
   const absolutePath = path.join(process.cwd(), config.filePath);
   const stats = fs.statSync(absolutePath);
-  const lastUpdated = formatDate(stats.mtime);
   const rawMarkdown = fs.readFileSync(absolutePath, "utf8");
-  const markdown = sanitizeMarkdown(rawMarkdown, lastUpdated);
+  // The document's own declared date is the single source of truth; the build
+  // machine's file mtime changes on every checkout and says nothing.
+  const declaredUpdated = rawMarkdown.match(/^\*Last updated:\s*([^*\n]+)\*$/m)?.[1]?.trim();
+  const lastUpdated = declaredUpdated ?? formatDate(stats.mtime);
+  // The declared date renders once, in the page hero; drop the duplicate line
+  // from the body. The file on disk keeps it as the canonical declaration.
+  const bodyMarkdown = rawMarkdown.replace(/^\*Last updated:\s*[^*\n]+\*\r?\n?/m, "");
+  const markdown = sanitizeMarkdown(bodyMarkdown, lastUpdated);
 
   const document = {
     id,

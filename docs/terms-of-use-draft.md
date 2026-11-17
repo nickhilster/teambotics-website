@@ -2,7 +2,7 @@
 
 > **Draft for review. Not legal advice. Requires review by qualified legal counsel before publication.**
 
-*Last updated: May 19, 2026*
+*Last updated: October 1, 2026*
 
 ---
 
