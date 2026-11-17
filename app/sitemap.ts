@@ -20,6 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
     },
     {
+      url: siteConfig.url + "/c22",
+      changeFrequency: "daily",
+      priority: 0.7,
+      lastModified,
+    },
+    {
       url: siteConfig.url + "/privacy",
       changeFrequency: "monthly",
       priority: 0.4,
