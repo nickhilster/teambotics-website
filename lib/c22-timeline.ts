@@ -24,7 +24,7 @@ export interface C22Entry {
 export const c22Status = {
   headline: "Not law yet — a Senate committee is studying it",
   body: "Bill C-22 has passed the House of Commons and second reading in the Senate. It is now being studied, witness by witness, by the Standing Senate Committee on National Security, Defence and Veterans Affairs. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 17, 2026",
+  lastChecked: "November 19, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
@@ -37,6 +37,14 @@ export const c22NextSteps: string[] = [
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-18",
+    dateLabel: "November 18, 2026",
+    title: "Senate committee hears from police and child-protection witnesses",
+    body: "After Monday's hearing with tech companies and privacy advocates, the committee's next hearing heard from police and child-protection witnesses. The November 18 witness list included Commissioner Thomas Carrique for the Canadian Association of Chiefs of Police, the presidents of the Canadian Police Association and the National Police Federation, Lianna McDonald and Lloyd Richardson from the Canadian Centre for Child Protection, and representatives of the Ontario Child Sexual Exploitation Investigators Association, nCourage, Chayn and Cyber Harassment Support. The committee is still studying the bill and has not reported back to the Senate yet.",
+    sourceLabel: "Senate of Canada — SECD Committee, Meeting 32 (Nov 18, 2026)",
+    sourceUrl: "https://sencanada.ca/en/committees/SECD/Meeting/32/45-1",
+  },
   {
     date: "2026-11-16",
     dateLabel: "November 16, 2026",
