@@ -24,7 +24,7 @@ export interface C22Entry {
 export const c22Status = {
   headline: "Not law yet — a Senate committee is studying it",
   body: "Bill C-22 has passed the House of Commons and second reading in the Senate. It is now being studied, witness by witness, by the Standing Senate Committee on National Security, Defence and Veterans Affairs. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 19, 2026",
+  lastChecked: "November 21, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
@@ -37,6 +37,14 @@ export const c22NextSteps: string[] = [
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-19",
+    dateLabel: "November 19, 2026",
+    title: "26 civil-society groups ask the Prime Minister to step in on Bill C-22",
+    body: "OpenMedia and 25 other civil-liberties, refugee-rights and privacy organizations and experts delivered a joint letter to Prime Minister Mark Carney asking him to intercede while the Senate studies the bill. They say the Senate committee is hearing its final round of witnesses before considering amendments and a final vote, which may occur before its December recess. The letter asks the Prime Minister to direct the government's representative in the Senate to bring forward two amendments: remove the power to require companies to retain metadata on all users, and forbid any regulation or secret ministerial order that would require a provider to access, intercept or circumvent end-to-end encrypted communications. It also says those obligations should be subject to judicial authorization and public by default. The committee has still not reported back to the Senate.",
+    sourceLabel: "OpenMedia — Civil Society to Carney: Intercede on Bill C-22 before it's too late (Nov 19, 2026)",
+    sourceUrl: "https://openmedia.org/press/item/civil-society-to-carney-intercede-on-bill-c-22-before-its-too-late",
+  },
   {
     date: "2026-11-18",
     dateLabel: "November 18, 2026",
