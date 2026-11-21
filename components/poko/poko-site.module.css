@@ -180,18 +180,18 @@
   margin-top: 1.6rem;
 }
 
-:global(.button) {
+.shell :global(.button) {
   border-radius: 999px;
 }
 
-:global(.button.button--primary) {
+.shell :global(.button.button--primary) {
   background: linear-gradient(135deg, #7e8fff 0%, #6c9cff 100%);
   border-color: transparent;
   color: #ffffff;
   box-shadow: 0 14px 36px rgba(108, 156, 255, 0.22);
 }
 
-:global(.button.button--ghost) {
+.shell :global(.button.button--ghost) {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(146, 166, 211, 0.16);
   color: #f5f7fb;

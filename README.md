@@ -6,6 +6,10 @@ The homepage lives in `app/(site)/page.tsx` and `components/home/ConsultancyHome
 
 The earlier product sections remain in `components/home/` but are no longer mounted on the homepage. The consultancy build is reviewed on `testing.teambotics.app` before production deployment.
 
+## Subpage visual design
+
+Use the mounted homepage (`components/home/ConsultancyHome.tsx` and `ConsultancyHome.module.css`) as the visual source of truth for first-party Teambotics subpages. Match its cream/sage palette, Geist typography, large tightly tracked editorial headings, uppercase monospaced eyebrows, generous whitespace, thin rules, and mostly square surfaces. Do not reuse legacy treatments such as neon accents, dark gradient heroes, rounded cards, glows, or heavy shadows. Compare new subpages with the rendered homepage at desktop and mobile sizes. Standalone product microsites are separate design systems unless explicitly approved for alignment.
+
 The `muse.teambotics.app` host is served by this Vercel project. Its page and assets are sourced from the pinned `nickhilster/muse-proposal` revision in `scripts/sync-muse-proposal.mjs`; the prebuild step materializes that source under `public/muse/` without checking in a second editable copy. Update the pinned revision when publishing Muse changes.
 
 ## Teambotics Values (blog.teambotics.app/values)
