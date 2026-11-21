@@ -1,10 +1,22 @@
 name: Translation Integrity
 
+# PR checks remain unconditional so required status checks never stay pending
+# because a pull request only changed documentation or tracker files.
 on:
   pull_request:
   push:
     branches:
       - main
+    # GitHub skips the push workflow only when *every* changed file matches
+    # one of these non-runtime paths. Mixed commits still run the full gate.
+    paths-ignore:
+      - '.tracker/**'
+      - 'docs/**'
+
+# Cancel superseded PR runs; never cancel main-branch verification.
+concurrency:
+  group: translation-integrity-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   verify:
