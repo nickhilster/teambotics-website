@@ -22,6 +22,8 @@ export type CaseStudy = {
   storyHeading?: string;
   externalUrl?: string;
   externalLabel?: string;
+  videoId?: string;
+  videoTitle?: string;
   sections?: CaseStudySection[];
   images?: CaseStudyImage[];
   disclaimer?: string;
@@ -33,6 +35,8 @@ export const caseStudies: CaseStudy[] = [
     title: "Marketing prototype",
     label: "Prototype case study",
     status: "Prototype",
+    videoId: "oDcXn4t1ZMA",
+    videoTitle: "RBH Marketer Agent workflow demo",
     summary:
       "**A repeatable path from campaign planning to human review**—designed to give each new launch a useful starting template instead of rebuilding the brief from scratch.",
     storyHeading: "From campaign plan to human-reviewed handoff.",
@@ -90,6 +94,8 @@ export const caseStudies: CaseStudy[] = [
     title: "IKO Rooftop Chatbot",
     label: "IKOKI · IKO Commercial",
     status: "Prototype delivered",
+    videoId: "Pispjz3ELmc",
+    videoTitle: "IKOKI mobile information workflow demo",
     summary:
       "A document-first way to browse selected IKO commercial roofing information and **ask questions grounded in technical source material.**",
     externalUrl: "https://ikoki.teambotics.app/",

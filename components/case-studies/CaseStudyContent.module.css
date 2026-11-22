@@ -117,14 +117,16 @@
 
 .storySection,
 .gallerySection,
-.disclaimerSection {
+.disclaimerSection,
+.videoSection {
   position: relative;
   padding-top: clamp(4rem, 9vw, 8.75rem);
   padding-bottom: clamp(4rem, 9vw, 8.75rem);
 }
 
 .storyIntro,
-.galleryHeading { max-width: 48rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.galleryHeading,
+.videoIntro { max-width: 48rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .sectionEyebrow {
   margin: 0 0 1.3rem;
   color: #617669;
@@ -197,6 +199,16 @@
 }
 
 .gallerySection { background: var(--case-paper); }
+.videoSection { background: var(--case-cream); }
+.videoFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--case-line);
+  background: #161a18;
+}
+.videoFrame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .gallery {
   display: grid;
   grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);

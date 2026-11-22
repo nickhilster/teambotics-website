@@ -58,6 +58,27 @@ export function CaseStudyContent({ slug }: { slug: string }) {
         </Container>
       </section>
 
+      {study.videoId ? (
+        <section className={`section section--border ${styles.videoSection}`} aria-labelledby="workflow-demo-title">
+          <Container>
+            <div className={styles.videoIntro}>
+              <p className={styles.sectionEyebrow}>Workflow demo</p>
+              <h2 className={styles.sectionTitle} id="workflow-demo-title">See the workflow.</h2>
+            </div>
+            <div className={styles.videoFrame}>
+              <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                src={`https://www.youtube-nocookie.com/embed/${study.videoId}?rel=0`}
+                title={study.videoTitle ?? `${study.title} workflow demo`}
+              />
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
       {study.sections?.length ? (
         <>
           <section className={`section section--border ${styles.storySection}`}>
