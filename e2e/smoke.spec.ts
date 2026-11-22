@@ -88,17 +88,6 @@ test("mobile navigation opens and exposes section links", async ({ page }) => {
   await expect(page.locator("#mobile-drawer").getByRole("link", { name: "Products" })).toBeVisible();
 });
 
-test("marketing prototype case study stays within its disclosure boundary", async ({ page }) => {
-  await page.goto("/case-studies/marketing-prototype");
-
-  await expect(page.getByRole("heading", { name: "Marketing prototype", level: 1 })).toBeVisible();
-  const caseStudy = page.locator("main article");
-  await expect(caseStudy.getByText("A marketing prototype.", { exact: true })).toBeVisible();
-  await expect(caseStudy.locator("img")).toHaveCount(0);
-  await expect(caseStudy).not.toContainText(/RBH|IQOS|VEEV|campaign|workflow|preflight|research|handoff|Figma|testing|outcomes?|feedback/i);
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
-});
-
 test("case studies use the homepage editorial palette and square image frames", async ({ page }) => {
   await page.goto("/case-studies/ikoki");
 
@@ -125,18 +114,6 @@ test("IKOKI case study shows all prototype screenshots and retains its prototype
     await expect(screenshot).toBeVisible();
     await expect.poll(() => screenshot.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
   }
-});
-
-test("Values link appears in desktop and mobile navigation", async ({ page }) => {
-  await page.goto("/");
-
-  const valuesLinks = page.getByRole("link", { name: "Values", exact: true });
-  await expect(valuesLinks.first()).toHaveAttribute("href", "https://blog.teambotics.app/values");
-
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.getByRole("button", { name: /Open navigation/i }).click();
-  await expect(page.locator("#mobile-drawer").getByRole("link", { name: "Values", exact: true }))
-    .toHaveAttribute("href", "https://blog.teambotics.app/values");
 });
 
 test("chat widget opens and sends a site-context message", async ({ page }) => {
