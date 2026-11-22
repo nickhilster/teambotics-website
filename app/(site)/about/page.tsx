@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SectionReveal } from "@/components/animation/SectionReveal";
+import { FlowText } from "@/components/content/FlowText";
 import { Container } from "@/components/layout/Container";
 import { siteConfig } from "@/lib/config";
 import { products } from "@/lib/products";
@@ -28,6 +29,16 @@ const aboutProductSummaries: Record<string, string> = {
     "Client-facing narrative graph experience for founders, teams, and complex work stories. Live product.",
 };
 
+const aboutProductAnchors: Record<string, string> = {
+  "/products/ryfine": "turning rough intent into clearer AI-ready instructions.",
+  "/products/ltb-buddy": "Guided legal intake and LTB form support for Ontario tenants.",
+  "/products/redactorbuddy": "Offline PII redaction workflow for sensitive financial documents.",
+  "/products/mdownmanager": "searchable SOPs, research notes, and AI-ready handoff docs.",
+  "/products/code2motion": "Interactive generative art and browser-native motion platform.",
+  "/products/easybuddy": "Bespoke AI training and onboarding assistant for frontline enterprise and service teams.",
+  "/products/storytellr": "narrative graph experience for founders, teams, and complex work stories.",
+};
+
 export default function AboutPage() {
   return (
     <div className="about-page">
@@ -44,8 +55,8 @@ export default function AboutPage() {
 
           <SectionReveal className="about__lead" delay={0.08}>
             <p>
-              Teambotics builds conversational and interactive AI products for environments
-              where the work is complex, the stakes are real, and generic tooling doesn&apos;t hold up.
+              Teambotics builds conversational and interactive AI products for environments{" "}
+              <strong className="flowwrite-anchor">where the work is complex, the stakes are real, and generic tooling doesn&apos;t hold up.</strong>{" "}
               We ship proprietary products and build bespoke systems.
             </p>
             <p>
@@ -72,9 +83,9 @@ export default function AboutPage() {
           <SectionReveal className="about__section" delay={0.06}>
             <h2 className="about__section-title">How we work</h2>
             <p>
-              We don&apos;t arrive with a pre-built solution. We spend time inside the operational
-              context first — understanding the constraints, the failure modes, and what has already
-              been tried. Then we build something that fits.
+              We don&apos;t arrive with a pre-built solution. <strong className="flowwrite-anchor">We spend time inside the operational
+              context first</strong> — understanding the constraints, the failure modes, and what has already
+              been tried. <strong className="flowwrite-anchor">Then we build something that fits.</strong>
             </p>
             <p>
               The team that works on a project is shaped by what the project needs. A compliance
@@ -107,7 +118,10 @@ export default function AboutPage() {
                   <Link className="about__product-link" href={product.href}>
                     {product.name}
                   </Link>{" "}
-                  — {aboutProductSummaries[product.href] ?? product.description}
+                  — <FlowText
+                    text={aboutProductSummaries[product.href] ?? product.description}
+                    anchors={aboutProductAnchors[product.href] ? [aboutProductAnchors[product.href]] : []}
+                  />
                 </li>
               ))}
             </ul>
@@ -120,7 +134,7 @@ export default function AboutPage() {
           <SectionReveal className="about__cta" delay={0.06}>
             <p>
               If you want to talk about a workflow problem, a product idea, or a potential
-              engagement, the best starting point is a direct message.
+              engagement, the <strong className="flowwrite-anchor">best starting point is a direct message.</strong>
             </p>
             <a className="about__cta-link" href={`mailto:${siteConfig.contactEmail}`}>
               {siteConfig.contactEmail}

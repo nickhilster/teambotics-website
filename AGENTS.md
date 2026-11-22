@@ -19,3 +19,7 @@ This repo's work items live in `.tracker/issues/*.md` — one markdown file per 
 - Human-readable board (Linear-style, opens directly in a browser): `.tracker/board.html` — regenerate after editing issue files with `node .tracker/generate.js`
 - Schema reference: `.tracker/ISSUE_SCHEMA.md`
 - Agents: when asked to look up, create, or update issues/tasks for this repo, use teambotics-issues-tracker-buddy (this tracker), not Linear.
+
+## Subpage visual design
+
+Use the mounted homepage (`components/home/ConsultancyHome.tsx` and `components/home/ConsultancyHome.module.css`) as the visual source of truth for first-party Teambotics subpages. Match its cream/sage palette, Geist typography, large tightly tracked editorial headings, uppercase monospaced eyebrows, generous spacing, thin rules, and mostly square surfaces. Do not copy the legacy global product-page treatments (neon accents, dark gradients, rounded cards, glows, and heavy shadows). Compare new subpages against the rendered homepage at desktop and mobile widths; content-specific layouts are welcome only within the same visual language. Standalone product microsites require separate design consideration.

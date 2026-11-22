@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { SectionReveal } from "@/components/animation/SectionReveal";
+import { FlowText } from "@/components/content/FlowText";
 import { Container } from "@/components/layout/Container";
 import { useSiteLocale } from "@/components/theme/LocaleProvider";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Tag } from "@/components/ui/Tag";
 import { getLocalizedProductBySlug } from "@/lib/localizedProducts";
+import { getProductFlowAnchors } from "@/lib/productFlowAnchors";
 import { withLocalePath } from "@/lib/siteLocale";
 
 type ProductCaseStudyContentProps = {
@@ -17,6 +19,7 @@ type ProductCaseStudyContentProps = {
 export function ProductCaseStudyContent({ slug }: ProductCaseStudyContentProps) {
   const { locale, messages } = useSiteLocale();
   const product = getLocalizedProductBySlug(slug, locale);
+  const flowAnchors = getProductFlowAnchors(slug, locale);
   const allProductsHref = withLocalePath(locale, "/#systems");
 
   if (!product) {
@@ -37,10 +40,14 @@ export function ProductCaseStudyContent({ slug }: ProductCaseStudyContentProps) 
             <h1 className="product-hero__title">{product.name}</h1>
           </SectionReveal>
           <SectionReveal delay={0.16}>
-            <p className="product-hero__tagline">{product.tagline}</p>
+            <p className="product-hero__tagline">
+              <FlowText text={product.tagline} anchors={flowAnchors ? [flowAnchors.tagline] : []} />
+            </p>
           </SectionReveal>
           <SectionReveal delay={0.24}>
-            <p className="product-hero__summary">{product.summary}</p>
+            <p className="product-hero__summary">
+              <FlowText text={product.summary} anchors={flowAnchors ? [flowAnchors.summary] : []} />
+            </p>
           </SectionReveal>
           <SectionReveal className="product-hero__actions" delay={0.32}>
             <a
@@ -69,7 +76,12 @@ export function ProductCaseStudyContent({ slug }: ProductCaseStudyContentProps) 
               <SectionReveal delay={index * 0.07} key={point.label}>
                 <article className="product-focus-card">
                   <p className="product-focus-card__label">{point.label}</p>
-                  <p>{point.value}</p>
+                  <p>
+                    <FlowText
+                      text={point.value}
+                      anchors={flowAnchors ? [flowAnchors.focusPoint] : []}
+                    />
+                  </p>
                 </article>
               </SectionReveal>
             ))}

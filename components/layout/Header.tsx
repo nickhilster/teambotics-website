@@ -18,18 +18,21 @@ const consultancyNav = {
     { label: "Proof", href: "#capabilities" },
     { label: "Start a project", href: "#engagement" },
     { label: "Contact", href: "#contact" },
+    { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "fr-CA": [
     { label: "Notre approche", href: "#systems" },
     { label: "Réalisations", href: "#capabilities" },
     { label: "Démarrer un projet", href: "#engagement" },
     { label: "Contact", href: "#contact" },
+    { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "es-419": [
     { label: "Cómo trabajamos", href: "#systems" },
     { label: "Proyectos", href: "#capabilities" },
     { label: "Iniciar un proyecto", href: "#engagement" },
     { label: "Contacto", href: "#contact" },
+    { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
 };
 
@@ -93,7 +96,9 @@ export function Header() {
           <span className="site-logo__text">Teambotics</span>
         </Link>
         <nav className="site-nav" aria-label={messages.header.navLabel}>
-          {navItems.map((item) => (
+          {navItems.map((item) => item.href.startsWith("https://") ? (
+            <a href={item.href} key={item.href}>{item.label}</a>
+          ) : (
             <Link key={item.href} href={`${homeHref}${item.href}`}>
               {item.label}
             </Link>
@@ -121,7 +126,9 @@ export function Header() {
         aria-hidden={!isOpen}
       >
         <Container className="mobile-drawer__inner">
-          {navItems.map((item, index) => (
+          {navItems.map((item, index) => item.href.startsWith("https://") ? (
+            <a href={item.href} key={item.href} onClick={() => setIsOpen(false)}>{item.label}</a>
+          ) : (
             <Link
               key={item.href}
               ref={index === 0 ? drawerFirstLinkRef : undefined}
@@ -131,7 +138,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href={contactHref}>{navItems[3].label}</Button>
+          <Button href={contactHref}>{navItems.find((item) => item.href === "#contact")?.label}</Button>
         </Container>
       </div>
     </header>

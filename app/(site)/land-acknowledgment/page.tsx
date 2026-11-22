@@ -128,15 +128,15 @@ export default function LandAcknowledgmentPage() {
           <SectionReveal className="land__lead" delay={0.08}>
             <p>
               Teambotics is a fully virtual company. Our team members work from homes, cafes,
-              and co-working spaces distributed across Turtle Island — the lands now called Canada.
-              We do not operate from a single place, so we do not have a single territory to acknowledge.
-              We have all of them.
+              and co-working spaces distributed across Turtle Island — the lands now called Canada.{" "}
+              <strong className="flowwrite-anchor">We do not operate from a single place, so we do not have a single territory to acknowledge.
+              We have all of them.</strong>
             </p>
             <p>
               We acknowledge the Indigenous Peoples who have been stewards of these lands since time
               immemorial — whose cultures, languages, and relationships to the land persist in the face
-              of ongoing colonization. We recognize that the work of reconciliation is not symbolic.
-              It requires sustained action, listening, and accountability.
+              of ongoing colonization. We recognize that the work of reconciliation is not symbolic.{" "}
+              <strong className="flowwrite-anchor">It requires sustained action, listening, and accountability.</strong>
             </p>
           </SectionReveal>
 
@@ -147,8 +147,8 @@ export default function LandAcknowledgmentPage() {
           <SectionReveal className="land__section" delay={0.06}>
             <h2 className="land__section-title">A note on this acknowledgment</h2>
             <p>
-              Land acknowledgments can become rote. We want to avoid that. The list below is not
-              exhaustive — Canada&apos;s Indigenous geography is vast and complex, with over 630 First
+              Land acknowledgments can become rote. We want to avoid that. <strong className="flowwrite-anchor">The list below is not
+              exhaustive</strong> — Canada&apos;s Indigenous geography is vast and complex, with over 630 First
               Nations communities, dozens of Métis communities, and Inuit peoples across the Arctic.
               Many territories overlap. Many names have multiple spellings or spellings that continue
               to evolve. We have done our best to represent territories accurately, using the names
@@ -156,7 +156,7 @@ export default function LandAcknowledgmentPage() {
             </p>
             <p>
               If you notice an error, an omission, or a preferred name we have not used, please
-              reach out. This page will be updated.
+              reach out. <strong className="flowwrite-anchor">This page will be updated.</strong>
             </p>
           </SectionReveal>
 

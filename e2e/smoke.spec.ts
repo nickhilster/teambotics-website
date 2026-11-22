@@ -69,6 +69,18 @@ test("mobile navigation opens and exposes section links", async ({ page }) => {
   await expect(page.locator("#mobile-drawer").getByRole("link", { name: "Capabilities" })).toBeVisible();
 });
 
+test("Values link appears in desktop and mobile navigation", async ({ page }) => {
+  await page.goto("/");
+
+  const valuesLinks = page.getByRole("link", { name: "Values", exact: true });
+  await expect(valuesLinks.first()).toHaveAttribute("href", "https://blog.teambotics.app/values");
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: /Open navigation/i }).click();
+  await expect(page.locator("#mobile-drawer").getByRole("link", { name: "Values", exact: true }))
+    .toHaveAttribute("href", "https://blog.teambotics.app/values");
+});
+
 test("chat widget opens and sends a site-context message", async ({ page }) => {
   await page.goto("/");
 
@@ -161,4 +173,37 @@ test("admin auth page is protected by the login gate", async ({ page }) => {
 
   await expect(page.getByText(/Admin Login|Chatbot Admin/i)).toBeVisible();
   await expect(page.getByLabel("Password")).toBeVisible();
+});
+
+test("marketing prototype case study stays within its disclosure boundary", async ({ page }) => {
+  await page.goto("/case-studies/marketing-prototype");
+
+  await expect(page.getByRole("heading", { name: "Marketing prototype", level: 1 })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "From campaign plan to human-reviewed handoff." })).toBeVisible();
+  await expect(page.getByText(/reusable campaign plan/i)).toBeVisible();
+  await expect(page.getByText(/live preflight/i)).toBeVisible();
+  await expect(page.getByText(/official product and brand pages/i)).toBeVisible();
+  await expect(page.getByText(/generated campaign copy and creative output are intentionally not shown/i)).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  await expect(page.locator("body")).not.toContainText(/RBH|IQOS|VEEV/i);
+});
+
+test("IKOKI case study shows the prototype screenshots and keeps the prototype label", async ({ page }) => {
+  await page.goto("/case-studies/ikoki");
+
+  await expect(page.getByRole("heading", { name: /IKO.*Rooftop Chatbot/i, level: 1 })).toBeVisible();
+  await expect(page.getByText(/Prototype only|prototype.*not an official production IKO system/i)).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+  await expect(page.getByRole("link", { name: /Open IKOKI prototype/i })).toHaveAttribute(
+    "href",
+    "https://ikoki.teambotics.app/",
+  );
+
+  const screenshots = page.locator("article img");
+  await expect(screenshots).toHaveCount(3);
+  for (const screenshot of await screenshots.all()) {
+    await screenshot.scrollIntoViewIfNeeded();
+    await expect(screenshot).toBeVisible();
+    await expect.poll(() => screenshot.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
+  }
 });
