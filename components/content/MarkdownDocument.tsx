@@ -57,6 +57,7 @@ export function MarkdownDocument({ eyebrow, title, description, lastUpdated, mar
                 h2: ({ children }) => <h2>{children}</h2>,
                 h3: ({ children }) => <h3>{children}</h3>,
                 p: ({ children }) => <p>{children}</p>,
+                strong: ({ children }) => <strong className="flowwrite-anchor">{children}</strong>,
                 ul: ({ children }) => <ul>{children}</ul>,
                 ol: ({ children }) => <ol>{children}</ol>,
                 table: ({ children }) => <table>{children}</table>,

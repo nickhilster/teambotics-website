@@ -145,7 +145,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Button href={contactHref}>{navItems[3].label}</Button>
+          <Button href={contactHref}>{navItems.find((item) => item.href === "#contact")?.label}</Button>
         </Container>
       </div>
     </header>

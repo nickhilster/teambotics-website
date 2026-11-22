@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FlowText } from "@/components/content/FlowText";
 
 export const metadata: Metadata = {
   title: "The Teambotics Manifesto – Private, Practical AI Systems",
@@ -51,7 +52,7 @@ const principles = [
     title: "Local-first, not local-only",
     body: [
       "Organizations need more than one path into AI. Some systems should run close to the user. Some should live inside private infrastructure. Some should connect to frontier models when the task demands stronger reasoning, broader context, or higher performance.",
-      "Local-first does not mean local-only. It means organizations should not be forced into dependency before they understand what the work actually requires.",
+      "Local-first does not mean local-only. **Organizations should not be forced into dependency before they understand what the work actually requires.**",
     ],
     signal: "Local where possible. Private where needed. Frontier where justified.",
   },
@@ -60,7 +61,7 @@ const principles = [
     body: [
       "An organization’s data is more than raw information. It is institutional memory: how people work, what they know, where they struggle, how they serve customers, how they train teams, and how decisions get made.",
       "Data sovereignty means organizations should understand where their knowledge lives, how it is used, who can access it, how it can be exported, and what happens when a system changes.",
-      "The people responsible for the work should remain responsible for the knowledge that powers it.",
+      "**The people responsible for the work should remain responsible for the knowledge that powers it.**",
     ],
   },
   {
@@ -68,14 +69,14 @@ const principles = [
     body: [
       "Agents are most useful when their roles are clear. An agent should have a defined job, appropriate memory, clear permissions, understood boundaries, and a path for escalation when human judgment is required.",
       "Agents can carry operational friction: repetitive questions, document cleanup, onboarding support, formatting work, procedural recall, intake, routing, summaries, practice, and first-pass support.",
-      "Humans remain essential for judgment, accountability, trust, care, creativity, and exceptions.",
+      "**Humans remain essential for judgment, accountability, trust, care, creativity, and exceptions.**",
     ],
     signal: "The best agents make people more capable.",
   },
   {
     title: "Capability over dependency",
     body: [
-      "Teambotics builds products and services that strengthen the teams using them. A good AI system should leave an organization more capable than it was before.",
+      "Teambotics builds products and services that strengthen the teams using them. **A good AI system should leave an organization more capable than it was before.**",
       "Our value is not only in the software. It is in the way we design, implement, teach, document, support, and improve the system with the people who use it.",
       "We build the product. We support the implementation. We teach the workflow. We document the logic. We remain available as stewards.",
     ],
@@ -84,7 +85,7 @@ const principles = [
     title: "Stewardship",
     body: [
       "Teambotics is a product company and a stewardship partner for organizations adopting private, practical AI.",
-      "AI systems live inside changing teams, changing processes, changing risks, and changing expectations. They need support after deployment.",
+      "AI systems live inside changing teams, changing processes, changing risks, and changing expectations. **They need support after deployment.**",
       "Stewardship means maintaining the waterways between people, agents, data, and judgment. It means improving what works, correcting what breaks, explaining what changes, and helping organizations mature in their use of AI.",
     ],
     signal: "Recurring value should come from recurring usefulness.",
@@ -93,7 +94,7 @@ const principles = [
     title: "Human-first, agent-friendly",
     body: [
       "We build for cooperation between humans and agents. Humans need tools that respect context, judgment, responsibility, and trust. Agents need defined roles, useful work, appropriate memory, and clear boundaries.",
-      "Teambotics exists to build private, practical, agent-native AI systems that help organizations operate with more confidence, more control, and more care.",
+      "**Teambotics exists to build private, practical, agent-native AI systems that help organizations operate with more confidence, more control, and more care.**",
     ],
   },
 ];
@@ -280,7 +281,7 @@ export default function ManifestoPage() {
         </p>
         <p className="tbm-thesis">
           We help teams choose the right level of intelligence for the work in front of
-          them: local where possible, private where needed, frontier where justified.
+          them: <strong className="flowwrite-anchor">local where possible, private where needed, frontier where justified.</strong>
         </p>
       </section>
 
@@ -298,14 +299,14 @@ export default function ManifestoPage() {
         <section className="tbm-section">
           <h2>The right body of intelligence</h2>
           <p>
-            Not every workflow belongs in the ocean. The largest system should not become
+            <strong className="flowwrite-anchor">Not every workflow belongs in the ocean.</strong> The largest system should not become
             the automatic answer to every problem. Good AI should fit the workflow, the
             risk, the people, the budget, and the environment where it will be used.
           </p>
           <p>
             We believe the next durable layer of AI will not be defined by model
-            intelligence alone. It will be defined by whether teams can trust,
-            understand, afford, govern, and operate the systems acting on their behalf.
+            intelligence alone. <strong className="flowwrite-anchor">It will be defined by whether teams can trust,
+            understand, afford, govern, and operate the systems acting on their behalf.</strong>
           </p>
         </section>
 
@@ -313,7 +314,7 @@ export default function ManifestoPage() {
           <section className="tbm-section" key={principle.title}>
             <h2>{principle.title}</h2>
             {principle.body.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+              <p key={paragraph}><FlowText text={paragraph} /></p>
             ))}
             {principle.signal ? <div className="tbm-signal">{principle.signal}</div> : null}
           </section>
@@ -327,9 +328,9 @@ export default function ManifestoPage() {
           </p>
           <div className="tbm-close">
             <p>
-              Teambotics exists to build private, practical, agent-native AI systems that
+              <strong className="flowwrite-anchor">Teambotics exists to build private, practical, agent-native AI systems that
               help organizations operate with more confidence, more control, and more
-              care.
+              care.</strong>
             </p>
           </div>
         </section>
