@@ -2,20 +2,21 @@
 
 import { useEffect, useRef, useMemo, useState } from 'react';
 import { MessageSquare, Send, X } from 'lucide-react';
+import styles from './ChatbotWidget.module.css';
 
 const STORAGE_KEY = 'teambotics-chat-session';
 const MAX_MESSAGES = 30;
 
 const STARTER_SUGGESTIONS = [
-  'What does Teambotics do?',
-  'Which product should I start with?',
-  'How do engagements work?',
+  'What kinds of workflows can Teambotics improve?',
+  'Which product might fit my team?',
+  'What does working with Teambotics look like?',
 ];
 
 const WELCOME_MESSAGE: ChatMessage = {
   role: 'assistant',
   content:
-    "Hey \u2014 I'm the Teambotics Assistant. Ask me anything about our products, how we work, or starting a project.",
+    "Hey \u2014 I'm the Teambotics assistant. What would you like to make easier?",
   suggestions: STARTER_SUGGESTIONS,
   local: true,
 };
@@ -160,11 +161,11 @@ export function ChatbotWidget() {
   };
 
   return (
-    <div className="chatbot-widget">
+    <div className={styles.widget}>
       <button
         ref={toggleRef}
         type="button"
-        className="chatbot-toggle"
+        className={styles.toggle}
         onClick={openChat}
         aria-label="Open chat assistant"
         aria-expanded={open}
@@ -176,20 +177,20 @@ export function ChatbotWidget() {
 
       {open ? (
         <div
-          className="chatbot-panel"
+          className={styles.panel}
           role="dialog"
           aria-modal="true"
           aria-labelledby="chatbot-title"
         >
-          <div className="chatbot-panel__header">
+          <div className={styles.panelHeader}>
             <div>
-              <p className="chatbot-panel__title" id="chatbot-title">Teambotics Assistant</p>
-              <p className="chatbot-panel__subtitle">Ask about the site, products, and experience.</p>
+              <p className={styles.panelTitle} id="chatbot-title">Teambotics Assistant</p>
+              <p className={styles.panelSubtitle}>Explore what Teambotics can help your team do.</p>
             </div>
             <button
               ref={closeButtonRef}
               type="button"
-              className="chatbot-close"
+              className={styles.close}
               onClick={closeChat}
               aria-label="Close chat"
             >
@@ -197,13 +198,16 @@ export function ChatbotWidget() {
             </button>
           </div>
 
-          <div className="chatbot-panel__history" aria-live="polite" aria-atomic="false">
+          <div className={styles.history} aria-live="polite" aria-atomic="false">
             {history.map((item, index) => (
-              <div key={`${item.role}-${index}`} className={`chatbot-bubble chatbot-bubble--${item.role}`}>
+              <div
+                key={`${item.role}-${index}`}
+                className={`${styles.bubble} ${item.role === 'user' ? styles.bubbleUser : styles.bubbleAssistant}`}
+              >
                 <span>{item.content}</span>
                 {item.role === 'assistant' && item.sources && item.sources.length > 0 ? (
-                  <div className="chatbot-sources">
-                    <span className="chatbot-sources__label">Sources</span>
+                  <div className={styles.sources}>
+                    <span className={styles.suggestionLabel}>Sources</span>
                     {item.sources.slice(0, 3).map((source) => (
                       source.route ? (
                         <a href={source.route} key={source.id}>{source.title}</a>
@@ -214,13 +218,13 @@ export function ChatbotWidget() {
                   </div>
                 ) : null}
                 {item.role === 'assistant' && item.mode && item.mode !== 'live' ? (
-                  <span className="chatbot-runtime-note">
+                  <span className={styles.runtimeNote}>
                     {item.mode === 'grounded-refusal' ? 'Grounded safety response' : 'Site-context fallback'}
                   </span>
                 ) : null}
                 {item.role === 'assistant' && item.suggestions && item.suggestions.length > 0 ? (
-                  <div className="chatbot-suggestions">
-                    <span className="chatbot-suggestions__label">Try asking</span>
+                  <div className={styles.suggestions}>
+                    <span className={styles.suggestionLabel}>Try asking</span>
                     {item.suggestions.slice(0, 3).map((suggestion) => (
                       <button
                         key={suggestion}
@@ -236,10 +240,10 @@ export function ChatbotWidget() {
             ))}
           </div>
 
-          {error ? <div className="chatbot-error" role="alert">{error}</div> : null}
+          {error ? <div className={styles.error} role="alert">{error}</div> : null}
 
-          <div className="chatbot-panel__footer">
-            <p className="chatbot-disclaimer">
+          <div className={styles.panelFooter}>
+            <p className={styles.disclaimer}>
               This assistant answers questions about Teambotics and its products. It is not a professional advisor. Responses are informational only and may not be complete or current.
             </p>
             <textarea
@@ -248,13 +252,13 @@ export function ChatbotWidget() {
               onChange={(event) => setMessage(event.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask something…"
-              className="chatbot-input"
+              className={styles.input}
               rows={2}
               aria-label="Chat message"
             />
             <button
               type="button"
-              className="chatbot-send"
+              className={styles.send}
               onClick={() => void sendMessage()}
               disabled={sending || !message.trim()}
               aria-label="Send message"
