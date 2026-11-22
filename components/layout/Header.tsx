@@ -15,21 +15,21 @@ import { Container } from "./Container";
 const consultancyNav = {
   en: [
     { label: "How we work", href: "#systems" },
-    { label: "Products", href: "#capabilities" },
+    { label: "Selected Work", href: "#capabilities" },
     { label: "Start a project", href: "#engagement" },
     { label: "Contact", href: "#contact" },
     { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "fr-CA": [
     { label: "Notre approche", href: "#systems" },
-    { label: "Produits", href: "#capabilities" },
+    { label: "Travaux sélectionnés", href: "#capabilities" },
     { label: "Démarrer un projet", href: "#engagement" },
     { label: "Contact", href: "#contact" },
     { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "es-419": [
     { label: "Cómo trabajamos", href: "#systems" },
-    { label: "Productos", href: "#capabilities" },
+    { label: "Trabajo seleccionado", href: "#capabilities" },
     { label: "Iniciar un proyecto", href: "#engagement" },
     { label: "Contacto", href: "#contact" },
     { label: "Values", href: "https://blog.teambotics.app/values" },

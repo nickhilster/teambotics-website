@@ -27,7 +27,7 @@ const copy = {
     products: "Published products and early access",
     prototypes: "Submitted and delivered prototypes",
     open: "View project",
-    privateNote: "Case study preview · sanitized visuals in preparation",
+    viewCaseStudy: "View case study",
     pilotLabel: "A possible starting format",
     pilotTitle: "One team. One workflow. One agreed bridge.",
     pilotIntro: "A two-week pilot can be a useful starting point. **We scope access, deliverables, acceptance criteria, and support with each team before work begins.**",
@@ -62,7 +62,7 @@ const copy = {
     products: "Produits publiés et accès anticipé",
     prototypes: "Prototypes soumis et livrés",
     open: "Voir le projet",
-    privateNote: "Aperçu de l’étude de cas · visuels anonymisés en préparation",
+    viewCaseStudy: "Voir l’étude de cas",
     pilotLabel: "Un point de départ possible",
     pilotTitle: "Une équipe. Un processus. Un lien convenu.",
     pilotIntro: "Un pilote de deux semaines peut être un bon départ. **Nous définissons l’accès, les livrables, les critères d’acceptation et le soutien avec chaque équipe.**",
@@ -97,7 +97,7 @@ const copy = {
     products: "Productos publicados y acceso anticipado",
     prototypes: "Prototipos presentados y entregados",
     open: "Ver proyecto",
-    privateNote: "Avance del caso · imágenes depuradas en preparación",
+    viewCaseStudy: "Ver el caso de estudio",
     pilotLabel: "Un posible punto de partida",
     pilotTitle: "Un equipo. Un flujo. Un enlace acordado.",
     pilotIntro: "Un piloto de dos semanas puede ser un buen comienzo. **Definimos acceso, entregables, criterios de aceptación y soporte con cada equipo.**",
@@ -126,8 +126,8 @@ const evidence = {
       { name: "Code2Motion", status: "Early access", detail: "Explore PlayRoom and ToyMaker for **browser-native creative experiences.**", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Submitted prototype", detail: "A campaign-drafting concept built after Nikhil’s RBH role and submitted to RBH. **Drafts require human compliance review.**" },
-      { name: "IKOKI", status: "Prototype delivered", detail: "A guided, role-aware knowledge access concept. **The HTML prototype was delivered to IKO.**" },
+      { name: "RBH Marketer Agent", status: "Submitted prototype", detail: "A campaign-drafting concept built after Nikhil’s RBH role and submitted to RBH. **Drafts require human compliance review.**", href: "/case-studies/marketing-prototype" },
+      { name: "IKOKI", status: "Prototype delivered", detail: "A guided, role-aware knowledge access concept. **The HTML prototype was delivered to IKO.**", href: "/case-studies/ikoki" },
     ],
   },
   "fr-CA": {
@@ -141,8 +141,8 @@ const evidence = {
       { name: "Code2Motion", status: "Accès anticipé", detail: "Explorer PlayRoom et ToyMaker pour **des expériences créatives natives du navigateur.**", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Prototype soumis", detail: "Un concept de rédaction de campagnes créé après le poste de Nikhil chez RBH et soumis à RBH. **Les brouillons exigent une révision humaine de conformité.**" },
-      { name: "IKOKI", status: "Prototype livré", detail: "Un concept d’accès guidé aux connaissances selon les rôles. **Le prototype HTML a été livré à IKO.**" },
+      { name: "RBH Marketer Agent", status: "Prototype soumis", detail: "Un concept de rédaction de campagnes créé après le poste de Nikhil chez RBH et soumis à RBH. **Les brouillons exigent une révision humaine de conformité.**", href: "/case-studies/marketing-prototype" },
+      { name: "IKOKI", status: "Prototype livré", detail: "Un concept d’accès guidé aux connaissances selon les rôles. **Le prototype HTML a été livré à IKO.**", href: "/case-studies/ikoki" },
     ],
   },
   "es-419": {
@@ -156,8 +156,8 @@ const evidence = {
       { name: "Code2Motion", status: "Acceso anticipado", detail: "Explora PlayRoom y ToyMaker para **experiencias creativas nativas del navegador.**", href: "https://code2motion.app/" },
     ],
     prototypes: [
-      { name: "RBH Marketer Agent", status: "Prototipo presentado", detail: "Un concepto de redacción de campañas creado después del empleo de Nikhil en RBH y presentado a RBH. **Los borradores requieren revisión humana de cumplimiento.**" },
-      { name: "IKOKI", status: "Prototipo entregado", detail: "Un concepto de acceso guiado al conocimiento según el rol. **El prototipo HTML se entregó a IKO.**" },
+      { name: "RBH Marketer Agent", status: "Prototipo presentado", detail: "Un concepto de redacción de campañas creado después del empleo de Nikhil en RBH y presentado a RBH. **Los borradores requieren revisión humana de cumplimiento.**", href: "/case-studies/marketing-prototype" },
+      { name: "IKOKI", status: "Prototipo entregado", detail: "Un concepto de acceso guiado al conocimiento según el rol. **El prototipo HTML se entregó a IKO.**", href: "/case-studies/ikoki" },
     ],
   },
 } as const;
@@ -214,7 +214,7 @@ export function ConsultancyHome() {
           </div>
           <h3 className={styles.groupTitle}>{t.prototypes}</h3>
           <div className={styles.grid}>
-            {work.prototypes.map((item) => <article className={styles.card} key={item.name}><span className={styles.tag}>{item.status}</span><h4>{item.name}</h4><p><FlowText text={item.detail} /></p><span className={styles.privateNote}>{t.privateNote}</span></article>)}
+            {work.prototypes.map((item) => <article className={styles.card} key={item.name}><span className={styles.tag}>{item.status}</span><h4>{item.name}</h4><p><FlowText text={item.detail} /></p><a href={item.href}>{t.viewCaseStudy} ↗</a></article>)}
           </div>
         </div>
       </section>
