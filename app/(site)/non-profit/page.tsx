@@ -73,7 +73,7 @@ export default function NonProfitPage() {
             </a>
             <a className={styles.secondary} href="#approach">How we work <span aria-hidden="true">↓</span></a>
           </div>
-          <p className={styles.note}>A focused conversation first. <strong className="flowwrite-anchor">No assumed platform switch or automation for its own sake.</strong></p>
+          <p className={styles.note}>We start with a focused conversation.</p>
         </Container>
       </section>
 
@@ -82,7 +82,7 @@ export default function NonProfitPage() {
           <p className={styles.eyebrow}>Where we can help / 01</p>
           <div className={styles.sectionHead}>
             <h2 id="work-title">Start with a real point of friction.</h2>
-            <p>These are example workflows to explore together—<strong className="flowwrite-anchor">not claims that a ready-made nonprofit system is already deployed.</strong></p>
+            <p>Examples of workflows we can help your team improve.</p>
           </div>
           <div className={styles.grid}>
             {workflowExamples.map((item) => (
@@ -101,7 +101,7 @@ export default function NonProfitPage() {
           <p className={styles.eyebrow}>Work with the systems you have / 02</p>
           <div className={styles.sectionHead}>
             <h2 id="adoption-title">The next step may be helping people use what they already have.</h2>
-            <p>If your organization already works in Salesforce, Microsoft 365, Google Workspace, or another established platform, <strong className="flowwrite-anchor">we start there—not with a pitch to replace it.</strong></p>
+            <p>If your organization already works in Salesforce, Microsoft 365, Google Workspace, or another established platform, <strong className="flowwrite-anchor">we start with the tools your team already uses.</strong></p>
           </div>
           <div className={styles.adoptionCopy}>
             <p>
@@ -109,7 +109,6 @@ export default function NonProfitPage() {
               <a href="https://www.salesforce.com/nonprofit/artificial-intelligence/" target="_blank" rel="noopener noreferrer">Agentforce for Nonprofits</a>, Microsoft offers{" "}
               <a href="https://www.microsoft.com/en-us/microsoft-365-copilot/business" target="_blank" rel="noopener noreferrer">Microsoft 365 Copilot</a>, and Google offers{" "}
               <a href="https://workspace.google.com/lp/solutions/ai" target="_blank" rel="noopener noreferrer">Gemini in Google Workspace</a>.
-              <strong className="flowwrite-anchor">What a team can actually use depends on its plan, administrator settings, and organizational policies.</strong>
             </p>
             <p>A new feature—or a generic AI course—doesn’t automatically change day-to-day work. We help staff learn in context: find a useful task, practice with approved information, understand limitations, and know when to verify or take over. <strong className="flowwrite-anchor">The goal is confident use of the tools already available, not another layer of software by default.</strong></p>
           </div>
@@ -130,7 +129,7 @@ export default function NonProfitPage() {
               <p>Document the workflow and review points so the learning can be shared, repeated, and improved by the team.</p>
             </article>
           </div>
-          <p className={styles.note}><strong className="flowwrite-anchor">No platform partnership or integration is implied.</strong> We assess the systems, licenses, settings, and access your organization actually has.</p>
+          <p className={styles.note}>We review your current tools, licences and policies before recommending changes.</p>
         </Container>
       </section>
 
@@ -149,7 +148,7 @@ export default function NonProfitPage() {
           </ol>
           <div className={styles.callout}>
             <strong>Model- and company-agnostic by design</strong>
-            <p>We don’t lead with a preferred AI provider. When AI is appropriate, provider and deployment choices are evaluated against the workflow and your requirements. <strong className="flowwrite-anchor">Specific integrations and availability are confirmed during discovery—not assumed.</strong></p>
+            <p>We don’t lead with a preferred AI provider. When AI is appropriate, provider and deployment choices are evaluated against the workflow and your requirements.</p>
           </div>
         </Container>
       </section>
@@ -209,7 +208,7 @@ export default function NonProfitPage() {
               Email Teambotics <span aria-hidden="true">↗</span>
             </a>
           </div>
-          <p className={styles.disclaimer}>Teambotics builds workflow and enablement tools; it does not provide legal, financial, medical, or professional advice or guarantee specific outcomes. <strong className="flowwrite-anchor">Regulated and sensitive workflows require appropriate professional oversight.</strong></p>
+          <p className={styles.disclaimer}>We design workflows and do not provide professional advice. <strong className="flowwrite-anchor">Regulated work requires qualified oversight.</strong></p>
         </Container>
       </section>
     </div>

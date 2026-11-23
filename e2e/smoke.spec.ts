@@ -101,7 +101,9 @@ test("IKOKI case study shows all prototype screenshots and retains its prototype
   await page.goto("/case-studies/ikoki");
 
   await expect(page.getByRole("heading", { name: /IKO.*Rooftop Chatbot/i, level: 1 })).toBeVisible();
-  await expect(page.getByText(/Prototype only|prototype.*not an official production IKO system/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open IKOKI prototype/i })).toHaveAccessibleDescription(
+    "Prototype delivered to IKO; not an official IKO system",
+  );
   await expect(page.getByRole("link", { name: /Open IKOKI prototype/i })).toHaveAttribute(
     "href",
     "https://ikoki.teambotics.app/",
@@ -227,7 +229,9 @@ test("IKOKI case study shows the prototype screenshots and keeps the prototype l
   await page.goto("/case-studies/ikoki");
 
   await expect(page.getByRole("heading", { name: /IKO.*Rooftop Chatbot/i, level: 1 })).toBeVisible();
-  await expect(page.getByText(/Prototype only|prototype.*not an official production IKO system/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /Open IKOKI prototype/i })).toHaveAccessibleDescription(
+    "Prototype delivered to IKO; not an official IKO system",
+  );
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
   await expect(page.getByRole("link", { name: /Open IKOKI prototype/i })).toHaveAttribute(
     "href",

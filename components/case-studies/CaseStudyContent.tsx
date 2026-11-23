@@ -29,10 +29,14 @@ export function CaseStudyContent({ slug }: { slug: string }) {
               </div>
               <h1 className={styles.title}>{study.title}</h1>
               <p className={styles.summary}><FlowText text={study.summary} /></p>
+              {study.externalNotice ? (
+                <p className={styles.externalNotice} id="prototype-launch-notice">{study.externalNotice}</p>
+              ) : null}
               {study.externalUrl && study.externalLabel ? (
                 <a
                   className={styles.externalLink}
                   href={study.externalUrl}
+                  aria-describedby={study.externalNotice ? "prototype-launch-notice" : undefined}
                   rel="noopener noreferrer"
                   target="_blank"
                 >

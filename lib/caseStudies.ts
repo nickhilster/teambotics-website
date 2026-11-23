@@ -22,6 +22,7 @@ export type CaseStudy = {
   storyHeading?: string;
   externalUrl?: string;
   externalLabel?: string;
+  externalNotice?: string;
   videoId?: string;
   videoTitle?: string;
   sections?: CaseStudySection[];
@@ -97,9 +98,10 @@ export const caseStudies: CaseStudy[] = [
     videoId: "Pispjz3ELmc",
     videoTitle: "IKOKI mobile information workflow demo",
     summary:
-      "A document-first way to browse selected IKO commercial roofing information and **ask questions grounded in technical source material.**",
+      "Browse selected IKO roofing documents and ask questions with links back to the source.",
     externalUrl: "https://ikoki.teambotics.app/",
     externalLabel: "Open IKOKI prototype",
+    externalNotice: "Prototype delivered to IKO; not an official IKO system",
     sections: [
       {
         eyebrow: "01 / Find",
@@ -116,7 +118,7 @@ export const caseStudies: CaseStudy[] = [
         eyebrow: "02 / Ask",
         title: "Keep answers connected to their sources.",
         body:
-          "The floating IKOKI assistant is implemented to retrieve passages from selected IKO PDFs, apply relevance thresholds, and expose source details with responses. **When strict grounding is enabled and relevant material is unavailable, the chat is configured to decline rather than invent an answer.**",
+          "When it can’t find a relevant source, the demo can decline to answer.",
         bullets: [
           "Source titles, excerpts, page numbers, and PDF links",
           "Suggested questions for navigating technical references",
@@ -147,8 +149,6 @@ export const caseStudies: CaseStudy[] = [
         height: 1000,
       },
     ],
-    disclaimer:
-      "**Prototype only. This is not an official production IKO system.**",
   },
 ];
 

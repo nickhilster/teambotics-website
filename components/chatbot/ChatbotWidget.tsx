@@ -244,7 +244,7 @@ export function ChatbotWidget() {
 
           <div className={styles.panelFooter}>
             <p className={styles.disclaimer}>
-              This assistant answers questions about Teambotics and its products. It is not a professional advisor. Responses are informational only and may not be complete or current.
+              For questions about Teambotics and its products. Please don’t share personal or confidential information. Not professional advice.
             </p>
             <textarea
               ref={inputRef}

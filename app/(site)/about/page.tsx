@@ -60,7 +60,6 @@ export default function AboutPage() {
               We ship proprietary products and build bespoke systems.
             </p>
             <p>
-              Every engagement is led by{" "}
               <a
                 className="about__link"
                 href="https://www.nikdesign.ca"
@@ -69,10 +68,8 @@ export default function AboutPage() {
               >
                 Nikhil Khedkar
               </a>
-              , a designer and systems thinker who has spent his career at the intersection of
-              workflow strategy, AI enablement, and interface design. Depending on what a project
-              requires, we bring in a focused group of researchers, engineers, and designers —
-              assembled around the specific problem, not staffed from a standing bench.
+              {" "}leads each engagement and brings in specialists as needed. His work spans
+              workflow strategy, AI enablement, and interface design.
             </p>
           </SectionReveal>
 
