@@ -21,7 +21,7 @@ export default function CodexSidecarFeaturesPage() {
     <section className={`${styles.featuresIntro} ${styles.wrap}`} aria-labelledby="page-heading">
       <p className={styles.status}>Internal prototype</p>
       <h1 id="page-heading">Find the work. Keep the context.</h1>
-      <p>CodexSidecar helps you get back to a Codex session, find the context around it, and decide what to keep organized. These features are being tested internally and are not generally available.</p>
+      <p>Browse and organize your Codex data locally, or start a real Codex desktop chat from Sidecar. These features are being tested internally and aren’t generally available.</p>
       <div className={base.heroActions}><a className={base.buttonPrimary} href="#preview">Explore the features</a><a className={base.textLink} href="#roadmap">See what’s still being tested</a></div>
     </section>
     <section className={`${base.howSection} ${styles.wrap}`} id="preview" aria-labelledby="preview-heading">
@@ -59,8 +59,8 @@ export default function CodexSidecarFeaturesPage() {
         </li>
         <li className={`${base.featureCard} ${styles.featureCard}`}>
           <span className={`${base.featureIcon} ${base.iconGreen}`} aria-hidden="true">↗</span>
-          <h3>Chat in a dedicated workspace</h3>
-          <p>Start or resume a separate Sidecar conversation through your installed Codex and configured account. It stays scoped to the Sidecar workspace.</p>
+          <h3>Start a real Codex desktop chat</h3>
+          <p>Your installed Codex app-server creates a real Codex thread scoped to the Sidecar workspace. Codex keeps the history under your configured account and model. When Sidecar offers a desktop recovery link, it opens that same thread in Codex.</p>
         </li>
       </ul>
     </section>
@@ -74,7 +74,7 @@ export default function CodexSidecarFeaturesPage() {
     </section>
     <section className={`${base.closing} ${styles.boundary} ${styles.wrap}`} aria-labelledby="boundary-heading">
       <h2 id="boundary-heading">Sidecar doesn’t own your Codex data.</h2>
-      <p>Browsing and organization are local-first. If you ask Codex to review selected content, that content may be sent to the configured model. Cross-device sync is a separate opt-in workflow.</p>
+      <p>Browsing sessions, pins, and collections are local. New chat messages go through your configured Codex model; if you explicitly choose to extract notes, selected session content can go to that model too. Cross-device sync is separate and opt-in.</p>
       <a className={base.buttonPrimary} href="https://codexsidecar.teambotics.app/">Back to CodexSidecar</a>
     </section>
   </main>

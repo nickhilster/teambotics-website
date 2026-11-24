@@ -52,13 +52,13 @@ export default function CodexSidecarPage() {
           <div className={styles.eyebrow}><span />A local companion for Codex</div>
           <h1>Find your way back to the work.</h1>
           <p className={styles.heroIntro}>
-            CodexSidecar helps you find past sessions, understand the context around your work, and keep your local Codex data organized.
+            Find past sessions, organize local Codex data, and start a real Codex desktop chat from Sidecar.
           </p>
           <div className={styles.heroActions}>
             <a className={styles.buttonPrimary} href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
             <a className={styles.textLink} href="#in-control">Built around your control <span aria-hidden="true">→</span></a>
           </div>
-          <div className={styles.heroNote}><span className={styles.localMark}>⌂</span>Your Codex data stays on your computer.</div>
+          <div className={styles.heroNote}><span className={styles.localMark}>⌂</span>Browse and organize your Codex data locally.</div>
           <div className={styles.prototypeNote}>Currently an internal prototype.</div>
         </div>
         <figure className={`${styles.appShot} ${styles.heroShot}`} id="demo">
@@ -104,14 +104,14 @@ export default function CodexSidecarPage() {
 
       <section className={styles.chatSection}>
         <div className={styles.chatCopy}>
-          <div className={styles.eyebrow}>A CONVERSATION WITH ROOM TO WORK</div>
-          <h2>Chat with Codex from your Sidecar workspace.</h2>
-          <p>Start or resume a separate Codex conversation in one dedicated workspace. Keep the chat close to the tools that help you organize.</p>
+          <div className={styles.eyebrow}>A REAL CODEX THREAD</div>
+          <h2>A real Codex desktop chat, right in Sidecar.</h2>
+          <p>When you start a chat, your installed Codex app-server creates a real Codex thread scoped to the Sidecar workspace. Codex keeps the conversation history, using your configured account and model.</p>
           <div className={styles.chatDetail}>
             <span aria-hidden="true">↗</span>
             <div><strong>You decide what changes.</strong><small>Review file-change requests before allowing them.</small></div>
           </div>
-          <p className={styles.capabilityNote}>This is its own Sidecar conversation. It doesn’t take over a chat already open in Codex.</p>
+          <p className={styles.capabilityNote}>When Sidecar offers a desktop recovery link, it opens that same thread in Codex. Sidecar doesn’t take over a chat you already have open.</p>
         </div>
         <figure className={`${styles.appShot} ${styles.chatShot}`}>
           <Image
@@ -121,7 +121,7 @@ export default function CodexSidecarPage() {
             height={768}
             sizes="(max-width: 900px) 100vw, 60vw"
           />
-          <figcaption><span className={styles.captionDot} />A separate chat in a focused workspace.</figcaption>
+          <figcaption><span className={styles.captionDot} />A Codex thread in a focused workspace.</figcaption>
         </figure>
       </section>
 
@@ -130,7 +130,7 @@ export default function CodexSidecarPage() {
           <div className={styles.controlCopy}>
             <div className={styles.eyebrow}>YOU STAY IN CONTROL</div>
             <h2>Helpful overview.<br />Human decisions.</h2>
-            <p>Sidecar works alongside Codex’s existing data. It makes information easier to find and offers cleanup suggestions; it won’t quietly change or delete your files.</p>
+            <p>Browsing sessions and organizing them with pins and collections happen locally. Chats go through your configured Codex model; if you choose to extract notes, selected session content can go to that model too. Cross-device sync is separate and opt-in.</p>
           </div>
           <div className={styles.controlPoints}>
             <div><span className={styles.controlCheck}>✓</span><span><strong>Local by design</strong><small>Your Codex folder is read on your device.</small></span></div>
