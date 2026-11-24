@@ -23,20 +23,28 @@ export interface C22Entry {
 
 export const c22Status = {
   headline: "Not law yet — a Senate committee is studying it",
-  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. It is now being studied, witness by witness, by the Standing Senate Committee on National Security, Defence and Veterans Affairs. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 21, 2026",
+  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs has finished hearing witnesses and moves to clause-by-clause review on November 24. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
+  lastChecked: "November 24, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
 
 export const c22NextSteps: string[] = [
-  "The Senate committee finishes hearing witnesses and reports back — with or without amendments.",
+  "The Senate committee does clause-by-clause review (scheduled for November 24) and reports back — with or without amendments.",
   "The Senate holds its report stage and third-reading vote.",
   "If the Senate changes anything, the House of Commons has to agree to the exact same text.",
   "The bill receives Royal Assent and becomes law. Part 1 would then take effect 180 days later.",
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-23",
+    dateLabel: "November 23, 2026",
+    title: "Final witness hearing: Apple, Google and Windscribe face senators",
+    body: "The Senate committee held its final witness hearing on Bill C-22, with three panels in one afternoon. Senators heard from Australian Home Affairs officials — Australia passed a similar lawful-access law in 2018 — and from Tufts University computer-science professor Susan Landau and the Digital Governance Council. A second panel brought former Ontario Superior Court judge Michael Code, privacy lawyer David Fraser and the Canadian Bar Association. The last panel was the companies: Apple, Google Canada, Toronto-based VPN provider Windscribe and the Canadian Chamber of Commerce. That ends the witness phase: the committee's next meeting, on Tuesday, November 24 at 2:15 p.m. ET, is clause-by-clause consideration, where senators go through the bill section by section and can propose amendments. The committee has still not reported back to the Senate, and LEGISinfo still lists the bill as at consideration in committee in the Senate.",
+    sourceLabel: "Senate of Canada — SECD Committee, Meeting 33 (Nov 23, 2026)",
+    sourceUrl: "https://sencanada.ca/en/committees/SECD/noticeofmeeting/708538/45-1",
+  },
   {
     date: "2026-11-19",
     dateLabel: "November 19, 2026",
