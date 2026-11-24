@@ -1,0 +1,31 @@
+.wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto }
+.sectionHeading { margin-bottom: 32px }
+.pageNav { column-gap: 20px }
+.featuresPage { --mono: Consolas, "Cascadia Code", monospace }
+@media(max-width:640px) { .wrap { width: calc(100% - 36px) } }
+.featuresPage { color: #202b24 }
+.featuresPage a:focus-visible { outline: 2px solid #206548; outline-offset: 4px }
+.featuresPage .skip { position: absolute; left: 16px; top: -60px; padding: 10px; background: white; z-index: 10 }
+.featuresPage .skip:focus { top: 12px }
+.featuresPage .current { color: #265d43; font-weight: 700 }
+.featuresIntro { max-width: 760px; padding: clamp(48px, 9vw, 110px) 0 68px }
+.featuresIntro h1 { margin: 12px 0 16px; max-width: 710px; font-size: clamp(42px, 7vw, 74px); line-height: 1.04; letter-spacing: -.06em }
+.featuresIntro > p:not(.status), .featuresPage .featureCard p, .featuresPage .boundary p { color: #526257; font-size: 15px; line-height: 1.65 }
+.featuresIntro > p:not(.status) { max-width: 58ch }
+.featuresPage .status { display: inline-block; margin: 0; padding: 5px 10px; border-radius: 999px; background: #e3eee5; color: #28553d; font: 700 12px var(--mono) }
+.featuresPage .sectionHeading .eyebrow { color: #2b684a }
+.featuresPage .featureCard h3 { font-size: 17px; line-height: 1.25 }
+.featuresPage .reviewGrid, .featuresPage .controlPoints { list-style: none; padding: 0 }
+.featuresPage .reviewGrid { margin: 0 }
+.featuresPage .roadmapContent { padding-block: 56px }
+.featuresPage .controlPoints { max-width: 680px; margin: 0 auto }
+.featuresPage .controlPoints li { padding: 14px 17px; border: 1px solid #dce7dc; border-radius: 9px; background: #f9fbf8; font-size: 15px; line-height: 1.55 }
+.featuresPage .boundary p { max-width: 60ch; margin: 0 auto 20px }
+.featuresPage .siteFooter { color: #526257 }
+.featuresPage .prototypeLabel { color: #526257 }
+@media(max-width: 640px) {
+ .featuresPage .siteHeader nav > a.current { display: inline }
+ .featuresIntro { padding-bottom: 44px }
+ .featuresPage .featureCard { min-height: auto }
+ .featuresPage .roadmapContent { padding-block: 40px }
+}

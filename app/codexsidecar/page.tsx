@@ -39,6 +39,7 @@ export default function CodexSidecarPage() {
         </a>
         <nav className={styles.nav} aria-label="Main navigation">
           <a href="#how-it-works">How it works</a>
+          <a className={styles.navCta} href="https://codexsidecar.teambotics.app/features">Features</a>
           <a href="#in-control">Your data, your call</a>
           <a className={styles.navCta} href="#demo">
             See the app <span aria-hidden="true">↗</span>
