@@ -2405,6 +2405,130 @@ html.dark .site-shell:has(.editorial-page) .site-header {
 }
 
 /* ============================================================
+   Principles Page
+   ============================================================ */
+
+.principles-page {
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+}
+
+.principles {
+  max-width: 42rem;
+}
+
+.principles__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: var(--color-text-primary);
+}
+
+.principles__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.principles__lead p {
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: var(--color-text-secondary);
+}
+
+.principles__link {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+
+.principles__link:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.principles__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
+
+.principles__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.principles__item {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.principles__list > :last-child .principles__item {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.principles__number {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  padding-top: 0.35rem;
+}
+
+.principles__body h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--color-text-primary);
+}
+
+.principles__quote {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+  border-left: 3px solid var(--color-accent);
+}
+
+.principles__quote p {
+  font-size: 1.08rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.principles__quote cite {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: var(--color-text-tertiary);
+}
+
+.principles__interpretation {
+  font-size: 1rem;
+  line-height: 1.72;
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.principles__closing {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ============================================================
    404 / Not Found
    ============================================================ */
 

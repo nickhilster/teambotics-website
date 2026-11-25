@@ -37,6 +37,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.4,
       lastModified,
     },
+    {
+      url: siteConfig.url + "/principles",
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified,
+    },
     ...localizedRouteLocales.map((locale) => ({
       url: siteConfig.url + "/" + locale,
       changeFrequency: "weekly" as const,

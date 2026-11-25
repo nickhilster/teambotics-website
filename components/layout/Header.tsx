@@ -18,6 +18,7 @@ const consultancyNav = {
     { label: "Selected Work", href: "#capabilities" },
     { label: "Start a project", href: "#engagement" },
     { label: "Contact", href: "#contact" },
+    { label: "Principles", href: "/principles" },
     { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "fr-CA": [
@@ -25,6 +26,7 @@ const consultancyNav = {
     { label: "Travaux sélectionnés", href: "#capabilities" },
     { label: "Démarrer un projet", href: "#engagement" },
     { label: "Contact", href: "#contact" },
+    { label: "Principes", href: "/principles" },
     { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
   "es-419": [
@@ -32,6 +34,7 @@ const consultancyNav = {
     { label: "Trabajo seleccionado", href: "#capabilities" },
     { label: "Iniciar un proyecto", href: "#engagement" },
     { label: "Contacto", href: "#contact" },
+    { label: "Principios", href: "/principles" },
     { label: "Values", href: "https://blog.teambotics.app/values" },
   ],
 };
@@ -49,10 +52,13 @@ export function Header() {
   // dark variant, so they hide the theme toggle like the landing does.
   const isEditorialPage =
     isHome ||
-    ["/about", "/privacy", "/terms", "/land-acknowledgment", "/everythings-computer"].some(
+    ["/about", "/privacy", "/terms", "/land-acknowledgment", "/everythings-computer", "/principles"].some(
       (route) => basePath === route || basePath === `${route}/`,
     );
   const contactHref = withLocalePath(locale, "/#contact");
+  // In-page anchors hang off the homepage; page links resolve through the locale path.
+  const navItemHref = (item: { href: string }) =>
+    item.href.startsWith("#") ? `${homeHref}${item.href}` : withLocalePath(locale, item.href);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerFirstLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -106,7 +112,7 @@ export function Header() {
           {navItems.map((item) => item.href.startsWith("https://") ? (
             <a href={item.href} key={item.href}>{item.label}</a>
           ) : (
-            <Link key={item.href} href={`${homeHref}${item.href}`}>
+            <Link key={item.href} href={navItemHref(item)}>
               {item.label}
             </Link>
           ))}
@@ -139,7 +145,7 @@ export function Header() {
             <Link
               key={item.href}
               ref={index === 0 ? drawerFirstLinkRef : undefined}
-              href={`${homeHref}${item.href}`}
+              href={navItemHref(item)}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
