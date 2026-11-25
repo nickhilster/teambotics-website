@@ -23,20 +23,28 @@ export interface C22Entry {
 
 export const c22Status = {
   headline: "Not law yet — a Senate committee is studying it",
-  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs has finished hearing witnesses and moves to clause-by-clause review on November 24. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 24, 2026",
+  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs has finished hearing witnesses and began clause-by-clause review on November 24, adopting several amendments; review resumes November 25 and the committee has not yet reported. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
+  lastChecked: "November 25, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
 
 export const c22NextSteps: string[] = [
-  "The Senate committee does clause-by-clause review (scheduled for November 24) and reports back — with or without amendments.",
+  "The Senate committee finishes clause-by-clause review (began November 24, resumed November 25) and reports back — with the amendments it adopts.",
   "The Senate holds its report stage and third-reading vote.",
   "If the Senate changes anything, the House of Commons has to agree to the exact same text.",
   "The bill receives Royal Assent and becomes law. Part 1 would then take effect 180 days later.",
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-24",
+    dateLabel: "November 24, 2026",
+    title: "Senate committee adopts first amendments in clause-by-clause review",
+    body: "The Senate committee began going through Bill C-22 section by section and adopted several amendments on its first evening. The changes clarify that a “systemic vulnerability” includes the risks of removing, circumventing or weakening electronic protections such as encryption; remove the government's power to compel core providers to install equipment under subsection 5(2); add necessity and proportionality safeguards of the kind the Privacy Commissioner recommended; and require a way for the Minister to consult technical experts before finalizing regulations, including on whether they could create systemic vulnerabilities. One amendment did not pass: Senator Colin Deacon's proposal to stop the government from compelling companies to retain metadata they do not otherwise collect was defeated. Clause-by-clause review is not finished — the committee resumes on November 25 — and it has still not reported back to the Senate. LEGISinfo still lists the bill as at consideration in committee in the Senate.",
+    sourceLabel: "Chamber of Progress — Senate Committee Takes Positive Steps to Strengthen Bill C-22 (Nov 24, 2026)",
+    sourceUrl: "https://progresschamber.org/news/senate-committee-takes-positive-steps-to-strengthen-bill-c-22/",
+  },
   {
     date: "2026-11-23",
     dateLabel: "November 23, 2026",
