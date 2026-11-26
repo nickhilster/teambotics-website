@@ -22,21 +22,28 @@ export interface C22Entry {
 }
 
 export const c22Status = {
-  headline: "Not law yet — a Senate committee is studying it",
-  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs has finished hearing witnesses and began clause-by-clause review on November 24, adopting several amendments; review resumes November 25 and the committee has not yet reported. Until that committee reports, the Senate votes again, and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 25, 2026",
+  headline: "Not law yet — Senate committee review is done, with amendments",
+  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs finished its clause-by-clause review on November 25, adopting amendments over two days; LEGISinfo still lists the bill as at consideration in committee in the Senate, with report stage and third reading not yet reached. The bill now proceeds to a final vote in the Senate, and because the Senate changed it, it will then return to the House of Commons for the government to respond to those amendments. Until both chambers agree on the exact same text and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
+  lastChecked: "November 26, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
 
 export const c22NextSteps: string[] = [
-  "The Senate committee finishes clause-by-clause review (began November 24, resumed November 25) and reports back — with the amendments it adopts.",
-  "The Senate holds its report stage and third-reading vote.",
-  "If the Senate changes anything, the House of Commons has to agree to the exact same text.",
+  "The committee's report is presented in the Senate, and the Senate holds its report stage and third-reading (final) vote on the amended bill.",
+  "The bill returns to the House of Commons, where the government responds to the Senate's amendments — the House has to agree to the exact same text.",
   "The bill receives Royal Assent and becomes law. Part 1 would then take effect 180 days later.",
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-25",
+    dateLabel: "November 25, 2026",
+    title: "Senate committee finishes clause-by-clause and adopts more safeguards",
+    body: "The Senate committee concluded its clause-by-clause review of Bill C-22 on November 25. Building on the amendments adopted the day before, senators adopted additional safeguards requiring the Minister to weigh the public interest in disclosing information about ministerial orders against the need for confidentiality, and strengthening technical expert consultation on those orders. Other proposals did not pass: the committee defeated measures that would have added greater transparency around secret ministerial orders, restricted mandatory metadata retention, and strengthened safeguards when service providers are compelled to assist law enforcement. The bill will now proceed to a final vote in the Senate before returning to the House of Commons, where the government will have the opportunity to respond to the Senate's amendments. LEGISinfo still lists the bill as at consideration in committee in the Senate.",
+    sourceLabel: "Chamber of Progress — Senate Committee Strengthens Bill C-22 (Nov 25, 2026)",
+    sourceUrl: "https://progresschamber.org/news/senate-committee-strengthens-bill-c-22/",
+  },
   {
     date: "2026-11-24",
     dateLabel: "November 24, 2026",
