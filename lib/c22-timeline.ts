@@ -22,20 +22,28 @@ export interface C22Entry {
 }
 
 export const c22Status = {
-  headline: "Not law yet — Senate committee review is done, with amendments",
-  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. The Standing Senate Committee on National Security, Defence and Veterans Affairs finished its clause-by-clause review on November 25, adopting amendments over two days; LEGISinfo still lists the bill as at consideration in committee in the Senate, with report stage and third reading not yet reached. The bill now proceeds to a final vote in the Senate, and because the Senate changed it, it will then return to the House of Commons for the government to respond to those amendments. Until both chambers agree on the exact same text and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
-  lastChecked: "November 26, 2026",
+  headline: "Not law yet — Senate committee report presented, with amendments",
+  body: "Bill C-22 has passed the House of Commons and second reading in the Senate. On November 26, the Standing Senate Committee on National Security, Defence and Veterans Affairs presented its report in the Senate, reporting the bill with amendments; LEGISinfo now lists the bill as at report stage in the Senate, with third reading not yet reached. The Senate must still consider the report and hold its final vote, and because the Senate changed the bill, it will then return to the House of Commons for the government to respond to those amendments. Until both chambers agree on the exact same text and the bill receives Royal Assent, none of it is in force — nothing in this bill is the law today.",
+  lastChecked: "November 27, 2026",
   sourceLabel: "Parliament of Canada — LEGISinfo, Bill C-22 (45-1)",
   sourceUrl: "https://www.parl.ca/legisinfo/en/bill/45-1/c-22",
 };
 
 export const c22NextSteps: string[] = [
-  "The committee's report is presented in the Senate, and the Senate holds its report stage and third-reading (final) vote on the amended bill.",
+  "The Senate considers the committee's report at report stage and holds its third-reading (final) vote on the amended bill.",
   "The bill returns to the House of Commons, where the government responds to the Senate's amendments — the House has to agree to the exact same text.",
   "The bill receives Royal Assent and becomes law. Part 1 would then take effect 180 days later.",
 ];
 
 export const c22Entries: C22Entry[] = [
+  {
+    date: "2026-11-26",
+    dateLabel: "November 26, 2026",
+    title: "Senate committee reports the bill back — with amendments",
+    body: "The Standing Senate Committee on National Security, Defence and Veterans Affairs presented its ninth report in the Senate on November 26, reporting Bill C-22 with amendments. LEGISinfo now lists the bill as at report stage in the Senate. The report was placed on the Orders of the Day for consideration at the next sitting of the Senate. In observations attached to the report, the committee said it held 11 hours of meetings from November 2 to November 23 and heard from 54 witnesses, and that significant concerns remain regarding the bill's potential impacts on privacy, cybersecurity and the competitiveness of Canadian businesses. The Senate has not yet held its third-reading vote, and the bill is not law.",
+    sourceLabel: "Senate of Canada — Journals, Issue 107 (Nov 26, 2026)",
+    sourceUrl: "https://sencanada.ca/en/content/sen/chamber/451/journals/107jr_2026-11-26-e",
+  },
   {
     date: "2026-11-25",
     dateLabel: "November 25, 2026",
